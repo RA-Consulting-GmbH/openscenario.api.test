@@ -206,7 +206,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     table.emplace(std::make_pair(parameterValue->GetName(), parameterValue));
                 }
-                _parameterValueSets.push_back(table);
+                _parameterValueSets.insert(_parameterValueSets.begin(), table);
             }
 
             /**

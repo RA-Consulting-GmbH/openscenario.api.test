@@ -96,15 +96,15 @@ public:
                         // Now you can access the resolved vehicle
                         auto axles = vehicle->GetAxles();
                         // get the additonal axles
-                        auto additionalAxles = axles->GetAdditionalAxles();
-                        if (additionalAxles.empty()) 
+                        const auto kAdditionalAxlesSize = axles->GetAdditionalAxlesSize();
+                        if ( kAdditionalAxlesSize == 0)
                         {
                             std::cout << "Ego has 2 axles (front, rear)";
                         }
                         else 
                         {
-                            std::cout << "Ego has " << 2 + additionalAxles.size() << " axles (front, rear and "
-                                << additionalAxles.size() << " addtional axles";
+                            std::cout << "Ego has " << 2 + kAdditionalAxlesSize << " axles (front, rear and "
+                                << kAdditionalAxlesSize << " addtional axles";
                         }
                     }
                 }
@@ -132,7 +132,7 @@ public:
             auto simpleMessageLogger = std::make_shared<NET_ASAM_OPENSCENARIO::SimpleMessageLogger>(NET_ASAM_OPENSCENARIO::ErrorLevel::INFO);
 
             // Now call the checkScenario method to check the tree
-            scenarioChecker.CheckScenario(simpleMessageLogger, openScenario);
+            scenarioChecker.CheckScenarioInFileContext(simpleMessageLogger, openScenario);
 
             // Now check the picked up messages
             for (auto&& message : simpleMessageLogger->GetMessages()) 
@@ -169,7 +169,7 @@ public:
             auto simpleMessageLogger = std::make_shared<NET_ASAM_OPENSCENARIO::SimpleMessageLogger>(NET_ASAM_OPENSCENARIO::ErrorLevel::INFO);
 
             // Now call the checkScenario method to check the tree
-            scenarioChecker.CheckScenario(simpleMessageLogger, openScenario);
+            scenarioChecker.CheckScenarioInFileContext(simpleMessageLogger, openScenario);
 
             // Now check the picked up messages
             for (auto&& message : simpleMessageLogger->GetMessages()) 

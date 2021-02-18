@@ -1,3 +1,4 @@
+
 <%-
 /*
  * Copyright 2020 RA Consulting
@@ -67,7 +68,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             <%=element.name.toClassName()%>(<%=element.name.toClassName()%>Enum& <%=element.name.toMemberName()%>)
             {
-                _literal = k<%=element.name.toClassName()%>EnumString[<%=element.name.toMemberName()%>];
+                _literal = k<%=element.name.toClassName()%>EnumString[<%=element.name.toMemberName()%>+1];
                 _<%=element.name.toMemberName()%>Enum = GetFromLiteral(_literal);
             }
 
@@ -90,7 +91,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 _<%=element.name.toMemberName()%>Enum = rhs;
                 if (_<%=element.name.toMemberName()%>Enum > -1)
-                    _literal = k<%=element.name.toClassName()%>EnumString[_<%=element.name.toMemberName()%>Enum];
+                    _literal = k<%=element.name.toClassName()%>EnumString[_<%=element.name.toMemberName()%>Enum+1];
                 else
                     _literal = "unknown";
                 return *this;

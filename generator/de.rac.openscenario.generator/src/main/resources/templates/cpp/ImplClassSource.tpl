@@ -23,6 +23,7 @@
 #include "FileContentMessage.h"
 #include "IOpenScenarioModelElement.h"
 #include "ErrorLevel.h"
+#include "NamedReferenceProxy.h"
 
 namespace NET_ASAM_OPENSCENARIO
 {
@@ -51,37 +52,20 @@ namespace NET_ASAM_OPENSCENARIO
         <%-if (property.upper== -1){-%>
         std::vector<<%=property.type.toCppName()%>> <%=element.name.toClassName()%>Impl::Get<%=property.name.toClassName()%>()
         {
-            return _<%=property.name.toMemberName()%>;
+            std::vector<<%=property.type.toCppName()%>> temp;
+            for(auto&& elm: _<%=property.name.toMemberName()%>)
+                temp.push_back(elm);
+            return temp;
         }
         <%-}else if (property.isProxy()){-%>
-        INamedReference<I<%=property.type.name.toClassName()%>>* <%=element.name.toClassName()%>Impl::Get<%=property.name.toClassName()%>()
+        std::shared_ptr<INamedReference<I<%=property.type.name.toClassName()%>>> <%=element.name.toClassName()%>Impl::Get<%=property.name.toClassName()%>()
         {
-            return &_<%=property.name.toMemberName()%>;
+            return _<%=property.name.toMemberName()%>;
         }
         <%-}else{-%>
         <%=property.type.toCppName()%> <%=element.name.toClassName()%>Impl::Get<%=property.name.toClassName()%>()
         {
             return _<%=property.name.toMemberName()%>;
-        }
-        <%-}-%>
-    <%-}-%>
-
-    <%-properties.each{ property ->-%>
-<%=helper.makeSetterCppDoc(element, property, "        ")%>
-        <%-if (property.upper== -1){-%>
-        void <%=element.name.toClassName()%>Impl::Set<%=property.name.toClassName()%>(std::vector<<%=property.type.toCppName()%>>& <%=property.name.toMemberName()%>)
-        {
-            _<%=property.name.toMemberName()%> = <%=property.name.toMemberName()%>;
-        }
-        <%-}else if (property.isProxy()){-%>
-        void <%=element.name.toClassName()%>Impl::Set<%=property.name.toClassName()%>(NamedReferenceProxy<I<%=property.type.name.toClassName()%>>& <%=property.name.toMemberName()%> )
-        {
-            _<%=property.name.toMemberName()%> = <%=property.name.toMemberName()%>;
-        }
-        <%-}else{-%>
-        void <%=element.name.toClassName()%>Impl::Set<%=property.name.toClassName()%>(<%=property.type.toCppName()%> <%=property.name.toMemberName()%> )
-        {
-            _<%=property.name.toMemberName()%> = <%=property.name.toMemberName()%>;
         }
         <%-}-%>
     <%-}-%>
@@ -93,7 +77,8 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 <%-if (property.isProxy()){-%>
                 // Proxy
-                _<%=property.name.toMemberName()%> = NamedReferenceProxy<I<%=property.type.name.toClassName()%>>(parameterLiteralValue);
+                const auto kProxy = std::make_shared<NamedReferenceProxy<I<%=property.type.name.toClassName()%>>>(parameterLiteralValue);
+                _<%=property.name.toMemberName()%> = std::dynamic_pointer_cast<INamedReference<I<%=property.type.name.toClassName()%>>>(kProxy);
                 AddResolvedParameter(attributeKey);
                 <%-} else if (property.type.isPrimitiveType()) {-%>
                 // Simple type
@@ -161,7 +146,7 @@ namespace NET_ASAM_OPENSCENARIO
             <%-properties = element.getXmlElementProperties();-%>
             <%-properties.each{ property -> -%>
                 <%- if (property.isList()){-%>
-                auto <%=property.name.toMemberName()%> =  Get<%=property.name.toClassName()%>();
+                auto <%=property.name.toMemberName()%> =  GetWriter<%=property.name.toClassName()%>();
                 if (!<%=property.name.toMemberName()%>.empty())
                 {
                     for(auto&& item : <%=property.name.toMemberName()%>)
@@ -170,7 +155,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                 }
                 <%-} else{-%>
-                const auto k<%=property.name.toClassName()%> =  Get<%=property.name.toClassName()%>();
+                const auto k<%=property.name.toClassName()%> =  GetWriter<%=property.name.toClassName()%>();
                 if (k<%=property.name.toClassName()%>)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(k<%=property.name.toClassName()%>));
@@ -198,41 +183,46 @@ namespace NET_ASAM_OPENSCENARIO
             <%-properties.each{ property -> -%>
             <%-if (property.isProxy()){-%>
             // Proxy
-            auto proxy = _<%=property.name.toMemberName()%>;
-            proxy.SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-            clonedObject->Set<%=property.name.toClassName()%>(proxy);
+            auto proxy = std::make_shared<NamedReferenceProxy<I<%=property.type.name.toClassName()%>>>(*std::dynamic_pointer_cast<NamedReferenceProxy<I<%=property.type.name.toClassName()%>>>(Get<%=property.name.toClassName()%>()));
+            proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->_<%=property.name.toMemberName()%> = proxy;
+            
             <%-} else if (property.type.isPrimitiveType()) {-%>
             // Simple type
-            clonedObject->Set<%=property.name.toClassName()%>(_<%=property.name.toMemberName()%>);
+            clonedObject->_<%=property.name.toMemberName()%> = Get<%=property.name.toClassName()%>();
             <%-} else {-%>
             // Enumeration Type
-            clonedObject->Set<%=property.name.toClassName()%>(_<%=property.name.toMemberName()%>);
+            const auto k<%=property.name.toClassName()%> = Get<%=property.name.toClassName()%>();
+            if ( k<%=property.name.toClassName()%>.GetLiteral() != "UNKNOWN" )
+            {
+                clonedObject->_<%=property.name.toMemberName()%> = <%=property.type.name.toClassName()%>::GetFromLiteral(k<%=property.name.toClassName()%>.GetLiteral());
+            }
             <%-}-%>
             <%-}-%>
             // clone children
             <%-properties = element.getXmlElementProperties();-%>
             <%-properties.each{ property -> -%>
             <%- if (property.isList()){-%>
-            const auto k<%=property.name.toClassName()%> =  Get<%=property.name.toClassName()%>();
+            const auto k<%=property.name.toClassName()%> =  GetWriter<%=property.name.toClassName()%>();
             if (!k<%=property.name.toClassName()%>.empty())
             {
-                std::vector<std::shared_ptr<I<%=property.type.name.toClassName()%>>> clonedList;
+                std::vector<std::shared_ptr<I<%=property.type.name.toClassName()%>Writer>> clonedList;
                 for(auto&& kItem : k<%=property.name.toClassName()%>)
                 {
                     auto clonedChild = std::dynamic_pointer_cast<<%=property.type.name.toClassName()%>Impl>(kItem)->Clone();
                     clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                    clonedList.push_back(std::dynamic_pointer_cast<<%=property.type.name.toClassName()%>Impl>(clonedChild));
+                    clonedList.push_back(std::dynamic_pointer_cast<I<%=property.type.name.toClassName()%>Writer>(clonedChild));
                 }
                 clonedObject->Set<%=property.name.toClassName()%>(clonedList);
             }
             <%-} else{-%>
-            const auto k<%=property.name.toClassName()%> =  Get<%=property.name.toClassName()%>();
+            const auto k<%=property.name.toClassName()%> =  GetWriter<%=property.name.toClassName()%>();
             if (k<%=property.name.toClassName()%>)
             {
                 auto clonedChild = std::dynamic_pointer_cast<<%=property.type.name.toClassName()%>Impl>(k<%=property.name.toClassName()%>)->Clone();
                 auto clonedChildI<%=property.type.name.toClassName()%> = std::dynamic_pointer_cast<I<%=property.type.name.toClassName()%>>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->Set<%=property.name.toClassName()%>(clonedChildI<%=property.type.name.toClassName()%>);
+                clonedObject->Set<%=property.name.toClassName()%>(std::dynamic_pointer_cast<I<%=property.type.name.toClassName()%>Writer>(clonedChildI<%=property.type.name.toClassName()%>));
             }
             <%-}-%>
             <%-}-%>

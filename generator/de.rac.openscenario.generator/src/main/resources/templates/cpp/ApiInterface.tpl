@@ -25,7 +25,7 @@ namespace NET_ASAM_OPENSCENARIO
 {
     namespace v1_0
     {
-    <%- model.getInterfaces().each{ element->-%>
+<%- model.getInterfaces().each{ element->-%>
 <%= helper.makeClassJavaDoc(element, oscVersion, "        ")%>
         class I<%=element.name.toClassName()%> 
         {
@@ -33,6 +33,6 @@ namespace NET_ASAM_OPENSCENARIO
             I<%=element.name.toClassName()%>() = default;
             virtual ~I<%=element.name.toClassName()%>() = default;
         };
-    <%-}-%>
+<%-}-%>
     }
 }

@@ -54,9 +54,9 @@ namespace NET_ASAM_OPENSCENARIO
                 return std::vector<<%=property.type.toCppName()%>>();
             }
 <%}else if (property.isProxy()){-%>
-            virtual INamedReference<<%=property.type.toCppTemplateName()%>>* Get<%=property.name.toClassName()%>()
+            virtual std::shared_ptr<INamedReference<<%=property.type.toCppTemplateName()%>>> Get<%=property.name.toClassName()%>()
             {
-                return new INamedReference<<%=property.type.toCppTemplateName()%>>();
+                return std::make_shared<INamedReference<<%=property.type.toCppTemplateName()%>>>();
             }
 <%}else{-%>
             virtual <%=property.type.toCppName()%> Get<%=property.name.toClassName()%>()
@@ -64,6 +64,25 @@ namespace NET_ASAM_OPENSCENARIO
                 return <%=property.type.toCppDefaultValue()%>;
             }
 <%}}-%>
+
+<%-properties.each{ property ->-%>
+<%-if (property.isList()) {-%>
+            /**
+            * Retrieves the size of the list
+            * @return the size of the list
+            */
+            virtual int Get<%=property.name.toClassName()%>Size() { return 0; }
+
+            /**
+            * The element at specific index
+            * @param index the index of the list
+            * @return the element at index
+            */
+            virtual <%=property.type.toCppName()%> Get<%=property.name.toClassName()%>AtIndex(const int index) 
+            {
+                return <%=property.type.toCppDefaultValue()%>;
+            }
+<%-}}-%>
 
         };
 

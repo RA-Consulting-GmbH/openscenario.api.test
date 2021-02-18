@@ -20,6 +20,7 @@
 #include "FileContentMessage.h"
 #include "IOpenScenarioModelElement.h"
 #include "ErrorLevel.h"
+#include "NamedReferenceProxy.h"
 
 namespace NET_ASAM_OPENSCENARIO
 {
@@ -37,16 +38,6 @@ namespace NET_ASAM_OPENSCENARIO
         double AbsoluteSpeedImpl::GetValue()
         {
             return _value;
-        }
-
-        /**
-         * Sets the value of model property value
-         * @param value from OpenSCENARIO class model specification: [Absolute speed. Unit: m/s. Range: [0..inf[.]
-         * 
-        */
-        void AbsoluteSpeedImpl::SetValue(double value )
-        {
-            _value = value;
         }
 
         void AbsoluteSpeedImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
@@ -95,7 +86,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetValue(_value);
+            clonedObject->_value = GetValue();
             // clone children
             return clonedObject;
         }
@@ -138,16 +129,6 @@ namespace NET_ASAM_OPENSCENARIO
         std::string AbsoluteTargetLaneImpl::GetValue()
         {
             return _value;
-        }
-
-        /**
-         * Sets the value of model property value
-         * @param value from OpenSCENARIO class model specification: [Number (ID) of the target lane the entity will change to.]
-         * 
-        */
-        void AbsoluteTargetLaneImpl::SetValue(std::string value )
-        {
-            _value = value;
         }
 
         void AbsoluteTargetLaneImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
@@ -196,7 +177,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetValue(_value);
+            clonedObject->_value = GetValue();
             // clone children
             return clonedObject;
         }
@@ -250,17 +231,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _value;
         }
 
-        /**
-         * Sets the value of model property value
-         * @param value from OpenSCENARIO class model specification: [Signed number in meters the vehicle should respect as an 
-         * offset from the center of the current lane.]
-         * 
-        */
-        void AbsoluteTargetLaneOffsetImpl::SetValue(double value )
-        {
-            _value = value;
-        }
-
         void AbsoluteTargetLaneOffsetImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
             if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
@@ -307,7 +277,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetValue(_value);
+            clonedObject->_value = GetValue();
             // clone children
             return clonedObject;
         }
@@ -350,16 +320,6 @@ namespace NET_ASAM_OPENSCENARIO
         double AbsoluteTargetSpeedImpl::GetValue()
         {
             return _value;
-        }
-
-        /**
-         * Sets the value of model property value
-         * @param value from OpenSCENARIO class model specification: [Target speed in m/s the vehicle should change to.]
-         * 
-        */
-        void AbsoluteTargetSpeedImpl::SetValue(double value )
-        {
-            _value = value;
         }
 
         void AbsoluteTargetSpeedImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
@@ -408,7 +368,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetValue(_value);
+            clonedObject->_value = GetValue();
             // clone children
             return clonedObject;
         }
@@ -445,47 +405,22 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__RULE, SimpleType::ENUM_TYPE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
         }
 
-        double AccelerationConditionImpl::GetValue()
-        {
-            return _value;
-        }
         Rule AccelerationConditionImpl::GetRule()
         {
             return _rule;
         }
-
-        /**
-         * Sets the value of model property value
-         * @param value from OpenSCENARIO class model specification: [Acceleration value. Unit: m/s^2.]
-         * 
-        */
-        void AccelerationConditionImpl::SetValue(double value )
+        double AccelerationConditionImpl::GetValue()
         {
-            _value = value;
-        }
-        /**
-         * Sets the value of model property rule
-         * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
-         * 
-        */
-        void AccelerationConditionImpl::SetRule(Rule rule )
-        {
-            _rule = rule;
+            return _value;
         }
 
         void AccelerationConditionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
-            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
-            {
-                // Simple type
-                _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                AddResolvedParameter(attributeKey);
-            }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__RULE)
+            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__RULE)
             {
                 // Enumeration Type
                 const auto kResult = Rule::GetFromLiteral(parameterLiteralValue);
@@ -499,6 +434,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto msg = FileContentMessage("Value '" + parameterLiteralValue + "' is not allowed.", ERROR, *GetTextmarker(attributeKey));
                     logger.LogMessage(msg );
                 }
+            }
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
+            {
+                // Simple type
+                _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -537,10 +478,14 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToParameterNameMap(*clonedObject);
 
             // clone attributes;
-            // Simple type
-            clonedObject->SetValue(_value);
             // Enumeration Type
-            clonedObject->SetRule(_rule);
+            const auto kRule = GetRule();
+            if ( kRule.GetLiteral() != "UNKNOWN" )
+            {
+                clonedObject->_rule = Rule::GetFromLiteral(kRule.GetLiteral());
+            }
+            // Simple type
+            clonedObject->_value = GetValue();
             // clone children
             return clonedObject;
         }
@@ -594,16 +539,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _position;
         }
 
-        /**
-         * Sets the value of model property position
-         * @param position from OpenSCENARIO class model specification: [A position to acquire.]
-         * 
-        */
-        void AcquirePositionActionImpl::SetPosition(std::shared_ptr<IPosition> position )
-        {
-            _position = position;
-        }
-
         void AcquirePositionActionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
         }
@@ -626,7 +561,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kPosition =  GetPosition();
+                const auto kPosition =  GetWriterPosition();
                 if (kPosition)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kPosition));
@@ -649,13 +584,13 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kPosition =  GetPosition();
+            const auto kPosition =  GetWriterPosition();
             if (kPosition)
             {
                 auto clonedChild = std::dynamic_pointer_cast<PositionImpl>(kPosition)->Clone();
                 auto clonedChildIPosition = std::dynamic_pointer_cast<IPosition>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetPosition(clonedChildIPosition);
+                clonedObject->SetPosition(std::dynamic_pointer_cast<IPositionWriter>(clonedChildIPosition));
             }
             return clonedObject;
         }
@@ -710,7 +645,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
         std::vector<std::shared_ptr<IManeuverGroup>> ActImpl::GetManeuverGroups()
         {
-            return _maneuverGroups;
+            std::vector<std::shared_ptr<IManeuverGroup>> temp;
+            for(auto&& elm: _maneuverGroups)
+                temp.push_back(elm);
+            return temp;
         }
         std::shared_ptr<ITrigger> ActImpl::GetStartTrigger()
         {
@@ -719,43 +657,6 @@ namespace NET_ASAM_OPENSCENARIO
         std::shared_ptr<ITrigger> ActImpl::GetStopTrigger()
         {
             return _stopTrigger;
-        }
-
-        /**
-         * Sets the value of model property name
-         * @param name from OpenSCENARIO class model specification: [Name of this act.]
-         * 
-        */
-        void ActImpl::SetName(std::string name )
-        {
-            _name = name;
-        }
-        /**
-         * Sets the value of model property maneuverGroups
-         * @param maneuverGroups from OpenSCENARIO class model specification: [A list of maneuver groups representing the act.]
-         * 
-        */
-        void ActImpl::SetManeuverGroups(std::vector<std::shared_ptr<IManeuverGroup>>& maneuverGroups)
-        {
-            _maneuverGroups = maneuverGroups;
-        }
-        /**
-         * Sets the value of model property startTrigger
-         * @param startTrigger from OpenSCENARIO class model specification: [Defines a trigger to that starts the act.]
-         * 
-        */
-        void ActImpl::SetStartTrigger(std::shared_ptr<ITrigger> startTrigger )
-        {
-            _startTrigger = startTrigger;
-        }
-        /**
-         * Sets the value of model property stopTrigger
-         * @param stopTrigger from OpenSCENARIO class model specification: [Defines a trigger that stops the act.]
-         * 
-        */
-        void ActImpl::SetStopTrigger(std::shared_ptr<ITrigger> stopTrigger )
-        {
-            _stopTrigger = stopTrigger;
         }
 
         void ActImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
@@ -786,7 +687,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                auto maneuverGroups =  GetManeuverGroups();
+                auto maneuverGroups =  GetWriterManeuverGroups();
                 if (!maneuverGroups.empty())
                 {
                     for(auto&& item : maneuverGroups)
@@ -794,12 +695,12 @@ namespace NET_ASAM_OPENSCENARIO
                         result.push_back(std::dynamic_pointer_cast<BaseImpl>(item) );
                     }
                 }
-                const auto kStartTrigger =  GetStartTrigger();
+                const auto kStartTrigger =  GetWriterStartTrigger();
                 if (kStartTrigger)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kStartTrigger));
                 }
-                const auto kStopTrigger =  GetStopTrigger();
+                const auto kStopTrigger =  GetWriterStopTrigger();
                 if (kStopTrigger)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kStopTrigger));
@@ -822,35 +723,35 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetName(_name);
+            clonedObject->_name = GetName();
             // clone children
-            const auto kManeuverGroups =  GetManeuverGroups();
+            const auto kManeuverGroups =  GetWriterManeuverGroups();
             if (!kManeuverGroups.empty())
             {
-                std::vector<std::shared_ptr<IManeuverGroup>> clonedList;
+                std::vector<std::shared_ptr<IManeuverGroupWriter>> clonedList;
                 for(auto&& kItem : kManeuverGroups)
                 {
                     auto clonedChild = std::dynamic_pointer_cast<ManeuverGroupImpl>(kItem)->Clone();
                     clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                    clonedList.push_back(std::dynamic_pointer_cast<ManeuverGroupImpl>(clonedChild));
+                    clonedList.push_back(std::dynamic_pointer_cast<IManeuverGroupWriter>(clonedChild));
                 }
                 clonedObject->SetManeuverGroups(clonedList);
             }
-            const auto kStartTrigger =  GetStartTrigger();
+            const auto kStartTrigger =  GetWriterStartTrigger();
             if (kStartTrigger)
             {
                 auto clonedChild = std::dynamic_pointer_cast<TriggerImpl>(kStartTrigger)->Clone();
                 auto clonedChildITrigger = std::dynamic_pointer_cast<ITrigger>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetStartTrigger(clonedChildITrigger);
+                clonedObject->SetStartTrigger(std::dynamic_pointer_cast<ITriggerWriter>(clonedChildITrigger));
             }
-            const auto kStopTrigger =  GetStopTrigger();
+            const auto kStopTrigger =  GetWriterStopTrigger();
             if (kStopTrigger)
             {
                 auto clonedChild = std::dynamic_pointer_cast<TriggerImpl>(kStopTrigger)->Clone();
                 auto clonedChildITrigger = std::dynamic_pointer_cast<ITrigger>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetStopTrigger(clonedChildITrigger);
+                clonedObject->SetStopTrigger(std::dynamic_pointer_cast<ITriggerWriter>(clonedChildITrigger));
             }
             return clonedObject;
         }
@@ -943,46 +844,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _privateAction;
         }
 
-        /**
-         * Sets the value of model property name
-         * @param name from OpenSCENARIO class model specification: [Name of this action.]
-         * 
-        */
-        void ActionImpl::SetName(std::string name )
-        {
-            _name = name;
-        }
-        /**
-         * Sets the value of model property globalAction
-         * @param globalAction from OpenSCENARIO class model specification: [The GlobalAction to be executed when the enclosing 
-         * Action is startedis started.]
-         * 
-        */
-        void ActionImpl::SetGlobalAction(std::shared_ptr<IGlobalAction> globalAction )
-        {
-            _globalAction = globalAction;
-        }
-        /**
-         * Sets the value of model property userDefinedAction
-         * @param userDefinedAction from OpenSCENARIO class model specification: [The UserDefinedAction to be executed when the 
-         * enclosing Action is started.]
-         * 
-        */
-        void ActionImpl::SetUserDefinedAction(std::shared_ptr<IUserDefinedAction> userDefinedAction )
-        {
-            _userDefinedAction = userDefinedAction;
-        }
-        /**
-         * Sets the value of model property privateAction
-         * @param privateAction from OpenSCENARIO class model specification: [The PrivateAction to be executed when the enclosing 
-         * Action is started.]
-         * 
-        */
-        void ActionImpl::SetPrivateAction(std::shared_ptr<IPrivateAction> privateAction )
-        {
-            _privateAction = privateAction;
-        }
-
         void ActionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
             if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__NAME)
@@ -1011,17 +872,17 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kGlobalAction =  GetGlobalAction();
+                const auto kGlobalAction =  GetWriterGlobalAction();
                 if (kGlobalAction)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kGlobalAction));
                 }
-                const auto kUserDefinedAction =  GetUserDefinedAction();
+                const auto kUserDefinedAction =  GetWriterUserDefinedAction();
                 if (kUserDefinedAction)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kUserDefinedAction));
                 }
-                const auto kPrivateAction =  GetPrivateAction();
+                const auto kPrivateAction =  GetWriterPrivateAction();
                 if (kPrivateAction)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kPrivateAction));
@@ -1044,31 +905,31 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetName(_name);
+            clonedObject->_name = GetName();
             // clone children
-            const auto kGlobalAction =  GetGlobalAction();
+            const auto kGlobalAction =  GetWriterGlobalAction();
             if (kGlobalAction)
             {
                 auto clonedChild = std::dynamic_pointer_cast<GlobalActionImpl>(kGlobalAction)->Clone();
                 auto clonedChildIGlobalAction = std::dynamic_pointer_cast<IGlobalAction>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetGlobalAction(clonedChildIGlobalAction);
+                clonedObject->SetGlobalAction(std::dynamic_pointer_cast<IGlobalActionWriter>(clonedChildIGlobalAction));
             }
-            const auto kUserDefinedAction =  GetUserDefinedAction();
+            const auto kUserDefinedAction =  GetWriterUserDefinedAction();
             if (kUserDefinedAction)
             {
                 auto clonedChild = std::dynamic_pointer_cast<UserDefinedActionImpl>(kUserDefinedAction)->Clone();
                 auto clonedChildIUserDefinedAction = std::dynamic_pointer_cast<IUserDefinedAction>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetUserDefinedAction(clonedChildIUserDefinedAction);
+                clonedObject->SetUserDefinedAction(std::dynamic_pointer_cast<IUserDefinedActionWriter>(clonedChildIUserDefinedAction));
             }
-            const auto kPrivateAction =  GetPrivateAction();
+            const auto kPrivateAction =  GetWriterPrivateAction();
             if (kPrivateAction)
             {
                 auto clonedChild = std::dynamic_pointer_cast<PrivateActionImpl>(kPrivateAction)->Clone();
                 auto clonedChildIPrivateAction = std::dynamic_pointer_cast<IPrivateAction>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetPrivateAction(clonedChildIPrivateAction);
+                clonedObject->SetPrivateAction(std::dynamic_pointer_cast<IPrivateActionWriter>(clonedChildIPrivateAction));
             }
             return clonedObject;
         }
@@ -1146,27 +1007,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _longitudinal;
         }
 
-        /**
-         * Sets the value of model property lateral
-         * @param lateral from OpenSCENARIO class model specification: [In lateral domain: Activate or deactivate controller 
-         * defined (e.g. automated, autonomous) behavior.]
-         * 
-        */
-        void ActivateControllerActionImpl::SetLateral(bool lateral )
-        {
-            _lateral = lateral;
-        }
-        /**
-         * Sets the value of model property longitudinal
-         * @param longitudinal from OpenSCENARIO class model specification: [In longitudinal domain: Activate or deactivate 
-         * autonomous behavior.]
-         * 
-        */
-        void ActivateControllerActionImpl::SetLongitudinal(bool longitudinal )
-        {
-            _longitudinal = longitudinal;
-        }
-
         void ActivateControllerActionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
             if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__LATERAL)
@@ -1219,9 +1059,9 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetLateral(_lateral);
+            clonedObject->_lateral = GetLateral();
             // Simple type
-            clonedObject->SetLongitudinal(_longitudinal);
+            clonedObject->_longitudinal = GetLongitudinal();
             // clone children
             return clonedObject;
         }
@@ -1267,27 +1107,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
         std::vector<std::shared_ptr<IEntityRef>> ActorsImpl::GetEntityRefs()
         {
-            return _entityRefs;
-        }
-
-        /**
-         * Sets the value of model property selectTriggeringEntities
-         * @param selectTriggeringEntities from OpenSCENARIO class model specification: [Indicates whether the triggering entities 
-         * are considered actors.]
-         * 
-        */
-        void ActorsImpl::SetSelectTriggeringEntities(bool selectTriggeringEntities )
-        {
-            _selectTriggeringEntities = selectTriggeringEntities;
-        }
-        /**
-         * Sets the value of model property entityRefs
-         * @param entityRefs from OpenSCENARIO class model specification: [A list of entities this actor is referencing.]
-         * 
-        */
-        void ActorsImpl::SetEntityRefs(std::vector<std::shared_ptr<IEntityRef>>& entityRefs)
-        {
-            _entityRefs = entityRefs;
+            std::vector<std::shared_ptr<IEntityRef>> temp;
+            for(auto&& elm: _entityRefs)
+                temp.push_back(elm);
+            return temp;
         }
 
         void ActorsImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
@@ -1318,7 +1141,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                auto entityRefs =  GetEntityRefs();
+                auto entityRefs =  GetWriterEntityRefs();
                 if (!entityRefs.empty())
                 {
                     for(auto&& item : entityRefs)
@@ -1344,17 +1167,17 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetSelectTriggeringEntities(_selectTriggeringEntities);
+            clonedObject->_selectTriggeringEntities = GetSelectTriggeringEntities();
             // clone children
-            const auto kEntityRefs =  GetEntityRefs();
+            const auto kEntityRefs =  GetWriterEntityRefs();
             if (!kEntityRefs.empty())
             {
-                std::vector<std::shared_ptr<IEntityRef>> clonedList;
+                std::vector<std::shared_ptr<IEntityRefWriter>> clonedList;
                 for(auto&& kItem : kEntityRefs)
                 {
                     auto clonedChild = std::dynamic_pointer_cast<EntityRefImpl>(kItem)->Clone();
                     clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                    clonedList.push_back(std::dynamic_pointer_cast<EntityRefImpl>(clonedChild));
+                    clonedList.push_back(std::dynamic_pointer_cast<IEntityRefWriter>(clonedChild));
                 }
                 clonedObject->SetEntityRefs(clonedList);
             }
@@ -1413,16 +1236,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _position;
         }
 
-        /**
-         * Sets the value of model property position
-         * @param position from OpenSCENARIO class model specification: [Adds an entity at the specified position.]
-         * 
-        */
-        void AddEntityActionImpl::SetPosition(std::shared_ptr<IPosition> position )
-        {
-            _position = position;
-        }
-
         void AddEntityActionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
         }
@@ -1445,7 +1258,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kPosition =  GetPosition();
+                const auto kPosition =  GetWriterPosition();
                 if (kPosition)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kPosition));
@@ -1468,13 +1281,13 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kPosition =  GetPosition();
+            const auto kPosition =  GetWriterPosition();
             if (kPosition)
             {
                 auto clonedChild = std::dynamic_pointer_cast<PositionImpl>(kPosition)->Clone();
                 auto clonedChildIPosition = std::dynamic_pointer_cast<IPosition>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetPosition(clonedChildIPosition);
+                clonedObject->SetPosition(std::dynamic_pointer_cast<IPositionWriter>(clonedChildIPosition));
             }
             return clonedObject;
         }
@@ -1531,26 +1344,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _catalogReference;
         }
 
-        /**
-         * Sets the value of model property controller
-         * @param controller from OpenSCENARIO class model specification: [Assigns a controller to a given entity.]
-         * 
-        */
-        void AssignControllerActionImpl::SetController(std::shared_ptr<IController> controller )
-        {
-            _controller = controller;
-        }
-        /**
-         * Sets the value of model property catalogReference
-         * @param catalogReference from OpenSCENARIO class model specification: [Uses a CatalogReference to assign a controller to 
-         * a given entity. CatalogReference must point to a Controller type.]
-         * 
-        */
-        void AssignControllerActionImpl::SetCatalogReference(std::shared_ptr<ICatalogReference> catalogReference )
-        {
-            _catalogReference = catalogReference;
-        }
-
         void AssignControllerActionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
         }
@@ -1573,12 +1366,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kController =  GetController();
+                const auto kController =  GetWriterController();
                 if (kController)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kController));
                 }
-                const auto kCatalogReference =  GetCatalogReference();
+                const auto kCatalogReference =  GetWriterCatalogReference();
                 if (kCatalogReference)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kCatalogReference));
@@ -1601,21 +1394,21 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kController =  GetController();
+            const auto kController =  GetWriterController();
             if (kController)
             {
                 auto clonedChild = std::dynamic_pointer_cast<ControllerImpl>(kController)->Clone();
                 auto clonedChildIController = std::dynamic_pointer_cast<IController>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetController(clonedChildIController);
+                clonedObject->SetController(std::dynamic_pointer_cast<IControllerWriter>(clonedChildIController));
             }
-            const auto kCatalogReference =  GetCatalogReference();
+            const auto kCatalogReference =  GetWriterCatalogReference();
             if (kCatalogReference)
             {
                 auto clonedChild = std::dynamic_pointer_cast<CatalogReferenceImpl>(kCatalogReference)->Clone();
                 auto clonedChildICatalogReference = std::dynamic_pointer_cast<ICatalogReference>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetCatalogReference(clonedChildICatalogReference);
+                clonedObject->SetCatalogReference(std::dynamic_pointer_cast<ICatalogReferenceWriter>(clonedChildICatalogReference));
             }
             return clonedObject;
         }
@@ -1677,26 +1470,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _catalogReference;
         }
 
-        /**
-         * Sets the value of model property route
-         * @param route from OpenSCENARIO class model specification: [The route definition.]
-         * 
-        */
-        void AssignRouteActionImpl::SetRoute(std::shared_ptr<IRoute> route )
-        {
-            _route = route;
-        }
-        /**
-         * Sets the value of model property catalogReference
-         * @param catalogReference from OpenSCENARIO class model specification: [A reference to the route definition in a catalog. 
-         * The reference must point to a route.]
-         * 
-        */
-        void AssignRouteActionImpl::SetCatalogReference(std::shared_ptr<ICatalogReference> catalogReference )
-        {
-            _catalogReference = catalogReference;
-        }
-
         void AssignRouteActionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
         }
@@ -1719,12 +1492,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kRoute =  GetRoute();
+                const auto kRoute =  GetWriterRoute();
                 if (kRoute)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kRoute));
                 }
-                const auto kCatalogReference =  GetCatalogReference();
+                const auto kCatalogReference =  GetWriterCatalogReference();
                 if (kCatalogReference)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kCatalogReference));
@@ -1747,21 +1520,21 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kRoute =  GetRoute();
+            const auto kRoute =  GetWriterRoute();
             if (kRoute)
             {
                 auto clonedChild = std::dynamic_pointer_cast<RouteImpl>(kRoute)->Clone();
                 auto clonedChildIRoute = std::dynamic_pointer_cast<IRoute>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetRoute(clonedChildIRoute);
+                clonedObject->SetRoute(std::dynamic_pointer_cast<IRouteWriter>(clonedChildIRoute));
             }
-            const auto kCatalogReference =  GetCatalogReference();
+            const auto kCatalogReference =  GetWriterCatalogReference();
             if (kCatalogReference)
             {
                 auto clonedChild = std::dynamic_pointer_cast<CatalogReferenceImpl>(kCatalogReference)->Clone();
                 auto clonedChildICatalogReference = std::dynamic_pointer_cast<ICatalogReference>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetCatalogReference(clonedChildICatalogReference);
+                clonedObject->SetCatalogReference(std::dynamic_pointer_cast<ICatalogReferenceWriter>(clonedChildICatalogReference));
             }
             return clonedObject;
         }
@@ -1813,23 +1586,15 @@ namespace NET_ASAM_OPENSCENARIO
             * Filling the property to type map
             */
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__MAX_STEERING, SimpleType::DOUBLE);
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__WHEEL_DIAMETER, SimpleType::DOUBLE);
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__TRACK_WIDTH, SimpleType::DOUBLE);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__POSITION_X, SimpleType::DOUBLE);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__POSITION_Z, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__TRACK_WIDTH, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__WHEEL_DIAMETER, SimpleType::DOUBLE);
         }
 
         double AxleImpl::GetMaxSteering()
         {
             return _maxSteering;
-        }
-        double AxleImpl::GetWheelDiameter()
-        {
-            return _wheelDiameter;
-        }
-        double AxleImpl::GetTrackWidth()
-        {
-            return _trackWidth;
         }
         double AxleImpl::GetPositionX()
         {
@@ -1839,56 +1604,13 @@ namespace NET_ASAM_OPENSCENARIO
         {
             return _positionZ;
         }
-
-        /**
-         * Sets the value of model property maxSteering
-         * @param maxSteering from OpenSCENARIO class model specification: [Maximum steering angle which can be performed by the 
-         * wheels on this axle. Unit: rad; Range: [0;PI], symmetrical.]
-         * 
-        */
-        void AxleImpl::SetMaxSteering(double maxSteering )
+        double AxleImpl::GetTrackWidth()
         {
-            _maxSteering = maxSteering;
+            return _trackWidth;
         }
-        /**
-         * Sets the value of model property wheelDiameter
-         * @param wheelDiameter from OpenSCENARIO class model specification: [Diameter of the wheels on this axle. Unit: m; Range: 
-         * ]0..inf[.]
-         * 
-        */
-        void AxleImpl::SetWheelDiameter(double wheelDiameter )
+        double AxleImpl::GetWheelDiameter()
         {
-            _wheelDiameter = wheelDiameter;
-        }
-        /**
-         * Sets the value of model property trackWidth
-         * @param trackWidth from OpenSCENARIO class model specification: [Distance of the wheels center lines at zero steering. 
-         * Unit: m; Range: [0..inf[.]
-         * 
-        */
-        void AxleImpl::SetTrackWidth(double trackWidth )
-        {
-            _trackWidth = trackWidth;
-        }
-        /**
-         * Sets the value of model property positionX
-         * @param positionX from OpenSCENARIO class model specification: [Longitudinal position of the axle with respect to the 
-         * vehicles reference point. Unit: m; Range: [0..inf[.]
-         * 
-        */
-        void AxleImpl::SetPositionX(double positionX )
-        {
-            _positionX = positionX;
-        }
-        /**
-         * Sets the value of model property positionZ
-         * @param positionZ from OpenSCENARIO class model specification: [Z-position of the axle with respect to the vehicles 
-         * reference point. Usually this is half of wheel diameter. Unit:m; , Range:[0..inf[.]
-         * 
-        */
-        void AxleImpl::SetPositionZ(double positionZ )
-        {
-            _positionZ = positionZ;
+            return _wheelDiameter;
         }
 
         void AxleImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
@@ -1897,18 +1619,6 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _maxSteering = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                AddResolvedParameter(attributeKey);
-            }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__WHEEL_DIAMETER)
-            {
-                // Simple type
-                _wheelDiameter = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                AddResolvedParameter(attributeKey);
-            }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__TRACK_WIDTH)
-            {
-                // Simple type
-                _trackWidth = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__POSITION_X)
@@ -1921,6 +1631,18 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _positionZ = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                AddResolvedParameter(attributeKey);
+            }
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__TRACK_WIDTH)
+            {
+                // Simple type
+                _trackWidth = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                AddResolvedParameter(attributeKey);
+            }
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__WHEEL_DIAMETER)
+            {
+                // Simple type
+                _wheelDiameter = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
             }
         }
@@ -1961,15 +1683,15 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetMaxSteering(_maxSteering);
+            clonedObject->_maxSteering = GetMaxSteering();
             // Simple type
-            clonedObject->SetWheelDiameter(_wheelDiameter);
+            clonedObject->_positionX = GetPositionX();
             // Simple type
-            clonedObject->SetTrackWidth(_trackWidth);
+            clonedObject->_positionZ = GetPositionZ();
             // Simple type
-            clonedObject->SetPositionX(_positionX);
+            clonedObject->_trackWidth = GetTrackWidth();
             // Simple type
-            clonedObject->SetPositionZ(_positionZ);
+            clonedObject->_wheelDiameter = GetWheelDiameter();
             // clone children
             return clonedObject;
         }
@@ -2018,35 +1740,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
         std::vector<std::shared_ptr<IAxle>> AxlesImpl::GetAdditionalAxles()
         {
-            return _additionalAxles;
-        }
-
-        /**
-         * Sets the value of model property frontAxle
-         * @param frontAxle from OpenSCENARIO class model specification: [Front axle.]
-         * 
-        */
-        void AxlesImpl::SetFrontAxle(std::shared_ptr<IAxle> frontAxle )
-        {
-            _frontAxle = frontAxle;
-        }
-        /**
-         * Sets the value of model property rearAxle
-         * @param rearAxle from OpenSCENARIO class model specification: [Rear axle.]
-         * 
-        */
-        void AxlesImpl::SetRearAxle(std::shared_ptr<IAxle> rearAxle )
-        {
-            _rearAxle = rearAxle;
-        }
-        /**
-         * Sets the value of model property additionalAxles
-         * @param additionalAxles from OpenSCENARIO class model specification: [A list of optional additional axles.]
-         * 
-        */
-        void AxlesImpl::SetAdditionalAxles(std::vector<std::shared_ptr<IAxle>>& additionalAxles)
-        {
-            _additionalAxles = additionalAxles;
+            std::vector<std::shared_ptr<IAxle>> temp;
+            for(auto&& elm: _additionalAxles)
+                temp.push_back(elm);
+            return temp;
         }
 
         void AxlesImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
@@ -2071,17 +1768,17 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kFrontAxle =  GetFrontAxle();
+                const auto kFrontAxle =  GetWriterFrontAxle();
                 if (kFrontAxle)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kFrontAxle));
                 }
-                const auto kRearAxle =  GetRearAxle();
+                const auto kRearAxle =  GetWriterRearAxle();
                 if (kRearAxle)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kRearAxle));
                 }
-                auto additionalAxles =  GetAdditionalAxles();
+                auto additionalAxles =  GetWriterAdditionalAxles();
                 if (!additionalAxles.empty())
                 {
                     for(auto&& item : additionalAxles)
@@ -2107,31 +1804,31 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kFrontAxle =  GetFrontAxle();
+            const auto kFrontAxle =  GetWriterFrontAxle();
             if (kFrontAxle)
             {
                 auto clonedChild = std::dynamic_pointer_cast<AxleImpl>(kFrontAxle)->Clone();
                 auto clonedChildIAxle = std::dynamic_pointer_cast<IAxle>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetFrontAxle(clonedChildIAxle);
+                clonedObject->SetFrontAxle(std::dynamic_pointer_cast<IAxleWriter>(clonedChildIAxle));
             }
-            const auto kRearAxle =  GetRearAxle();
+            const auto kRearAxle =  GetWriterRearAxle();
             if (kRearAxle)
             {
                 auto clonedChild = std::dynamic_pointer_cast<AxleImpl>(kRearAxle)->Clone();
                 auto clonedChildIAxle = std::dynamic_pointer_cast<IAxle>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetRearAxle(clonedChildIAxle);
+                clonedObject->SetRearAxle(std::dynamic_pointer_cast<IAxleWriter>(clonedChildIAxle));
             }
-            const auto kAdditionalAxles =  GetAdditionalAxles();
+            const auto kAdditionalAxles =  GetWriterAdditionalAxles();
             if (!kAdditionalAxles.empty())
             {
-                std::vector<std::shared_ptr<IAxle>> clonedList;
+                std::vector<std::shared_ptr<IAxleWriter>> clonedList;
                 for(auto&& kItem : kAdditionalAxles)
                 {
                     auto clonedChild = std::dynamic_pointer_cast<AxleImpl>(kItem)->Clone();
                     clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                    clonedList.push_back(std::dynamic_pointer_cast<AxleImpl>(clonedChild));
+                    clonedList.push_back(std::dynamic_pointer_cast<IAxleWriter>(clonedChild));
                 }
                 clonedObject->SetAdditionalAxles(clonedList);
             }
@@ -2208,26 +1905,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _dimensions;
         }
 
-        /**
-         * Sets the value of model property center
-         * @param center from OpenSCENARIO class model specification: [Represents the geometrical center of the bounding box 
-         * expressed in coordinates that refer to the coordinate system of , the entity (e.g. the vehicle coordinate system).]
-         * 
-        */
-        void BoundingBoxImpl::SetCenter(std::shared_ptr<ICenter> center )
-        {
-            _center = center;
-        }
-        /**
-         * Sets the value of model property dimensions
-         * @param dimensions from OpenSCENARIO class model specification: [Width, length and height of the bounding box.]
-         * 
-        */
-        void BoundingBoxImpl::SetDimensions(std::shared_ptr<IDimensions> dimensions )
-        {
-            _dimensions = dimensions;
-        }
-
         void BoundingBoxImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
         }
@@ -2250,12 +1927,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kCenter =  GetCenter();
+                const auto kCenter =  GetWriterCenter();
                 if (kCenter)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kCenter));
                 }
-                const auto kDimensions =  GetDimensions();
+                const auto kDimensions =  GetWriterDimensions();
                 if (kDimensions)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kDimensions));
@@ -2278,21 +1955,21 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kCenter =  GetCenter();
+            const auto kCenter =  GetWriterCenter();
             if (kCenter)
             {
                 auto clonedChild = std::dynamic_pointer_cast<CenterImpl>(kCenter)->Clone();
                 auto clonedChildICenter = std::dynamic_pointer_cast<ICenter>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetCenter(clonedChildICenter);
+                clonedObject->SetCenter(std::dynamic_pointer_cast<ICenterWriter>(clonedChildICenter));
             }
-            const auto kDimensions =  GetDimensions();
+            const auto kDimensions =  GetWriterDimensions();
             if (kDimensions)
             {
                 auto clonedChild = std::dynamic_pointer_cast<DimensionsImpl>(kDimensions)->Clone();
                 auto clonedChildIDimensions = std::dynamic_pointer_cast<IDimensions>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetDimensions(clonedChildIDimensions);
+                clonedObject->SetDimensions(std::dynamic_pointer_cast<IDimensionsWriter>(clonedChildIDimensions));
             }
             return clonedObject;
         }
@@ -2354,26 +2031,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _entityCondition;
         }
 
-        /**
-         * Sets the value of model property triggeringEntities
-         * @param triggeringEntities from OpenSCENARIO class model specification: [A list of entities triggering this condition.]
-         * 
-        */
-        void ByEntityConditionImpl::SetTriggeringEntities(std::shared_ptr<ITriggeringEntities> triggeringEntities )
-        {
-            _triggeringEntities = triggeringEntities;
-        }
-        /**
-         * Sets the value of model property entityCondition
-         * @param entityCondition from OpenSCENARIO class model specification: [The condition which is related to the triggering 
-         * entities.]
-         * 
-        */
-        void ByEntityConditionImpl::SetEntityCondition(std::shared_ptr<IEntityCondition> entityCondition )
-        {
-            _entityCondition = entityCondition;
-        }
-
         void ByEntityConditionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
         }
@@ -2396,12 +2053,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kTriggeringEntities =  GetTriggeringEntities();
+                const auto kTriggeringEntities =  GetWriterTriggeringEntities();
                 if (kTriggeringEntities)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kTriggeringEntities));
                 }
-                const auto kEntityCondition =  GetEntityCondition();
+                const auto kEntityCondition =  GetWriterEntityCondition();
                 if (kEntityCondition)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kEntityCondition));
@@ -2424,21 +2081,21 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kTriggeringEntities =  GetTriggeringEntities();
+            const auto kTriggeringEntities =  GetWriterTriggeringEntities();
             if (kTriggeringEntities)
             {
                 auto clonedChild = std::dynamic_pointer_cast<TriggeringEntitiesImpl>(kTriggeringEntities)->Clone();
                 auto clonedChildITriggeringEntities = std::dynamic_pointer_cast<ITriggeringEntities>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetTriggeringEntities(clonedChildITriggeringEntities);
+                clonedObject->SetTriggeringEntities(std::dynamic_pointer_cast<ITriggeringEntitiesWriter>(clonedChildITriggeringEntities));
             }
-            const auto kEntityCondition =  GetEntityCondition();
+            const auto kEntityCondition =  GetWriterEntityCondition();
             if (kEntityCondition)
             {
                 auto clonedChild = std::dynamic_pointer_cast<EntityConditionImpl>(kEntityCondition)->Clone();
                 auto clonedChildIEntityCondition = std::dynamic_pointer_cast<IEntityCondition>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetEntityCondition(clonedChildIEntityCondition);
+                clonedObject->SetEntityCondition(std::dynamic_pointer_cast<IEntityConditionWriter>(clonedChildIEntityCondition));
             }
             return clonedObject;
         }
@@ -2497,16 +2154,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _type;
         }
 
-        /**
-         * Sets the value of model property type
-         * @param type from OpenSCENARIO class model specification: [Defines the type.]
-         * 
-        */
-        void ByObjectTypeImpl::SetType(ObjectType type )
-        {
-            _type = type;
-        }
-
         void ByObjectTypeImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
             if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__TYPE)
@@ -2562,7 +2209,11 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Enumeration Type
-            clonedObject->SetType(_type);
+            const auto kType = GetType();
+            if ( kType.GetLiteral() != "UNKNOWN" )
+            {
+                clonedObject->_type = ObjectType::GetFromLiteral(kType.GetLiteral());
+            }
             // clone children
             return clonedObject;
         }
@@ -2615,17 +2266,6 @@ namespace NET_ASAM_OPENSCENARIO
         ObjectType ByTypeImpl::GetObjectType()
         {
             return _objectType;
-        }
-
-        /**
-         * Sets the value of model property objectType
-         * @param objectType from OpenSCENARIO class model specification: [If a scenario object's entity object is of this type, it
-         * is part of the entity selection.]
-         * 
-        */
-        void ByTypeImpl::SetObjectType(ObjectType objectType )
-        {
-            _objectType = objectType;
         }
 
         void ByTypeImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
@@ -2683,7 +2323,11 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Enumeration Type
-            clonedObject->SetObjectType(_objectType);
+            const auto kObjectType = GetObjectType();
+            if ( kObjectType.GetLiteral() != "UNKNOWN" )
+            {
+                clonedObject->_objectType = ObjectType::GetFromLiteral(kObjectType.GetLiteral());
+            }
             // clone children
             return clonedObject;
         }
@@ -2761,77 +2405,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _trafficSignalControllerCondition;
         }
 
-        /**
-         * Sets the value of model property parameterCondition
-         * @param parameterCondition from OpenSCENARIO class model specification: [A current parameter value is compared to a 
-         * reference value.]
-         * 
-        */
-        void ByValueConditionImpl::SetParameterCondition(std::shared_ptr<IParameterCondition> parameterCondition )
-        {
-            _parameterCondition = parameterCondition;
-        }
-        /**
-         * Sets the value of model property timeOfDayCondition
-         * @param timeOfDayCondition from OpenSCENARIO class model specification: [The current time of day is compared to a 
-         * reference value.]
-         * 
-        */
-        void ByValueConditionImpl::SetTimeOfDayCondition(std::shared_ptr<ITimeOfDayCondition> timeOfDayCondition )
-        {
-            _timeOfDayCondition = timeOfDayCondition;
-        }
-        /**
-         * Sets the value of model property simulationTimeCondition
-         * @param simulationTimeCondition from OpenSCENARIO class model specification: [The current simulation time is compared to 
-         * a reference value.]
-         * 
-        */
-        void ByValueConditionImpl::SetSimulationTimeCondition(std::shared_ptr<ISimulationTimeCondition> simulationTimeCondition )
-        {
-            _simulationTimeCondition = simulationTimeCondition;
-        }
-        /**
-         * Sets the value of model property storyboardElementStateCondition
-         * @param storyboardElementStateCondition from OpenSCENARIO class model specification: [Condition becomes true if the 
-         * referenced StoryboardElement terminates according to the given rule.]
-         * 
-        */
-        void ByValueConditionImpl::SetStoryboardElementStateCondition(std::shared_ptr<IStoryboardElementStateCondition> storyboardElementStateCondition )
-        {
-            _storyboardElementStateCondition = storyboardElementStateCondition;
-        }
-        /**
-         * Sets the value of model property userDefinedValueCondition
-         * @param userDefinedValueCondition from OpenSCENARIO class model specification: [The current value of an externally 
-         * defined named value is compared to a reference value (less, greater, equal).]
-         * 
-        */
-        void ByValueConditionImpl::SetUserDefinedValueCondition(std::shared_ptr<IUserDefinedValueCondition> userDefinedValueCondition )
-        {
-            _userDefinedValueCondition = userDefinedValueCondition;
-        }
-        /**
-         * Sets the value of model property trafficSignalCondition
-         * @param trafficSignalCondition from OpenSCENARIO class model specification: [Condition becomes true if the referenced 
-         * signal reaches the indicated state.]
-         * 
-        */
-        void ByValueConditionImpl::SetTrafficSignalCondition(std::shared_ptr<ITrafficSignalCondition> trafficSignalCondition )
-        {
-            _trafficSignalCondition = trafficSignalCondition;
-        }
-        /**
-         * Sets the value of model property trafficSignalControllerCondition
-         * @param trafficSignalControllerCondition from OpenSCENARIO class model specification: [Condition becomes true if the 
-         * referenced signal controller reaches the indicated state.]
-         * 
-        */
-        void ByValueConditionImpl::SetTrafficSignalControllerCondition(std::shared_ptr<ITrafficSignalControllerCondition> trafficSignalControllerCondition )
-        {
-            _trafficSignalControllerCondition = trafficSignalControllerCondition;
-        }
-
         void ByValueConditionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
         }
@@ -2854,37 +2427,37 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kParameterCondition =  GetParameterCondition();
+                const auto kParameterCondition =  GetWriterParameterCondition();
                 if (kParameterCondition)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kParameterCondition));
                 }
-                const auto kTimeOfDayCondition =  GetTimeOfDayCondition();
+                const auto kTimeOfDayCondition =  GetWriterTimeOfDayCondition();
                 if (kTimeOfDayCondition)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kTimeOfDayCondition));
                 }
-                const auto kSimulationTimeCondition =  GetSimulationTimeCondition();
+                const auto kSimulationTimeCondition =  GetWriterSimulationTimeCondition();
                 if (kSimulationTimeCondition)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kSimulationTimeCondition));
                 }
-                const auto kStoryboardElementStateCondition =  GetStoryboardElementStateCondition();
+                const auto kStoryboardElementStateCondition =  GetWriterStoryboardElementStateCondition();
                 if (kStoryboardElementStateCondition)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kStoryboardElementStateCondition));
                 }
-                const auto kUserDefinedValueCondition =  GetUserDefinedValueCondition();
+                const auto kUserDefinedValueCondition =  GetWriterUserDefinedValueCondition();
                 if (kUserDefinedValueCondition)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kUserDefinedValueCondition));
                 }
-                const auto kTrafficSignalCondition =  GetTrafficSignalCondition();
+                const auto kTrafficSignalCondition =  GetWriterTrafficSignalCondition();
                 if (kTrafficSignalCondition)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kTrafficSignalCondition));
                 }
-                const auto kTrafficSignalControllerCondition =  GetTrafficSignalControllerCondition();
+                const auto kTrafficSignalControllerCondition =  GetWriterTrafficSignalControllerCondition();
                 if (kTrafficSignalControllerCondition)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kTrafficSignalControllerCondition));
@@ -2907,61 +2480,61 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kParameterCondition =  GetParameterCondition();
+            const auto kParameterCondition =  GetWriterParameterCondition();
             if (kParameterCondition)
             {
                 auto clonedChild = std::dynamic_pointer_cast<ParameterConditionImpl>(kParameterCondition)->Clone();
                 auto clonedChildIParameterCondition = std::dynamic_pointer_cast<IParameterCondition>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetParameterCondition(clonedChildIParameterCondition);
+                clonedObject->SetParameterCondition(std::dynamic_pointer_cast<IParameterConditionWriter>(clonedChildIParameterCondition));
             }
-            const auto kTimeOfDayCondition =  GetTimeOfDayCondition();
+            const auto kTimeOfDayCondition =  GetWriterTimeOfDayCondition();
             if (kTimeOfDayCondition)
             {
                 auto clonedChild = std::dynamic_pointer_cast<TimeOfDayConditionImpl>(kTimeOfDayCondition)->Clone();
                 auto clonedChildITimeOfDayCondition = std::dynamic_pointer_cast<ITimeOfDayCondition>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetTimeOfDayCondition(clonedChildITimeOfDayCondition);
+                clonedObject->SetTimeOfDayCondition(std::dynamic_pointer_cast<ITimeOfDayConditionWriter>(clonedChildITimeOfDayCondition));
             }
-            const auto kSimulationTimeCondition =  GetSimulationTimeCondition();
+            const auto kSimulationTimeCondition =  GetWriterSimulationTimeCondition();
             if (kSimulationTimeCondition)
             {
                 auto clonedChild = std::dynamic_pointer_cast<SimulationTimeConditionImpl>(kSimulationTimeCondition)->Clone();
                 auto clonedChildISimulationTimeCondition = std::dynamic_pointer_cast<ISimulationTimeCondition>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetSimulationTimeCondition(clonedChildISimulationTimeCondition);
+                clonedObject->SetSimulationTimeCondition(std::dynamic_pointer_cast<ISimulationTimeConditionWriter>(clonedChildISimulationTimeCondition));
             }
-            const auto kStoryboardElementStateCondition =  GetStoryboardElementStateCondition();
+            const auto kStoryboardElementStateCondition =  GetWriterStoryboardElementStateCondition();
             if (kStoryboardElementStateCondition)
             {
                 auto clonedChild = std::dynamic_pointer_cast<StoryboardElementStateConditionImpl>(kStoryboardElementStateCondition)->Clone();
                 auto clonedChildIStoryboardElementStateCondition = std::dynamic_pointer_cast<IStoryboardElementStateCondition>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetStoryboardElementStateCondition(clonedChildIStoryboardElementStateCondition);
+                clonedObject->SetStoryboardElementStateCondition(std::dynamic_pointer_cast<IStoryboardElementStateConditionWriter>(clonedChildIStoryboardElementStateCondition));
             }
-            const auto kUserDefinedValueCondition =  GetUserDefinedValueCondition();
+            const auto kUserDefinedValueCondition =  GetWriterUserDefinedValueCondition();
             if (kUserDefinedValueCondition)
             {
                 auto clonedChild = std::dynamic_pointer_cast<UserDefinedValueConditionImpl>(kUserDefinedValueCondition)->Clone();
                 auto clonedChildIUserDefinedValueCondition = std::dynamic_pointer_cast<IUserDefinedValueCondition>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetUserDefinedValueCondition(clonedChildIUserDefinedValueCondition);
+                clonedObject->SetUserDefinedValueCondition(std::dynamic_pointer_cast<IUserDefinedValueConditionWriter>(clonedChildIUserDefinedValueCondition));
             }
-            const auto kTrafficSignalCondition =  GetTrafficSignalCondition();
+            const auto kTrafficSignalCondition =  GetWriterTrafficSignalCondition();
             if (kTrafficSignalCondition)
             {
                 auto clonedChild = std::dynamic_pointer_cast<TrafficSignalConditionImpl>(kTrafficSignalCondition)->Clone();
                 auto clonedChildITrafficSignalCondition = std::dynamic_pointer_cast<ITrafficSignalCondition>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetTrafficSignalCondition(clonedChildITrafficSignalCondition);
+                clonedObject->SetTrafficSignalCondition(std::dynamic_pointer_cast<ITrafficSignalConditionWriter>(clonedChildITrafficSignalCondition));
             }
-            const auto kTrafficSignalControllerCondition =  GetTrafficSignalControllerCondition();
+            const auto kTrafficSignalControllerCondition =  GetWriterTrafficSignalControllerCondition();
             if (kTrafficSignalControllerCondition)
             {
                 auto clonedChild = std::dynamic_pointer_cast<TrafficSignalControllerConditionImpl>(kTrafficSignalControllerCondition)->Clone();
                 auto clonedChildITrafficSignalControllerCondition = std::dynamic_pointer_cast<ITrafficSignalControllerCondition>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetTrafficSignalControllerCondition(clonedChildITrafficSignalControllerCondition);
+                clonedObject->SetTrafficSignalControllerCondition(std::dynamic_pointer_cast<ITrafficSignalControllerConditionWriter>(clonedChildITrafficSignalControllerCondition));
             }
             return clonedObject;
         }
@@ -3046,123 +2619,59 @@ namespace NET_ASAM_OPENSCENARIO
         }
         std::vector<std::shared_ptr<IVehicle>> CatalogImpl::GetVehicles()
         {
-            return _vehicles;
+            std::vector<std::shared_ptr<IVehicle>> temp;
+            for(auto&& elm: _vehicles)
+                temp.push_back(elm);
+            return temp;
         }
         std::vector<std::shared_ptr<IController>> CatalogImpl::GetControllers()
         {
-            return _controllers;
+            std::vector<std::shared_ptr<IController>> temp;
+            for(auto&& elm: _controllers)
+                temp.push_back(elm);
+            return temp;
         }
         std::vector<std::shared_ptr<IPedestrian>> CatalogImpl::GetPedestrians()
         {
-            return _pedestrians;
+            std::vector<std::shared_ptr<IPedestrian>> temp;
+            for(auto&& elm: _pedestrians)
+                temp.push_back(elm);
+            return temp;
         }
         std::vector<std::shared_ptr<IMiscObject>> CatalogImpl::GetMiscObjects()
         {
-            return _miscObjects;
+            std::vector<std::shared_ptr<IMiscObject>> temp;
+            for(auto&& elm: _miscObjects)
+                temp.push_back(elm);
+            return temp;
         }
         std::vector<std::shared_ptr<IEnvironment>> CatalogImpl::GetEnvironments()
         {
-            return _environments;
+            std::vector<std::shared_ptr<IEnvironment>> temp;
+            for(auto&& elm: _environments)
+                temp.push_back(elm);
+            return temp;
         }
         std::vector<std::shared_ptr<IManeuver>> CatalogImpl::GetManeuvers()
         {
-            return _maneuvers;
+            std::vector<std::shared_ptr<IManeuver>> temp;
+            for(auto&& elm: _maneuvers)
+                temp.push_back(elm);
+            return temp;
         }
         std::vector<std::shared_ptr<ITrajectory>> CatalogImpl::GetTrajectories()
         {
-            return _trajectories;
+            std::vector<std::shared_ptr<ITrajectory>> temp;
+            for(auto&& elm: _trajectories)
+                temp.push_back(elm);
+            return temp;
         }
         std::vector<std::shared_ptr<IRoute>> CatalogImpl::GetRoutes()
         {
-            return _routes;
-        }
-
-        /**
-         * Sets the value of model property name
-         * @param name from OpenSCENARIO class model specification: [Name of the catalog.]
-         * 
-        */
-        void CatalogImpl::SetName(std::string name )
-        {
-            _name = name;
-        }
-        /**
-         * Sets the value of model property vehicles
-         * @param vehicles from OpenSCENARIO class model specification: [A list of vehicle types that can be reused in a scenario.]
-         * 
-        */
-        void CatalogImpl::SetVehicles(std::vector<std::shared_ptr<IVehicle>>& vehicles)
-        {
-            _vehicles = vehicles;
-        }
-        /**
-         * Sets the value of model property controllers
-         * @param controllers from OpenSCENARIO class model specification: [A list of controller types that can be reused in a 
-         * scenario.]
-         * 
-        */
-        void CatalogImpl::SetControllers(std::vector<std::shared_ptr<IController>>& controllers)
-        {
-            _controllers = controllers;
-        }
-        /**
-         * Sets the value of model property pedestrians
-         * @param pedestrians from OpenSCENARIO class model specification: [A list of pedestrian types that can be reused in a 
-         * scenario.]
-         * 
-        */
-        void CatalogImpl::SetPedestrians(std::vector<std::shared_ptr<IPedestrian>>& pedestrians)
-        {
-            _pedestrians = pedestrians;
-        }
-        /**
-         * Sets the value of model property miscObjects
-         * @param miscObjects from OpenSCENARIO class model specification: [A list of miscellaneous object type that that can be 
-         * reused in a scenario.]
-         * 
-        */
-        void CatalogImpl::SetMiscObjects(std::vector<std::shared_ptr<IMiscObject>>& miscObjects)
-        {
-            _miscObjects = miscObjects;
-        }
-        /**
-         * Sets the value of model property environments
-         * @param environments from OpenSCENARIO class model specification: [A list of environment types that can be reused in a 
-         * scenario.]
-         * 
-        */
-        void CatalogImpl::SetEnvironments(std::vector<std::shared_ptr<IEnvironment>>& environments)
-        {
-            _environments = environments;
-        }
-        /**
-         * Sets the value of model property maneuvers
-         * @param maneuvers from OpenSCENARIO class model specification: [A list of maneuver types that can be reused in a 
-         * scenario.]
-         * 
-        */
-        void CatalogImpl::SetManeuvers(std::vector<std::shared_ptr<IManeuver>>& maneuvers)
-        {
-            _maneuvers = maneuvers;
-        }
-        /**
-         * Sets the value of model property trajectories
-         * @param trajectories from OpenSCENARIO class model specification: [A list of trajectory types that can be reused in a 
-         * scenario.]
-         * 
-        */
-        void CatalogImpl::SetTrajectories(std::vector<std::shared_ptr<ITrajectory>>& trajectories)
-        {
-            _trajectories = trajectories;
-        }
-        /**
-         * Sets the value of model property routes
-         * @param routes from OpenSCENARIO class model specification: [A list of route types that can be reused in a scenario.]
-         * 
-        */
-        void CatalogImpl::SetRoutes(std::vector<std::shared_ptr<IRoute>>& routes)
-        {
-            _routes = routes;
+            std::vector<std::shared_ptr<IRoute>> temp;
+            for(auto&& elm: _routes)
+                temp.push_back(elm);
+            return temp;
         }
 
         void CatalogImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
@@ -3193,7 +2702,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                auto vehicles =  GetVehicles();
+                auto vehicles =  GetWriterVehicles();
                 if (!vehicles.empty())
                 {
                     for(auto&& item : vehicles)
@@ -3201,7 +2710,7 @@ namespace NET_ASAM_OPENSCENARIO
                         result.push_back(std::dynamic_pointer_cast<BaseImpl>(item) );
                     }
                 }
-                auto controllers =  GetControllers();
+                auto controllers =  GetWriterControllers();
                 if (!controllers.empty())
                 {
                     for(auto&& item : controllers)
@@ -3209,7 +2718,7 @@ namespace NET_ASAM_OPENSCENARIO
                         result.push_back(std::dynamic_pointer_cast<BaseImpl>(item) );
                     }
                 }
-                auto pedestrians =  GetPedestrians();
+                auto pedestrians =  GetWriterPedestrians();
                 if (!pedestrians.empty())
                 {
                     for(auto&& item : pedestrians)
@@ -3217,7 +2726,7 @@ namespace NET_ASAM_OPENSCENARIO
                         result.push_back(std::dynamic_pointer_cast<BaseImpl>(item) );
                     }
                 }
-                auto miscObjects =  GetMiscObjects();
+                auto miscObjects =  GetWriterMiscObjects();
                 if (!miscObjects.empty())
                 {
                     for(auto&& item : miscObjects)
@@ -3225,7 +2734,7 @@ namespace NET_ASAM_OPENSCENARIO
                         result.push_back(std::dynamic_pointer_cast<BaseImpl>(item) );
                     }
                 }
-                auto environments =  GetEnvironments();
+                auto environments =  GetWriterEnvironments();
                 if (!environments.empty())
                 {
                     for(auto&& item : environments)
@@ -3233,7 +2742,7 @@ namespace NET_ASAM_OPENSCENARIO
                         result.push_back(std::dynamic_pointer_cast<BaseImpl>(item) );
                     }
                 }
-                auto maneuvers =  GetManeuvers();
+                auto maneuvers =  GetWriterManeuvers();
                 if (!maneuvers.empty())
                 {
                     for(auto&& item : maneuvers)
@@ -3241,7 +2750,7 @@ namespace NET_ASAM_OPENSCENARIO
                         result.push_back(std::dynamic_pointer_cast<BaseImpl>(item) );
                     }
                 }
-                auto trajectories =  GetTrajectories();
+                auto trajectories =  GetWriterTrajectories();
                 if (!trajectories.empty())
                 {
                     for(auto&& item : trajectories)
@@ -3249,7 +2758,7 @@ namespace NET_ASAM_OPENSCENARIO
                         result.push_back(std::dynamic_pointer_cast<BaseImpl>(item) );
                     }
                 }
-                auto routes =  GetRoutes();
+                auto routes =  GetWriterRoutes();
                 if (!routes.empty())
                 {
                     for(auto&& item : routes)
@@ -3275,101 +2784,101 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetName(_name);
+            clonedObject->_name = GetName();
             // clone children
-            const auto kVehicles =  GetVehicles();
+            const auto kVehicles =  GetWriterVehicles();
             if (!kVehicles.empty())
             {
-                std::vector<std::shared_ptr<IVehicle>> clonedList;
+                std::vector<std::shared_ptr<IVehicleWriter>> clonedList;
                 for(auto&& kItem : kVehicles)
                 {
                     auto clonedChild = std::dynamic_pointer_cast<VehicleImpl>(kItem)->Clone();
                     clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                    clonedList.push_back(std::dynamic_pointer_cast<VehicleImpl>(clonedChild));
+                    clonedList.push_back(std::dynamic_pointer_cast<IVehicleWriter>(clonedChild));
                 }
                 clonedObject->SetVehicles(clonedList);
             }
-            const auto kControllers =  GetControllers();
+            const auto kControllers =  GetWriterControllers();
             if (!kControllers.empty())
             {
-                std::vector<std::shared_ptr<IController>> clonedList;
+                std::vector<std::shared_ptr<IControllerWriter>> clonedList;
                 for(auto&& kItem : kControllers)
                 {
                     auto clonedChild = std::dynamic_pointer_cast<ControllerImpl>(kItem)->Clone();
                     clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                    clonedList.push_back(std::dynamic_pointer_cast<ControllerImpl>(clonedChild));
+                    clonedList.push_back(std::dynamic_pointer_cast<IControllerWriter>(clonedChild));
                 }
                 clonedObject->SetControllers(clonedList);
             }
-            const auto kPedestrians =  GetPedestrians();
+            const auto kPedestrians =  GetWriterPedestrians();
             if (!kPedestrians.empty())
             {
-                std::vector<std::shared_ptr<IPedestrian>> clonedList;
+                std::vector<std::shared_ptr<IPedestrianWriter>> clonedList;
                 for(auto&& kItem : kPedestrians)
                 {
                     auto clonedChild = std::dynamic_pointer_cast<PedestrianImpl>(kItem)->Clone();
                     clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                    clonedList.push_back(std::dynamic_pointer_cast<PedestrianImpl>(clonedChild));
+                    clonedList.push_back(std::dynamic_pointer_cast<IPedestrianWriter>(clonedChild));
                 }
                 clonedObject->SetPedestrians(clonedList);
             }
-            const auto kMiscObjects =  GetMiscObjects();
+            const auto kMiscObjects =  GetWriterMiscObjects();
             if (!kMiscObjects.empty())
             {
-                std::vector<std::shared_ptr<IMiscObject>> clonedList;
+                std::vector<std::shared_ptr<IMiscObjectWriter>> clonedList;
                 for(auto&& kItem : kMiscObjects)
                 {
                     auto clonedChild = std::dynamic_pointer_cast<MiscObjectImpl>(kItem)->Clone();
                     clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                    clonedList.push_back(std::dynamic_pointer_cast<MiscObjectImpl>(clonedChild));
+                    clonedList.push_back(std::dynamic_pointer_cast<IMiscObjectWriter>(clonedChild));
                 }
                 clonedObject->SetMiscObjects(clonedList);
             }
-            const auto kEnvironments =  GetEnvironments();
+            const auto kEnvironments =  GetWriterEnvironments();
             if (!kEnvironments.empty())
             {
-                std::vector<std::shared_ptr<IEnvironment>> clonedList;
+                std::vector<std::shared_ptr<IEnvironmentWriter>> clonedList;
                 for(auto&& kItem : kEnvironments)
                 {
                     auto clonedChild = std::dynamic_pointer_cast<EnvironmentImpl>(kItem)->Clone();
                     clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                    clonedList.push_back(std::dynamic_pointer_cast<EnvironmentImpl>(clonedChild));
+                    clonedList.push_back(std::dynamic_pointer_cast<IEnvironmentWriter>(clonedChild));
                 }
                 clonedObject->SetEnvironments(clonedList);
             }
-            const auto kManeuvers =  GetManeuvers();
+            const auto kManeuvers =  GetWriterManeuvers();
             if (!kManeuvers.empty())
             {
-                std::vector<std::shared_ptr<IManeuver>> clonedList;
+                std::vector<std::shared_ptr<IManeuverWriter>> clonedList;
                 for(auto&& kItem : kManeuvers)
                 {
                     auto clonedChild = std::dynamic_pointer_cast<ManeuverImpl>(kItem)->Clone();
                     clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                    clonedList.push_back(std::dynamic_pointer_cast<ManeuverImpl>(clonedChild));
+                    clonedList.push_back(std::dynamic_pointer_cast<IManeuverWriter>(clonedChild));
                 }
                 clonedObject->SetManeuvers(clonedList);
             }
-            const auto kTrajectories =  GetTrajectories();
+            const auto kTrajectories =  GetWriterTrajectories();
             if (!kTrajectories.empty())
             {
-                std::vector<std::shared_ptr<ITrajectory>> clonedList;
+                std::vector<std::shared_ptr<ITrajectoryWriter>> clonedList;
                 for(auto&& kItem : kTrajectories)
                 {
                     auto clonedChild = std::dynamic_pointer_cast<TrajectoryImpl>(kItem)->Clone();
                     clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                    clonedList.push_back(std::dynamic_pointer_cast<TrajectoryImpl>(clonedChild));
+                    clonedList.push_back(std::dynamic_pointer_cast<ITrajectoryWriter>(clonedChild));
                 }
                 clonedObject->SetTrajectories(clonedList);
             }
-            const auto kRoutes =  GetRoutes();
+            const auto kRoutes =  GetWriterRoutes();
             if (!kRoutes.empty())
             {
-                std::vector<std::shared_ptr<IRoute>> clonedList;
+                std::vector<std::shared_ptr<IRouteWriter>> clonedList;
                 for(auto&& kItem : kRoutes)
                 {
                     auto clonedChild = std::dynamic_pointer_cast<RouteImpl>(kItem)->Clone();
                     clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                    clonedList.push_back(std::dynamic_pointer_cast<RouteImpl>(clonedChild));
+                    clonedList.push_back(std::dynamic_pointer_cast<IRouteWriter>(clonedChild));
                 }
                 clonedObject->SetRoutes(clonedList);
             }
@@ -3493,16 +3002,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _catalog;
         }
 
-        /**
-         * Sets the value of model property catalog
-         * @param catalog from OpenSCENARIO class model specification: [Definition of a catalog.]
-         * 
-        */
-        void CatalogDefinitionImpl::SetCatalog(std::shared_ptr<ICatalog> catalog )
-        {
-            _catalog = catalog;
-        }
-
         void CatalogDefinitionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
         }
@@ -3525,7 +3024,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kCatalog =  GetCatalog();
+                const auto kCatalog =  GetWriterCatalog();
                 if (kCatalog)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kCatalog));
@@ -3548,13 +3047,13 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kCatalog =  GetCatalog();
+            const auto kCatalog =  GetWriterCatalog();
             if (kCatalog)
             {
                 auto clonedChild = std::dynamic_pointer_cast<CatalogImpl>(kCatalog)->Clone();
                 auto clonedChildICatalog = std::dynamic_pointer_cast<ICatalog>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetCatalog(clonedChildICatalog);
+                clonedObject->SetCatalog(std::dynamic_pointer_cast<ICatalogWriter>(clonedChildICatalog));
             }
             return clonedObject;
         }
@@ -3635,87 +3134,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _routeCatalog;
         }
 
-        /**
-         * Sets the value of model property vehicleCatalog
-         * @param vehicleCatalog from OpenSCENARIO class model specification: [This catalog location is the first choice to resolve
-         * CatalogReferences on vehicle types.]
-         * 
-        */
-        void CatalogLocationsImpl::SetVehicleCatalog(std::shared_ptr<IVehicleCatalogLocation> vehicleCatalog )
-        {
-            _vehicleCatalog = vehicleCatalog;
-        }
-        /**
-         * Sets the value of model property controllerCatalog
-         * @param controllerCatalog from OpenSCENARIO class model specification: [This catalog location is the first choice to 
-         * resolve CatalogReferences on controller types.]
-         * 
-        */
-        void CatalogLocationsImpl::SetControllerCatalog(std::shared_ptr<IControllerCatalogLocation> controllerCatalog )
-        {
-            _controllerCatalog = controllerCatalog;
-        }
-        /**
-         * Sets the value of model property pedestrianCatalog
-         * @param pedestrianCatalog from OpenSCENARIO class model specification: [This catalog location is the first choice to 
-         * resolve CatalogReferences on pedestrian types.]
-         * 
-        */
-        void CatalogLocationsImpl::SetPedestrianCatalog(std::shared_ptr<IPedestrianCatalogLocation> pedestrianCatalog )
-        {
-            _pedestrianCatalog = pedestrianCatalog;
-        }
-        /**
-         * Sets the value of model property miscObjectCatalog
-         * @param miscObjectCatalog from OpenSCENARIO class model specification: [This catalog location is the first choice to 
-         * resolve CatalogReferences on miscellaneous object types.]
-         * 
-        */
-        void CatalogLocationsImpl::SetMiscObjectCatalog(std::shared_ptr<IMiscObjectCatalogLocation> miscObjectCatalog )
-        {
-            _miscObjectCatalog = miscObjectCatalog;
-        }
-        /**
-         * Sets the value of model property environmentCatalog
-         * @param environmentCatalog from OpenSCENARIO class model specification: [This catalog location is the first choice to 
-         * resolve CatalogReferences on environment types.]
-         * 
-        */
-        void CatalogLocationsImpl::SetEnvironmentCatalog(std::shared_ptr<IEnvironmentCatalogLocation> environmentCatalog )
-        {
-            _environmentCatalog = environmentCatalog;
-        }
-        /**
-         * Sets the value of model property maneuverCatalog
-         * @param maneuverCatalog from OpenSCENARIO class model specification: [This catalog location is the first choice to 
-         * resolve CatalogReferences on maneuver types.]
-         * 
-        */
-        void CatalogLocationsImpl::SetManeuverCatalog(std::shared_ptr<IManeuverCatalogLocation> maneuverCatalog )
-        {
-            _maneuverCatalog = maneuverCatalog;
-        }
-        /**
-         * Sets the value of model property trajectoryCatalog
-         * @param trajectoryCatalog from OpenSCENARIO class model specification: [This catalog location is the first choice to 
-         * resolve CatalogReferences on trajectory types.]
-         * 
-        */
-        void CatalogLocationsImpl::SetTrajectoryCatalog(std::shared_ptr<ITrajectoryCatalogLocation> trajectoryCatalog )
-        {
-            _trajectoryCatalog = trajectoryCatalog;
-        }
-        /**
-         * Sets the value of model property routeCatalog
-         * @param routeCatalog from OpenSCENARIO class model specification: [This catalog location is the first choice to resolve 
-         * CatalogReferences on route types.]
-         * 
-        */
-        void CatalogLocationsImpl::SetRouteCatalog(std::shared_ptr<IRouteCatalogLocation> routeCatalog )
-        {
-            _routeCatalog = routeCatalog;
-        }
-
         void CatalogLocationsImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
         }
@@ -3738,42 +3156,42 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kVehicleCatalog =  GetVehicleCatalog();
+                const auto kVehicleCatalog =  GetWriterVehicleCatalog();
                 if (kVehicleCatalog)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kVehicleCatalog));
                 }
-                const auto kControllerCatalog =  GetControllerCatalog();
+                const auto kControllerCatalog =  GetWriterControllerCatalog();
                 if (kControllerCatalog)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kControllerCatalog));
                 }
-                const auto kPedestrianCatalog =  GetPedestrianCatalog();
+                const auto kPedestrianCatalog =  GetWriterPedestrianCatalog();
                 if (kPedestrianCatalog)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kPedestrianCatalog));
                 }
-                const auto kMiscObjectCatalog =  GetMiscObjectCatalog();
+                const auto kMiscObjectCatalog =  GetWriterMiscObjectCatalog();
                 if (kMiscObjectCatalog)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kMiscObjectCatalog));
                 }
-                const auto kEnvironmentCatalog =  GetEnvironmentCatalog();
+                const auto kEnvironmentCatalog =  GetWriterEnvironmentCatalog();
                 if (kEnvironmentCatalog)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kEnvironmentCatalog));
                 }
-                const auto kManeuverCatalog =  GetManeuverCatalog();
+                const auto kManeuverCatalog =  GetWriterManeuverCatalog();
                 if (kManeuverCatalog)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kManeuverCatalog));
                 }
-                const auto kTrajectoryCatalog =  GetTrajectoryCatalog();
+                const auto kTrajectoryCatalog =  GetWriterTrajectoryCatalog();
                 if (kTrajectoryCatalog)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kTrajectoryCatalog));
                 }
-                const auto kRouteCatalog =  GetRouteCatalog();
+                const auto kRouteCatalog =  GetWriterRouteCatalog();
                 if (kRouteCatalog)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kRouteCatalog));
@@ -3796,69 +3214,69 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kVehicleCatalog =  GetVehicleCatalog();
+            const auto kVehicleCatalog =  GetWriterVehicleCatalog();
             if (kVehicleCatalog)
             {
                 auto clonedChild = std::dynamic_pointer_cast<VehicleCatalogLocationImpl>(kVehicleCatalog)->Clone();
                 auto clonedChildIVehicleCatalogLocation = std::dynamic_pointer_cast<IVehicleCatalogLocation>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetVehicleCatalog(clonedChildIVehicleCatalogLocation);
+                clonedObject->SetVehicleCatalog(std::dynamic_pointer_cast<IVehicleCatalogLocationWriter>(clonedChildIVehicleCatalogLocation));
             }
-            const auto kControllerCatalog =  GetControllerCatalog();
+            const auto kControllerCatalog =  GetWriterControllerCatalog();
             if (kControllerCatalog)
             {
                 auto clonedChild = std::dynamic_pointer_cast<ControllerCatalogLocationImpl>(kControllerCatalog)->Clone();
                 auto clonedChildIControllerCatalogLocation = std::dynamic_pointer_cast<IControllerCatalogLocation>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetControllerCatalog(clonedChildIControllerCatalogLocation);
+                clonedObject->SetControllerCatalog(std::dynamic_pointer_cast<IControllerCatalogLocationWriter>(clonedChildIControllerCatalogLocation));
             }
-            const auto kPedestrianCatalog =  GetPedestrianCatalog();
+            const auto kPedestrianCatalog =  GetWriterPedestrianCatalog();
             if (kPedestrianCatalog)
             {
                 auto clonedChild = std::dynamic_pointer_cast<PedestrianCatalogLocationImpl>(kPedestrianCatalog)->Clone();
                 auto clonedChildIPedestrianCatalogLocation = std::dynamic_pointer_cast<IPedestrianCatalogLocation>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetPedestrianCatalog(clonedChildIPedestrianCatalogLocation);
+                clonedObject->SetPedestrianCatalog(std::dynamic_pointer_cast<IPedestrianCatalogLocationWriter>(clonedChildIPedestrianCatalogLocation));
             }
-            const auto kMiscObjectCatalog =  GetMiscObjectCatalog();
+            const auto kMiscObjectCatalog =  GetWriterMiscObjectCatalog();
             if (kMiscObjectCatalog)
             {
                 auto clonedChild = std::dynamic_pointer_cast<MiscObjectCatalogLocationImpl>(kMiscObjectCatalog)->Clone();
                 auto clonedChildIMiscObjectCatalogLocation = std::dynamic_pointer_cast<IMiscObjectCatalogLocation>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetMiscObjectCatalog(clonedChildIMiscObjectCatalogLocation);
+                clonedObject->SetMiscObjectCatalog(std::dynamic_pointer_cast<IMiscObjectCatalogLocationWriter>(clonedChildIMiscObjectCatalogLocation));
             }
-            const auto kEnvironmentCatalog =  GetEnvironmentCatalog();
+            const auto kEnvironmentCatalog =  GetWriterEnvironmentCatalog();
             if (kEnvironmentCatalog)
             {
                 auto clonedChild = std::dynamic_pointer_cast<EnvironmentCatalogLocationImpl>(kEnvironmentCatalog)->Clone();
                 auto clonedChildIEnvironmentCatalogLocation = std::dynamic_pointer_cast<IEnvironmentCatalogLocation>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetEnvironmentCatalog(clonedChildIEnvironmentCatalogLocation);
+                clonedObject->SetEnvironmentCatalog(std::dynamic_pointer_cast<IEnvironmentCatalogLocationWriter>(clonedChildIEnvironmentCatalogLocation));
             }
-            const auto kManeuverCatalog =  GetManeuverCatalog();
+            const auto kManeuverCatalog =  GetWriterManeuverCatalog();
             if (kManeuverCatalog)
             {
                 auto clonedChild = std::dynamic_pointer_cast<ManeuverCatalogLocationImpl>(kManeuverCatalog)->Clone();
                 auto clonedChildIManeuverCatalogLocation = std::dynamic_pointer_cast<IManeuverCatalogLocation>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetManeuverCatalog(clonedChildIManeuverCatalogLocation);
+                clonedObject->SetManeuverCatalog(std::dynamic_pointer_cast<IManeuverCatalogLocationWriter>(clonedChildIManeuverCatalogLocation));
             }
-            const auto kTrajectoryCatalog =  GetTrajectoryCatalog();
+            const auto kTrajectoryCatalog =  GetWriterTrajectoryCatalog();
             if (kTrajectoryCatalog)
             {
                 auto clonedChild = std::dynamic_pointer_cast<TrajectoryCatalogLocationImpl>(kTrajectoryCatalog)->Clone();
                 auto clonedChildITrajectoryCatalogLocation = std::dynamic_pointer_cast<ITrajectoryCatalogLocation>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetTrajectoryCatalog(clonedChildITrajectoryCatalogLocation);
+                clonedObject->SetTrajectoryCatalog(std::dynamic_pointer_cast<ITrajectoryCatalogLocationWriter>(clonedChildITrajectoryCatalogLocation));
             }
-            const auto kRouteCatalog =  GetRouteCatalog();
+            const auto kRouteCatalog =  GetWriterRouteCatalog();
             if (kRouteCatalog)
             {
                 auto clonedChild = std::dynamic_pointer_cast<RouteCatalogLocationImpl>(kRouteCatalog)->Clone();
                 auto clonedChildIRouteCatalogLocation = std::dynamic_pointer_cast<IRouteCatalogLocation>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetRouteCatalog(clonedChildIRouteCatalogLocation);
+                clonedObject->SetRouteCatalog(std::dynamic_pointer_cast<IRouteCatalogLocationWriter>(clonedChildIRouteCatalogLocation));
             }
             return clonedObject;
         }
@@ -3953,50 +3371,14 @@ namespace NET_ASAM_OPENSCENARIO
         }
         std::vector<std::shared_ptr<IParameterAssignment>> CatalogReferenceImpl::GetParameterAssignments()
         {
-            return _parameterAssignments;
+            std::vector<std::shared_ptr<IParameterAssignment>> temp;
+            for(auto&& elm: _parameterAssignments)
+                temp.push_back(elm);
+            return temp;
         }
         std::shared_ptr<ICatalogElement> CatalogReferenceImpl::GetRef()
         {
             return _ref;
-        }
-
-        /**
-         * Sets the value of model property catalogName
-         * @param catalogName from OpenSCENARIO class model specification: [Name of the catalog.]
-         * 
-        */
-        void CatalogReferenceImpl::SetCatalogName(std::string catalogName )
-        {
-            _catalogName = catalogName;
-        }
-        /**
-         * Sets the value of model property entryName
-         * @param entryName from OpenSCENARIO class model specification: [Name of catalog entry.]
-         * 
-        */
-        void CatalogReferenceImpl::SetEntryName(std::string entryName )
-        {
-            _entryName = entryName;
-        }
-        /**
-         * Sets the value of model property parameterAssignments
-         * @param parameterAssignments from OpenSCENARIO class model specification: [List of parameter assignments for 
-         * instantiation.]
-         * 
-        */
-        void CatalogReferenceImpl::SetParameterAssignments(std::vector<std::shared_ptr<IParameterAssignment>>& parameterAssignments)
-        {
-            _parameterAssignments = parameterAssignments;
-        }
-        /**
-         * Sets the value of model property ref
-         * @param ref from OpenSCENARIO class model specification: [The resolved reference to a catalog element (out of the 
-         * catalogName and entryName). Transient means, that it is not , mapped to the schema.]
-         * 
-        */
-        void CatalogReferenceImpl::SetRef(std::shared_ptr<ICatalogElement> ref )
-        {
-            _ref = ref;
         }
 
         void CatalogReferenceImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
@@ -4033,7 +3415,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                auto parameterAssignments =  GetParameterAssignments();
+                auto parameterAssignments =  GetWriterParameterAssignments();
                 if (!parameterAssignments.empty())
                 {
                     for(auto&& item : parameterAssignments)
@@ -4059,19 +3441,19 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetCatalogName(_catalogName);
+            clonedObject->_catalogName = GetCatalogName();
             // Simple type
-            clonedObject->SetEntryName(_entryName);
+            clonedObject->_entryName = GetEntryName();
             // clone children
-            const auto kParameterAssignments =  GetParameterAssignments();
+            const auto kParameterAssignments =  GetWriterParameterAssignments();
             if (!kParameterAssignments.empty())
             {
-                std::vector<std::shared_ptr<IParameterAssignment>> clonedList;
+                std::vector<std::shared_ptr<IParameterAssignmentWriter>> clonedList;
                 for(auto&& kItem : kParameterAssignments)
                 {
                     auto clonedChild = std::dynamic_pointer_cast<ParameterAssignmentImpl>(kItem)->Clone();
                     clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                    clonedList.push_back(std::dynamic_pointer_cast<ParameterAssignmentImpl>(clonedChild));
+                    clonedList.push_back(std::dynamic_pointer_cast<IParameterAssignmentWriter>(clonedChild));
                 }
                 clonedObject->SetParameterAssignments(clonedList);
             }
@@ -4154,34 +3536,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _z;
         }
 
-        /**
-         * Sets the value of model property x
-         * @param x from OpenSCENARIO class model specification: [Center offset in x direction.]
-         * 
-        */
-        void CenterImpl::SetX(double x )
-        {
-            _x = x;
-        }
-        /**
-         * Sets the value of model property y
-         * @param y from OpenSCENARIO class model specification: [Center offset in y direction.]
-         * 
-        */
-        void CenterImpl::SetY(double y )
-        {
-            _y = y;
-        }
-        /**
-         * Sets the value of model property z
-         * @param z from OpenSCENARIO class model specification: [Center offset in z direction.]
-         * 
-        */
-        void CenterImpl::SetZ(double z )
-        {
-            _z = z;
-        }
-
         void CenterImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
             if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__X)
@@ -4240,11 +3594,11 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetX(_x);
+            clonedObject->_x = GetX();
             // Simple type
-            clonedObject->SetY(_y);
+            clonedObject->_y = GetY();
             // Simple type
-            clonedObject->SetZ(_z);
+            clonedObject->_z = GetZ();
             // clone children
             return clonedObject;
         }
@@ -4284,20 +3638,9 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, SimpleType::STRING);
         }
 
-        INamedReference<IEntity>* CentralSwarmObjectImpl::GetEntityRef()
+        std::shared_ptr<INamedReference<IEntity>> CentralSwarmObjectImpl::GetEntityRef()
         {
-            return &_entityRef;
-        }
-
-        /**
-         * Sets the value of model property entityRef
-         * @param entityRef from OpenSCENARIO class model specification: [Name of the central entity the swarm traffic is created 
-         * around.]
-         * 
-        */
-        void CentralSwarmObjectImpl::SetEntityRef(NamedReferenceProxy<IEntity>& entityRef )
-        {
-            _entityRef = entityRef;
+            return _entityRef;
         }
 
         void CentralSwarmObjectImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
@@ -4305,7 +3648,8 @@ namespace NET_ASAM_OPENSCENARIO
             if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
             {
                 // Proxy
-                _entityRef = NamedReferenceProxy<IEntity>(parameterLiteralValue);
+                const auto kProxy = std::make_shared<NamedReferenceProxy<IEntity>>(parameterLiteralValue);
+                _entityRef = std::dynamic_pointer_cast<INamedReference<IEntity>>(kProxy);
                 AddResolvedParameter(attributeKey);
             }
         }
@@ -4346,9 +3690,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Proxy
-            auto proxy = _entityRef;
-            proxy.SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-            clonedObject->SetEntityRef(proxy);
+            auto proxy = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetEntityRef()));
+            proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->_entityRef = proxy;
+            
             // clone children
             return clonedObject;
         }
@@ -4439,64 +3784,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _position;
         }
 
-        /**
-         * Sets the value of model property curvature
-         * @param curvature from OpenSCENARIO class model specification: [Start curvature of clothoid.]
-         * 
-        */
-        void ClothoidImpl::SetCurvature(double curvature )
-        {
-            _curvature = curvature;
-        }
-        /**
-         * Sets the value of model property curvatureDot
-         * @param curvatureDot from OpenSCENARIO class model specification: [Rate of change of the curvature of the clothoid.Unit: 
-         * 1/s;Range [0..inf[.]
-         * 
-        */
-        void ClothoidImpl::SetCurvatureDot(double curvatureDot )
-        {
-            _curvatureDot = curvatureDot;
-        }
-        /**
-         * Sets the value of model property length
-         * @param length from OpenSCENARIO class model specification: [Length of clothoid.]
-         * 
-        */
-        void ClothoidImpl::SetLength(double length )
-        {
-            _length = length;
-        }
-        /**
-         * Sets the value of model property startTime
-         * @param startTime from OpenSCENARIO class model specification: [Optional time specification at the start of the clothoid.
-         * Unit: s;Range [0..inf[.]
-         * 
-        */
-        void ClothoidImpl::SetStartTime(double startTime )
-        {
-            _startTime = startTime;
-        }
-        /**
-         * Sets the value of model property stopTime
-         * @param stopTime from OpenSCENARIO class model specification: [Optional time specification at the end of the clothoid. 
-         * Unit: s;Range ]0..inf[.]
-         * 
-        */
-        void ClothoidImpl::SetStopTime(double stopTime )
-        {
-            _stopTime = stopTime;
-        }
-        /**
-         * Sets the value of model property position
-         * @param position from OpenSCENARIO class model specification: [Start position of a clothoid.]
-         * 
-        */
-        void ClothoidImpl::SetPosition(std::shared_ptr<IPosition> position )
-        {
-            _position = position;
-        }
-
         void ClothoidImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
             if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__CURVATURE)
@@ -4549,7 +3836,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kPosition =  GetPosition();
+                const auto kPosition =  GetWriterPosition();
                 if (kPosition)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kPosition));
@@ -4572,23 +3859,23 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetCurvature(_curvature);
+            clonedObject->_curvature = GetCurvature();
             // Simple type
-            clonedObject->SetCurvatureDot(_curvatureDot);
+            clonedObject->_curvatureDot = GetCurvatureDot();
             // Simple type
-            clonedObject->SetLength(_length);
+            clonedObject->_length = GetLength();
             // Simple type
-            clonedObject->SetStartTime(_startTime);
+            clonedObject->_startTime = GetStartTime();
             // Simple type
-            clonedObject->SetStopTime(_stopTime);
+            clonedObject->_stopTime = GetStopTime();
             // clone children
-            const auto kPosition =  GetPosition();
+            const auto kPosition =  GetWriterPosition();
             if (kPosition)
             {
                 auto clonedChild = std::dynamic_pointer_cast<PositionImpl>(kPosition)->Clone();
                 auto clonedChildIPosition = std::dynamic_pointer_cast<IPosition>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetPosition(clonedChildIPosition);
+                clonedObject->SetPosition(std::dynamic_pointer_cast<IPositionWriter>(clonedChildIPosition));
             }
             return clonedObject;
         }
@@ -4645,26 +3932,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _byType;
         }
 
-        /**
-         * Sets the value of model property entityRef
-         * @param entityRef from OpenSCENARIO class model specification: [Name of a specific entity.]
-         * 
-        */
-        void CollisionConditionImpl::SetEntityRef(std::shared_ptr<IEntityRef> entityRef )
-        {
-            _entityRef = entityRef;
-        }
-        /**
-         * Sets the value of model property byType
-         * @param byType from OpenSCENARIO class model specification: [Entities of this type can trigger the condition when 
-         * collide.]
-         * 
-        */
-        void CollisionConditionImpl::SetByType(std::shared_ptr<IByObjectType> byType )
-        {
-            _byType = byType;
-        }
-
         void CollisionConditionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
         }
@@ -4687,12 +3954,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kEntityRef =  GetEntityRef();
+                const auto kEntityRef =  GetWriterEntityRef();
                 if (kEntityRef)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kEntityRef));
                 }
-                const auto kByType =  GetByType();
+                const auto kByType =  GetWriterByType();
                 if (kByType)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kByType));
@@ -4715,21 +3982,21 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kEntityRef =  GetEntityRef();
+            const auto kEntityRef =  GetWriterEntityRef();
             if (kEntityRef)
             {
                 auto clonedChild = std::dynamic_pointer_cast<EntityRefImpl>(kEntityRef)->Clone();
                 auto clonedChildIEntityRef = std::dynamic_pointer_cast<IEntityRef>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetEntityRef(clonedChildIEntityRef);
+                clonedObject->SetEntityRef(std::dynamic_pointer_cast<IEntityRefWriter>(clonedChildIEntityRef));
             }
-            const auto kByType =  GetByType();
+            const auto kByType =  GetWriterByType();
             if (kByType)
             {
                 auto clonedChild = std::dynamic_pointer_cast<ByObjectTypeImpl>(kByType)->Clone();
                 auto clonedChildIByObjectType = std::dynamic_pointer_cast<IByObjectType>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetByType(clonedChildIByObjectType);
+                clonedObject->SetByType(std::dynamic_pointer_cast<IByObjectTypeWriter>(clonedChildIByObjectType));
             }
             return clonedObject;
         }
@@ -4780,22 +4047,22 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, SimpleType::STRING);
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DELAY, SimpleType::DOUBLE);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__CONDITION_EDGE, SimpleType::ENUM_TYPE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DELAY, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, SimpleType::STRING);
         }
 
-        std::string ConditionImpl::GetName()
+        ConditionEdge ConditionImpl::GetConditionEdge()
         {
-            return _name;
+            return _conditionEdge;
         }
         double ConditionImpl::GetDelay()
         {
             return _delay;
         }
-        ConditionEdge ConditionImpl::GetConditionEdge()
+        std::string ConditionImpl::GetName()
         {
-            return _conditionEdge;
+            return _name;
         }
         std::shared_ptr<IByEntityCondition> ConditionImpl::GetByEntityCondition()
         {
@@ -4806,69 +4073,9 @@ namespace NET_ASAM_OPENSCENARIO
             return _byValueCondition;
         }
 
-        /**
-         * Sets the value of model property name
-         * @param name from OpenSCENARIO class model specification: [Name of the condition.]
-         * 
-        */
-        void ConditionImpl::SetName(std::string name )
-        {
-            _name = name;
-        }
-        /**
-         * Sets the value of model property delay
-         * @param delay from OpenSCENARIO class model specification: [Time elapsed after the edge condition is verified, until the 
-         * condition returns true to the scenario. Unit: s; Range: , [0..inf[.]
-         * 
-        */
-        void ConditionImpl::SetDelay(double delay )
-        {
-            _delay = delay;
-        }
-        /**
-         * Sets the value of model property conditionEdge
-         * @param conditionEdge from OpenSCENARIO class model specification: [Specifies the edge when the condition is evaluated to
-         * true (rising, falling, any).]
-         * 
-        */
-        void ConditionImpl::SetConditionEdge(ConditionEdge conditionEdge )
-        {
-            _conditionEdge = conditionEdge;
-        }
-        /**
-         * Sets the value of model property byEntityCondition
-         * @param byEntityCondition from OpenSCENARIO class model specification: [A condition that refers to an entity.]
-         * 
-        */
-        void ConditionImpl::SetByEntityCondition(std::shared_ptr<IByEntityCondition> byEntityCondition )
-        {
-            _byEntityCondition = byEntityCondition;
-        }
-        /**
-         * Sets the value of model property byValueCondition
-         * @param byValueCondition from OpenSCENARIO class model specification: [A condition that refers to a runtime value.]
-         * 
-        */
-        void ConditionImpl::SetByValueCondition(std::shared_ptr<IByValueCondition> byValueCondition )
-        {
-            _byValueCondition = byValueCondition;
-        }
-
         void ConditionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
-            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__NAME)
-            {
-                // Simple type
-                _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                AddResolvedParameter(attributeKey);
-            }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__DELAY)
-            {
-                // Simple type
-                _delay = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                AddResolvedParameter(attributeKey);
-            }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__CONDITION_EDGE)
+            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__CONDITION_EDGE)
             {
                 // Enumeration Type
                 const auto kResult = ConditionEdge::GetFromLiteral(parameterLiteralValue);
@@ -4882,6 +4089,18 @@ namespace NET_ASAM_OPENSCENARIO
                     auto msg = FileContentMessage("Value '" + parameterLiteralValue + "' is not allowed.", ERROR, *GetTextmarker(attributeKey));
                     logger.LogMessage(msg );
                 }
+            }
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__DELAY)
+            {
+                // Simple type
+                _delay = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                AddResolvedParameter(attributeKey);
+            }
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__NAME)
+            {
+                // Simple type
+                _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -4903,12 +4122,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kByEntityCondition =  GetByEntityCondition();
+                const auto kByEntityCondition =  GetWriterByEntityCondition();
                 if (kByEntityCondition)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kByEntityCondition));
                 }
-                const auto kByValueCondition =  GetByValueCondition();
+                const auto kByValueCondition =  GetWriterByValueCondition();
                 if (kByValueCondition)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kByValueCondition));
@@ -4930,28 +4149,32 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToParameterNameMap(*clonedObject);
 
             // clone attributes;
-            // Simple type
-            clonedObject->SetName(_name);
-            // Simple type
-            clonedObject->SetDelay(_delay);
             // Enumeration Type
-            clonedObject->SetConditionEdge(_conditionEdge);
+            const auto kConditionEdge = GetConditionEdge();
+            if ( kConditionEdge.GetLiteral() != "UNKNOWN" )
+            {
+                clonedObject->_conditionEdge = ConditionEdge::GetFromLiteral(kConditionEdge.GetLiteral());
+            }
+            // Simple type
+            clonedObject->_delay = GetDelay();
+            // Simple type
+            clonedObject->_name = GetName();
             // clone children
-            const auto kByEntityCondition =  GetByEntityCondition();
+            const auto kByEntityCondition =  GetWriterByEntityCondition();
             if (kByEntityCondition)
             {
                 auto clonedChild = std::dynamic_pointer_cast<ByEntityConditionImpl>(kByEntityCondition)->Clone();
                 auto clonedChildIByEntityCondition = std::dynamic_pointer_cast<IByEntityCondition>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetByEntityCondition(clonedChildIByEntityCondition);
+                clonedObject->SetByEntityCondition(std::dynamic_pointer_cast<IByEntityConditionWriter>(clonedChildIByEntityCondition));
             }
-            const auto kByValueCondition =  GetByValueCondition();
+            const auto kByValueCondition =  GetWriterByValueCondition();
             if (kByValueCondition)
             {
                 auto clonedChild = std::dynamic_pointer_cast<ByValueConditionImpl>(kByValueCondition)->Clone();
                 auto clonedChildIByValueCondition = std::dynamic_pointer_cast<IByValueCondition>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetByValueCondition(clonedChildIByValueCondition);
+                clonedObject->SetByValueCondition(std::dynamic_pointer_cast<IByValueConditionWriter>(clonedChildIByValueCondition));
             }
             return clonedObject;
         }
@@ -5025,17 +4248,10 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::vector<std::shared_ptr<ICondition>> ConditionGroupImpl::GetConditions()
         {
-            return _conditions;
-        }
-
-        /**
-         * Sets the value of model property conditions
-         * @param conditions from OpenSCENARIO class model specification: [A associated list of conditions.]
-         * 
-        */
-        void ConditionGroupImpl::SetConditions(std::vector<std::shared_ptr<ICondition>>& conditions)
-        {
-            _conditions = conditions;
+            std::vector<std::shared_ptr<ICondition>> temp;
+            for(auto&& elm: _conditions)
+                temp.push_back(elm);
+            return temp;
         }
 
         void ConditionGroupImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
@@ -5060,7 +4276,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                auto conditions =  GetConditions();
+                auto conditions =  GetWriterConditions();
                 if (!conditions.empty())
                 {
                     for(auto&& item : conditions)
@@ -5086,15 +4302,15 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kConditions =  GetConditions();
+            const auto kConditions =  GetWriterConditions();
             if (!kConditions.empty())
             {
-                std::vector<std::shared_ptr<ICondition>> clonedList;
+                std::vector<std::shared_ptr<IConditionWriter>> clonedList;
                 for(auto&& kItem : kConditions)
                 {
                     auto clonedChild = std::dynamic_pointer_cast<ConditionImpl>(kItem)->Clone();
                     clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                    clonedList.push_back(std::dynamic_pointer_cast<ConditionImpl>(clonedChild));
+                    clonedList.push_back(std::dynamic_pointer_cast<IConditionWriter>(clonedChild));
                 }
                 clonedObject->SetConditions(clonedList);
             }
@@ -5163,36 +4379,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _position;
         }
 
-        /**
-         * Sets the value of model property time
-         * @param time from OpenSCENARIO class model specification: [Optional specification of the time dimension of the control 
-         * point. Unit: s;Range [0..inf[.]
-         * 
-        */
-        void ControlPointImpl::SetTime(double time )
-        {
-            _time = time;
-        }
-        /**
-         * Sets the value of model property weight
-         * @param weight from OpenSCENARIO class model specification: [Optional weight specification of the control point. If 
-         * unspecified, all control points will be equal weighted. Range , ]-inf..inf[.]
-         * 
-        */
-        void ControlPointImpl::SetWeight(double weight )
-        {
-            _weight = weight;
-        }
-        /**
-         * Sets the value of model property position
-         * @param position from OpenSCENARIO class model specification: [Position of the control point.]
-         * 
-        */
-        void ControlPointImpl::SetPosition(std::shared_ptr<IPosition> position )
-        {
-            _position = position;
-        }
-
         void ControlPointImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
             if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__TIME)
@@ -5227,7 +4413,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kPosition =  GetPosition();
+                const auto kPosition =  GetWriterPosition();
                 if (kPosition)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kPosition));
@@ -5250,17 +4436,17 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetTime(_time);
+            clonedObject->_time = GetTime();
             // Simple type
-            clonedObject->SetWeight(_weight);
+            clonedObject->_weight = GetWeight();
             // clone children
-            const auto kPosition =  GetPosition();
+            const auto kPosition =  GetWriterPosition();
             if (kPosition)
             {
                 auto clonedChild = std::dynamic_pointer_cast<PositionImpl>(kPosition)->Clone();
                 auto clonedChildIPosition = std::dynamic_pointer_cast<IPosition>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetPosition(clonedChildIPosition);
+                clonedObject->SetPosition(std::dynamic_pointer_cast<IPositionWriter>(clonedChildIPosition));
             }
             return clonedObject;
         }
@@ -5315,39 +4501,14 @@ namespace NET_ASAM_OPENSCENARIO
         }
         std::vector<std::shared_ptr<IParameterDeclaration>> ControllerImpl::GetParameterDeclarations()
         {
-            return _parameterDeclarations;
+            std::vector<std::shared_ptr<IParameterDeclaration>> temp;
+            for(auto&& elm: _parameterDeclarations)
+                temp.push_back(elm);
+            return temp;
         }
         std::shared_ptr<IProperties> ControllerImpl::GetProperties()
         {
             return _properties;
-        }
-
-        /**
-         * Sets the value of model property name
-         * @param name from OpenSCENARIO class model specification: [Name of the controller type.]
-         * 
-        */
-        void ControllerImpl::SetName(std::string name )
-        {
-            _name = name;
-        }
-        /**
-         * Sets the value of model property parameterDeclarations
-         * @param parameterDeclarations from OpenSCENARIO class model specification: [Definition of additional parameters.]
-         * 
-        */
-        void ControllerImpl::SetParameterDeclarations(std::vector<std::shared_ptr<IParameterDeclaration>>& parameterDeclarations)
-        {
-            _parameterDeclarations = parameterDeclarations;
-        }
-        /**
-         * Sets the value of model property properties
-         * @param properties from OpenSCENARIO class model specification: [Describing properties for the controller.]
-         * 
-        */
-        void ControllerImpl::SetProperties(std::shared_ptr<IProperties> properties )
-        {
-            _properties = properties;
         }
 
         void ControllerImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
@@ -5398,7 +4559,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                auto parameterDeclarations =  GetParameterDeclarations();
+                auto parameterDeclarations =  GetWriterParameterDeclarations();
                 if (!parameterDeclarations.empty())
                 {
                     for(auto&& item : parameterDeclarations)
@@ -5406,7 +4567,7 @@ namespace NET_ASAM_OPENSCENARIO
                         result.push_back(std::dynamic_pointer_cast<BaseImpl>(item) );
                     }
                 }
-                const auto kProperties =  GetProperties();
+                const auto kProperties =  GetWriterProperties();
                 if (kProperties)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kProperties));
@@ -5429,27 +4590,27 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetName(_name);
+            clonedObject->_name = GetName();
             // clone children
-            const auto kParameterDeclarations =  GetParameterDeclarations();
+            const auto kParameterDeclarations =  GetWriterParameterDeclarations();
             if (!kParameterDeclarations.empty())
             {
-                std::vector<std::shared_ptr<IParameterDeclaration>> clonedList;
+                std::vector<std::shared_ptr<IParameterDeclarationWriter>> clonedList;
                 for(auto&& kItem : kParameterDeclarations)
                 {
                     auto clonedChild = std::dynamic_pointer_cast<ParameterDeclarationImpl>(kItem)->Clone();
                     clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                    clonedList.push_back(std::dynamic_pointer_cast<ParameterDeclarationImpl>(clonedChild));
+                    clonedList.push_back(std::dynamic_pointer_cast<IParameterDeclarationWriter>(clonedChild));
                 }
                 clonedObject->SetParameterDeclarations(clonedList);
             }
-            const auto kProperties =  GetProperties();
+            const auto kProperties =  GetWriterProperties();
             if (kProperties)
             {
                 auto clonedChild = std::dynamic_pointer_cast<PropertiesImpl>(kProperties)->Clone();
                 auto clonedChildIProperties = std::dynamic_pointer_cast<IProperties>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetProperties(clonedChildIProperties);
+                clonedObject->SetProperties(std::dynamic_pointer_cast<IPropertiesWriter>(clonedChildIProperties));
             }
             return clonedObject;
         }
@@ -5527,26 +4688,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _overrideControllerValueAction;
         }
 
-        /**
-         * Sets the value of model property assignControllerAction
-         * @param assignControllerAction from OpenSCENARIO class model specification: [Assign a controller to an entity.]
-         * 
-        */
-        void ControllerActionImpl::SetAssignControllerAction(std::shared_ptr<IAssignControllerAction> assignControllerAction )
-        {
-            _assignControllerAction = assignControllerAction;
-        }
-        /**
-         * Sets the value of model property overrideControllerValueAction
-         * @param overrideControllerValueAction from OpenSCENARIO class model specification: [Values for throttle, brake, clutch, 
-         * parking brake, steering wheel or gear.]
-         * 
-        */
-        void ControllerActionImpl::SetOverrideControllerValueAction(std::shared_ptr<IOverrideControllerValueAction> overrideControllerValueAction )
-        {
-            _overrideControllerValueAction = overrideControllerValueAction;
-        }
-
         void ControllerActionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
         }
@@ -5569,12 +4710,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kAssignControllerAction =  GetAssignControllerAction();
+                const auto kAssignControllerAction =  GetWriterAssignControllerAction();
                 if (kAssignControllerAction)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kAssignControllerAction));
                 }
-                const auto kOverrideControllerValueAction =  GetOverrideControllerValueAction();
+                const auto kOverrideControllerValueAction =  GetWriterOverrideControllerValueAction();
                 if (kOverrideControllerValueAction)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kOverrideControllerValueAction));
@@ -5597,21 +4738,21 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kAssignControllerAction =  GetAssignControllerAction();
+            const auto kAssignControllerAction =  GetWriterAssignControllerAction();
             if (kAssignControllerAction)
             {
                 auto clonedChild = std::dynamic_pointer_cast<AssignControllerActionImpl>(kAssignControllerAction)->Clone();
                 auto clonedChildIAssignControllerAction = std::dynamic_pointer_cast<IAssignControllerAction>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetAssignControllerAction(clonedChildIAssignControllerAction);
+                clonedObject->SetAssignControllerAction(std::dynamic_pointer_cast<IAssignControllerActionWriter>(clonedChildIAssignControllerAction));
             }
-            const auto kOverrideControllerValueAction =  GetOverrideControllerValueAction();
+            const auto kOverrideControllerValueAction =  GetWriterOverrideControllerValueAction();
             if (kOverrideControllerValueAction)
             {
                 auto clonedChild = std::dynamic_pointer_cast<OverrideControllerValueActionImpl>(kOverrideControllerValueAction)->Clone();
                 auto clonedChildIOverrideControllerValueAction = std::dynamic_pointer_cast<IOverrideControllerValueAction>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetOverrideControllerValueAction(clonedChildIOverrideControllerValueAction);
+                clonedObject->SetOverrideControllerValueAction(std::dynamic_pointer_cast<IOverrideControllerValueActionWriter>(clonedChildIOverrideControllerValueAction));
             }
             return clonedObject;
         }
@@ -5669,16 +4810,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _directory;
         }
 
-        /**
-         * Sets the value of model property directory
-         * @param directory from OpenSCENARIO class model specification: [All catalog files in this directory must be evaluated.]
-         * 
-        */
-        void ControllerCatalogLocationImpl::SetDirectory(std::shared_ptr<IDirectory> directory )
-        {
-            _directory = directory;
-        }
-
         void ControllerCatalogLocationImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
         }
@@ -5701,7 +4832,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kDirectory =  GetDirectory();
+                const auto kDirectory =  GetWriterDirectory();
                 if (kDirectory)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kDirectory));
@@ -5724,13 +4855,13 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kDirectory =  GetDirectory();
+            const auto kDirectory =  GetWriterDirectory();
             if (kDirectory)
             {
                 auto clonedChild = std::dynamic_pointer_cast<DirectoryImpl>(kDirectory)->Clone();
                 auto clonedChildIDirectory = std::dynamic_pointer_cast<IDirectory>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetDirectory(clonedChildIDirectory);
+                clonedObject->SetDirectory(std::dynamic_pointer_cast<IDirectoryWriter>(clonedChildIDirectory));
             }
             return clonedObject;
         }
@@ -5780,18 +4911,10 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::vector<std::shared_ptr<IControllerDistributionEntry>> ControllerDistributionImpl::GetControllerDistributionEntries()
         {
-            return _controllerDistributionEntries;
-        }
-
-        /**
-         * Sets the value of model property controllerDistributionEntries
-         * @param controllerDistributionEntries from OpenSCENARIO class model specification: [The weights of controllers of a 
-         * specific type in a traffic.]
-         * 
-        */
-        void ControllerDistributionImpl::SetControllerDistributionEntries(std::vector<std::shared_ptr<IControllerDistributionEntry>>& controllerDistributionEntries)
-        {
-            _controllerDistributionEntries = controllerDistributionEntries;
+            std::vector<std::shared_ptr<IControllerDistributionEntry>> temp;
+            for(auto&& elm: _controllerDistributionEntries)
+                temp.push_back(elm);
+            return temp;
         }
 
         void ControllerDistributionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
@@ -5816,7 +4939,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                auto controllerDistributionEntries =  GetControllerDistributionEntries();
+                auto controllerDistributionEntries =  GetWriterControllerDistributionEntries();
                 if (!controllerDistributionEntries.empty())
                 {
                     for(auto&& item : controllerDistributionEntries)
@@ -5842,15 +4965,15 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kControllerDistributionEntries =  GetControllerDistributionEntries();
+            const auto kControllerDistributionEntries =  GetWriterControllerDistributionEntries();
             if (!kControllerDistributionEntries.empty())
             {
-                std::vector<std::shared_ptr<IControllerDistributionEntry>> clonedList;
+                std::vector<std::shared_ptr<IControllerDistributionEntryWriter>> clonedList;
                 for(auto&& kItem : kControllerDistributionEntries)
                 {
                     auto clonedChild = std::dynamic_pointer_cast<ControllerDistributionEntryImpl>(kItem)->Clone();
                     clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                    clonedList.push_back(std::dynamic_pointer_cast<ControllerDistributionEntryImpl>(clonedChild));
+                    clonedList.push_back(std::dynamic_pointer_cast<IControllerDistributionEntryWriter>(clonedChild));
                 }
                 clonedObject->SetControllerDistributionEntries(clonedList);
             }
@@ -5918,34 +5041,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _catalogReference;
         }
 
-        /**
-         * Sets the value of model property weight
-         * @param weight from OpenSCENARIO class model specification: [The weight of the entry. Range: ]0..inf[.]
-         * 
-        */
-        void ControllerDistributionEntryImpl::SetWeight(double weight )
-        {
-            _weight = weight;
-        }
-        /**
-         * Sets the value of model property controller
-         * @param controller from OpenSCENARIO class model specification: [The specified controller type.]
-         * 
-        */
-        void ControllerDistributionEntryImpl::SetController(std::shared_ptr<IController> controller )
-        {
-            _controller = controller;
-        }
-        /**
-         * Sets the value of model property catalogReference
-         * @param catalogReference from OpenSCENARIO class model specification: [A controller type import from a catalog.]
-         * 
-        */
-        void ControllerDistributionEntryImpl::SetCatalogReference(std::shared_ptr<ICatalogReference> catalogReference )
-        {
-            _catalogReference = catalogReference;
-        }
-
         void ControllerDistributionEntryImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
             if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__WEIGHT)
@@ -5974,12 +5069,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kController =  GetController();
+                const auto kController =  GetWriterController();
                 if (kController)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kController));
                 }
-                const auto kCatalogReference =  GetCatalogReference();
+                const auto kCatalogReference =  GetWriterCatalogReference();
                 if (kCatalogReference)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kCatalogReference));
@@ -6002,23 +5097,23 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetWeight(_weight);
+            clonedObject->_weight = GetWeight();
             // clone children
-            const auto kController =  GetController();
+            const auto kController =  GetWriterController();
             if (kController)
             {
                 auto clonedChild = std::dynamic_pointer_cast<ControllerImpl>(kController)->Clone();
                 auto clonedChildIController = std::dynamic_pointer_cast<IController>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetController(clonedChildIController);
+                clonedObject->SetController(std::dynamic_pointer_cast<IControllerWriter>(clonedChildIController));
             }
-            const auto kCatalogReference =  GetCatalogReference();
+            const auto kCatalogReference =  GetWriterCatalogReference();
             if (kCatalogReference)
             {
                 auto clonedChild = std::dynamic_pointer_cast<CatalogReferenceImpl>(kCatalogReference)->Clone();
                 auto clonedChildICatalogReference = std::dynamic_pointer_cast<ICatalogReference>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetCatalogReference(clonedChildICatalogReference);
+                clonedObject->SetCatalogReference(std::dynamic_pointer_cast<ICatalogReferenceWriter>(clonedChildICatalogReference));
             }
             return clonedObject;
         }
@@ -6069,52 +5164,31 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__TYPE, SimpleType::STRING);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__CONTENT, SimpleType::STRING);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__TYPE, SimpleType::STRING);
         }
 
-        std::string CustomCommandActionImpl::GetType()
-        {
-            return _type;
-        }
         std::string CustomCommandActionImpl::GetContent()
         {
             return _content;
         }
-
-        /**
-         * Sets the value of model property type
-         * @param type from OpenSCENARIO class model specification: [Type that is defined as a contract between the simulation 
-         * environment provider and the author of a scenario.]
-         * 
-        */
-        void CustomCommandActionImpl::SetType(std::string type )
+        std::string CustomCommandActionImpl::GetType()
         {
-            _type = type;
-        }
-        /**
-         * Sets the value of model property content
-         * @param content from OpenSCENARIO class model specification: [The command that is defined as a contract between the 
-         * simulation environment provider and the author of a scenario.]
-         * 
-        */
-        void CustomCommandActionImpl::SetContent(std::string content )
-        {
-            _content = content;
+            return _type;
         }
 
         void CustomCommandActionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
-            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__TYPE)
-            {
-                // Simple type
-                _type = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                AddResolvedParameter(attributeKey);
-            }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__CONTENT)
+            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__CONTENT)
             {
                 // Simple type
                 _content = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                AddResolvedParameter(attributeKey);
+            }
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__TYPE)
+            {
+                // Simple type
+                _type = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
             }
         }
@@ -6155,7 +5229,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetType(_type);
+            clonedObject->_type = GetType();
             // clone children
             return clonedObject;
         }
@@ -6168,14 +5242,14 @@ namespace NET_ASAM_OPENSCENARIO
                 throw KeyNotSupportedException();
             }
              
-            if (key == OSC_CONSTANTS::ATTRIBUTE__TYPE)
-            {
-                return GetType();
-            } 
-            else 
             if (key == OSC_CONSTANTS::ATTRIBUTE__CONTENT)
             {
                 return GetContent();
+            } 
+            else 
+            if (key == OSC_CONSTANTS::ATTRIBUTE__TYPE)
+            {
+                return GetType();
             } 
             throw KeyNotSupportedException();
         }
@@ -6207,7 +5281,6 @@ namespace NET_ASAM_OPENSCENARIO
             * Filling the property to type map
             */
         }
-
 
 
         void DeleteEntityActionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
@@ -6285,61 +5358,30 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__WIDTH, SimpleType::DOUBLE);
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__LENGTH, SimpleType::DOUBLE);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__HEIGHT, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__LENGTH, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__WIDTH, SimpleType::DOUBLE);
         }
 
-        double DimensionsImpl::GetWidth()
+        double DimensionsImpl::GetHeight()
         {
-            return _width;
+            return _height;
         }
         double DimensionsImpl::GetLength()
         {
             return _length;
         }
-        double DimensionsImpl::GetHeight()
+        double DimensionsImpl::GetWidth()
         {
-            return _height;
-        }
-
-        /**
-         * Sets the value of model property width
-         * @param width from OpenSCENARIO class model specification: [Width of the entity's bounding box. Unit: m; Range: 
-         * [0..inf[.]
-         * 
-        */
-        void DimensionsImpl::SetWidth(double width )
-        {
-            _width = width;
-        }
-        /**
-         * Sets the value of model property length
-         * @param length from OpenSCENARIO class model specification: [Length of the entity's bounding box. Unit: m; Range: 
-         * [0..inf[.]
-         * 
-        */
-        void DimensionsImpl::SetLength(double length )
-        {
-            _length = length;
-        }
-        /**
-         * Sets the value of model property height
-         * @param height from OpenSCENARIO class model specification: [Height of the entity's bounding box. Unit: m; Range: 
-         * [0..inf[.]
-         * 
-        */
-        void DimensionsImpl::SetHeight(double height )
-        {
-            _height = height;
+            return _width;
         }
 
         void DimensionsImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
-            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__WIDTH)
+            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__HEIGHT)
             {
                 // Simple type
-                _width = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                _height = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__LENGTH)
@@ -6348,10 +5390,10 @@ namespace NET_ASAM_OPENSCENARIO
                 _length = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
             }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__HEIGHT)
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__WIDTH)
             {
                 // Simple type
-                _height = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                _width = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
             }
         }
@@ -6392,11 +5434,11 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetWidth(_width);
+            clonedObject->_height = GetHeight();
             // Simple type
-            clonedObject->SetLength(_length);
+            clonedObject->_length = GetLength();
             // Simple type
-            clonedObject->SetHeight(_height);
+            clonedObject->_width = GetWidth();
             // clone children
             return clonedObject;
         }
@@ -6439,16 +5481,6 @@ namespace NET_ASAM_OPENSCENARIO
         std::string DirectoryImpl::GetPath()
         {
             return _path;
-        }
-
-        /**
-         * Sets the value of model property path
-         * @param path from OpenSCENARIO class model specification: [File system path, e.g. path=/home/simulation/.]
-         * 
-        */
-        void DirectoryImpl::SetPath(std::string path )
-        {
-            _path = path;
         }
 
         void DirectoryImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
@@ -6497,7 +5529,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetPath(_path);
+            clonedObject->_path = GetPath();
             // clone children
             return clonedObject;
         }
@@ -6543,99 +5575,45 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, SimpleType::BOOLEAN);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ALONG_ROUTE, SimpleType::BOOLEAN);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, SimpleType::BOOLEAN);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__RULE, SimpleType::ENUM_TYPE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
         }
 
-        double DistanceConditionImpl::GetValue()
+        bool DistanceConditionImpl::GetAlongRoute()
         {
-            return _value;
+            return _alongRoute;
         }
         bool DistanceConditionImpl::GetFreespace()
         {
             return _freespace;
         }
-        bool DistanceConditionImpl::GetAlongRoute()
-        {
-            return _alongRoute;
-        }
         Rule DistanceConditionImpl::GetRule()
         {
             return _rule;
+        }
+        double DistanceConditionImpl::GetValue()
+        {
+            return _value;
         }
         std::shared_ptr<IPosition> DistanceConditionImpl::GetPosition()
         {
             return _position;
         }
 
-        /**
-         * Sets the value of model property value
-         * @param value from OpenSCENARIO class model specification: [The distance value. Unit: s; Range: [0..inf[.]
-         * 
-        */
-        void DistanceConditionImpl::SetValue(double value )
-        {
-            _value = value;
-        }
-        /**
-         * Sets the value of model property freespace
-         * @param freespace from OpenSCENARIO class model specification: [True: distance is measured between closest bounding box 
-         * points. False: reference point distance is used.]
-         * 
-        */
-        void DistanceConditionImpl::SetFreespace(bool freespace )
-        {
-            _freespace = freespace;
-        }
-        /**
-         * Sets the value of model property alongRoute
-         * @param alongRoute from OpenSCENARIO class model specification: [True: routing is taken into account, e.g. turns will 
-         * increase distance. False: straight line distance is used.]
-         * 
-        */
-        void DistanceConditionImpl::SetAlongRoute(bool alongRoute )
-        {
-            _alongRoute = alongRoute;
-        }
-        /**
-         * Sets the value of model property rule
-         * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
-         * 
-        */
-        void DistanceConditionImpl::SetRule(Rule rule )
-        {
-            _rule = rule;
-        }
-        /**
-         * Sets the value of model property position
-         * @param position from OpenSCENARIO class model specification: [The given position the distance is related to.]
-         * 
-        */
-        void DistanceConditionImpl::SetPosition(std::shared_ptr<IPosition> position )
-        {
-            _position = position;
-        }
-
         void DistanceConditionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
-            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
+            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ALONG_ROUTE)
             {
                 // Simple type
-                _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                _alongRoute = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__FREESPACE)
             {
                 // Simple type
                 _freespace = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                AddResolvedParameter(attributeKey);
-            }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ALONG_ROUTE)
-            {
-                // Simple type
-                _alongRoute = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__RULE)
@@ -6652,6 +5630,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto msg = FileContentMessage("Value '" + parameterLiteralValue + "' is not allowed.", ERROR, *GetTextmarker(attributeKey));
                     logger.LogMessage(msg );
                 }
+            }
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
+            {
+                // Simple type
+                _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -6673,7 +5657,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kPosition =  GetPosition();
+                const auto kPosition =  GetWriterPosition();
                 if (kPosition)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kPosition));
@@ -6696,21 +5680,25 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetValue(_value);
+            clonedObject->_alongRoute = GetAlongRoute();
             // Simple type
-            clonedObject->SetFreespace(_freespace);
-            // Simple type
-            clonedObject->SetAlongRoute(_alongRoute);
+            clonedObject->_freespace = GetFreespace();
             // Enumeration Type
-            clonedObject->SetRule(_rule);
+            const auto kRule = GetRule();
+            if ( kRule.GetLiteral() != "UNKNOWN" )
+            {
+                clonedObject->_rule = Rule::GetFromLiteral(kRule.GetLiteral());
+            }
+            // Simple type
+            clonedObject->_value = GetValue();
             // clone children
-            const auto kPosition =  GetPosition();
+            const auto kPosition =  GetWriterPosition();
             if (kPosition)
             {
                 auto clonedChild = std::dynamic_pointer_cast<PositionImpl>(kPosition)->Clone();
                 auto clonedChildIPosition = std::dynamic_pointer_cast<IPosition>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetPosition(clonedChildIPosition);
+                clonedObject->SetPosition(std::dynamic_pointer_cast<IPositionWriter>(clonedChildIPosition));
             }
             return clonedObject;
         }
@@ -6784,37 +5772,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _maxSpeed;
         }
 
-        /**
-         * Sets the value of model property maxAcceleration
-         * @param maxAcceleration from OpenSCENARIO class model specification: [Maximum acceleration the distance controller is 
-         * allowed to use for keeping the distance. Unit: m/s2; Range: [0..inf[.]
-         * 
-        */
-        void DynamicConstraintsImpl::SetMaxAcceleration(double maxAcceleration )
-        {
-            _maxAcceleration = maxAcceleration;
-        }
-        /**
-         * Sets the value of model property maxDeceleration
-         * @param maxDeceleration from OpenSCENARIO class model specification: [Maximum deceleration the distance controller is 
-         * allowed to use for keeping the distance. Unit: m/s2; Range: [0..inf[.]
-         * 
-        */
-        void DynamicConstraintsImpl::SetMaxDeceleration(double maxDeceleration )
-        {
-            _maxDeceleration = maxDeceleration;
-        }
-        /**
-         * Sets the value of model property maxSpeed
-         * @param maxSpeed from OpenSCENARIO class model specification: [Maximum speed the distance controller is allowed to use 
-         * for keeping the distance. Unit: m/s; Range: [0..inf[.]
-         * 
-        */
-        void DynamicConstraintsImpl::SetMaxSpeed(double maxSpeed )
-        {
-            _maxSpeed = maxSpeed;
-        }
-
         void DynamicConstraintsImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
             if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__MAX_ACCELERATION)
@@ -6873,11 +5830,11 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetMaxAcceleration(_maxAcceleration);
+            clonedObject->_maxAcceleration = GetMaxAcceleration();
             // Simple type
-            clonedObject->SetMaxDeceleration(_maxDeceleration);
+            clonedObject->_maxDeceleration = GetMaxDeceleration();
             // Simple type
-            clonedObject->SetMaxSpeed(_maxSpeed);
+            clonedObject->_maxSpeed = GetMaxSpeed();
             // clone children
             return clonedObject;
         }
@@ -6920,16 +5877,6 @@ namespace NET_ASAM_OPENSCENARIO
         double EndOfRoadConditionImpl::GetDuration()
         {
             return _duration;
-        }
-
-        /**
-         * Sets the value of model property duration
-         * @param duration from OpenSCENARIO class model specification: [Amount of time at end of road. Unit: s; Range: [0..inf[.]
-         * 
-        */
-        void EndOfRoadConditionImpl::SetDuration(double duration )
-        {
-            _duration = duration;
         }
 
         void EndOfRoadConditionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
@@ -6978,7 +5925,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetDuration(_duration);
+            clonedObject->_duration = GetDuration();
             // clone children
             return clonedObject;
         }
@@ -7019,31 +5966,17 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::vector<std::shared_ptr<IScenarioObject>> EntitiesImpl::GetScenarioObjects()
         {
-            return _scenarioObjects;
+            std::vector<std::shared_ptr<IScenarioObject>> temp;
+            for(auto&& elm: _scenarioObjects)
+                temp.push_back(elm);
+            return temp;
         }
         std::vector<std::shared_ptr<IEntitySelection>> EntitiesImpl::GetEntitySelections()
         {
-            return _entitySelections;
-        }
-
-        /**
-         * Sets the value of model property scenarioObjects
-         * @param scenarioObjects from OpenSCENARIO class model specification: [A list of scenario object definitions that pairs an
-         * entity object and a controller.]
-         * 
-        */
-        void EntitiesImpl::SetScenarioObjects(std::vector<std::shared_ptr<IScenarioObject>>& scenarioObjects)
-        {
-            _scenarioObjects = scenarioObjects;
-        }
-        /**
-         * Sets the value of model property entitySelections
-         * @param entitySelections from OpenSCENARIO class model specification: [A list of entity selection definitions.]
-         * 
-        */
-        void EntitiesImpl::SetEntitySelections(std::vector<std::shared_ptr<IEntitySelection>>& entitySelections)
-        {
-            _entitySelections = entitySelections;
+            std::vector<std::shared_ptr<IEntitySelection>> temp;
+            for(auto&& elm: _entitySelections)
+                temp.push_back(elm);
+            return temp;
         }
 
         void EntitiesImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
@@ -7068,7 +6001,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                auto scenarioObjects =  GetScenarioObjects();
+                auto scenarioObjects =  GetWriterScenarioObjects();
                 if (!scenarioObjects.empty())
                 {
                     for(auto&& item : scenarioObjects)
@@ -7076,7 +6009,7 @@ namespace NET_ASAM_OPENSCENARIO
                         result.push_back(std::dynamic_pointer_cast<BaseImpl>(item) );
                     }
                 }
-                auto entitySelections =  GetEntitySelections();
+                auto entitySelections =  GetWriterEntitySelections();
                 if (!entitySelections.empty())
                 {
                     for(auto&& item : entitySelections)
@@ -7102,27 +6035,27 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kScenarioObjects =  GetScenarioObjects();
+            const auto kScenarioObjects =  GetWriterScenarioObjects();
             if (!kScenarioObjects.empty())
             {
-                std::vector<std::shared_ptr<IScenarioObject>> clonedList;
+                std::vector<std::shared_ptr<IScenarioObjectWriter>> clonedList;
                 for(auto&& kItem : kScenarioObjects)
                 {
                     auto clonedChild = std::dynamic_pointer_cast<ScenarioObjectImpl>(kItem)->Clone();
                     clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                    clonedList.push_back(std::dynamic_pointer_cast<ScenarioObjectImpl>(clonedChild));
+                    clonedList.push_back(std::dynamic_pointer_cast<IScenarioObjectWriter>(clonedChild));
                 }
                 clonedObject->SetScenarioObjects(clonedList);
             }
-            const auto kEntitySelections =  GetEntitySelections();
+            const auto kEntitySelections =  GetWriterEntitySelections();
             if (!kEntitySelections.empty())
             {
-                std::vector<std::shared_ptr<IEntitySelection>> clonedList;
+                std::vector<std::shared_ptr<IEntitySelectionWriter>> clonedList;
                 for(auto&& kItem : kEntitySelections)
                 {
                     auto clonedChild = std::dynamic_pointer_cast<EntitySelectionImpl>(kItem)->Clone();
                     clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                    clonedList.push_back(std::dynamic_pointer_cast<EntitySelectionImpl>(clonedChild));
+                    clonedList.push_back(std::dynamic_pointer_cast<IEntitySelectionWriter>(clonedChild));
                 }
                 clonedObject->SetEntitySelections(clonedList);
             }
@@ -7185,9 +6118,9 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, SimpleType::STRING);
         }
 
-        INamedReference<IEntity>* EntityActionImpl::GetEntityRef()
+        std::shared_ptr<INamedReference<IEntity>> EntityActionImpl::GetEntityRef()
         {
-            return &_entityRef;
+            return _entityRef;
         }
         std::shared_ptr<IAddEntityAction> EntityActionImpl::GetAddEntityAction()
         {
@@ -7198,42 +6131,13 @@ namespace NET_ASAM_OPENSCENARIO
             return _deleteEntityAction;
         }
 
-        /**
-         * Sets the value of model property entityRef
-         * @param entityRef from OpenSCENARIO class model specification: [Name of the reference entity.]
-         * 
-        */
-        void EntityActionImpl::SetEntityRef(NamedReferenceProxy<IEntity>& entityRef )
-        {
-            _entityRef = entityRef;
-        }
-        /**
-         * Sets the value of model property addEntityAction
-         * @param addEntityAction from OpenSCENARIO class model specification: [Action that adds the reference entity to the 
-         * scenario.]
-         * 
-        */
-        void EntityActionImpl::SetAddEntityAction(std::shared_ptr<IAddEntityAction> addEntityAction )
-        {
-            _addEntityAction = addEntityAction;
-        }
-        /**
-         * Sets the value of model property deleteEntityAction
-         * @param deleteEntityAction from OpenSCENARIO class model specification: [Action that deletes the reference entity from 
-         * the scenario.]
-         * 
-        */
-        void EntityActionImpl::SetDeleteEntityAction(std::shared_ptr<IDeleteEntityAction> deleteEntityAction )
-        {
-            _deleteEntityAction = deleteEntityAction;
-        }
-
         void EntityActionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
             if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
             {
                 // Proxy
-                _entityRef = NamedReferenceProxy<IEntity>(parameterLiteralValue);
+                const auto kProxy = std::make_shared<NamedReferenceProxy<IEntity>>(parameterLiteralValue);
+                _entityRef = std::dynamic_pointer_cast<INamedReference<IEntity>>(kProxy);
                 AddResolvedParameter(attributeKey);
             }
         }
@@ -7256,12 +6160,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kAddEntityAction =  GetAddEntityAction();
+                const auto kAddEntityAction =  GetWriterAddEntityAction();
                 if (kAddEntityAction)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kAddEntityAction));
                 }
-                const auto kDeleteEntityAction =  GetDeleteEntityAction();
+                const auto kDeleteEntityAction =  GetWriterDeleteEntityAction();
                 if (kDeleteEntityAction)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kDeleteEntityAction));
@@ -7284,25 +6188,26 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Proxy
-            auto proxy = _entityRef;
-            proxy.SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-            clonedObject->SetEntityRef(proxy);
+            auto proxy = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetEntityRef()));
+            proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->_entityRef = proxy;
+            
             // clone children
-            const auto kAddEntityAction =  GetAddEntityAction();
+            const auto kAddEntityAction =  GetWriterAddEntityAction();
             if (kAddEntityAction)
             {
                 auto clonedChild = std::dynamic_pointer_cast<AddEntityActionImpl>(kAddEntityAction)->Clone();
                 auto clonedChildIAddEntityAction = std::dynamic_pointer_cast<IAddEntityAction>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetAddEntityAction(clonedChildIAddEntityAction);
+                clonedObject->SetAddEntityAction(std::dynamic_pointer_cast<IAddEntityActionWriter>(clonedChildIAddEntityAction));
             }
-            const auto kDeleteEntityAction =  GetDeleteEntityAction();
+            const auto kDeleteEntityAction =  GetWriterDeleteEntityAction();
             if (kDeleteEntityAction)
             {
                 auto clonedChild = std::dynamic_pointer_cast<DeleteEntityActionImpl>(kDeleteEntityAction)->Clone();
                 auto clonedChildIDeleteEntityAction = std::dynamic_pointer_cast<IDeleteEntityAction>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetDeleteEntityAction(clonedChildIDeleteEntityAction);
+                clonedObject->SetDeleteEntityAction(std::dynamic_pointer_cast<IDeleteEntityActionWriter>(clonedChildIDeleteEntityAction));
             }
             return clonedObject;
         }
@@ -7430,137 +6335,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _relativeDistanceCondition;
         }
 
-        /**
-         * Sets the value of model property endOfRoadCondition
-         * @param endOfRoadCondition from OpenSCENARIO class model specification: [Condition checking for how long the reference 
-         * entity has reached the end of the road.]
-         * 
-        */
-        void EntityConditionImpl::SetEndOfRoadCondition(std::shared_ptr<IEndOfRoadCondition> endOfRoadCondition )
-        {
-            _endOfRoadCondition = endOfRoadCondition;
-        }
-        /**
-         * Sets the value of model property collisionCondition
-         * @param collisionCondition from OpenSCENARIO class model specification: [Condition checking whether the reference entity 
-         * was involved in a collision.]
-         * 
-        */
-        void EntityConditionImpl::SetCollisionCondition(std::shared_ptr<ICollisionCondition> collisionCondition )
-        {
-            _collisionCondition = collisionCondition;
-        }
-        /**
-         * Sets the value of model property offroadCondition
-         * @param offroadCondition from OpenSCENARIO class model specification: [Condition checking for how long the reference 
-         * entity has left the road.]
-         * 
-        */
-        void EntityConditionImpl::SetOffroadCondition(std::shared_ptr<IOffroadCondition> offroadCondition )
-        {
-            _offroadCondition = offroadCondition;
-        }
-        /**
-         * Sets the value of model property timeHeadwayCondition
-         * @param timeHeadwayCondition from OpenSCENARIO class model specification: [Condition checking the time headway between 
-         * two entities.]
-         * 
-        */
-        void EntityConditionImpl::SetTimeHeadwayCondition(std::shared_ptr<ITimeHeadwayCondition> timeHeadwayCondition )
-        {
-            _timeHeadwayCondition = timeHeadwayCondition;
-        }
-        /**
-         * Sets the value of model property timeToCollisionCondition
-         * @param timeToCollisionCondition from OpenSCENARIO class model specification: [Condition checking the time to collision 
-         * between two entities.]
-         * 
-        */
-        void EntityConditionImpl::SetTimeToCollisionCondition(std::shared_ptr<ITimeToCollisionCondition> timeToCollisionCondition )
-        {
-            _timeToCollisionCondition = timeToCollisionCondition;
-        }
-        /**
-         * Sets the value of model property accelerationCondition
-         * @param accelerationCondition from OpenSCENARIO class model specification: [Condition checking the current acceleration 
-         * of an entity.]
-         * 
-        */
-        void EntityConditionImpl::SetAccelerationCondition(std::shared_ptr<IAccelerationCondition> accelerationCondition )
-        {
-            _accelerationCondition = accelerationCondition;
-        }
-        /**
-         * Sets the value of model property standStillCondition
-         * @param standStillCondition from OpenSCENARIO class model specification: [Condition checking for how long the reference 
-         * entity has not moved.]
-         * 
-        */
-        void EntityConditionImpl::SetStandStillCondition(std::shared_ptr<IStandStillCondition> standStillCondition )
-        {
-            _standStillCondition = standStillCondition;
-        }
-        /**
-         * Sets the value of model property speedCondition
-         * @param speedCondition from OpenSCENARIO class model specification: [Condition checking the current speed of the 
-         * referenced entities.]
-         * 
-        */
-        void EntityConditionImpl::SetSpeedCondition(std::shared_ptr<ISpeedCondition> speedCondition )
-        {
-            _speedCondition = speedCondition;
-        }
-        /**
-         * Sets the value of model property relativeSpeedCondition
-         * @param relativeSpeedCondition from OpenSCENARIO class model specification: [Condition checking the relative speed 
-         * between two entity.]
-         * 
-        */
-        void EntityConditionImpl::SetRelativeSpeedCondition(std::shared_ptr<IRelativeSpeedCondition> relativeSpeedCondition )
-        {
-            _relativeSpeedCondition = relativeSpeedCondition;
-        }
-        /**
-         * Sets the value of model property traveledDistanceCondition
-         * @param traveledDistanceCondition from OpenSCENARIO class model specification: [Condition checking the total traveled 
-         * distance of the reference entity since the start of the scenario.]
-         * 
-        */
-        void EntityConditionImpl::SetTraveledDistanceCondition(std::shared_ptr<ITraveledDistanceCondition> traveledDistanceCondition )
-        {
-            _traveledDistanceCondition = traveledDistanceCondition;
-        }
-        /**
-         * Sets the value of model property reachPositionCondition
-         * @param reachPositionCondition from OpenSCENARIO class model specification: [Condition checking whether the reference 
-         * entity has reached a given position within a given uncertainty.]
-         * 
-        */
-        void EntityConditionImpl::SetReachPositionCondition(std::shared_ptr<IReachPositionCondition> reachPositionCondition )
-        {
-            _reachPositionCondition = reachPositionCondition;
-        }
-        /**
-         * Sets the value of model property distanceCondition
-         * @param distanceCondition from OpenSCENARIO class model specification: [Condition checking the distance between two 
-         * entities or an entity and a position.]
-         * 
-        */
-        void EntityConditionImpl::SetDistanceCondition(std::shared_ptr<IDistanceCondition> distanceCondition )
-        {
-            _distanceCondition = distanceCondition;
-        }
-        /**
-         * Sets the value of model property relativeDistanceCondition
-         * @param relativeDistanceCondition from OpenSCENARIO class model specification: [Condition checking the relative distance 
-         * between two entities.]
-         * 
-        */
-        void EntityConditionImpl::SetRelativeDistanceCondition(std::shared_ptr<IRelativeDistanceCondition> relativeDistanceCondition )
-        {
-            _relativeDistanceCondition = relativeDistanceCondition;
-        }
-
         void EntityConditionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
         }
@@ -7583,67 +6357,67 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kEndOfRoadCondition =  GetEndOfRoadCondition();
+                const auto kEndOfRoadCondition =  GetWriterEndOfRoadCondition();
                 if (kEndOfRoadCondition)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kEndOfRoadCondition));
                 }
-                const auto kCollisionCondition =  GetCollisionCondition();
+                const auto kCollisionCondition =  GetWriterCollisionCondition();
                 if (kCollisionCondition)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kCollisionCondition));
                 }
-                const auto kOffroadCondition =  GetOffroadCondition();
+                const auto kOffroadCondition =  GetWriterOffroadCondition();
                 if (kOffroadCondition)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kOffroadCondition));
                 }
-                const auto kTimeHeadwayCondition =  GetTimeHeadwayCondition();
+                const auto kTimeHeadwayCondition =  GetWriterTimeHeadwayCondition();
                 if (kTimeHeadwayCondition)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kTimeHeadwayCondition));
                 }
-                const auto kTimeToCollisionCondition =  GetTimeToCollisionCondition();
+                const auto kTimeToCollisionCondition =  GetWriterTimeToCollisionCondition();
                 if (kTimeToCollisionCondition)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kTimeToCollisionCondition));
                 }
-                const auto kAccelerationCondition =  GetAccelerationCondition();
+                const auto kAccelerationCondition =  GetWriterAccelerationCondition();
                 if (kAccelerationCondition)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kAccelerationCondition));
                 }
-                const auto kStandStillCondition =  GetStandStillCondition();
+                const auto kStandStillCondition =  GetWriterStandStillCondition();
                 if (kStandStillCondition)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kStandStillCondition));
                 }
-                const auto kSpeedCondition =  GetSpeedCondition();
+                const auto kSpeedCondition =  GetWriterSpeedCondition();
                 if (kSpeedCondition)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kSpeedCondition));
                 }
-                const auto kRelativeSpeedCondition =  GetRelativeSpeedCondition();
+                const auto kRelativeSpeedCondition =  GetWriterRelativeSpeedCondition();
                 if (kRelativeSpeedCondition)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kRelativeSpeedCondition));
                 }
-                const auto kTraveledDistanceCondition =  GetTraveledDistanceCondition();
+                const auto kTraveledDistanceCondition =  GetWriterTraveledDistanceCondition();
                 if (kTraveledDistanceCondition)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kTraveledDistanceCondition));
                 }
-                const auto kReachPositionCondition =  GetReachPositionCondition();
+                const auto kReachPositionCondition =  GetWriterReachPositionCondition();
                 if (kReachPositionCondition)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kReachPositionCondition));
                 }
-                const auto kDistanceCondition =  GetDistanceCondition();
+                const auto kDistanceCondition =  GetWriterDistanceCondition();
                 if (kDistanceCondition)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kDistanceCondition));
                 }
-                const auto kRelativeDistanceCondition =  GetRelativeDistanceCondition();
+                const auto kRelativeDistanceCondition =  GetWriterRelativeDistanceCondition();
                 if (kRelativeDistanceCondition)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kRelativeDistanceCondition));
@@ -7666,109 +6440,109 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kEndOfRoadCondition =  GetEndOfRoadCondition();
+            const auto kEndOfRoadCondition =  GetWriterEndOfRoadCondition();
             if (kEndOfRoadCondition)
             {
                 auto clonedChild = std::dynamic_pointer_cast<EndOfRoadConditionImpl>(kEndOfRoadCondition)->Clone();
                 auto clonedChildIEndOfRoadCondition = std::dynamic_pointer_cast<IEndOfRoadCondition>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetEndOfRoadCondition(clonedChildIEndOfRoadCondition);
+                clonedObject->SetEndOfRoadCondition(std::dynamic_pointer_cast<IEndOfRoadConditionWriter>(clonedChildIEndOfRoadCondition));
             }
-            const auto kCollisionCondition =  GetCollisionCondition();
+            const auto kCollisionCondition =  GetWriterCollisionCondition();
             if (kCollisionCondition)
             {
                 auto clonedChild = std::dynamic_pointer_cast<CollisionConditionImpl>(kCollisionCondition)->Clone();
                 auto clonedChildICollisionCondition = std::dynamic_pointer_cast<ICollisionCondition>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetCollisionCondition(clonedChildICollisionCondition);
+                clonedObject->SetCollisionCondition(std::dynamic_pointer_cast<ICollisionConditionWriter>(clonedChildICollisionCondition));
             }
-            const auto kOffroadCondition =  GetOffroadCondition();
+            const auto kOffroadCondition =  GetWriterOffroadCondition();
             if (kOffroadCondition)
             {
                 auto clonedChild = std::dynamic_pointer_cast<OffroadConditionImpl>(kOffroadCondition)->Clone();
                 auto clonedChildIOffroadCondition = std::dynamic_pointer_cast<IOffroadCondition>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetOffroadCondition(clonedChildIOffroadCondition);
+                clonedObject->SetOffroadCondition(std::dynamic_pointer_cast<IOffroadConditionWriter>(clonedChildIOffroadCondition));
             }
-            const auto kTimeHeadwayCondition =  GetTimeHeadwayCondition();
+            const auto kTimeHeadwayCondition =  GetWriterTimeHeadwayCondition();
             if (kTimeHeadwayCondition)
             {
                 auto clonedChild = std::dynamic_pointer_cast<TimeHeadwayConditionImpl>(kTimeHeadwayCondition)->Clone();
                 auto clonedChildITimeHeadwayCondition = std::dynamic_pointer_cast<ITimeHeadwayCondition>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetTimeHeadwayCondition(clonedChildITimeHeadwayCondition);
+                clonedObject->SetTimeHeadwayCondition(std::dynamic_pointer_cast<ITimeHeadwayConditionWriter>(clonedChildITimeHeadwayCondition));
             }
-            const auto kTimeToCollisionCondition =  GetTimeToCollisionCondition();
+            const auto kTimeToCollisionCondition =  GetWriterTimeToCollisionCondition();
             if (kTimeToCollisionCondition)
             {
                 auto clonedChild = std::dynamic_pointer_cast<TimeToCollisionConditionImpl>(kTimeToCollisionCondition)->Clone();
                 auto clonedChildITimeToCollisionCondition = std::dynamic_pointer_cast<ITimeToCollisionCondition>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetTimeToCollisionCondition(clonedChildITimeToCollisionCondition);
+                clonedObject->SetTimeToCollisionCondition(std::dynamic_pointer_cast<ITimeToCollisionConditionWriter>(clonedChildITimeToCollisionCondition));
             }
-            const auto kAccelerationCondition =  GetAccelerationCondition();
+            const auto kAccelerationCondition =  GetWriterAccelerationCondition();
             if (kAccelerationCondition)
             {
                 auto clonedChild = std::dynamic_pointer_cast<AccelerationConditionImpl>(kAccelerationCondition)->Clone();
                 auto clonedChildIAccelerationCondition = std::dynamic_pointer_cast<IAccelerationCondition>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetAccelerationCondition(clonedChildIAccelerationCondition);
+                clonedObject->SetAccelerationCondition(std::dynamic_pointer_cast<IAccelerationConditionWriter>(clonedChildIAccelerationCondition));
             }
-            const auto kStandStillCondition =  GetStandStillCondition();
+            const auto kStandStillCondition =  GetWriterStandStillCondition();
             if (kStandStillCondition)
             {
                 auto clonedChild = std::dynamic_pointer_cast<StandStillConditionImpl>(kStandStillCondition)->Clone();
                 auto clonedChildIStandStillCondition = std::dynamic_pointer_cast<IStandStillCondition>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetStandStillCondition(clonedChildIStandStillCondition);
+                clonedObject->SetStandStillCondition(std::dynamic_pointer_cast<IStandStillConditionWriter>(clonedChildIStandStillCondition));
             }
-            const auto kSpeedCondition =  GetSpeedCondition();
+            const auto kSpeedCondition =  GetWriterSpeedCondition();
             if (kSpeedCondition)
             {
                 auto clonedChild = std::dynamic_pointer_cast<SpeedConditionImpl>(kSpeedCondition)->Clone();
                 auto clonedChildISpeedCondition = std::dynamic_pointer_cast<ISpeedCondition>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetSpeedCondition(clonedChildISpeedCondition);
+                clonedObject->SetSpeedCondition(std::dynamic_pointer_cast<ISpeedConditionWriter>(clonedChildISpeedCondition));
             }
-            const auto kRelativeSpeedCondition =  GetRelativeSpeedCondition();
+            const auto kRelativeSpeedCondition =  GetWriterRelativeSpeedCondition();
             if (kRelativeSpeedCondition)
             {
                 auto clonedChild = std::dynamic_pointer_cast<RelativeSpeedConditionImpl>(kRelativeSpeedCondition)->Clone();
                 auto clonedChildIRelativeSpeedCondition = std::dynamic_pointer_cast<IRelativeSpeedCondition>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetRelativeSpeedCondition(clonedChildIRelativeSpeedCondition);
+                clonedObject->SetRelativeSpeedCondition(std::dynamic_pointer_cast<IRelativeSpeedConditionWriter>(clonedChildIRelativeSpeedCondition));
             }
-            const auto kTraveledDistanceCondition =  GetTraveledDistanceCondition();
+            const auto kTraveledDistanceCondition =  GetWriterTraveledDistanceCondition();
             if (kTraveledDistanceCondition)
             {
                 auto clonedChild = std::dynamic_pointer_cast<TraveledDistanceConditionImpl>(kTraveledDistanceCondition)->Clone();
                 auto clonedChildITraveledDistanceCondition = std::dynamic_pointer_cast<ITraveledDistanceCondition>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetTraveledDistanceCondition(clonedChildITraveledDistanceCondition);
+                clonedObject->SetTraveledDistanceCondition(std::dynamic_pointer_cast<ITraveledDistanceConditionWriter>(clonedChildITraveledDistanceCondition));
             }
-            const auto kReachPositionCondition =  GetReachPositionCondition();
+            const auto kReachPositionCondition =  GetWriterReachPositionCondition();
             if (kReachPositionCondition)
             {
                 auto clonedChild = std::dynamic_pointer_cast<ReachPositionConditionImpl>(kReachPositionCondition)->Clone();
                 auto clonedChildIReachPositionCondition = std::dynamic_pointer_cast<IReachPositionCondition>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetReachPositionCondition(clonedChildIReachPositionCondition);
+                clonedObject->SetReachPositionCondition(std::dynamic_pointer_cast<IReachPositionConditionWriter>(clonedChildIReachPositionCondition));
             }
-            const auto kDistanceCondition =  GetDistanceCondition();
+            const auto kDistanceCondition =  GetWriterDistanceCondition();
             if (kDistanceCondition)
             {
                 auto clonedChild = std::dynamic_pointer_cast<DistanceConditionImpl>(kDistanceCondition)->Clone();
                 auto clonedChildIDistanceCondition = std::dynamic_pointer_cast<IDistanceCondition>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetDistanceCondition(clonedChildIDistanceCondition);
+                clonedObject->SetDistanceCondition(std::dynamic_pointer_cast<IDistanceConditionWriter>(clonedChildIDistanceCondition));
             }
-            const auto kRelativeDistanceCondition =  GetRelativeDistanceCondition();
+            const auto kRelativeDistanceCondition =  GetWriterRelativeDistanceCondition();
             if (kRelativeDistanceCondition)
             {
                 auto clonedChild = std::dynamic_pointer_cast<RelativeDistanceConditionImpl>(kRelativeDistanceCondition)->Clone();
                 auto clonedChildIRelativeDistanceCondition = std::dynamic_pointer_cast<IRelativeDistanceCondition>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetRelativeDistanceCondition(clonedChildIRelativeDistanceCondition);
+                clonedObject->SetRelativeDistanceCondition(std::dynamic_pointer_cast<IRelativeDistanceConditionWriter>(clonedChildIRelativeDistanceCondition));
             }
             return clonedObject;
         }
@@ -7893,44 +6667,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _miscObject;
         }
 
-        /**
-         * Sets the value of model property catalogReference
-         * @param catalogReference from OpenSCENARIO class model specification: [Reference to a catalog entry of type MiscObject, 
-         * Vehicle or Pedestrian.]
-         * 
-        */
-        void EntityObjectImpl::SetCatalogReference(std::shared_ptr<ICatalogReference> catalogReference )
-        {
-            _catalogReference = catalogReference;
-        }
-        /**
-         * Sets the value of model property vehicle
-         * @param vehicle from OpenSCENARIO class model specification: [Vehicle definition.]
-         * 
-        */
-        void EntityObjectImpl::SetVehicle(std::shared_ptr<IVehicle> vehicle )
-        {
-            _vehicle = vehicle;
-        }
-        /**
-         * Sets the value of model property pedestrian
-         * @param pedestrian from OpenSCENARIO class model specification: [Pedestrian definition.]
-         * 
-        */
-        void EntityObjectImpl::SetPedestrian(std::shared_ptr<IPedestrian> pedestrian )
-        {
-            _pedestrian = pedestrian;
-        }
-        /**
-         * Sets the value of model property miscObject
-         * @param miscObject from OpenSCENARIO class model specification: [Definition of a MiscObject.]
-         * 
-        */
-        void EntityObjectImpl::SetMiscObject(std::shared_ptr<IMiscObject> miscObject )
-        {
-            _miscObject = miscObject;
-        }
-
         void EntityObjectImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
         }
@@ -7953,22 +6689,22 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kCatalogReference =  GetCatalogReference();
+                const auto kCatalogReference =  GetWriterCatalogReference();
                 if (kCatalogReference)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kCatalogReference));
                 }
-                const auto kVehicle =  GetVehicle();
+                const auto kVehicle =  GetWriterVehicle();
                 if (kVehicle)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kVehicle));
                 }
-                const auto kPedestrian =  GetPedestrian();
+                const auto kPedestrian =  GetWriterPedestrian();
                 if (kPedestrian)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kPedestrian));
                 }
-                const auto kMiscObject =  GetMiscObject();
+                const auto kMiscObject =  GetWriterMiscObject();
                 if (kMiscObject)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kMiscObject));
@@ -7991,37 +6727,37 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kCatalogReference =  GetCatalogReference();
+            const auto kCatalogReference =  GetWriterCatalogReference();
             if (kCatalogReference)
             {
                 auto clonedChild = std::dynamic_pointer_cast<CatalogReferenceImpl>(kCatalogReference)->Clone();
                 auto clonedChildICatalogReference = std::dynamic_pointer_cast<ICatalogReference>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetCatalogReference(clonedChildICatalogReference);
+                clonedObject->SetCatalogReference(std::dynamic_pointer_cast<ICatalogReferenceWriter>(clonedChildICatalogReference));
             }
-            const auto kVehicle =  GetVehicle();
+            const auto kVehicle =  GetWriterVehicle();
             if (kVehicle)
             {
                 auto clonedChild = std::dynamic_pointer_cast<VehicleImpl>(kVehicle)->Clone();
                 auto clonedChildIVehicle = std::dynamic_pointer_cast<IVehicle>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetVehicle(clonedChildIVehicle);
+                clonedObject->SetVehicle(std::dynamic_pointer_cast<IVehicleWriter>(clonedChildIVehicle));
             }
-            const auto kPedestrian =  GetPedestrian();
+            const auto kPedestrian =  GetWriterPedestrian();
             if (kPedestrian)
             {
                 auto clonedChild = std::dynamic_pointer_cast<PedestrianImpl>(kPedestrian)->Clone();
                 auto clonedChildIPedestrian = std::dynamic_pointer_cast<IPedestrian>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetPedestrian(clonedChildIPedestrian);
+                clonedObject->SetPedestrian(std::dynamic_pointer_cast<IPedestrianWriter>(clonedChildIPedestrian));
             }
-            const auto kMiscObject =  GetMiscObject();
+            const auto kMiscObject =  GetWriterMiscObject();
             if (kMiscObject)
             {
                 auto clonedChild = std::dynamic_pointer_cast<MiscObjectImpl>(kMiscObject)->Clone();
                 auto clonedChildIMiscObject = std::dynamic_pointer_cast<IMiscObject>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetMiscObject(clonedChildIMiscObject);
+                clonedObject->SetMiscObject(std::dynamic_pointer_cast<IMiscObjectWriter>(clonedChildIMiscObject));
             }
             return clonedObject;
         }
@@ -8085,19 +6821,9 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, SimpleType::STRING);
         }
 
-        INamedReference<IEntity>* EntityRefImpl::GetEntityRef()
+        std::shared_ptr<INamedReference<IEntity>> EntityRefImpl::GetEntityRef()
         {
-            return &_entityRef;
-        }
-
-        /**
-         * Sets the value of model property entityRef
-         * @param entityRef from OpenSCENARIO class model specification: [Name of the reference entity.]
-         * 
-        */
-        void EntityRefImpl::SetEntityRef(NamedReferenceProxy<IEntity>& entityRef )
-        {
-            _entityRef = entityRef;
+            return _entityRef;
         }
 
         void EntityRefImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
@@ -8105,7 +6831,8 @@ namespace NET_ASAM_OPENSCENARIO
             if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
             {
                 // Proxy
-                _entityRef = NamedReferenceProxy<IEntity>(parameterLiteralValue);
+                const auto kProxy = std::make_shared<NamedReferenceProxy<IEntity>>(parameterLiteralValue);
+                _entityRef = std::dynamic_pointer_cast<INamedReference<IEntity>>(kProxy);
                 AddResolvedParameter(attributeKey);
             }
         }
@@ -8146,9 +6873,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Proxy
-            auto proxy = _entityRef;
-            proxy.SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-            clonedObject->SetEntityRef(proxy);
+            auto proxy = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetEntityRef()));
+            proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->_entityRef = proxy;
+            
             // clone children
             return clonedObject;
         }
@@ -8219,26 +6947,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _members;
         }
 
-        /**
-         * Sets the value of model property name
-         * @param name from OpenSCENARIO class model specification: [Name of the entity selection. By this name, a selection can be
-         * referenced as an entity.]
-         * 
-        */
-        void EntitySelectionImpl::SetName(std::string name )
-        {
-            _name = name;
-        }
-        /**
-         * Sets the value of model property members
-         * @param members from OpenSCENARIO class model specification: [Selected entities as members of the entity selection.]
-         * 
-        */
-        void EntitySelectionImpl::SetMembers(std::shared_ptr<ISelectedEntities> members )
-        {
-            _members = members;
-        }
-
         void EntitySelectionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
             if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__NAME)
@@ -8267,7 +6975,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kMembers =  GetMembers();
+                const auto kMembers =  GetWriterMembers();
                 if (kMembers)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kMembers));
@@ -8290,15 +6998,15 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetName(_name);
+            clonedObject->_name = GetName();
             // clone children
-            const auto kMembers =  GetMembers();
+            const auto kMembers =  GetWriterMembers();
             if (kMembers)
             {
                 auto clonedChild = std::dynamic_pointer_cast<SelectedEntitiesImpl>(kMembers)->Clone();
                 auto clonedChildISelectedEntities = std::dynamic_pointer_cast<ISelectedEntities>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetMembers(clonedChildISelectedEntities);
+                clonedObject->SetMembers(std::dynamic_pointer_cast<ISelectedEntitiesWriter>(clonedChildISelectedEntities));
             }
             return clonedObject;
         }
@@ -8362,7 +7070,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
         std::vector<std::shared_ptr<IParameterDeclaration>> EnvironmentImpl::GetParameterDeclarations()
         {
-            return _parameterDeclarations;
+            std::vector<std::shared_ptr<IParameterDeclaration>> temp;
+            for(auto&& elm: _parameterDeclarations)
+                temp.push_back(elm);
+            return temp;
         }
         std::shared_ptr<ITimeOfDay> EnvironmentImpl::GetTimeOfDay()
         {
@@ -8375,52 +7086,6 @@ namespace NET_ASAM_OPENSCENARIO
         std::shared_ptr<IRoadCondition> EnvironmentImpl::GetRoadCondition()
         {
             return _roadCondition;
-        }
-
-        /**
-         * Sets the value of model property name
-         * @param name from OpenSCENARIO class model specification: [Name of the environment. If used in catalog name is required.]
-         * 
-        */
-        void EnvironmentImpl::SetName(std::string name )
-        {
-            _name = name;
-        }
-        /**
-         * Sets the value of model property parameterDeclarations
-         * @param parameterDeclarations from OpenSCENARIO class model specification: [Definition of additional parameters.]
-         * 
-        */
-        void EnvironmentImpl::SetParameterDeclarations(std::vector<std::shared_ptr<IParameterDeclaration>>& parameterDeclarations)
-        {
-            _parameterDeclarations = parameterDeclarations;
-        }
-        /**
-         * Sets the value of model property timeOfDay
-         * @param timeOfDay from OpenSCENARIO class model specification: [Time of the day during the simulation.]
-         * 
-        */
-        void EnvironmentImpl::SetTimeOfDay(std::shared_ptr<ITimeOfDay> timeOfDay )
-        {
-            _timeOfDay = timeOfDay;
-        }
-        /**
-         * Sets the value of model property weather
-         * @param weather from OpenSCENARIO class model specification: [Weather conditions during the simulation.]
-         * 
-        */
-        void EnvironmentImpl::SetWeather(std::shared_ptr<IWeather> weather )
-        {
-            _weather = weather;
-        }
-        /**
-         * Sets the value of model property roadCondition
-         * @param roadCondition from OpenSCENARIO class model specification: [Road conditions during the simulation.]
-         * 
-        */
-        void EnvironmentImpl::SetRoadCondition(std::shared_ptr<IRoadCondition> roadCondition )
-        {
-            _roadCondition = roadCondition;
         }
 
         void EnvironmentImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
@@ -8471,7 +7136,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                auto parameterDeclarations =  GetParameterDeclarations();
+                auto parameterDeclarations =  GetWriterParameterDeclarations();
                 if (!parameterDeclarations.empty())
                 {
                     for(auto&& item : parameterDeclarations)
@@ -8479,17 +7144,17 @@ namespace NET_ASAM_OPENSCENARIO
                         result.push_back(std::dynamic_pointer_cast<BaseImpl>(item) );
                     }
                 }
-                const auto kTimeOfDay =  GetTimeOfDay();
+                const auto kTimeOfDay =  GetWriterTimeOfDay();
                 if (kTimeOfDay)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kTimeOfDay));
                 }
-                const auto kWeather =  GetWeather();
+                const auto kWeather =  GetWriterWeather();
                 if (kWeather)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kWeather));
                 }
-                const auto kRoadCondition =  GetRoadCondition();
+                const auto kRoadCondition =  GetWriterRoadCondition();
                 if (kRoadCondition)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kRoadCondition));
@@ -8512,43 +7177,43 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetName(_name);
+            clonedObject->_name = GetName();
             // clone children
-            const auto kParameterDeclarations =  GetParameterDeclarations();
+            const auto kParameterDeclarations =  GetWriterParameterDeclarations();
             if (!kParameterDeclarations.empty())
             {
-                std::vector<std::shared_ptr<IParameterDeclaration>> clonedList;
+                std::vector<std::shared_ptr<IParameterDeclarationWriter>> clonedList;
                 for(auto&& kItem : kParameterDeclarations)
                 {
                     auto clonedChild = std::dynamic_pointer_cast<ParameterDeclarationImpl>(kItem)->Clone();
                     clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                    clonedList.push_back(std::dynamic_pointer_cast<ParameterDeclarationImpl>(clonedChild));
+                    clonedList.push_back(std::dynamic_pointer_cast<IParameterDeclarationWriter>(clonedChild));
                 }
                 clonedObject->SetParameterDeclarations(clonedList);
             }
-            const auto kTimeOfDay =  GetTimeOfDay();
+            const auto kTimeOfDay =  GetWriterTimeOfDay();
             if (kTimeOfDay)
             {
                 auto clonedChild = std::dynamic_pointer_cast<TimeOfDayImpl>(kTimeOfDay)->Clone();
                 auto clonedChildITimeOfDay = std::dynamic_pointer_cast<ITimeOfDay>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetTimeOfDay(clonedChildITimeOfDay);
+                clonedObject->SetTimeOfDay(std::dynamic_pointer_cast<ITimeOfDayWriter>(clonedChildITimeOfDay));
             }
-            const auto kWeather =  GetWeather();
+            const auto kWeather =  GetWriterWeather();
             if (kWeather)
             {
                 auto clonedChild = std::dynamic_pointer_cast<WeatherImpl>(kWeather)->Clone();
                 auto clonedChildIWeather = std::dynamic_pointer_cast<IWeather>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetWeather(clonedChildIWeather);
+                clonedObject->SetWeather(std::dynamic_pointer_cast<IWeatherWriter>(clonedChildIWeather));
             }
-            const auto kRoadCondition =  GetRoadCondition();
+            const auto kRoadCondition =  GetWriterRoadCondition();
             if (kRoadCondition)
             {
                 auto clonedChild = std::dynamic_pointer_cast<RoadConditionImpl>(kRoadCondition)->Clone();
                 auto clonedChildIRoadCondition = std::dynamic_pointer_cast<IRoadCondition>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetRoadCondition(clonedChildIRoadCondition);
+                clonedObject->SetRoadCondition(std::dynamic_pointer_cast<IRoadConditionWriter>(clonedChildIRoadCondition));
             }
             return clonedObject;
         }
@@ -8636,25 +7301,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _catalogReference;
         }
 
-        /**
-         * Sets the value of model property environment
-         * @param environment from OpenSCENARIO class model specification: [New environment definition.]
-         * 
-        */
-        void EnvironmentActionImpl::SetEnvironment(std::shared_ptr<IEnvironment> environment )
-        {
-            _environment = environment;
-        }
-        /**
-         * Sets the value of model property catalogReference
-         * @param catalogReference from OpenSCENARIO class model specification: [Reference to a catalog entry of type Environment.]
-         * 
-        */
-        void EnvironmentActionImpl::SetCatalogReference(std::shared_ptr<ICatalogReference> catalogReference )
-        {
-            _catalogReference = catalogReference;
-        }
-
         void EnvironmentActionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
         }
@@ -8677,12 +7323,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kEnvironment =  GetEnvironment();
+                const auto kEnvironment =  GetWriterEnvironment();
                 if (kEnvironment)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kEnvironment));
                 }
-                const auto kCatalogReference =  GetCatalogReference();
+                const auto kCatalogReference =  GetWriterCatalogReference();
                 if (kCatalogReference)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kCatalogReference));
@@ -8705,21 +7351,21 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kEnvironment =  GetEnvironment();
+            const auto kEnvironment =  GetWriterEnvironment();
             if (kEnvironment)
             {
                 auto clonedChild = std::dynamic_pointer_cast<EnvironmentImpl>(kEnvironment)->Clone();
                 auto clonedChildIEnvironment = std::dynamic_pointer_cast<IEnvironment>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetEnvironment(clonedChildIEnvironment);
+                clonedObject->SetEnvironment(std::dynamic_pointer_cast<IEnvironmentWriter>(clonedChildIEnvironment));
             }
-            const auto kCatalogReference =  GetCatalogReference();
+            const auto kCatalogReference =  GetWriterCatalogReference();
             if (kCatalogReference)
             {
                 auto clonedChild = std::dynamic_pointer_cast<CatalogReferenceImpl>(kCatalogReference)->Clone();
                 auto clonedChildICatalogReference = std::dynamic_pointer_cast<ICatalogReference>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetCatalogReference(clonedChildICatalogReference);
+                clonedObject->SetCatalogReference(std::dynamic_pointer_cast<ICatalogReferenceWriter>(clonedChildICatalogReference));
             }
             return clonedObject;
         }
@@ -8777,16 +7423,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _directory;
         }
 
-        /**
-         * Sets the value of model property directory
-         * @param directory from OpenSCENARIO class model specification: [All catalogs files in this directory must be evaluated.]
-         * 
-        */
-        void EnvironmentCatalogLocationImpl::SetDirectory(std::shared_ptr<IDirectory> directory )
-        {
-            _directory = directory;
-        }
-
         void EnvironmentCatalogLocationImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
         }
@@ -8809,7 +7445,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kDirectory =  GetDirectory();
+                const auto kDirectory =  GetWriterDirectory();
                 if (kDirectory)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kDirectory));
@@ -8832,13 +7468,13 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kDirectory =  GetDirectory();
+            const auto kDirectory =  GetWriterDirectory();
             if (kDirectory)
             {
                 auto clonedChild = std::dynamic_pointer_cast<DirectoryImpl>(kDirectory)->Clone();
                 auto clonedChildIDirectory = std::dynamic_pointer_cast<IDirectory>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetDirectory(clonedChildIDirectory);
+                clonedObject->SetDirectory(std::dynamic_pointer_cast<IDirectoryWriter>(clonedChildIDirectory));
             }
             return clonedObject;
         }
@@ -8884,15 +7520,11 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__PRIORITY, SimpleType::ENUM_TYPE);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__MAXIMUM_EXECUTION_COUNT, SimpleType::UNSIGNED_INT);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, SimpleType::STRING);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__PRIORITY, SimpleType::ENUM_TYPE);
         }
 
-        Priority EventImpl::GetPriority()
-        {
-            return _priority;
-        }
         uint32_t EventImpl::GetMaximumExecutionCount()
         {
             return _maximumExecutionCount;
@@ -8901,66 +7533,37 @@ namespace NET_ASAM_OPENSCENARIO
         {
             return _name;
         }
+        Priority EventImpl::GetPriority()
+        {
+            return _priority;
+        }
         std::vector<std::shared_ptr<IAction>> EventImpl::GetActions()
         {
-            return _actions;
+            std::vector<std::shared_ptr<IAction>> temp;
+            for(auto&& elm: _actions)
+                temp.push_back(elm);
+            return temp;
         }
         std::shared_ptr<ITrigger> EventImpl::GetStartTrigger()
         {
             return _startTrigger;
         }
 
-        /**
-         * Sets the value of model property priority
-         * @param priority from OpenSCENARIO class model specification: [Priority of each event.]
-         * 
-        */
-        void EventImpl::SetPriority(Priority priority )
-        {
-            _priority = priority;
-        }
-        /**
-         * Sets the value of model property maximumExecutionCount
-         * @param maximumExecutionCount from OpenSCENARIO class model specification: [Maximum number of executions. Default value 
-         * is 1. Range: [1..inf[.]
-         * 
-        */
-        void EventImpl::SetMaximumExecutionCount(uint32_t maximumExecutionCount )
-        {
-            _maximumExecutionCount = maximumExecutionCount;
-        }
-        /**
-         * Sets the value of model property name
-         * @param name from OpenSCENARIO class model specification: [Name of the event.]
-         * 
-        */
-        void EventImpl::SetName(std::string name )
-        {
-            _name = name;
-        }
-        /**
-         * Sets the value of model property actions
-         * @param actions from OpenSCENARIO class model specification: [List of actions in an event.]
-         * 
-        */
-        void EventImpl::SetActions(std::vector<std::shared_ptr<IAction>>& actions)
-        {
-            _actions = actions;
-        }
-        /**
-         * Sets the value of model property startTrigger
-         * @param startTrigger from OpenSCENARIO class model specification: [Actions are executed as soon as the start trigger 
-         * fires. This point in time represents the start of the event.]
-         * 
-        */
-        void EventImpl::SetStartTrigger(std::shared_ptr<ITrigger> startTrigger )
-        {
-            _startTrigger = startTrigger;
-        }
-
         void EventImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
-            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__PRIORITY)
+            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__MAXIMUM_EXECUTION_COUNT)
+            {
+                // Simple type
+                _maximumExecutionCount = ParserHelper::ParseUnsignedInt(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                AddResolvedParameter(attributeKey);
+            }
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__NAME)
+            {
+                // Simple type
+                _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                AddResolvedParameter(attributeKey);
+            }
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__PRIORITY)
             {
                 // Enumeration Type
                 const auto kResult = Priority::GetFromLiteral(parameterLiteralValue);
@@ -8974,18 +7577,6 @@ namespace NET_ASAM_OPENSCENARIO
                     auto msg = FileContentMessage("Value '" + parameterLiteralValue + "' is not allowed.", ERROR, *GetTextmarker(attributeKey));
                     logger.LogMessage(msg );
                 }
-            }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__MAXIMUM_EXECUTION_COUNT)
-            {
-                // Simple type
-                _maximumExecutionCount = ParserHelper::ParseUnsignedInt(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                AddResolvedParameter(attributeKey);
-            }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__NAME)
-            {
-                // Simple type
-                _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -9007,7 +7598,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                auto actions =  GetActions();
+                auto actions =  GetWriterActions();
                 if (!actions.empty())
                 {
                     for(auto&& item : actions)
@@ -9015,7 +7606,7 @@ namespace NET_ASAM_OPENSCENARIO
                         result.push_back(std::dynamic_pointer_cast<BaseImpl>(item) );
                     }
                 }
-                const auto kStartTrigger =  GetStartTrigger();
+                const auto kStartTrigger =  GetWriterStartTrigger();
                 if (kStartTrigger)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kStartTrigger));
@@ -9037,32 +7628,36 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToParameterNameMap(*clonedObject);
 
             // clone attributes;
+            // Simple type
+            clonedObject->_maximumExecutionCount = GetMaximumExecutionCount();
+            // Simple type
+            clonedObject->_name = GetName();
             // Enumeration Type
-            clonedObject->SetPriority(_priority);
-            // Simple type
-            clonedObject->SetMaximumExecutionCount(_maximumExecutionCount);
-            // Simple type
-            clonedObject->SetName(_name);
+            const auto kPriority = GetPriority();
+            if ( kPriority.GetLiteral() != "UNKNOWN" )
+            {
+                clonedObject->_priority = Priority::GetFromLiteral(kPriority.GetLiteral());
+            }
             // clone children
-            const auto kActions =  GetActions();
+            const auto kActions =  GetWriterActions();
             if (!kActions.empty())
             {
-                std::vector<std::shared_ptr<IAction>> clonedList;
+                std::vector<std::shared_ptr<IActionWriter>> clonedList;
                 for(auto&& kItem : kActions)
                 {
                     auto clonedChild = std::dynamic_pointer_cast<ActionImpl>(kItem)->Clone();
                     clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                    clonedList.push_back(std::dynamic_pointer_cast<ActionImpl>(clonedChild));
+                    clonedList.push_back(std::dynamic_pointer_cast<IActionWriter>(clonedChild));
                 }
                 clonedObject->SetActions(clonedList);
             }
-            const auto kStartTrigger =  GetStartTrigger();
+            const auto kStartTrigger =  GetWriterStartTrigger();
             if (kStartTrigger)
             {
                 auto clonedChild = std::dynamic_pointer_cast<TriggerImpl>(kStartTrigger)->Clone();
                 auto clonedChildITrigger = std::dynamic_pointer_cast<ITrigger>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetStartTrigger(clonedChildITrigger);
+                clonedObject->SetStartTrigger(std::dynamic_pointer_cast<ITriggerWriter>(clonedChildITrigger));
             }
             return clonedObject;
         }
@@ -9148,17 +7743,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _filepath;
         }
 
-        /**
-         * Sets the value of model property filepath
-         * @param filepath from OpenSCENARIO class model specification: [Filepath e.g. 
-         * filepath=/home/simulator/customDriverSpecification.xml.]
-         * 
-        */
-        void FileImpl::SetFilepath(std::string filepath )
-        {
-            _filepath = filepath;
-        }
-
         void FileImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
             if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__FILEPATH)
@@ -9205,7 +7789,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetFilepath(_filepath);
+            clonedObject->_filepath = GetFilepath();
             // clone children
             return clonedObject;
         }
@@ -9251,20 +7835,16 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__REV_MAJOR, SimpleType::UNSIGNED_SHORT);
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__REV_MINOR, SimpleType::UNSIGNED_SHORT);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__AUTHOR, SimpleType::STRING);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DATE, SimpleType::DATE_TIME);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DESCRIPTION, SimpleType::STRING);
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__AUTHOR, SimpleType::STRING);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__REV_MAJOR, SimpleType::UNSIGNED_SHORT);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__REV_MINOR, SimpleType::UNSIGNED_SHORT);
         }
 
-        uint16_t FileHeaderImpl::GetRevMajor()
+        std::string FileHeaderImpl::GetAuthor()
         {
-            return _revMajor;
-        }
-        uint16_t FileHeaderImpl::GetRevMinor()
-        {
-            return _revMinor;
+            return _author;
         }
         DateTime FileHeaderImpl::GetDate()
         {
@@ -9274,71 +7854,21 @@ namespace NET_ASAM_OPENSCENARIO
         {
             return _description;
         }
-        std::string FileHeaderImpl::GetAuthor()
+        uint16_t FileHeaderImpl::GetRevMajor()
         {
-            return _author;
+            return _revMajor;
         }
-
-        /**
-         * Sets the value of model property revMajor
-         * @param revMajor from OpenSCENARIO class model specification: [Major OpenSCENARIO revision, this file conforms to Range: 
-         * [0..inf[.]
-         * 
-        */
-        void FileHeaderImpl::SetRevMajor(uint16_t revMajor )
+        uint16_t FileHeaderImpl::GetRevMinor()
         {
-            _revMajor = revMajor;
-        }
-        /**
-         * Sets the value of model property revMinor
-         * @param revMinor from OpenSCENARIO class model specification: [Minor OpenSCENARIO revision, this file conforms to Range: 
-         * [0..inf[.]
-         * 
-        */
-        void FileHeaderImpl::SetRevMinor(uint16_t revMinor )
-        {
-            _revMinor = revMinor;
-        }
-        /**
-         * Sets the value of model property date
-         * @param date from OpenSCENARIO class model specification: [User specific date and time recommended: YYYY-MM-DDThh:mm:ss.]
-         * 
-        */
-        void FileHeaderImpl::SetDate(DateTime date )
-        {
-            _date = date;
-        }
-        /**
-         * Sets the value of model property description
-         * @param description from OpenSCENARIO class model specification: [User specific description.]
-         * 
-        */
-        void FileHeaderImpl::SetDescription(std::string description )
-        {
-            _description = description;
-        }
-        /**
-         * Sets the value of model property author
-         * @param author from OpenSCENARIO class model specification: [Author of the scenario or the catalog.]
-         * 
-        */
-        void FileHeaderImpl::SetAuthor(std::string author )
-        {
-            _author = author;
+            return _revMinor;
         }
 
         void FileHeaderImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
-            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__REV_MAJOR)
+            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__AUTHOR)
             {
                 // Simple type
-                _revMajor = ParserHelper::ParseUnsignedShort(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                AddResolvedParameter(attributeKey);
-            }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__REV_MINOR)
-            {
-                // Simple type
-                _revMinor = ParserHelper::ParseUnsignedShort(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                _author = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__DATE)
@@ -9353,10 +7883,16 @@ namespace NET_ASAM_OPENSCENARIO
                 _description = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
             }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__AUTHOR)
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__REV_MAJOR)
             {
                 // Simple type
-                _author = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                _revMajor = ParserHelper::ParseUnsignedShort(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                AddResolvedParameter(attributeKey);
+            }
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__REV_MINOR)
+            {
+                // Simple type
+                _revMinor = ParserHelper::ParseUnsignedShort(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
             }
         }
@@ -9397,15 +7933,15 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetRevMajor(_revMajor);
+            clonedObject->_author = GetAuthor();
             // Simple type
-            clonedObject->SetRevMinor(_revMinor);
+            clonedObject->_date = GetDate();
             // Simple type
-            clonedObject->SetDate(_date);
+            clonedObject->_description = GetDescription();
             // Simple type
-            clonedObject->SetDescription(_description);
+            clonedObject->_revMajor = GetRevMajor();
             // Simple type
-            clonedObject->SetAuthor(_author);
+            clonedObject->_revMinor = GetRevMinor();
             // clone children
             return clonedObject;
         }
@@ -9418,14 +7954,14 @@ namespace NET_ASAM_OPENSCENARIO
                 throw KeyNotSupportedException();
             }
              
-            if (key == OSC_CONSTANTS::ATTRIBUTE__DESCRIPTION)
-            {
-                return GetDescription();
-            } 
-            else 
             if (key == OSC_CONSTANTS::ATTRIBUTE__AUTHOR)
             {
                 return GetAuthor();
+            } 
+            else 
+            if (key == OSC_CONSTANTS::ATTRIBUTE__DESCRIPTION)
+            {
+                return GetDescription();
             } 
             throw KeyNotSupportedException();
         }
@@ -9467,27 +8003,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _relativeSpeedToMaster;
         }
 
-        /**
-         * Sets the value of model property absoluteSpeed
-         * @param absoluteSpeed from OpenSCENARIO class model specification: [The absolute speed a synchronized entity should have 
-         * at its target position.]
-         * 
-        */
-        void FinalSpeedImpl::SetAbsoluteSpeed(std::shared_ptr<IAbsoluteSpeed> absoluteSpeed )
-        {
-            _absoluteSpeed = absoluteSpeed;
-        }
-        /**
-         * Sets the value of model property relativeSpeedToMaster
-         * @param relativeSpeedToMaster from OpenSCENARIO class model specification: [The speed a synchronized entity should have 
-         * relative to its master entity at its target position.]
-         * 
-        */
-        void FinalSpeedImpl::SetRelativeSpeedToMaster(std::shared_ptr<IRelativeSpeedToMaster> relativeSpeedToMaster )
-        {
-            _relativeSpeedToMaster = relativeSpeedToMaster;
-        }
-
         void FinalSpeedImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
         }
@@ -9510,12 +8025,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kAbsoluteSpeed =  GetAbsoluteSpeed();
+                const auto kAbsoluteSpeed =  GetWriterAbsoluteSpeed();
                 if (kAbsoluteSpeed)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kAbsoluteSpeed));
                 }
-                const auto kRelativeSpeedToMaster =  GetRelativeSpeedToMaster();
+                const auto kRelativeSpeedToMaster =  GetWriterRelativeSpeedToMaster();
                 if (kRelativeSpeedToMaster)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kRelativeSpeedToMaster));
@@ -9538,21 +8053,21 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kAbsoluteSpeed =  GetAbsoluteSpeed();
+            const auto kAbsoluteSpeed =  GetWriterAbsoluteSpeed();
             if (kAbsoluteSpeed)
             {
                 auto clonedChild = std::dynamic_pointer_cast<AbsoluteSpeedImpl>(kAbsoluteSpeed)->Clone();
                 auto clonedChildIAbsoluteSpeed = std::dynamic_pointer_cast<IAbsoluteSpeed>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetAbsoluteSpeed(clonedChildIAbsoluteSpeed);
+                clonedObject->SetAbsoluteSpeed(std::dynamic_pointer_cast<IAbsoluteSpeedWriter>(clonedChildIAbsoluteSpeed));
             }
-            const auto kRelativeSpeedToMaster =  GetRelativeSpeedToMaster();
+            const auto kRelativeSpeedToMaster =  GetWriterRelativeSpeedToMaster();
             if (kRelativeSpeedToMaster)
             {
                 auto clonedChild = std::dynamic_pointer_cast<RelativeSpeedToMasterImpl>(kRelativeSpeedToMaster)->Clone();
                 auto clonedChildIRelativeSpeedToMaster = std::dynamic_pointer_cast<IRelativeSpeedToMaster>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetRelativeSpeedToMaster(clonedChildIRelativeSpeedToMaster);
+                clonedObject->SetRelativeSpeedToMaster(std::dynamic_pointer_cast<IRelativeSpeedToMasterWriter>(clonedChildIRelativeSpeedToMaster));
             }
             return clonedObject;
         }
@@ -9615,25 +8130,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _boundingBox;
         }
 
-        /**
-         * Sets the value of model property visualRange
-         * @param visualRange from OpenSCENARIO class model specification: [Unit: m; Range: [0..inf[.]
-         * 
-        */
-        void FogImpl::SetVisualRange(double visualRange )
-        {
-            _visualRange = visualRange;
-        }
-        /**
-         * Sets the value of model property boundingBox
-         * @param boundingBox from OpenSCENARIO class model specification: [Dimensions and center of fog in fixed coordinates.]
-         * 
-        */
-        void FogImpl::SetBoundingBox(std::shared_ptr<IBoundingBox> boundingBox )
-        {
-            _boundingBox = boundingBox;
-        }
-
         void FogImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
             if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VISUAL_RANGE)
@@ -9662,7 +8158,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kBoundingBox =  GetBoundingBox();
+                const auto kBoundingBox =  GetWriterBoundingBox();
                 if (kBoundingBox)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kBoundingBox));
@@ -9685,15 +8181,15 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetVisualRange(_visualRange);
+            clonedObject->_visualRange = GetVisualRange();
             // clone children
-            const auto kBoundingBox =  GetBoundingBox();
+            const auto kBoundingBox =  GetWriterBoundingBox();
             if (kBoundingBox)
             {
                 auto clonedChild = std::dynamic_pointer_cast<BoundingBoxImpl>(kBoundingBox)->Clone();
                 auto clonedChildIBoundingBox = std::dynamic_pointer_cast<IBoundingBox>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetBoundingBox(clonedChildIBoundingBox);
+                clonedObject->SetBoundingBox(std::dynamic_pointer_cast<IBoundingBoxWriter>(clonedChildIBoundingBox));
             }
             return clonedObject;
         }
@@ -9758,46 +8254,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _trajectoryFollowingMode;
         }
 
-        /**
-         * Sets the value of model property trajectory
-         * @param trajectory from OpenSCENARIO class model specification: [Trajectory definition.]
-         * 
-        */
-        void FollowTrajectoryActionImpl::SetTrajectory(std::shared_ptr<ITrajectory> trajectory )
-        {
-            _trajectory = trajectory;
-        }
-        /**
-         * Sets the value of model property catalogReference
-         * @param catalogReference from OpenSCENARIO class model specification: [A reference to the trajectory type in a catalog.]
-         * 
-        */
-        void FollowTrajectoryActionImpl::SetCatalogReference(std::shared_ptr<ICatalogReference> catalogReference )
-        {
-            _catalogReference = catalogReference;
-        }
-        /**
-         * Sets the value of model property timeReference
-         * @param timeReference from OpenSCENARIO class model specification: [Defines if time information provided within the 
-         * trajectory should be considered. If so, it may be used as either , absolute or relative time along the trajectory in 
-         * order to define longitudinal velocity of the actor. Moreover, a time , offset or time scaling may be applied.]
-         * 
-        */
-        void FollowTrajectoryActionImpl::SetTimeReference(std::shared_ptr<ITimeReference> timeReference )
-        {
-            _timeReference = timeReference;
-        }
-        /**
-         * Sets the value of model property trajectoryFollowingMode
-         * @param trajectoryFollowingMode from OpenSCENARIO class model specification: [The mode how to follow the given 
-         * trajectory.]
-         * 
-        */
-        void FollowTrajectoryActionImpl::SetTrajectoryFollowingMode(std::shared_ptr<ITrajectoryFollowingMode> trajectoryFollowingMode )
-        {
-            _trajectoryFollowingMode = trajectoryFollowingMode;
-        }
-
         void FollowTrajectoryActionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
         }
@@ -9820,22 +8276,22 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kTrajectory =  GetTrajectory();
+                const auto kTrajectory =  GetWriterTrajectory();
                 if (kTrajectory)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kTrajectory));
                 }
-                const auto kCatalogReference =  GetCatalogReference();
+                const auto kCatalogReference =  GetWriterCatalogReference();
                 if (kCatalogReference)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kCatalogReference));
                 }
-                const auto kTimeReference =  GetTimeReference();
+                const auto kTimeReference =  GetWriterTimeReference();
                 if (kTimeReference)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kTimeReference));
                 }
-                const auto kTrajectoryFollowingMode =  GetTrajectoryFollowingMode();
+                const auto kTrajectoryFollowingMode =  GetWriterTrajectoryFollowingMode();
                 if (kTrajectoryFollowingMode)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kTrajectoryFollowingMode));
@@ -9858,37 +8314,37 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kTrajectory =  GetTrajectory();
+            const auto kTrajectory =  GetWriterTrajectory();
             if (kTrajectory)
             {
                 auto clonedChild = std::dynamic_pointer_cast<TrajectoryImpl>(kTrajectory)->Clone();
                 auto clonedChildITrajectory = std::dynamic_pointer_cast<ITrajectory>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetTrajectory(clonedChildITrajectory);
+                clonedObject->SetTrajectory(std::dynamic_pointer_cast<ITrajectoryWriter>(clonedChildITrajectory));
             }
-            const auto kCatalogReference =  GetCatalogReference();
+            const auto kCatalogReference =  GetWriterCatalogReference();
             if (kCatalogReference)
             {
                 auto clonedChild = std::dynamic_pointer_cast<CatalogReferenceImpl>(kCatalogReference)->Clone();
                 auto clonedChildICatalogReference = std::dynamic_pointer_cast<ICatalogReference>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetCatalogReference(clonedChildICatalogReference);
+                clonedObject->SetCatalogReference(std::dynamic_pointer_cast<ICatalogReferenceWriter>(clonedChildICatalogReference));
             }
-            const auto kTimeReference =  GetTimeReference();
+            const auto kTimeReference =  GetWriterTimeReference();
             if (kTimeReference)
             {
                 auto clonedChild = std::dynamic_pointer_cast<TimeReferenceImpl>(kTimeReference)->Clone();
                 auto clonedChildITimeReference = std::dynamic_pointer_cast<ITimeReference>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetTimeReference(clonedChildITimeReference);
+                clonedObject->SetTimeReference(std::dynamic_pointer_cast<ITimeReferenceWriter>(clonedChildITimeReference));
             }
-            const auto kTrajectoryFollowingMode =  GetTrajectoryFollowingMode();
+            const auto kTrajectoryFollowingMode =  GetWriterTrajectoryFollowingMode();
             if (kTrajectoryFollowingMode)
             {
                 auto clonedChild = std::dynamic_pointer_cast<TrajectoryFollowingModeImpl>(kTrajectoryFollowingMode)->Clone();
                 auto clonedChildITrajectoryFollowingMode = std::dynamic_pointer_cast<ITrajectoryFollowingMode>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetTrajectoryFollowingMode(clonedChildITrajectoryFollowingMode);
+                clonedObject->SetTrajectoryFollowingMode(std::dynamic_pointer_cast<ITrajectoryFollowingModeWriter>(clonedChildITrajectoryFollowingMode));
             }
             return clonedObject;
         }
@@ -9972,53 +8428,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _trafficAction;
         }
 
-        /**
-         * Sets the value of model property environmentAction
-         * @param environmentAction from OpenSCENARIO class model specification: [Sets the weather state, road conditions, and time
-         * of the day.]
-         * 
-        */
-        void GlobalActionImpl::SetEnvironmentAction(std::shared_ptr<IEnvironmentAction> environmentAction )
-        {
-            _environmentAction = environmentAction;
-        }
-        /**
-         * Sets the value of model property entityAction
-         * @param entityAction from OpenSCENARIO class model specification: [Removing or adding entities.]
-         * 
-        */
-        void GlobalActionImpl::SetEntityAction(std::shared_ptr<IEntityAction> entityAction )
-        {
-            _entityAction = entityAction;
-        }
-        /**
-         * Sets the value of model property parameterAction
-         * @param parameterAction from OpenSCENARIO class model specification: [Setting/modifying values of parameters.]
-         * 
-        */
-        void GlobalActionImpl::SetParameterAction(std::shared_ptr<IParameterAction> parameterAction )
-        {
-            _parameterAction = parameterAction;
-        }
-        /**
-         * Sets the value of model property infrastructureAction
-         * @param infrastructureAction from OpenSCENARIO class model specification: [Setting/modifying traffic signals.]
-         * 
-        */
-        void GlobalActionImpl::SetInfrastructureAction(std::shared_ptr<IInfrastructureAction> infrastructureAction )
-        {
-            _infrastructureAction = infrastructureAction;
-        }
-        /**
-         * Sets the value of model property trafficAction
-         * @param trafficAction from OpenSCENARIO class model specification: [Populating ambient traffic.]
-         * 
-        */
-        void GlobalActionImpl::SetTrafficAction(std::shared_ptr<ITrafficAction> trafficAction )
-        {
-            _trafficAction = trafficAction;
-        }
-
         void GlobalActionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
         }
@@ -10041,27 +8450,27 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kEnvironmentAction =  GetEnvironmentAction();
+                const auto kEnvironmentAction =  GetWriterEnvironmentAction();
                 if (kEnvironmentAction)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kEnvironmentAction));
                 }
-                const auto kEntityAction =  GetEntityAction();
+                const auto kEntityAction =  GetWriterEntityAction();
                 if (kEntityAction)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kEntityAction));
                 }
-                const auto kParameterAction =  GetParameterAction();
+                const auto kParameterAction =  GetWriterParameterAction();
                 if (kParameterAction)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kParameterAction));
                 }
-                const auto kInfrastructureAction =  GetInfrastructureAction();
+                const auto kInfrastructureAction =  GetWriterInfrastructureAction();
                 if (kInfrastructureAction)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kInfrastructureAction));
                 }
-                const auto kTrafficAction =  GetTrafficAction();
+                const auto kTrafficAction =  GetWriterTrafficAction();
                 if (kTrafficAction)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kTrafficAction));
@@ -10084,45 +8493,45 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kEnvironmentAction =  GetEnvironmentAction();
+            const auto kEnvironmentAction =  GetWriterEnvironmentAction();
             if (kEnvironmentAction)
             {
                 auto clonedChild = std::dynamic_pointer_cast<EnvironmentActionImpl>(kEnvironmentAction)->Clone();
                 auto clonedChildIEnvironmentAction = std::dynamic_pointer_cast<IEnvironmentAction>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetEnvironmentAction(clonedChildIEnvironmentAction);
+                clonedObject->SetEnvironmentAction(std::dynamic_pointer_cast<IEnvironmentActionWriter>(clonedChildIEnvironmentAction));
             }
-            const auto kEntityAction =  GetEntityAction();
+            const auto kEntityAction =  GetWriterEntityAction();
             if (kEntityAction)
             {
                 auto clonedChild = std::dynamic_pointer_cast<EntityActionImpl>(kEntityAction)->Clone();
                 auto clonedChildIEntityAction = std::dynamic_pointer_cast<IEntityAction>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetEntityAction(clonedChildIEntityAction);
+                clonedObject->SetEntityAction(std::dynamic_pointer_cast<IEntityActionWriter>(clonedChildIEntityAction));
             }
-            const auto kParameterAction =  GetParameterAction();
+            const auto kParameterAction =  GetWriterParameterAction();
             if (kParameterAction)
             {
                 auto clonedChild = std::dynamic_pointer_cast<ParameterActionImpl>(kParameterAction)->Clone();
                 auto clonedChildIParameterAction = std::dynamic_pointer_cast<IParameterAction>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetParameterAction(clonedChildIParameterAction);
+                clonedObject->SetParameterAction(std::dynamic_pointer_cast<IParameterActionWriter>(clonedChildIParameterAction));
             }
-            const auto kInfrastructureAction =  GetInfrastructureAction();
+            const auto kInfrastructureAction =  GetWriterInfrastructureAction();
             if (kInfrastructureAction)
             {
                 auto clonedChild = std::dynamic_pointer_cast<InfrastructureActionImpl>(kInfrastructureAction)->Clone();
                 auto clonedChildIInfrastructureAction = std::dynamic_pointer_cast<IInfrastructureAction>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetInfrastructureAction(clonedChildIInfrastructureAction);
+                clonedObject->SetInfrastructureAction(std::dynamic_pointer_cast<IInfrastructureActionWriter>(clonedChildIInfrastructureAction));
             }
-            const auto kTrafficAction =  GetTrafficAction();
+            const auto kTrafficAction =  GetWriterTrafficAction();
             if (kTrafficAction)
             {
                 auto clonedChild = std::dynamic_pointer_cast<TrafficActionImpl>(kTrafficAction)->Clone();
                 auto clonedChildITrafficAction = std::dynamic_pointer_cast<ITrafficAction>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetTrafficAction(clonedChildITrafficAction);
+                clonedObject->SetTrafficAction(std::dynamic_pointer_cast<ITrafficActionWriter>(clonedChildITrafficAction));
             }
             return clonedObject;
         }
@@ -10203,35 +8612,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _fromLaneCoordinates;
         }
 
-        /**
-         * Sets the value of model property fromCurrentEntity
-         * @param fromCurrentEntity from OpenSCENARIO class model specification: [The position is defined through the current 
-         * position of a given entity.]
-         * 
-        */
-        void InRoutePositionImpl::SetFromCurrentEntity(std::shared_ptr<IPositionOfCurrentEntity> fromCurrentEntity )
-        {
-            _fromCurrentEntity = fromCurrentEntity;
-        }
-        /**
-         * Sets the value of model property fromRoadCoordinates
-         * @param fromRoadCoordinates from OpenSCENARIO class model specification: [Route position in road coordinate system.]
-         * 
-        */
-        void InRoutePositionImpl::SetFromRoadCoordinates(std::shared_ptr<IPositionInRoadCoordinates> fromRoadCoordinates )
-        {
-            _fromRoadCoordinates = fromRoadCoordinates;
-        }
-        /**
-         * Sets the value of model property fromLaneCoordinates
-         * @param fromLaneCoordinates from OpenSCENARIO class model specification: [Route position in lane coordinate system.]
-         * 
-        */
-        void InRoutePositionImpl::SetFromLaneCoordinates(std::shared_ptr<IPositionInLaneCoordinates> fromLaneCoordinates )
-        {
-            _fromLaneCoordinates = fromLaneCoordinates;
-        }
-
         void InRoutePositionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
         }
@@ -10254,17 +8634,17 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kFromCurrentEntity =  GetFromCurrentEntity();
+                const auto kFromCurrentEntity =  GetWriterFromCurrentEntity();
                 if (kFromCurrentEntity)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kFromCurrentEntity));
                 }
-                const auto kFromRoadCoordinates =  GetFromRoadCoordinates();
+                const auto kFromRoadCoordinates =  GetWriterFromRoadCoordinates();
                 if (kFromRoadCoordinates)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kFromRoadCoordinates));
                 }
-                const auto kFromLaneCoordinates =  GetFromLaneCoordinates();
+                const auto kFromLaneCoordinates =  GetWriterFromLaneCoordinates();
                 if (kFromLaneCoordinates)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kFromLaneCoordinates));
@@ -10287,29 +8667,29 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kFromCurrentEntity =  GetFromCurrentEntity();
+            const auto kFromCurrentEntity =  GetWriterFromCurrentEntity();
             if (kFromCurrentEntity)
             {
                 auto clonedChild = std::dynamic_pointer_cast<PositionOfCurrentEntityImpl>(kFromCurrentEntity)->Clone();
                 auto clonedChildIPositionOfCurrentEntity = std::dynamic_pointer_cast<IPositionOfCurrentEntity>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetFromCurrentEntity(clonedChildIPositionOfCurrentEntity);
+                clonedObject->SetFromCurrentEntity(std::dynamic_pointer_cast<IPositionOfCurrentEntityWriter>(clonedChildIPositionOfCurrentEntity));
             }
-            const auto kFromRoadCoordinates =  GetFromRoadCoordinates();
+            const auto kFromRoadCoordinates =  GetWriterFromRoadCoordinates();
             if (kFromRoadCoordinates)
             {
                 auto clonedChild = std::dynamic_pointer_cast<PositionInRoadCoordinatesImpl>(kFromRoadCoordinates)->Clone();
                 auto clonedChildIPositionInRoadCoordinates = std::dynamic_pointer_cast<IPositionInRoadCoordinates>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetFromRoadCoordinates(clonedChildIPositionInRoadCoordinates);
+                clonedObject->SetFromRoadCoordinates(std::dynamic_pointer_cast<IPositionInRoadCoordinatesWriter>(clonedChildIPositionInRoadCoordinates));
             }
-            const auto kFromLaneCoordinates =  GetFromLaneCoordinates();
+            const auto kFromLaneCoordinates =  GetWriterFromLaneCoordinates();
             if (kFromLaneCoordinates)
             {
                 auto clonedChild = std::dynamic_pointer_cast<PositionInLaneCoordinatesImpl>(kFromLaneCoordinates)->Clone();
                 auto clonedChildIPositionInLaneCoordinates = std::dynamic_pointer_cast<IPositionInLaneCoordinates>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetFromLaneCoordinates(clonedChildIPositionInLaneCoordinates);
+                clonedObject->SetFromLaneCoordinates(std::dynamic_pointer_cast<IPositionInLaneCoordinatesWriter>(clonedChildIPositionInLaneCoordinates));
             }
             return clonedObject;
         }
@@ -10372,17 +8752,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _trafficSignalAction;
         }
 
-        /**
-         * Sets the value of model property trafficSignalAction
-         * @param trafficSignalAction from OpenSCENARIO class model specification: [Set or overwrite a signals state or a signal 
-         * controllers state from a road network.]
-         * 
-        */
-        void InfrastructureActionImpl::SetTrafficSignalAction(std::shared_ptr<ITrafficSignalAction> trafficSignalAction )
-        {
-            _trafficSignalAction = trafficSignalAction;
-        }
-
         void InfrastructureActionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
         }
@@ -10405,7 +8774,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kTrafficSignalAction =  GetTrafficSignalAction();
+                const auto kTrafficSignalAction =  GetWriterTrafficSignalAction();
                 if (kTrafficSignalAction)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kTrafficSignalAction));
@@ -10428,13 +8797,13 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kTrafficSignalAction =  GetTrafficSignalAction();
+            const auto kTrafficSignalAction =  GetWriterTrafficSignalAction();
             if (kTrafficSignalAction)
             {
                 auto clonedChild = std::dynamic_pointer_cast<TrafficSignalActionImpl>(kTrafficSignalAction)->Clone();
                 auto clonedChildITrafficSignalAction = std::dynamic_pointer_cast<ITrafficSignalAction>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetTrafficSignalAction(clonedChildITrafficSignalAction);
+                clonedObject->SetTrafficSignalAction(std::dynamic_pointer_cast<ITrafficSignalActionWriter>(clonedChildITrafficSignalAction));
             }
             return clonedObject;
         }
@@ -10487,17 +8856,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _actions;
         }
 
-        /**
-         * Sets the value of model property actions
-         * @param actions from OpenSCENARIO class model specification: [A list of actions initially executed when the enclosing 
-         * storyboard starts.]
-         * 
-        */
-        void InitImpl::SetActions(std::shared_ptr<IInitActions> actions )
-        {
-            _actions = actions;
-        }
-
         void InitImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
         }
@@ -10520,7 +8878,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kActions =  GetActions();
+                const auto kActions =  GetWriterActions();
                 if (kActions)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kActions));
@@ -10543,13 +8901,13 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kActions =  GetActions();
+            const auto kActions =  GetWriterActions();
             if (kActions)
             {
                 auto clonedChild = std::dynamic_pointer_cast<InitActionsImpl>(kActions)->Clone();
                 auto clonedChildIInitActions = std::dynamic_pointer_cast<IInitActions>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetActions(clonedChildIInitActions);
+                clonedObject->SetActions(std::dynamic_pointer_cast<IInitActionsWriter>(clonedChildIInitActions));
             }
             return clonedObject;
         }
@@ -10599,43 +8957,24 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::vector<std::shared_ptr<IGlobalAction>> InitActionsImpl::GetGlobalActions()
         {
-            return _globalActions;
+            std::vector<std::shared_ptr<IGlobalAction>> temp;
+            for(auto&& elm: _globalActions)
+                temp.push_back(elm);
+            return temp;
         }
         std::vector<std::shared_ptr<IUserDefinedAction>> InitActionsImpl::GetUserDefinedActions()
         {
-            return _userDefinedActions;
+            std::vector<std::shared_ptr<IUserDefinedAction>> temp;
+            for(auto&& elm: _userDefinedActions)
+                temp.push_back(elm);
+            return temp;
         }
         std::vector<std::shared_ptr<IPrivate>> InitActionsImpl::GetPrivates()
         {
-            return _privates;
-        }
-
-        /**
-         * Sets the value of model property globalActions
-         * @param globalActions from OpenSCENARIO class model specification: [An optional list of global actions.]
-         * 
-        */
-        void InitActionsImpl::SetGlobalActions(std::vector<std::shared_ptr<IGlobalAction>>& globalActions)
-        {
-            _globalActions = globalActions;
-        }
-        /**
-         * Sets the value of model property userDefinedActions
-         * @param userDefinedActions from OpenSCENARIO class model specification: [An optional list of user defined actions.]
-         * 
-        */
-        void InitActionsImpl::SetUserDefinedActions(std::vector<std::shared_ptr<IUserDefinedAction>>& userDefinedActions)
-        {
-            _userDefinedActions = userDefinedActions;
-        }
-        /**
-         * Sets the value of model property privates
-         * @param privates from OpenSCENARIO class model specification: [An optional list of private actions.]
-         * 
-        */
-        void InitActionsImpl::SetPrivates(std::vector<std::shared_ptr<IPrivate>>& privates)
-        {
-            _privates = privates;
+            std::vector<std::shared_ptr<IPrivate>> temp;
+            for(auto&& elm: _privates)
+                temp.push_back(elm);
+            return temp;
         }
 
         void InitActionsImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
@@ -10660,7 +8999,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                auto globalActions =  GetGlobalActions();
+                auto globalActions =  GetWriterGlobalActions();
                 if (!globalActions.empty())
                 {
                     for(auto&& item : globalActions)
@@ -10668,7 +9007,7 @@ namespace NET_ASAM_OPENSCENARIO
                         result.push_back(std::dynamic_pointer_cast<BaseImpl>(item) );
                     }
                 }
-                auto userDefinedActions =  GetUserDefinedActions();
+                auto userDefinedActions =  GetWriterUserDefinedActions();
                 if (!userDefinedActions.empty())
                 {
                     for(auto&& item : userDefinedActions)
@@ -10676,7 +9015,7 @@ namespace NET_ASAM_OPENSCENARIO
                         result.push_back(std::dynamic_pointer_cast<BaseImpl>(item) );
                     }
                 }
-                auto privates =  GetPrivates();
+                auto privates =  GetWriterPrivates();
                 if (!privates.empty())
                 {
                     for(auto&& item : privates)
@@ -10702,39 +9041,39 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kGlobalActions =  GetGlobalActions();
+            const auto kGlobalActions =  GetWriterGlobalActions();
             if (!kGlobalActions.empty())
             {
-                std::vector<std::shared_ptr<IGlobalAction>> clonedList;
+                std::vector<std::shared_ptr<IGlobalActionWriter>> clonedList;
                 for(auto&& kItem : kGlobalActions)
                 {
                     auto clonedChild = std::dynamic_pointer_cast<GlobalActionImpl>(kItem)->Clone();
                     clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                    clonedList.push_back(std::dynamic_pointer_cast<GlobalActionImpl>(clonedChild));
+                    clonedList.push_back(std::dynamic_pointer_cast<IGlobalActionWriter>(clonedChild));
                 }
                 clonedObject->SetGlobalActions(clonedList);
             }
-            const auto kUserDefinedActions =  GetUserDefinedActions();
+            const auto kUserDefinedActions =  GetWriterUserDefinedActions();
             if (!kUserDefinedActions.empty())
             {
-                std::vector<std::shared_ptr<IUserDefinedAction>> clonedList;
+                std::vector<std::shared_ptr<IUserDefinedActionWriter>> clonedList;
                 for(auto&& kItem : kUserDefinedActions)
                 {
                     auto clonedChild = std::dynamic_pointer_cast<UserDefinedActionImpl>(kItem)->Clone();
                     clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                    clonedList.push_back(std::dynamic_pointer_cast<UserDefinedActionImpl>(clonedChild));
+                    clonedList.push_back(std::dynamic_pointer_cast<IUserDefinedActionWriter>(clonedChild));
                 }
                 clonedObject->SetUserDefinedActions(clonedList);
             }
-            const auto kPrivates =  GetPrivates();
+            const auto kPrivates =  GetWriterPrivates();
             if (!kPrivates.empty())
             {
-                std::vector<std::shared_ptr<IPrivate>> clonedList;
+                std::vector<std::shared_ptr<IPrivateWriter>> clonedList;
                 for(auto&& kItem : kPrivates)
                 {
                     auto clonedChild = std::dynamic_pointer_cast<PrivateImpl>(kItem)->Clone();
                     clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                    clonedList.push_back(std::dynamic_pointer_cast<PrivateImpl>(clonedChild));
+                    clonedList.push_back(std::dynamic_pointer_cast<IPrivateWriter>(clonedChild));
                 }
                 clonedObject->SetPrivates(clonedList);
             }
@@ -10810,16 +9149,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _value;
         }
 
-        /**
-         * Sets the value of model property value
-         * @param value from OpenSCENARIO class model specification: [Knot vector value. Range ]-inf..inf[.]
-         * 
-        */
-        void KnotImpl::SetValue(double value )
-        {
-            _value = value;
-        }
-
         void KnotImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
             if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
@@ -10866,7 +9195,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetValue(_value);
+            clonedObject->_value = GetValue();
             // clone children
             return clonedObject;
         }
@@ -10919,35 +9248,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _laneChangeTarget;
         }
 
-        /**
-         * Sets the value of model property targetLaneOffset
-         * @param targetLaneOffset from OpenSCENARIO class model specification: [Lane offset to be reached at the target lane; the 
-         * action will end there. Unit: m.]
-         * 
-        */
-        void LaneChangeActionImpl::SetTargetLaneOffset(double targetLaneOffset )
-        {
-            _targetLaneOffset = targetLaneOffset;
-        }
-        /**
-         * Sets the value of model property laneChangeActionDynamics
-         * @param laneChangeActionDynamics from OpenSCENARIO class model specification: [Shape/time of lane change action.]
-         * 
-        */
-        void LaneChangeActionImpl::SetLaneChangeActionDynamics(std::shared_ptr<ITransitionDynamics> laneChangeActionDynamics )
-        {
-            _laneChangeActionDynamics = laneChangeActionDynamics;
-        }
-        /**
-         * Sets the value of model property laneChangeTarget
-         * @param laneChangeTarget from OpenSCENARIO class model specification: [Direction of lane change action.]
-         * 
-        */
-        void LaneChangeActionImpl::SetLaneChangeTarget(std::shared_ptr<ILaneChangeTarget> laneChangeTarget )
-        {
-            _laneChangeTarget = laneChangeTarget;
-        }
-
         void LaneChangeActionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
             if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__TARGET_LANE_OFFSET)
@@ -10976,12 +9276,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kLaneChangeActionDynamics =  GetLaneChangeActionDynamics();
+                const auto kLaneChangeActionDynamics =  GetWriterLaneChangeActionDynamics();
                 if (kLaneChangeActionDynamics)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kLaneChangeActionDynamics));
                 }
-                const auto kLaneChangeTarget =  GetLaneChangeTarget();
+                const auto kLaneChangeTarget =  GetWriterLaneChangeTarget();
                 if (kLaneChangeTarget)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kLaneChangeTarget));
@@ -11004,23 +9304,23 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetTargetLaneOffset(_targetLaneOffset);
+            clonedObject->_targetLaneOffset = GetTargetLaneOffset();
             // clone children
-            const auto kLaneChangeActionDynamics =  GetLaneChangeActionDynamics();
+            const auto kLaneChangeActionDynamics =  GetWriterLaneChangeActionDynamics();
             if (kLaneChangeActionDynamics)
             {
                 auto clonedChild = std::dynamic_pointer_cast<TransitionDynamicsImpl>(kLaneChangeActionDynamics)->Clone();
                 auto clonedChildITransitionDynamics = std::dynamic_pointer_cast<ITransitionDynamics>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetLaneChangeActionDynamics(clonedChildITransitionDynamics);
+                clonedObject->SetLaneChangeActionDynamics(std::dynamic_pointer_cast<ITransitionDynamicsWriter>(clonedChildITransitionDynamics));
             }
-            const auto kLaneChangeTarget =  GetLaneChangeTarget();
+            const auto kLaneChangeTarget =  GetWriterLaneChangeTarget();
             if (kLaneChangeTarget)
             {
                 auto clonedChild = std::dynamic_pointer_cast<LaneChangeTargetImpl>(kLaneChangeTarget)->Clone();
                 auto clonedChildILaneChangeTarget = std::dynamic_pointer_cast<ILaneChangeTarget>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetLaneChangeTarget(clonedChildILaneChangeTarget);
+                clonedObject->SetLaneChangeTarget(std::dynamic_pointer_cast<ILaneChangeTargetWriter>(clonedChildILaneChangeTarget));
             }
             return clonedObject;
         }
@@ -11082,26 +9382,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _absoluteTargetLane;
         }
 
-        /**
-         * Sets the value of model property relativeTargetLane
-         * @param relativeTargetLane from OpenSCENARIO class model specification: [Lane change direction relative to entity's 
-         * lane.]
-         * 
-        */
-        void LaneChangeTargetImpl::SetRelativeTargetLane(std::shared_ptr<IRelativeTargetLane> relativeTargetLane )
-        {
-            _relativeTargetLane = relativeTargetLane;
-        }
-        /**
-         * Sets the value of model property absoluteTargetLane
-         * @param absoluteTargetLane from OpenSCENARIO class model specification: [Lane change target lane number.]
-         * 
-        */
-        void LaneChangeTargetImpl::SetAbsoluteTargetLane(std::shared_ptr<IAbsoluteTargetLane> absoluteTargetLane )
-        {
-            _absoluteTargetLane = absoluteTargetLane;
-        }
-
         void LaneChangeTargetImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
         }
@@ -11124,12 +9404,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kRelativeTargetLane =  GetRelativeTargetLane();
+                const auto kRelativeTargetLane =  GetWriterRelativeTargetLane();
                 if (kRelativeTargetLane)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kRelativeTargetLane));
                 }
-                const auto kAbsoluteTargetLane =  GetAbsoluteTargetLane();
+                const auto kAbsoluteTargetLane =  GetWriterAbsoluteTargetLane();
                 if (kAbsoluteTargetLane)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kAbsoluteTargetLane));
@@ -11152,21 +9432,21 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kRelativeTargetLane =  GetRelativeTargetLane();
+            const auto kRelativeTargetLane =  GetWriterRelativeTargetLane();
             if (kRelativeTargetLane)
             {
                 auto clonedChild = std::dynamic_pointer_cast<RelativeTargetLaneImpl>(kRelativeTargetLane)->Clone();
                 auto clonedChildIRelativeTargetLane = std::dynamic_pointer_cast<IRelativeTargetLane>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetRelativeTargetLane(clonedChildIRelativeTargetLane);
+                clonedObject->SetRelativeTargetLane(std::dynamic_pointer_cast<IRelativeTargetLaneWriter>(clonedChildIRelativeTargetLane));
             }
-            const auto kAbsoluteTargetLane =  GetAbsoluteTargetLane();
+            const auto kAbsoluteTargetLane =  GetWriterAbsoluteTargetLane();
             if (kAbsoluteTargetLane)
             {
                 auto clonedChild = std::dynamic_pointer_cast<AbsoluteTargetLaneImpl>(kAbsoluteTargetLane)->Clone();
                 auto clonedChildIAbsoluteTargetLane = std::dynamic_pointer_cast<IAbsoluteTargetLane>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetAbsoluteTargetLane(clonedChildIAbsoluteTargetLane);
+                clonedObject->SetAbsoluteTargetLane(std::dynamic_pointer_cast<IAbsoluteTargetLaneWriter>(clonedChildIAbsoluteTargetLane));
             }
             return clonedObject;
         }
@@ -11233,37 +9513,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _laneOffsetTarget;
         }
 
-        /**
-         * Sets the value of model property continuous
-         * @param continuous from OpenSCENARIO class model specification: [If false, the action ends when the target lane is 
-         * reached. If true it does not end but has to be stopped.]
-         * 
-        */
-        void LaneOffsetActionImpl::SetContinuous(bool continuous )
-        {
-            _continuous = continuous;
-        }
-        /**
-         * Sets the value of model property laneOffsetActionDynamics
-         * @param laneOffsetActionDynamics from OpenSCENARIO class model specification: [Parameters defining the dynamics of the 
-         * LaneOffsetAction.]
-         * 
-        */
-        void LaneOffsetActionImpl::SetLaneOffsetActionDynamics(std::shared_ptr<ILaneOffsetActionDynamics> laneOffsetActionDynamics )
-        {
-            _laneOffsetActionDynamics = laneOffsetActionDynamics;
-        }
-        /**
-         * Sets the value of model property laneOffsetTarget
-         * @param laneOffsetTarget from OpenSCENARIO class model specification: [Parameters indicating if the lane offset is 
-         * defined relative to another entity or absolute to the current lane's center , line.]
-         * 
-        */
-        void LaneOffsetActionImpl::SetLaneOffsetTarget(std::shared_ptr<ILaneOffsetTarget> laneOffsetTarget )
-        {
-            _laneOffsetTarget = laneOffsetTarget;
-        }
-
         void LaneOffsetActionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
             if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS)
@@ -11292,12 +9541,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kLaneOffsetActionDynamics =  GetLaneOffsetActionDynamics();
+                const auto kLaneOffsetActionDynamics =  GetWriterLaneOffsetActionDynamics();
                 if (kLaneOffsetActionDynamics)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kLaneOffsetActionDynamics));
                 }
-                const auto kLaneOffsetTarget =  GetLaneOffsetTarget();
+                const auto kLaneOffsetTarget =  GetWriterLaneOffsetTarget();
                 if (kLaneOffsetTarget)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kLaneOffsetTarget));
@@ -11320,23 +9569,23 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetContinuous(_continuous);
+            clonedObject->_continuous = GetContinuous();
             // clone children
-            const auto kLaneOffsetActionDynamics =  GetLaneOffsetActionDynamics();
+            const auto kLaneOffsetActionDynamics =  GetWriterLaneOffsetActionDynamics();
             if (kLaneOffsetActionDynamics)
             {
                 auto clonedChild = std::dynamic_pointer_cast<LaneOffsetActionDynamicsImpl>(kLaneOffsetActionDynamics)->Clone();
                 auto clonedChildILaneOffsetActionDynamics = std::dynamic_pointer_cast<ILaneOffsetActionDynamics>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetLaneOffsetActionDynamics(clonedChildILaneOffsetActionDynamics);
+                clonedObject->SetLaneOffsetActionDynamics(std::dynamic_pointer_cast<ILaneOffsetActionDynamicsWriter>(clonedChildILaneOffsetActionDynamics));
             }
-            const auto kLaneOffsetTarget =  GetLaneOffsetTarget();
+            const auto kLaneOffsetTarget =  GetWriterLaneOffsetTarget();
             if (kLaneOffsetTarget)
             {
                 auto clonedChild = std::dynamic_pointer_cast<LaneOffsetTargetImpl>(kLaneOffsetTarget)->Clone();
                 auto clonedChildILaneOffsetTarget = std::dynamic_pointer_cast<ILaneOffsetTarget>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetLaneOffsetTarget(clonedChildILaneOffsetTarget);
+                clonedObject->SetLaneOffsetTarget(std::dynamic_pointer_cast<ILaneOffsetTargetWriter>(clonedChildILaneOffsetTarget));
             }
             return clonedObject;
         }
@@ -11387,49 +9636,22 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__MAX_LATERAL_ACC, SimpleType::DOUBLE);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DYNAMICS_SHAPE, SimpleType::ENUM_TYPE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__MAX_LATERAL_ACC, SimpleType::DOUBLE);
         }
 
-        double LaneOffsetActionDynamicsImpl::GetMaxLateralAcc()
-        {
-            return _maxLateralAcc;
-        }
         DynamicsShape LaneOffsetActionDynamicsImpl::GetDynamicsShape()
         {
             return _dynamicsShape;
         }
-
-        /**
-         * Sets the value of model property maxLateralAcc
-         * @param maxLateralAcc from OpenSCENARIO class model specification: [Maximum lateral acceleration used to initially reach 
-         * and afterwards keep the lane offset. Unit: m/s2; Range: [0..inf[.]
-         * 
-        */
-        void LaneOffsetActionDynamicsImpl::SetMaxLateralAcc(double maxLateralAcc )
+        double LaneOffsetActionDynamicsImpl::GetMaxLateralAcc()
         {
-            _maxLateralAcc = maxLateralAcc;
-        }
-        /**
-         * Sets the value of model property dynamicsShape
-         * @param dynamicsShape from OpenSCENARIO class model specification: [Geometrical shape of the LaneOffsetAction's 
-         * dynamics.]
-         * 
-        */
-        void LaneOffsetActionDynamicsImpl::SetDynamicsShape(DynamicsShape dynamicsShape )
-        {
-            _dynamicsShape = dynamicsShape;
+            return _maxLateralAcc;
         }
 
         void LaneOffsetActionDynamicsImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
-            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__MAX_LATERAL_ACC)
-            {
-                // Simple type
-                _maxLateralAcc = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                AddResolvedParameter(attributeKey);
-            }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__DYNAMICS_SHAPE)
+            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__DYNAMICS_SHAPE)
             {
                 // Enumeration Type
                 const auto kResult = DynamicsShape::GetFromLiteral(parameterLiteralValue);
@@ -11443,6 +9665,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto msg = FileContentMessage("Value '" + parameterLiteralValue + "' is not allowed.", ERROR, *GetTextmarker(attributeKey));
                     logger.LogMessage(msg );
                 }
+            }
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__MAX_LATERAL_ACC)
+            {
+                // Simple type
+                _maxLateralAcc = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -11481,10 +9709,14 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToParameterNameMap(*clonedObject);
 
             // clone attributes;
-            // Simple type
-            clonedObject->SetMaxLateralAcc(_maxLateralAcc);
             // Enumeration Type
-            clonedObject->SetDynamicsShape(_dynamicsShape);
+            const auto kDynamicsShape = GetDynamicsShape();
+            if ( kDynamicsShape.GetLiteral() != "UNKNOWN" )
+            {
+                clonedObject->_dynamicsShape = DynamicsShape::GetFromLiteral(kDynamicsShape.GetLiteral());
+            }
+            // Simple type
+            clonedObject->_maxLateralAcc = GetMaxLateralAcc();
             // clone children
             return clonedObject;
         }
@@ -11542,27 +9774,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _absoluteTargetLaneOffset;
         }
 
-        /**
-         * Sets the value of model property relativeTargetLaneOffset
-         * @param relativeTargetLaneOffset from OpenSCENARIO class model specification: [Relative reference to the lane position of
-         * a specific entity.]
-         * 
-        */
-        void LaneOffsetTargetImpl::SetRelativeTargetLaneOffset(std::shared_ptr<IRelativeTargetLaneOffset> relativeTargetLaneOffset )
-        {
-            _relativeTargetLaneOffset = relativeTargetLaneOffset;
-        }
-        /**
-         * Sets the value of model property absoluteTargetLaneOffset
-         * @param absoluteTargetLaneOffset from OpenSCENARIO class model specification: [Absolute reference to the current lane's 
-         * center line.]
-         * 
-        */
-        void LaneOffsetTargetImpl::SetAbsoluteTargetLaneOffset(std::shared_ptr<IAbsoluteTargetLaneOffset> absoluteTargetLaneOffset )
-        {
-            _absoluteTargetLaneOffset = absoluteTargetLaneOffset;
-        }
-
         void LaneOffsetTargetImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
         }
@@ -11585,12 +9796,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kRelativeTargetLaneOffset =  GetRelativeTargetLaneOffset();
+                const auto kRelativeTargetLaneOffset =  GetWriterRelativeTargetLaneOffset();
                 if (kRelativeTargetLaneOffset)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kRelativeTargetLaneOffset));
                 }
-                const auto kAbsoluteTargetLaneOffset =  GetAbsoluteTargetLaneOffset();
+                const auto kAbsoluteTargetLaneOffset =  GetWriterAbsoluteTargetLaneOffset();
                 if (kAbsoluteTargetLaneOffset)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kAbsoluteTargetLaneOffset));
@@ -11613,21 +9824,21 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kRelativeTargetLaneOffset =  GetRelativeTargetLaneOffset();
+            const auto kRelativeTargetLaneOffset =  GetWriterRelativeTargetLaneOffset();
             if (kRelativeTargetLaneOffset)
             {
                 auto clonedChild = std::dynamic_pointer_cast<RelativeTargetLaneOffsetImpl>(kRelativeTargetLaneOffset)->Clone();
                 auto clonedChildIRelativeTargetLaneOffset = std::dynamic_pointer_cast<IRelativeTargetLaneOffset>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetRelativeTargetLaneOffset(clonedChildIRelativeTargetLaneOffset);
+                clonedObject->SetRelativeTargetLaneOffset(std::dynamic_pointer_cast<IRelativeTargetLaneOffsetWriter>(clonedChildIRelativeTargetLaneOffset));
             }
-            const auto kAbsoluteTargetLaneOffset =  GetAbsoluteTargetLaneOffset();
+            const auto kAbsoluteTargetLaneOffset =  GetWriterAbsoluteTargetLaneOffset();
             if (kAbsoluteTargetLaneOffset)
             {
                 auto clonedChild = std::dynamic_pointer_cast<AbsoluteTargetLaneOffsetImpl>(kAbsoluteTargetLaneOffset)->Clone();
                 auto clonedChildIAbsoluteTargetLaneOffset = std::dynamic_pointer_cast<IAbsoluteTargetLaneOffset>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetAbsoluteTargetLaneOffset(clonedChildIAbsoluteTargetLaneOffset);
+                clonedObject->SetAbsoluteTargetLaneOffset(std::dynamic_pointer_cast<IAbsoluteTargetLaneOffsetWriter>(clonedChildIAbsoluteTargetLaneOffset));
             }
             return clonedObject;
         }
@@ -11678,16 +9889,12 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ROAD_ID, SimpleType::STRING);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__LANE_ID, SimpleType::STRING);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__OFFSET, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ROAD_ID, SimpleType::STRING);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__S, SimpleType::DOUBLE);
         }
 
-        std::string LanePositionImpl::GetRoadId()
-        {
-            return _roadId;
-        }
         std::string LanePositionImpl::GetLaneId()
         {
             return _laneId;
@@ -11695,6 +9902,10 @@ namespace NET_ASAM_OPENSCENARIO
         double LanePositionImpl::GetOffset()
         {
             return _offset;
+        }
+        std::string LanePositionImpl::GetRoadId()
+        {
+            return _roadId;
         }
         double LanePositionImpl::GetS()
         {
@@ -11705,64 +9916,9 @@ namespace NET_ASAM_OPENSCENARIO
             return _orientation;
         }
 
-        /**
-         * Sets the value of model property roadId
-         * @param roadId from OpenSCENARIO class model specification: [ID of the current road (ID of a road in road network).]
-         * 
-        */
-        void LanePositionImpl::SetRoadId(std::string roadId )
-        {
-            _roadId = roadId;
-        }
-        /**
-         * Sets the value of model property laneId
-         * @param laneId from OpenSCENARIO class model specification: [ID of the current lane (ID of a lane in road network).]
-         * 
-        */
-        void LanePositionImpl::SetLaneId(std::string laneId )
-        {
-            _laneId = laneId;
-        }
-        /**
-         * Sets the value of model property offset
-         * @param offset from OpenSCENARIO class model specification: [Lateral offset to the centerline of the current lane. Unit: 
-         * m.]
-         * 
-        */
-        void LanePositionImpl::SetOffset(double offset )
-        {
-            _offset = offset;
-        }
-        /**
-         * Sets the value of model property s
-         * @param s from OpenSCENARIO class model specification: [The s coordinate of the current position. Unit: m; Range: 
-         * [0..inf[.]
-         * 
-        */
-        void LanePositionImpl::SetS(double s )
-        {
-            _s = s;
-        }
-        /**
-         * Sets the value of model property orientation
-         * @param orientation from OpenSCENARIO class model specification: [Orientation. The relative reference context refers to 
-         * the referenced road's s and t coordinates.]
-         * 
-        */
-        void LanePositionImpl::SetOrientation(std::shared_ptr<IOrientation> orientation )
-        {
-            _orientation = orientation;
-        }
-
         void LanePositionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
-            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ROAD_ID)
-            {
-                // Simple type
-                _roadId = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                AddResolvedParameter(attributeKey);
-            }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__LANE_ID)
+            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__LANE_ID)
             {
                 // Simple type
                 _laneId = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
@@ -11772,6 +9928,12 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _offset = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                AddResolvedParameter(attributeKey);
+            }
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ROAD_ID)
+            {
+                // Simple type
+                _roadId = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__S)
@@ -11800,7 +9962,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kOrientation =  GetOrientation();
+                const auto kOrientation =  GetWriterOrientation();
                 if (kOrientation)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kOrientation));
@@ -11823,21 +9985,21 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetRoadId(_roadId);
+            clonedObject->_laneId = GetLaneId();
             // Simple type
-            clonedObject->SetLaneId(_laneId);
+            clonedObject->_offset = GetOffset();
             // Simple type
-            clonedObject->SetOffset(_offset);
+            clonedObject->_roadId = GetRoadId();
             // Simple type
-            clonedObject->SetS(_s);
+            clonedObject->_s = GetS();
             // clone children
-            const auto kOrientation =  GetOrientation();
+            const auto kOrientation =  GetWriterOrientation();
             if (kOrientation)
             {
                 auto clonedChild = std::dynamic_pointer_cast<OrientationImpl>(kOrientation)->Clone();
                 auto clonedChildIOrientation = std::dynamic_pointer_cast<IOrientation>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetOrientation(clonedChildIOrientation);
+                clonedObject->SetOrientation(std::dynamic_pointer_cast<IOrientationWriter>(clonedChildIOrientation));
             }
             return clonedObject;
         }
@@ -11850,14 +10012,14 @@ namespace NET_ASAM_OPENSCENARIO
                 throw KeyNotSupportedException();
             }
              
-            if (key == OSC_CONSTANTS::ATTRIBUTE__ROAD_ID)
-            {
-                return GetRoadId();
-            } 
-            else 
             if (key == OSC_CONSTANTS::ATTRIBUTE__LANE_ID)
             {
                 return GetLaneId();
+            } 
+            else 
+            if (key == OSC_CONSTANTS::ATTRIBUTE__ROAD_ID)
+            {
+                return GetRoadId();
             } 
             throw KeyNotSupportedException();
         }
@@ -11912,35 +10074,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _lateralDistanceAction;
         }
 
-        /**
-         * Sets the value of model property laneChangeAction
-         * @param laneChangeAction from OpenSCENARIO class model specification: [Action defining a lane change.]
-         * 
-        */
-        void LateralActionImpl::SetLaneChangeAction(std::shared_ptr<ILaneChangeAction> laneChangeAction )
-        {
-            _laneChangeAction = laneChangeAction;
-        }
-        /**
-         * Sets the value of model property laneOffsetAction
-         * @param laneOffsetAction from OpenSCENARIO class model specification: [Action defining a continuously kept lane offset.]
-         * 
-        */
-        void LateralActionImpl::SetLaneOffsetAction(std::shared_ptr<ILaneOffsetAction> laneOffsetAction )
-        {
-            _laneOffsetAction = laneOffsetAction;
-        }
-        /**
-         * Sets the value of model property lateralDistanceAction
-         * @param lateralDistanceAction from OpenSCENARIO class model specification: [Action defining a continuously kept lateral 
-         * distance to a specific entity.]
-         * 
-        */
-        void LateralActionImpl::SetLateralDistanceAction(std::shared_ptr<ILateralDistanceAction> lateralDistanceAction )
-        {
-            _lateralDistanceAction = lateralDistanceAction;
-        }
-
         void LateralActionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
         }
@@ -11963,17 +10096,17 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kLaneChangeAction =  GetLaneChangeAction();
+                const auto kLaneChangeAction =  GetWriterLaneChangeAction();
                 if (kLaneChangeAction)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kLaneChangeAction));
                 }
-                const auto kLaneOffsetAction =  GetLaneOffsetAction();
+                const auto kLaneOffsetAction =  GetWriterLaneOffsetAction();
                 if (kLaneOffsetAction)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kLaneOffsetAction));
                 }
-                const auto kLateralDistanceAction =  GetLateralDistanceAction();
+                const auto kLateralDistanceAction =  GetWriterLateralDistanceAction();
                 if (kLateralDistanceAction)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kLateralDistanceAction));
@@ -11996,29 +10129,29 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kLaneChangeAction =  GetLaneChangeAction();
+            const auto kLaneChangeAction =  GetWriterLaneChangeAction();
             if (kLaneChangeAction)
             {
                 auto clonedChild = std::dynamic_pointer_cast<LaneChangeActionImpl>(kLaneChangeAction)->Clone();
                 auto clonedChildILaneChangeAction = std::dynamic_pointer_cast<ILaneChangeAction>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetLaneChangeAction(clonedChildILaneChangeAction);
+                clonedObject->SetLaneChangeAction(std::dynamic_pointer_cast<ILaneChangeActionWriter>(clonedChildILaneChangeAction));
             }
-            const auto kLaneOffsetAction =  GetLaneOffsetAction();
+            const auto kLaneOffsetAction =  GetWriterLaneOffsetAction();
             if (kLaneOffsetAction)
             {
                 auto clonedChild = std::dynamic_pointer_cast<LaneOffsetActionImpl>(kLaneOffsetAction)->Clone();
                 auto clonedChildILaneOffsetAction = std::dynamic_pointer_cast<ILaneOffsetAction>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetLaneOffsetAction(clonedChildILaneOffsetAction);
+                clonedObject->SetLaneOffsetAction(std::dynamic_pointer_cast<ILaneOffsetActionWriter>(clonedChildILaneOffsetAction));
             }
-            const auto kLateralDistanceAction =  GetLateralDistanceAction();
+            const auto kLateralDistanceAction =  GetWriterLateralDistanceAction();
             if (kLateralDistanceAction)
             {
                 auto clonedChild = std::dynamic_pointer_cast<LateralDistanceActionImpl>(kLateralDistanceAction)->Clone();
                 auto clonedChildILateralDistanceAction = std::dynamic_pointer_cast<ILateralDistanceAction>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetLateralDistanceAction(clonedChildILateralDistanceAction);
+                clonedObject->SetLateralDistanceAction(std::dynamic_pointer_cast<ILateralDistanceActionWriter>(clonedChildILateralDistanceAction));
             }
             return clonedObject;
         }
@@ -12074,89 +10207,39 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, SimpleType::STRING);
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DISTANCE, SimpleType::DOUBLE);
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, SimpleType::BOOLEAN);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS, SimpleType::BOOLEAN);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DISTANCE, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, SimpleType::STRING);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, SimpleType::BOOLEAN);
         }
 
-        INamedReference<IEntity>* LateralDistanceActionImpl::GetEntityRef()
+        bool LateralDistanceActionImpl::GetContinuous()
         {
-            return &_entityRef;
+            return _continuous;
         }
         double LateralDistanceActionImpl::GetDistance()
         {
             return _distance;
         }
+        std::shared_ptr<INamedReference<IEntity>> LateralDistanceActionImpl::GetEntityRef()
+        {
+            return _entityRef;
+        }
         bool LateralDistanceActionImpl::GetFreespace()
         {
             return _freespace;
-        }
-        bool LateralDistanceActionImpl::GetContinuous()
-        {
-            return _continuous;
         }
         std::shared_ptr<IDynamicConstraints> LateralDistanceActionImpl::GetDynamicConstraints()
         {
             return _dynamicConstraints;
         }
 
-        /**
-         * Sets the value of model property entityRef
-         * @param entityRef from OpenSCENARIO class model specification: [Name of the reference entity the lateral distance shall 
-         * be kept to.]
-         * 
-        */
-        void LateralDistanceActionImpl::SetEntityRef(NamedReferenceProxy<IEntity>& entityRef )
-        {
-            _entityRef = entityRef;
-        }
-        /**
-         * Sets the value of model property distance
-         * @param distance from OpenSCENARIO class model specification: [Lateral distance value. Unit: m; Range: [0..inf[.]
-         * 
-        */
-        void LateralDistanceActionImpl::SetDistance(double distance )
-        {
-            _distance = distance;
-        }
-        /**
-         * Sets the value of model property freespace
-         * @param freespace from OpenSCENARIO class model specification: [True: Lateral distance is measured using the distance 
-         * between closest bounding box points. False: Reference point , distance is used.]
-         * 
-        */
-        void LateralDistanceActionImpl::SetFreespace(bool freespace )
-        {
-            _freespace = freespace;
-        }
-        /**
-         * Sets the value of model property continuous
-         * @param continuous from OpenSCENARIO class model specification: [If false, the action ends when the target distance is 
-         * reached. If true it does not end and can only be stopped.]
-         * 
-        */
-        void LateralDistanceActionImpl::SetContinuous(bool continuous )
-        {
-            _continuous = continuous;
-        }
-        /**
-         * Sets the value of model property dynamicConstraints
-         * @param dynamicConstraints from OpenSCENARIO class model specification: [Parameter that assigns either unlimited dynamics
-         * (if omitted) or limited maxAcceleration/maxDeceleration/maxSpeed to the, action.]
-         * 
-        */
-        void LateralDistanceActionImpl::SetDynamicConstraints(std::shared_ptr<IDynamicConstraints> dynamicConstraints )
-        {
-            _dynamicConstraints = dynamicConstraints;
-        }
-
         void LateralDistanceActionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
-            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
+            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS)
             {
-                // Proxy
-                _entityRef = NamedReferenceProxy<IEntity>(parameterLiteralValue);
+                // Simple type
+                _continuous = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__DISTANCE)
@@ -12165,16 +10248,17 @@ namespace NET_ASAM_OPENSCENARIO
                 _distance = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
             }
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
+            {
+                // Proxy
+                const auto kProxy = std::make_shared<NamedReferenceProxy<IEntity>>(parameterLiteralValue);
+                _entityRef = std::dynamic_pointer_cast<INamedReference<IEntity>>(kProxy);
+                AddResolvedParameter(attributeKey);
+            }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__FREESPACE)
             {
                 // Simple type
                 _freespace = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                AddResolvedParameter(attributeKey);
-            }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS)
-            {
-                // Simple type
-                _continuous = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
             }
         }
@@ -12197,7 +10281,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kDynamicConstraints =  GetDynamicConstraints();
+                const auto kDynamicConstraints =  GetWriterDynamicConstraints();
                 if (kDynamicConstraints)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kDynamicConstraints));
@@ -12219,24 +10303,25 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToParameterNameMap(*clonedObject);
 
             // clone attributes;
+            // Simple type
+            clonedObject->_continuous = GetContinuous();
+            // Simple type
+            clonedObject->_distance = GetDistance();
             // Proxy
-            auto proxy = _entityRef;
-            proxy.SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-            clonedObject->SetEntityRef(proxy);
+            auto proxy = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetEntityRef()));
+            proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->_entityRef = proxy;
+            
             // Simple type
-            clonedObject->SetDistance(_distance);
-            // Simple type
-            clonedObject->SetFreespace(_freespace);
-            // Simple type
-            clonedObject->SetContinuous(_continuous);
+            clonedObject->_freespace = GetFreespace();
             // clone children
-            const auto kDynamicConstraints =  GetDynamicConstraints();
+            const auto kDynamicConstraints =  GetWriterDynamicConstraints();
             if (kDynamicConstraints)
             {
                 auto clonedChild = std::dynamic_pointer_cast<DynamicConstraintsImpl>(kDynamicConstraints)->Clone();
                 auto clonedChildIDynamicConstraints = std::dynamic_pointer_cast<IDynamicConstraints>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetDynamicConstraints(clonedChildIDynamicConstraints);
+                clonedObject->SetDynamicConstraints(std::dynamic_pointer_cast<IDynamicConstraintsWriter>(clonedChildIDynamicConstraints));
             }
             return clonedObject;
         }
@@ -12315,27 +10400,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _longitudinalDistanceAction;
         }
 
-        /**
-         * Sets the value of model property speedAction
-         * @param speedAction from OpenSCENARIO class model specification: [This action describes the transition between the 
-         * current longitudinal speed of an entity and its target speed.]
-         * 
-        */
-        void LongitudinalActionImpl::SetSpeedAction(std::shared_ptr<ISpeedAction> speedAction )
-        {
-            _speedAction = speedAction;
-        }
-        /**
-         * Sets the value of model property longitudinalDistanceAction
-         * @param longitudinalDistanceAction from OpenSCENARIO class model specification: [This Action defines a continuously kept 
-         * longitudinal distance to a specific entity.]
-         * 
-        */
-        void LongitudinalActionImpl::SetLongitudinalDistanceAction(std::shared_ptr<ILongitudinalDistanceAction> longitudinalDistanceAction )
-        {
-            _longitudinalDistanceAction = longitudinalDistanceAction;
-        }
-
         void LongitudinalActionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
         }
@@ -12358,12 +10422,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kSpeedAction =  GetSpeedAction();
+                const auto kSpeedAction =  GetWriterSpeedAction();
                 if (kSpeedAction)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kSpeedAction));
                 }
-                const auto kLongitudinalDistanceAction =  GetLongitudinalDistanceAction();
+                const auto kLongitudinalDistanceAction =  GetWriterLongitudinalDistanceAction();
                 if (kLongitudinalDistanceAction)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kLongitudinalDistanceAction));
@@ -12386,21 +10450,21 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kSpeedAction =  GetSpeedAction();
+            const auto kSpeedAction =  GetWriterSpeedAction();
             if (kSpeedAction)
             {
                 auto clonedChild = std::dynamic_pointer_cast<SpeedActionImpl>(kSpeedAction)->Clone();
                 auto clonedChildISpeedAction = std::dynamic_pointer_cast<ISpeedAction>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetSpeedAction(clonedChildISpeedAction);
+                clonedObject->SetSpeedAction(std::dynamic_pointer_cast<ISpeedActionWriter>(clonedChildISpeedAction));
             }
-            const auto kLongitudinalDistanceAction =  GetLongitudinalDistanceAction();
+            const auto kLongitudinalDistanceAction =  GetWriterLongitudinalDistanceAction();
             if (kLongitudinalDistanceAction)
             {
                 auto clonedChild = std::dynamic_pointer_cast<LongitudinalDistanceActionImpl>(kLongitudinalDistanceAction)->Clone();
                 auto clonedChildILongitudinalDistanceAction = std::dynamic_pointer_cast<ILongitudinalDistanceAction>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetLongitudinalDistanceAction(clonedChildILongitudinalDistanceAction);
+                clonedObject->SetLongitudinalDistanceAction(std::dynamic_pointer_cast<ILongitudinalDistanceActionWriter>(clonedChildILongitudinalDistanceAction));
             }
             return clonedObject;
         }
@@ -12451,104 +10515,44 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, SimpleType::STRING);
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DISTANCE, SimpleType::DOUBLE);
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__TIME_GAP, SimpleType::DOUBLE);
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, SimpleType::BOOLEAN);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS, SimpleType::BOOLEAN);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DISTANCE, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, SimpleType::STRING);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, SimpleType::BOOLEAN);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__TIME_GAP, SimpleType::DOUBLE);
         }
 
-        INamedReference<IEntity>* LongitudinalDistanceActionImpl::GetEntityRef()
+        bool LongitudinalDistanceActionImpl::GetContinuous()
         {
-            return &_entityRef;
+            return _continuous;
         }
         double LongitudinalDistanceActionImpl::GetDistance()
         {
             return _distance;
         }
-        double LongitudinalDistanceActionImpl::GetTimeGap()
+        std::shared_ptr<INamedReference<IEntity>> LongitudinalDistanceActionImpl::GetEntityRef()
         {
-            return _timeGap;
+            return _entityRef;
         }
         bool LongitudinalDistanceActionImpl::GetFreespace()
         {
             return _freespace;
         }
-        bool LongitudinalDistanceActionImpl::GetContinuous()
+        double LongitudinalDistanceActionImpl::GetTimeGap()
         {
-            return _continuous;
+            return _timeGap;
         }
         std::shared_ptr<IDynamicConstraints> LongitudinalDistanceActionImpl::GetDynamicConstraints()
         {
             return _dynamicConstraints;
         }
 
-        /**
-         * Sets the value of model property entityRef
-         * @param entityRef from OpenSCENARIO class model specification: [Reference entity the distance shall be kept to.]
-         * 
-        */
-        void LongitudinalDistanceActionImpl::SetEntityRef(NamedReferenceProxy<IEntity>& entityRef )
-        {
-            _entityRef = entityRef;
-        }
-        /**
-         * Sets the value of model property distance
-         * @param distance from OpenSCENARIO class model specification: [Distance value, not to be used together with timeGap 
-         * attribute. Unit: m; Range: [0..inf[.]
-         * 
-        */
-        void LongitudinalDistanceActionImpl::SetDistance(double distance )
-        {
-            _distance = distance;
-        }
-        /**
-         * Sets the value of model property timeGap
-         * @param timeGap from OpenSCENARIO class model specification: [Time gap value, not to be used together with distance 
-         * attribute. Unit: s; Range: [0..inf[.]
-         * 
-        */
-        void LongitudinalDistanceActionImpl::SetTimeGap(double timeGap )
-        {
-            _timeGap = timeGap;
-        }
-        /**
-         * Sets the value of model property freespace
-         * @param freespace from OpenSCENARIO class model specification: [True: Distance is measured using the distance between 
-         * closest bounding box points False: Reference point distance is , used.]
-         * 
-        */
-        void LongitudinalDistanceActionImpl::SetFreespace(bool freespace )
-        {
-            _freespace = freespace;
-        }
-        /**
-         * Sets the value of model property continuous
-         * @param continuous from OpenSCENARIO class model specification: [If false, the action ends when the target distance is 
-         * reached. If true it does not end and can only be stopped.]
-         * 
-        */
-        void LongitudinalDistanceActionImpl::SetContinuous(bool continuous )
-        {
-            _continuous = continuous;
-        }
-        /**
-         * Sets the value of model property dynamicConstraints
-         * @param dynamicConstraints from OpenSCENARIO class model specification: [Parameter that assigns either unlimited dynamics
-         * (if ommitted) or limited maxAcceleration/maxDeceleration/maxSpeed to , the action.]
-         * 
-        */
-        void LongitudinalDistanceActionImpl::SetDynamicConstraints(std::shared_ptr<IDynamicConstraints> dynamicConstraints )
-        {
-            _dynamicConstraints = dynamicConstraints;
-        }
-
         void LongitudinalDistanceActionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
-            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
+            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS)
             {
-                // Proxy
-                _entityRef = NamedReferenceProxy<IEntity>(parameterLiteralValue);
+                // Simple type
+                _continuous = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__DISTANCE)
@@ -12557,10 +10561,11 @@ namespace NET_ASAM_OPENSCENARIO
                 _distance = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
             }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__TIME_GAP)
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
             {
-                // Simple type
-                _timeGap = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                // Proxy
+                const auto kProxy = std::make_shared<NamedReferenceProxy<IEntity>>(parameterLiteralValue);
+                _entityRef = std::dynamic_pointer_cast<INamedReference<IEntity>>(kProxy);
                 AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__FREESPACE)
@@ -12569,10 +10574,10 @@ namespace NET_ASAM_OPENSCENARIO
                 _freespace = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
             }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS)
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__TIME_GAP)
             {
                 // Simple type
-                _continuous = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                _timeGap = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
             }
         }
@@ -12595,7 +10600,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kDynamicConstraints =  GetDynamicConstraints();
+                const auto kDynamicConstraints =  GetWriterDynamicConstraints();
                 if (kDynamicConstraints)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kDynamicConstraints));
@@ -12617,26 +10622,27 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToParameterNameMap(*clonedObject);
 
             // clone attributes;
+            // Simple type
+            clonedObject->_continuous = GetContinuous();
+            // Simple type
+            clonedObject->_distance = GetDistance();
             // Proxy
-            auto proxy = _entityRef;
-            proxy.SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-            clonedObject->SetEntityRef(proxy);
+            auto proxy = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetEntityRef()));
+            proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->_entityRef = proxy;
+            
             // Simple type
-            clonedObject->SetDistance(_distance);
+            clonedObject->_freespace = GetFreespace();
             // Simple type
-            clonedObject->SetTimeGap(_timeGap);
-            // Simple type
-            clonedObject->SetFreespace(_freespace);
-            // Simple type
-            clonedObject->SetContinuous(_continuous);
+            clonedObject->_timeGap = GetTimeGap();
             // clone children
-            const auto kDynamicConstraints =  GetDynamicConstraints();
+            const auto kDynamicConstraints =  GetWriterDynamicConstraints();
             if (kDynamicConstraints)
             {
                 auto clonedChild = std::dynamic_pointer_cast<DynamicConstraintsImpl>(kDynamicConstraints)->Clone();
                 auto clonedChildIDynamicConstraints = std::dynamic_pointer_cast<IDynamicConstraints>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetDynamicConstraints(clonedChildIDynamicConstraints);
+                clonedObject->SetDynamicConstraints(std::dynamic_pointer_cast<IDynamicConstraintsWriter>(clonedChildIDynamicConstraints));
             }
             return clonedObject;
         }
@@ -12713,39 +10719,17 @@ namespace NET_ASAM_OPENSCENARIO
         }
         std::vector<std::shared_ptr<IParameterDeclaration>> ManeuverImpl::GetParameterDeclarations()
         {
-            return _parameterDeclarations;
+            std::vector<std::shared_ptr<IParameterDeclaration>> temp;
+            for(auto&& elm: _parameterDeclarations)
+                temp.push_back(elm);
+            return temp;
         }
         std::vector<std::shared_ptr<IEvent>> ManeuverImpl::GetEvents()
         {
-            return _events;
-        }
-
-        /**
-         * Sets the value of model property name
-         * @param name from OpenSCENARIO class model specification: [Name of the maneuver.]
-         * 
-        */
-        void ManeuverImpl::SetName(std::string name )
-        {
-            _name = name;
-        }
-        /**
-         * Sets the value of model property parameterDeclarations
-         * @param parameterDeclarations from OpenSCENARIO class model specification: [Definition of additional parameters.]
-         * 
-        */
-        void ManeuverImpl::SetParameterDeclarations(std::vector<std::shared_ptr<IParameterDeclaration>>& parameterDeclarations)
-        {
-            _parameterDeclarations = parameterDeclarations;
-        }
-        /**
-         * Sets the value of model property events
-         * @param events from OpenSCENARIO class model specification: [List of events that are comprised by the maneuver.]
-         * 
-        */
-        void ManeuverImpl::SetEvents(std::vector<std::shared_ptr<IEvent>>& events)
-        {
-            _events = events;
+            std::vector<std::shared_ptr<IEvent>> temp;
+            for(auto&& elm: _events)
+                temp.push_back(elm);
+            return temp;
         }
 
         void ManeuverImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
@@ -12796,7 +10780,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                auto parameterDeclarations =  GetParameterDeclarations();
+                auto parameterDeclarations =  GetWriterParameterDeclarations();
                 if (!parameterDeclarations.empty())
                 {
                     for(auto&& item : parameterDeclarations)
@@ -12804,7 +10788,7 @@ namespace NET_ASAM_OPENSCENARIO
                         result.push_back(std::dynamic_pointer_cast<BaseImpl>(item) );
                     }
                 }
-                auto events =  GetEvents();
+                auto events =  GetWriterEvents();
                 if (!events.empty())
                 {
                     for(auto&& item : events)
@@ -12830,29 +10814,29 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetName(_name);
+            clonedObject->_name = GetName();
             // clone children
-            const auto kParameterDeclarations =  GetParameterDeclarations();
+            const auto kParameterDeclarations =  GetWriterParameterDeclarations();
             if (!kParameterDeclarations.empty())
             {
-                std::vector<std::shared_ptr<IParameterDeclaration>> clonedList;
+                std::vector<std::shared_ptr<IParameterDeclarationWriter>> clonedList;
                 for(auto&& kItem : kParameterDeclarations)
                 {
                     auto clonedChild = std::dynamic_pointer_cast<ParameterDeclarationImpl>(kItem)->Clone();
                     clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                    clonedList.push_back(std::dynamic_pointer_cast<ParameterDeclarationImpl>(clonedChild));
+                    clonedList.push_back(std::dynamic_pointer_cast<IParameterDeclarationWriter>(clonedChild));
                 }
                 clonedObject->SetParameterDeclarations(clonedList);
             }
-            const auto kEvents =  GetEvents();
+            const auto kEvents =  GetWriterEvents();
             if (!kEvents.empty())
             {
-                std::vector<std::shared_ptr<IEvent>> clonedList;
+                std::vector<std::shared_ptr<IEventWriter>> clonedList;
                 for(auto&& kItem : kEvents)
                 {
                     auto clonedChild = std::dynamic_pointer_cast<EventImpl>(kItem)->Clone();
                     clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                    clonedList.push_back(std::dynamic_pointer_cast<EventImpl>(clonedChild));
+                    clonedList.push_back(std::dynamic_pointer_cast<IEventWriter>(clonedChild));
                 }
                 clonedObject->SetEvents(clonedList);
             }
@@ -12927,16 +10911,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _directory;
         }
 
-        /**
-         * Sets the value of model property directory
-         * @param directory from OpenSCENARIO class model specification: [All catalogs files in this directory must be evaluated.]
-         * 
-        */
-        void ManeuverCatalogLocationImpl::SetDirectory(std::shared_ptr<IDirectory> directory )
-        {
-            _directory = directory;
-        }
-
         void ManeuverCatalogLocationImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
         }
@@ -12959,7 +10933,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kDirectory =  GetDirectory();
+                const auto kDirectory =  GetWriterDirectory();
                 if (kDirectory)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kDirectory));
@@ -12982,13 +10956,13 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kDirectory =  GetDirectory();
+            const auto kDirectory =  GetWriterDirectory();
             if (kDirectory)
             {
                 auto clonedChild = std::dynamic_pointer_cast<DirectoryImpl>(kDirectory)->Clone();
                 auto clonedChildIDirectory = std::dynamic_pointer_cast<IDirectory>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetDirectory(clonedChildIDirectory);
+                clonedObject->SetDirectory(std::dynamic_pointer_cast<IDirectoryWriter>(clonedChildIDirectory));
             }
             return clonedObject;
         }
@@ -13052,59 +11026,17 @@ namespace NET_ASAM_OPENSCENARIO
         }
         std::vector<std::shared_ptr<ICatalogReference>> ManeuverGroupImpl::GetCatalogReferences()
         {
-            return _catalogReferences;
+            std::vector<std::shared_ptr<ICatalogReference>> temp;
+            for(auto&& elm: _catalogReferences)
+                temp.push_back(elm);
+            return temp;
         }
         std::vector<std::shared_ptr<IManeuver>> ManeuverGroupImpl::GetManeuvers()
         {
-            return _maneuvers;
-        }
-
-        /**
-         * Sets the value of model property maximumExecutionCount
-         * @param maximumExecutionCount from OpenSCENARIO class model specification: [Number of allowed executions of the maneuver 
-         * group. Default value is 1. Range: [1..inf[.]
-         * 
-        */
-        void ManeuverGroupImpl::SetMaximumExecutionCount(uint32_t maximumExecutionCount )
-        {
-            _maximumExecutionCount = maximumExecutionCount;
-        }
-        /**
-         * Sets the value of model property name
-         * @param name from OpenSCENARIO class model specification: [Name of the maneuver group.]
-         * 
-        */
-        void ManeuverGroupImpl::SetName(std::string name )
-        {
-            _name = name;
-        }
-        /**
-         * Sets the value of model property actors
-         * @param actors from OpenSCENARIO class model specification: [Actors of the maneuver group.]
-         * 
-        */
-        void ManeuverGroupImpl::SetActors(std::shared_ptr<IActors> actors )
-        {
-            _actors = actors;
-        }
-        /**
-         * Sets the value of model property catalogReferences
-         * @param catalogReferences from OpenSCENARIO class model specification: [Each element of this list of must reference a 
-         * maneuver type in a catalog.]
-         * 
-        */
-        void ManeuverGroupImpl::SetCatalogReferences(std::vector<std::shared_ptr<ICatalogReference>>& catalogReferences)
-        {
-            _catalogReferences = catalogReferences;
-        }
-        /**
-         * Sets the value of model property maneuvers
-         * @param maneuvers from OpenSCENARIO class model specification: [Maneuver type definitions.]
-         * 
-        */
-        void ManeuverGroupImpl::SetManeuvers(std::vector<std::shared_ptr<IManeuver>>& maneuvers)
-        {
-            _maneuvers = maneuvers;
+            std::vector<std::shared_ptr<IManeuver>> temp;
+            for(auto&& elm: _maneuvers)
+                temp.push_back(elm);
+            return temp;
         }
 
         void ManeuverGroupImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
@@ -13141,12 +11073,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kActors =  GetActors();
+                const auto kActors =  GetWriterActors();
                 if (kActors)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kActors));
                 }
-                auto catalogReferences =  GetCatalogReferences();
+                auto catalogReferences =  GetWriterCatalogReferences();
                 if (!catalogReferences.empty())
                 {
                     for(auto&& item : catalogReferences)
@@ -13154,7 +11086,7 @@ namespace NET_ASAM_OPENSCENARIO
                         result.push_back(std::dynamic_pointer_cast<BaseImpl>(item) );
                     }
                 }
-                auto maneuvers =  GetManeuvers();
+                auto maneuvers =  GetWriterManeuvers();
                 if (!maneuvers.empty())
                 {
                     for(auto&& item : maneuvers)
@@ -13180,39 +11112,39 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetMaximumExecutionCount(_maximumExecutionCount);
+            clonedObject->_maximumExecutionCount = GetMaximumExecutionCount();
             // Simple type
-            clonedObject->SetName(_name);
+            clonedObject->_name = GetName();
             // clone children
-            const auto kActors =  GetActors();
+            const auto kActors =  GetWriterActors();
             if (kActors)
             {
                 auto clonedChild = std::dynamic_pointer_cast<ActorsImpl>(kActors)->Clone();
                 auto clonedChildIActors = std::dynamic_pointer_cast<IActors>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetActors(clonedChildIActors);
+                clonedObject->SetActors(std::dynamic_pointer_cast<IActorsWriter>(clonedChildIActors));
             }
-            const auto kCatalogReferences =  GetCatalogReferences();
+            const auto kCatalogReferences =  GetWriterCatalogReferences();
             if (!kCatalogReferences.empty())
             {
-                std::vector<std::shared_ptr<ICatalogReference>> clonedList;
+                std::vector<std::shared_ptr<ICatalogReferenceWriter>> clonedList;
                 for(auto&& kItem : kCatalogReferences)
                 {
                     auto clonedChild = std::dynamic_pointer_cast<CatalogReferenceImpl>(kItem)->Clone();
                     clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                    clonedList.push_back(std::dynamic_pointer_cast<CatalogReferenceImpl>(clonedChild));
+                    clonedList.push_back(std::dynamic_pointer_cast<ICatalogReferenceWriter>(clonedChild));
                 }
                 clonedObject->SetCatalogReferences(clonedList);
             }
-            const auto kManeuvers =  GetManeuvers();
+            const auto kManeuvers =  GetWriterManeuvers();
             if (!kManeuvers.empty())
             {
-                std::vector<std::shared_ptr<IManeuver>> clonedList;
+                std::vector<std::shared_ptr<IManeuverWriter>> clonedList;
                 for(auto&& kItem : kManeuvers)
                 {
                     auto clonedChild = std::dynamic_pointer_cast<ManeuverImpl>(kItem)->Clone();
                     clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                    clonedList.push_back(std::dynamic_pointer_cast<ManeuverImpl>(clonedChild));
+                    clonedList.push_back(std::dynamic_pointer_cast<IManeuverWriter>(clonedChild));
                 }
                 clonedObject->SetManeuvers(clonedList);
             }
@@ -13290,18 +11222,18 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__MISC_OBJECT_CATEGORY, SimpleType::ENUM_TYPE);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__MASS, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__MISC_OBJECT_CATEGORY, SimpleType::ENUM_TYPE);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, SimpleType::STRING);
         }
 
-        MiscObjectCategory MiscObjectImpl::GetMiscObjectCategory()
-        {
-            return _miscObjectCategory;
-        }
         double MiscObjectImpl::GetMass()
         {
             return _mass;
+        }
+        MiscObjectCategory MiscObjectImpl::GetMiscObjectCategory()
+        {
+            return _miscObjectCategory;
         }
         std::string MiscObjectImpl::GetName()
         {
@@ -13309,7 +11241,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
         std::vector<std::shared_ptr<IParameterDeclaration>> MiscObjectImpl::GetParameterDeclarations()
         {
-            return _parameterDeclarations;
+            std::vector<std::shared_ptr<IParameterDeclaration>> temp;
+            for(auto&& elm: _parameterDeclarations)
+                temp.push_back(elm);
+            return temp;
         }
         std::shared_ptr<IBoundingBox> MiscObjectImpl::GetBoundingBox()
         {
@@ -13320,64 +11255,15 @@ namespace NET_ASAM_OPENSCENARIO
             return _properties;
         }
 
-        /**
-         * Sets the value of model property miscObjectCategory
-         * @param miscObjectCategory from OpenSCENARIO class model specification: [Categorization of the miscellaneous object.]
-         * 
-        */
-        void MiscObjectImpl::SetMiscObjectCategory(MiscObjectCategory miscObjectCategory )
-        {
-            _miscObjectCategory = miscObjectCategory;
-        }
-        /**
-         * Sets the value of model property mass
-         * @param mass from OpenSCENARIO class model specification: [Mass of the miscellaneous object. Unit: kg; Range: [0..inf[.]
-         * 
-        */
-        void MiscObjectImpl::SetMass(double mass )
-        {
-            _mass = mass;
-        }
-        /**
-         * Sets the value of model property name
-         * @param name from OpenSCENARIO class model specification: [Name of the miscellaneous object type.]
-         * 
-        */
-        void MiscObjectImpl::SetName(std::string name )
-        {
-            _name = name;
-        }
-        /**
-         * Sets the value of model property parameterDeclarations
-         * @param parameterDeclarations from OpenSCENARIO class model specification: [Definition of additional parameters.]
-         * 
-        */
-        void MiscObjectImpl::SetParameterDeclarations(std::vector<std::shared_ptr<IParameterDeclaration>>& parameterDeclarations)
-        {
-            _parameterDeclarations = parameterDeclarations;
-        }
-        /**
-         * Sets the value of model property boundingBox
-         * @param boundingBox from OpenSCENARIO class model specification: [Bounding box definition for the miscellaneous object.]
-         * 
-        */
-        void MiscObjectImpl::SetBoundingBox(std::shared_ptr<IBoundingBox> boundingBox )
-        {
-            _boundingBox = boundingBox;
-        }
-        /**
-         * Sets the value of model property properties
-         * @param properties from OpenSCENARIO class model specification: [Property definitions for the miscellaneous object.]
-         * 
-        */
-        void MiscObjectImpl::SetProperties(std::shared_ptr<IProperties> properties )
-        {
-            _properties = properties;
-        }
-
         void MiscObjectImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
-            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__MISC_OBJECT_CATEGORY)
+            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__MASS)
+            {
+                // Simple type
+                _mass = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                AddResolvedParameter(attributeKey);
+            }
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__MISC_OBJECT_CATEGORY)
             {
                 // Enumeration Type
                 const auto kResult = MiscObjectCategory::GetFromLiteral(parameterLiteralValue);
@@ -13391,12 +11277,6 @@ namespace NET_ASAM_OPENSCENARIO
                     auto msg = FileContentMessage("Value '" + parameterLiteralValue + "' is not allowed.", ERROR, *GetTextmarker(attributeKey));
                     logger.LogMessage(msg );
                 }
-            }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__MASS)
-            {
-                // Simple type
-                _mass = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__NAME)
             {
@@ -13444,7 +11324,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                auto parameterDeclarations =  GetParameterDeclarations();
+                auto parameterDeclarations =  GetWriterParameterDeclarations();
                 if (!parameterDeclarations.empty())
                 {
                     for(auto&& item : parameterDeclarations)
@@ -13452,12 +11332,12 @@ namespace NET_ASAM_OPENSCENARIO
                         result.push_back(std::dynamic_pointer_cast<BaseImpl>(item) );
                     }
                 }
-                const auto kBoundingBox =  GetBoundingBox();
+                const auto kBoundingBox =  GetWriterBoundingBox();
                 if (kBoundingBox)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kBoundingBox));
                 }
-                const auto kProperties =  GetProperties();
+                const auto kProperties =  GetWriterProperties();
                 if (kProperties)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kProperties));
@@ -13479,40 +11359,44 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToParameterNameMap(*clonedObject);
 
             // clone attributes;
+            // Simple type
+            clonedObject->_mass = GetMass();
             // Enumeration Type
-            clonedObject->SetMiscObjectCategory(_miscObjectCategory);
+            const auto kMiscObjectCategory = GetMiscObjectCategory();
+            if ( kMiscObjectCategory.GetLiteral() != "UNKNOWN" )
+            {
+                clonedObject->_miscObjectCategory = MiscObjectCategory::GetFromLiteral(kMiscObjectCategory.GetLiteral());
+            }
             // Simple type
-            clonedObject->SetMass(_mass);
-            // Simple type
-            clonedObject->SetName(_name);
+            clonedObject->_name = GetName();
             // clone children
-            const auto kParameterDeclarations =  GetParameterDeclarations();
+            const auto kParameterDeclarations =  GetWriterParameterDeclarations();
             if (!kParameterDeclarations.empty())
             {
-                std::vector<std::shared_ptr<IParameterDeclaration>> clonedList;
+                std::vector<std::shared_ptr<IParameterDeclarationWriter>> clonedList;
                 for(auto&& kItem : kParameterDeclarations)
                 {
                     auto clonedChild = std::dynamic_pointer_cast<ParameterDeclarationImpl>(kItem)->Clone();
                     clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                    clonedList.push_back(std::dynamic_pointer_cast<ParameterDeclarationImpl>(clonedChild));
+                    clonedList.push_back(std::dynamic_pointer_cast<IParameterDeclarationWriter>(clonedChild));
                 }
                 clonedObject->SetParameterDeclarations(clonedList);
             }
-            const auto kBoundingBox =  GetBoundingBox();
+            const auto kBoundingBox =  GetWriterBoundingBox();
             if (kBoundingBox)
             {
                 auto clonedChild = std::dynamic_pointer_cast<BoundingBoxImpl>(kBoundingBox)->Clone();
                 auto clonedChildIBoundingBox = std::dynamic_pointer_cast<IBoundingBox>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetBoundingBox(clonedChildIBoundingBox);
+                clonedObject->SetBoundingBox(std::dynamic_pointer_cast<IBoundingBoxWriter>(clonedChildIBoundingBox));
             }
-            const auto kProperties =  GetProperties();
+            const auto kProperties =  GetWriterProperties();
             if (kProperties)
             {
                 auto clonedChild = std::dynamic_pointer_cast<PropertiesImpl>(kProperties)->Clone();
                 auto clonedChildIProperties = std::dynamic_pointer_cast<IProperties>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetProperties(clonedChildIProperties);
+                clonedObject->SetProperties(std::dynamic_pointer_cast<IPropertiesWriter>(clonedChildIProperties));
             }
             return clonedObject;
         }
@@ -13601,16 +11485,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _directory;
         }
 
-        /**
-         * Sets the value of model property directory
-         * @param directory from OpenSCENARIO class model specification: [All catalogs files in this directory must be evaluated.]
-         * 
-        */
-        void MiscObjectCatalogLocationImpl::SetDirectory(std::shared_ptr<IDirectory> directory )
-        {
-            _directory = directory;
-        }
-
         void MiscObjectCatalogLocationImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
         }
@@ -13633,7 +11507,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kDirectory =  GetDirectory();
+                const auto kDirectory =  GetWriterDirectory();
                 if (kDirectory)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kDirectory));
@@ -13656,13 +11530,13 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kDirectory =  GetDirectory();
+            const auto kDirectory =  GetWriterDirectory();
             if (kDirectory)
             {
                 auto clonedChild = std::dynamic_pointer_cast<DirectoryImpl>(kDirectory)->Clone();
                 auto clonedChildIDirectory = std::dynamic_pointer_cast<IDirectory>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetDirectory(clonedChildIDirectory);
+                clonedObject->SetDirectory(std::dynamic_pointer_cast<IDirectoryWriter>(clonedChildIDirectory));
             }
             return clonedObject;
         }
@@ -13719,25 +11593,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _multiplyByValue;
         }
 
-        /**
-         * Sets the value of model property addValue
-         * @param addValue from OpenSCENARIO class model specification: [Adding a value to a parameter.]
-         * 
-        */
-        void ModifyRuleImpl::SetAddValue(std::shared_ptr<IParameterAddValueRule> addValue )
-        {
-            _addValue = addValue;
-        }
-        /**
-         * Sets the value of model property multiplyByValue
-         * @param multiplyByValue from OpenSCENARIO class model specification: [Multiply a parameter by a value.]
-         * 
-        */
-        void ModifyRuleImpl::SetMultiplyByValue(std::shared_ptr<IParameterMultiplyByValueRule> multiplyByValue )
-        {
-            _multiplyByValue = multiplyByValue;
-        }
-
         void ModifyRuleImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
         }
@@ -13760,12 +11615,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kAddValue =  GetAddValue();
+                const auto kAddValue =  GetWriterAddValue();
                 if (kAddValue)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kAddValue));
                 }
-                const auto kMultiplyByValue =  GetMultiplyByValue();
+                const auto kMultiplyByValue =  GetWriterMultiplyByValue();
                 if (kMultiplyByValue)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kMultiplyByValue));
@@ -13788,21 +11643,21 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kAddValue =  GetAddValue();
+            const auto kAddValue =  GetWriterAddValue();
             if (kAddValue)
             {
                 auto clonedChild = std::dynamic_pointer_cast<ParameterAddValueRuleImpl>(kAddValue)->Clone();
                 auto clonedChildIParameterAddValueRule = std::dynamic_pointer_cast<IParameterAddValueRule>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetAddValue(clonedChildIParameterAddValueRule);
+                clonedObject->SetAddValue(std::dynamic_pointer_cast<IParameterAddValueRuleWriter>(clonedChildIParameterAddValueRule));
             }
-            const auto kMultiplyByValue =  GetMultiplyByValue();
+            const auto kMultiplyByValue =  GetWriterMultiplyByValue();
             if (kMultiplyByValue)
             {
                 auto clonedChild = std::dynamic_pointer_cast<ParameterMultiplyByValueRuleImpl>(kMultiplyByValue)->Clone();
                 auto clonedChildIParameterMultiplyByValueRule = std::dynamic_pointer_cast<IParameterMultiplyByValueRule>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetMultiplyByValue(clonedChildIParameterMultiplyByValueRule);
+                clonedObject->SetMultiplyByValue(std::dynamic_pointer_cast<IParameterMultiplyByValueRuleWriter>(clonedChildIParameterMultiplyByValueRule));
             }
             return clonedObject;
         }
@@ -13854,7 +11709,6 @@ namespace NET_ASAM_OPENSCENARIO
             * Filling the property to type map
             */
         }
-
 
 
         void NoneImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
@@ -13941,43 +11795,17 @@ namespace NET_ASAM_OPENSCENARIO
         }
         std::vector<std::shared_ptr<IControlPoint>> NurbsImpl::GetControlPoints()
         {
-            return _controlPoints;
+            std::vector<std::shared_ptr<IControlPoint>> temp;
+            for(auto&& elm: _controlPoints)
+                temp.push_back(elm);
+            return temp;
         }
         std::vector<std::shared_ptr<IKnot>> NurbsImpl::GetKnots()
         {
-            return _knots;
-        }
-
-        /**
-         * Sets the value of model property order
-         * @param order from OpenSCENARIO class model specification: [Order of the NURBS trajectory. This is the order of the 
-         * curve, not the degree of the polynomials, which will be one less, than the order of the curve. Range [2..inf[.]
-         * 
-        */
-        void NurbsImpl::SetOrder(uint32_t order )
-        {
-            _order = order;
-        }
-        /**
-         * Sets the value of model property controlPoints
-         * @param controlPoints from OpenSCENARIO class model specification: [Control point vector of the NURBS trajectory. The 
-         * number of control points must be greater or equal to the order of the , curve.]
-         * 
-        */
-        void NurbsImpl::SetControlPoints(std::vector<std::shared_ptr<IControlPoint>>& controlPoints)
-        {
-            _controlPoints = controlPoints;
-        }
-        /**
-         * Sets the value of model property knots
-         * @param knots from OpenSCENARIO class model specification: [Knot vector of the NURBS trajectory. Knot values must be 
-         * given in ascending order. The number of knot vector values must, be equal to the number of control points plus the order
-         * of the curve.]
-         * 
-        */
-        void NurbsImpl::SetKnots(std::vector<std::shared_ptr<IKnot>>& knots)
-        {
-            _knots = knots;
+            std::vector<std::shared_ptr<IKnot>> temp;
+            for(auto&& elm: _knots)
+                temp.push_back(elm);
+            return temp;
         }
 
         void NurbsImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
@@ -14008,7 +11836,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                auto controlPoints =  GetControlPoints();
+                auto controlPoints =  GetWriterControlPoints();
                 if (!controlPoints.empty())
                 {
                     for(auto&& item : controlPoints)
@@ -14016,7 +11844,7 @@ namespace NET_ASAM_OPENSCENARIO
                         result.push_back(std::dynamic_pointer_cast<BaseImpl>(item) );
                     }
                 }
-                auto knots =  GetKnots();
+                auto knots =  GetWriterKnots();
                 if (!knots.empty())
                 {
                     for(auto&& item : knots)
@@ -14042,29 +11870,29 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetOrder(_order);
+            clonedObject->_order = GetOrder();
             // clone children
-            const auto kControlPoints =  GetControlPoints();
+            const auto kControlPoints =  GetWriterControlPoints();
             if (!kControlPoints.empty())
             {
-                std::vector<std::shared_ptr<IControlPoint>> clonedList;
+                std::vector<std::shared_ptr<IControlPointWriter>> clonedList;
                 for(auto&& kItem : kControlPoints)
                 {
                     auto clonedChild = std::dynamic_pointer_cast<ControlPointImpl>(kItem)->Clone();
                     clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                    clonedList.push_back(std::dynamic_pointer_cast<ControlPointImpl>(clonedChild));
+                    clonedList.push_back(std::dynamic_pointer_cast<IControlPointWriter>(clonedChild));
                 }
                 clonedObject->SetControlPoints(clonedList);
             }
-            const auto kKnots =  GetKnots();
+            const auto kKnots =  GetWriterKnots();
             if (!kKnots.empty())
             {
-                std::vector<std::shared_ptr<IKnot>> clonedList;
+                std::vector<std::shared_ptr<IKnotWriter>> clonedList;
                 for(auto&& kItem : kKnots)
                 {
                     auto clonedChild = std::dynamic_pointer_cast<KnotImpl>(kItem)->Clone();
                     clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                    clonedList.push_back(std::dynamic_pointer_cast<KnotImpl>(clonedChild));
+                    clonedList.push_back(std::dynamic_pointer_cast<IKnotWriter>(clonedChild));
                 }
                 clonedObject->SetKnots(clonedList);
             }
@@ -14135,25 +11963,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _controller;
         }
 
-        /**
-         * Sets the value of model property catalogReference
-         * @param catalogReference from OpenSCENARIO class model specification: [Catalog reference to a controller.]
-         * 
-        */
-        void ObjectControllerImpl::SetCatalogReference(std::shared_ptr<ICatalogReference> catalogReference )
-        {
-            _catalogReference = catalogReference;
-        }
-        /**
-         * Sets the value of model property controller
-         * @param controller from OpenSCENARIO class model specification: [Controller type definition.]
-         * 
-        */
-        void ObjectControllerImpl::SetController(std::shared_ptr<IController> controller )
-        {
-            _controller = controller;
-        }
-
         void ObjectControllerImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
         }
@@ -14176,12 +11985,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kCatalogReference =  GetCatalogReference();
+                const auto kCatalogReference =  GetWriterCatalogReference();
                 if (kCatalogReference)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kCatalogReference));
                 }
-                const auto kController =  GetController();
+                const auto kController =  GetWriterController();
                 if (kController)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kController));
@@ -14204,21 +12013,21 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kCatalogReference =  GetCatalogReference();
+            const auto kCatalogReference =  GetWriterCatalogReference();
             if (kCatalogReference)
             {
                 auto clonedChild = std::dynamic_pointer_cast<CatalogReferenceImpl>(kCatalogReference)->Clone();
                 auto clonedChildICatalogReference = std::dynamic_pointer_cast<ICatalogReference>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetCatalogReference(clonedChildICatalogReference);
+                clonedObject->SetCatalogReference(std::dynamic_pointer_cast<ICatalogReferenceWriter>(clonedChildICatalogReference));
             }
-            const auto kController =  GetController();
+            const auto kController =  GetWriterController();
             if (kController)
             {
                 auto clonedChild = std::dynamic_pointer_cast<ControllerImpl>(kController)->Clone();
                 auto clonedChildIController = std::dynamic_pointer_cast<IController>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetController(clonedChildIController);
+                clonedObject->SetController(std::dynamic_pointer_cast<IControllerWriter>(clonedChildIController));
             }
             return clonedObject;
         }
@@ -14277,17 +12086,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _duration;
         }
 
-        /**
-         * Sets the value of model property duration
-         * @param duration from OpenSCENARIO class model specification: [Amount of time of driving offroad. Unit: s; Range: 
-         * [0..inf[.]
-         * 
-        */
-        void OffroadConditionImpl::SetDuration(double duration )
-        {
-            _duration = duration;
-        }
-
         void OffroadConditionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
             if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__DURATION)
@@ -14334,7 +12132,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetDuration(_duration);
+            clonedObject->_duration = GetDuration();
             // clone children
             return clonedObject;
         }
@@ -14382,26 +12180,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _openScenarioCategory;
         }
 
-        /**
-         * Sets the value of model property fileHeader
-         * @param fileHeader from OpenSCENARIO class model specification: [Header information for the scenario or the catalog.]
-         * 
-        */
-        void OpenScenarioImpl::SetFileHeader(std::shared_ptr<IFileHeader> fileHeader )
-        {
-            _fileHeader = fileHeader;
-        }
-        /**
-         * Sets the value of model property openScenarioCategory
-         * @param openScenarioCategory from OpenSCENARIO class model specification: [Category (catalog or scenario) of the 
-         * OpenSCENARIO description.]
-         * 
-        */
-        void OpenScenarioImpl::SetOpenScenarioCategory(std::shared_ptr<IOpenScenarioCategory> openScenarioCategory )
-        {
-            _openScenarioCategory = openScenarioCategory;
-        }
-
         void OpenScenarioImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
         }
@@ -14424,12 +12202,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kFileHeader =  GetFileHeader();
+                const auto kFileHeader =  GetWriterFileHeader();
                 if (kFileHeader)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kFileHeader));
                 }
-                const auto kOpenScenarioCategory =  GetOpenScenarioCategory();
+                const auto kOpenScenarioCategory =  GetWriterOpenScenarioCategory();
                 if (kOpenScenarioCategory)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kOpenScenarioCategory));
@@ -14452,21 +12230,21 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kFileHeader =  GetFileHeader();
+            const auto kFileHeader =  GetWriterFileHeader();
             if (kFileHeader)
             {
                 auto clonedChild = std::dynamic_pointer_cast<FileHeaderImpl>(kFileHeader)->Clone();
                 auto clonedChildIFileHeader = std::dynamic_pointer_cast<IFileHeader>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetFileHeader(clonedChildIFileHeader);
+                clonedObject->SetFileHeader(std::dynamic_pointer_cast<IFileHeaderWriter>(clonedChildIFileHeader));
             }
-            const auto kOpenScenarioCategory =  GetOpenScenarioCategory();
+            const auto kOpenScenarioCategory =  GetWriterOpenScenarioCategory();
             if (kOpenScenarioCategory)
             {
                 auto clonedChild = std::dynamic_pointer_cast<OpenScenarioCategoryImpl>(kOpenScenarioCategory)->Clone();
                 auto clonedChildIOpenScenarioCategory = std::dynamic_pointer_cast<IOpenScenarioCategory>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetOpenScenarioCategory(clonedChildIOpenScenarioCategory);
+                clonedObject->SetOpenScenarioCategory(std::dynamic_pointer_cast<IOpenScenarioCategoryWriter>(clonedChildIOpenScenarioCategory));
             }
             return clonedObject;
         }
@@ -14528,25 +12306,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _catalogDefinition;
         }
 
-        /**
-         * Sets the value of model property scenarioDefinition
-         * @param scenarioDefinition from OpenSCENARIO class model specification: [Definition of a scenario.]
-         * 
-        */
-        void OpenScenarioCategoryImpl::SetScenarioDefinition(std::shared_ptr<IScenarioDefinition> scenarioDefinition )
-        {
-            _scenarioDefinition = scenarioDefinition;
-        }
-        /**
-         * Sets the value of model property catalogDefinition
-         * @param catalogDefinition from OpenSCENARIO class model specification: [Definition of a catalog.]
-         * 
-        */
-        void OpenScenarioCategoryImpl::SetCatalogDefinition(std::shared_ptr<ICatalogDefinition> catalogDefinition )
-        {
-            _catalogDefinition = catalogDefinition;
-        }
-
         void OpenScenarioCategoryImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
         }
@@ -14569,12 +12328,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kScenarioDefinition =  GetScenarioDefinition();
+                const auto kScenarioDefinition =  GetWriterScenarioDefinition();
                 if (kScenarioDefinition)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kScenarioDefinition));
                 }
-                const auto kCatalogDefinition =  GetCatalogDefinition();
+                const auto kCatalogDefinition =  GetWriterCatalogDefinition();
                 if (kCatalogDefinition)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kCatalogDefinition));
@@ -14597,21 +12356,21 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kScenarioDefinition =  GetScenarioDefinition();
+            const auto kScenarioDefinition =  GetWriterScenarioDefinition();
             if (kScenarioDefinition)
             {
                 auto clonedChild = std::dynamic_pointer_cast<ScenarioDefinitionImpl>(kScenarioDefinition)->Clone();
                 auto clonedChildIScenarioDefinition = std::dynamic_pointer_cast<IScenarioDefinition>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetScenarioDefinition(clonedChildIScenarioDefinition);
+                clonedObject->SetScenarioDefinition(std::dynamic_pointer_cast<IScenarioDefinitionWriter>(clonedChildIScenarioDefinition));
             }
-            const auto kCatalogDefinition =  GetCatalogDefinition();
+            const auto kCatalogDefinition =  GetWriterCatalogDefinition();
             if (kCatalogDefinition)
             {
                 auto clonedChild = std::dynamic_pointer_cast<CatalogDefinitionImpl>(kCatalogDefinition)->Clone();
                 auto clonedChildICatalogDefinition = std::dynamic_pointer_cast<ICatalogDefinition>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetCatalogDefinition(clonedChildICatalogDefinition);
+                clonedObject->SetCatalogDefinition(std::dynamic_pointer_cast<ICatalogDefinitionWriter>(clonedChildICatalogDefinition));
             }
             return clonedObject;
         }
@@ -14662,16 +12421,12 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__TYPE, SimpleType::ENUM_TYPE);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__H, SimpleType::DOUBLE);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__P, SimpleType::DOUBLE);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__R, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__TYPE, SimpleType::ENUM_TYPE);
         }
 
-        ReferenceContext OrientationImpl::GetType()
-        {
-            return _type;
-        }
         double OrientationImpl::GetH()
         {
             return _h;
@@ -14684,62 +12439,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
             return _r;
         }
-
-        /**
-         * Sets the value of model property type
-         * @param type from OpenSCENARIO class model specification: [Relative or absolute definition.]
-         * 
-        */
-        void OrientationImpl::SetType(ReferenceContext type )
+        ReferenceContext OrientationImpl::GetType()
         {
-            _type = type;
-        }
-        /**
-         * Sets the value of model property h
-         * @param h from OpenSCENARIO class model specification: [Heading angle. Unit: rad;.]
-         * 
-        */
-        void OrientationImpl::SetH(double h )
-        {
-            _h = h;
-        }
-        /**
-         * Sets the value of model property p
-         * @param p from OpenSCENARIO class model specification: [Pitch angle. Unit: rad;.]
-         * 
-        */
-        void OrientationImpl::SetP(double p )
-        {
-            _p = p;
-        }
-        /**
-         * Sets the value of model property r
-         * @param r from OpenSCENARIO class model specification: [Roll angle. Unit: rad;.]
-         * 
-        */
-        void OrientationImpl::SetR(double r )
-        {
-            _r = r;
+            return _type;
         }
 
         void OrientationImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
-            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__TYPE)
-            {
-                // Enumeration Type
-                const auto kResult = ReferenceContext::GetFromLiteral(parameterLiteralValue);
-                if (kResult != ReferenceContext::UNKNOWN)
-                {
-                    _type = kResult;
-                    AddResolvedParameter(attributeKey);
-                }
-                else
-                {
-                    auto msg = FileContentMessage("Value '" + parameterLiteralValue + "' is not allowed.", ERROR, *GetTextmarker(attributeKey));
-                    logger.LogMessage(msg );
-                }
-            }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__H)
+            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__H)
             {
                 // Simple type
                 _h = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
@@ -14756,6 +12463,21 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _r = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+            }
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__TYPE)
+            {
+                // Enumeration Type
+                const auto kResult = ReferenceContext::GetFromLiteral(parameterLiteralValue);
+                if (kResult != ReferenceContext::UNKNOWN)
+                {
+                    _type = kResult;
+                    AddResolvedParameter(attributeKey);
+                }
+                else
+                {
+                    auto msg = FileContentMessage("Value '" + parameterLiteralValue + "' is not allowed.", ERROR, *GetTextmarker(attributeKey));
+                    logger.LogMessage(msg );
+                }
             }
         }
 
@@ -14794,14 +12516,18 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToParameterNameMap(*clonedObject);
 
             // clone attributes;
+            // Simple type
+            clonedObject->_h = GetH();
+            // Simple type
+            clonedObject->_p = GetP();
+            // Simple type
+            clonedObject->_r = GetR();
             // Enumeration Type
-            clonedObject->SetType(_type);
-            // Simple type
-            clonedObject->SetH(_h);
-            // Simple type
-            clonedObject->SetP(_p);
-            // Simple type
-            clonedObject->SetR(_r);
+            const auto kType = GetType();
+            if ( kType.GetLiteral() != "UNKNOWN" )
+            {
+                clonedObject->_type = ReferenceContext::GetFromLiteral(kType.GetLiteral());
+            }
             // clone children
             return clonedObject;
         }
@@ -14848,51 +12574,31 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, SimpleType::BOOLEAN);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
         }
 
-        double OverrideBrakeActionImpl::GetValue()
-        {
-            return _value;
-        }
         bool OverrideBrakeActionImpl::GetActive()
         {
             return _active;
         }
-
-        /**
-         * Sets the value of model property value
-         * @param value from OpenSCENARIO class model specification: [Brake pedal value. Range: [0..1]. 0 represents 0%, 1 
-         * represents 100% of pressing the brake pedal.]
-         * 
-        */
-        void OverrideBrakeActionImpl::SetValue(double value )
+        double OverrideBrakeActionImpl::GetValue()
         {
-            _value = value;
-        }
-        /**
-         * Sets the value of model property active
-         * @param active from OpenSCENARIO class model specification: [True: override; false: stop overriding.]
-         * 
-        */
-        void OverrideBrakeActionImpl::SetActive(bool active )
-        {
-            _active = active;
+            return _value;
         }
 
         void OverrideBrakeActionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
-            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
-            {
-                // Simple type
-                _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                AddResolvedParameter(attributeKey);
-            }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ACTIVE)
+            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ACTIVE)
             {
                 // Simple type
                 _active = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                AddResolvedParameter(attributeKey);
+            }
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
+            {
+                // Simple type
+                _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
             }
         }
@@ -14933,9 +12639,9 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetValue(_value);
+            clonedObject->_active = GetActive();
             // Simple type
-            clonedObject->SetActive(_active);
+            clonedObject->_value = GetValue();
             // clone children
             return clonedObject;
         }
@@ -14972,51 +12678,31 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, SimpleType::BOOLEAN);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
         }
 
-        double OverrideClutchActionImpl::GetValue()
-        {
-            return _value;
-        }
         bool OverrideClutchActionImpl::GetActive()
         {
             return _active;
         }
-
-        /**
-         * Sets the value of model property value
-         * @param value from OpenSCENARIO class model specification: [Clutch pedal value. Range: [0..1]. 0 represents 0%, 1 
-         * represents 100% of pressing the clutch pedal.]
-         * 
-        */
-        void OverrideClutchActionImpl::SetValue(double value )
+        double OverrideClutchActionImpl::GetValue()
         {
-            _value = value;
-        }
-        /**
-         * Sets the value of model property active
-         * @param active from OpenSCENARIO class model specification: [True: override; false: stop overriding.]
-         * 
-        */
-        void OverrideClutchActionImpl::SetActive(bool active )
-        {
-            _active = active;
+            return _value;
         }
 
         void OverrideClutchActionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
-            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
-            {
-                // Simple type
-                _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                AddResolvedParameter(attributeKey);
-            }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ACTIVE)
+            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ACTIVE)
             {
                 // Simple type
                 _active = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                AddResolvedParameter(attributeKey);
+            }
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
+            {
+                // Simple type
+                _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
             }
         }
@@ -15057,9 +12743,9 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetValue(_value);
+            clonedObject->_active = GetActive();
             // Simple type
-            clonedObject->SetActive(_active);
+            clonedObject->_value = GetValue();
             // clone children
             return clonedObject;
         }
@@ -15123,62 +12809,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _gear;
         }
 
-        /**
-         * Sets the value of model property throttle
-         * @param throttle from OpenSCENARIO class model specification: [New value for throttle pedal position or unset value.]
-         * 
-        */
-        void OverrideControllerValueActionImpl::SetThrottle(std::shared_ptr<IOverrideThrottleAction> throttle )
-        {
-            _throttle = throttle;
-        }
-        /**
-         * Sets the value of model property brake
-         * @param brake from OpenSCENARIO class model specification: [New value for brake position or unset value.]
-         * 
-        */
-        void OverrideControllerValueActionImpl::SetBrake(std::shared_ptr<IOverrideBrakeAction> brake )
-        {
-            _brake = brake;
-        }
-        /**
-         * Sets the value of model property clutch
-         * @param clutch from OpenSCENARIO class model specification: [New value for clutch position or unset value.]
-         * 
-        */
-        void OverrideControllerValueActionImpl::SetClutch(std::shared_ptr<IOverrideClutchAction> clutch )
-        {
-            _clutch = clutch;
-        }
-        /**
-         * Sets the value of model property parkingBrake
-         * @param parkingBrake from OpenSCENARIO class model specification: [New value for parking brake position or unset value.]
-         * 
-        */
-        void OverrideControllerValueActionImpl::SetParkingBrake(std::shared_ptr<IOverrideParkingBrakeAction> parkingBrake )
-        {
-            _parkingBrake = parkingBrake;
-        }
-        /**
-         * Sets the value of model property steeringWheel
-         * @param steeringWheel from OpenSCENARIO class model specification: [New value for steering wheel position or unset 
-         * value.]
-         * 
-        */
-        void OverrideControllerValueActionImpl::SetSteeringWheel(std::shared_ptr<IOverrideSteeringWheelAction> steeringWheel )
-        {
-            _steeringWheel = steeringWheel;
-        }
-        /**
-         * Sets the value of model property gear
-         * @param gear from OpenSCENARIO class model specification: [New value for gear position or unset value.]
-         * 
-        */
-        void OverrideControllerValueActionImpl::SetGear(std::shared_ptr<IOverrideGearAction> gear )
-        {
-            _gear = gear;
-        }
-
         void OverrideControllerValueActionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
         }
@@ -15201,32 +12831,32 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kThrottle =  GetThrottle();
+                const auto kThrottle =  GetWriterThrottle();
                 if (kThrottle)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kThrottle));
                 }
-                const auto kBrake =  GetBrake();
+                const auto kBrake =  GetWriterBrake();
                 if (kBrake)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kBrake));
                 }
-                const auto kClutch =  GetClutch();
+                const auto kClutch =  GetWriterClutch();
                 if (kClutch)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kClutch));
                 }
-                const auto kParkingBrake =  GetParkingBrake();
+                const auto kParkingBrake =  GetWriterParkingBrake();
                 if (kParkingBrake)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kParkingBrake));
                 }
-                const auto kSteeringWheel =  GetSteeringWheel();
+                const auto kSteeringWheel =  GetWriterSteeringWheel();
                 if (kSteeringWheel)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kSteeringWheel));
                 }
-                const auto kGear =  GetGear();
+                const auto kGear =  GetWriterGear();
                 if (kGear)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kGear));
@@ -15249,53 +12879,53 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kThrottle =  GetThrottle();
+            const auto kThrottle =  GetWriterThrottle();
             if (kThrottle)
             {
                 auto clonedChild = std::dynamic_pointer_cast<OverrideThrottleActionImpl>(kThrottle)->Clone();
                 auto clonedChildIOverrideThrottleAction = std::dynamic_pointer_cast<IOverrideThrottleAction>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetThrottle(clonedChildIOverrideThrottleAction);
+                clonedObject->SetThrottle(std::dynamic_pointer_cast<IOverrideThrottleActionWriter>(clonedChildIOverrideThrottleAction));
             }
-            const auto kBrake =  GetBrake();
+            const auto kBrake =  GetWriterBrake();
             if (kBrake)
             {
                 auto clonedChild = std::dynamic_pointer_cast<OverrideBrakeActionImpl>(kBrake)->Clone();
                 auto clonedChildIOverrideBrakeAction = std::dynamic_pointer_cast<IOverrideBrakeAction>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetBrake(clonedChildIOverrideBrakeAction);
+                clonedObject->SetBrake(std::dynamic_pointer_cast<IOverrideBrakeActionWriter>(clonedChildIOverrideBrakeAction));
             }
-            const auto kClutch =  GetClutch();
+            const auto kClutch =  GetWriterClutch();
             if (kClutch)
             {
                 auto clonedChild = std::dynamic_pointer_cast<OverrideClutchActionImpl>(kClutch)->Clone();
                 auto clonedChildIOverrideClutchAction = std::dynamic_pointer_cast<IOverrideClutchAction>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetClutch(clonedChildIOverrideClutchAction);
+                clonedObject->SetClutch(std::dynamic_pointer_cast<IOverrideClutchActionWriter>(clonedChildIOverrideClutchAction));
             }
-            const auto kParkingBrake =  GetParkingBrake();
+            const auto kParkingBrake =  GetWriterParkingBrake();
             if (kParkingBrake)
             {
                 auto clonedChild = std::dynamic_pointer_cast<OverrideParkingBrakeActionImpl>(kParkingBrake)->Clone();
                 auto clonedChildIOverrideParkingBrakeAction = std::dynamic_pointer_cast<IOverrideParkingBrakeAction>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetParkingBrake(clonedChildIOverrideParkingBrakeAction);
+                clonedObject->SetParkingBrake(std::dynamic_pointer_cast<IOverrideParkingBrakeActionWriter>(clonedChildIOverrideParkingBrakeAction));
             }
-            const auto kSteeringWheel =  GetSteeringWheel();
+            const auto kSteeringWheel =  GetWriterSteeringWheel();
             if (kSteeringWheel)
             {
                 auto clonedChild = std::dynamic_pointer_cast<OverrideSteeringWheelActionImpl>(kSteeringWheel)->Clone();
                 auto clonedChildIOverrideSteeringWheelAction = std::dynamic_pointer_cast<IOverrideSteeringWheelAction>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetSteeringWheel(clonedChildIOverrideSteeringWheelAction);
+                clonedObject->SetSteeringWheel(std::dynamic_pointer_cast<IOverrideSteeringWheelActionWriter>(clonedChildIOverrideSteeringWheelAction));
             }
-            const auto kGear =  GetGear();
+            const auto kGear =  GetWriterGear();
             if (kGear)
             {
                 auto clonedChild = std::dynamic_pointer_cast<OverrideGearActionImpl>(kGear)->Clone();
                 auto clonedChildIOverrideGearAction = std::dynamic_pointer_cast<IOverrideGearAction>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetGear(clonedChildIOverrideGearAction);
+                clonedObject->SetGear(std::dynamic_pointer_cast<IOverrideGearActionWriter>(clonedChildIOverrideGearAction));
             }
             return clonedObject;
         }
@@ -15366,50 +12996,31 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NUMBER, SimpleType::DOUBLE);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, SimpleType::BOOLEAN);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NUMBER, SimpleType::DOUBLE);
         }
 
-        double OverrideGearActionImpl::GetNumber()
-        {
-            return _number;
-        }
         bool OverrideGearActionImpl::GetActive()
         {
             return _active;
         }
-
-        /**
-         * Sets the value of model property number
-         * @param number from OpenSCENARIO class model specification: [Gear number.]
-         * 
-        */
-        void OverrideGearActionImpl::SetNumber(double number )
+        double OverrideGearActionImpl::GetNumber()
         {
-            _number = number;
-        }
-        /**
-         * Sets the value of model property active
-         * @param active from OpenSCENARIO class model specification: [True: override; false: stop overriding.]
-         * 
-        */
-        void OverrideGearActionImpl::SetActive(bool active )
-        {
-            _active = active;
+            return _number;
         }
 
         void OverrideGearActionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
-            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__NUMBER)
-            {
-                // Simple type
-                _number = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                AddResolvedParameter(attributeKey);
-            }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ACTIVE)
+            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ACTIVE)
             {
                 // Simple type
                 _active = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                AddResolvedParameter(attributeKey);
+            }
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__NUMBER)
+            {
+                // Simple type
+                _number = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
             }
         }
@@ -15450,9 +13061,9 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetNumber(_number);
+            clonedObject->_active = GetActive();
             // Simple type
-            clonedObject->SetActive(_active);
+            clonedObject->_number = GetNumber();
             // clone children
             return clonedObject;
         }
@@ -15489,51 +13100,31 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, SimpleType::BOOLEAN);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
         }
 
-        double OverrideParkingBrakeActionImpl::GetValue()
-        {
-            return _value;
-        }
         bool OverrideParkingBrakeActionImpl::GetActive()
         {
             return _active;
         }
-
-        /**
-         * Sets the value of model property value
-         * @param value from OpenSCENARIO class model specification: [Parking brake value. Unit: %; Range: [0..1]. The value 1 
-         * represent the maximum parking brake state.]
-         * 
-        */
-        void OverrideParkingBrakeActionImpl::SetValue(double value )
+        double OverrideParkingBrakeActionImpl::GetValue()
         {
-            _value = value;
-        }
-        /**
-         * Sets the value of model property active
-         * @param active from OpenSCENARIO class model specification: [True: override; false: stop overriding.]
-         * 
-        */
-        void OverrideParkingBrakeActionImpl::SetActive(bool active )
-        {
-            _active = active;
+            return _value;
         }
 
         void OverrideParkingBrakeActionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
-            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
-            {
-                // Simple type
-                _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                AddResolvedParameter(attributeKey);
-            }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ACTIVE)
+            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ACTIVE)
             {
                 // Simple type
                 _active = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                AddResolvedParameter(attributeKey);
+            }
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
+            {
+                // Simple type
+                _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
             }
         }
@@ -15574,9 +13165,9 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetValue(_value);
+            clonedObject->_active = GetActive();
             // Simple type
-            clonedObject->SetActive(_active);
+            clonedObject->_value = GetValue();
             // clone children
             return clonedObject;
         }
@@ -15613,50 +13204,31 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, SimpleType::BOOLEAN);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
         }
 
-        double OverrideSteeringWheelActionImpl::GetValue()
-        {
-            return _value;
-        }
         bool OverrideSteeringWheelActionImpl::GetActive()
         {
             return _active;
         }
-
-        /**
-         * Sets the value of model property value
-         * @param value from OpenSCENARIO class model specification: [Steering wheel angle. Unit: rad.]
-         * 
-        */
-        void OverrideSteeringWheelActionImpl::SetValue(double value )
+        double OverrideSteeringWheelActionImpl::GetValue()
         {
-            _value = value;
-        }
-        /**
-         * Sets the value of model property active
-         * @param active from OpenSCENARIO class model specification: [True: override; false: stop overriding.]
-         * 
-        */
-        void OverrideSteeringWheelActionImpl::SetActive(bool active )
-        {
-            _active = active;
+            return _value;
         }
 
         void OverrideSteeringWheelActionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
-            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
-            {
-                // Simple type
-                _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                AddResolvedParameter(attributeKey);
-            }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ACTIVE)
+            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ACTIVE)
             {
                 // Simple type
                 _active = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                AddResolvedParameter(attributeKey);
+            }
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
+            {
+                // Simple type
+                _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
             }
         }
@@ -15697,9 +13269,9 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetValue(_value);
+            clonedObject->_active = GetActive();
             // Simple type
-            clonedObject->SetActive(_active);
+            clonedObject->_value = GetValue();
             // clone children
             return clonedObject;
         }
@@ -15736,51 +13308,31 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, SimpleType::BOOLEAN);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
         }
 
-        double OverrideThrottleActionImpl::GetValue()
-        {
-            return _value;
-        }
         bool OverrideThrottleActionImpl::GetActive()
         {
             return _active;
         }
-
-        /**
-         * Sets the value of model property value
-         * @param value from OpenSCENARIO class model specification: [Throttle pedal value. Range: [0..1].0 represents 0%, 1 
-         * represents 100% of pressing the throttle pedal.]
-         * 
-        */
-        void OverrideThrottleActionImpl::SetValue(double value )
+        double OverrideThrottleActionImpl::GetValue()
         {
-            _value = value;
-        }
-        /**
-         * Sets the value of model property active
-         * @param active from OpenSCENARIO class model specification: [True: override; false: stop overriding.]
-         * 
-        */
-        void OverrideThrottleActionImpl::SetActive(bool active )
-        {
-            _active = active;
+            return _value;
         }
 
         void OverrideThrottleActionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
-            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
-            {
-                // Simple type
-                _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                AddResolvedParameter(attributeKey);
-            }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ACTIVE)
+            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ACTIVE)
             {
                 // Simple type
                 _active = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                AddResolvedParameter(attributeKey);
+            }
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
+            {
+                // Simple type
+                _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
             }
         }
@@ -15821,9 +13373,9 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetValue(_value);
+            clonedObject->_active = GetActive();
             // Simple type
-            clonedObject->SetActive(_active);
+            clonedObject->_value = GetValue();
             // clone children
             return clonedObject;
         }
@@ -15863,9 +13415,9 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_REF, SimpleType::STRING);
         }
 
-        INamedReference<IParameterDeclaration>* ParameterActionImpl::GetParameterRef()
+        std::shared_ptr<INamedReference<IParameterDeclaration>> ParameterActionImpl::GetParameterRef()
         {
-            return &_parameterRef;
+            return _parameterRef;
         }
         std::shared_ptr<IParameterSetAction> ParameterActionImpl::GetSetAction()
         {
@@ -15876,41 +13428,13 @@ namespace NET_ASAM_OPENSCENARIO
             return _modifyAction;
         }
 
-        /**
-         * Sets the value of model property parameterRef
-         * @param parameterRef from OpenSCENARIO class model specification: [Name of the parameter.]
-         * 
-        */
-        void ParameterActionImpl::SetParameterRef(NamedReferenceProxy<IParameterDeclaration>& parameterRef )
-        {
-            _parameterRef = parameterRef;
-        }
-        /**
-         * Sets the value of model property setAction
-         * @param setAction from OpenSCENARIO class model specification: [New value for the parameter.]
-         * 
-        */
-        void ParameterActionImpl::SetSetAction(std::shared_ptr<IParameterSetAction> setAction )
-        {
-            _setAction = setAction;
-        }
-        /**
-         * Sets the value of model property modifyAction
-         * @param modifyAction from OpenSCENARIO class model specification: [Modifying rule for the parameter (Add value or 
-         * multiply by value).]
-         * 
-        */
-        void ParameterActionImpl::SetModifyAction(std::shared_ptr<IParameterModifyAction> modifyAction )
-        {
-            _modifyAction = modifyAction;
-        }
-
         void ParameterActionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
             if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__PARAMETER_REF)
             {
                 // Proxy
-                _parameterRef = NamedReferenceProxy<IParameterDeclaration>(parameterLiteralValue);
+                const auto kProxy = std::make_shared<NamedReferenceProxy<IParameterDeclaration>>(parameterLiteralValue);
+                _parameterRef = std::dynamic_pointer_cast<INamedReference<IParameterDeclaration>>(kProxy);
                 AddResolvedParameter(attributeKey);
             }
         }
@@ -15933,12 +13457,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kSetAction =  GetSetAction();
+                const auto kSetAction =  GetWriterSetAction();
                 if (kSetAction)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kSetAction));
                 }
-                const auto kModifyAction =  GetModifyAction();
+                const auto kModifyAction =  GetWriterModifyAction();
                 if (kModifyAction)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kModifyAction));
@@ -15961,25 +13485,26 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Proxy
-            auto proxy = _parameterRef;
-            proxy.SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-            clonedObject->SetParameterRef(proxy);
+            auto proxy = std::make_shared<NamedReferenceProxy<IParameterDeclaration>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IParameterDeclaration>>(GetParameterRef()));
+            proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->_parameterRef = proxy;
+            
             // clone children
-            const auto kSetAction =  GetSetAction();
+            const auto kSetAction =  GetWriterSetAction();
             if (kSetAction)
             {
                 auto clonedChild = std::dynamic_pointer_cast<ParameterSetActionImpl>(kSetAction)->Clone();
                 auto clonedChildIParameterSetAction = std::dynamic_pointer_cast<IParameterSetAction>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetSetAction(clonedChildIParameterSetAction);
+                clonedObject->SetSetAction(std::dynamic_pointer_cast<IParameterSetActionWriter>(clonedChildIParameterSetAction));
             }
-            const auto kModifyAction =  GetModifyAction();
+            const auto kModifyAction =  GetWriterModifyAction();
             if (kModifyAction)
             {
                 auto clonedChild = std::dynamic_pointer_cast<ParameterModifyActionImpl>(kModifyAction)->Clone();
                 auto clonedChildIParameterModifyAction = std::dynamic_pointer_cast<IParameterModifyAction>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetModifyAction(clonedChildIParameterModifyAction);
+                clonedObject->SetModifyAction(std::dynamic_pointer_cast<IParameterModifyActionWriter>(clonedChildIParameterModifyAction));
             }
             return clonedObject;
         }
@@ -16060,16 +13585,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _value;
         }
 
-        /**
-         * Sets the value of model property value
-         * @param value from OpenSCENARIO class model specification: [Add value to existing parameter.]
-         * 
-        */
-        void ParameterAddValueRuleImpl::SetValue(double value )
-        {
-            _value = value;
-        }
-
         void ParameterAddValueRuleImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
             if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
@@ -16116,7 +13631,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetValue(_value);
+            clonedObject->_value = GetValue();
             // clone children
             return clonedObject;
         }
@@ -16157,34 +13672,13 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::STRING);
         }
 
-        INamedReference<IParameterDeclaration>* ParameterAssignmentImpl::GetParameterRef()
+        std::shared_ptr<INamedReference<IParameterDeclaration>> ParameterAssignmentImpl::GetParameterRef()
         {
-            return &_parameterRef;
+            return _parameterRef;
         }
         std::string ParameterAssignmentImpl::GetValue()
         {
             return _value;
-        }
-
-        /**
-         * Sets the value of model property parameterRef
-         * @param parameterRef from OpenSCENARIO class model specification: [Name of the parameter that must be declared in the 
-         * catalog.]
-         * 
-        */
-        void ParameterAssignmentImpl::SetParameterRef(NamedReferenceProxy<IParameterDeclaration>& parameterRef )
-        {
-            _parameterRef = parameterRef;
-        }
-        /**
-         * Sets the value of model property value
-         * @param value from OpenSCENARIO class model specification: [Value of the parameter that is handed over to the 
-         * parametrizable type.]
-         * 
-        */
-        void ParameterAssignmentImpl::SetValue(std::string value )
-        {
-            _value = value;
         }
 
         void ParameterAssignmentImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
@@ -16233,11 +13727,12 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Proxy
-            auto proxy = _parameterRef;
-            proxy.SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-            clonedObject->SetParameterRef(proxy);
+            auto proxy = std::make_shared<NamedReferenceProxy<IParameterDeclaration>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IParameterDeclaration>>(GetParameterRef()));
+            proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->_parameterRef = proxy;
+            
             // Simple type
-            clonedObject->SetValue(_value);
+            clonedObject->_value = GetValue();
             // clone children
             return clonedObject;
         }
@@ -16302,49 +13797,21 @@ namespace NET_ASAM_OPENSCENARIO
             * Filling the property to type map
             */
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_REF, SimpleType::STRING);
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::STRING);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__RULE, SimpleType::ENUM_TYPE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::STRING);
         }
 
-        INamedReference<IParameterDeclaration>* ParameterConditionImpl::GetParameterRef()
+        std::shared_ptr<INamedReference<IParameterDeclaration>> ParameterConditionImpl::GetParameterRef()
         {
-            return &_parameterRef;
-        }
-        std::string ParameterConditionImpl::GetValue()
-        {
-            return _value;
+            return _parameterRef;
         }
         Rule ParameterConditionImpl::GetRule()
         {
             return _rule;
         }
-
-        /**
-         * Sets the value of model property parameterRef
-         * @param parameterRef from OpenSCENARIO class model specification: [Name of the parameter that must be defined.]
-         * 
-        */
-        void ParameterConditionImpl::SetParameterRef(NamedReferenceProxy<IParameterDeclaration>& parameterRef )
+        std::string ParameterConditionImpl::GetValue()
         {
-            _parameterRef = parameterRef;
-        }
-        /**
-         * Sets the value of model property value
-         * @param value from OpenSCENARIO class model specification: [Value of the parameter.]
-         * 
-        */
-        void ParameterConditionImpl::SetValue(std::string value )
-        {
-            _value = value;
-        }
-        /**
-         * Sets the value of model property rule
-         * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
-         * 
-        */
-        void ParameterConditionImpl::SetRule(Rule rule )
-        {
-            _rule = rule;
+            return _value;
         }
 
         void ParameterConditionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
@@ -16352,13 +13819,8 @@ namespace NET_ASAM_OPENSCENARIO
             if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__PARAMETER_REF)
             {
                 // Proxy
-                _parameterRef = NamedReferenceProxy<IParameterDeclaration>(parameterLiteralValue);
-                AddResolvedParameter(attributeKey);
-            }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
-            {
-                // Simple type
-                _value = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                const auto kProxy = std::make_shared<NamedReferenceProxy<IParameterDeclaration>>(parameterLiteralValue);
+                _parameterRef = std::dynamic_pointer_cast<INamedReference<IParameterDeclaration>>(kProxy);
                 AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__RULE)
@@ -16375,6 +13837,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto msg = FileContentMessage("Value '" + parameterLiteralValue + "' is not allowed.", ERROR, *GetTextmarker(attributeKey));
                     logger.LogMessage(msg );
                 }
+            }
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
+            {
+                // Simple type
+                _value = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -16414,13 +13882,18 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Proxy
-            auto proxy = _parameterRef;
-            proxy.SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-            clonedObject->SetParameterRef(proxy);
-            // Simple type
-            clonedObject->SetValue(_value);
+            auto proxy = std::make_shared<NamedReferenceProxy<IParameterDeclaration>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IParameterDeclaration>>(GetParameterRef()));
+            proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->_parameterRef = proxy;
+            
             // Enumeration Type
-            clonedObject->SetRule(_rule);
+            const auto kRule = GetRule();
+            if ( kRule.GetLiteral() != "UNKNOWN" )
+            {
+                clonedObject->_rule = Rule::GetFromLiteral(kRule.GetLiteral());
+            }
+            // Simple type
+            clonedObject->_value = GetValue();
             // clone children
             return clonedObject;
         }
@@ -16512,34 +13985,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _value;
         }
 
-        /**
-         * Sets the value of model property name
-         * @param name from OpenSCENARIO class model specification: [Name of the parameter.]
-         * 
-        */
-        void ParameterDeclarationImpl::SetName(std::string name )
-        {
-            _name = name;
-        }
-        /**
-         * Sets the value of model property parameterType
-         * @param parameterType from OpenSCENARIO class model specification: [Type of the parameter.]
-         * 
-        */
-        void ParameterDeclarationImpl::SetParameterType(ParameterType parameterType )
-        {
-            _parameterType = parameterType;
-        }
-        /**
-         * Sets the value of model property value
-         * @param value from OpenSCENARIO class model specification: [Value of the parameter as its default value.]
-         * 
-        */
-        void ParameterDeclarationImpl::SetValue(std::string value )
-        {
-            _value = value;
-        }
-
         void ParameterDeclarationImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
             if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__PARAMETER_TYPE)
@@ -16601,11 +14046,15 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetName(_name);
+            clonedObject->_name = GetName();
             // Enumeration Type
-            clonedObject->SetParameterType(_parameterType);
+            const auto kParameterType = GetParameterType();
+            if ( kParameterType.GetLiteral() != "UNKNOWN" )
+            {
+                clonedObject->_parameterType = ParameterType::GetFromLiteral(kParameterType.GetLiteral());
+            }
             // Simple type
-            clonedObject->SetValue(_value);
+            clonedObject->_value = GetValue();
             // clone children
             return clonedObject;
         }
@@ -16673,17 +14122,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _rule;
         }
 
-        /**
-         * Sets the value of model property rule
-         * @param rule from OpenSCENARIO class model specification: [Either adding a value to a parameter or multiply a parameter 
-         * by a value. Has to match the parameter type.]
-         * 
-        */
-        void ParameterModifyActionImpl::SetRule(std::shared_ptr<IModifyRule> rule )
-        {
-            _rule = rule;
-        }
-
         void ParameterModifyActionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
         }
@@ -16706,7 +14144,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kRule =  GetRule();
+                const auto kRule =  GetWriterRule();
                 if (kRule)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kRule));
@@ -16729,13 +14167,13 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kRule =  GetRule();
+            const auto kRule =  GetWriterRule();
             if (kRule)
             {
                 auto clonedChild = std::dynamic_pointer_cast<ModifyRuleImpl>(kRule)->Clone();
                 auto clonedChildIModifyRule = std::dynamic_pointer_cast<IModifyRule>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetRule(clonedChildIModifyRule);
+                clonedObject->SetRule(std::dynamic_pointer_cast<IModifyRuleWriter>(clonedChildIModifyRule));
             }
             return clonedObject;
         }
@@ -16789,17 +14227,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _value;
         }
 
-        /**
-         * Sets the value of model property value
-         * @param value from OpenSCENARIO class model specification: [Multiply existing parameter by the value (be aware of the 
-         * parameter data type).]
-         * 
-        */
-        void ParameterMultiplyByValueRuleImpl::SetValue(double value )
-        {
-            _value = value;
-        }
-
         void ParameterMultiplyByValueRuleImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
             if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
@@ -16846,7 +14273,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetValue(_value);
+            clonedObject->_value = GetValue();
             // clone children
             return clonedObject;
         }
@@ -16889,16 +14316,6 @@ namespace NET_ASAM_OPENSCENARIO
         std::string ParameterSetActionImpl::GetValue()
         {
             return _value;
-        }
-
-        /**
-         * Sets the value of model property value
-         * @param value from OpenSCENARIO class model specification: [The new value for the parameter.]
-         * 
-        */
-        void ParameterSetActionImpl::SetValue(std::string value )
-        {
-            _value = value;
         }
 
         void ParameterSetActionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
@@ -16947,7 +14364,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetValue(_value);
+            clonedObject->_value = GetValue();
             // clone children
             return clonedObject;
         }
@@ -16993,19 +14410,19 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__MODEL, SimpleType::STRING);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__MASS, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__MODEL, SimpleType::STRING);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, SimpleType::STRING);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__PEDESTRIAN_CATEGORY, SimpleType::ENUM_TYPE);
         }
 
-        std::string PedestrianImpl::GetModel()
-        {
-            return _model;
-        }
         double PedestrianImpl::GetMass()
         {
             return _mass;
+        }
+        std::string PedestrianImpl::GetModel()
+        {
+            return _model;
         }
         std::string PedestrianImpl::GetName()
         {
@@ -17017,7 +14434,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
         std::vector<std::shared_ptr<IParameterDeclaration>> PedestrianImpl::GetParameterDeclarations()
         {
-            return _parameterDeclarations;
+            std::vector<std::shared_ptr<IParameterDeclaration>> temp;
+            for(auto&& elm: _parameterDeclarations)
+                temp.push_back(elm);
+            return temp;
         }
         std::shared_ptr<IBoundingBox> PedestrianImpl::GetBoundingBox()
         {
@@ -17028,82 +14448,18 @@ namespace NET_ASAM_OPENSCENARIO
             return _properties;
         }
 
-        /**
-         * Sets the value of model property model
-         * @param model from OpenSCENARIO class model specification: [Definition of the model of the pedestrian.]
-         * 
-        */
-        void PedestrianImpl::SetModel(std::string model )
-        {
-            _model = model;
-        }
-        /**
-         * Sets the value of model property mass
-         * @param mass from OpenSCENARIO class model specification: [The mass of a pedestrian in kg.]
-         * 
-        */
-        void PedestrianImpl::SetMass(double mass )
-        {
-            _mass = mass;
-        }
-        /**
-         * Sets the value of model property name
-         * @param name from OpenSCENARIO class model specification: [Name of the pedestrian type. Required when used in catalog.]
-         * 
-        */
-        void PedestrianImpl::SetName(std::string name )
-        {
-            _name = name;
-        }
-        /**
-         * Sets the value of model property pedestrianCategory
-         * @param pedestrianCategory from OpenSCENARIO class model specification: [Category type of pedestrian.]
-         * 
-        */
-        void PedestrianImpl::SetPedestrianCategory(PedestrianCategory pedestrianCategory )
-        {
-            _pedestrianCategory = pedestrianCategory;
-        }
-        /**
-         * Sets the value of model property parameterDeclarations
-         * @param parameterDeclarations from OpenSCENARIO class model specification: [Definition of additional parameters.]
-         * 
-        */
-        void PedestrianImpl::SetParameterDeclarations(std::vector<std::shared_ptr<IParameterDeclaration>>& parameterDeclarations)
-        {
-            _parameterDeclarations = parameterDeclarations;
-        }
-        /**
-         * Sets the value of model property boundingBox
-         * @param boundingBox from OpenSCENARIO class model specification: [Bounding box of the pedestrian.]
-         * 
-        */
-        void PedestrianImpl::SetBoundingBox(std::shared_ptr<IBoundingBox> boundingBox )
-        {
-            _boundingBox = boundingBox;
-        }
-        /**
-         * Sets the value of model property properties
-         * @param properties from OpenSCENARIO class model specification: [Properties (values/files) of the pedestrian.]
-         * 
-        */
-        void PedestrianImpl::SetProperties(std::shared_ptr<IProperties> properties )
-        {
-            _properties = properties;
-        }
-
         void PedestrianImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
-            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__MODEL)
-            {
-                // Simple type
-                _model = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                AddResolvedParameter(attributeKey);
-            }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__MASS)
+            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__MASS)
             {
                 // Simple type
                 _mass = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                AddResolvedParameter(attributeKey);
+            }
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__MODEL)
+            {
+                // Simple type
+                _model = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__NAME)
@@ -17167,7 +14523,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                auto parameterDeclarations =  GetParameterDeclarations();
+                auto parameterDeclarations =  GetWriterParameterDeclarations();
                 if (!parameterDeclarations.empty())
                 {
                     for(auto&& item : parameterDeclarations)
@@ -17175,12 +14531,12 @@ namespace NET_ASAM_OPENSCENARIO
                         result.push_back(std::dynamic_pointer_cast<BaseImpl>(item) );
                     }
                 }
-                const auto kBoundingBox =  GetBoundingBox();
+                const auto kBoundingBox =  GetWriterBoundingBox();
                 if (kBoundingBox)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kBoundingBox));
                 }
-                const auto kProperties =  GetProperties();
+                const auto kProperties =  GetWriterProperties();
                 if (kProperties)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kProperties));
@@ -17203,41 +14559,45 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetModel(_model);
+            clonedObject->_mass = GetMass();
             // Simple type
-            clonedObject->SetMass(_mass);
+            clonedObject->_model = GetModel();
             // Simple type
-            clonedObject->SetName(_name);
+            clonedObject->_name = GetName();
             // Enumeration Type
-            clonedObject->SetPedestrianCategory(_pedestrianCategory);
+            const auto kPedestrianCategory = GetPedestrianCategory();
+            if ( kPedestrianCategory.GetLiteral() != "UNKNOWN" )
+            {
+                clonedObject->_pedestrianCategory = PedestrianCategory::GetFromLiteral(kPedestrianCategory.GetLiteral());
+            }
             // clone children
-            const auto kParameterDeclarations =  GetParameterDeclarations();
+            const auto kParameterDeclarations =  GetWriterParameterDeclarations();
             if (!kParameterDeclarations.empty())
             {
-                std::vector<std::shared_ptr<IParameterDeclaration>> clonedList;
+                std::vector<std::shared_ptr<IParameterDeclarationWriter>> clonedList;
                 for(auto&& kItem : kParameterDeclarations)
                 {
                     auto clonedChild = std::dynamic_pointer_cast<ParameterDeclarationImpl>(kItem)->Clone();
                     clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                    clonedList.push_back(std::dynamic_pointer_cast<ParameterDeclarationImpl>(clonedChild));
+                    clonedList.push_back(std::dynamic_pointer_cast<IParameterDeclarationWriter>(clonedChild));
                 }
                 clonedObject->SetParameterDeclarations(clonedList);
             }
-            const auto kBoundingBox =  GetBoundingBox();
+            const auto kBoundingBox =  GetWriterBoundingBox();
             if (kBoundingBox)
             {
                 auto clonedChild = std::dynamic_pointer_cast<BoundingBoxImpl>(kBoundingBox)->Clone();
                 auto clonedChildIBoundingBox = std::dynamic_pointer_cast<IBoundingBox>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetBoundingBox(clonedChildIBoundingBox);
+                clonedObject->SetBoundingBox(std::dynamic_pointer_cast<IBoundingBoxWriter>(clonedChildIBoundingBox));
             }
-            const auto kProperties =  GetProperties();
+            const auto kProperties =  GetWriterProperties();
             if (kProperties)
             {
                 auto clonedChild = std::dynamic_pointer_cast<PropertiesImpl>(kProperties)->Clone();
                 auto clonedChildIProperties = std::dynamic_pointer_cast<IProperties>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetProperties(clonedChildIProperties);
+                clonedObject->SetProperties(std::dynamic_pointer_cast<IPropertiesWriter>(clonedChildIProperties));
             }
             return clonedObject;
         }
@@ -17331,16 +14691,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _directory;
         }
 
-        /**
-         * Sets the value of model property directory
-         * @param directory from OpenSCENARIO class model specification: [File path for the pedestrian catalog files.]
-         * 
-        */
-        void PedestrianCatalogLocationImpl::SetDirectory(std::shared_ptr<IDirectory> directory )
-        {
-            _directory = directory;
-        }
-
         void PedestrianCatalogLocationImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
         }
@@ -17363,7 +14713,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kDirectory =  GetDirectory();
+                const auto kDirectory =  GetWriterDirectory();
                 if (kDirectory)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kDirectory));
@@ -17386,13 +14736,13 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kDirectory =  GetDirectory();
+            const auto kDirectory =  GetWriterDirectory();
             if (kDirectory)
             {
                 auto clonedChild = std::dynamic_pointer_cast<DirectoryImpl>(kDirectory)->Clone();
                 auto clonedChildIDirectory = std::dynamic_pointer_cast<IDirectory>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetDirectory(clonedChildIDirectory);
+                clonedObject->SetDirectory(std::dynamic_pointer_cast<IDirectoryWriter>(clonedChildIDirectory));
             }
             return clonedObject;
         }
@@ -17438,15 +14788,11 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__MAX_SPEED, SimpleType::DOUBLE);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__MAX_ACCELERATION, SimpleType::DOUBLE);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__MAX_DECELERATION, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__MAX_SPEED, SimpleType::DOUBLE);
         }
 
-        double PerformanceImpl::GetMaxSpeed()
-        {
-            return _maxSpeed;
-        }
         double PerformanceImpl::GetMaxAcceleration()
         {
             return _maxAcceleration;
@@ -17455,46 +14801,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
             return _maxDeceleration;
         }
-
-        /**
-         * Sets the value of model property maxSpeed
-         * @param maxSpeed from OpenSCENARIO class model specification: [Maximum speed of the vehicle. Unit: m/s.]
-         * 
-        */
-        void PerformanceImpl::SetMaxSpeed(double maxSpeed )
+        double PerformanceImpl::GetMaxSpeed()
         {
-            _maxSpeed = maxSpeed;
-        }
-        /**
-         * Sets the value of model property maxAcceleration
-         * @param maxAcceleration from OpenSCENARIO class model specification: [Maximum acceleration of the vehicle. Unit: m/s^2. 
-         * Range: [0..inf[.]
-         * 
-        */
-        void PerformanceImpl::SetMaxAcceleration(double maxAcceleration )
-        {
-            _maxAcceleration = maxAcceleration;
-        }
-        /**
-         * Sets the value of model property maxDeceleration
-         * @param maxDeceleration from OpenSCENARIO class model specification: [Maximum deceleration of the vehicle. Unit: m/s^2. 
-         * Range: [0..inf[.]
-         * 
-        */
-        void PerformanceImpl::SetMaxDeceleration(double maxDeceleration )
-        {
-            _maxDeceleration = maxDeceleration;
+            return _maxSpeed;
         }
 
         void PerformanceImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
-            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__MAX_SPEED)
-            {
-                // Simple type
-                _maxSpeed = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                AddResolvedParameter(attributeKey);
-            }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__MAX_ACCELERATION)
+            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__MAX_ACCELERATION)
             {
                 // Simple type
                 _maxAcceleration = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
@@ -17504,6 +14818,12 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _maxDeceleration = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                AddResolvedParameter(attributeKey);
+            }
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__MAX_SPEED)
+            {
+                // Simple type
+                _maxSpeed = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
             }
         }
@@ -17544,11 +14864,11 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetMaxSpeed(_maxSpeed);
+            clonedObject->_maxAcceleration = GetMaxAcceleration();
             // Simple type
-            clonedObject->SetMaxAcceleration(_maxAcceleration);
+            clonedObject->_maxDeceleration = GetMaxDeceleration();
             // Simple type
-            clonedObject->SetMaxDeceleration(_maxDeceleration);
+            clonedObject->_maxSpeed = GetMaxSpeed();
             // clone children
             return clonedObject;
         }
@@ -17585,65 +14905,38 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, SimpleType::STRING);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DURATION, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, SimpleType::STRING);
         }
 
-        std::string PhaseImpl::GetName()
-        {
-            return _name;
-        }
         double PhaseImpl::GetDuration()
         {
             return _duration;
         }
+        std::string PhaseImpl::GetName()
+        {
+            return _name;
+        }
         std::vector<std::shared_ptr<ITrafficSignalState>> PhaseImpl::GetTrafficSignalStates()
         {
-            return _trafficSignalStates;
-        }
-
-        /**
-         * Sets the value of model property name
-         * @param name from OpenSCENARIO class model specification: [Name of the phase.]
-         * 
-        */
-        void PhaseImpl::SetName(std::string name )
-        {
-            _name = name;
-        }
-        /**
-         * Sets the value of model property duration
-         * @param duration from OpenSCENARIO class model specification: [Duration of the phase. Unit: s; Range: [0..inf[.]
-         * 
-        */
-        void PhaseImpl::SetDuration(double duration )
-        {
-            _duration = duration;
-        }
-        /**
-         * Sets the value of model property trafficSignalStates
-         * @param trafficSignalStates from OpenSCENARIO class model specification: [Each phase has multiple TrafficSignalStates. 
-         * One for each TrafficSignal that is controlled. E.g. phase1 , (trafficSignal1:true;false;false, 
-         * trafficSignal2:false;false;true).]
-         * 
-        */
-        void PhaseImpl::SetTrafficSignalStates(std::vector<std::shared_ptr<ITrafficSignalState>>& trafficSignalStates)
-        {
-            _trafficSignalStates = trafficSignalStates;
+            std::vector<std::shared_ptr<ITrafficSignalState>> temp;
+            for(auto&& elm: _trafficSignalStates)
+                temp.push_back(elm);
+            return temp;
         }
 
         void PhaseImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
-            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__NAME)
-            {
-                // Simple type
-                _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                AddResolvedParameter(attributeKey);
-            }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__DURATION)
+            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__DURATION)
             {
                 // Simple type
                 _duration = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                AddResolvedParameter(attributeKey);
+            }
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__NAME)
+            {
+                // Simple type
+                _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
             }
         }
@@ -17666,7 +14959,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                auto trafficSignalStates =  GetTrafficSignalStates();
+                auto trafficSignalStates =  GetWriterTrafficSignalStates();
                 if (!trafficSignalStates.empty())
                 {
                     for(auto&& item : trafficSignalStates)
@@ -17692,19 +14985,19 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetName(_name);
+            clonedObject->_duration = GetDuration();
             // Simple type
-            clonedObject->SetDuration(_duration);
+            clonedObject->_name = GetName();
             // clone children
-            const auto kTrafficSignalStates =  GetTrafficSignalStates();
+            const auto kTrafficSignalStates =  GetWriterTrafficSignalStates();
             if (!kTrafficSignalStates.empty())
             {
-                std::vector<std::shared_ptr<ITrafficSignalState>> clonedList;
+                std::vector<std::shared_ptr<ITrafficSignalStateWriter>> clonedList;
                 for(auto&& kItem : kTrafficSignalStates)
                 {
                     auto clonedChild = std::dynamic_pointer_cast<TrafficSignalStateImpl>(kItem)->Clone();
                     clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                    clonedList.push_back(std::dynamic_pointer_cast<TrafficSignalStateImpl>(clonedChild));
+                    clonedList.push_back(std::dynamic_pointer_cast<ITrafficSignalStateWriter>(clonedChild));
                 }
                 clonedObject->SetTrafficSignalStates(clonedList);
             }
@@ -17769,17 +15062,10 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::vector<std::shared_ptr<IVertex>> PolylineImpl::GetVertices()
         {
-            return _vertices;
-        }
-
-        /**
-         * Sets the value of model property vertices
-         * @param vertices from OpenSCENARIO class model specification: [Ordered chain of vertices of the polygonal chain.]
-         * 
-        */
-        void PolylineImpl::SetVertices(std::vector<std::shared_ptr<IVertex>>& vertices)
-        {
-            _vertices = vertices;
+            std::vector<std::shared_ptr<IVertex>> temp;
+            for(auto&& elm: _vertices)
+                temp.push_back(elm);
+            return temp;
         }
 
         void PolylineImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
@@ -17804,7 +15090,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                auto vertices =  GetVertices();
+                auto vertices =  GetWriterVertices();
                 if (!vertices.empty())
                 {
                     for(auto&& item : vertices)
@@ -17830,15 +15116,15 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kVertices =  GetVertices();
+            const auto kVertices =  GetWriterVertices();
             if (!kVertices.empty())
             {
-                std::vector<std::shared_ptr<IVertex>> clonedList;
+                std::vector<std::shared_ptr<IVertexWriter>> clonedList;
                 for(auto&& kItem : kVertices)
                 {
                     auto clonedChild = std::dynamic_pointer_cast<VertexImpl>(kItem)->Clone();
                     clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                    clonedList.push_back(std::dynamic_pointer_cast<VertexImpl>(clonedChild));
+                    clonedList.push_back(std::dynamic_pointer_cast<IVertexWriter>(clonedChild));
                 }
                 clonedObject->SetVertices(clonedList);
             }
@@ -17925,84 +15211,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _routePosition;
         }
 
-        /**
-         * Sets the value of model property worldPosition
-         * @param worldPosition from OpenSCENARIO class model specification: [Position that uses global coordinates.]
-         * 
-        */
-        void PositionImpl::SetWorldPosition(std::shared_ptr<IWorldPosition> worldPosition )
-        {
-            _worldPosition = worldPosition;
-        }
-        /**
-         * Sets the value of model property relativeWorldPosition
-         * @param relativeWorldPosition from OpenSCENARIO class model specification: [Position is given relative to a world 
-         * position.]
-         * 
-        */
-        void PositionImpl::SetRelativeWorldPosition(std::shared_ptr<IRelativeWorldPosition> relativeWorldPosition )
-        {
-            _relativeWorldPosition = relativeWorldPosition;
-        }
-        /**
-         * Sets the value of model property relativeObjectPosition
-         * @param relativeObjectPosition from OpenSCENARIO class model specification: [Position is given relative to an entity.]
-         * 
-        */
-        void PositionImpl::SetRelativeObjectPosition(std::shared_ptr<IRelativeObjectPosition> relativeObjectPosition )
-        {
-            _relativeObjectPosition = relativeObjectPosition;
-        }
-        /**
-         * Sets the value of model property roadPosition
-         * @param roadPosition from OpenSCENARIO class model specification: [Position in road coordinates (t,s) applied to a given 
-         * road.]
-         * 
-        */
-        void PositionImpl::SetRoadPosition(std::shared_ptr<IRoadPosition> roadPosition )
-        {
-            _roadPosition = roadPosition;
-        }
-        /**
-         * Sets the value of model property relativeRoadPosition
-         * @param relativeRoadPosition from OpenSCENARIO class model specification: [Position relative to an entity's road position
-         * (ds, dt).]
-         * 
-        */
-        void PositionImpl::SetRelativeRoadPosition(std::shared_ptr<IRelativeRoadPosition> relativeRoadPosition )
-        {
-            _relativeRoadPosition = relativeRoadPosition;
-        }
-        /**
-         * Sets the value of model property lanePosition
-         * @param lanePosition from OpenSCENARIO class model specification: [Position that is determined by a lane (lane ID) and 
-         * the s coordinate of a given road.]
-         * 
-        */
-        void PositionImpl::SetLanePosition(std::shared_ptr<ILanePosition> lanePosition )
-        {
-            _lanePosition = lanePosition;
-        }
-        /**
-         * Sets the value of model property relativeLanePosition
-         * @param relativeLanePosition from OpenSCENARIO class model specification: [Position that is determined relative to the 
-         * lane coordinates of a given entity. (Relative lane and relative s to this , entity).]
-         * 
-        */
-        void PositionImpl::SetRelativeLanePosition(std::shared_ptr<IRelativeLanePosition> relativeLanePosition )
-        {
-            _relativeLanePosition = relativeLanePosition;
-        }
-        /**
-         * Sets the value of model property routePosition
-         * @param routePosition from OpenSCENARIO class model specification: [Position that is determined by a given route.]
-         * 
-        */
-        void PositionImpl::SetRoutePosition(std::shared_ptr<IRoutePosition> routePosition )
-        {
-            _routePosition = routePosition;
-        }
-
         void PositionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
         }
@@ -18025,42 +15233,42 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kWorldPosition =  GetWorldPosition();
+                const auto kWorldPosition =  GetWriterWorldPosition();
                 if (kWorldPosition)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kWorldPosition));
                 }
-                const auto kRelativeWorldPosition =  GetRelativeWorldPosition();
+                const auto kRelativeWorldPosition =  GetWriterRelativeWorldPosition();
                 if (kRelativeWorldPosition)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kRelativeWorldPosition));
                 }
-                const auto kRelativeObjectPosition =  GetRelativeObjectPosition();
+                const auto kRelativeObjectPosition =  GetWriterRelativeObjectPosition();
                 if (kRelativeObjectPosition)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kRelativeObjectPosition));
                 }
-                const auto kRoadPosition =  GetRoadPosition();
+                const auto kRoadPosition =  GetWriterRoadPosition();
                 if (kRoadPosition)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kRoadPosition));
                 }
-                const auto kRelativeRoadPosition =  GetRelativeRoadPosition();
+                const auto kRelativeRoadPosition =  GetWriterRelativeRoadPosition();
                 if (kRelativeRoadPosition)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kRelativeRoadPosition));
                 }
-                const auto kLanePosition =  GetLanePosition();
+                const auto kLanePosition =  GetWriterLanePosition();
                 if (kLanePosition)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kLanePosition));
                 }
-                const auto kRelativeLanePosition =  GetRelativeLanePosition();
+                const auto kRelativeLanePosition =  GetWriterRelativeLanePosition();
                 if (kRelativeLanePosition)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kRelativeLanePosition));
                 }
-                const auto kRoutePosition =  GetRoutePosition();
+                const auto kRoutePosition =  GetWriterRoutePosition();
                 if (kRoutePosition)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kRoutePosition));
@@ -18083,69 +15291,69 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kWorldPosition =  GetWorldPosition();
+            const auto kWorldPosition =  GetWriterWorldPosition();
             if (kWorldPosition)
             {
                 auto clonedChild = std::dynamic_pointer_cast<WorldPositionImpl>(kWorldPosition)->Clone();
                 auto clonedChildIWorldPosition = std::dynamic_pointer_cast<IWorldPosition>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetWorldPosition(clonedChildIWorldPosition);
+                clonedObject->SetWorldPosition(std::dynamic_pointer_cast<IWorldPositionWriter>(clonedChildIWorldPosition));
             }
-            const auto kRelativeWorldPosition =  GetRelativeWorldPosition();
+            const auto kRelativeWorldPosition =  GetWriterRelativeWorldPosition();
             if (kRelativeWorldPosition)
             {
                 auto clonedChild = std::dynamic_pointer_cast<RelativeWorldPositionImpl>(kRelativeWorldPosition)->Clone();
                 auto clonedChildIRelativeWorldPosition = std::dynamic_pointer_cast<IRelativeWorldPosition>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetRelativeWorldPosition(clonedChildIRelativeWorldPosition);
+                clonedObject->SetRelativeWorldPosition(std::dynamic_pointer_cast<IRelativeWorldPositionWriter>(clonedChildIRelativeWorldPosition));
             }
-            const auto kRelativeObjectPosition =  GetRelativeObjectPosition();
+            const auto kRelativeObjectPosition =  GetWriterRelativeObjectPosition();
             if (kRelativeObjectPosition)
             {
                 auto clonedChild = std::dynamic_pointer_cast<RelativeObjectPositionImpl>(kRelativeObjectPosition)->Clone();
                 auto clonedChildIRelativeObjectPosition = std::dynamic_pointer_cast<IRelativeObjectPosition>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetRelativeObjectPosition(clonedChildIRelativeObjectPosition);
+                clonedObject->SetRelativeObjectPosition(std::dynamic_pointer_cast<IRelativeObjectPositionWriter>(clonedChildIRelativeObjectPosition));
             }
-            const auto kRoadPosition =  GetRoadPosition();
+            const auto kRoadPosition =  GetWriterRoadPosition();
             if (kRoadPosition)
             {
                 auto clonedChild = std::dynamic_pointer_cast<RoadPositionImpl>(kRoadPosition)->Clone();
                 auto clonedChildIRoadPosition = std::dynamic_pointer_cast<IRoadPosition>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetRoadPosition(clonedChildIRoadPosition);
+                clonedObject->SetRoadPosition(std::dynamic_pointer_cast<IRoadPositionWriter>(clonedChildIRoadPosition));
             }
-            const auto kRelativeRoadPosition =  GetRelativeRoadPosition();
+            const auto kRelativeRoadPosition =  GetWriterRelativeRoadPosition();
             if (kRelativeRoadPosition)
             {
                 auto clonedChild = std::dynamic_pointer_cast<RelativeRoadPositionImpl>(kRelativeRoadPosition)->Clone();
                 auto clonedChildIRelativeRoadPosition = std::dynamic_pointer_cast<IRelativeRoadPosition>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetRelativeRoadPosition(clonedChildIRelativeRoadPosition);
+                clonedObject->SetRelativeRoadPosition(std::dynamic_pointer_cast<IRelativeRoadPositionWriter>(clonedChildIRelativeRoadPosition));
             }
-            const auto kLanePosition =  GetLanePosition();
+            const auto kLanePosition =  GetWriterLanePosition();
             if (kLanePosition)
             {
                 auto clonedChild = std::dynamic_pointer_cast<LanePositionImpl>(kLanePosition)->Clone();
                 auto clonedChildILanePosition = std::dynamic_pointer_cast<ILanePosition>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetLanePosition(clonedChildILanePosition);
+                clonedObject->SetLanePosition(std::dynamic_pointer_cast<ILanePositionWriter>(clonedChildILanePosition));
             }
-            const auto kRelativeLanePosition =  GetRelativeLanePosition();
+            const auto kRelativeLanePosition =  GetWriterRelativeLanePosition();
             if (kRelativeLanePosition)
             {
                 auto clonedChild = std::dynamic_pointer_cast<RelativeLanePositionImpl>(kRelativeLanePosition)->Clone();
                 auto clonedChildIRelativeLanePosition = std::dynamic_pointer_cast<IRelativeLanePosition>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetRelativeLanePosition(clonedChildIRelativeLanePosition);
+                clonedObject->SetRelativeLanePosition(std::dynamic_pointer_cast<IRelativeLanePositionWriter>(clonedChildIRelativeLanePosition));
             }
-            const auto kRoutePosition =  GetRoutePosition();
+            const auto kRoutePosition =  GetWriterRoutePosition();
             if (kRoutePosition)
             {
                 auto clonedChild = std::dynamic_pointer_cast<RoutePositionImpl>(kRoutePosition)->Clone();
                 auto clonedChildIRoutePosition = std::dynamic_pointer_cast<IRoutePosition>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetRoutePosition(clonedChildIRoutePosition);
+                clonedObject->SetRoutePosition(std::dynamic_pointer_cast<IRoutePositionWriter>(clonedChildIRoutePosition));
             }
             return clonedObject;
         }
@@ -18226,15 +15434,11 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__PATH_S, SimpleType::DOUBLE);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__LANE_ID, SimpleType::STRING);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__LANE_OFFSET, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__PATH_S, SimpleType::DOUBLE);
         }
 
-        double PositionInLaneCoordinatesImpl::GetPathS()
-        {
-            return _pathS;
-        }
         std::string PositionInLaneCoordinatesImpl::GetLaneId()
         {
             return _laneId;
@@ -18243,46 +15447,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
             return _laneOffset;
         }
-
-        /**
-         * Sets the value of model property pathS
-         * @param pathS from OpenSCENARIO class model specification: [s-coordinate of the actual position. Unit: m; Range: 
-         * [0..inf[.]
-         * 
-        */
-        void PositionInLaneCoordinatesImpl::SetPathS(double pathS )
+        double PositionInLaneCoordinatesImpl::GetPathS()
         {
-            _pathS = pathS;
-        }
-        /**
-         * Sets the value of model property laneId
-         * @param laneId from OpenSCENARIO class model specification: [Lane ID of the actual position.]
-         * 
-        */
-        void PositionInLaneCoordinatesImpl::SetLaneId(std::string laneId )
-        {
-            _laneId = laneId;
-        }
-        /**
-         * Sets the value of model property laneOffset
-         * @param laneOffset from OpenSCENARIO class model specification: [Lateral offset (relative to the lane centerline) of the 
-         * actual position. Unit: m.]
-         * 
-        */
-        void PositionInLaneCoordinatesImpl::SetLaneOffset(double laneOffset )
-        {
-            _laneOffset = laneOffset;
+            return _pathS;
         }
 
         void PositionInLaneCoordinatesImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
-            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__PATH_S)
-            {
-                // Simple type
-                _pathS = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                AddResolvedParameter(attributeKey);
-            }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__LANE_ID)
+            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__LANE_ID)
             {
                 // Simple type
                 _laneId = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
@@ -18292,6 +15464,12 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _laneOffset = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                AddResolvedParameter(attributeKey);
+            }
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__PATH_S)
+            {
+                // Simple type
+                _pathS = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
             }
         }
@@ -18332,11 +15510,11 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetPathS(_pathS);
+            clonedObject->_laneId = GetLaneId();
             // Simple type
-            clonedObject->SetLaneId(_laneId);
+            clonedObject->_laneOffset = GetLaneOffset();
             // Simple type
-            clonedObject->SetLaneOffset(_laneOffset);
+            clonedObject->_pathS = GetPathS();
             // clone children
             return clonedObject;
         }
@@ -18395,27 +15573,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _t;
         }
 
-        /**
-         * Sets the value of model property pathS
-         * @param pathS from OpenSCENARIO class model specification: [Position in s coordinates along the reference line of the 
-         * road.]
-         * 
-        */
-        void PositionInRoadCoordinatesImpl::SetPathS(double pathS )
-        {
-            _pathS = pathS;
-        }
-        /**
-         * Sets the value of model property t
-         * @param t from OpenSCENARIO class model specification: [Position in t coordinates orthogonal to the reference line of the
-         * road.]
-         * 
-        */
-        void PositionInRoadCoordinatesImpl::SetT(double t )
-        {
-            _t = t;
-        }
-
         void PositionInRoadCoordinatesImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
             if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__PATH_S)
@@ -18468,9 +15625,9 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetPathS(_pathS);
+            clonedObject->_pathS = GetPathS();
             // Simple type
-            clonedObject->SetT(_t);
+            clonedObject->_t = GetT();
             // clone children
             return clonedObject;
         }
@@ -18510,19 +15667,9 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, SimpleType::STRING);
         }
 
-        INamedReference<IEntity>* PositionOfCurrentEntityImpl::GetEntityRef()
+        std::shared_ptr<INamedReference<IEntity>> PositionOfCurrentEntityImpl::GetEntityRef()
         {
-            return &_entityRef;
-        }
-
-        /**
-         * Sets the value of model property entityRef
-         * @param entityRef from OpenSCENARIO class model specification: [Reference to an entity.]
-         * 
-        */
-        void PositionOfCurrentEntityImpl::SetEntityRef(NamedReferenceProxy<IEntity>& entityRef )
-        {
-            _entityRef = entityRef;
+            return _entityRef;
         }
 
         void PositionOfCurrentEntityImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
@@ -18530,7 +15677,8 @@ namespace NET_ASAM_OPENSCENARIO
             if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
             {
                 // Proxy
-                _entityRef = NamedReferenceProxy<IEntity>(parameterLiteralValue);
+                const auto kProxy = std::make_shared<NamedReferenceProxy<IEntity>>(parameterLiteralValue);
+                _entityRef = std::dynamic_pointer_cast<INamedReference<IEntity>>(kProxy);
                 AddResolvedParameter(attributeKey);
             }
         }
@@ -18571,9 +15719,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Proxy
-            auto proxy = _entityRef;
-            proxy.SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-            clonedObject->SetEntityRef(proxy);
+            auto proxy = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetEntityRef()));
+            proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->_entityRef = proxy;
+            
             // clone children
             return clonedObject;
         }
@@ -18632,41 +15781,28 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__PRECIPITATION_TYPE, SimpleType::ENUM_TYPE);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__INTENSITY, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__PRECIPITATION_TYPE, SimpleType::ENUM_TYPE);
         }
 
-        PrecipitationType PrecipitationImpl::GetPrecipitationType()
-        {
-            return _precipitationType;
-        }
         double PrecipitationImpl::GetIntensity()
         {
             return _intensity;
         }
-
-        /**
-         * Sets the value of model property precipitationType
-         * @param precipitationType from OpenSCENARIO class model specification: [Type of the precipitation.]
-         * 
-        */
-        void PrecipitationImpl::SetPrecipitationType(PrecipitationType precipitationType )
+        PrecipitationType PrecipitationImpl::GetPrecipitationType()
         {
-            _precipitationType = precipitationType;
-        }
-        /**
-         * Sets the value of model property intensity
-         * @param intensity from OpenSCENARIO class model specification: [The intensity of the precipitation. Range: [0..1].]
-         * 
-        */
-        void PrecipitationImpl::SetIntensity(double intensity )
-        {
-            _intensity = intensity;
+            return _precipitationType;
         }
 
         void PrecipitationImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
-            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__PRECIPITATION_TYPE)
+            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__INTENSITY)
+            {
+                // Simple type
+                _intensity = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                AddResolvedParameter(attributeKey);
+            }
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__PRECIPITATION_TYPE)
             {
                 // Enumeration Type
                 const auto kResult = PrecipitationType::GetFromLiteral(parameterLiteralValue);
@@ -18680,12 +15816,6 @@ namespace NET_ASAM_OPENSCENARIO
                     auto msg = FileContentMessage("Value '" + parameterLiteralValue + "' is not allowed.", ERROR, *GetTextmarker(attributeKey));
                     logger.LogMessage(msg );
                 }
-            }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__INTENSITY)
-            {
-                // Simple type
-                _intensity = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -18724,10 +15854,14 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToParameterNameMap(*clonedObject);
 
             // clone attributes;
-            // Enumeration Type
-            clonedObject->SetPrecipitationType(_precipitationType);
             // Simple type
-            clonedObject->SetIntensity(_intensity);
+            clonedObject->_intensity = GetIntensity();
+            // Enumeration Type
+            const auto kPrecipitationType = GetPrecipitationType();
+            if ( kPrecipitationType.GetLiteral() != "UNKNOWN" )
+            {
+                clonedObject->_precipitationType = PrecipitationType::GetFromLiteral(kPrecipitationType.GetLiteral());
+            }
             // clone children
             return clonedObject;
         }
@@ -18777,33 +15911,16 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, SimpleType::STRING);
         }
 
-        INamedReference<IEntity>* PrivateImpl::GetEntityRef()
+        std::shared_ptr<INamedReference<IEntity>> PrivateImpl::GetEntityRef()
         {
-            return &_entityRef;
+            return _entityRef;
         }
         std::vector<std::shared_ptr<IPrivateAction>> PrivateImpl::GetPrivateActions()
         {
-            return _privateActions;
-        }
-
-        /**
-         * Sets the value of model property entityRef
-         * @param entityRef from OpenSCENARIO class model specification: []
-         * 
-        */
-        void PrivateImpl::SetEntityRef(NamedReferenceProxy<IEntity>& entityRef )
-        {
-            _entityRef = entityRef;
-        }
-        /**
-         * Sets the value of model property privateActions
-         * @param privateActions from OpenSCENARIO class model specification: [List of private actions to be executed when the 
-         * enclosing container gets triggered.]
-         * 
-        */
-        void PrivateImpl::SetPrivateActions(std::vector<std::shared_ptr<IPrivateAction>>& privateActions)
-        {
-            _privateActions = privateActions;
+            std::vector<std::shared_ptr<IPrivateAction>> temp;
+            for(auto&& elm: _privateActions)
+                temp.push_back(elm);
+            return temp;
         }
 
         void PrivateImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
@@ -18811,7 +15928,8 @@ namespace NET_ASAM_OPENSCENARIO
             if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
             {
                 // Proxy
-                _entityRef = NamedReferenceProxy<IEntity>(parameterLiteralValue);
+                const auto kProxy = std::make_shared<NamedReferenceProxy<IEntity>>(parameterLiteralValue);
+                _entityRef = std::dynamic_pointer_cast<INamedReference<IEntity>>(kProxy);
                 AddResolvedParameter(attributeKey);
             }
         }
@@ -18834,7 +15952,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                auto privateActions =  GetPrivateActions();
+                auto privateActions =  GetWriterPrivateActions();
                 if (!privateActions.empty())
                 {
                     for(auto&& item : privateActions)
@@ -18860,19 +15978,20 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Proxy
-            auto proxy = _entityRef;
-            proxy.SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-            clonedObject->SetEntityRef(proxy);
+            auto proxy = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetEntityRef()));
+            proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->_entityRef = proxy;
+            
             // clone children
-            const auto kPrivateActions =  GetPrivateActions();
+            const auto kPrivateActions =  GetWriterPrivateActions();
             if (!kPrivateActions.empty())
             {
-                std::vector<std::shared_ptr<IPrivateAction>> clonedList;
+                std::vector<std::shared_ptr<IPrivateActionWriter>> clonedList;
                 for(auto&& kItem : kPrivateActions)
                 {
                     auto clonedChild = std::dynamic_pointer_cast<PrivateActionImpl>(kItem)->Clone();
                     clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                    clonedList.push_back(std::dynamic_pointer_cast<PrivateActionImpl>(clonedChild));
+                    clonedList.push_back(std::dynamic_pointer_cast<IPrivateActionWriter>(clonedChild));
                 }
                 clonedObject->SetPrivateActions(clonedList);
             }
@@ -18981,87 +16100,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _routingAction;
         }
 
-        /**
-         * Sets the value of model property longitudinalAction
-         * @param longitudinalAction from OpenSCENARIO class model specification: [Applies longitudinal control behavior on the 
-         * reference entity/entities. Either a SpeedAction or a , LongitudinalDistanceAction.]
-         * 
-        */
-        void PrivateActionImpl::SetLongitudinalAction(std::shared_ptr<ILongitudinalAction> longitudinalAction )
-        {
-            _longitudinalAction = longitudinalAction;
-        }
-        /**
-         * Sets the value of model property lateralAction
-         * @param lateralAction from OpenSCENARIO class model specification: [Applies lateral control behavior on the reference 
-         * entity/entities. Either a LaneChangeAction, LaneOffsetAction or a , LateralDistanceAction.]
-         * 
-        */
-        void PrivateActionImpl::SetLateralAction(std::shared_ptr<ILateralAction> lateralAction )
-        {
-            _lateralAction = lateralAction;
-        }
-        /**
-         * Sets the value of model property visibilityAction
-         * @param visibilityAction from OpenSCENARIO class model specification: [Sets visibility attributes on the reference 
-         * entity/entities.]
-         * 
-        */
-        void PrivateActionImpl::SetVisibilityAction(std::shared_ptr<IVisibilityAction> visibilityAction )
-        {
-            _visibilityAction = visibilityAction;
-        }
-        /**
-         * Sets the value of model property synchronizeAction
-         * @param synchronizeAction from OpenSCENARIO class model specification: [Synchronizes the reference entity/entities with a
-         * master entity. A target position is provided for the entity and for , the master entity to be reached at the same time.]
-         * 
-        */
-        void PrivateActionImpl::SetSynchronizeAction(std::shared_ptr<ISynchronizeAction> synchronizeAction )
-        {
-            _synchronizeAction = synchronizeAction;
-        }
-        /**
-         * Sets the value of model property activateControllerAction
-         * @param activateControllerAction from OpenSCENARIO class model specification: [Activates/ deactivates a controller on the
-         * reference entity/entities.]
-         * 
-        */
-        void PrivateActionImpl::SetActivateControllerAction(std::shared_ptr<IActivateControllerAction> activateControllerAction )
-        {
-            _activateControllerAction = activateControllerAction;
-        }
-        /**
-         * Sets the value of model property controllerAction
-         * @param controllerAction from OpenSCENARIO class model specification: [Assigns a controller to the reference 
-         * entity/entities.]
-         * 
-        */
-        void PrivateActionImpl::SetControllerAction(std::shared_ptr<IControllerAction> controllerAction )
-        {
-            _controllerAction = controllerAction;
-        }
-        /**
-         * Sets the value of model property teleportAction
-         * @param teleportAction from OpenSCENARIO class model specification: [Assigns a position to the reference 
-         * entity/entities.]
-         * 
-        */
-        void PrivateActionImpl::SetTeleportAction(std::shared_ptr<ITeleportAction> teleportAction )
-        {
-            _teleportAction = teleportAction;
-        }
-        /**
-         * Sets the value of model property routingAction
-         * @param routingAction from OpenSCENARIO class model specification: [Applies an AssignRouteAction, a 
-         * FollowTrajectoryAction or an AcquirePositionAction to the reference entity/entities.]
-         * 
-        */
-        void PrivateActionImpl::SetRoutingAction(std::shared_ptr<IRoutingAction> routingAction )
-        {
-            _routingAction = routingAction;
-        }
-
         void PrivateActionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
         }
@@ -19084,42 +16122,42 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kLongitudinalAction =  GetLongitudinalAction();
+                const auto kLongitudinalAction =  GetWriterLongitudinalAction();
                 if (kLongitudinalAction)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kLongitudinalAction));
                 }
-                const auto kLateralAction =  GetLateralAction();
+                const auto kLateralAction =  GetWriterLateralAction();
                 if (kLateralAction)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kLateralAction));
                 }
-                const auto kVisibilityAction =  GetVisibilityAction();
+                const auto kVisibilityAction =  GetWriterVisibilityAction();
                 if (kVisibilityAction)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kVisibilityAction));
                 }
-                const auto kSynchronizeAction =  GetSynchronizeAction();
+                const auto kSynchronizeAction =  GetWriterSynchronizeAction();
                 if (kSynchronizeAction)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kSynchronizeAction));
                 }
-                const auto kActivateControllerAction =  GetActivateControllerAction();
+                const auto kActivateControllerAction =  GetWriterActivateControllerAction();
                 if (kActivateControllerAction)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kActivateControllerAction));
                 }
-                const auto kControllerAction =  GetControllerAction();
+                const auto kControllerAction =  GetWriterControllerAction();
                 if (kControllerAction)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kControllerAction));
                 }
-                const auto kTeleportAction =  GetTeleportAction();
+                const auto kTeleportAction =  GetWriterTeleportAction();
                 if (kTeleportAction)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kTeleportAction));
                 }
-                const auto kRoutingAction =  GetRoutingAction();
+                const auto kRoutingAction =  GetWriterRoutingAction();
                 if (kRoutingAction)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kRoutingAction));
@@ -19142,69 +16180,69 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kLongitudinalAction =  GetLongitudinalAction();
+            const auto kLongitudinalAction =  GetWriterLongitudinalAction();
             if (kLongitudinalAction)
             {
                 auto clonedChild = std::dynamic_pointer_cast<LongitudinalActionImpl>(kLongitudinalAction)->Clone();
                 auto clonedChildILongitudinalAction = std::dynamic_pointer_cast<ILongitudinalAction>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetLongitudinalAction(clonedChildILongitudinalAction);
+                clonedObject->SetLongitudinalAction(std::dynamic_pointer_cast<ILongitudinalActionWriter>(clonedChildILongitudinalAction));
             }
-            const auto kLateralAction =  GetLateralAction();
+            const auto kLateralAction =  GetWriterLateralAction();
             if (kLateralAction)
             {
                 auto clonedChild = std::dynamic_pointer_cast<LateralActionImpl>(kLateralAction)->Clone();
                 auto clonedChildILateralAction = std::dynamic_pointer_cast<ILateralAction>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetLateralAction(clonedChildILateralAction);
+                clonedObject->SetLateralAction(std::dynamic_pointer_cast<ILateralActionWriter>(clonedChildILateralAction));
             }
-            const auto kVisibilityAction =  GetVisibilityAction();
+            const auto kVisibilityAction =  GetWriterVisibilityAction();
             if (kVisibilityAction)
             {
                 auto clonedChild = std::dynamic_pointer_cast<VisibilityActionImpl>(kVisibilityAction)->Clone();
                 auto clonedChildIVisibilityAction = std::dynamic_pointer_cast<IVisibilityAction>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetVisibilityAction(clonedChildIVisibilityAction);
+                clonedObject->SetVisibilityAction(std::dynamic_pointer_cast<IVisibilityActionWriter>(clonedChildIVisibilityAction));
             }
-            const auto kSynchronizeAction =  GetSynchronizeAction();
+            const auto kSynchronizeAction =  GetWriterSynchronizeAction();
             if (kSynchronizeAction)
             {
                 auto clonedChild = std::dynamic_pointer_cast<SynchronizeActionImpl>(kSynchronizeAction)->Clone();
                 auto clonedChildISynchronizeAction = std::dynamic_pointer_cast<ISynchronizeAction>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetSynchronizeAction(clonedChildISynchronizeAction);
+                clonedObject->SetSynchronizeAction(std::dynamic_pointer_cast<ISynchronizeActionWriter>(clonedChildISynchronizeAction));
             }
-            const auto kActivateControllerAction =  GetActivateControllerAction();
+            const auto kActivateControllerAction =  GetWriterActivateControllerAction();
             if (kActivateControllerAction)
             {
                 auto clonedChild = std::dynamic_pointer_cast<ActivateControllerActionImpl>(kActivateControllerAction)->Clone();
                 auto clonedChildIActivateControllerAction = std::dynamic_pointer_cast<IActivateControllerAction>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetActivateControllerAction(clonedChildIActivateControllerAction);
+                clonedObject->SetActivateControllerAction(std::dynamic_pointer_cast<IActivateControllerActionWriter>(clonedChildIActivateControllerAction));
             }
-            const auto kControllerAction =  GetControllerAction();
+            const auto kControllerAction =  GetWriterControllerAction();
             if (kControllerAction)
             {
                 auto clonedChild = std::dynamic_pointer_cast<ControllerActionImpl>(kControllerAction)->Clone();
                 auto clonedChildIControllerAction = std::dynamic_pointer_cast<IControllerAction>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetControllerAction(clonedChildIControllerAction);
+                clonedObject->SetControllerAction(std::dynamic_pointer_cast<IControllerActionWriter>(clonedChildIControllerAction));
             }
-            const auto kTeleportAction =  GetTeleportAction();
+            const auto kTeleportAction =  GetWriterTeleportAction();
             if (kTeleportAction)
             {
                 auto clonedChild = std::dynamic_pointer_cast<TeleportActionImpl>(kTeleportAction)->Clone();
                 auto clonedChildITeleportAction = std::dynamic_pointer_cast<ITeleportAction>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetTeleportAction(clonedChildITeleportAction);
+                clonedObject->SetTeleportAction(std::dynamic_pointer_cast<ITeleportActionWriter>(clonedChildITeleportAction));
             }
-            const auto kRoutingAction =  GetRoutingAction();
+            const auto kRoutingAction =  GetWriterRoutingAction();
             if (kRoutingAction)
             {
                 auto clonedChild = std::dynamic_pointer_cast<RoutingActionImpl>(kRoutingAction)->Clone();
                 auto clonedChildIRoutingAction = std::dynamic_pointer_cast<IRoutingAction>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetRoutingAction(clonedChildIRoutingAction);
+                clonedObject->SetRoutingAction(std::dynamic_pointer_cast<IRoutingActionWriter>(clonedChildIRoutingAction));
             }
             return clonedObject;
         }
@@ -19289,33 +16327,17 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::vector<std::shared_ptr<IProperty>> PropertiesImpl::GetProperties()
         {
-            return _properties;
+            std::vector<std::shared_ptr<IProperty>> temp;
+            for(auto&& elm: _properties)
+                temp.push_back(elm);
+            return temp;
         }
         std::vector<std::shared_ptr<IFile>> PropertiesImpl::GetFiles()
         {
-            return _files;
-        }
-
-        /**
-         * Sets the value of model property properties
-         * @param properties from OpenSCENARIO class model specification: [A name/value pair. The semantic of the name/values are 
-         * subject of a contract between the provider of a simulation , environment and the author of a scenario.]
-         * 
-        */
-        void PropertiesImpl::SetProperties(std::vector<std::shared_ptr<IProperty>>& properties)
-        {
-            _properties = properties;
-        }
-        /**
-         * Sets the value of model property files
-         * @param files from OpenSCENARIO class model specification: [A list of arbitrary files attached to an object that owns the
-         * properties. The semantic and the file formats are subject , of a contract between the provider of a simulation 
-         * environment and the author of a scenario.]
-         * 
-        */
-        void PropertiesImpl::SetFiles(std::vector<std::shared_ptr<IFile>>& files)
-        {
-            _files = files;
+            std::vector<std::shared_ptr<IFile>> temp;
+            for(auto&& elm: _files)
+                temp.push_back(elm);
+            return temp;
         }
 
         void PropertiesImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
@@ -19340,7 +16362,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                auto properties =  GetProperties();
+                auto properties =  GetWriterProperties();
                 if (!properties.empty())
                 {
                     for(auto&& item : properties)
@@ -19348,7 +16370,7 @@ namespace NET_ASAM_OPENSCENARIO
                         result.push_back(std::dynamic_pointer_cast<BaseImpl>(item) );
                     }
                 }
-                auto files =  GetFiles();
+                auto files =  GetWriterFiles();
                 if (!files.empty())
                 {
                     for(auto&& item : files)
@@ -19374,27 +16396,27 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kProperties =  GetProperties();
+            const auto kProperties =  GetWriterProperties();
             if (!kProperties.empty())
             {
-                std::vector<std::shared_ptr<IProperty>> clonedList;
+                std::vector<std::shared_ptr<IPropertyWriter>> clonedList;
                 for(auto&& kItem : kProperties)
                 {
                     auto clonedChild = std::dynamic_pointer_cast<PropertyImpl>(kItem)->Clone();
                     clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                    clonedList.push_back(std::dynamic_pointer_cast<PropertyImpl>(clonedChild));
+                    clonedList.push_back(std::dynamic_pointer_cast<IPropertyWriter>(clonedChild));
                 }
                 clonedObject->SetProperties(clonedList);
             }
-            const auto kFiles =  GetFiles();
+            const auto kFiles =  GetWriterFiles();
             if (!kFiles.empty())
             {
-                std::vector<std::shared_ptr<IFile>> clonedList;
+                std::vector<std::shared_ptr<IFileWriter>> clonedList;
                 for(auto&& kItem : kFiles)
                 {
                     auto clonedChild = std::dynamic_pointer_cast<FileImpl>(kItem)->Clone();
                     clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                    clonedList.push_back(std::dynamic_pointer_cast<FileImpl>(clonedChild));
+                    clonedList.push_back(std::dynamic_pointer_cast<IFileWriter>(clonedChild));
                 }
                 clonedObject->SetFiles(clonedList);
             }
@@ -19467,25 +16489,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _value;
         }
 
-        /**
-         * Sets the value of model property name
-         * @param name from OpenSCENARIO class model specification: [Name of a user defined property.]
-         * 
-        */
-        void PropertyImpl::SetName(std::string name )
-        {
-            _name = name;
-        }
-        /**
-         * Sets the value of model property value
-         * @param value from OpenSCENARIO class model specification: [Value of a user defined property.]
-         * 
-        */
-        void PropertyImpl::SetValue(std::string value )
-        {
-            _value = value;
-        }
-
         void PropertyImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
             if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__NAME)
@@ -19538,9 +16541,9 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetName(_name);
+            clonedObject->_name = GetName();
             // Simple type
-            clonedObject->SetValue(_value);
+            clonedObject->_value = GetValue();
             // clone children
             return clonedObject;
         }
@@ -19603,26 +16606,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _position;
         }
 
-        /**
-         * Sets the value of model property tolerance
-         * @param tolerance from OpenSCENARIO class model specification: [Radius of tolerance circle around given position. Unit: 
-         * m; Range: [0..inf[.]
-         * 
-        */
-        void ReachPositionConditionImpl::SetTolerance(double tolerance )
-        {
-            _tolerance = tolerance;
-        }
-        /**
-         * Sets the value of model property position
-         * @param position from OpenSCENARIO class model specification: [The position to be reached with the defined tolerance.]
-         * 
-        */
-        void ReachPositionConditionImpl::SetPosition(std::shared_ptr<IPosition> position )
-        {
-            _position = position;
-        }
-
         void ReachPositionConditionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
             if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__TOLERANCE)
@@ -19651,7 +16634,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kPosition =  GetPosition();
+                const auto kPosition =  GetWriterPosition();
                 if (kPosition)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kPosition));
@@ -19674,15 +16657,15 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetTolerance(_tolerance);
+            clonedObject->_tolerance = GetTolerance();
             // clone children
-            const auto kPosition =  GetPosition();
+            const auto kPosition =  GetWriterPosition();
             if (kPosition)
             {
                 auto clonedChild = std::dynamic_pointer_cast<PositionImpl>(kPosition)->Clone();
                 auto clonedChildIPosition = std::dynamic_pointer_cast<IPosition>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetPosition(clonedChildIPosition);
+                clonedObject->SetPosition(std::dynamic_pointer_cast<IPositionWriter>(clonedChildIPosition));
             }
             return clonedObject;
         }
@@ -19729,78 +16712,31 @@ namespace NET_ASAM_OPENSCENARIO
             * Filling the property to type map
             */
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, SimpleType::STRING);
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__RELATIVE_DISTANCE_TYPE, SimpleType::ENUM_TYPE);
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, SimpleType::BOOLEAN);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__RELATIVE_DISTANCE_TYPE, SimpleType::ENUM_TYPE);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__RULE, SimpleType::ENUM_TYPE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
         }
 
-        INamedReference<IEntity>* RelativeDistanceConditionImpl::GetEntityRef()
+        std::shared_ptr<INamedReference<IEntity>> RelativeDistanceConditionImpl::GetEntityRef()
         {
-            return &_entityRef;
-        }
-        RelativeDistanceType RelativeDistanceConditionImpl::GetRelativeDistanceType()
-        {
-            return _relativeDistanceType;
-        }
-        double RelativeDistanceConditionImpl::GetValue()
-        {
-            return _value;
+            return _entityRef;
         }
         bool RelativeDistanceConditionImpl::GetFreespace()
         {
             return _freespace;
         }
+        RelativeDistanceType RelativeDistanceConditionImpl::GetRelativeDistanceType()
+        {
+            return _relativeDistanceType;
+        }
         Rule RelativeDistanceConditionImpl::GetRule()
         {
             return _rule;
         }
-
-        /**
-         * Sets the value of model property entityRef
-         * @param entityRef from OpenSCENARIO class model specification: [Reference entity.]
-         * 
-        */
-        void RelativeDistanceConditionImpl::SetEntityRef(NamedReferenceProxy<IEntity>& entityRef )
+        double RelativeDistanceConditionImpl::GetValue()
         {
-            _entityRef = entityRef;
-        }
-        /**
-         * Sets the value of model property relativeDistanceType
-         * @param relativeDistanceType from OpenSCENARIO class model specification: [The domain the distance is calculated in.]
-         * 
-        */
-        void RelativeDistanceConditionImpl::SetRelativeDistanceType(RelativeDistanceType relativeDistanceType )
-        {
-            _relativeDistanceType = relativeDistanceType;
-        }
-        /**
-         * Sets the value of model property value
-         * @param value from OpenSCENARIO class model specification: [The distance value. Unit: m; Range: [0..inf[.]
-         * 
-        */
-        void RelativeDistanceConditionImpl::SetValue(double value )
-        {
-            _value = value;
-        }
-        /**
-         * Sets the value of model property freespace
-         * @param freespace from OpenSCENARIO class model specification: [True: distance is measured between closest bounding box 
-         * points. False: reference point distance is used.]
-         * 
-        */
-        void RelativeDistanceConditionImpl::SetFreespace(bool freespace )
-        {
-            _freespace = freespace;
-        }
-        /**
-         * Sets the value of model property rule
-         * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
-         * 
-        */
-        void RelativeDistanceConditionImpl::SetRule(Rule rule )
-        {
-            _rule = rule;
+            return _value;
         }
 
         void RelativeDistanceConditionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
@@ -19808,7 +16744,14 @@ namespace NET_ASAM_OPENSCENARIO
             if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
             {
                 // Proxy
-                _entityRef = NamedReferenceProxy<IEntity>(parameterLiteralValue);
+                const auto kProxy = std::make_shared<NamedReferenceProxy<IEntity>>(parameterLiteralValue);
+                _entityRef = std::dynamic_pointer_cast<INamedReference<IEntity>>(kProxy);
+                AddResolvedParameter(attributeKey);
+            }
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__FREESPACE)
+            {
+                // Simple type
+                _freespace = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__RELATIVE_DISTANCE_TYPE)
@@ -19826,18 +16769,6 @@ namespace NET_ASAM_OPENSCENARIO
                     logger.LogMessage(msg );
                 }
             }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
-            {
-                // Simple type
-                _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                AddResolvedParameter(attributeKey);
-            }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__FREESPACE)
-            {
-                // Simple type
-                _freespace = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                AddResolvedParameter(attributeKey);
-            }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__RULE)
             {
                 // Enumeration Type
@@ -19852,6 +16783,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto msg = FileContentMessage("Value '" + parameterLiteralValue + "' is not allowed.", ERROR, *GetTextmarker(attributeKey));
                     logger.LogMessage(msg );
                 }
+            }
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
+            {
+                // Simple type
+                _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -19891,17 +16828,26 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Proxy
-            auto proxy = _entityRef;
-            proxy.SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-            clonedObject->SetEntityRef(proxy);
-            // Enumeration Type
-            clonedObject->SetRelativeDistanceType(_relativeDistanceType);
+            auto proxy = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetEntityRef()));
+            proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->_entityRef = proxy;
+            
             // Simple type
-            clonedObject->SetValue(_value);
-            // Simple type
-            clonedObject->SetFreespace(_freespace);
+            clonedObject->_freespace = GetFreespace();
             // Enumeration Type
-            clonedObject->SetRule(_rule);
+            const auto kRelativeDistanceType = GetRelativeDistanceType();
+            if ( kRelativeDistanceType.GetLiteral() != "UNKNOWN" )
+            {
+                clonedObject->_relativeDistanceType = RelativeDistanceType::GetFromLiteral(kRelativeDistanceType.GetLiteral());
+            }
+            // Enumeration Type
+            const auto kRule = GetRule();
+            if ( kRule.GetLiteral() != "UNKNOWN" )
+            {
+                clonedObject->_rule = Rule::GetFromLiteral(kRule.GetLiteral());
+            }
+            // Simple type
+            clonedObject->_value = GetValue();
             // clone children
             return clonedObject;
         }
@@ -19975,16 +16921,12 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, SimpleType::STRING);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__D_LANE, SimpleType::INT);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DS, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, SimpleType::STRING);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__OFFSET, SimpleType::DOUBLE);
         }
 
-        INamedReference<IEntity>* RelativeLanePositionImpl::GetEntityRef()
-        {
-            return &_entityRef;
-        }
         int RelativeLanePositionImpl::GetDLane()
         {
             return _dLane;
@@ -19992,6 +16934,10 @@ namespace NET_ASAM_OPENSCENARIO
         double RelativeLanePositionImpl::GetDs()
         {
             return _ds;
+        }
+        std::shared_ptr<INamedReference<IEntity>> RelativeLanePositionImpl::GetEntityRef()
+        {
+            return _entityRef;
         }
         double RelativeLanePositionImpl::GetOffset()
         {
@@ -20002,63 +16948,9 @@ namespace NET_ASAM_OPENSCENARIO
             return _orientation;
         }
 
-        /**
-         * Sets the value of model property entityRef
-         * @param entityRef from OpenSCENARIO class model specification: [Reference entity.]
-         * 
-        */
-        void RelativeLanePositionImpl::SetEntityRef(NamedReferenceProxy<IEntity>& entityRef )
-        {
-            _entityRef = entityRef;
-        }
-        /**
-         * Sets the value of model property dLane
-         * @param dLane from OpenSCENARIO class model specification: [Relative dlane to the lane of the reference entity.]
-         * 
-        */
-        void RelativeLanePositionImpl::SetDLane(int dLane )
-        {
-            _dLane = dLane;
-        }
-        /**
-         * Sets the value of model property ds
-         * @param ds from OpenSCENARIO class model specification: [Relative ds to the s of reference entity.]
-         * 
-        */
-        void RelativeLanePositionImpl::SetDs(double ds )
-        {
-            _ds = ds;
-        }
-        /**
-         * Sets the value of model property offset
-         * @param offset from OpenSCENARIO class model specification: [Lateral offset to the taqrget lane. Unit: m; Range: 
-         * ]-inf..inf[]
-         * 
-        */
-        void RelativeLanePositionImpl::SetOffset(double offset )
-        {
-            _offset = offset;
-        }
-        /**
-         * Sets the value of model property orientation
-         * @param orientation from OpenSCENARIO class model specification: [Orientation. The relative reference context refers to 
-         * the referenced lane's s and t coordinates.]
-         * 
-        */
-        void RelativeLanePositionImpl::SetOrientation(std::shared_ptr<IOrientation> orientation )
-        {
-            _orientation = orientation;
-        }
-
         void RelativeLanePositionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
-            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
-            {
-                // Proxy
-                _entityRef = NamedReferenceProxy<IEntity>(parameterLiteralValue);
-                AddResolvedParameter(attributeKey);
-            }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__D_LANE)
+            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__D_LANE)
             {
                 // Simple type
                 _dLane = ParserHelper::ParseInt(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
@@ -20068,6 +16960,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _ds = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                AddResolvedParameter(attributeKey);
+            }
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
+            {
+                // Proxy
+                const auto kProxy = std::make_shared<NamedReferenceProxy<IEntity>>(parameterLiteralValue);
+                _entityRef = std::dynamic_pointer_cast<INamedReference<IEntity>>(kProxy);
                 AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__OFFSET)
@@ -20096,7 +16995,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kOrientation =  GetOrientation();
+                const auto kOrientation =  GetWriterOrientation();
                 if (kOrientation)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kOrientation));
@@ -20118,24 +17017,25 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToParameterNameMap(*clonedObject);
 
             // clone attributes;
+            // Simple type
+            clonedObject->_dLane = GetDLane();
+            // Simple type
+            clonedObject->_ds = GetDs();
             // Proxy
-            auto proxy = _entityRef;
-            proxy.SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-            clonedObject->SetEntityRef(proxy);
+            auto proxy = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetEntityRef()));
+            proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->_entityRef = proxy;
+            
             // Simple type
-            clonedObject->SetDLane(_dLane);
-            // Simple type
-            clonedObject->SetDs(_ds);
-            // Simple type
-            clonedObject->SetOffset(_offset);
+            clonedObject->_offset = GetOffset();
             // clone children
-            const auto kOrientation =  GetOrientation();
+            const auto kOrientation =  GetWriterOrientation();
             if (kOrientation)
             {
                 auto clonedChild = std::dynamic_pointer_cast<OrientationImpl>(kOrientation)->Clone();
                 auto clonedChildIOrientation = std::dynamic_pointer_cast<IOrientation>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetOrientation(clonedChildIOrientation);
+                clonedObject->SetOrientation(std::dynamic_pointer_cast<IOrientationWriter>(clonedChildIOrientation));
             }
             return clonedObject;
         }
@@ -20203,16 +17103,12 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, SimpleType::STRING);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DX, SimpleType::DOUBLE);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DY, SimpleType::DOUBLE);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DZ, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, SimpleType::STRING);
         }
 
-        INamedReference<IEntity>* RelativeObjectPositionImpl::GetEntityRef()
-        {
-            return &_entityRef;
-        }
         double RelativeObjectPositionImpl::GetDx()
         {
             return _dx;
@@ -20225,70 +17121,18 @@ namespace NET_ASAM_OPENSCENARIO
         {
             return _dz;
         }
+        std::shared_ptr<INamedReference<IEntity>> RelativeObjectPositionImpl::GetEntityRef()
+        {
+            return _entityRef;
+        }
         std::shared_ptr<IOrientation> RelativeObjectPositionImpl::GetOrientation()
         {
             return _orientation;
         }
 
-        /**
-         * Sets the value of model property entityRef
-         * @param entityRef from OpenSCENARIO class model specification: [Reference entity.]
-         * 
-        */
-        void RelativeObjectPositionImpl::SetEntityRef(NamedReferenceProxy<IEntity>& entityRef )
-        {
-            _entityRef = entityRef;
-        }
-        /**
-         * Sets the value of model property dx
-         * @param dx from OpenSCENARIO class model specification: [Relative position in the x axis, using the coordinate system of 
-         * the reference entity.]
-         * 
-        */
-        void RelativeObjectPositionImpl::SetDx(double dx )
-        {
-            _dx = dx;
-        }
-        /**
-         * Sets the value of model property dy
-         * @param dy from OpenSCENARIO class model specification: [Relative position in the y axis, using the coordinate system of 
-         * the reference entity.]
-         * 
-        */
-        void RelativeObjectPositionImpl::SetDy(double dy )
-        {
-            _dy = dy;
-        }
-        /**
-         * Sets the value of model property dz
-         * @param dz from OpenSCENARIO class model specification: [Relative position in the z axis, using the coordinate system of 
-         * the reference entity.]
-         * 
-        */
-        void RelativeObjectPositionImpl::SetDz(double dz )
-        {
-            _dz = dz;
-        }
-        /**
-         * Sets the value of model property orientation
-         * @param orientation from OpenSCENARIO class model specification: [Orientation. The relative reference context refers to 
-         * the orientation of the reference entity.]
-         * 
-        */
-        void RelativeObjectPositionImpl::SetOrientation(std::shared_ptr<IOrientation> orientation )
-        {
-            _orientation = orientation;
-        }
-
         void RelativeObjectPositionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
-            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
-            {
-                // Proxy
-                _entityRef = NamedReferenceProxy<IEntity>(parameterLiteralValue);
-                AddResolvedParameter(attributeKey);
-            }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__DX)
+            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__DX)
             {
                 // Simple type
                 _dx = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
@@ -20304,6 +17148,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _dz = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                AddResolvedParameter(attributeKey);
+            }
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
+            {
+                // Proxy
+                const auto kProxy = std::make_shared<NamedReferenceProxy<IEntity>>(parameterLiteralValue);
+                _entityRef = std::dynamic_pointer_cast<INamedReference<IEntity>>(kProxy);
                 AddResolvedParameter(attributeKey);
             }
         }
@@ -20326,7 +17177,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kOrientation =  GetOrientation();
+                const auto kOrientation =  GetWriterOrientation();
                 if (kOrientation)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kOrientation));
@@ -20348,24 +17199,25 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToParameterNameMap(*clonedObject);
 
             // clone attributes;
+            // Simple type
+            clonedObject->_dx = GetDx();
+            // Simple type
+            clonedObject->_dy = GetDy();
+            // Simple type
+            clonedObject->_dz = GetDz();
             // Proxy
-            auto proxy = _entityRef;
-            proxy.SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-            clonedObject->SetEntityRef(proxy);
-            // Simple type
-            clonedObject->SetDx(_dx);
-            // Simple type
-            clonedObject->SetDy(_dy);
-            // Simple type
-            clonedObject->SetDz(_dz);
+            auto proxy = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetEntityRef()));
+            proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->_entityRef = proxy;
+            
             // clone children
-            const auto kOrientation =  GetOrientation();
+            const auto kOrientation =  GetWriterOrientation();
             if (kOrientation)
             {
                 auto clonedChild = std::dynamic_pointer_cast<OrientationImpl>(kOrientation)->Clone();
                 auto clonedChildIOrientation = std::dynamic_pointer_cast<IOrientation>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetOrientation(clonedChildIOrientation);
+                clonedObject->SetOrientation(std::dynamic_pointer_cast<IOrientationWriter>(clonedChildIOrientation));
             }
             return clonedObject;
         }
@@ -20433,15 +17285,11 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, SimpleType::STRING);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DS, SimpleType::DOUBLE);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DT, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, SimpleType::STRING);
         }
 
-        INamedReference<IEntity>* RelativeRoadPositionImpl::GetEntityRef()
-        {
-            return &_entityRef;
-        }
         double RelativeRoadPositionImpl::GetDs()
         {
             return _ds;
@@ -20450,60 +17298,18 @@ namespace NET_ASAM_OPENSCENARIO
         {
             return _dt;
         }
+        std::shared_ptr<INamedReference<IEntity>> RelativeRoadPositionImpl::GetEntityRef()
+        {
+            return _entityRef;
+        }
         std::shared_ptr<IOrientation> RelativeRoadPositionImpl::GetOrientation()
         {
             return _orientation;
         }
 
-        /**
-         * Sets the value of model property entityRef
-         * @param entityRef from OpenSCENARIO class model specification: [reference entity.]
-         * 
-        */
-        void RelativeRoadPositionImpl::SetEntityRef(NamedReferenceProxy<IEntity>& entityRef )
-        {
-            _entityRef = entityRef;
-        }
-        /**
-         * Sets the value of model property ds
-         * @param ds from OpenSCENARIO class model specification: [Relative ds road coordinate to s coordinate of the reference 
-         * entity.]
-         * 
-        */
-        void RelativeRoadPositionImpl::SetDs(double ds )
-        {
-            _ds = ds;
-        }
-        /**
-         * Sets the value of model property dt
-         * @param dt from OpenSCENARIO class model specification: [Relative dt road coordinate to t coordinate of the reference 
-         * entity.]
-         * 
-        */
-        void RelativeRoadPositionImpl::SetDt(double dt )
-        {
-            _dt = dt;
-        }
-        /**
-         * Sets the value of model property orientation
-         * @param orientation from OpenSCENARIO class model specification: [Orientation. The relative reference context refers to 
-         * the referenced road's s and t coordinates.]
-         * 
-        */
-        void RelativeRoadPositionImpl::SetOrientation(std::shared_ptr<IOrientation> orientation )
-        {
-            _orientation = orientation;
-        }
-
         void RelativeRoadPositionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
-            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
-            {
-                // Proxy
-                _entityRef = NamedReferenceProxy<IEntity>(parameterLiteralValue);
-                AddResolvedParameter(attributeKey);
-            }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__DS)
+            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__DS)
             {
                 // Simple type
                 _ds = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
@@ -20513,6 +17319,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _dt = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                AddResolvedParameter(attributeKey);
+            }
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
+            {
+                // Proxy
+                const auto kProxy = std::make_shared<NamedReferenceProxy<IEntity>>(parameterLiteralValue);
+                _entityRef = std::dynamic_pointer_cast<INamedReference<IEntity>>(kProxy);
                 AddResolvedParameter(attributeKey);
             }
         }
@@ -20535,7 +17348,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kOrientation =  GetOrientation();
+                const auto kOrientation =  GetWriterOrientation();
                 if (kOrientation)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kOrientation));
@@ -20557,22 +17370,23 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToParameterNameMap(*clonedObject);
 
             // clone attributes;
+            // Simple type
+            clonedObject->_ds = GetDs();
+            // Simple type
+            clonedObject->_dt = GetDt();
             // Proxy
-            auto proxy = _entityRef;
-            proxy.SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-            clonedObject->SetEntityRef(proxy);
-            // Simple type
-            clonedObject->SetDs(_ds);
-            // Simple type
-            clonedObject->SetDt(_dt);
+            auto proxy = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetEntityRef()));
+            proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->_entityRef = proxy;
+            
             // clone children
-            const auto kOrientation =  GetOrientation();
+            const auto kOrientation =  GetWriterOrientation();
             if (kOrientation)
             {
                 auto clonedChild = std::dynamic_pointer_cast<OrientationImpl>(kOrientation)->Clone();
                 auto clonedChildIOrientation = std::dynamic_pointer_cast<IOrientation>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetOrientation(clonedChildIOrientation);
+                clonedObject->SetOrientation(std::dynamic_pointer_cast<IOrientationWriter>(clonedChildIOrientation));
             }
             return clonedObject;
         }
@@ -20641,49 +17455,21 @@ namespace NET_ASAM_OPENSCENARIO
             * Filling the property to type map
             */
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, SimpleType::STRING);
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__RULE, SimpleType::ENUM_TYPE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
         }
 
-        INamedReference<IEntity>* RelativeSpeedConditionImpl::GetEntityRef()
+        std::shared_ptr<INamedReference<IEntity>> RelativeSpeedConditionImpl::GetEntityRef()
         {
-            return &_entityRef;
-        }
-        double RelativeSpeedConditionImpl::GetValue()
-        {
-            return _value;
+            return _entityRef;
         }
         Rule RelativeSpeedConditionImpl::GetRule()
         {
             return _rule;
         }
-
-        /**
-         * Sets the value of model property entityRef
-         * @param entityRef from OpenSCENARIO class model specification: [Reference entity.]
-         * 
-        */
-        void RelativeSpeedConditionImpl::SetEntityRef(NamedReferenceProxy<IEntity>& entityRef )
+        double RelativeSpeedConditionImpl::GetValue()
         {
-            _entityRef = entityRef;
-        }
-        /**
-         * Sets the value of model property value
-         * @param value from OpenSCENARIO class model specification: [Relative speed value. Unit: m/s.]
-         * 
-        */
-        void RelativeSpeedConditionImpl::SetValue(double value )
-        {
-            _value = value;
-        }
-        /**
-         * Sets the value of model property rule
-         * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
-         * 
-        */
-        void RelativeSpeedConditionImpl::SetRule(Rule rule )
-        {
-            _rule = rule;
+            return _value;
         }
 
         void RelativeSpeedConditionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
@@ -20691,13 +17477,8 @@ namespace NET_ASAM_OPENSCENARIO
             if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
             {
                 // Proxy
-                _entityRef = NamedReferenceProxy<IEntity>(parameterLiteralValue);
-                AddResolvedParameter(attributeKey);
-            }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
-            {
-                // Simple type
-                _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                const auto kProxy = std::make_shared<NamedReferenceProxy<IEntity>>(parameterLiteralValue);
+                _entityRef = std::dynamic_pointer_cast<INamedReference<IEntity>>(kProxy);
                 AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__RULE)
@@ -20714,6 +17495,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto msg = FileContentMessage("Value '" + parameterLiteralValue + "' is not allowed.", ERROR, *GetTextmarker(attributeKey));
                     logger.LogMessage(msg );
                 }
+            }
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
+            {
+                // Simple type
+                _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -20753,13 +17540,18 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Proxy
-            auto proxy = _entityRef;
-            proxy.SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-            clonedObject->SetEntityRef(proxy);
-            // Simple type
-            clonedObject->SetValue(_value);
+            auto proxy = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetEntityRef()));
+            proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->_entityRef = proxy;
+            
             // Enumeration Type
-            clonedObject->SetRule(_rule);
+            const auto kRule = GetRule();
+            if ( kRule.GetLiteral() != "UNKNOWN" )
+            {
+                clonedObject->_rule = Rule::GetFromLiteral(kRule.GetLiteral());
+            }
+            // Simple type
+            clonedObject->_value = GetValue();
             // clone children
             return clonedObject;
         }
@@ -20828,48 +17620,22 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__SPEED_TARGET_VALUE_TYPE, SimpleType::ENUM_TYPE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
         }
 
-        double RelativeSpeedToMasterImpl::GetValue()
-        {
-            return _value;
-        }
         SpeedTargetValueType RelativeSpeedToMasterImpl::GetSpeedTargetValueType()
         {
             return _speedTargetValueType;
         }
-
-        /**
-         * Sets the value of model property value
-         * @param value from OpenSCENARIO class model specification: [Relative speed. Unit: m/s. Range: ]-inf..inf[.]
-         * 
-        */
-        void RelativeSpeedToMasterImpl::SetValue(double value )
+        double RelativeSpeedToMasterImpl::GetValue()
         {
-            _value = value;
-        }
-        /**
-         * Sets the value of model property speedTargetValueType
-         * @param speedTargetValueType from OpenSCENARIO class model specification: [The semantics of the value (delta, offset, 
-         * factor).]
-         * 
-        */
-        void RelativeSpeedToMasterImpl::SetSpeedTargetValueType(SpeedTargetValueType speedTargetValueType )
-        {
-            _speedTargetValueType = speedTargetValueType;
+            return _value;
         }
 
         void RelativeSpeedToMasterImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
-            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
-            {
-                // Simple type
-                _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                AddResolvedParameter(attributeKey);
-            }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__SPEED_TARGET_VALUE_TYPE)
+            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__SPEED_TARGET_VALUE_TYPE)
             {
                 // Enumeration Type
                 const auto kResult = SpeedTargetValueType::GetFromLiteral(parameterLiteralValue);
@@ -20883,6 +17649,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto msg = FileContentMessage("Value '" + parameterLiteralValue + "' is not allowed.", ERROR, *GetTextmarker(attributeKey));
                     logger.LogMessage(msg );
                 }
+            }
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
+            {
+                // Simple type
+                _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -20921,10 +17693,14 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToParameterNameMap(*clonedObject);
 
             // clone attributes;
-            // Simple type
-            clonedObject->SetValue(_value);
             // Enumeration Type
-            clonedObject->SetSpeedTargetValueType(_speedTargetValueType);
+            const auto kSpeedTargetValueType = GetSpeedTargetValueType();
+            if ( kSpeedTargetValueType.GetLiteral() != "UNKNOWN" )
+            {
+                clonedObject->_speedTargetValueType = SpeedTargetValueType::GetFromLiteral(kSpeedTargetValueType.GetLiteral());
+            }
+            // Simple type
+            clonedObject->_value = GetValue();
             // clone children
             return clonedObject;
         }
@@ -20975,33 +17751,13 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::INT);
         }
 
-        INamedReference<IEntity>* RelativeTargetLaneImpl::GetEntityRef()
+        std::shared_ptr<INamedReference<IEntity>> RelativeTargetLaneImpl::GetEntityRef()
         {
-            return &_entityRef;
+            return _entityRef;
         }
         int RelativeTargetLaneImpl::GetValue()
         {
             return _value;
-        }
-
-        /**
-         * Sets the value of model property entityRef
-         * @param entityRef from OpenSCENARIO class model specification: [Reference entity.]
-         * 
-        */
-        void RelativeTargetLaneImpl::SetEntityRef(NamedReferenceProxy<IEntity>& entityRef )
-        {
-            _entityRef = entityRef;
-        }
-        /**
-         * Sets the value of model property value
-         * @param value from OpenSCENARIO class model specification: [Signed number of lanes that is offset the reference entity's 
-         * current lane.]
-         * 
-        */
-        void RelativeTargetLaneImpl::SetValue(int value )
-        {
-            _value = value;
         }
 
         void RelativeTargetLaneImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
@@ -21009,7 +17765,8 @@ namespace NET_ASAM_OPENSCENARIO
             if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
             {
                 // Proxy
-                _entityRef = NamedReferenceProxy<IEntity>(parameterLiteralValue);
+                const auto kProxy = std::make_shared<NamedReferenceProxy<IEntity>>(parameterLiteralValue);
+                _entityRef = std::dynamic_pointer_cast<INamedReference<IEntity>>(kProxy);
                 AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
@@ -21056,11 +17813,12 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Proxy
-            auto proxy = _entityRef;
-            proxy.SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-            clonedObject->SetEntityRef(proxy);
+            auto proxy = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetEntityRef()));
+            proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->_entityRef = proxy;
+            
             // Simple type
-            clonedObject->SetValue(_value);
+            clonedObject->_value = GetValue();
             // clone children
             return clonedObject;
         }
@@ -21123,33 +17881,13 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
         }
 
-        INamedReference<IEntity>* RelativeTargetLaneOffsetImpl::GetEntityRef()
+        std::shared_ptr<INamedReference<IEntity>> RelativeTargetLaneOffsetImpl::GetEntityRef()
         {
-            return &_entityRef;
+            return _entityRef;
         }
         double RelativeTargetLaneOffsetImpl::GetValue()
         {
             return _value;
-        }
-
-        /**
-         * Sets the value of model property entityRef
-         * @param entityRef from OpenSCENARIO class model specification: [Reference entity.]
-         * 
-        */
-        void RelativeTargetLaneOffsetImpl::SetEntityRef(NamedReferenceProxy<IEntity>& entityRef )
-        {
-            _entityRef = entityRef;
-        }
-        /**
-         * Sets the value of model property value
-         * @param value from OpenSCENARIO class model specification: [Lane offset with respect to the reference entity's current 
-         * lane position. Unit: m.]
-         * 
-        */
-        void RelativeTargetLaneOffsetImpl::SetValue(double value )
-        {
-            _value = value;
         }
 
         void RelativeTargetLaneOffsetImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
@@ -21157,7 +17895,8 @@ namespace NET_ASAM_OPENSCENARIO
             if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
             {
                 // Proxy
-                _entityRef = NamedReferenceProxy<IEntity>(parameterLiteralValue);
+                const auto kProxy = std::make_shared<NamedReferenceProxy<IEntity>>(parameterLiteralValue);
+                _entityRef = std::dynamic_pointer_cast<INamedReference<IEntity>>(kProxy);
                 AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
@@ -21204,11 +17943,12 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Proxy
-            auto proxy = _entityRef;
-            proxy.SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-            clonedObject->SetEntityRef(proxy);
+            auto proxy = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetEntityRef()));
+            proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->_entityRef = proxy;
+            
             // Simple type
-            clonedObject->SetValue(_value);
+            clonedObject->_value = GetValue();
             // clone children
             return clonedObject;
         }
@@ -21267,84 +18007,42 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, SimpleType::STRING);
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__SPEED_TARGET_VALUE_TYPE, SimpleType::ENUM_TYPE);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS, SimpleType::BOOLEAN);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, SimpleType::STRING);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__SPEED_TARGET_VALUE_TYPE, SimpleType::ENUM_TYPE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
         }
 
-        INamedReference<IEntity>* RelativeTargetSpeedImpl::GetEntityRef()
+        bool RelativeTargetSpeedImpl::GetContinuous()
         {
-            return &_entityRef;
+            return _continuous;
         }
-        double RelativeTargetSpeedImpl::GetValue()
+        std::shared_ptr<INamedReference<IEntity>> RelativeTargetSpeedImpl::GetEntityRef()
         {
-            return _value;
+            return _entityRef;
         }
         SpeedTargetValueType RelativeTargetSpeedImpl::GetSpeedTargetValueType()
         {
             return _speedTargetValueType;
         }
-        bool RelativeTargetSpeedImpl::GetContinuous()
+        double RelativeTargetSpeedImpl::GetValue()
         {
-            return _continuous;
-        }
-
-        /**
-         * Sets the value of model property entityRef
-         * @param entityRef from OpenSCENARIO class model specification: [Reference entity.]
-         * 
-        */
-        void RelativeTargetSpeedImpl::SetEntityRef(NamedReferenceProxy<IEntity>& entityRef )
-        {
-            _entityRef = entityRef;
-        }
-        /**
-         * Sets the value of model property value
-         * @param value from OpenSCENARIO class model specification: [Value of the relative speed. This value is either given as a 
-         * delta or as a factor. E.g. value=10 together with , valueType=delta means the entity/entities are supposed to drive 
-         * 10m/s faster than the target reference entity. E.g. , value=1.1 together with valueType=factor means that the 
-         * entity/entities are supposed to drive 10% faster than the target, reference entity. Unit: m/s or 1.]
-         * 
-        */
-        void RelativeTargetSpeedImpl::SetValue(double value )
-        {
-            _value = value;
-        }
-        /**
-         * Sets the value of model property speedTargetValueType
-         * @param speedTargetValueType from OpenSCENARIO class model specification: [The value is either a delta (Unit m/s) or a 
-         * factor (no Unit).]
-         * 
-        */
-        void RelativeTargetSpeedImpl::SetSpeedTargetValueType(SpeedTargetValueType speedTargetValueType )
-        {
-            _speedTargetValueType = speedTargetValueType;
-        }
-        /**
-         * Sets the value of model property continuous
-         * @param continuous from OpenSCENARIO class model specification: [By setting continuous to true a controller comes into 
-         * place and tries to maintain a continuous relative speed. This may , not be used together with Dynamics.time or 
-         * Dynamics.distance.]
-         * 
-        */
-        void RelativeTargetSpeedImpl::SetContinuous(bool continuous )
-        {
-            _continuous = continuous;
+            return _value;
         }
 
         void RelativeTargetSpeedImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
-            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
-            {
-                // Proxy
-                _entityRef = NamedReferenceProxy<IEntity>(parameterLiteralValue);
-                AddResolvedParameter(attributeKey);
-            }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
+            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS)
             {
                 // Simple type
-                _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                _continuous = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                AddResolvedParameter(attributeKey);
+            }
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
+            {
+                // Proxy
+                const auto kProxy = std::make_shared<NamedReferenceProxy<IEntity>>(parameterLiteralValue);
+                _entityRef = std::dynamic_pointer_cast<INamedReference<IEntity>>(kProxy);
                 AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__SPEED_TARGET_VALUE_TYPE)
@@ -21362,10 +18060,10 @@ namespace NET_ASAM_OPENSCENARIO
                     logger.LogMessage(msg );
                 }
             }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS)
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
             {
                 // Simple type
-                _continuous = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
             }
         }
@@ -21405,16 +18103,21 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToParameterNameMap(*clonedObject);
 
             // clone attributes;
+            // Simple type
+            clonedObject->_continuous = GetContinuous();
             // Proxy
-            auto proxy = _entityRef;
-            proxy.SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-            clonedObject->SetEntityRef(proxy);
-            // Simple type
-            clonedObject->SetValue(_value);
+            auto proxy = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetEntityRef()));
+            proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->_entityRef = proxy;
+            
             // Enumeration Type
-            clonedObject->SetSpeedTargetValueType(_speedTargetValueType);
+            const auto kSpeedTargetValueType = GetSpeedTargetValueType();
+            if ( kSpeedTargetValueType.GetLiteral() != "UNKNOWN" )
+            {
+                clonedObject->_speedTargetValueType = SpeedTargetValueType::GetFromLiteral(kSpeedTargetValueType.GetLiteral());
+            }
             // Simple type
-            clonedObject->SetContinuous(_continuous);
+            clonedObject->_value = GetValue();
             // clone children
             return clonedObject;
         }
@@ -21483,16 +18186,12 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, SimpleType::STRING);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DX, SimpleType::DOUBLE);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DY, SimpleType::DOUBLE);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DZ, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, SimpleType::STRING);
         }
 
-        INamedReference<IEntity>* RelativeWorldPositionImpl::GetEntityRef()
-        {
-            return &_entityRef;
-        }
         double RelativeWorldPositionImpl::GetDx()
         {
             return _dx;
@@ -21505,68 +18204,18 @@ namespace NET_ASAM_OPENSCENARIO
         {
             return _dz;
         }
+        std::shared_ptr<INamedReference<IEntity>> RelativeWorldPositionImpl::GetEntityRef()
+        {
+            return _entityRef;
+        }
         std::shared_ptr<IOrientation> RelativeWorldPositionImpl::GetOrientation()
         {
             return _orientation;
         }
 
-        /**
-         * Sets the value of model property entityRef
-         * @param entityRef from OpenSCENARIO class model specification: [Reference entity from which the relative world position 
-         * is measured.]
-         * 
-        */
-        void RelativeWorldPositionImpl::SetEntityRef(NamedReferenceProxy<IEntity>& entityRef )
-        {
-            _entityRef = entityRef;
-        }
-        /**
-         * Sets the value of model property dx
-         * @param dx from OpenSCENARIO class model specification: [Relative x coordinate in the world coordinate system.]
-         * 
-        */
-        void RelativeWorldPositionImpl::SetDx(double dx )
-        {
-            _dx = dx;
-        }
-        /**
-         * Sets the value of model property dy
-         * @param dy from OpenSCENARIO class model specification: [Relative y coordinate in the world coordinate system.]
-         * 
-        */
-        void RelativeWorldPositionImpl::SetDy(double dy )
-        {
-            _dy = dy;
-        }
-        /**
-         * Sets the value of model property dz
-         * @param dz from OpenSCENARIO class model specification: [Relative z coordinate in the world coordinate system.]
-         * 
-        */
-        void RelativeWorldPositionImpl::SetDz(double dz )
-        {
-            _dz = dz;
-        }
-        /**
-         * Sets the value of model property orientation
-         * @param orientation from OpenSCENARIO class model specification: [Orientation. The relative reference context refers to 
-         * the reference entity's orientation.]
-         * 
-        */
-        void RelativeWorldPositionImpl::SetOrientation(std::shared_ptr<IOrientation> orientation )
-        {
-            _orientation = orientation;
-        }
-
         void RelativeWorldPositionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
-            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
-            {
-                // Proxy
-                _entityRef = NamedReferenceProxy<IEntity>(parameterLiteralValue);
-                AddResolvedParameter(attributeKey);
-            }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__DX)
+            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__DX)
             {
                 // Simple type
                 _dx = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
@@ -21582,6 +18231,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _dz = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                AddResolvedParameter(attributeKey);
+            }
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
+            {
+                // Proxy
+                const auto kProxy = std::make_shared<NamedReferenceProxy<IEntity>>(parameterLiteralValue);
+                _entityRef = std::dynamic_pointer_cast<INamedReference<IEntity>>(kProxy);
                 AddResolvedParameter(attributeKey);
             }
         }
@@ -21604,7 +18260,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kOrientation =  GetOrientation();
+                const auto kOrientation =  GetWriterOrientation();
                 if (kOrientation)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kOrientation));
@@ -21626,24 +18282,25 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToParameterNameMap(*clonedObject);
 
             // clone attributes;
+            // Simple type
+            clonedObject->_dx = GetDx();
+            // Simple type
+            clonedObject->_dy = GetDy();
+            // Simple type
+            clonedObject->_dz = GetDz();
             // Proxy
-            auto proxy = _entityRef;
-            proxy.SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-            clonedObject->SetEntityRef(proxy);
-            // Simple type
-            clonedObject->SetDx(_dx);
-            // Simple type
-            clonedObject->SetDy(_dy);
-            // Simple type
-            clonedObject->SetDz(_dz);
+            auto proxy = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetEntityRef()));
+            proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->_entityRef = proxy;
+            
             // clone children
-            const auto kOrientation =  GetOrientation();
+            const auto kOrientation =  GetWriterOrientation();
             if (kOrientation)
             {
                 auto clonedChild = std::dynamic_pointer_cast<OrientationImpl>(kOrientation)->Clone();
                 auto clonedChildIOrientation = std::dynamic_pointer_cast<IOrientation>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetOrientation(clonedChildIOrientation);
+                clonedObject->SetOrientation(std::dynamic_pointer_cast<IOrientationWriter>(clonedChildIOrientation));
             }
             return clonedObject;
         }
@@ -21723,25 +18380,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _properties;
         }
 
-        /**
-         * Sets the value of model property frictionScaleFactor
-         * @param frictionScaleFactor from OpenSCENARIO class model specification: [Friction scale factor. Range: [0..inf[]
-         * 
-        */
-        void RoadConditionImpl::SetFrictionScaleFactor(double frictionScaleFactor )
-        {
-            _frictionScaleFactor = frictionScaleFactor;
-        }
-        /**
-         * Sets the value of model property properties
-         * @param properties from OpenSCENARIO class model specification: [Additional properties to describe the road condition.]
-         * 
-        */
-        void RoadConditionImpl::SetProperties(std::shared_ptr<IProperties> properties )
-        {
-            _properties = properties;
-        }
-
         void RoadConditionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
             if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__FRICTION_SCALE_FACTOR)
@@ -21770,7 +18408,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kProperties =  GetProperties();
+                const auto kProperties =  GetWriterProperties();
                 if (kProperties)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kProperties));
@@ -21793,15 +18431,15 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetFrictionScaleFactor(_frictionScaleFactor);
+            clonedObject->_frictionScaleFactor = GetFrictionScaleFactor();
             // clone children
-            const auto kProperties =  GetProperties();
+            const auto kProperties =  GetWriterProperties();
             if (kProperties)
             {
                 auto clonedChild = std::dynamic_pointer_cast<PropertiesImpl>(kProperties)->Clone();
                 auto clonedChildIProperties = std::dynamic_pointer_cast<IProperties>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetProperties(clonedChildIProperties);
+                clonedObject->SetProperties(std::dynamic_pointer_cast<IPropertiesWriter>(clonedChildIProperties));
             }
             return clonedObject;
         }
@@ -21859,38 +18497,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
         std::vector<std::shared_ptr<ITrafficSignalController>> RoadNetworkImpl::GetTrafficSignals()
         {
-            return _trafficSignals;
-        }
-
-        /**
-         * Sets the value of model property logicFile
-         * @param logicFile from OpenSCENARIO class model specification: [File path of the road network file (e.g. an ASAM 
-         * OpenDRIVE file).]
-         * 
-        */
-        void RoadNetworkImpl::SetLogicFile(std::shared_ptr<IFile> logicFile )
-        {
-            _logicFile = logicFile;
-        }
-        /**
-         * Sets the value of model property sceneGraphFile
-         * @param sceneGraphFile from OpenSCENARIO class model specification: [File path of a 3D model representing the virtual 
-         * environment. This may be used for visual representation (rendering).]
-         * 
-        */
-        void RoadNetworkImpl::SetSceneGraphFile(std::shared_ptr<IFile> sceneGraphFile )
-        {
-            _sceneGraphFile = sceneGraphFile;
-        }
-        /**
-         * Sets the value of model property trafficSignals
-         * @param trafficSignals from OpenSCENARIO class model specification: [Name references and description of dynamic behavior 
-         * for traffic signals defined in the road network file.]
-         * 
-        */
-        void RoadNetworkImpl::SetTrafficSignals(std::vector<std::shared_ptr<ITrafficSignalController>>& trafficSignals)
-        {
-            _trafficSignals = trafficSignals;
+            std::vector<std::shared_ptr<ITrafficSignalController>> temp;
+            for(auto&& elm: _trafficSignals)
+                temp.push_back(elm);
+            return temp;
         }
 
         void RoadNetworkImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
@@ -21915,17 +18525,17 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kLogicFile =  GetLogicFile();
+                const auto kLogicFile =  GetWriterLogicFile();
                 if (kLogicFile)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kLogicFile));
                 }
-                const auto kSceneGraphFile =  GetSceneGraphFile();
+                const auto kSceneGraphFile =  GetWriterSceneGraphFile();
                 if (kSceneGraphFile)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kSceneGraphFile));
                 }
-                auto trafficSignals =  GetTrafficSignals();
+                auto trafficSignals =  GetWriterTrafficSignals();
                 if (!trafficSignals.empty())
                 {
                     for(auto&& item : trafficSignals)
@@ -21951,31 +18561,31 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kLogicFile =  GetLogicFile();
+            const auto kLogicFile =  GetWriterLogicFile();
             if (kLogicFile)
             {
                 auto clonedChild = std::dynamic_pointer_cast<FileImpl>(kLogicFile)->Clone();
                 auto clonedChildIFile = std::dynamic_pointer_cast<IFile>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetLogicFile(clonedChildIFile);
+                clonedObject->SetLogicFile(std::dynamic_pointer_cast<IFileWriter>(clonedChildIFile));
             }
-            const auto kSceneGraphFile =  GetSceneGraphFile();
+            const auto kSceneGraphFile =  GetWriterSceneGraphFile();
             if (kSceneGraphFile)
             {
                 auto clonedChild = std::dynamic_pointer_cast<FileImpl>(kSceneGraphFile)->Clone();
                 auto clonedChildIFile = std::dynamic_pointer_cast<IFile>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetSceneGraphFile(clonedChildIFile);
+                clonedObject->SetSceneGraphFile(std::dynamic_pointer_cast<IFileWriter>(clonedChildIFile));
             }
-            const auto kTrafficSignals =  GetTrafficSignals();
+            const auto kTrafficSignals =  GetWriterTrafficSignals();
             if (!kTrafficSignals.empty())
             {
-                std::vector<std::shared_ptr<ITrafficSignalController>> clonedList;
+                std::vector<std::shared_ptr<ITrafficSignalControllerWriter>> clonedList;
                 for(auto&& kItem : kTrafficSignals)
                 {
                     auto clonedChild = std::dynamic_pointer_cast<TrafficSignalControllerImpl>(kItem)->Clone();
                     clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                    clonedList.push_back(std::dynamic_pointer_cast<TrafficSignalControllerImpl>(clonedChild));
+                    clonedList.push_back(std::dynamic_pointer_cast<ITrafficSignalControllerWriter>(clonedChild));
                 }
                 clonedObject->SetTrafficSignals(clonedList);
             }
@@ -22062,46 +18672,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _orientation;
         }
 
-        /**
-         * Sets the value of model property roadId
-         * @param roadId from OpenSCENARIO class model specification: [Identifier of the road, defined in the road network 
-         * definition file (external to ASAM OpenSCENARIO).]
-         * 
-        */
-        void RoadPositionImpl::SetRoadId(std::string roadId )
-        {
-            _roadId = roadId;
-        }
-        /**
-         * Sets the value of model property s
-         * @param s from OpenSCENARIO class model specification: [Represents s coordinate along the reference line of the road.]
-         * 
-        */
-        void RoadPositionImpl::SetS(double s )
-        {
-            _s = s;
-        }
-        /**
-         * Sets the value of model property t
-         * @param t from OpenSCENARIO class model specification: [Represents t coordinate orthogonal to the reference line of the 
-         * road.]
-         * 
-        */
-        void RoadPositionImpl::SetT(double t )
-        {
-            _t = t;
-        }
-        /**
-         * Sets the value of model property orientation
-         * @param orientation from OpenSCENARIO class model specification: [Orientation. The relative reference context refers to 
-         * the referenced road's s and t coordinates.]
-         * 
-        */
-        void RoadPositionImpl::SetOrientation(std::shared_ptr<IOrientation> orientation )
-        {
-            _orientation = orientation;
-        }
-
         void RoadPositionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
             if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ROAD_ID)
@@ -22142,7 +18712,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kOrientation =  GetOrientation();
+                const auto kOrientation =  GetWriterOrientation();
                 if (kOrientation)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kOrientation));
@@ -22165,19 +18735,19 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetRoadId(_roadId);
+            clonedObject->_roadId = GetRoadId();
             // Simple type
-            clonedObject->SetS(_s);
+            clonedObject->_s = GetS();
             // Simple type
-            clonedObject->SetT(_t);
+            clonedObject->_t = GetT();
             // clone children
-            const auto kOrientation =  GetOrientation();
+            const auto kOrientation =  GetWriterOrientation();
             if (kOrientation)
             {
                 auto clonedChild = std::dynamic_pointer_cast<OrientationImpl>(kOrientation)->Clone();
                 auto clonedChildIOrientation = std::dynamic_pointer_cast<IOrientation>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetOrientation(clonedChildIOrientation);
+                clonedObject->SetOrientation(std::dynamic_pointer_cast<IOrientationWriter>(clonedChildIOrientation));
             }
             return clonedObject;
         }
@@ -22232,77 +18802,45 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, SimpleType::STRING);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__CLOSED, SimpleType::BOOLEAN);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, SimpleType::STRING);
         }
 
-        std::string RouteImpl::GetName()
-        {
-            return _name;
-        }
         bool RouteImpl::GetClosed()
         {
             return _closed;
         }
+        std::string RouteImpl::GetName()
+        {
+            return _name;
+        }
         std::vector<std::shared_ptr<IParameterDeclaration>> RouteImpl::GetParameterDeclarations()
         {
-            return _parameterDeclarations;
+            std::vector<std::shared_ptr<IParameterDeclaration>> temp;
+            for(auto&& elm: _parameterDeclarations)
+                temp.push_back(elm);
+            return temp;
         }
         std::vector<std::shared_ptr<IWaypoint>> RouteImpl::GetWaypoints()
         {
-            return _waypoints;
-        }
-
-        /**
-         * Sets the value of model property name
-         * @param name from OpenSCENARIO class model specification: [Name of the route. Required in catalogs.]
-         * 
-        */
-        void RouteImpl::SetName(std::string name )
-        {
-            _name = name;
-        }
-        /**
-         * Sets the value of model property closed
-         * @param closed from OpenSCENARIO class model specification: [In a closed route, the last waypoint is followed by the 
-         * first waypoint to create a closed route.]
-         * 
-        */
-        void RouteImpl::SetClosed(bool closed )
-        {
-            _closed = closed;
-        }
-        /**
-         * Sets the value of model property parameterDeclarations
-         * @param parameterDeclarations from OpenSCENARIO class model specification: [Definition of additional parameters.]
-         * 
-        */
-        void RouteImpl::SetParameterDeclarations(std::vector<std::shared_ptr<IParameterDeclaration>>& parameterDeclarations)
-        {
-            _parameterDeclarations = parameterDeclarations;
-        }
-        /**
-         * Sets the value of model property waypoints
-         * @param waypoints from OpenSCENARIO class model specification: [At least two waypoints are needed to define a route.]
-         * 
-        */
-        void RouteImpl::SetWaypoints(std::vector<std::shared_ptr<IWaypoint>>& waypoints)
-        {
-            _waypoints = waypoints;
+            std::vector<std::shared_ptr<IWaypoint>> temp;
+            for(auto&& elm: _waypoints)
+                temp.push_back(elm);
+            return temp;
         }
 
         void RouteImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
-            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__NAME)
-            {
-                // Simple type
-                _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                AddResolvedParameter(attributeKey);
-            }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__CLOSED)
+            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__CLOSED)
             {
                 // Simple type
                 _closed = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                AddResolvedParameter(attributeKey);
+            }
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__NAME)
+            {
+                // Simple type
+                _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
             }
         }
@@ -22345,7 +18883,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                auto parameterDeclarations =  GetParameterDeclarations();
+                auto parameterDeclarations =  GetWriterParameterDeclarations();
                 if (!parameterDeclarations.empty())
                 {
                     for(auto&& item : parameterDeclarations)
@@ -22353,7 +18891,7 @@ namespace NET_ASAM_OPENSCENARIO
                         result.push_back(std::dynamic_pointer_cast<BaseImpl>(item) );
                     }
                 }
-                auto waypoints =  GetWaypoints();
+                auto waypoints =  GetWriterWaypoints();
                 if (!waypoints.empty())
                 {
                     for(auto&& item : waypoints)
@@ -22379,31 +18917,31 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetName(_name);
+            clonedObject->_closed = GetClosed();
             // Simple type
-            clonedObject->SetClosed(_closed);
+            clonedObject->_name = GetName();
             // clone children
-            const auto kParameterDeclarations =  GetParameterDeclarations();
+            const auto kParameterDeclarations =  GetWriterParameterDeclarations();
             if (!kParameterDeclarations.empty())
             {
-                std::vector<std::shared_ptr<IParameterDeclaration>> clonedList;
+                std::vector<std::shared_ptr<IParameterDeclarationWriter>> clonedList;
                 for(auto&& kItem : kParameterDeclarations)
                 {
                     auto clonedChild = std::dynamic_pointer_cast<ParameterDeclarationImpl>(kItem)->Clone();
                     clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                    clonedList.push_back(std::dynamic_pointer_cast<ParameterDeclarationImpl>(clonedChild));
+                    clonedList.push_back(std::dynamic_pointer_cast<IParameterDeclarationWriter>(clonedChild));
                 }
                 clonedObject->SetParameterDeclarations(clonedList);
             }
-            const auto kWaypoints =  GetWaypoints();
+            const auto kWaypoints =  GetWriterWaypoints();
             if (!kWaypoints.empty())
             {
-                std::vector<std::shared_ptr<IWaypoint>> clonedList;
+                std::vector<std::shared_ptr<IWaypointWriter>> clonedList;
                 for(auto&& kItem : kWaypoints)
                 {
                     auto clonedChild = std::dynamic_pointer_cast<WaypointImpl>(kItem)->Clone();
                     clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                    clonedList.push_back(std::dynamic_pointer_cast<WaypointImpl>(clonedChild));
+                    clonedList.push_back(std::dynamic_pointer_cast<IWaypointWriter>(clonedChild));
                 }
                 clonedObject->SetWaypoints(clonedList);
             }
@@ -22478,16 +19016,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _directory;
         }
 
-        /**
-         * Sets the value of model property directory
-         * @param directory from OpenSCENARIO class model specification: [All catalogs files in this directory must be evaluated.]
-         * 
-        */
-        void RouteCatalogLocationImpl::SetDirectory(std::shared_ptr<IDirectory> directory )
-        {
-            _directory = directory;
-        }
-
         void RouteCatalogLocationImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
         }
@@ -22510,7 +19038,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kDirectory =  GetDirectory();
+                const auto kDirectory =  GetWriterDirectory();
                 if (kDirectory)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kDirectory));
@@ -22533,13 +19061,13 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kDirectory =  GetDirectory();
+            const auto kDirectory =  GetWriterDirectory();
             if (kDirectory)
             {
                 auto clonedChild = std::dynamic_pointer_cast<DirectoryImpl>(kDirectory)->Clone();
                 auto clonedChildIDirectory = std::dynamic_pointer_cast<IDirectory>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetDirectory(clonedChildIDirectory);
+                clonedObject->SetDirectory(std::dynamic_pointer_cast<IDirectoryWriter>(clonedChildIDirectory));
             }
             return clonedObject;
         }
@@ -22600,36 +19128,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _inRoutePosition;
         }
 
-        /**
-         * Sets the value of model property routeRef
-         * @param routeRef from OpenSCENARIO class model specification: [Reference to the route the position is calculated from.]
-         * 
-        */
-        void RoutePositionImpl::SetRouteRef(std::shared_ptr<IRouteRef> routeRef )
-        {
-            _routeRef = routeRef;
-        }
-        /**
-         * Sets the value of model property orientation
-         * @param orientation from OpenSCENARIO class model specification: [Orientation. The relative reference context refers to 
-         * the referenced road's s and t coordinates, to the current lane's s, and t coordinates or to the orientation of the 
-         * reference entity.]
-         * 
-        */
-        void RoutePositionImpl::SetOrientation(std::shared_ptr<IOrientation> orientation )
-        {
-            _orientation = orientation;
-        }
-        /**
-         * Sets the value of model property inRoutePosition
-         * @param inRoutePosition from OpenSCENARIO class model specification: [Position along the route.]
-         * 
-        */
-        void RoutePositionImpl::SetInRoutePosition(std::shared_ptr<IInRoutePosition> inRoutePosition )
-        {
-            _inRoutePosition = inRoutePosition;
-        }
-
         void RoutePositionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
         }
@@ -22652,17 +19150,17 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kRouteRef =  GetRouteRef();
+                const auto kRouteRef =  GetWriterRouteRef();
                 if (kRouteRef)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kRouteRef));
                 }
-                const auto kOrientation =  GetOrientation();
+                const auto kOrientation =  GetWriterOrientation();
                 if (kOrientation)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kOrientation));
                 }
-                const auto kInRoutePosition =  GetInRoutePosition();
+                const auto kInRoutePosition =  GetWriterInRoutePosition();
                 if (kInRoutePosition)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kInRoutePosition));
@@ -22685,29 +19183,29 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kRouteRef =  GetRouteRef();
+            const auto kRouteRef =  GetWriterRouteRef();
             if (kRouteRef)
             {
                 auto clonedChild = std::dynamic_pointer_cast<RouteRefImpl>(kRouteRef)->Clone();
                 auto clonedChildIRouteRef = std::dynamic_pointer_cast<IRouteRef>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetRouteRef(clonedChildIRouteRef);
+                clonedObject->SetRouteRef(std::dynamic_pointer_cast<IRouteRefWriter>(clonedChildIRouteRef));
             }
-            const auto kOrientation =  GetOrientation();
+            const auto kOrientation =  GetWriterOrientation();
             if (kOrientation)
             {
                 auto clonedChild = std::dynamic_pointer_cast<OrientationImpl>(kOrientation)->Clone();
                 auto clonedChildIOrientation = std::dynamic_pointer_cast<IOrientation>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetOrientation(clonedChildIOrientation);
+                clonedObject->SetOrientation(std::dynamic_pointer_cast<IOrientationWriter>(clonedChildIOrientation));
             }
-            const auto kInRoutePosition =  GetInRoutePosition();
+            const auto kInRoutePosition =  GetWriterInRoutePosition();
             if (kInRoutePosition)
             {
                 auto clonedChild = std::dynamic_pointer_cast<InRoutePositionImpl>(kInRoutePosition)->Clone();
                 auto clonedChildIInRoutePosition = std::dynamic_pointer_cast<IInRoutePosition>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetInRoutePosition(clonedChildIInRoutePosition);
+                clonedObject->SetInRoutePosition(std::dynamic_pointer_cast<IInRoutePositionWriter>(clonedChildIInRoutePosition));
             }
             return clonedObject;
         }
@@ -22774,25 +19272,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _catalogReference;
         }
 
-        /**
-         * Sets the value of model property route
-         * @param route from OpenSCENARIO class model specification: [Route definition.]
-         * 
-        */
-        void RouteRefImpl::SetRoute(std::shared_ptr<IRoute> route )
-        {
-            _route = route;
-        }
-        /**
-         * Sets the value of model property catalogReference
-         * @param catalogReference from OpenSCENARIO class model specification: [Reference to route in the catalog.]
-         * 
-        */
-        void RouteRefImpl::SetCatalogReference(std::shared_ptr<ICatalogReference> catalogReference )
-        {
-            _catalogReference = catalogReference;
-        }
-
         void RouteRefImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
         }
@@ -22815,12 +19294,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kRoute =  GetRoute();
+                const auto kRoute =  GetWriterRoute();
                 if (kRoute)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kRoute));
                 }
-                const auto kCatalogReference =  GetCatalogReference();
+                const auto kCatalogReference =  GetWriterCatalogReference();
                 if (kCatalogReference)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kCatalogReference));
@@ -22843,21 +19322,21 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kRoute =  GetRoute();
+            const auto kRoute =  GetWriterRoute();
             if (kRoute)
             {
                 auto clonedChild = std::dynamic_pointer_cast<RouteImpl>(kRoute)->Clone();
                 auto clonedChildIRoute = std::dynamic_pointer_cast<IRoute>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetRoute(clonedChildIRoute);
+                clonedObject->SetRoute(std::dynamic_pointer_cast<IRouteWriter>(clonedChildIRoute));
             }
-            const auto kCatalogReference =  GetCatalogReference();
+            const auto kCatalogReference =  GetWriterCatalogReference();
             if (kCatalogReference)
             {
                 auto clonedChild = std::dynamic_pointer_cast<CatalogReferenceImpl>(kCatalogReference)->Clone();
                 auto clonedChildICatalogReference = std::dynamic_pointer_cast<ICatalogReference>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetCatalogReference(clonedChildICatalogReference);
+                clonedObject->SetCatalogReference(std::dynamic_pointer_cast<ICatalogReferenceWriter>(clonedChildICatalogReference));
             }
             return clonedObject;
         }
@@ -22923,36 +19402,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _acquirePositionAction;
         }
 
-        /**
-         * Sets the value of model property assignRouteAction
-         * @param assignRouteAction from OpenSCENARIO class model specification: [Assigns a route to an entity. The route is 
-         * defined by at least two waypoints.]
-         * 
-        */
-        void RoutingActionImpl::SetAssignRouteAction(std::shared_ptr<IAssignRouteAction> assignRouteAction )
-        {
-            _assignRouteAction = assignRouteAction;
-        }
-        /**
-         * Sets the value of model property followTrajectoryAction
-         * @param followTrajectoryAction from OpenSCENARIO class model specification: [Controls an entity to follow a trajectory.]
-         * 
-        */
-        void RoutingActionImpl::SetFollowTrajectoryAction(std::shared_ptr<IFollowTrajectoryAction> followTrajectoryAction )
-        {
-            _followTrajectoryAction = followTrajectoryAction;
-        }
-        /**
-         * Sets the value of model property acquirePositionAction
-         * @param acquirePositionAction from OpenSCENARIO class model specification: [Assigns a route to an entity. The route 
-         * assigned will be the shortest route (along roads) between the entity's current , position and the position specified.]
-         * 
-        */
-        void RoutingActionImpl::SetAcquirePositionAction(std::shared_ptr<IAcquirePositionAction> acquirePositionAction )
-        {
-            _acquirePositionAction = acquirePositionAction;
-        }
-
         void RoutingActionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
         }
@@ -22975,17 +19424,17 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kAssignRouteAction =  GetAssignRouteAction();
+                const auto kAssignRouteAction =  GetWriterAssignRouteAction();
                 if (kAssignRouteAction)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kAssignRouteAction));
                 }
-                const auto kFollowTrajectoryAction =  GetFollowTrajectoryAction();
+                const auto kFollowTrajectoryAction =  GetWriterFollowTrajectoryAction();
                 if (kFollowTrajectoryAction)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kFollowTrajectoryAction));
                 }
-                const auto kAcquirePositionAction =  GetAcquirePositionAction();
+                const auto kAcquirePositionAction =  GetWriterAcquirePositionAction();
                 if (kAcquirePositionAction)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kAcquirePositionAction));
@@ -23008,29 +19457,29 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kAssignRouteAction =  GetAssignRouteAction();
+            const auto kAssignRouteAction =  GetWriterAssignRouteAction();
             if (kAssignRouteAction)
             {
                 auto clonedChild = std::dynamic_pointer_cast<AssignRouteActionImpl>(kAssignRouteAction)->Clone();
                 auto clonedChildIAssignRouteAction = std::dynamic_pointer_cast<IAssignRouteAction>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetAssignRouteAction(clonedChildIAssignRouteAction);
+                clonedObject->SetAssignRouteAction(std::dynamic_pointer_cast<IAssignRouteActionWriter>(clonedChildIAssignRouteAction));
             }
-            const auto kFollowTrajectoryAction =  GetFollowTrajectoryAction();
+            const auto kFollowTrajectoryAction =  GetWriterFollowTrajectoryAction();
             if (kFollowTrajectoryAction)
             {
                 auto clonedChild = std::dynamic_pointer_cast<FollowTrajectoryActionImpl>(kFollowTrajectoryAction)->Clone();
                 auto clonedChildIFollowTrajectoryAction = std::dynamic_pointer_cast<IFollowTrajectoryAction>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetFollowTrajectoryAction(clonedChildIFollowTrajectoryAction);
+                clonedObject->SetFollowTrajectoryAction(std::dynamic_pointer_cast<IFollowTrajectoryActionWriter>(clonedChildIFollowTrajectoryAction));
             }
-            const auto kAcquirePositionAction =  GetAcquirePositionAction();
+            const auto kAcquirePositionAction =  GetWriterAcquirePositionAction();
             if (kAcquirePositionAction)
             {
                 auto clonedChild = std::dynamic_pointer_cast<AcquirePositionActionImpl>(kAcquirePositionAction)->Clone();
                 auto clonedChildIAcquirePositionAction = std::dynamic_pointer_cast<IAcquirePositionAction>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetAcquirePositionAction(clonedChildIAcquirePositionAction);
+                clonedObject->SetAcquirePositionAction(std::dynamic_pointer_cast<IAcquirePositionActionWriter>(clonedChildIAcquirePositionAction));
             }
             return clonedObject;
         }
@@ -23090,7 +19539,10 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::vector<std::shared_ptr<IParameterDeclaration>> ScenarioDefinitionImpl::GetParameterDeclarations()
         {
-            return _parameterDeclarations;
+            std::vector<std::shared_ptr<IParameterDeclaration>> temp;
+            for(auto&& elm: _parameterDeclarations)
+                temp.push_back(elm);
+            return temp;
         }
         std::shared_ptr<ICatalogLocations> ScenarioDefinitionImpl::GetCatalogLocations()
         {
@@ -23107,56 +19559,6 @@ namespace NET_ASAM_OPENSCENARIO
         std::shared_ptr<IStoryboard> ScenarioDefinitionImpl::GetStoryboard()
         {
             return _storyboard;
-        }
-
-        /**
-         * Sets the value of model property parameterDeclarations
-         * @param parameterDeclarations from OpenSCENARIO class model specification: [Global Parameter declaration. Some parameter 
-         * represent placeholders to be resolved when the scenario file is loaded. , Some parameters represent runtime values that 
-         * can be controlled with ParameterActions and ParameterConditions during , simulation time.]
-         * 
-        */
-        void ScenarioDefinitionImpl::SetParameterDeclarations(std::vector<std::shared_ptr<IParameterDeclaration>>& parameterDeclarations)
-        {
-            _parameterDeclarations = parameterDeclarations;
-        }
-        /**
-         * Sets the value of model property catalogLocations
-         * @param catalogLocations from OpenSCENARIO class model specification: [A list of locations to look up catalog files. Each
-         * catalog element type has its own list.]
-         * 
-        */
-        void ScenarioDefinitionImpl::SetCatalogLocations(std::shared_ptr<ICatalogLocations> catalogLocations )
-        {
-            _catalogLocations = catalogLocations;
-        }
-        /**
-         * Sets the value of model property roadNetwork
-         * @param roadNetwork from OpenSCENARIO class model specification: [Reference to the road network.]
-         * 
-        */
-        void ScenarioDefinitionImpl::SetRoadNetwork(std::shared_ptr<IRoadNetwork> roadNetwork )
-        {
-            _roadNetwork = roadNetwork;
-        }
-        /**
-         * Sets the value of model property entities
-         * @param entities from OpenSCENARIO class model specification: [Container for entity selections and scenario object 
-         * definitions. Instances of ScenarioObject, of EntitySelection and of , SpawnedObject considered instances of Entity.]
-         * 
-        */
-        void ScenarioDefinitionImpl::SetEntities(std::shared_ptr<IEntities> entities )
-        {
-            _entities = entities;
-        }
-        /**
-         * Sets the value of model property storyboard
-         * @param storyboard from OpenSCENARIO class model specification: [Container for the dynamic content of the scenario.]
-         * 
-        */
-        void ScenarioDefinitionImpl::SetStoryboard(std::shared_ptr<IStoryboard> storyboard )
-        {
-            _storyboard = storyboard;
         }
 
         void ScenarioDefinitionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
@@ -23201,7 +19603,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                auto parameterDeclarations =  GetParameterDeclarations();
+                auto parameterDeclarations =  GetWriterParameterDeclarations();
                 if (!parameterDeclarations.empty())
                 {
                     for(auto&& item : parameterDeclarations)
@@ -23209,22 +19611,22 @@ namespace NET_ASAM_OPENSCENARIO
                         result.push_back(std::dynamic_pointer_cast<BaseImpl>(item) );
                     }
                 }
-                const auto kCatalogLocations =  GetCatalogLocations();
+                const auto kCatalogLocations =  GetWriterCatalogLocations();
                 if (kCatalogLocations)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kCatalogLocations));
                 }
-                const auto kRoadNetwork =  GetRoadNetwork();
+                const auto kRoadNetwork =  GetWriterRoadNetwork();
                 if (kRoadNetwork)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kRoadNetwork));
                 }
-                const auto kEntities =  GetEntities();
+                const auto kEntities =  GetWriterEntities();
                 if (kEntities)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kEntities));
                 }
-                const auto kStoryboard =  GetStoryboard();
+                const auto kStoryboard =  GetWriterStoryboard();
                 if (kStoryboard)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kStoryboard));
@@ -23247,49 +19649,49 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kParameterDeclarations =  GetParameterDeclarations();
+            const auto kParameterDeclarations =  GetWriterParameterDeclarations();
             if (!kParameterDeclarations.empty())
             {
-                std::vector<std::shared_ptr<IParameterDeclaration>> clonedList;
+                std::vector<std::shared_ptr<IParameterDeclarationWriter>> clonedList;
                 for(auto&& kItem : kParameterDeclarations)
                 {
                     auto clonedChild = std::dynamic_pointer_cast<ParameterDeclarationImpl>(kItem)->Clone();
                     clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                    clonedList.push_back(std::dynamic_pointer_cast<ParameterDeclarationImpl>(clonedChild));
+                    clonedList.push_back(std::dynamic_pointer_cast<IParameterDeclarationWriter>(clonedChild));
                 }
                 clonedObject->SetParameterDeclarations(clonedList);
             }
-            const auto kCatalogLocations =  GetCatalogLocations();
+            const auto kCatalogLocations =  GetWriterCatalogLocations();
             if (kCatalogLocations)
             {
                 auto clonedChild = std::dynamic_pointer_cast<CatalogLocationsImpl>(kCatalogLocations)->Clone();
                 auto clonedChildICatalogLocations = std::dynamic_pointer_cast<ICatalogLocations>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetCatalogLocations(clonedChildICatalogLocations);
+                clonedObject->SetCatalogLocations(std::dynamic_pointer_cast<ICatalogLocationsWriter>(clonedChildICatalogLocations));
             }
-            const auto kRoadNetwork =  GetRoadNetwork();
+            const auto kRoadNetwork =  GetWriterRoadNetwork();
             if (kRoadNetwork)
             {
                 auto clonedChild = std::dynamic_pointer_cast<RoadNetworkImpl>(kRoadNetwork)->Clone();
                 auto clonedChildIRoadNetwork = std::dynamic_pointer_cast<IRoadNetwork>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetRoadNetwork(clonedChildIRoadNetwork);
+                clonedObject->SetRoadNetwork(std::dynamic_pointer_cast<IRoadNetworkWriter>(clonedChildIRoadNetwork));
             }
-            const auto kEntities =  GetEntities();
+            const auto kEntities =  GetWriterEntities();
             if (kEntities)
             {
                 auto clonedChild = std::dynamic_pointer_cast<EntitiesImpl>(kEntities)->Clone();
                 auto clonedChildIEntities = std::dynamic_pointer_cast<IEntities>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetEntities(clonedChildIEntities);
+                clonedObject->SetEntities(std::dynamic_pointer_cast<IEntitiesWriter>(clonedChildIEntities));
             }
-            const auto kStoryboard =  GetStoryboard();
+            const auto kStoryboard =  GetWriterStoryboard();
             if (kStoryboard)
             {
                 auto clonedChild = std::dynamic_pointer_cast<StoryboardImpl>(kStoryboard)->Clone();
                 auto clonedChildIStoryboard = std::dynamic_pointer_cast<IStoryboard>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetStoryboard(clonedChildIStoryboard);
+                clonedObject->SetStoryboard(std::dynamic_pointer_cast<IStoryboardWriter>(clonedChildIStoryboard));
             }
             return clonedObject;
         }
@@ -23378,35 +19780,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _objectController;
         }
 
-        /**
-         * Sets the value of model property name
-         * @param name from OpenSCENARIO class model specification: [Identifier of the scenario object.]
-         * 
-        */
-        void ScenarioObjectImpl::SetName(std::string name )
-        {
-            _name = name;
-        }
-        /**
-         * Sets the value of model property entityObject
-         * @param entityObject from OpenSCENARIO class model specification: [The EntityObject (either instance of type Vehicle, 
-         * Pedestrian or MiscObject).]
-         * 
-        */
-        void ScenarioObjectImpl::SetEntityObject(std::shared_ptr<IEntityObject> entityObject )
-        {
-            _entityObject = entityObject;
-        }
-        /**
-         * Sets the value of model property objectController
-         * @param objectController from OpenSCENARIO class model specification: [Controller of the EntityObject instance.]
-         * 
-        */
-        void ScenarioObjectImpl::SetObjectController(std::shared_ptr<IObjectController> objectController )
-        {
-            _objectController = objectController;
-        }
-
         void ScenarioObjectImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
             if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__NAME)
@@ -23435,12 +19808,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kEntityObject =  GetEntityObject();
+                const auto kEntityObject =  GetWriterEntityObject();
                 if (kEntityObject)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kEntityObject));
                 }
-                const auto kObjectController =  GetObjectController();
+                const auto kObjectController =  GetWriterObjectController();
                 if (kObjectController)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kObjectController));
@@ -23463,23 +19836,23 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetName(_name);
+            clonedObject->_name = GetName();
             // clone children
-            const auto kEntityObject =  GetEntityObject();
+            const auto kEntityObject =  GetWriterEntityObject();
             if (kEntityObject)
             {
                 auto clonedChild = std::dynamic_pointer_cast<EntityObjectImpl>(kEntityObject)->Clone();
                 auto clonedChildIEntityObject = std::dynamic_pointer_cast<IEntityObject>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetEntityObject(clonedChildIEntityObject);
+                clonedObject->SetEntityObject(std::dynamic_pointer_cast<IEntityObjectWriter>(clonedChildIEntityObject));
             }
-            const auto kObjectController =  GetObjectController();
+            const auto kObjectController =  GetWriterObjectController();
             if (kObjectController)
             {
                 auto clonedChild = std::dynamic_pointer_cast<ObjectControllerImpl>(kObjectController)->Clone();
                 auto clonedChildIObjectController = std::dynamic_pointer_cast<IObjectController>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetObjectController(clonedChildIObjectController);
+                clonedObject->SetObjectController(std::dynamic_pointer_cast<IObjectControllerWriter>(clonedChildIObjectController));
             }
             return clonedObject;
         }
@@ -23543,31 +19916,17 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::vector<std::shared_ptr<IEntityRef>> SelectedEntitiesImpl::GetEntityRef()
         {
-            return _entityRef;
+            std::vector<std::shared_ptr<IEntityRef>> temp;
+            for(auto&& elm: _entityRef)
+                temp.push_back(elm);
+            return temp;
         }
         std::vector<std::shared_ptr<IByType>> SelectedEntitiesImpl::GetByType()
         {
-            return _byType;
-        }
-
-        /**
-         * Sets the value of model property entityRef
-         * @param entityRef from OpenSCENARIO class model specification: [References to the selected entities.]
-         * 
-        */
-        void SelectedEntitiesImpl::SetEntityRef(std::vector<std::shared_ptr<IEntityRef>>& entityRef)
-        {
-            _entityRef = entityRef;
-        }
-        /**
-         * Sets the value of model property byType
-         * @param byType from OpenSCENARIO class model specification: [Defines the type to determine that all entities of a 
-         * specific type are members.]
-         * 
-        */
-        void SelectedEntitiesImpl::SetByType(std::vector<std::shared_ptr<IByType>>& byType)
-        {
-            _byType = byType;
+            std::vector<std::shared_ptr<IByType>> temp;
+            for(auto&& elm: _byType)
+                temp.push_back(elm);
+            return temp;
         }
 
         void SelectedEntitiesImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
@@ -23592,7 +19951,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                auto entityRef =  GetEntityRef();
+                auto entityRef =  GetWriterEntityRef();
                 if (!entityRef.empty())
                 {
                     for(auto&& item : entityRef)
@@ -23600,7 +19959,7 @@ namespace NET_ASAM_OPENSCENARIO
                         result.push_back(std::dynamic_pointer_cast<BaseImpl>(item) );
                     }
                 }
-                auto byType =  GetByType();
+                auto byType =  GetWriterByType();
                 if (!byType.empty())
                 {
                     for(auto&& item : byType)
@@ -23626,27 +19985,27 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kEntityRef =  GetEntityRef();
+            const auto kEntityRef =  GetWriterEntityRef();
             if (!kEntityRef.empty())
             {
-                std::vector<std::shared_ptr<IEntityRef>> clonedList;
+                std::vector<std::shared_ptr<IEntityRefWriter>> clonedList;
                 for(auto&& kItem : kEntityRef)
                 {
                     auto clonedChild = std::dynamic_pointer_cast<EntityRefImpl>(kItem)->Clone();
                     clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                    clonedList.push_back(std::dynamic_pointer_cast<EntityRefImpl>(clonedChild));
+                    clonedList.push_back(std::dynamic_pointer_cast<IEntityRefWriter>(clonedChild));
                 }
                 clonedObject->SetEntityRef(clonedList);
             }
-            const auto kByType =  GetByType();
+            const auto kByType =  GetWriterByType();
             if (!kByType.empty())
             {
-                std::vector<std::shared_ptr<IByType>> clonedList;
+                std::vector<std::shared_ptr<IByTypeWriter>> clonedList;
                 for(auto&& kItem : kByType)
                 {
                     auto clonedChild = std::dynamic_pointer_cast<ByTypeImpl>(kItem)->Clone();
                     clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                    clonedList.push_back(std::dynamic_pointer_cast<ByTypeImpl>(clonedChild));
+                    clonedList.push_back(std::dynamic_pointer_cast<IByTypeWriter>(clonedChild));
                 }
                 clonedObject->SetByType(clonedList);
             }
@@ -23721,34 +20080,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _nurbs;
         }
 
-        /**
-         * Sets the value of model property polyline
-         * @param polyline from OpenSCENARIO class model specification: [Polyline property of a shape.]
-         * 
-        */
-        void ShapeImpl::SetPolyline(std::shared_ptr<IPolyline> polyline )
-        {
-            _polyline = polyline;
-        }
-        /**
-         * Sets the value of model property clothoid
-         * @param clothoid from OpenSCENARIO class model specification: [Clothoid property of a shape.]
-         * 
-        */
-        void ShapeImpl::SetClothoid(std::shared_ptr<IClothoid> clothoid )
-        {
-            _clothoid = clothoid;
-        }
-        /**
-         * Sets the value of model property nurbs
-         * @param nurbs from OpenSCENARIO class model specification: [NURBS property of a shape.]
-         * 
-        */
-        void ShapeImpl::SetNurbs(std::shared_ptr<INurbs> nurbs )
-        {
-            _nurbs = nurbs;
-        }
-
         void ShapeImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
         }
@@ -23771,17 +20102,17 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kPolyline =  GetPolyline();
+                const auto kPolyline =  GetWriterPolyline();
                 if (kPolyline)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kPolyline));
                 }
-                const auto kClothoid =  GetClothoid();
+                const auto kClothoid =  GetWriterClothoid();
                 if (kClothoid)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kClothoid));
                 }
-                const auto kNurbs =  GetNurbs();
+                const auto kNurbs =  GetWriterNurbs();
                 if (kNurbs)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kNurbs));
@@ -23804,29 +20135,29 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kPolyline =  GetPolyline();
+            const auto kPolyline =  GetWriterPolyline();
             if (kPolyline)
             {
                 auto clonedChild = std::dynamic_pointer_cast<PolylineImpl>(kPolyline)->Clone();
                 auto clonedChildIPolyline = std::dynamic_pointer_cast<IPolyline>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetPolyline(clonedChildIPolyline);
+                clonedObject->SetPolyline(std::dynamic_pointer_cast<IPolylineWriter>(clonedChildIPolyline));
             }
-            const auto kClothoid =  GetClothoid();
+            const auto kClothoid =  GetWriterClothoid();
             if (kClothoid)
             {
                 auto clonedChild = std::dynamic_pointer_cast<ClothoidImpl>(kClothoid)->Clone();
                 auto clonedChildIClothoid = std::dynamic_pointer_cast<IClothoid>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetClothoid(clonedChildIClothoid);
+                clonedObject->SetClothoid(std::dynamic_pointer_cast<IClothoidWriter>(clonedChildIClothoid));
             }
-            const auto kNurbs =  GetNurbs();
+            const auto kNurbs =  GetWriterNurbs();
             if (kNurbs)
             {
                 auto clonedChild = std::dynamic_pointer_cast<NurbsImpl>(kNurbs)->Clone();
                 auto clonedChildINurbs = std::dynamic_pointer_cast<INurbs>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetNurbs(clonedChildINurbs);
+                clonedObject->SetNurbs(std::dynamic_pointer_cast<INurbsWriter>(clonedChildINurbs));
             }
             return clonedObject;
         }
@@ -23882,47 +20213,22 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__RULE, SimpleType::ENUM_TYPE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
         }
 
-        double SimulationTimeConditionImpl::GetValue()
-        {
-            return _value;
-        }
         Rule SimulationTimeConditionImpl::GetRule()
         {
             return _rule;
         }
-
-        /**
-         * Sets the value of model property value
-         * @param value from OpenSCENARIO class model specification: [Time value of the simulation time condition. Unit: s.]
-         * 
-        */
-        void SimulationTimeConditionImpl::SetValue(double value )
+        double SimulationTimeConditionImpl::GetValue()
         {
-            _value = value;
-        }
-        /**
-         * Sets the value of model property rule
-         * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
-         * 
-        */
-        void SimulationTimeConditionImpl::SetRule(Rule rule )
-        {
-            _rule = rule;
+            return _value;
         }
 
         void SimulationTimeConditionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
-            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
-            {
-                // Simple type
-                _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                AddResolvedParameter(attributeKey);
-            }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__RULE)
+            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__RULE)
             {
                 // Enumeration Type
                 const auto kResult = Rule::GetFromLiteral(parameterLiteralValue);
@@ -23936,6 +20242,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto msg = FileContentMessage("Value '" + parameterLiteralValue + "' is not allowed.", ERROR, *GetTextmarker(attributeKey));
                     logger.LogMessage(msg );
                 }
+            }
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
+            {
+                // Simple type
+                _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -23974,10 +20286,14 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToParameterNameMap(*clonedObject);
 
             // clone attributes;
-            // Simple type
-            clonedObject->SetValue(_value);
             // Enumeration Type
-            clonedObject->SetRule(_rule);
+            const auto kRule = GetRule();
+            if ( kRule.GetLiteral() != "UNKNOWN" )
+            {
+                clonedObject->_rule = Rule::GetFromLiteral(kRule.GetLiteral());
+            }
+            // Simple type
+            clonedObject->_value = GetValue();
             // clone children
             return clonedObject;
         }
@@ -24035,26 +20351,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _speedActionTarget;
         }
 
-        /**
-         * Sets the value of model property speedActionDynamics
-         * @param speedActionDynamics from OpenSCENARIO class model specification: [Defines how the target speed is reached.]
-         * 
-        */
-        void SpeedActionImpl::SetSpeedActionDynamics(std::shared_ptr<ITransitionDynamics> speedActionDynamics )
-        {
-            _speedActionDynamics = speedActionDynamics;
-        }
-        /**
-         * Sets the value of model property speedActionTarget
-         * @param speedActionTarget from OpenSCENARIO class model specification: [Defines the target speed which should be 
-         * reached.]
-         * 
-        */
-        void SpeedActionImpl::SetSpeedActionTarget(std::shared_ptr<ISpeedActionTarget> speedActionTarget )
-        {
-            _speedActionTarget = speedActionTarget;
-        }
-
         void SpeedActionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
         }
@@ -24077,12 +20373,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kSpeedActionDynamics =  GetSpeedActionDynamics();
+                const auto kSpeedActionDynamics =  GetWriterSpeedActionDynamics();
                 if (kSpeedActionDynamics)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kSpeedActionDynamics));
                 }
-                const auto kSpeedActionTarget =  GetSpeedActionTarget();
+                const auto kSpeedActionTarget =  GetWriterSpeedActionTarget();
                 if (kSpeedActionTarget)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kSpeedActionTarget));
@@ -24105,21 +20401,21 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kSpeedActionDynamics =  GetSpeedActionDynamics();
+            const auto kSpeedActionDynamics =  GetWriterSpeedActionDynamics();
             if (kSpeedActionDynamics)
             {
                 auto clonedChild = std::dynamic_pointer_cast<TransitionDynamicsImpl>(kSpeedActionDynamics)->Clone();
                 auto clonedChildITransitionDynamics = std::dynamic_pointer_cast<ITransitionDynamics>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetSpeedActionDynamics(clonedChildITransitionDynamics);
+                clonedObject->SetSpeedActionDynamics(std::dynamic_pointer_cast<ITransitionDynamicsWriter>(clonedChildITransitionDynamics));
             }
-            const auto kSpeedActionTarget =  GetSpeedActionTarget();
+            const auto kSpeedActionTarget =  GetWriterSpeedActionTarget();
             if (kSpeedActionTarget)
             {
                 auto clonedChild = std::dynamic_pointer_cast<SpeedActionTargetImpl>(kSpeedActionTarget)->Clone();
                 auto clonedChildISpeedActionTarget = std::dynamic_pointer_cast<ISpeedActionTarget>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetSpeedActionTarget(clonedChildISpeedActionTarget);
+                clonedObject->SetSpeedActionTarget(std::dynamic_pointer_cast<ISpeedActionTargetWriter>(clonedChildISpeedActionTarget));
             }
             return clonedObject;
         }
@@ -24181,27 +20477,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _absoluteTargetSpeed;
         }
 
-        /**
-         * Sets the value of model property relativeTargetSpeed
-         * @param relativeTargetSpeed from OpenSCENARIO class model specification: [Defines the target speed as relative speed to a
-         * reference entity. Unit: m/s.]
-         * 
-        */
-        void SpeedActionTargetImpl::SetRelativeTargetSpeed(std::shared_ptr<IRelativeTargetSpeed> relativeTargetSpeed )
-        {
-            _relativeTargetSpeed = relativeTargetSpeed;
-        }
-        /**
-         * Sets the value of model property absoluteTargetSpeed
-         * @param absoluteTargetSpeed from OpenSCENARIO class model specification: [Defines the target speed as absolute 
-         * speed.Unit: m/s.]
-         * 
-        */
-        void SpeedActionTargetImpl::SetAbsoluteTargetSpeed(std::shared_ptr<IAbsoluteTargetSpeed> absoluteTargetSpeed )
-        {
-            _absoluteTargetSpeed = absoluteTargetSpeed;
-        }
-
         void SpeedActionTargetImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
         }
@@ -24224,12 +20499,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kRelativeTargetSpeed =  GetRelativeTargetSpeed();
+                const auto kRelativeTargetSpeed =  GetWriterRelativeTargetSpeed();
                 if (kRelativeTargetSpeed)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kRelativeTargetSpeed));
                 }
-                const auto kAbsoluteTargetSpeed =  GetAbsoluteTargetSpeed();
+                const auto kAbsoluteTargetSpeed =  GetWriterAbsoluteTargetSpeed();
                 if (kAbsoluteTargetSpeed)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kAbsoluteTargetSpeed));
@@ -24252,21 +20527,21 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kRelativeTargetSpeed =  GetRelativeTargetSpeed();
+            const auto kRelativeTargetSpeed =  GetWriterRelativeTargetSpeed();
             if (kRelativeTargetSpeed)
             {
                 auto clonedChild = std::dynamic_pointer_cast<RelativeTargetSpeedImpl>(kRelativeTargetSpeed)->Clone();
                 auto clonedChildIRelativeTargetSpeed = std::dynamic_pointer_cast<IRelativeTargetSpeed>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetRelativeTargetSpeed(clonedChildIRelativeTargetSpeed);
+                clonedObject->SetRelativeTargetSpeed(std::dynamic_pointer_cast<IRelativeTargetSpeedWriter>(clonedChildIRelativeTargetSpeed));
             }
-            const auto kAbsoluteTargetSpeed =  GetAbsoluteTargetSpeed();
+            const auto kAbsoluteTargetSpeed =  GetWriterAbsoluteTargetSpeed();
             if (kAbsoluteTargetSpeed)
             {
                 auto clonedChild = std::dynamic_pointer_cast<AbsoluteTargetSpeedImpl>(kAbsoluteTargetSpeed)->Clone();
                 auto clonedChildIAbsoluteTargetSpeed = std::dynamic_pointer_cast<IAbsoluteTargetSpeed>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetAbsoluteTargetSpeed(clonedChildIAbsoluteTargetSpeed);
+                clonedObject->SetAbsoluteTargetSpeed(std::dynamic_pointer_cast<IAbsoluteTargetSpeedWriter>(clonedChildIAbsoluteTargetSpeed));
             }
             return clonedObject;
         }
@@ -24317,47 +20592,22 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__RULE, SimpleType::ENUM_TYPE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
         }
 
-        double SpeedConditionImpl::GetValue()
-        {
-            return _value;
-        }
         Rule SpeedConditionImpl::GetRule()
         {
             return _rule;
         }
-
-        /**
-         * Sets the value of model property value
-         * @param value from OpenSCENARIO class model specification: [Speed value of the speed condition. Unit m/s.]
-         * 
-        */
-        void SpeedConditionImpl::SetValue(double value )
+        double SpeedConditionImpl::GetValue()
         {
-            _value = value;
-        }
-        /**
-         * Sets the value of model property rule
-         * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
-         * 
-        */
-        void SpeedConditionImpl::SetRule(Rule rule )
-        {
-            _rule = rule;
+            return _value;
         }
 
         void SpeedConditionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
-            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
-            {
-                // Simple type
-                _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                AddResolvedParameter(attributeKey);
-            }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__RULE)
+            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__RULE)
             {
                 // Enumeration Type
                 const auto kResult = Rule::GetFromLiteral(parameterLiteralValue);
@@ -24371,6 +20621,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto msg = FileContentMessage("Value '" + parameterLiteralValue + "' is not allowed.", ERROR, *GetTextmarker(attributeKey));
                     logger.LogMessage(msg );
                 }
+            }
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
+            {
+                // Simple type
+                _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -24409,10 +20665,14 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToParameterNameMap(*clonedObject);
 
             // clone attributes;
-            // Simple type
-            clonedObject->SetValue(_value);
             // Enumeration Type
-            clonedObject->SetRule(_rule);
+            const auto kRule = GetRule();
+            if ( kRule.GetLiteral() != "UNKNOWN" )
+            {
+                clonedObject->_rule = Rule::GetFromLiteral(kRule.GetLiteral());
+            }
+            // Simple type
+            clonedObject->_value = GetValue();
             // clone children
             return clonedObject;
         }
@@ -24467,17 +20727,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _duration;
         }
 
-        /**
-         * Sets the value of model property duration
-         * @param duration from OpenSCENARIO class model specification: [Duration time of still standing to let the logical 
-         * expression become true. Unit: s. Range [0..inf[.]
-         * 
-        */
-        void StandStillConditionImpl::SetDuration(double duration )
-        {
-            _duration = duration;
-        }
-
         void StandStillConditionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
             if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__DURATION)
@@ -24524,7 +20773,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetDuration(_duration);
+            clonedObject->_duration = GetDuration();
             // clone children
             return clonedObject;
         }
@@ -24570,40 +20819,17 @@ namespace NET_ASAM_OPENSCENARIO
         }
         std::vector<std::shared_ptr<IParameterDeclaration>> StoryImpl::GetParameterDeclarations()
         {
-            return _parameterDeclarations;
+            std::vector<std::shared_ptr<IParameterDeclaration>> temp;
+            for(auto&& elm: _parameterDeclarations)
+                temp.push_back(elm);
+            return temp;
         }
         std::vector<std::shared_ptr<IAct>> StoryImpl::GetActs()
         {
-            return _acts;
-        }
-
-        /**
-         * Sets the value of model property name
-         * @param name from OpenSCENARIO class model specification: [Name of the story, must be unique within an OpenSCENARIO 
-         * file.]
-         * 
-        */
-        void StoryImpl::SetName(std::string name )
-        {
-            _name = name;
-        }
-        /**
-         * Sets the value of model property parameterDeclarations
-         * @param parameterDeclarations from OpenSCENARIO class model specification: [Definition of additional parameters.]
-         * 
-        */
-        void StoryImpl::SetParameterDeclarations(std::vector<std::shared_ptr<IParameterDeclaration>>& parameterDeclarations)
-        {
-            _parameterDeclarations = parameterDeclarations;
-        }
-        /**
-         * Sets the value of model property acts
-         * @param acts from OpenSCENARIO class model specification: [Defines the acts of the story.]
-         * 
-        */
-        void StoryImpl::SetActs(std::vector<std::shared_ptr<IAct>>& acts)
-        {
-            _acts = acts;
+            std::vector<std::shared_ptr<IAct>> temp;
+            for(auto&& elm: _acts)
+                temp.push_back(elm);
+            return temp;
         }
 
         void StoryImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
@@ -24654,7 +20880,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                auto parameterDeclarations =  GetParameterDeclarations();
+                auto parameterDeclarations =  GetWriterParameterDeclarations();
                 if (!parameterDeclarations.empty())
                 {
                     for(auto&& item : parameterDeclarations)
@@ -24662,7 +20888,7 @@ namespace NET_ASAM_OPENSCENARIO
                         result.push_back(std::dynamic_pointer_cast<BaseImpl>(item) );
                     }
                 }
-                auto acts =  GetActs();
+                auto acts =  GetWriterActs();
                 if (!acts.empty())
                 {
                     for(auto&& item : acts)
@@ -24688,29 +20914,29 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetName(_name);
+            clonedObject->_name = GetName();
             // clone children
-            const auto kParameterDeclarations =  GetParameterDeclarations();
+            const auto kParameterDeclarations =  GetWriterParameterDeclarations();
             if (!kParameterDeclarations.empty())
             {
-                std::vector<std::shared_ptr<IParameterDeclaration>> clonedList;
+                std::vector<std::shared_ptr<IParameterDeclarationWriter>> clonedList;
                 for(auto&& kItem : kParameterDeclarations)
                 {
                     auto clonedChild = std::dynamic_pointer_cast<ParameterDeclarationImpl>(kItem)->Clone();
                     clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                    clonedList.push_back(std::dynamic_pointer_cast<ParameterDeclarationImpl>(clonedChild));
+                    clonedList.push_back(std::dynamic_pointer_cast<IParameterDeclarationWriter>(clonedChild));
                 }
                 clonedObject->SetParameterDeclarations(clonedList);
             }
-            const auto kActs =  GetActs();
+            const auto kActs =  GetWriterActs();
             if (!kActs.empty())
             {
-                std::vector<std::shared_ptr<IAct>> clonedList;
+                std::vector<std::shared_ptr<IActWriter>> clonedList;
                 for(auto&& kItem : kActs)
                 {
                     auto clonedChild = std::dynamic_pointer_cast<ActImpl>(kItem)->Clone();
                     clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                    clonedList.push_back(std::dynamic_pointer_cast<ActImpl>(clonedChild));
+                    clonedList.push_back(std::dynamic_pointer_cast<IActWriter>(clonedChild));
                 }
                 clonedObject->SetActs(clonedList);
             }
@@ -24786,40 +21012,14 @@ namespace NET_ASAM_OPENSCENARIO
         }
         std::vector<std::shared_ptr<IStory>> StoryboardImpl::GetStories()
         {
-            return _stories;
+            std::vector<std::shared_ptr<IStory>> temp;
+            for(auto&& elm: _stories)
+                temp.push_back(elm);
+            return temp;
         }
         std::shared_ptr<ITrigger> StoryboardImpl::GetStopTrigger()
         {
             return _stopTrigger;
-        }
-
-        /**
-         * Sets the value of model property init
-         * @param init from OpenSCENARIO class model specification: [Initialization of the storyboard instance. Initial conditions 
-         * are set and initial actions are applied to entities.]
-         * 
-        */
-        void StoryboardImpl::SetInit(std::shared_ptr<IInit> init )
-        {
-            _init = init;
-        }
-        /**
-         * Sets the value of model property stories
-         * @param stories from OpenSCENARIO class model specification: [List of stories defined in a story board.]
-         * 
-        */
-        void StoryboardImpl::SetStories(std::vector<std::shared_ptr<IStory>>& stories)
-        {
-            _stories = stories;
-        }
-        /**
-         * Sets the value of model property stopTrigger
-         * @param stopTrigger from OpenSCENARIO class model specification: [Trigger to stop the Storyboard instance.]
-         * 
-        */
-        void StoryboardImpl::SetStopTrigger(std::shared_ptr<ITrigger> stopTrigger )
-        {
-            _stopTrigger = stopTrigger;
         }
 
         void StoryboardImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
@@ -24844,12 +21044,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kInit =  GetInit();
+                const auto kInit =  GetWriterInit();
                 if (kInit)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kInit));
                 }
-                auto stories =  GetStories();
+                auto stories =  GetWriterStories();
                 if (!stories.empty())
                 {
                     for(auto&& item : stories)
@@ -24857,7 +21057,7 @@ namespace NET_ASAM_OPENSCENARIO
                         result.push_back(std::dynamic_pointer_cast<BaseImpl>(item) );
                     }
                 }
-                const auto kStopTrigger =  GetStopTrigger();
+                const auto kStopTrigger =  GetWriterStopTrigger();
                 if (kStopTrigger)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kStopTrigger));
@@ -24880,33 +21080,33 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kInit =  GetInit();
+            const auto kInit =  GetWriterInit();
             if (kInit)
             {
                 auto clonedChild = std::dynamic_pointer_cast<InitImpl>(kInit)->Clone();
                 auto clonedChildIInit = std::dynamic_pointer_cast<IInit>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetInit(clonedChildIInit);
+                clonedObject->SetInit(std::dynamic_pointer_cast<IInitWriter>(clonedChildIInit));
             }
-            const auto kStories =  GetStories();
+            const auto kStories =  GetWriterStories();
             if (!kStories.empty())
             {
-                std::vector<std::shared_ptr<IStory>> clonedList;
+                std::vector<std::shared_ptr<IStoryWriter>> clonedList;
                 for(auto&& kItem : kStories)
                 {
                     auto clonedChild = std::dynamic_pointer_cast<StoryImpl>(kItem)->Clone();
                     clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                    clonedList.push_back(std::dynamic_pointer_cast<StoryImpl>(clonedChild));
+                    clonedList.push_back(std::dynamic_pointer_cast<IStoryWriter>(clonedChild));
                 }
                 clonedObject->SetStories(clonedList);
             }
-            const auto kStopTrigger =  GetStopTrigger();
+            const auto kStopTrigger =  GetWriterStopTrigger();
             if (kStopTrigger)
             {
                 auto clonedChild = std::dynamic_pointer_cast<TriggerImpl>(kStopTrigger)->Clone();
                 auto clonedChildITrigger = std::dynamic_pointer_cast<ITrigger>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetStopTrigger(clonedChildITrigger);
+                clonedObject->SetStopTrigger(std::dynamic_pointer_cast<ITriggerWriter>(clonedChildITrigger));
             }
             return clonedObject;
         }
@@ -24970,62 +21170,33 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__STORYBOARD_ELEMENT_TYPE, SimpleType::ENUM_TYPE);
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__STORYBOARD_ELEMENT_REF, SimpleType::STRING);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__STATE, SimpleType::ENUM_TYPE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__STORYBOARD_ELEMENT_REF, SimpleType::STRING);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__STORYBOARD_ELEMENT_TYPE, SimpleType::ENUM_TYPE);
         }
 
-        StoryboardElementType StoryboardElementStateConditionImpl::GetStoryboardElementType()
-        {
-            return _storyboardElementType;
-        }
-        INamedReference<IStoryboardElement>* StoryboardElementStateConditionImpl::GetStoryboardElementRef()
-        {
-            return &_storyboardElementRef;
-        }
         StoryboardElementState StoryboardElementStateConditionImpl::GetState()
         {
             return _state;
         }
-
-        /**
-         * Sets the value of model property storyboardElementType
-         * @param storyboardElementType from OpenSCENARIO class model specification: [Type of storyboard element instance.]
-         * 
-        */
-        void StoryboardElementStateConditionImpl::SetStoryboardElementType(StoryboardElementType storyboardElementType )
+        std::shared_ptr<INamedReference<IStoryboardElement>> StoryboardElementStateConditionImpl::GetStoryboardElementRef()
         {
-            _storyboardElementType = storyboardElementType;
+            return _storyboardElementRef;
         }
-        /**
-         * Sets the value of model property storyboardElementRef
-         * @param storyboardElementRef from OpenSCENARIO class model specification: [Name of the referenced Storyboard instance.]
-         * 
-        */
-        void StoryboardElementStateConditionImpl::SetStoryboardElementRef(NamedReferenceProxy<IStoryboardElement>& storyboardElementRef )
+        StoryboardElementType StoryboardElementStateConditionImpl::GetStoryboardElementType()
         {
-            _storyboardElementRef = storyboardElementRef;
-        }
-        /**
-         * Sets the value of model property state
-         * @param state from OpenSCENARIO class model specification: [The state or the transition of the storyboard element 
-         * instance for which the condition becomes true.]
-         * 
-        */
-        void StoryboardElementStateConditionImpl::SetState(StoryboardElementState state )
-        {
-            _state = state;
+            return _storyboardElementType;
         }
 
         void StoryboardElementStateConditionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
-            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__STORYBOARD_ELEMENT_TYPE)
+            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__STATE)
             {
                 // Enumeration Type
-                const auto kResult = StoryboardElementType::GetFromLiteral(parameterLiteralValue);
-                if (kResult != StoryboardElementType::UNKNOWN)
+                const auto kResult = StoryboardElementState::GetFromLiteral(parameterLiteralValue);
+                if (kResult != StoryboardElementState::UNKNOWN)
                 {
-                    _storyboardElementType = kResult;
+                    _state = kResult;
                     AddResolvedParameter(attributeKey);
                 }
                 else
@@ -25037,16 +21208,17 @@ namespace NET_ASAM_OPENSCENARIO
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__STORYBOARD_ELEMENT_REF)
             {
                 // Proxy
-                _storyboardElementRef = NamedReferenceProxy<IStoryboardElement>(parameterLiteralValue);
+                const auto kProxy = std::make_shared<NamedReferenceProxy<IStoryboardElement>>(parameterLiteralValue);
+                _storyboardElementRef = std::dynamic_pointer_cast<INamedReference<IStoryboardElement>>(kProxy);
                 AddResolvedParameter(attributeKey);
             }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__STATE)
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__STORYBOARD_ELEMENT_TYPE)
             {
                 // Enumeration Type
-                const auto kResult = StoryboardElementState::GetFromLiteral(parameterLiteralValue);
-                if (kResult != StoryboardElementState::UNKNOWN)
+                const auto kResult = StoryboardElementType::GetFromLiteral(parameterLiteralValue);
+                if (kResult != StoryboardElementType::UNKNOWN)
                 {
-                    _state = kResult;
+                    _storyboardElementType = kResult;
                     AddResolvedParameter(attributeKey);
                 }
                 else
@@ -25093,13 +21265,22 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Enumeration Type
-            clonedObject->SetStoryboardElementType(_storyboardElementType);
+            const auto kState = GetState();
+            if ( kState.GetLiteral() != "UNKNOWN" )
+            {
+                clonedObject->_state = StoryboardElementState::GetFromLiteral(kState.GetLiteral());
+            }
             // Proxy
-            auto proxy = _storyboardElementRef;
-            proxy.SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-            clonedObject->SetStoryboardElementRef(proxy);
+            auto proxy = std::make_shared<NamedReferenceProxy<IStoryboardElement>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IStoryboardElement>>(GetStoryboardElementRef()));
+            proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->_storyboardElementRef = proxy;
+            
             // Enumeration Type
-            clonedObject->SetState(_state);
+            const auto kStoryboardElementType = GetStoryboardElementType();
+            if ( kStoryboardElementType.GetLiteral() != "UNKNOWN" )
+            {
+                clonedObject->_storyboardElementType = StoryboardElementType::GetFromLiteral(kStoryboardElementType.GetLiteral());
+            }
             // clone children
             return clonedObject;
         }
@@ -25154,15 +21335,15 @@ namespace NET_ASAM_OPENSCENARIO
                 throw KeyNotSupportedException();
             }
              
-            if (key == OSC_CONSTANTS::ATTRIBUTE__STORYBOARD_ELEMENT_TYPE)
-            {
-                auto storyboardElementType = GetStoryboardElementType();
-                return storyboardElementType.GetLiteral() != "UNKNOWN" ? storyboardElementType.GetLiteral() : "";
-            }            else 
             if (key == OSC_CONSTANTS::ATTRIBUTE__STATE)
             {
                 auto state = GetState();
                 return state.GetLiteral() != "UNKNOWN" ? state.GetLiteral() : "";
+            }            else 
+            if (key == OSC_CONSTANTS::ATTRIBUTE__STORYBOARD_ELEMENT_TYPE)
+            {
+                auto storyboardElementType = GetStoryboardElementType();
+                return storyboardElementType.GetLiteral() != "UNKNOWN" ? storyboardElementType.GetLiteral() : "";
             }
             throw KeyNotSupportedException();
         }
@@ -25173,15 +21354,11 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__INTENSITY, SimpleType::DOUBLE);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__AZIMUTH, SimpleType::DOUBLE);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ELEVATION, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__INTENSITY, SimpleType::DOUBLE);
         }
 
-        double SunImpl::GetIntensity()
-        {
-            return _intensity;
-        }
         double SunImpl::GetAzimuth()
         {
             return _azimuth;
@@ -25190,47 +21367,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
             return _elevation;
         }
-
-        /**
-         * Sets the value of model property intensity
-         * @param intensity from OpenSCENARIO class model specification: [Illuminance of the sun, direct sunlight is around 100,00 
-         * lx. Unit: lux; Range: [0..inf[.]
-         * 
-        */
-        void SunImpl::SetIntensity(double intensity )
+        double SunImpl::GetIntensity()
         {
-            _intensity = intensity;
-        }
-        /**
-         * Sets the value of model property azimuth
-         * @param azimuth from OpenSCENARIO class model specification: [Azimuth of the sun, counted counterclockwise, 0=north, PI/2
-         * = east, PI=south, 3/2 PI=west. Unit: radian; Range: , [0..2PI].]
-         * 
-        */
-        void SunImpl::SetAzimuth(double azimuth )
-        {
-            _azimuth = azimuth;
-        }
-        /**
-         * Sets the value of model property elevation
-         * @param elevation from OpenSCENARIO class model specification: [Solar elevation angle, 0=x/y plane, PI/2=zenith. Unit: 
-         * rad; Range: [-PI..PI].]
-         * 
-        */
-        void SunImpl::SetElevation(double elevation )
-        {
-            _elevation = elevation;
+            return _intensity;
         }
 
         void SunImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
-            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__INTENSITY)
-            {
-                // Simple type
-                _intensity = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                AddResolvedParameter(attributeKey);
-            }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__AZIMUTH)
+            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__AZIMUTH)
             {
                 // Simple type
                 _azimuth = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
@@ -25240,6 +21384,12 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _elevation = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                AddResolvedParameter(attributeKey);
+            }
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__INTENSITY)
+            {
+                // Simple type
+                _intensity = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
             }
         }
@@ -25280,11 +21430,11 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetIntensity(_intensity);
+            clonedObject->_azimuth = GetAzimuth();
             // Simple type
-            clonedObject->SetAzimuth(_azimuth);
+            clonedObject->_elevation = GetElevation();
             // Simple type
-            clonedObject->SetElevation(_elevation);
+            clonedObject->_intensity = GetIntensity();
             // clone children
             return clonedObject;
         }
@@ -25324,9 +21474,9 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__MASTER_ENTITY_REF, SimpleType::STRING);
         }
 
-        INamedReference<IEntity>* SynchronizeActionImpl::GetMasterEntityRef()
+        std::shared_ptr<INamedReference<IEntity>> SynchronizeActionImpl::GetMasterEntityRef()
         {
-            return &_masterEntityRef;
+            return _masterEntityRef;
         }
         std::shared_ptr<IPosition> SynchronizeActionImpl::GetTargetPositionMaster()
         {
@@ -25341,51 +21491,13 @@ namespace NET_ASAM_OPENSCENARIO
             return _finalSpeed;
         }
 
-        /**
-         * Sets the value of model property masterEntityRef
-         * @param masterEntityRef from OpenSCENARIO class model specification: [A reference to the master entity.]
-         * 
-        */
-        void SynchronizeActionImpl::SetMasterEntityRef(NamedReferenceProxy<IEntity>& masterEntityRef )
-        {
-            _masterEntityRef = masterEntityRef;
-        }
-        /**
-         * Sets the value of model property targetPositionMaster
-         * @param targetPositionMaster from OpenSCENARIO class model specification: [The target position for the master entity.]
-         * 
-        */
-        void SynchronizeActionImpl::SetTargetPositionMaster(std::shared_ptr<IPosition> targetPositionMaster )
-        {
-            _targetPositionMaster = targetPositionMaster;
-        }
-        /**
-         * Sets the value of model property targetPosition
-         * @param targetPosition from OpenSCENARIO class model specification: [The target position for the entity that should be 
-         * synchronized.]
-         * 
-        */
-        void SynchronizeActionImpl::SetTargetPosition(std::shared_ptr<IPosition> targetPosition )
-        {
-            _targetPosition = targetPosition;
-        }
-        /**
-         * Sets the value of model property finalSpeed
-         * @param finalSpeed from OpenSCENARIO class model specification: [The speed that the synchronized entity should have at 
-         * its target position.]
-         * 
-        */
-        void SynchronizeActionImpl::SetFinalSpeed(std::shared_ptr<IFinalSpeed> finalSpeed )
-        {
-            _finalSpeed = finalSpeed;
-        }
-
         void SynchronizeActionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
             if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__MASTER_ENTITY_REF)
             {
                 // Proxy
-                _masterEntityRef = NamedReferenceProxy<IEntity>(parameterLiteralValue);
+                const auto kProxy = std::make_shared<NamedReferenceProxy<IEntity>>(parameterLiteralValue);
+                _masterEntityRef = std::dynamic_pointer_cast<INamedReference<IEntity>>(kProxy);
                 AddResolvedParameter(attributeKey);
             }
         }
@@ -25408,17 +21520,17 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kTargetPositionMaster =  GetTargetPositionMaster();
+                const auto kTargetPositionMaster =  GetWriterTargetPositionMaster();
                 if (kTargetPositionMaster)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kTargetPositionMaster));
                 }
-                const auto kTargetPosition =  GetTargetPosition();
+                const auto kTargetPosition =  GetWriterTargetPosition();
                 if (kTargetPosition)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kTargetPosition));
                 }
-                const auto kFinalSpeed =  GetFinalSpeed();
+                const auto kFinalSpeed =  GetWriterFinalSpeed();
                 if (kFinalSpeed)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kFinalSpeed));
@@ -25441,33 +21553,34 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Proxy
-            auto proxy = _masterEntityRef;
-            proxy.SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-            clonedObject->SetMasterEntityRef(proxy);
+            auto proxy = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetMasterEntityRef()));
+            proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->_masterEntityRef = proxy;
+            
             // clone children
-            const auto kTargetPositionMaster =  GetTargetPositionMaster();
+            const auto kTargetPositionMaster =  GetWriterTargetPositionMaster();
             if (kTargetPositionMaster)
             {
                 auto clonedChild = std::dynamic_pointer_cast<PositionImpl>(kTargetPositionMaster)->Clone();
                 auto clonedChildIPosition = std::dynamic_pointer_cast<IPosition>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetTargetPositionMaster(clonedChildIPosition);
+                clonedObject->SetTargetPositionMaster(std::dynamic_pointer_cast<IPositionWriter>(clonedChildIPosition));
             }
-            const auto kTargetPosition =  GetTargetPosition();
+            const auto kTargetPosition =  GetWriterTargetPosition();
             if (kTargetPosition)
             {
                 auto clonedChild = std::dynamic_pointer_cast<PositionImpl>(kTargetPosition)->Clone();
                 auto clonedChildIPosition = std::dynamic_pointer_cast<IPosition>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetTargetPosition(clonedChildIPosition);
+                clonedObject->SetTargetPosition(std::dynamic_pointer_cast<IPositionWriter>(clonedChildIPosition));
             }
-            const auto kFinalSpeed =  GetFinalSpeed();
+            const auto kFinalSpeed =  GetWriterFinalSpeed();
             if (kFinalSpeed)
             {
                 auto clonedChild = std::dynamic_pointer_cast<FinalSpeedImpl>(kFinalSpeed)->Clone();
                 auto clonedChildIFinalSpeed = std::dynamic_pointer_cast<IFinalSpeed>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetFinalSpeed(clonedChildIFinalSpeed);
+                clonedObject->SetFinalSpeed(std::dynamic_pointer_cast<IFinalSpeedWriter>(clonedChildIFinalSpeed));
             }
             return clonedObject;
         }
@@ -25552,16 +21665,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _position;
         }
 
-        /**
-         * Sets the value of model property position
-         * @param position from OpenSCENARIO class model specification: [The position the entity/entities are teleported to.]
-         * 
-        */
-        void TeleportActionImpl::SetPosition(std::shared_ptr<IPosition> position )
-        {
-            _position = position;
-        }
-
         void TeleportActionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
         }
@@ -25584,7 +21687,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kPosition =  GetPosition();
+                const auto kPosition =  GetWriterPosition();
                 if (kPosition)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kPosition));
@@ -25607,13 +21710,13 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kPosition =  GetPosition();
+            const auto kPosition =  GetWriterPosition();
             if (kPosition)
             {
                 auto clonedChild = std::dynamic_pointer_cast<PositionImpl>(kPosition)->Clone();
                 auto clonedChildIPosition = std::dynamic_pointer_cast<IPosition>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetPosition(clonedChildIPosition);
+                clonedObject->SetPosition(std::dynamic_pointer_cast<IPositionWriter>(clonedChildIPosition));
             }
             return clonedObject;
         }
@@ -25659,106 +21762,53 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, SimpleType::STRING);
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, SimpleType::BOOLEAN);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ALONG_ROUTE, SimpleType::BOOLEAN);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, SimpleType::STRING);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, SimpleType::BOOLEAN);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__RULE, SimpleType::ENUM_TYPE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
         }
 
-        INamedReference<IEntity>* TimeHeadwayConditionImpl::GetEntityRef()
+        bool TimeHeadwayConditionImpl::GetAlongRoute()
         {
-            return &_entityRef;
+            return _alongRoute;
         }
-        double TimeHeadwayConditionImpl::GetValue()
+        std::shared_ptr<INamedReference<IEntity>> TimeHeadwayConditionImpl::GetEntityRef()
         {
-            return _value;
+            return _entityRef;
         }
         bool TimeHeadwayConditionImpl::GetFreespace()
         {
             return _freespace;
         }
-        bool TimeHeadwayConditionImpl::GetAlongRoute()
-        {
-            return _alongRoute;
-        }
         Rule TimeHeadwayConditionImpl::GetRule()
         {
             return _rule;
         }
-
-        /**
-         * Sets the value of model property entityRef
-         * @param entityRef from OpenSCENARIO class model specification: [Reference entity to which the time headway is computed.]
-         * 
-        */
-        void TimeHeadwayConditionImpl::SetEntityRef(NamedReferenceProxy<IEntity>& entityRef )
+        double TimeHeadwayConditionImpl::GetValue()
         {
-            _entityRef = entityRef;
-        }
-        /**
-         * Sets the value of model property value
-         * @param value from OpenSCENARIO class model specification: [The time headway value. Unit: s; Range: [0..inf[.]
-         * 
-        */
-        void TimeHeadwayConditionImpl::SetValue(double value )
-        {
-            _value = value;
-        }
-        /**
-         * Sets the value of model property freespace
-         * @param freespace from OpenSCENARIO class model specification: [True: time headway is measured using the distance between
-         * closest bounding box points. False: reference point distance , is used.]
-         * 
-        */
-        void TimeHeadwayConditionImpl::SetFreespace(bool freespace )
-        {
-            _freespace = freespace;
-        }
-        /**
-         * Sets the value of model property alongRoute
-         * @param alongRoute from OpenSCENARIO class model specification: [True: routing is taken into account, e.g. turns will 
-         * increase distance. False: straight line distance is used.]
-         * 
-        */
-        void TimeHeadwayConditionImpl::SetAlongRoute(bool alongRoute )
-        {
-            _alongRoute = alongRoute;
-        }
-        /**
-         * Sets the value of model property rule
-         * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
-         * 
-        */
-        void TimeHeadwayConditionImpl::SetRule(Rule rule )
-        {
-            _rule = rule;
+            return _value;
         }
 
         void TimeHeadwayConditionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
-            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
-            {
-                // Proxy
-                _entityRef = NamedReferenceProxy<IEntity>(parameterLiteralValue);
-                AddResolvedParameter(attributeKey);
-            }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
+            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ALONG_ROUTE)
             {
                 // Simple type
-                _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                _alongRoute = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                AddResolvedParameter(attributeKey);
+            }
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
+            {
+                // Proxy
+                const auto kProxy = std::make_shared<NamedReferenceProxy<IEntity>>(parameterLiteralValue);
+                _entityRef = std::dynamic_pointer_cast<INamedReference<IEntity>>(kProxy);
                 AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__FREESPACE)
             {
                 // Simple type
                 _freespace = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                AddResolvedParameter(attributeKey);
-            }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ALONG_ROUTE)
-            {
-                // Simple type
-                _alongRoute = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__RULE)
@@ -25775,6 +21825,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto msg = FileContentMessage("Value '" + parameterLiteralValue + "' is not allowed.", ERROR, *GetTextmarker(attributeKey));
                     logger.LogMessage(msg );
                 }
+            }
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
+            {
+                // Simple type
+                _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -25813,18 +21869,23 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToParameterNameMap(*clonedObject);
 
             // clone attributes;
+            // Simple type
+            clonedObject->_alongRoute = GetAlongRoute();
             // Proxy
-            auto proxy = _entityRef;
-            proxy.SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-            clonedObject->SetEntityRef(proxy);
+            auto proxy = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetEntityRef()));
+            proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->_entityRef = proxy;
+            
             // Simple type
-            clonedObject->SetValue(_value);
-            // Simple type
-            clonedObject->SetFreespace(_freespace);
-            // Simple type
-            clonedObject->SetAlongRoute(_alongRoute);
+            clonedObject->_freespace = GetFreespace();
             // Enumeration Type
-            clonedObject->SetRule(_rule);
+            const auto kRule = GetRule();
+            if ( kRule.GetLiteral() != "UNKNOWN" )
+            {
+                clonedObject->_rule = Rule::GetFromLiteral(kRule.GetLiteral());
+            }
+            // Simple type
+            clonedObject->_value = GetValue();
             // clone children
             return clonedObject;
         }
@@ -25906,26 +21967,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _dateTime;
         }
 
-        /**
-         * Sets the value of model property animation
-         * @param animation from OpenSCENARIO class model specification: [If true, the timeofday is animated with progressing 
-         * simulation time, e.g. in order to animate the position of the sun.]
-         * 
-        */
-        void TimeOfDayImpl::SetAnimation(bool animation )
-        {
-            _animation = animation;
-        }
-        /**
-         * Sets the value of model property dateTime
-         * @param dateTime from OpenSCENARIO class model specification: [Datetime value.]
-         * 
-        */
-        void TimeOfDayImpl::SetDateTime(DateTime dateTime )
-        {
-            _dateTime = dateTime;
-        }
-
         void TimeOfDayImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
             if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ANIMATION)
@@ -25978,9 +22019,9 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetAnimation(_animation);
+            clonedObject->_animation = GetAnimation();
             // Simple type
-            clonedObject->SetDateTime(_dateTime);
+            clonedObject->_dateTime = GetDateTime();
             // clone children
             return clonedObject;
         }
@@ -26017,41 +22058,28 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__RULE, SimpleType::ENUM_TYPE);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DATE_TIME, SimpleType::DATE_TIME);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__RULE, SimpleType::ENUM_TYPE);
         }
 
-        Rule TimeOfDayConditionImpl::GetRule()
-        {
-            return _rule;
-        }
         DateTime TimeOfDayConditionImpl::GetDateTime()
         {
             return _dateTime;
         }
-
-        /**
-         * Sets the value of model property rule
-         * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
-         * 
-        */
-        void TimeOfDayConditionImpl::SetRule(Rule rule )
+        Rule TimeOfDayConditionImpl::GetRule()
         {
-            _rule = rule;
-        }
-        /**
-         * Sets the value of model property dateTime
-         * @param dateTime from OpenSCENARIO class model specification: [Datetime value for comparison.]
-         * 
-        */
-        void TimeOfDayConditionImpl::SetDateTime(DateTime dateTime )
-        {
-            _dateTime = dateTime;
+            return _rule;
         }
 
         void TimeOfDayConditionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
-            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__RULE)
+            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__DATE_TIME)
+            {
+                // Simple type
+                _dateTime = ParserHelper::ParseDateTime(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                AddResolvedParameter(attributeKey);
+            }
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__RULE)
             {
                 // Enumeration Type
                 const auto kResult = Rule::GetFromLiteral(parameterLiteralValue);
@@ -26065,12 +22093,6 @@ namespace NET_ASAM_OPENSCENARIO
                     auto msg = FileContentMessage("Value '" + parameterLiteralValue + "' is not allowed.", ERROR, *GetTextmarker(attributeKey));
                     logger.LogMessage(msg );
                 }
-            }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__DATE_TIME)
-            {
-                // Simple type
-                _dateTime = ParserHelper::ParseDateTime(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -26109,10 +22131,14 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToParameterNameMap(*clonedObject);
 
             // clone attributes;
-            // Enumeration Type
-            clonedObject->SetRule(_rule);
             // Simple type
-            clonedObject->SetDateTime(_dateTime);
+            clonedObject->_dateTime = GetDateTime();
+            // Enumeration Type
+            const auto kRule = GetRule();
+            if ( kRule.GetLiteral() != "UNKNOWN" )
+            {
+                clonedObject->_rule = Rule::GetFromLiteral(kRule.GetLiteral());
+            }
             // clone children
             return clonedObject;
         }
@@ -26170,27 +22196,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _timing;
         }
 
-        /**
-         * Sets the value of model property none
-         * @param none from OpenSCENARIO class model specification: [This property indicates Timing information is neglected.]
-         * 
-        */
-        void TimeReferenceImpl::SetNone(std::shared_ptr<INone> none )
-        {
-            _none = none;
-        }
-        /**
-         * Sets the value of model property timing
-         * @param timing from OpenSCENARIO class model specification: [This property indicates timing information is taken into 
-         * account. Its underlying properties allow specification of the , time domain (absolute or relative), time scaling and a 
-         * global time offset.]
-         * 
-        */
-        void TimeReferenceImpl::SetTiming(std::shared_ptr<ITiming> timing )
-        {
-            _timing = timing;
-        }
-
         void TimeReferenceImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
         }
@@ -26213,12 +22218,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kNone =  GetNone();
+                const auto kNone =  GetWriterNone();
                 if (kNone)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kNone));
                 }
-                const auto kTiming =  GetTiming();
+                const auto kTiming =  GetWriterTiming();
                 if (kTiming)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kTiming));
@@ -26241,21 +22246,21 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kNone =  GetNone();
+            const auto kNone =  GetWriterNone();
             if (kNone)
             {
                 auto clonedChild = std::dynamic_pointer_cast<NoneImpl>(kNone)->Clone();
                 auto clonedChildINone = std::dynamic_pointer_cast<INone>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetNone(clonedChildINone);
+                clonedObject->SetNone(std::dynamic_pointer_cast<INoneWriter>(clonedChildINone));
             }
-            const auto kTiming =  GetTiming();
+            const auto kTiming =  GetWriterTiming();
             if (kTiming)
             {
                 auto clonedChild = std::dynamic_pointer_cast<TimingImpl>(kTiming)->Clone();
                 auto clonedChildITiming = std::dynamic_pointer_cast<ITiming>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetTiming(clonedChildITiming);
+                clonedObject->SetTiming(std::dynamic_pointer_cast<ITimingWriter>(clonedChildITiming));
             }
             return clonedObject;
         }
@@ -26306,100 +22311,45 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, SimpleType::BOOLEAN);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ALONG_ROUTE, SimpleType::BOOLEAN);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, SimpleType::BOOLEAN);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__RULE, SimpleType::ENUM_TYPE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
         }
 
-        double TimeToCollisionConditionImpl::GetValue()
+        bool TimeToCollisionConditionImpl::GetAlongRoute()
         {
-            return _value;
+            return _alongRoute;
         }
         bool TimeToCollisionConditionImpl::GetFreespace()
         {
             return _freespace;
         }
-        bool TimeToCollisionConditionImpl::GetAlongRoute()
-        {
-            return _alongRoute;
-        }
         Rule TimeToCollisionConditionImpl::GetRule()
         {
             return _rule;
+        }
+        double TimeToCollisionConditionImpl::GetValue()
+        {
+            return _value;
         }
         std::shared_ptr<ITimeToCollisionConditionTarget> TimeToCollisionConditionImpl::GetTimeToCollisionConditionTarget()
         {
             return _timeToCollisionConditionTarget;
         }
 
-        /**
-         * Sets the value of model property value
-         * @param value from OpenSCENARIO class model specification: [The time to collision value. Unit: s; Range: [0..inf[.]
-         * 
-        */
-        void TimeToCollisionConditionImpl::SetValue(double value )
-        {
-            _value = value;
-        }
-        /**
-         * Sets the value of model property freespace
-         * @param freespace from OpenSCENARIO class model specification: [True: time to collision is measured using the distance 
-         * between closest bounding box points.False: reference point , distance is used.]
-         * 
-        */
-        void TimeToCollisionConditionImpl::SetFreespace(bool freespace )
-        {
-            _freespace = freespace;
-        }
-        /**
-         * Sets the value of model property alongRoute
-         * @param alongRoute from OpenSCENARIO class model specification: [True: routing is taken into account, e.g. turns will 
-         * increase distance. False: straight line distance is used.]
-         * 
-        */
-        void TimeToCollisionConditionImpl::SetAlongRoute(bool alongRoute )
-        {
-            _alongRoute = alongRoute;
-        }
-        /**
-         * Sets the value of model property rule
-         * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
-         * 
-        */
-        void TimeToCollisionConditionImpl::SetRule(Rule rule )
-        {
-            _rule = rule;
-        }
-        /**
-         * Sets the value of model property timeToCollisionConditionTarget
-         * @param timeToCollisionConditionTarget from OpenSCENARIO class model specification: [The explicit position or a position 
-         * defined through the current position of a reference entity.]
-         * 
-        */
-        void TimeToCollisionConditionImpl::SetTimeToCollisionConditionTarget(std::shared_ptr<ITimeToCollisionConditionTarget> timeToCollisionConditionTarget )
-        {
-            _timeToCollisionConditionTarget = timeToCollisionConditionTarget;
-        }
-
         void TimeToCollisionConditionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
-            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
+            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ALONG_ROUTE)
             {
                 // Simple type
-                _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                _alongRoute = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__FREESPACE)
             {
                 // Simple type
                 _freespace = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                AddResolvedParameter(attributeKey);
-            }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ALONG_ROUTE)
-            {
-                // Simple type
-                _alongRoute = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__RULE)
@@ -26416,6 +22366,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto msg = FileContentMessage("Value '" + parameterLiteralValue + "' is not allowed.", ERROR, *GetTextmarker(attributeKey));
                     logger.LogMessage(msg );
                 }
+            }
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
+            {
+                // Simple type
+                _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -26437,7 +22393,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kTimeToCollisionConditionTarget =  GetTimeToCollisionConditionTarget();
+                const auto kTimeToCollisionConditionTarget =  GetWriterTimeToCollisionConditionTarget();
                 if (kTimeToCollisionConditionTarget)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kTimeToCollisionConditionTarget));
@@ -26460,21 +22416,25 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetValue(_value);
+            clonedObject->_alongRoute = GetAlongRoute();
             // Simple type
-            clonedObject->SetFreespace(_freespace);
-            // Simple type
-            clonedObject->SetAlongRoute(_alongRoute);
+            clonedObject->_freespace = GetFreespace();
             // Enumeration Type
-            clonedObject->SetRule(_rule);
+            const auto kRule = GetRule();
+            if ( kRule.GetLiteral() != "UNKNOWN" )
+            {
+                clonedObject->_rule = Rule::GetFromLiteral(kRule.GetLiteral());
+            }
+            // Simple type
+            clonedObject->_value = GetValue();
             // clone children
-            const auto kTimeToCollisionConditionTarget =  GetTimeToCollisionConditionTarget();
+            const auto kTimeToCollisionConditionTarget =  GetWriterTimeToCollisionConditionTarget();
             if (kTimeToCollisionConditionTarget)
             {
                 auto clonedChild = std::dynamic_pointer_cast<TimeToCollisionConditionTargetImpl>(kTimeToCollisionConditionTarget)->Clone();
                 auto clonedChildITimeToCollisionConditionTarget = std::dynamic_pointer_cast<ITimeToCollisionConditionTarget>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetTimeToCollisionConditionTarget(clonedChildITimeToCollisionConditionTarget);
+                clonedObject->SetTimeToCollisionConditionTarget(std::dynamic_pointer_cast<ITimeToCollisionConditionTargetWriter>(clonedChildITimeToCollisionConditionTarget));
             }
             return clonedObject;
         }
@@ -26541,25 +22501,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _entityRef;
         }
 
-        /**
-         * Sets the value of model property position
-         * @param position from OpenSCENARIO class model specification: [Position.]
-         * 
-        */
-        void TimeToCollisionConditionTargetImpl::SetPosition(std::shared_ptr<IPosition> position )
-        {
-            _position = position;
-        }
-        /**
-         * Sets the value of model property entityRef
-         * @param entityRef from OpenSCENARIO class model specification: [Reference entity.]
-         * 
-        */
-        void TimeToCollisionConditionTargetImpl::SetEntityRef(std::shared_ptr<IEntityRef> entityRef )
-        {
-            _entityRef = entityRef;
-        }
-
         void TimeToCollisionConditionTargetImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
         }
@@ -26582,12 +22523,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kPosition =  GetPosition();
+                const auto kPosition =  GetWriterPosition();
                 if (kPosition)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kPosition));
                 }
-                const auto kEntityRef =  GetEntityRef();
+                const auto kEntityRef =  GetWriterEntityRef();
                 if (kEntityRef)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kEntityRef));
@@ -26610,21 +22551,21 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kPosition =  GetPosition();
+            const auto kPosition =  GetWriterPosition();
             if (kPosition)
             {
                 auto clonedChild = std::dynamic_pointer_cast<PositionImpl>(kPosition)->Clone();
                 auto clonedChildIPosition = std::dynamic_pointer_cast<IPosition>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetPosition(clonedChildIPosition);
+                clonedObject->SetPosition(std::dynamic_pointer_cast<IPositionWriter>(clonedChildIPosition));
             }
-            const auto kEntityRef =  GetEntityRef();
+            const auto kEntityRef =  GetWriterEntityRef();
             if (kEntityRef)
             {
                 auto clonedChild = std::dynamic_pointer_cast<EntityRefImpl>(kEntityRef)->Clone();
                 auto clonedChildIEntityRef = std::dynamic_pointer_cast<IEntityRef>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetEntityRef(clonedChildIEntityRef);
+                clonedObject->SetEntityRef(std::dynamic_pointer_cast<IEntityRefWriter>(clonedChildIEntityRef));
             }
             return clonedObject;
         }
@@ -26676,53 +22617,21 @@ namespace NET_ASAM_OPENSCENARIO
             * Filling the property to type map
             */
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DOMAIN_ABSOLUTE_RELATIVE, SimpleType::ENUM_TYPE);
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__SCALE, SimpleType::DOUBLE);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__OFFSET, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__SCALE, SimpleType::DOUBLE);
         }
 
         ReferenceContext TimingImpl::GetDomainAbsoluteRelative()
         {
             return _domainAbsoluteRelative;
         }
-        double TimingImpl::GetScale()
-        {
-            return _scale;
-        }
         double TimingImpl::GetOffset()
         {
             return _offset;
         }
-
-        /**
-         * Sets the value of model property domainAbsoluteRelative
-         * @param domainAbsoluteRelative from OpenSCENARIO class model specification: [Definition of time value context as either 
-         * absolute or relative.]
-         * 
-        */
-        void TimingImpl::SetDomainAbsoluteRelative(ReferenceContext domainAbsoluteRelative )
+        double TimingImpl::GetScale()
         {
-            _domainAbsoluteRelative = domainAbsoluteRelative;
-        }
-        /**
-         * Sets the value of model property scale
-         * @param scale from OpenSCENARIO class model specification: [Scaling factor for time values. While values smaller than 1.0
-         * represent negative scaling, values larger than 1.0 will , result in positive scaling. A value of 1.0 means no scaling. 
-         * Range: ]0..inf[.]
-         * 
-        */
-        void TimingImpl::SetScale(double scale )
-        {
-            _scale = scale;
-        }
-        /**
-         * Sets the value of model property offset
-         * @param offset from OpenSCENARIO class model specification: [Introduction of a global offset for all time values. Unit: 
-         * s; Range: ]-inf..inf[.]
-         * 
-        */
-        void TimingImpl::SetOffset(double offset )
-        {
-            _offset = offset;
+            return _scale;
         }
 
         void TimingImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
@@ -26742,16 +22651,16 @@ namespace NET_ASAM_OPENSCENARIO
                     logger.LogMessage(msg );
                 }
             }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__SCALE)
-            {
-                // Simple type
-                _scale = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                AddResolvedParameter(attributeKey);
-            }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__OFFSET)
             {
                 // Simple type
                 _offset = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                AddResolvedParameter(attributeKey);
+            }
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__SCALE)
+            {
+                // Simple type
+                _scale = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
             }
         }
@@ -26792,11 +22701,15 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Enumeration Type
-            clonedObject->SetDomainAbsoluteRelative(_domainAbsoluteRelative);
+            const auto kDomainAbsoluteRelative = GetDomainAbsoluteRelative();
+            if ( kDomainAbsoluteRelative.GetLiteral() != "UNKNOWN" )
+            {
+                clonedObject->_domainAbsoluteRelative = ReferenceContext::GetFromLiteral(kDomainAbsoluteRelative.GetLiteral());
+            }
             // Simple type
-            clonedObject->SetScale(_scale);
+            clonedObject->_offset = GetOffset();
             // Simple type
-            clonedObject->SetOffset(_offset);
+            clonedObject->_scale = GetScale();
             // clone children
             return clonedObject;
         }
@@ -26858,37 +22771,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _trafficSwarmAction;
         }
 
-        /**
-         * Sets the value of model property trafficSourceAction
-         * @param trafficSourceAction from OpenSCENARIO class model specification: [Defines a source of traffic at a specific 
-         * position.]
-         * 
-        */
-        void TrafficActionImpl::SetTrafficSourceAction(std::shared_ptr<ITrafficSourceAction> trafficSourceAction )
-        {
-            _trafficSourceAction = trafficSourceAction;
-        }
-        /**
-         * Sets the value of model property trafficSinkAction
-         * @param trafficSinkAction from OpenSCENARIO class model specification: [Defines a sink of traffic at a specific 
-         * position.]
-         * 
-        */
-        void TrafficActionImpl::SetTrafficSinkAction(std::shared_ptr<ITrafficSinkAction> trafficSinkAction )
-        {
-            _trafficSinkAction = trafficSinkAction;
-        }
-        /**
-         * Sets the value of model property trafficSwarmAction
-         * @param trafficSwarmAction from OpenSCENARIO class model specification: [Defines swarm traffic around a given central 
-         * entity.]
-         * 
-        */
-        void TrafficActionImpl::SetTrafficSwarmAction(std::shared_ptr<ITrafficSwarmAction> trafficSwarmAction )
-        {
-            _trafficSwarmAction = trafficSwarmAction;
-        }
-
         void TrafficActionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
         }
@@ -26911,17 +22793,17 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kTrafficSourceAction =  GetTrafficSourceAction();
+                const auto kTrafficSourceAction =  GetWriterTrafficSourceAction();
                 if (kTrafficSourceAction)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kTrafficSourceAction));
                 }
-                const auto kTrafficSinkAction =  GetTrafficSinkAction();
+                const auto kTrafficSinkAction =  GetWriterTrafficSinkAction();
                 if (kTrafficSinkAction)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kTrafficSinkAction));
                 }
-                const auto kTrafficSwarmAction =  GetTrafficSwarmAction();
+                const auto kTrafficSwarmAction =  GetWriterTrafficSwarmAction();
                 if (kTrafficSwarmAction)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kTrafficSwarmAction));
@@ -26944,29 +22826,29 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kTrafficSourceAction =  GetTrafficSourceAction();
+            const auto kTrafficSourceAction =  GetWriterTrafficSourceAction();
             if (kTrafficSourceAction)
             {
                 auto clonedChild = std::dynamic_pointer_cast<TrafficSourceActionImpl>(kTrafficSourceAction)->Clone();
                 auto clonedChildITrafficSourceAction = std::dynamic_pointer_cast<ITrafficSourceAction>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetTrafficSourceAction(clonedChildITrafficSourceAction);
+                clonedObject->SetTrafficSourceAction(std::dynamic_pointer_cast<ITrafficSourceActionWriter>(clonedChildITrafficSourceAction));
             }
-            const auto kTrafficSinkAction =  GetTrafficSinkAction();
+            const auto kTrafficSinkAction =  GetWriterTrafficSinkAction();
             if (kTrafficSinkAction)
             {
                 auto clonedChild = std::dynamic_pointer_cast<TrafficSinkActionImpl>(kTrafficSinkAction)->Clone();
                 auto clonedChildITrafficSinkAction = std::dynamic_pointer_cast<ITrafficSinkAction>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetTrafficSinkAction(clonedChildITrafficSinkAction);
+                clonedObject->SetTrafficSinkAction(std::dynamic_pointer_cast<ITrafficSinkActionWriter>(clonedChildITrafficSinkAction));
             }
-            const auto kTrafficSwarmAction =  GetTrafficSwarmAction();
+            const auto kTrafficSwarmAction =  GetWriterTrafficSwarmAction();
             if (kTrafficSwarmAction)
             {
                 auto clonedChild = std::dynamic_pointer_cast<TrafficSwarmActionImpl>(kTrafficSwarmAction)->Clone();
                 auto clonedChildITrafficSwarmAction = std::dynamic_pointer_cast<ITrafficSwarmAction>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetTrafficSwarmAction(clonedChildITrafficSwarmAction);
+                clonedObject->SetTrafficSwarmAction(std::dynamic_pointer_cast<ITrafficSwarmActionWriter>(clonedChildITrafficSwarmAction));
             }
             return clonedObject;
         }
@@ -27038,36 +22920,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _controllerDistribution;
         }
 
-        /**
-         * Sets the value of model property name
-         * @param name from OpenSCENARIO class model specification: [Name of the traffic definition.]
-         * 
-        */
-        void TrafficDefinitionImpl::SetName(std::string name )
-        {
-            _name = name;
-        }
-        /**
-         * Sets the value of model property vehicleCategoryDistribution
-         * @param vehicleCategoryDistribution from OpenSCENARIO class model specification: [Distribution of vehicle categories 
-         * within the traffic.]
-         * 
-        */
-        void TrafficDefinitionImpl::SetVehicleCategoryDistribution(std::shared_ptr<IVehicleCategoryDistribution> vehicleCategoryDistribution )
-        {
-            _vehicleCategoryDistribution = vehicleCategoryDistribution;
-        }
-        /**
-         * Sets the value of model property controllerDistribution
-         * @param controllerDistribution from OpenSCENARIO class model specification: [Distribution of controllers within this 
-         * traffic.]
-         * 
-        */
-        void TrafficDefinitionImpl::SetControllerDistribution(std::shared_ptr<IControllerDistribution> controllerDistribution )
-        {
-            _controllerDistribution = controllerDistribution;
-        }
-
         void TrafficDefinitionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
             if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__NAME)
@@ -27096,12 +22948,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kVehicleCategoryDistribution =  GetVehicleCategoryDistribution();
+                const auto kVehicleCategoryDistribution =  GetWriterVehicleCategoryDistribution();
                 if (kVehicleCategoryDistribution)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kVehicleCategoryDistribution));
                 }
-                const auto kControllerDistribution =  GetControllerDistribution();
+                const auto kControllerDistribution =  GetWriterControllerDistribution();
                 if (kControllerDistribution)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kControllerDistribution));
@@ -27124,23 +22976,23 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetName(_name);
+            clonedObject->_name = GetName();
             // clone children
-            const auto kVehicleCategoryDistribution =  GetVehicleCategoryDistribution();
+            const auto kVehicleCategoryDistribution =  GetWriterVehicleCategoryDistribution();
             if (kVehicleCategoryDistribution)
             {
                 auto clonedChild = std::dynamic_pointer_cast<VehicleCategoryDistributionImpl>(kVehicleCategoryDistribution)->Clone();
                 auto clonedChildIVehicleCategoryDistribution = std::dynamic_pointer_cast<IVehicleCategoryDistribution>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetVehicleCategoryDistribution(clonedChildIVehicleCategoryDistribution);
+                clonedObject->SetVehicleCategoryDistribution(std::dynamic_pointer_cast<IVehicleCategoryDistributionWriter>(clonedChildIVehicleCategoryDistribution));
             }
-            const auto kControllerDistribution =  GetControllerDistribution();
+            const auto kControllerDistribution =  GetWriterControllerDistribution();
             if (kControllerDistribution)
             {
                 auto clonedChild = std::dynamic_pointer_cast<ControllerDistributionImpl>(kControllerDistribution)->Clone();
                 auto clonedChildIControllerDistribution = std::dynamic_pointer_cast<IControllerDistribution>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetControllerDistribution(clonedChildIControllerDistribution);
+                clonedObject->SetControllerDistribution(std::dynamic_pointer_cast<IControllerDistributionWriter>(clonedChildIControllerDistribution));
             }
             return clonedObject;
         }
@@ -27211,27 +23063,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _trafficSignalStateAction;
         }
 
-        /**
-         * Sets the value of model property trafficSignalControllerAction
-         * @param trafficSignalControllerAction from OpenSCENARIO class model specification: [Action used to control the state of a
-         * signal.]
-         * 
-        */
-        void TrafficSignalActionImpl::SetTrafficSignalControllerAction(std::shared_ptr<ITrafficSignalControllerAction> trafficSignalControllerAction )
-        {
-            _trafficSignalControllerAction = trafficSignalControllerAction;
-        }
-        /**
-         * Sets the value of model property trafficSignalStateAction
-         * @param trafficSignalStateAction from OpenSCENARIO class model specification: [Action used to set a specific phase of a 
-         * signal controller.]
-         * 
-        */
-        void TrafficSignalActionImpl::SetTrafficSignalStateAction(std::shared_ptr<ITrafficSignalStateAction> trafficSignalStateAction )
-        {
-            _trafficSignalStateAction = trafficSignalStateAction;
-        }
-
         void TrafficSignalActionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
         }
@@ -27254,12 +23085,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kTrafficSignalControllerAction =  GetTrafficSignalControllerAction();
+                const auto kTrafficSignalControllerAction =  GetWriterTrafficSignalControllerAction();
                 if (kTrafficSignalControllerAction)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kTrafficSignalControllerAction));
                 }
-                const auto kTrafficSignalStateAction =  GetTrafficSignalStateAction();
+                const auto kTrafficSignalStateAction =  GetWriterTrafficSignalStateAction();
                 if (kTrafficSignalStateAction)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kTrafficSignalStateAction));
@@ -27282,21 +23113,21 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kTrafficSignalControllerAction =  GetTrafficSignalControllerAction();
+            const auto kTrafficSignalControllerAction =  GetWriterTrafficSignalControllerAction();
             if (kTrafficSignalControllerAction)
             {
                 auto clonedChild = std::dynamic_pointer_cast<TrafficSignalControllerActionImpl>(kTrafficSignalControllerAction)->Clone();
                 auto clonedChildITrafficSignalControllerAction = std::dynamic_pointer_cast<ITrafficSignalControllerAction>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetTrafficSignalControllerAction(clonedChildITrafficSignalControllerAction);
+                clonedObject->SetTrafficSignalControllerAction(std::dynamic_pointer_cast<ITrafficSignalControllerActionWriter>(clonedChildITrafficSignalControllerAction));
             }
-            const auto kTrafficSignalStateAction =  GetTrafficSignalStateAction();
+            const auto kTrafficSignalStateAction =  GetWriterTrafficSignalStateAction();
             if (kTrafficSignalStateAction)
             {
                 auto clonedChild = std::dynamic_pointer_cast<TrafficSignalStateActionImpl>(kTrafficSignalStateAction)->Clone();
                 auto clonedChildITrafficSignalStateAction = std::dynamic_pointer_cast<ITrafficSignalStateAction>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetTrafficSignalStateAction(clonedChildITrafficSignalStateAction);
+                clonedObject->SetTrafficSignalStateAction(std::dynamic_pointer_cast<ITrafficSignalStateActionWriter>(clonedChildITrafficSignalStateAction));
             }
             return clonedObject;
         }
@@ -27360,27 +23191,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _state;
         }
 
-        /**
-         * Sets the value of model property name
-         * @param name from OpenSCENARIO class model specification: [ID of the referenced signal defined in a road network. The 
-         * signal ID must be listed in the TrafficSignal list of the , RoadNetwork section.]
-         * 
-        */
-        void TrafficSignalConditionImpl::SetName(std::string name )
-        {
-            _name = name;
-        }
-        /**
-         * Sets the value of model property state
-         * @param state from OpenSCENARIO class model specification: [State of the signal to be reached for the condition to become
-         * true.]
-         * 
-        */
-        void TrafficSignalConditionImpl::SetState(std::string state )
-        {
-            _state = state;
-        }
-
         void TrafficSignalConditionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
             if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__NAME)
@@ -27433,9 +23243,9 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetName(_name);
+            clonedObject->_name = GetName();
             // Simple type
-            clonedObject->SetState(_state);
+            clonedObject->_state = GetState();
             // clone children
             return clonedObject;
         }
@@ -27486,18 +23296,18 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, SimpleType::STRING);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DELAY, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, SimpleType::STRING);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__REFERENCE, SimpleType::STRING);
         }
 
-        std::string TrafficSignalControllerImpl::GetName()
-        {
-            return _name;
-        }
         double TrafficSignalControllerImpl::GetDelay()
         {
             return _delay;
+        }
+        std::string TrafficSignalControllerImpl::GetName()
+        {
+            return _name;
         }
         std::string TrafficSignalControllerImpl::GetReference()
         {
@@ -27505,63 +23315,24 @@ namespace NET_ASAM_OPENSCENARIO
         }
         std::vector<std::shared_ptr<IPhase>> TrafficSignalControllerImpl::GetPhases()
         {
-            return _phases;
-        }
-
-        /**
-         * Sets the value of model property name
-         * @param name from OpenSCENARIO class model specification: [ID of the traffic signal controller in the road network.]
-         * 
-        */
-        void TrafficSignalControllerImpl::SetName(std::string name )
-        {
-            _name = name;
-        }
-        /**
-         * Sets the value of model property delay
-         * @param delay from OpenSCENARIO class model specification: [The delay to the controller in the reference property. A 
-         * controller having a delay to another one means that its first , phase virtually starts delaytime seconds after the start
-         * of the reference's first phase. This can be used to define a , progressive signal system, but only makes sense, if the 
-         * total times of all connected controllers are the same. If delay , is set, reference is required. Unit: s; Range: 
-         * [0..inf[.]
-         * 
-        */
-        void TrafficSignalControllerImpl::SetDelay(double delay )
-        {
-            _delay = delay;
-        }
-        /**
-         * Sets the value of model property reference
-         * @param reference from OpenSCENARIO class model specification: [A reference (ID) to the connected controller in the road 
-         * network. If reference is set, a delay is required.]
-         * 
-        */
-        void TrafficSignalControllerImpl::SetReference(std::string reference )
-        {
-            _reference = reference;
-        }
-        /**
-         * Sets the value of model property phases
-         * @param phases from OpenSCENARIO class model specification: [Phases of a TrafficSignalController.]
-         * 
-        */
-        void TrafficSignalControllerImpl::SetPhases(std::vector<std::shared_ptr<IPhase>>& phases)
-        {
-            _phases = phases;
+            std::vector<std::shared_ptr<IPhase>> temp;
+            for(auto&& elm: _phases)
+                temp.push_back(elm);
+            return temp;
         }
 
         void TrafficSignalControllerImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
-            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__NAME)
-            {
-                // Simple type
-                _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                AddResolvedParameter(attributeKey);
-            }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__DELAY)
+            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__DELAY)
             {
                 // Simple type
                 _delay = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                AddResolvedParameter(attributeKey);
+            }
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__NAME)
+            {
+                // Simple type
+                _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__REFERENCE)
@@ -27590,7 +23361,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                auto phases =  GetPhases();
+                auto phases =  GetWriterPhases();
                 if (!phases.empty())
                 {
                     for(auto&& item : phases)
@@ -27616,21 +23387,21 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetName(_name);
+            clonedObject->_delay = GetDelay();
             // Simple type
-            clonedObject->SetDelay(_delay);
+            clonedObject->_name = GetName();
             // Simple type
-            clonedObject->SetReference(_reference);
+            clonedObject->_reference = GetReference();
             // clone children
-            const auto kPhases =  GetPhases();
+            const auto kPhases =  GetWriterPhases();
             if (!kPhases.empty())
             {
-                std::vector<std::shared_ptr<IPhase>> clonedList;
+                std::vector<std::shared_ptr<IPhaseWriter>> clonedList;
                 for(auto&& kItem : kPhases)
                 {
                     auto clonedChild = std::dynamic_pointer_cast<PhaseImpl>(kItem)->Clone();
                     clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                    clonedList.push_back(std::dynamic_pointer_cast<PhaseImpl>(clonedChild));
+                    clonedList.push_back(std::dynamic_pointer_cast<IPhaseWriter>(clonedChild));
                 }
                 clonedObject->SetPhases(clonedList);
             }
@@ -27696,66 +23467,39 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__TRAFFIC_SIGNAL_CONTROLLER_REF, SimpleType::STRING);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__PHASE, SimpleType::STRING);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__TRAFFIC_SIGNAL_CONTROLLER_REF, SimpleType::STRING);
         }
 
-        INamedReference<ITrafficSignalController>* TrafficSignalControllerActionImpl::GetTrafficSignalControllerRef()
-        {
-            return &_trafficSignalControllerRef;
-        }
         std::string TrafficSignalControllerActionImpl::GetPhase()
         {
             return _phase;
         }
+        std::shared_ptr<INamedReference<ITrafficSignalController>> TrafficSignalControllerActionImpl::GetTrafficSignalControllerRef()
+        {
+            return _trafficSignalControllerRef;
+        }
         std::vector<std::shared_ptr<IPhase>> TrafficSignalControllerActionImpl::GetPhaseRef()
         {
-            return _phaseRef;
-        }
-
-        /**
-         * Sets the value of model property trafficSignalControllerRef
-         * @param trafficSignalControllerRef from OpenSCENARIO class model specification: [ID of the signal controller in a road 
-         * network.]
-         * 
-        */
-        void TrafficSignalControllerActionImpl::SetTrafficSignalControllerRef(NamedReferenceProxy<ITrafficSignalController>& trafficSignalControllerRef )
-        {
-            _trafficSignalControllerRef = trafficSignalControllerRef;
-        }
-        /**
-         * Sets the value of model property phase
-         * @param phase from OpenSCENARIO class model specification: [Targeted phase of the signal controller. The available phases
-         * are defined in type RoadNetwork under the property , trafficSignalControllers.]
-         * 
-        */
-        void TrafficSignalControllerActionImpl::SetPhase(std::string phase )
-        {
-            _phase = phase;
-        }
-        /**
-         * Sets the value of model property phaseRef
-         * @param phaseRef from OpenSCENARIO class model specification: [The reference to the phase (phase is the referential key 
-         * in the referenced TrafficSignalController).]
-         * 
-        */
-        void TrafficSignalControllerActionImpl::SetPhaseRef(std::vector<std::shared_ptr<IPhase>>& phaseRef)
-        {
-            _phaseRef = phaseRef;
+            std::vector<std::shared_ptr<IPhase>> temp;
+            for(auto&& elm: _phaseRef)
+                temp.push_back(elm);
+            return temp;
         }
 
         void TrafficSignalControllerActionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
-            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__TRAFFIC_SIGNAL_CONTROLLER_REF)
-            {
-                // Proxy
-                _trafficSignalControllerRef = NamedReferenceProxy<ITrafficSignalController>(parameterLiteralValue);
-                AddResolvedParameter(attributeKey);
-            }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__PHASE)
+            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__PHASE)
             {
                 // Simple type
                 _phase = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                AddResolvedParameter(attributeKey);
+            }
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__TRAFFIC_SIGNAL_CONTROLLER_REF)
+            {
+                // Proxy
+                const auto kProxy = std::make_shared<NamedReferenceProxy<ITrafficSignalController>>(parameterLiteralValue);
+                _trafficSignalControllerRef = std::dynamic_pointer_cast<INamedReference<ITrafficSignalController>>(kProxy);
                 AddResolvedParameter(attributeKey);
             }
         }
@@ -27795,12 +23539,13 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToParameterNameMap(*clonedObject);
 
             // clone attributes;
-            // Proxy
-            auto proxy = _trafficSignalControllerRef;
-            proxy.SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-            clonedObject->SetTrafficSignalControllerRef(proxy);
             // Simple type
-            clonedObject->SetPhase(_phase);
+            clonedObject->_phase = GetPhase();
+            // Proxy
+            auto proxy = std::make_shared<NamedReferenceProxy<ITrafficSignalController>>(*std::dynamic_pointer_cast<NamedReferenceProxy<ITrafficSignalController>>(GetTrafficSignalControllerRef()));
+            proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->_trafficSignalControllerRef = proxy;
+            
             // clone children
             return clonedObject;
         }
@@ -27813,16 +23558,16 @@ namespace NET_ASAM_OPENSCENARIO
                 throw KeyNotSupportedException();
             }
              
+            if (key == OSC_CONSTANTS::ATTRIBUTE__PHASE)
+            {
+                return GetPhase();
+            } 
+            else 
             if (key == OSC_CONSTANTS::ATTRIBUTE__TRAFFIC_SIGNAL_CONTROLLER_REF)
             {
                 // Get the Proxy
                 auto trafficSignalControllerRef = GetTrafficSignalControllerRef();
                 return trafficSignalControllerRef!= nullptr ? trafficSignalControllerRef->GetNameRef() : "";
-            } 
-            else 
-            if (key == OSC_CONSTANTS::ATTRIBUTE__PHASE)
-            {
-                return GetPhase();
             } 
             throw KeyNotSupportedException();
         }
@@ -27864,67 +23609,39 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__TRAFFIC_SIGNAL_CONTROLLER_REF, SimpleType::STRING);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__PHASE, SimpleType::STRING);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__TRAFFIC_SIGNAL_CONTROLLER_REF, SimpleType::STRING);
         }
 
-        INamedReference<ITrafficSignalController>* TrafficSignalControllerConditionImpl::GetTrafficSignalControllerRef()
-        {
-            return &_trafficSignalControllerRef;
-        }
         std::string TrafficSignalControllerConditionImpl::GetPhase()
         {
             return _phase;
         }
+        std::shared_ptr<INamedReference<ITrafficSignalController>> TrafficSignalControllerConditionImpl::GetTrafficSignalControllerRef()
+        {
+            return _trafficSignalControllerRef;
+        }
         std::vector<std::shared_ptr<IPhase>> TrafficSignalControllerConditionImpl::GetPhaseRef()
         {
-            return _phaseRef;
-        }
-
-        /**
-         * Sets the value of model property trafficSignalControllerRef
-         * @param trafficSignalControllerRef from OpenSCENARIO class model specification: [ID of the referenced signal controller 
-         * in a road network.]
-         * 
-        */
-        void TrafficSignalControllerConditionImpl::SetTrafficSignalControllerRef(NamedReferenceProxy<ITrafficSignalController>& trafficSignalControllerRef )
-        {
-            _trafficSignalControllerRef = trafficSignalControllerRef;
-        }
-        /**
-         * Sets the value of model property phase
-         * @param phase from OpenSCENARIO class model specification: [Name of the phase of the signal controller to be reached for 
-         * the condition to become true. The available phases are , defined in type RoadNetwork under the property 
-         * trafficSignalControllers.]
-         * 
-        */
-        void TrafficSignalControllerConditionImpl::SetPhase(std::string phase )
-        {
-            _phase = phase;
-        }
-        /**
-         * Sets the value of model property phaseRef
-         * @param phaseRef from OpenSCENARIO class model specification: [The reference to the phase (phase is the referential key 
-         * in the referenced TrafficSignalController).]
-         * 
-        */
-        void TrafficSignalControllerConditionImpl::SetPhaseRef(std::vector<std::shared_ptr<IPhase>>& phaseRef)
-        {
-            _phaseRef = phaseRef;
+            std::vector<std::shared_ptr<IPhase>> temp;
+            for(auto&& elm: _phaseRef)
+                temp.push_back(elm);
+            return temp;
         }
 
         void TrafficSignalControllerConditionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
-            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__TRAFFIC_SIGNAL_CONTROLLER_REF)
-            {
-                // Proxy
-                _trafficSignalControllerRef = NamedReferenceProxy<ITrafficSignalController>(parameterLiteralValue);
-                AddResolvedParameter(attributeKey);
-            }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__PHASE)
+            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__PHASE)
             {
                 // Simple type
                 _phase = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                AddResolvedParameter(attributeKey);
+            }
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__TRAFFIC_SIGNAL_CONTROLLER_REF)
+            {
+                // Proxy
+                const auto kProxy = std::make_shared<NamedReferenceProxy<ITrafficSignalController>>(parameterLiteralValue);
+                _trafficSignalControllerRef = std::dynamic_pointer_cast<INamedReference<ITrafficSignalController>>(kProxy);
                 AddResolvedParameter(attributeKey);
             }
         }
@@ -27964,12 +23681,13 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToParameterNameMap(*clonedObject);
 
             // clone attributes;
-            // Proxy
-            auto proxy = _trafficSignalControllerRef;
-            proxy.SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-            clonedObject->SetTrafficSignalControllerRef(proxy);
             // Simple type
-            clonedObject->SetPhase(_phase);
+            clonedObject->_phase = GetPhase();
+            // Proxy
+            auto proxy = std::make_shared<NamedReferenceProxy<ITrafficSignalController>>(*std::dynamic_pointer_cast<NamedReferenceProxy<ITrafficSignalController>>(GetTrafficSignalControllerRef()));
+            proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->_trafficSignalControllerRef = proxy;
+            
             // clone children
             return clonedObject;
         }
@@ -27982,16 +23700,16 @@ namespace NET_ASAM_OPENSCENARIO
                 throw KeyNotSupportedException();
             }
              
+            if (key == OSC_CONSTANTS::ATTRIBUTE__PHASE)
+            {
+                return GetPhase();
+            } 
+            else 
             if (key == OSC_CONSTANTS::ATTRIBUTE__TRAFFIC_SIGNAL_CONTROLLER_REF)
             {
                 // Get the Proxy
                 auto trafficSignalControllerRef = GetTrafficSignalControllerRef();
                 return trafficSignalControllerRef!= nullptr ? trafficSignalControllerRef->GetNameRef() : "";
-            } 
-            else 
-            if (key == OSC_CONSTANTS::ATTRIBUTE__PHASE)
-            {
-                return GetPhase();
             } 
             throw KeyNotSupportedException();
         }
@@ -28033,52 +23751,31 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__TRAFFIC_SIGNAL_ID, SimpleType::STRING);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__STATE, SimpleType::STRING);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__TRAFFIC_SIGNAL_ID, SimpleType::STRING);
         }
 
-        std::string TrafficSignalStateImpl::GetTrafficSignalId()
-        {
-            return _trafficSignalId;
-        }
         std::string TrafficSignalStateImpl::GetState()
         {
             return _state;
         }
-
-        /**
-         * Sets the value of model property trafficSignalId
-         * @param trafficSignalId from OpenSCENARIO class model specification: [ID of the referenced signal in a road network. The 
-         * signal ID must be listed in TrafficSignal list of the RoadNetwork.]
-         * 
-        */
-        void TrafficSignalStateImpl::SetTrafficSignalId(std::string trafficSignalId )
+        std::string TrafficSignalStateImpl::GetTrafficSignalId()
         {
-            _trafficSignalId = trafficSignalId;
-        }
-        /**
-         * Sets the value of model property state
-         * @param state from OpenSCENARIO class model specification: [State of the signal. The available states are listed in the 
-         * TrafficSignal list of the RoadNetwork.]
-         * 
-        */
-        void TrafficSignalStateImpl::SetState(std::string state )
-        {
-            _state = state;
+            return _trafficSignalId;
         }
 
         void TrafficSignalStateImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
-            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__TRAFFIC_SIGNAL_ID)
-            {
-                // Simple type
-                _trafficSignalId = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                AddResolvedParameter(attributeKey);
-            }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__STATE)
+            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__STATE)
             {
                 // Simple type
                 _state = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                AddResolvedParameter(attributeKey);
+            }
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__TRAFFIC_SIGNAL_ID)
+            {
+                // Simple type
+                _trafficSignalId = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
             }
         }
@@ -28119,9 +23816,9 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetTrafficSignalId(_trafficSignalId);
+            clonedObject->_state = GetState();
             // Simple type
-            clonedObject->SetState(_state);
+            clonedObject->_trafficSignalId = GetTrafficSignalId();
             // clone children
             return clonedObject;
         }
@@ -28134,14 +23831,14 @@ namespace NET_ASAM_OPENSCENARIO
                 throw KeyNotSupportedException();
             }
              
-            if (key == OSC_CONSTANTS::ATTRIBUTE__TRAFFIC_SIGNAL_ID)
-            {
-                return GetTrafficSignalId();
-            } 
-            else 
             if (key == OSC_CONSTANTS::ATTRIBUTE__STATE)
             {
                 return GetState();
+            } 
+            else 
+            if (key == OSC_CONSTANTS::ATTRIBUTE__TRAFFIC_SIGNAL_ID)
+            {
+                return GetTrafficSignalId();
             } 
             throw KeyNotSupportedException();
         }
@@ -28183,27 +23880,6 @@ namespace NET_ASAM_OPENSCENARIO
         std::string TrafficSignalStateActionImpl::GetState()
         {
             return _state;
-        }
-
-        /**
-         * Sets the value of model property name
-         * @param name from OpenSCENARIO class model specification: [ID of a signal in a road network. The signal ID must be listed
-         * in the TrafficSignal list of the RoadNetwork.]
-         * 
-        */
-        void TrafficSignalStateActionImpl::SetName(std::string name )
-        {
-            _name = name;
-        }
-        /**
-         * Sets the value of model property state
-         * @param state from OpenSCENARIO class model specification: [Targeted state of the signal. The available states are listed
-         * in the TrafficSignal list of the RoadNetwork.]
-         * 
-        */
-        void TrafficSignalStateActionImpl::SetState(std::string state )
-        {
-            _state = state;
         }
 
         void TrafficSignalStateActionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
@@ -28258,9 +23934,9 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetName(_name);
+            clonedObject->_name = GetName();
             // Simple type
-            clonedObject->SetState(_state);
+            clonedObject->_state = GetState();
             // clone children
             return clonedObject;
         }
@@ -28311,17 +23987,17 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__RATE, SimpleType::DOUBLE);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__RADIUS, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__RATE, SimpleType::DOUBLE);
         }
 
-        double TrafficSinkActionImpl::GetRate()
-        {
-            return _rate;
-        }
         double TrafficSinkActionImpl::GetRadius()
         {
             return _radius;
+        }
+        double TrafficSinkActionImpl::GetRate()
+        {
+            return _rate;
         }
         std::shared_ptr<IPosition> TrafficSinkActionImpl::GetPosition()
         {
@@ -28332,58 +24008,18 @@ namespace NET_ASAM_OPENSCENARIO
             return _trafficDefinition;
         }
 
-        /**
-         * Sets the value of model property rate
-         * @param rate from OpenSCENARIO class model specification: [Defines the rate on which vehicles disappear at the sinks 
-         * location. Unit: vehicles/s Range: [0..inf[.]
-         * 
-        */
-        void TrafficSinkActionImpl::SetRate(double rate )
-        {
-            _rate = rate;
-        }
-        /**
-         * Sets the value of model property radius
-         * @param radius from OpenSCENARIO class model specification: [Defines the radius of the traffic sink where vehicles 
-         * disappear around the specified position. Unit: m; Range: [0..inf[.]
-         * 
-        */
-        void TrafficSinkActionImpl::SetRadius(double radius )
-        {
-            _radius = radius;
-        }
-        /**
-         * Sets the value of model property position
-         * @param position from OpenSCENARIO class model specification: [Defines the position of the traffic sink.]
-         * 
-        */
-        void TrafficSinkActionImpl::SetPosition(std::shared_ptr<IPosition> position )
-        {
-            _position = position;
-        }
-        /**
-         * Sets the value of model property trafficDefinition
-         * @param trafficDefinition from OpenSCENARIO class model specification: [Defines the vehicle and controller distribution 
-         * for the sink.]
-         * 
-        */
-        void TrafficSinkActionImpl::SetTrafficDefinition(std::shared_ptr<ITrafficDefinition> trafficDefinition )
-        {
-            _trafficDefinition = trafficDefinition;
-        }
-
         void TrafficSinkActionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
-            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__RATE)
-            {
-                // Simple type
-                _rate = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                AddResolvedParameter(attributeKey);
-            }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__RADIUS)
+            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__RADIUS)
             {
                 // Simple type
                 _radius = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                AddResolvedParameter(attributeKey);
+            }
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__RATE)
+            {
+                // Simple type
+                _rate = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
             }
         }
@@ -28406,12 +24042,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kPosition =  GetPosition();
+                const auto kPosition =  GetWriterPosition();
                 if (kPosition)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kPosition));
                 }
-                const auto kTrafficDefinition =  GetTrafficDefinition();
+                const auto kTrafficDefinition =  GetWriterTrafficDefinition();
                 if (kTrafficDefinition)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kTrafficDefinition));
@@ -28434,25 +24070,25 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetRate(_rate);
+            clonedObject->_radius = GetRadius();
             // Simple type
-            clonedObject->SetRadius(_radius);
+            clonedObject->_rate = GetRate();
             // clone children
-            const auto kPosition =  GetPosition();
+            const auto kPosition =  GetWriterPosition();
             if (kPosition)
             {
                 auto clonedChild = std::dynamic_pointer_cast<PositionImpl>(kPosition)->Clone();
                 auto clonedChildIPosition = std::dynamic_pointer_cast<IPosition>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetPosition(clonedChildIPosition);
+                clonedObject->SetPosition(std::dynamic_pointer_cast<IPositionWriter>(clonedChildIPosition));
             }
-            const auto kTrafficDefinition =  GetTrafficDefinition();
+            const auto kTrafficDefinition =  GetWriterTrafficDefinition();
             if (kTrafficDefinition)
             {
                 auto clonedChild = std::dynamic_pointer_cast<TrafficDefinitionImpl>(kTrafficDefinition)->Clone();
                 auto clonedChildITrafficDefinition = std::dynamic_pointer_cast<ITrafficDefinition>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetTrafficDefinition(clonedChildITrafficDefinition);
+                clonedObject->SetTrafficDefinition(std::dynamic_pointer_cast<ITrafficDefinitionWriter>(clonedChildITrafficDefinition));
             }
             return clonedObject;
         }
@@ -28503,18 +24139,18 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__RATE, SimpleType::DOUBLE);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__RADIUS, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__RATE, SimpleType::DOUBLE);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VELOCITY, SimpleType::DOUBLE);
         }
 
-        double TrafficSourceActionImpl::GetRate()
-        {
-            return _rate;
-        }
         double TrafficSourceActionImpl::GetRadius()
         {
             return _radius;
+        }
+        double TrafficSourceActionImpl::GetRate()
+        {
+            return _rate;
         }
         double TrafficSourceActionImpl::GetVelocity()
         {
@@ -28529,68 +24165,18 @@ namespace NET_ASAM_OPENSCENARIO
             return _trafficDefinition;
         }
 
-        /**
-         * Sets the value of model property rate
-         * @param rate from OpenSCENARIO class model specification: [Defines the rate on which vehicles appear at the source 
-         * location. Unit: vehicles/s. Range: [0..inf[.]
-         * 
-        */
-        void TrafficSourceActionImpl::SetRate(double rate )
-        {
-            _rate = rate;
-        }
-        /**
-         * Sets the value of model property radius
-         * @param radius from OpenSCENARIO class model specification: [Defines the radius of the traffic source where vehicles 
-         * appear around the specific position. Unit: m. Range: [0..inf[.]
-         * 
-        */
-        void TrafficSourceActionImpl::SetRadius(double radius )
-        {
-            _radius = radius;
-        }
-        /**
-         * Sets the value of model property velocity
-         * @param velocity from OpenSCENARIO class model specification: [The optional starting velocity of a scenario object. Unit:
-         * m/s; Range: [0..inf[.]
-         * 
-        */
-        void TrafficSourceActionImpl::SetVelocity(double velocity )
-        {
-            _velocity = velocity;
-        }
-        /**
-         * Sets the value of model property position
-         * @param position from OpenSCENARIO class model specification: [Defines the position of the traffic source.]
-         * 
-        */
-        void TrafficSourceActionImpl::SetPosition(std::shared_ptr<IPosition> position )
-        {
-            _position = position;
-        }
-        /**
-         * Sets the value of model property trafficDefinition
-         * @param trafficDefinition from OpenSCENARIO class model specification: [Defines the vehicle and controller distribution 
-         * for the source.]
-         * 
-        */
-        void TrafficSourceActionImpl::SetTrafficDefinition(std::shared_ptr<ITrafficDefinition> trafficDefinition )
-        {
-            _trafficDefinition = trafficDefinition;
-        }
-
         void TrafficSourceActionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
-            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__RATE)
-            {
-                // Simple type
-                _rate = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                AddResolvedParameter(attributeKey);
-            }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__RADIUS)
+            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__RADIUS)
             {
                 // Simple type
                 _radius = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                AddResolvedParameter(attributeKey);
+            }
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__RATE)
+            {
+                // Simple type
+                _rate = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VELOCITY)
@@ -28619,12 +24205,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kPosition =  GetPosition();
+                const auto kPosition =  GetWriterPosition();
                 if (kPosition)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kPosition));
                 }
-                const auto kTrafficDefinition =  GetTrafficDefinition();
+                const auto kTrafficDefinition =  GetWriterTrafficDefinition();
                 if (kTrafficDefinition)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kTrafficDefinition));
@@ -28647,27 +24233,27 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetRate(_rate);
+            clonedObject->_radius = GetRadius();
             // Simple type
-            clonedObject->SetRadius(_radius);
+            clonedObject->_rate = GetRate();
             // Simple type
-            clonedObject->SetVelocity(_velocity);
+            clonedObject->_velocity = GetVelocity();
             // clone children
-            const auto kPosition =  GetPosition();
+            const auto kPosition =  GetWriterPosition();
             if (kPosition)
             {
                 auto clonedChild = std::dynamic_pointer_cast<PositionImpl>(kPosition)->Clone();
                 auto clonedChildIPosition = std::dynamic_pointer_cast<IPosition>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetPosition(clonedChildIPosition);
+                clonedObject->SetPosition(std::dynamic_pointer_cast<IPositionWriter>(clonedChildIPosition));
             }
-            const auto kTrafficDefinition =  GetTrafficDefinition();
+            const auto kTrafficDefinition =  GetWriterTrafficDefinition();
             if (kTrafficDefinition)
             {
                 auto clonedChild = std::dynamic_pointer_cast<TrafficDefinitionImpl>(kTrafficDefinition)->Clone();
                 auto clonedChildITrafficDefinition = std::dynamic_pointer_cast<ITrafficDefinition>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetTrafficDefinition(clonedChildITrafficDefinition);
+                clonedObject->SetTrafficDefinition(std::dynamic_pointer_cast<ITrafficDefinitionWriter>(clonedChildITrafficDefinition));
             }
             return clonedObject;
         }
@@ -28718,14 +24304,26 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__INNER_RADIUS, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NUMBER_OF_VEHICLES, SimpleType::UNSIGNED_INT);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__OFFSET, SimpleType::DOUBLE);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__SEMI_MAJOR_AXIS, SimpleType::DOUBLE);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__SEMI_MINOR_AXIS, SimpleType::DOUBLE);
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__INNER_RADIUS, SimpleType::DOUBLE);
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__OFFSET, SimpleType::DOUBLE);
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NUMBER_OF_VEHICLES, SimpleType::UNSIGNED_INT);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VELOCITY, SimpleType::DOUBLE);
         }
 
+        double TrafficSwarmActionImpl::GetInnerRadius()
+        {
+            return _innerRadius;
+        }
+        uint32_t TrafficSwarmActionImpl::GetNumberOfVehicles()
+        {
+            return _numberOfVehicles;
+        }
+        double TrafficSwarmActionImpl::GetOffset()
+        {
+            return _offset;
+        }
         double TrafficSwarmActionImpl::GetSemiMajorAxis()
         {
             return _semiMajorAxis;
@@ -28733,18 +24331,6 @@ namespace NET_ASAM_OPENSCENARIO
         double TrafficSwarmActionImpl::GetSemiMinorAxis()
         {
             return _semiMinorAxis;
-        }
-        double TrafficSwarmActionImpl::GetInnerRadius()
-        {
-            return _innerRadius;
-        }
-        double TrafficSwarmActionImpl::GetOffset()
-        {
-            return _offset;
-        }
-        uint32_t TrafficSwarmActionImpl::GetNumberOfVehicles()
-        {
-            return _numberOfVehicles;
         }
         double TrafficSwarmActionImpl::GetVelocity()
         {
@@ -28759,91 +24345,27 @@ namespace NET_ASAM_OPENSCENARIO
             return _trafficDefinition;
         }
 
-        /**
-         * Sets the value of model property semiMajorAxis
-         * @param semiMajorAxis from OpenSCENARIO class model specification: [Shape of the swarm traffic distribution area is given
-         * as an ellipsis around a central entity. SemiMajorAxis defines the , half length of the major axis of this ellipsis. 
-         * Unit: m; Range: [0..inf[.]
-         * 
-        */
-        void TrafficSwarmActionImpl::SetSemiMajorAxis(double semiMajorAxis )
-        {
-            _semiMajorAxis = semiMajorAxis;
-        }
-        /**
-         * Sets the value of model property semiMinorAxis
-         * @param semiMinorAxis from OpenSCENARIO class model specification: [Shape of the swarm traffic distribution area is given
-         * as an ellipsis around a central entity. SemiMinorAxis defines the , half length of the minor axis of this ellipsis. 
-         * Unit: m; Range: [0..inf[.]
-         * 
-        */
-        void TrafficSwarmActionImpl::SetSemiMinorAxis(double semiMinorAxis )
-        {
-            _semiMinorAxis = semiMinorAxis;
-        }
-        /**
-         * Sets the value of model property innerRadius
-         * @param innerRadius from OpenSCENARIO class model specification: [Radius of the inner circular area around the central 
-         * entity. Unit: m; Range: [0..inf[.]
-         * 
-        */
-        void TrafficSwarmActionImpl::SetInnerRadius(double innerRadius )
-        {
-            _innerRadius = innerRadius;
-        }
-        /**
-         * Sets the value of model property offset
-         * @param offset from OpenSCENARIO class model specification: [Offset in longitudinal direction related to the x-axis of 
-         * the central entity. Unit: m;.]
-         * 
-        */
-        void TrafficSwarmActionImpl::SetOffset(double offset )
-        {
-            _offset = offset;
-        }
-        /**
-         * Sets the value of model property numberOfVehicles
-         * @param numberOfVehicles from OpenSCENARIO class model specification: [The maximum number of vehicles surrounding the 
-         * central entity. Depending on the current road situation less than , numberOfVehicles might be set up. Range: [0..inf[.]
-         * 
-        */
-        void TrafficSwarmActionImpl::SetNumberOfVehicles(uint32_t numberOfVehicles )
-        {
-            _numberOfVehicles = numberOfVehicles;
-        }
-        /**
-         * Sets the value of model property velocity
-         * @param velocity from OpenSCENARIO class model specification: [The optional starting velocity of a created entity. Unit: 
-         * m/s; Range: [0..inf[.]
-         * 
-        */
-        void TrafficSwarmActionImpl::SetVelocity(double velocity )
-        {
-            _velocity = velocity;
-        }
-        /**
-         * Sets the value of model property centralObject
-         * @param centralObject from OpenSCENARIO class model specification: [The entity that represents the center of a swarm.]
-         * 
-        */
-        void TrafficSwarmActionImpl::SetCentralObject(std::shared_ptr<ICentralSwarmObject> centralObject )
-        {
-            _centralObject = centralObject;
-        }
-        /**
-         * Sets the value of model property trafficDefinition
-         * @param trafficDefinition from OpenSCENARIO class model specification: [Specifies properties of autonomous traffic with 
-         * respect to vehicle and driver distributions.]
-         * 
-        */
-        void TrafficSwarmActionImpl::SetTrafficDefinition(std::shared_ptr<ITrafficDefinition> trafficDefinition )
-        {
-            _trafficDefinition = trafficDefinition;
-        }
-
         void TrafficSwarmActionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
-            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__SEMI_MAJOR_AXIS)
+            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__INNER_RADIUS)
+            {
+                // Simple type
+                _innerRadius = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                AddResolvedParameter(attributeKey);
+            }
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__NUMBER_OF_VEHICLES)
+            {
+                // Simple type
+                _numberOfVehicles = ParserHelper::ParseUnsignedInt(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                AddResolvedParameter(attributeKey);
+            }
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__OFFSET)
+            {
+                // Simple type
+                _offset = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                AddResolvedParameter(attributeKey);
+            }
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__SEMI_MAJOR_AXIS)
             {
                 // Simple type
                 _semiMajorAxis = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
@@ -28853,24 +24375,6 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _semiMinorAxis = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                AddResolvedParameter(attributeKey);
-            }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__INNER_RADIUS)
-            {
-                // Simple type
-                _innerRadius = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                AddResolvedParameter(attributeKey);
-            }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__OFFSET)
-            {
-                // Simple type
-                _offset = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                AddResolvedParameter(attributeKey);
-            }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__NUMBER_OF_VEHICLES)
-            {
-                // Simple type
-                _numberOfVehicles = ParserHelper::ParseUnsignedInt(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VELOCITY)
@@ -28899,12 +24403,12 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kCentralObject =  GetCentralObject();
+                const auto kCentralObject =  GetWriterCentralObject();
                 if (kCentralObject)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kCentralObject));
                 }
-                const auto kTrafficDefinition =  GetTrafficDefinition();
+                const auto kTrafficDefinition =  GetWriterTrafficDefinition();
                 if (kTrafficDefinition)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kTrafficDefinition));
@@ -28927,33 +24431,33 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetSemiMajorAxis(_semiMajorAxis);
+            clonedObject->_innerRadius = GetInnerRadius();
             // Simple type
-            clonedObject->SetSemiMinorAxis(_semiMinorAxis);
+            clonedObject->_numberOfVehicles = GetNumberOfVehicles();
             // Simple type
-            clonedObject->SetInnerRadius(_innerRadius);
+            clonedObject->_offset = GetOffset();
             // Simple type
-            clonedObject->SetOffset(_offset);
+            clonedObject->_semiMajorAxis = GetSemiMajorAxis();
             // Simple type
-            clonedObject->SetNumberOfVehicles(_numberOfVehicles);
+            clonedObject->_semiMinorAxis = GetSemiMinorAxis();
             // Simple type
-            clonedObject->SetVelocity(_velocity);
+            clonedObject->_velocity = GetVelocity();
             // clone children
-            const auto kCentralObject =  GetCentralObject();
+            const auto kCentralObject =  GetWriterCentralObject();
             if (kCentralObject)
             {
                 auto clonedChild = std::dynamic_pointer_cast<CentralSwarmObjectImpl>(kCentralObject)->Clone();
                 auto clonedChildICentralSwarmObject = std::dynamic_pointer_cast<ICentralSwarmObject>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetCentralObject(clonedChildICentralSwarmObject);
+                clonedObject->SetCentralObject(std::dynamic_pointer_cast<ICentralSwarmObjectWriter>(clonedChildICentralSwarmObject));
             }
-            const auto kTrafficDefinition =  GetTrafficDefinition();
+            const auto kTrafficDefinition =  GetWriterTrafficDefinition();
             if (kTrafficDefinition)
             {
                 auto clonedChild = std::dynamic_pointer_cast<TrafficDefinitionImpl>(kTrafficDefinition)->Clone();
                 auto clonedChildITrafficDefinition = std::dynamic_pointer_cast<ITrafficDefinition>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetTrafficDefinition(clonedChildITrafficDefinition);
+                clonedObject->SetTrafficDefinition(std::dynamic_pointer_cast<ITrafficDefinitionWriter>(clonedChildITrafficDefinition));
             }
             return clonedObject;
         }
@@ -29004,76 +24508,42 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, SimpleType::STRING);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__CLOSED, SimpleType::BOOLEAN);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, SimpleType::STRING);
         }
 
-        std::string TrajectoryImpl::GetName()
-        {
-            return _name;
-        }
         bool TrajectoryImpl::GetClosed()
         {
             return _closed;
         }
+        std::string TrajectoryImpl::GetName()
+        {
+            return _name;
+        }
         std::vector<std::shared_ptr<IParameterDeclaration>> TrajectoryImpl::GetParameterDeclarations()
         {
-            return _parameterDeclarations;
+            std::vector<std::shared_ptr<IParameterDeclaration>> temp;
+            for(auto&& elm: _parameterDeclarations)
+                temp.push_back(elm);
+            return temp;
         }
         std::shared_ptr<IShape> TrajectoryImpl::GetShape()
         {
             return _shape;
         }
 
-        /**
-         * Sets the value of model property name
-         * @param name from OpenSCENARIO class model specification: [Name of the trajectory type. Required if used in catalog.]
-         * 
-        */
-        void TrajectoryImpl::SetName(std::string name )
-        {
-            _name = name;
-        }
-        /**
-         * Sets the value of model property closed
-         * @param closed from OpenSCENARIO class model specification: [True if trajectory is closed.]
-         * 
-        */
-        void TrajectoryImpl::SetClosed(bool closed )
-        {
-            _closed = closed;
-        }
-        /**
-         * Sets the value of model property parameterDeclarations
-         * @param parameterDeclarations from OpenSCENARIO class model specification: [Definition of additional parameters.]
-         * 
-        */
-        void TrajectoryImpl::SetParameterDeclarations(std::vector<std::shared_ptr<IParameterDeclaration>>& parameterDeclarations)
-        {
-            _parameterDeclarations = parameterDeclarations;
-        }
-        /**
-         * Sets the value of model property shape
-         * @param shape from OpenSCENARIO class model specification: [The shape of a trajectory (Polyline, Clothoid or Nurbs)]
-         * 
-        */
-        void TrajectoryImpl::SetShape(std::shared_ptr<IShape> shape )
-        {
-            _shape = shape;
-        }
-
         void TrajectoryImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
-            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__NAME)
-            {
-                // Simple type
-                _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                AddResolvedParameter(attributeKey);
-            }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__CLOSED)
+            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__CLOSED)
             {
                 // Simple type
                 _closed = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                AddResolvedParameter(attributeKey);
+            }
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__NAME)
+            {
+                // Simple type
+                _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
             }
         }
@@ -29116,7 +24586,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                auto parameterDeclarations =  GetParameterDeclarations();
+                auto parameterDeclarations =  GetWriterParameterDeclarations();
                 if (!parameterDeclarations.empty())
                 {
                     for(auto&& item : parameterDeclarations)
@@ -29124,7 +24594,7 @@ namespace NET_ASAM_OPENSCENARIO
                         result.push_back(std::dynamic_pointer_cast<BaseImpl>(item) );
                     }
                 }
-                const auto kShape =  GetShape();
+                const auto kShape =  GetWriterShape();
                 if (kShape)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kShape));
@@ -29147,29 +24617,29 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetName(_name);
+            clonedObject->_closed = GetClosed();
             // Simple type
-            clonedObject->SetClosed(_closed);
+            clonedObject->_name = GetName();
             // clone children
-            const auto kParameterDeclarations =  GetParameterDeclarations();
+            const auto kParameterDeclarations =  GetWriterParameterDeclarations();
             if (!kParameterDeclarations.empty())
             {
-                std::vector<std::shared_ptr<IParameterDeclaration>> clonedList;
+                std::vector<std::shared_ptr<IParameterDeclarationWriter>> clonedList;
                 for(auto&& kItem : kParameterDeclarations)
                 {
                     auto clonedChild = std::dynamic_pointer_cast<ParameterDeclarationImpl>(kItem)->Clone();
                     clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                    clonedList.push_back(std::dynamic_pointer_cast<ParameterDeclarationImpl>(clonedChild));
+                    clonedList.push_back(std::dynamic_pointer_cast<IParameterDeclarationWriter>(clonedChild));
                 }
                 clonedObject->SetParameterDeclarations(clonedList);
             }
-            const auto kShape =  GetShape();
+            const auto kShape =  GetWriterShape();
             if (kShape)
             {
                 auto clonedChild = std::dynamic_pointer_cast<ShapeImpl>(kShape)->Clone();
                 auto clonedChildIShape = std::dynamic_pointer_cast<IShape>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetShape(clonedChildIShape);
+                clonedObject->SetShape(std::dynamic_pointer_cast<IShapeWriter>(clonedChildIShape));
             }
             return clonedObject;
         }
@@ -29243,16 +24713,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _directory;
         }
 
-        /**
-         * Sets the value of model property directory
-         * @param directory from OpenSCENARIO class model specification: [All catalogs files in this directory must be evaluated.]
-         * 
-        */
-        void TrajectoryCatalogLocationImpl::SetDirectory(std::shared_ptr<IDirectory> directory )
-        {
-            _directory = directory;
-        }
-
         void TrajectoryCatalogLocationImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
         }
@@ -29275,7 +24735,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kDirectory =  GetDirectory();
+                const auto kDirectory =  GetWriterDirectory();
                 if (kDirectory)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kDirectory));
@@ -29298,13 +24758,13 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kDirectory =  GetDirectory();
+            const auto kDirectory =  GetWriterDirectory();
             if (kDirectory)
             {
                 auto clonedChild = std::dynamic_pointer_cast<DirectoryImpl>(kDirectory)->Clone();
                 auto clonedChildIDirectory = std::dynamic_pointer_cast<IDirectory>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetDirectory(clonedChildIDirectory);
+                clonedObject->SetDirectory(std::dynamic_pointer_cast<IDirectoryWriter>(clonedChildIDirectory));
             }
             return clonedObject;
         }
@@ -29356,19 +24816,6 @@ namespace NET_ASAM_OPENSCENARIO
         FollowingMode TrajectoryFollowingModeImpl::GetFollowingMode()
         {
             return _followingMode;
-        }
-
-        /**
-         * Sets the value of model property followingMode
-         * @param followingMode from OpenSCENARIO class model specification: [Defines (lateral) trajectory following behavior of 
-         * the actor: Mode 'position' forces the actor to strictly adhere to the, trajectory. In contrast, mode 'follow' hands over
-         * control to the actor. In this mode, the actor tries to follow the , trajectory as best as he can. This may be restricted
-         * by dynamics constraints and/or control loop implementation.]
-         * 
-        */
-        void TrajectoryFollowingModeImpl::SetFollowingMode(FollowingMode followingMode )
-        {
-            _followingMode = followingMode;
         }
 
         void TrajectoryFollowingModeImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
@@ -29426,7 +24873,11 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Enumeration Type
-            clonedObject->SetFollowingMode(_followingMode);
+            const auto kFollowingMode = GetFollowingMode();
+            if ( kFollowingMode.GetLiteral() != "UNKNOWN" )
+            {
+                clonedObject->_followingMode = FollowingMode::GetFromLiteral(kFollowingMode.GetLiteral());
+            }
             // clone children
             return clonedObject;
         }
@@ -29473,11 +24924,15 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DYNAMICS_DIMENSION, SimpleType::ENUM_TYPE);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DYNAMICS_SHAPE, SimpleType::ENUM_TYPE);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DYNAMICS_DIMENSION, SimpleType::ENUM_TYPE);
         }
 
+        DynamicsDimension TransitionDynamicsImpl::GetDynamicsDimension()
+        {
+            return _dynamicsDimension;
+        }
         DynamicsShape TransitionDynamicsImpl::GetDynamicsShape()
         {
             return _dynamicsShape;
@@ -29486,45 +24941,25 @@ namespace NET_ASAM_OPENSCENARIO
         {
             return _value;
         }
-        DynamicsDimension TransitionDynamicsImpl::GetDynamicsDimension()
-        {
-            return _dynamicsDimension;
-        }
-
-        /**
-         * Sets the value of model property dynamicsShape
-         * @param dynamicsShape from OpenSCENARIO class model specification: [The shape of the transition function f(x) between 
-         * current and target value.]
-         * 
-        */
-        void TransitionDynamicsImpl::SetDynamicsShape(DynamicsShape dynamicsShape )
-        {
-            _dynamicsShape = dynamicsShape;
-        }
-        /**
-         * Sets the value of model property value
-         * @param value from OpenSCENARIO class model specification: [The value for a predefined rate (Unit: delta/s), time (Unit: 
-         * s) or distance (Unit: m) to acquire the target value. , Range: [0..inf[.]
-         * 
-        */
-        void TransitionDynamicsImpl::SetValue(double value )
-        {
-            _value = value;
-        }
-        /**
-         * Sets the value of model property dynamicsDimension
-         * @param dynamicsDimension from OpenSCENARIO class model specification: [The semantics of the value: 'rate', 'time' or 
-         * 'distance'.]
-         * 
-        */
-        void TransitionDynamicsImpl::SetDynamicsDimension(DynamicsDimension dynamicsDimension )
-        {
-            _dynamicsDimension = dynamicsDimension;
-        }
 
         void TransitionDynamicsImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
-            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__DYNAMICS_SHAPE)
+            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__DYNAMICS_DIMENSION)
+            {
+                // Enumeration Type
+                const auto kResult = DynamicsDimension::GetFromLiteral(parameterLiteralValue);
+                if (kResult != DynamicsDimension::UNKNOWN)
+                {
+                    _dynamicsDimension = kResult;
+                    AddResolvedParameter(attributeKey);
+                }
+                else
+                {
+                    auto msg = FileContentMessage("Value '" + parameterLiteralValue + "' is not allowed.", ERROR, *GetTextmarker(attributeKey));
+                    logger.LogMessage(msg );
+                }
+            }
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__DYNAMICS_SHAPE)
             {
                 // Enumeration Type
                 const auto kResult = DynamicsShape::GetFromLiteral(parameterLiteralValue);
@@ -29544,21 +24979,6 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
-            }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__DYNAMICS_DIMENSION)
-            {
-                // Enumeration Type
-                const auto kResult = DynamicsDimension::GetFromLiteral(parameterLiteralValue);
-                if (kResult != DynamicsDimension::UNKNOWN)
-                {
-                    _dynamicsDimension = kResult;
-                    AddResolvedParameter(attributeKey);
-                }
-                else
-                {
-                    auto msg = FileContentMessage("Value '" + parameterLiteralValue + "' is not allowed.", ERROR, *GetTextmarker(attributeKey));
-                    logger.LogMessage(msg );
-                }
             }
         }
 
@@ -29598,11 +25018,19 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Enumeration Type
-            clonedObject->SetDynamicsShape(_dynamicsShape);
-            // Simple type
-            clonedObject->SetValue(_value);
+            const auto kDynamicsDimension = GetDynamicsDimension();
+            if ( kDynamicsDimension.GetLiteral() != "UNKNOWN" )
+            {
+                clonedObject->_dynamicsDimension = DynamicsDimension::GetFromLiteral(kDynamicsDimension.GetLiteral());
+            }
             // Enumeration Type
-            clonedObject->SetDynamicsDimension(_dynamicsDimension);
+            const auto kDynamicsShape = GetDynamicsShape();
+            if ( kDynamicsShape.GetLiteral() != "UNKNOWN" )
+            {
+                clonedObject->_dynamicsShape = DynamicsShape::GetFromLiteral(kDynamicsShape.GetLiteral());
+            }
+            // Simple type
+            clonedObject->_value = GetValue();
             // clone children
             return clonedObject;
         }
@@ -29635,15 +25063,15 @@ namespace NET_ASAM_OPENSCENARIO
                 throw KeyNotSupportedException();
             }
              
-            if (key == OSC_CONSTANTS::ATTRIBUTE__DYNAMICS_SHAPE)
-            {
-                auto dynamicsShape = GetDynamicsShape();
-                return dynamicsShape.GetLiteral() != "UNKNOWN" ? dynamicsShape.GetLiteral() : "";
-            }            else 
             if (key == OSC_CONSTANTS::ATTRIBUTE__DYNAMICS_DIMENSION)
             {
                 auto dynamicsDimension = GetDynamicsDimension();
                 return dynamicsDimension.GetLiteral() != "UNKNOWN" ? dynamicsDimension.GetLiteral() : "";
+            }            else 
+            if (key == OSC_CONSTANTS::ATTRIBUTE__DYNAMICS_SHAPE)
+            {
+                auto dynamicsShape = GetDynamicsShape();
+                return dynamicsShape.GetLiteral() != "UNKNOWN" ? dynamicsShape.GetLiteral() : "";
             }
             throw KeyNotSupportedException();
         }
@@ -29660,16 +25088,6 @@ namespace NET_ASAM_OPENSCENARIO
         double TraveledDistanceConditionImpl::GetValue()
         {
             return _value;
-        }
-
-        /**
-         * Sets the value of model property value
-         * @param value from OpenSCENARIO class model specification: [Amount of traveled distance. Unit: m; Range: [0..inf[.]
-         * 
-        */
-        void TraveledDistanceConditionImpl::SetValue(double value )
-        {
-            _value = value;
         }
 
         void TraveledDistanceConditionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
@@ -29718,7 +25136,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetValue(_value);
+            clonedObject->_value = GetValue();
             // clone children
             return clonedObject;
         }
@@ -29759,18 +25177,10 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::vector<std::shared_ptr<IConditionGroup>> TriggerImpl::GetConditionGroups()
         {
-            return _conditionGroups;
-        }
-
-        /**
-         * Sets the value of model property conditionGroups
-         * @param conditionGroups from OpenSCENARIO class model specification: [List of condition groups as a container of 
-         * conditions.]
-         * 
-        */
-        void TriggerImpl::SetConditionGroups(std::vector<std::shared_ptr<IConditionGroup>>& conditionGroups)
-        {
-            _conditionGroups = conditionGroups;
+            std::vector<std::shared_ptr<IConditionGroup>> temp;
+            for(auto&& elm: _conditionGroups)
+                temp.push_back(elm);
+            return temp;
         }
 
         void TriggerImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
@@ -29795,7 +25205,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                auto conditionGroups =  GetConditionGroups();
+                auto conditionGroups =  GetWriterConditionGroups();
                 if (!conditionGroups.empty())
                 {
                     for(auto&& item : conditionGroups)
@@ -29821,15 +25231,15 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kConditionGroups =  GetConditionGroups();
+            const auto kConditionGroups =  GetWriterConditionGroups();
             if (!kConditionGroups.empty())
             {
-                std::vector<std::shared_ptr<IConditionGroup>> clonedList;
+                std::vector<std::shared_ptr<IConditionGroupWriter>> clonedList;
                 for(auto&& kItem : kConditionGroups)
                 {
                     auto clonedChild = std::dynamic_pointer_cast<ConditionGroupImpl>(kItem)->Clone();
                     clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                    clonedList.push_back(std::dynamic_pointer_cast<ConditionGroupImpl>(clonedChild));
+                    clonedList.push_back(std::dynamic_pointer_cast<IConditionGroupWriter>(clonedChild));
                 }
                 clonedObject->SetConditionGroups(clonedList);
             }
@@ -29890,26 +25300,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
         std::vector<std::shared_ptr<IEntityRef>> TriggeringEntitiesImpl::GetEntityRefs()
         {
-            return _entityRefs;
-        }
-
-        /**
-         * Sets the value of model property triggeringEntitiesRule
-         * @param triggeringEntitiesRule from OpenSCENARIO class model specification: [All or any.]
-         * 
-        */
-        void TriggeringEntitiesImpl::SetTriggeringEntitiesRule(TriggeringEntitiesRule triggeringEntitiesRule )
-        {
-            _triggeringEntitiesRule = triggeringEntitiesRule;
-        }
-        /**
-         * Sets the value of model property entityRefs
-         * @param entityRefs from OpenSCENARIO class model specification: [List of referenced entities that trigger the condition.]
-         * 
-        */
-        void TriggeringEntitiesImpl::SetEntityRefs(std::vector<std::shared_ptr<IEntityRef>>& entityRefs)
-        {
-            _entityRefs = entityRefs;
+            std::vector<std::shared_ptr<IEntityRef>> temp;
+            for(auto&& elm: _entityRefs)
+                temp.push_back(elm);
+            return temp;
         }
 
         void TriggeringEntitiesImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
@@ -29949,7 +25343,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                auto entityRefs =  GetEntityRefs();
+                auto entityRefs =  GetWriterEntityRefs();
                 if (!entityRefs.empty())
                 {
                     for(auto&& item : entityRefs)
@@ -29975,17 +25369,21 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Enumeration Type
-            clonedObject->SetTriggeringEntitiesRule(_triggeringEntitiesRule);
+            const auto kTriggeringEntitiesRule = GetTriggeringEntitiesRule();
+            if ( kTriggeringEntitiesRule.GetLiteral() != "UNKNOWN" )
+            {
+                clonedObject->_triggeringEntitiesRule = TriggeringEntitiesRule::GetFromLiteral(kTriggeringEntitiesRule.GetLiteral());
+            }
             // clone children
-            const auto kEntityRefs =  GetEntityRefs();
+            const auto kEntityRefs =  GetWriterEntityRefs();
             if (!kEntityRefs.empty())
             {
-                std::vector<std::shared_ptr<IEntityRef>> clonedList;
+                std::vector<std::shared_ptr<IEntityRefWriter>> clonedList;
                 for(auto&& kItem : kEntityRefs)
                 {
                     auto clonedChild = std::dynamic_pointer_cast<EntityRefImpl>(kItem)->Clone();
                     clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                    clonedList.push_back(std::dynamic_pointer_cast<EntityRefImpl>(clonedChild));
+                    clonedList.push_back(std::dynamic_pointer_cast<IEntityRefWriter>(clonedChild));
                 }
                 clonedObject->SetEntityRefs(clonedList);
             }
@@ -30054,17 +25452,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _customCommandAction;
         }
 
-        /**
-         * Sets the value of model property customCommandAction
-         * @param customCommandAction from OpenSCENARIO class model specification: [The available commands are subject of a 
-         * contract between simulation environment provider and scenario author.]
-         * 
-        */
-        void UserDefinedActionImpl::SetCustomCommandAction(std::shared_ptr<ICustomCommandAction> customCommandAction )
-        {
-            _customCommandAction = customCommandAction;
-        }
-
         void UserDefinedActionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
         }
@@ -30087,7 +25474,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kCustomCommandAction =  GetCustomCommandAction();
+                const auto kCustomCommandAction =  GetWriterCustomCommandAction();
                 if (kCustomCommandAction)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kCustomCommandAction));
@@ -30110,13 +25497,13 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kCustomCommandAction =  GetCustomCommandAction();
+            const auto kCustomCommandAction =  GetWriterCustomCommandAction();
             if (kCustomCommandAction)
             {
                 auto clonedChild = std::dynamic_pointer_cast<CustomCommandActionImpl>(kCustomCommandAction)->Clone();
                 auto clonedChildICustomCommandAction = std::dynamic_pointer_cast<ICustomCommandAction>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetCustomCommandAction(clonedChildICustomCommandAction);
+                clonedObject->SetCustomCommandAction(std::dynamic_pointer_cast<ICustomCommandActionWriter>(clonedChildICustomCommandAction));
             }
             return clonedObject;
         }
@@ -30163,49 +25550,21 @@ namespace NET_ASAM_OPENSCENARIO
             * Filling the property to type map
             */
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, SimpleType::STRING);
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::STRING);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__RULE, SimpleType::ENUM_TYPE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::STRING);
         }
 
         std::string UserDefinedValueConditionImpl::GetName()
         {
             return _name;
         }
-        std::string UserDefinedValueConditionImpl::GetValue()
-        {
-            return _value;
-        }
         Rule UserDefinedValueConditionImpl::GetRule()
         {
             return _rule;
         }
-
-        /**
-         * Sets the value of model property name
-         * @param name from OpenSCENARIO class model specification: [Name of the external value.]
-         * 
-        */
-        void UserDefinedValueConditionImpl::SetName(std::string name )
+        std::string UserDefinedValueConditionImpl::GetValue()
         {
-            _name = name;
-        }
-        /**
-         * Sets the value of model property value
-         * @param value from OpenSCENARIO class model specification: [Reference value the external value is compared to.]
-         * 
-        */
-        void UserDefinedValueConditionImpl::SetValue(std::string value )
-        {
-            _value = value;
-        }
-        /**
-         * Sets the value of model property rule
-         * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
-         * 
-        */
-        void UserDefinedValueConditionImpl::SetRule(Rule rule )
-        {
-            _rule = rule;
+            return _value;
         }
 
         void UserDefinedValueConditionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
@@ -30214,12 +25573,6 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                AddResolvedParameter(attributeKey);
-            }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
-            {
-                // Simple type
-                _value = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__RULE)
@@ -30236,6 +25589,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto msg = FileContentMessage("Value '" + parameterLiteralValue + "' is not allowed.", ERROR, *GetTextmarker(attributeKey));
                     logger.LogMessage(msg );
                 }
+            }
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
+            {
+                // Simple type
+                _value = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                AddResolvedParameter(attributeKey);
             }
         }
 
@@ -30275,11 +25634,15 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetName(_name);
-            // Simple type
-            clonedObject->SetValue(_value);
+            clonedObject->_name = GetName();
             // Enumeration Type
-            clonedObject->SetRule(_rule);
+            const auto kRule = GetRule();
+            if ( kRule.GetLiteral() != "UNKNOWN" )
+            {
+                clonedObject->_rule = Rule::GetFromLiteral(kRule.GetLiteral());
+            }
+            // Simple type
+            clonedObject->_value = GetValue();
             // clone children
             return clonedObject;
         }
@@ -30354,7 +25717,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
         std::vector<std::shared_ptr<IParameterDeclaration>> VehicleImpl::GetParameterDeclarations()
         {
-            return _parameterDeclarations;
+            std::vector<std::shared_ptr<IParameterDeclaration>> temp;
+            for(auto&& elm: _parameterDeclarations)
+                temp.push_back(elm);
+            return temp;
         }
         std::shared_ptr<IBoundingBox> VehicleImpl::GetBoundingBox()
         {
@@ -30371,72 +25737,6 @@ namespace NET_ASAM_OPENSCENARIO
         std::shared_ptr<IProperties> VehicleImpl::GetProperties()
         {
             return _properties;
-        }
-
-        /**
-         * Sets the value of model property name
-         * @param name from OpenSCENARIO class model specification: [Name of the vehicle type.]
-         * 
-        */
-        void VehicleImpl::SetName(std::string name )
-        {
-            _name = name;
-        }
-        /**
-         * Sets the value of model property vehicleCategory
-         * @param vehicleCategory from OpenSCENARIO class model specification: [Category of the vehicle (bicycle, train,...).]
-         * 
-        */
-        void VehicleImpl::SetVehicleCategory(VehicleCategory vehicleCategory )
-        {
-            _vehicleCategory = vehicleCategory;
-        }
-        /**
-         * Sets the value of model property parameterDeclarations
-         * @param parameterDeclarations from OpenSCENARIO class model specification: [Definition of additional parameters.]
-         * 
-        */
-        void VehicleImpl::SetParameterDeclarations(std::vector<std::shared_ptr<IParameterDeclaration>>& parameterDeclarations)
-        {
-            _parameterDeclarations = parameterDeclarations;
-        }
-        /**
-         * Sets the value of model property boundingBox
-         * @param boundingBox from OpenSCENARIO class model specification: [The three dimensional bounding box that encloses the 
-         * vehicle.]
-         * 
-        */
-        void VehicleImpl::SetBoundingBox(std::shared_ptr<IBoundingBox> boundingBox )
-        {
-            _boundingBox = boundingBox;
-        }
-        /**
-         * Sets the value of model property performance
-         * @param performance from OpenSCENARIO class model specification: [Performance properties of the vehicle.]
-         * 
-        */
-        void VehicleImpl::SetPerformance(std::shared_ptr<IPerformance> performance )
-        {
-            _performance = performance;
-        }
-        /**
-         * Sets the value of model property axles
-         * @param axles from OpenSCENARIO class model specification: [A set of axles (front, rear, additional) and their geometric 
-         * locations.]
-         * 
-        */
-        void VehicleImpl::SetAxles(std::shared_ptr<IAxles> axles )
-        {
-            _axles = axles;
-        }
-        /**
-         * Sets the value of model property properties
-         * @param properties from OpenSCENARIO class model specification: [Additional properties as name value pairs.]
-         * 
-        */
-        void VehicleImpl::SetProperties(std::shared_ptr<IProperties> properties )
-        {
-            _properties = properties;
         }
 
         void VehicleImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
@@ -30502,7 +25802,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                auto parameterDeclarations =  GetParameterDeclarations();
+                auto parameterDeclarations =  GetWriterParameterDeclarations();
                 if (!parameterDeclarations.empty())
                 {
                     for(auto&& item : parameterDeclarations)
@@ -30510,22 +25810,22 @@ namespace NET_ASAM_OPENSCENARIO
                         result.push_back(std::dynamic_pointer_cast<BaseImpl>(item) );
                     }
                 }
-                const auto kBoundingBox =  GetBoundingBox();
+                const auto kBoundingBox =  GetWriterBoundingBox();
                 if (kBoundingBox)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kBoundingBox));
                 }
-                const auto kPerformance =  GetPerformance();
+                const auto kPerformance =  GetWriterPerformance();
                 if (kPerformance)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kPerformance));
                 }
-                const auto kAxles =  GetAxles();
+                const auto kAxles =  GetWriterAxles();
                 if (kAxles)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kAxles));
                 }
-                const auto kProperties =  GetProperties();
+                const auto kProperties =  GetWriterProperties();
                 if (kProperties)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kProperties));
@@ -30548,53 +25848,57 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetName(_name);
+            clonedObject->_name = GetName();
             // Enumeration Type
-            clonedObject->SetVehicleCategory(_vehicleCategory);
+            const auto kVehicleCategory = GetVehicleCategory();
+            if ( kVehicleCategory.GetLiteral() != "UNKNOWN" )
+            {
+                clonedObject->_vehicleCategory = VehicleCategory::GetFromLiteral(kVehicleCategory.GetLiteral());
+            }
             // clone children
-            const auto kParameterDeclarations =  GetParameterDeclarations();
+            const auto kParameterDeclarations =  GetWriterParameterDeclarations();
             if (!kParameterDeclarations.empty())
             {
-                std::vector<std::shared_ptr<IParameterDeclaration>> clonedList;
+                std::vector<std::shared_ptr<IParameterDeclarationWriter>> clonedList;
                 for(auto&& kItem : kParameterDeclarations)
                 {
                     auto clonedChild = std::dynamic_pointer_cast<ParameterDeclarationImpl>(kItem)->Clone();
                     clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                    clonedList.push_back(std::dynamic_pointer_cast<ParameterDeclarationImpl>(clonedChild));
+                    clonedList.push_back(std::dynamic_pointer_cast<IParameterDeclarationWriter>(clonedChild));
                 }
                 clonedObject->SetParameterDeclarations(clonedList);
             }
-            const auto kBoundingBox =  GetBoundingBox();
+            const auto kBoundingBox =  GetWriterBoundingBox();
             if (kBoundingBox)
             {
                 auto clonedChild = std::dynamic_pointer_cast<BoundingBoxImpl>(kBoundingBox)->Clone();
                 auto clonedChildIBoundingBox = std::dynamic_pointer_cast<IBoundingBox>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetBoundingBox(clonedChildIBoundingBox);
+                clonedObject->SetBoundingBox(std::dynamic_pointer_cast<IBoundingBoxWriter>(clonedChildIBoundingBox));
             }
-            const auto kPerformance =  GetPerformance();
+            const auto kPerformance =  GetWriterPerformance();
             if (kPerformance)
             {
                 auto clonedChild = std::dynamic_pointer_cast<PerformanceImpl>(kPerformance)->Clone();
                 auto clonedChildIPerformance = std::dynamic_pointer_cast<IPerformance>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetPerformance(clonedChildIPerformance);
+                clonedObject->SetPerformance(std::dynamic_pointer_cast<IPerformanceWriter>(clonedChildIPerformance));
             }
-            const auto kAxles =  GetAxles();
+            const auto kAxles =  GetWriterAxles();
             if (kAxles)
             {
                 auto clonedChild = std::dynamic_pointer_cast<AxlesImpl>(kAxles)->Clone();
                 auto clonedChildIAxles = std::dynamic_pointer_cast<IAxles>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetAxles(clonedChildIAxles);
+                clonedObject->SetAxles(std::dynamic_pointer_cast<IAxlesWriter>(clonedChildIAxles));
             }
-            const auto kProperties =  GetProperties();
+            const auto kProperties =  GetWriterProperties();
             if (kProperties)
             {
                 auto clonedChild = std::dynamic_pointer_cast<PropertiesImpl>(kProperties)->Clone();
                 auto clonedChildIProperties = std::dynamic_pointer_cast<IProperties>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetProperties(clonedChildIProperties);
+                clonedObject->SetProperties(std::dynamic_pointer_cast<IPropertiesWriter>(clonedChildIProperties));
             }
             return clonedObject;
         }
@@ -30693,16 +25997,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _directory;
         }
 
-        /**
-         * Sets the value of model property directory
-         * @param directory from OpenSCENARIO class model specification: [All catalogs files in this directory must be evaluated.]
-         * 
-        */
-        void VehicleCatalogLocationImpl::SetDirectory(std::shared_ptr<IDirectory> directory )
-        {
-            _directory = directory;
-        }
-
         void VehicleCatalogLocationImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
         }
@@ -30725,7 +26019,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kDirectory =  GetDirectory();
+                const auto kDirectory =  GetWriterDirectory();
                 if (kDirectory)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kDirectory));
@@ -30748,13 +26042,13 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kDirectory =  GetDirectory();
+            const auto kDirectory =  GetWriterDirectory();
             if (kDirectory)
             {
                 auto clonedChild = std::dynamic_pointer_cast<DirectoryImpl>(kDirectory)->Clone();
                 auto clonedChildIDirectory = std::dynamic_pointer_cast<IDirectory>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetDirectory(clonedChildIDirectory);
+                clonedObject->SetDirectory(std::dynamic_pointer_cast<IDirectoryWriter>(clonedChildIDirectory));
             }
             return clonedObject;
         }
@@ -30804,18 +26098,10 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::vector<std::shared_ptr<IVehicleCategoryDistributionEntry>> VehicleCategoryDistributionImpl::GetVehicleCategoryDistributionEntries()
         {
-            return _vehicleCategoryDistributionEntries;
-        }
-
-        /**
-         * Sets the value of model property vehicleCategoryDistributionEntries
-         * @param vehicleCategoryDistributionEntries from OpenSCENARIO class model specification: [List of elements that pair 
-         * vehicle categories and their weight within the distribution.]
-         * 
-        */
-        void VehicleCategoryDistributionImpl::SetVehicleCategoryDistributionEntries(std::vector<std::shared_ptr<IVehicleCategoryDistributionEntry>>& vehicleCategoryDistributionEntries)
-        {
-            _vehicleCategoryDistributionEntries = vehicleCategoryDistributionEntries;
+            std::vector<std::shared_ptr<IVehicleCategoryDistributionEntry>> temp;
+            for(auto&& elm: _vehicleCategoryDistributionEntries)
+                temp.push_back(elm);
+            return temp;
         }
 
         void VehicleCategoryDistributionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
@@ -30840,7 +26126,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                auto vehicleCategoryDistributionEntries =  GetVehicleCategoryDistributionEntries();
+                auto vehicleCategoryDistributionEntries =  GetWriterVehicleCategoryDistributionEntries();
                 if (!vehicleCategoryDistributionEntries.empty())
                 {
                     for(auto&& item : vehicleCategoryDistributionEntries)
@@ -30866,15 +26152,15 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // clone children
-            const auto kVehicleCategoryDistributionEntries =  GetVehicleCategoryDistributionEntries();
+            const auto kVehicleCategoryDistributionEntries =  GetWriterVehicleCategoryDistributionEntries();
             if (!kVehicleCategoryDistributionEntries.empty())
             {
-                std::vector<std::shared_ptr<IVehicleCategoryDistributionEntry>> clonedList;
+                std::vector<std::shared_ptr<IVehicleCategoryDistributionEntryWriter>> clonedList;
                 for(auto&& kItem : kVehicleCategoryDistributionEntries)
                 {
                     auto clonedChild = std::dynamic_pointer_cast<VehicleCategoryDistributionEntryImpl>(kItem)->Clone();
                     clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                    clonedList.push_back(std::dynamic_pointer_cast<VehicleCategoryDistributionEntryImpl>(clonedChild));
+                    clonedList.push_back(std::dynamic_pointer_cast<IVehicleCategoryDistributionEntryWriter>(clonedChild));
                 }
                 clonedObject->SetVehicleCategoryDistributionEntries(clonedList);
             }
@@ -30939,26 +26225,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _weight;
         }
 
-        /**
-         * Sets the value of model property category
-         * @param category from OpenSCENARIO class model specification: [The category of the vehicles that appear in traffic.]
-         * 
-        */
-        void VehicleCategoryDistributionEntryImpl::SetCategory(VehicleCategory category )
-        {
-            _category = category;
-        }
-        /**
-         * Sets the value of model property weight
-         * @param weight from OpenSCENARIO class model specification: [The weight of a vehicle category within a traffic 
-         * distribution. Range: [0..inf[.]
-         * 
-        */
-        void VehicleCategoryDistributionEntryImpl::SetWeight(double weight )
-        {
-            _weight = weight;
-        }
-
         void VehicleCategoryDistributionEntryImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
             if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__CATEGORY)
@@ -31020,9 +26286,13 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Enumeration Type
-            clonedObject->SetCategory(_category);
+            const auto kCategory = GetCategory();
+            if ( kCategory.GetLiteral() != "UNKNOWN" )
+            {
+                clonedObject->_category = VehicleCategory::GetFromLiteral(kCategory.GetLiteral());
+            }
             // Simple type
-            clonedObject->SetWeight(_weight);
+            clonedObject->_weight = GetWeight();
             // clone children
             return clonedObject;
         }
@@ -31081,25 +26351,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _position;
         }
 
-        /**
-         * Sets the value of model property time
-         * @param time from OpenSCENARIO class model specification: [Optional time specification of the vertex.]
-         * 
-        */
-        void VertexImpl::SetTime(double time )
-        {
-            _time = time;
-        }
-        /**
-         * Sets the value of model property position
-         * @param position from OpenSCENARIO class model specification: [Position of the vertex.]
-         * 
-        */
-        void VertexImpl::SetPosition(std::shared_ptr<IPosition> position )
-        {
-            _position = position;
-        }
-
         void VertexImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
             if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__TIME)
@@ -31128,7 +26379,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kPosition =  GetPosition();
+                const auto kPosition =  GetWriterPosition();
                 if (kPosition)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kPosition));
@@ -31151,15 +26402,15 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetTime(_time);
+            clonedObject->_time = GetTime();
             // clone children
-            const auto kPosition =  GetPosition();
+            const auto kPosition =  GetWriterPosition();
             if (kPosition)
             {
                 auto clonedChild = std::dynamic_pointer_cast<PositionImpl>(kPosition)->Clone();
                 auto clonedChildIPosition = std::dynamic_pointer_cast<IPosition>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetPosition(clonedChildIPosition);
+                clonedObject->SetPosition(std::dynamic_pointer_cast<IPositionWriter>(clonedChildIPosition));
             }
             return clonedObject;
         }
@@ -31206,52 +26457,21 @@ namespace NET_ASAM_OPENSCENARIO
             * Filling the property to type map
             */
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__GRAPHICS, SimpleType::BOOLEAN);
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__TRAFFIC, SimpleType::BOOLEAN);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__SENSORS, SimpleType::BOOLEAN);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__TRAFFIC, SimpleType::BOOLEAN);
         }
 
         bool VisibilityActionImpl::GetGraphics()
         {
             return _graphics;
         }
-        bool VisibilityActionImpl::GetTraffic()
-        {
-            return _traffic;
-        }
         bool VisibilityActionImpl::GetSensors()
         {
             return _sensors;
         }
-
-        /**
-         * Sets the value of model property graphics
-         * @param graphics from OpenSCENARIO class model specification: [True: actor is visible in image generator(s). False: actor
-         * is not visible in image generator(s).]
-         * 
-        */
-        void VisibilityActionImpl::SetGraphics(bool graphics )
+        bool VisibilityActionImpl::GetTraffic()
         {
-            _graphics = graphics;
-        }
-        /**
-         * Sets the value of model property traffic
-         * @param traffic from OpenSCENARIO class model specification: [True: actor is visible for other traffic participants, 
-         * particularly for autonomous driver models. False: actor is not , visible for other traffic participants.]
-         * 
-        */
-        void VisibilityActionImpl::SetTraffic(bool traffic )
-        {
-            _traffic = traffic;
-        }
-        /**
-         * Sets the value of model property sensors
-         * @param sensors from OpenSCENARIO class model specification: [True: actor is visible in sensor(s). False: actor is not 
-         * visible in sensor(s).]
-         * 
-        */
-        void VisibilityActionImpl::SetSensors(bool sensors )
-        {
-            _sensors = sensors;
+            return _traffic;
         }
 
         void VisibilityActionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
@@ -31262,16 +26482,16 @@ namespace NET_ASAM_OPENSCENARIO
                 _graphics = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
             }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__TRAFFIC)
-            {
-                // Simple type
-                _traffic = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                AddResolvedParameter(attributeKey);
-            }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__SENSORS)
             {
                 // Simple type
                 _sensors = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                AddResolvedParameter(attributeKey);
+            }
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__TRAFFIC)
+            {
+                // Simple type
+                _traffic = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
             }
         }
@@ -31312,11 +26532,11 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetGraphics(_graphics);
+            clonedObject->_graphics = GetGraphics();
             // Simple type
-            clonedObject->SetTraffic(_traffic);
+            clonedObject->_sensors = GetSensors();
             // Simple type
-            clonedObject->SetSensors(_sensors);
+            clonedObject->_traffic = GetTraffic();
             // clone children
             return clonedObject;
         }
@@ -31365,26 +26585,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _position;
         }
 
-        /**
-         * Sets the value of model property routeStrategy
-         * @param routeStrategy from OpenSCENARIO class model specification: [The corresponding routing strategy (fastest, 
-         * shortest, random, leastIntersections).]
-         * 
-        */
-        void WaypointImpl::SetRouteStrategy(RouteStrategy routeStrategy )
-        {
-            _routeStrategy = routeStrategy;
-        }
-        /**
-         * Sets the value of model property position
-         * @param position from OpenSCENARIO class model specification: [The reference position to form the route.]
-         * 
-        */
-        void WaypointImpl::SetPosition(std::shared_ptr<IPosition> position )
-        {
-            _position = position;
-        }
-
         void WaypointImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
             if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ROUTE_STRATEGY)
@@ -31422,7 +26622,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kPosition =  GetPosition();
+                const auto kPosition =  GetWriterPosition();
                 if (kPosition)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kPosition));
@@ -31445,15 +26645,19 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Enumeration Type
-            clonedObject->SetRouteStrategy(_routeStrategy);
+            const auto kRouteStrategy = GetRouteStrategy();
+            if ( kRouteStrategy.GetLiteral() != "UNKNOWN" )
+            {
+                clonedObject->_routeStrategy = RouteStrategy::GetFromLiteral(kRouteStrategy.GetLiteral());
+            }
             // clone children
-            const auto kPosition =  GetPosition();
+            const auto kPosition =  GetWriterPosition();
             if (kPosition)
             {
                 auto clonedChild = std::dynamic_pointer_cast<PositionImpl>(kPosition)->Clone();
                 auto clonedChildIPosition = std::dynamic_pointer_cast<IPosition>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetPosition(clonedChildIPosition);
+                clonedObject->SetPosition(std::dynamic_pointer_cast<IPositionWriter>(clonedChildIPosition));
             }
             return clonedObject;
         }
@@ -31529,45 +26733,6 @@ namespace NET_ASAM_OPENSCENARIO
             return _precipitation;
         }
 
-        /**
-         * Sets the value of model property cloudState
-         * @param cloudState from OpenSCENARIO class model specification: [Definition of the cloud state, i.e. cloud state and sky 
-         * visualization settings.]
-         * 
-        */
-        void WeatherImpl::SetCloudState(CloudState cloudState )
-        {
-            _cloudState = cloudState;
-        }
-        /**
-         * Sets the value of model property sun
-         * @param sun from OpenSCENARIO class model specification: [Definition of the sun, i.e. position and intensity.]
-         * 
-        */
-        void WeatherImpl::SetSun(std::shared_ptr<ISun> sun )
-        {
-            _sun = sun;
-        }
-        /**
-         * Sets the value of model property fog
-         * @param fog from OpenSCENARIO class model specification: [Definition of fog, i.e. visual range and bounding box.]
-         * 
-        */
-        void WeatherImpl::SetFog(std::shared_ptr<IFog> fog )
-        {
-            _fog = fog;
-        }
-        /**
-         * Sets the value of model property precipitation
-         * @param precipitation from OpenSCENARIO class model specification: [Definition of precipitation, i.e. type and 
-         * intensity.]
-         * 
-        */
-        void WeatherImpl::SetPrecipitation(std::shared_ptr<IPrecipitation> precipitation )
-        {
-            _precipitation = precipitation;
-        }
-
         void WeatherImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
             if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__CLOUD_STATE)
@@ -31605,17 +26770,17 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
-                const auto kSun =  GetSun();
+                const auto kSun =  GetWriterSun();
                 if (kSun)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kSun));
                 }
-                const auto kFog =  GetFog();
+                const auto kFog =  GetWriterFog();
                 if (kFog)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kFog));
                 }
-                const auto kPrecipitation =  GetPrecipitation();
+                const auto kPrecipitation =  GetWriterPrecipitation();
                 if (kPrecipitation)
                 {
                     result.push_back(std::dynamic_pointer_cast<BaseImpl>(kPrecipitation));
@@ -31638,31 +26803,35 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Enumeration Type
-            clonedObject->SetCloudState(_cloudState);
+            const auto kCloudState = GetCloudState();
+            if ( kCloudState.GetLiteral() != "UNKNOWN" )
+            {
+                clonedObject->_cloudState = CloudState::GetFromLiteral(kCloudState.GetLiteral());
+            }
             // clone children
-            const auto kSun =  GetSun();
+            const auto kSun =  GetWriterSun();
             if (kSun)
             {
                 auto clonedChild = std::dynamic_pointer_cast<SunImpl>(kSun)->Clone();
                 auto clonedChildISun = std::dynamic_pointer_cast<ISun>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetSun(clonedChildISun);
+                clonedObject->SetSun(std::dynamic_pointer_cast<ISunWriter>(clonedChildISun));
             }
-            const auto kFog =  GetFog();
+            const auto kFog =  GetWriterFog();
             if (kFog)
             {
                 auto clonedChild = std::dynamic_pointer_cast<FogImpl>(kFog)->Clone();
                 auto clonedChildIFog = std::dynamic_pointer_cast<IFog>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetFog(clonedChildIFog);
+                clonedObject->SetFog(std::dynamic_pointer_cast<IFogWriter>(clonedChildIFog));
             }
-            const auto kPrecipitation =  GetPrecipitation();
+            const auto kPrecipitation =  GetWriterPrecipitation();
             if (kPrecipitation)
             {
                 auto clonedChild = std::dynamic_pointer_cast<PrecipitationImpl>(kPrecipitation)->Clone();
                 auto clonedChildIPrecipitation = std::dynamic_pointer_cast<IPrecipitation>(clonedChild);
                 clonedChild->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-                clonedObject->SetPrecipitation(clonedChildIPrecipitation);
+                clonedObject->SetPrecipitation(std::dynamic_pointer_cast<IPrecipitationWriter>(clonedChildIPrecipitation));
             }
             return clonedObject;
         }
@@ -31728,26 +26897,14 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * Filling the property to type map
             */
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__X, SimpleType::DOUBLE);
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__Y, SimpleType::DOUBLE);
-            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__Z, SimpleType::DOUBLE);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__H, SimpleType::DOUBLE);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__P, SimpleType::DOUBLE);
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__R, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__X, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__Y, SimpleType::DOUBLE);
+            _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__Z, SimpleType::DOUBLE);
         }
 
-        double WorldPositionImpl::GetX()
-        {
-            return _x;
-        }
-        double WorldPositionImpl::GetY()
-        {
-            return _y;
-        }
-        double WorldPositionImpl::GetZ()
-        {
-            return _z;
-        }
         double WorldPositionImpl::GetH()
         {
             return _h;
@@ -31760,86 +26917,22 @@ namespace NET_ASAM_OPENSCENARIO
         {
             return _r;
         }
-
-        /**
-         * Sets the value of model property x
-         * @param x from OpenSCENARIO class model specification: [The x coordinate value.]
-         * 
-        */
-        void WorldPositionImpl::SetX(double x )
+        double WorldPositionImpl::GetX()
         {
-            _x = x;
+            return _x;
         }
-        /**
-         * Sets the value of model property y
-         * @param y from OpenSCENARIO class model specification: [The y coordinate value.]
-         * 
-        */
-        void WorldPositionImpl::SetY(double y )
+        double WorldPositionImpl::GetY()
         {
-            _y = y;
+            return _y;
         }
-        /**
-         * Sets the value of model property z
-         * @param z from OpenSCENARIO class model specification: [The z coordinate value.]
-         * 
-        */
-        void WorldPositionImpl::SetZ(double z )
+        double WorldPositionImpl::GetZ()
         {
-            _z = z;
-        }
-        /**
-         * Sets the value of model property h
-         * @param h from OpenSCENARIO class model specification: [The heading angle of the object, defining a mathematically 
-         * positive rotation about the z-axis (see ISO 8855:2011).]
-         * 
-        */
-        void WorldPositionImpl::SetH(double h )
-        {
-            _h = h;
-        }
-        /**
-         * Sets the value of model property p
-         * @param p from OpenSCENARIO class model specification: [The pitch angle of the object, defining a mathematically positive
-         * rotation about the y-axis (see ISO 8855:2011).]
-         * 
-        */
-        void WorldPositionImpl::SetP(double p )
-        {
-            _p = p;
-        }
-        /**
-         * Sets the value of model property r
-         * @param r from OpenSCENARIO class model specification: [The roll angle of the object, defining a mathematically positive 
-         * rotation about the x-axis (see ISO 8855:2011).]
-         * 
-        */
-        void WorldPositionImpl::SetR(double r )
-        {
-            _r = r;
+            return _z;
         }
 
         void WorldPositionImpl::ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue)
         {
-            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__X)
-            {
-                // Simple type
-                _x = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                AddResolvedParameter(attributeKey);
-            }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__Y)
-            {
-                // Simple type
-                _y = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                AddResolvedParameter(attributeKey);
-            }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__Z)
-            {
-                // Simple type
-                _z = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
-                AddResolvedParameter(attributeKey);
-            }
-            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__H)
+            if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__H)
             {
                 // Simple type
                 _h = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
@@ -31855,6 +26948,24 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Simple type
                 _r = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                AddResolvedParameter(attributeKey);
+            }
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__X)
+            {
+                // Simple type
+                _x = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                AddResolvedParameter(attributeKey);
+            }
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__Y)
+            {
+                // Simple type
+                _y = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
+                AddResolvedParameter(attributeKey);
+            }
+            else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__Z)
+            {
+                // Simple type
+                _z = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
             }
         }
@@ -31895,17 +27006,17 @@ namespace NET_ASAM_OPENSCENARIO
 
             // clone attributes;
             // Simple type
-            clonedObject->SetX(_x);
+            clonedObject->_h = GetH();
             // Simple type
-            clonedObject->SetY(_y);
+            clonedObject->_p = GetP();
             // Simple type
-            clonedObject->SetZ(_z);
+            clonedObject->_r = GetR();
             // Simple type
-            clonedObject->SetH(_h);
+            clonedObject->_x = GetX();
             // Simple type
-            clonedObject->SetP(_p);
+            clonedObject->_y = GetY();
             // Simple type
-            clonedObject->SetR(_r);
+            clonedObject->_z = GetZ();
             // clone children
             return clonedObject;
         }

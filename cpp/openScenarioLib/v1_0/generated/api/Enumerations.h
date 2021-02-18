@@ -1,3 +1,4 @@
+
 /*
  * Copyright 2020 RA Consulting
  *
@@ -34,11 +35,11 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * Values from OpenSCENARIO class model specification:
          * <ul>
-         * <li>Turns off the sky visualization.
-         * <li>Cloud free conditions.
          * <li>Cloudy. There are more clouds than sunshine.
+         * <li>Cloud free conditions.
          * <li>Overcast sky. Dull and gray looking.
          * <li>Rain clouds.
+         * <li>Turns off the sky visualization.
          * </ul>
          * 
          * @author RA Consulting OpenSCENARIO generation facility
@@ -49,11 +50,11 @@ namespace NET_ASAM_OPENSCENARIO
             enum CloudStateEnum
             {
                 UNKNOWN = -1,
-                SKY_OFF,
-                FREE,
                 CLOUDY,
+                FREE,
                 OVERCAST,
                 RAINY,
+                SKY_OFF,
             };
 
         private:
@@ -65,11 +66,11 @@ namespace NET_ASAM_OPENSCENARIO
             const std::vector<std::string> kCloudStateEnumString 
             {
                 "UNKNOWN",
-                "skyOff",
-                "free",
                 "cloudy",
+                "free",
                 "overcast",
                 "rainy",
+                "skyOff",
             };
 
             /**
@@ -83,7 +84,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             CloudState(CloudStateEnum& cloudState)
             {
-                _literal = kCloudStateEnumString[cloudState];
+                _literal = kCloudStateEnumString[cloudState+1];
                 _cloudStateEnum = GetFromLiteral(_literal);
             }
 
@@ -106,7 +107,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 _cloudStateEnum = rhs;
                 if (_cloudStateEnum > -1)
-                    _literal = kCloudStateEnumString[_cloudStateEnum];
+                    _literal = kCloudStateEnumString[_cloudStateEnum+1];
                 else
                     _literal = "unknown";
                 return *this;
@@ -148,15 +149,15 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * Values from OpenSCENARIO class model specification:
          * <ul>
-         * <li>A condition defined with a rising edge shall return true at discrete time t if its logical expression is true at 
-         * discrete time t and its logical expression was false at discrete time t-ts, where ts is the simulation sampling time.
          * <li>A condition defined with a falling edge shall return true at discrete time t if its logical expression is false at 
          * discrete time t and its logical expression was true at discrete time t-ts, where ts is the simulation sampling time.
+         * <li>A condition defined with a 'none' edge shall return true at discrete time t if its logical expression is true at 
+         * discrete time t.
+         * <li>A condition defined with a rising edge shall return true at discrete time t if its logical expression is true at 
+         * discrete time t and its logical expression was false at discrete time t-ts, where ts is the simulation sampling time.
          * <li>A condition defined with a 'risingOrFalling' edge shall return true at discrete time t if its logical expression is 
          * true at discrete time t and its logical expression was false at discrete time t-ts OR if its logical expression is false
          * at discrete time t and its logical expression was true at discrete time t-ts. ts is the simulation sampling time.
-         * <li>A condition defined with a 'none' edge shall return true at discrete time t if its logical expression is true at 
-         * discrete time t.
          * </ul>
          * 
          * @author RA Consulting OpenSCENARIO generation facility
@@ -167,10 +168,10 @@ namespace NET_ASAM_OPENSCENARIO
             enum ConditionEdgeEnum
             {
                 UNKNOWN = -1,
-                RISING,
                 FALLING,
-                RISING_OR_FALLING,
                 NONE,
+                RISING,
+                RISING_OR_FALLING,
             };
 
         private:
@@ -182,10 +183,10 @@ namespace NET_ASAM_OPENSCENARIO
             const std::vector<std::string> kConditionEdgeEnumString 
             {
                 "UNKNOWN",
-                "rising",
                 "falling",
-                "risingOrFalling",
                 "none",
+                "rising",
+                "risingOrFalling",
             };
 
             /**
@@ -199,7 +200,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             ConditionEdge(ConditionEdgeEnum& conditionEdge)
             {
-                _literal = kConditionEdgeEnumString[conditionEdge];
+                _literal = kConditionEdgeEnumString[conditionEdge+1];
                 _conditionEdgeEnum = GetFromLiteral(_literal);
             }
 
@@ -222,7 +223,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 _conditionEdgeEnum = rhs;
                 if (_conditionEdgeEnum > -1)
-                    _literal = kConditionEdgeEnumString[_conditionEdgeEnum];
+                    _literal = kConditionEdgeEnumString[_conditionEdgeEnum+1];
                 else
                     _literal = "unknown";
                 return *this;
@@ -264,9 +265,9 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * Values from OpenSCENARIO class model specification:
          * <ul>
+         * <li>A predefined distance used to acquire the target value.
          * <li>A predefined constant rate is used to acquire the target value.
          * <li>A predefined time (duration) is used to acquire the target value.
-         * <li>A predefined distance used to acquire the target value.
          * </ul>
          * 
          * @author RA Consulting OpenSCENARIO generation facility
@@ -277,9 +278,9 @@ namespace NET_ASAM_OPENSCENARIO
             enum DynamicsDimensionEnum
             {
                 UNKNOWN = -1,
+                DISTANCE,
                 RATE,
                 TIME,
-                DISTANCE,
             };
 
         private:
@@ -291,9 +292,9 @@ namespace NET_ASAM_OPENSCENARIO
             const std::vector<std::string> kDynamicsDimensionEnumString 
             {
                 "UNKNOWN",
+                "distance",
                 "rate",
                 "time",
-                "distance",
             };
 
             /**
@@ -307,7 +308,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             DynamicsDimension(DynamicsDimensionEnum& dynamicsDimension)
             {
-                _literal = kDynamicsDimensionEnumString[dynamicsDimension];
+                _literal = kDynamicsDimensionEnumString[dynamicsDimension+1];
                 _dynamicsDimensionEnum = GetFromLiteral(_literal);
             }
 
@@ -330,7 +331,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 _dynamicsDimensionEnum = rhs;
                 if (_dynamicsDimensionEnum > -1)
-                    _literal = kDynamicsDimensionEnumString[_dynamicsDimensionEnum];
+                    _literal = kDynamicsDimensionEnumString[_dynamicsDimensionEnum+1];
                 else
                     _literal = "unknown";
                 return *this;
@@ -372,8 +373,8 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * Values from OpenSCENARIO class model specification:
          * <ul>
-         * <li>Value changes in a linear function: f(x) = f_0 + rate * x.
          * <li>Cubical transition f(x)=A*x^3+B*x^2+C*x+D with the constraint that the gradient must be zero at start and end.
+         * <li>Value changes in a linear function: f(x) = f_0 + rate * x.
          * <li>Sinusoidal transition f(x)=A*sin(x)+B with the constraint that the gradient must be zero at start and end.
          * <li>Step transition.
          * </ul>
@@ -386,8 +387,8 @@ namespace NET_ASAM_OPENSCENARIO
             enum DynamicsShapeEnum
             {
                 UNKNOWN = -1,
-                LINEAR,
                 CUBIC,
+                LINEAR,
                 SINUSOIDAL,
                 STEP,
             };
@@ -401,8 +402,8 @@ namespace NET_ASAM_OPENSCENARIO
             const std::vector<std::string> kDynamicsShapeEnumString 
             {
                 "UNKNOWN",
-                "linear",
                 "cubic",
+                "linear",
                 "sinusoidal",
                 "step",
             };
@@ -418,7 +419,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             DynamicsShape(DynamicsShapeEnum& dynamicsShape)
             {
-                _literal = kDynamicsShapeEnumString[dynamicsShape];
+                _literal = kDynamicsShapeEnumString[dynamicsShape+1];
                 _dynamicsShapeEnum = GetFromLiteral(_literal);
             }
 
@@ -441,7 +442,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 _dynamicsShapeEnum = rhs;
                 if (_dynamicsShapeEnum > -1)
-                    _literal = kDynamicsShapeEnumString[_dynamicsShapeEnum];
+                    _literal = kDynamicsShapeEnumString[_dynamicsShapeEnum+1];
                 else
                     _literal = "unknown";
                 return *this;
@@ -483,8 +484,8 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * Values from OpenSCENARIO class model specification:
          * <ul>
-         * <li>Explicit definition of the lateral position of an entity.
          * <li>Follow of the steering target (e.g. for a driver model).
+         * <li>Explicit definition of the lateral position of an entity.
          * </ul>
          * 
          * @author RA Consulting OpenSCENARIO generation facility
@@ -495,8 +496,8 @@ namespace NET_ASAM_OPENSCENARIO
             enum FollowingModeEnum
             {
                 UNKNOWN = -1,
-                POSITION,
                 FOLLOW,
+                POSITION,
             };
 
         private:
@@ -508,8 +509,8 @@ namespace NET_ASAM_OPENSCENARIO
             const std::vector<std::string> kFollowingModeEnumString 
             {
                 "UNKNOWN",
-                "position",
                 "follow",
+                "position",
             };
 
             /**
@@ -523,7 +524,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             FollowingMode(FollowingModeEnum& followingMode)
             {
-                _literal = kFollowingModeEnumString[followingMode];
+                _literal = kFollowingModeEnumString[followingMode+1];
                 _followingModeEnum = GetFromLiteral(_literal);
             }
 
@@ -546,7 +547,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 _followingModeEnum = rhs;
                 if (_followingModeEnum > -1)
-                    _literal = kFollowingModeEnumString[_followingModeEnum];
+                    _literal = kFollowingModeEnumString[_followingModeEnum+1];
                 else
                     _literal = "unknown";
                 return *this;
@@ -588,23 +589,23 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * Values from OpenSCENARIO class model specification:
          * <ul>
-         * <li>None, other
-         * <li>Not further defined obstacle
-         * <li>A pole
-         * <li>A tree
-         * <li>Not further defined vegetation.
          * <li>A barrier.
          * <li>A building.
+         * <li>A crosswalk.
+         * <li>A gantry.
+         * <li>None, other
+         * <li>Not further defined obstacle
          * <li>A parking space.
          * <li>A patch.
+         * <li>A pole
          * <li>A railing or guard rail.
-         * <li>A traffic island.
-         * <li>A crosswalk.
-         * <li>A street lamp.
-         * <li>A gantry.
-         * <li>A sound barrier.
-         * <li>Wind.
          * <li>Not further defined road mark.
+         * <li>A sound barrier.
+         * <li>A street lamp.
+         * <li>A traffic island.
+         * <li>A tree
+         * <li>Not further defined vegetation.
+         * <li>Wind.
          * </ul>
          * 
          * @author RA Consulting OpenSCENARIO generation facility
@@ -615,23 +616,23 @@ namespace NET_ASAM_OPENSCENARIO
             enum MiscObjectCategoryEnum
             {
                 UNKNOWN = -1,
-                NONE,
-                OBSTACLE,
-                POLE,
-                TREE,
-                VEGETATION,
                 BARRIER,
                 BUILDING,
+                CROSSWALK,
+                GANTRY,
+                NONE,
+                OBSTACLE,
                 PARKING_SPACE,
                 PATCH,
+                POLE,
                 RAILING,
-                TRAFFIC_ISLAND,
-                CROSSWALK,
-                STREET_LAMP,
-                GANTRY,
-                SOUND_BARRIER,
-                WIND,
                 ROAD_MARK,
+                SOUND_BARRIER,
+                STREET_LAMP,
+                TRAFFIC_ISLAND,
+                TREE,
+                VEGETATION,
+                WIND,
             };
 
         private:
@@ -643,23 +644,23 @@ namespace NET_ASAM_OPENSCENARIO
             const std::vector<std::string> kMiscObjectCategoryEnumString 
             {
                 "UNKNOWN",
-                "none",
-                "obstacle",
-                "pole",
-                "tree",
-                "vegetation",
                 "barrier",
                 "building",
+                "crosswalk",
+                "gantry",
+                "none",
+                "obstacle",
                 "parkingSpace",
                 "patch",
+                "pole",
                 "railing",
-                "trafficIsland",
-                "crosswalk",
-                "streetLamp",
-                "gantry",
-                "soundBarrier",
-                "wind",
                 "roadMark",
+                "soundBarrier",
+                "streetLamp",
+                "trafficIsland",
+                "tree",
+                "vegetation",
+                "wind",
             };
 
             /**
@@ -673,7 +674,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             MiscObjectCategory(MiscObjectCategoryEnum& miscObjectCategory)
             {
-                _literal = kMiscObjectCategoryEnumString[miscObjectCategory];
+                _literal = kMiscObjectCategoryEnumString[miscObjectCategory+1];
                 _miscObjectCategoryEnum = GetFromLiteral(_literal);
             }
 
@@ -696,7 +697,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 _miscObjectCategoryEnum = rhs;
                 if (_miscObjectCategoryEnum > -1)
-                    _literal = kMiscObjectCategoryEnumString[_miscObjectCategoryEnum];
+                    _literal = kMiscObjectCategoryEnumString[_miscObjectCategoryEnum+1];
                 else
                     _literal = "unknown";
                 return *this;
@@ -738,9 +739,9 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * Values from OpenSCENARIO class model specification:
          * <ul>
+         * <li>Miscellaneous object.
          * <li>A Pedestrian.
          * <li>Ac Vehicle.
-         * <li>Miscellaneous object.
          * </ul>
          * 
          * @author RA Consulting OpenSCENARIO generation facility
@@ -751,9 +752,9 @@ namespace NET_ASAM_OPENSCENARIO
             enum ObjectTypeEnum
             {
                 UNKNOWN = -1,
+                MISCELLANEOUS,
                 PEDESTRIAN,
                 VEHICLE,
-                MISCELLANEOUS,
             };
 
         private:
@@ -765,9 +766,9 @@ namespace NET_ASAM_OPENSCENARIO
             const std::vector<std::string> kObjectTypeEnumString 
             {
                 "UNKNOWN",
+                "miscellaneous",
                 "pedestrian",
                 "vehicle",
-                "miscellaneous",
             };
 
             /**
@@ -781,7 +782,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             ObjectType(ObjectTypeEnum& objectType)
             {
-                _literal = kObjectTypeEnumString[objectType];
+                _literal = kObjectTypeEnumString[objectType+1];
                 _objectTypeEnum = GetFromLiteral(_literal);
             }
 
@@ -804,7 +805,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 _objectTypeEnum = rhs;
                 if (_objectTypeEnum > -1)
-                    _literal = kObjectTypeEnumString[_objectTypeEnum];
+                    _literal = kObjectTypeEnumString[_objectTypeEnum+1];
                 else
                     _literal = "unknown";
                 return *this;
@@ -846,13 +847,13 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * Values from OpenSCENARIO class model specification:
          * <ul>
-         * <li>Integer.
+         * <li>Boolean.
+         * <li>DateTime.
          * <li>Double.
+         * <li>Integer.
          * <li>String.
          * <li>UnsignedInt.
          * <li>UnsignedShort.
-         * <li>Boolean.
-         * <li>DateTime.
          * </ul>
          * 
          * @author RA Consulting OpenSCENARIO generation facility
@@ -863,13 +864,13 @@ namespace NET_ASAM_OPENSCENARIO
             enum ParameterTypeEnum
             {
                 UNKNOWN = -1,
-                INTEGER,
+                BOOLEAN,
+                DATE_TIME,
                 DOUBLE,
+                INTEGER,
                 STRING,
                 UNSIGNED_INT,
                 UNSIGNED_SHORT,
-                BOOLEAN,
-                DATE_TIME,
             };
 
         private:
@@ -881,13 +882,13 @@ namespace NET_ASAM_OPENSCENARIO
             const std::vector<std::string> kParameterTypeEnumString 
             {
                 "UNKNOWN",
-                "integer",
+                "boolean",
+                "dateTime",
                 "double",
+                "integer",
                 "string",
                 "unsignedInt",
                 "unsignedShort",
-                "boolean",
-                "dateTime",
             };
 
             /**
@@ -901,7 +902,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             ParameterType(ParameterTypeEnum& parameterType)
             {
-                _literal = kParameterTypeEnumString[parameterType];
+                _literal = kParameterTypeEnumString[parameterType+1];
                 _parameterTypeEnum = GetFromLiteral(_literal);
             }
 
@@ -924,7 +925,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 _parameterTypeEnum = rhs;
                 if (_parameterTypeEnum > -1)
-                    _literal = kParameterTypeEnumString[_parameterTypeEnum];
+                    _literal = kParameterTypeEnumString[_parameterTypeEnum+1];
                 else
                     _literal = "unknown";
                 return *this;
@@ -966,9 +967,9 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * Values from OpenSCENARIO class model specification:
          * <ul>
+         * <li>An animal.
          * <li>A pedestrian.
          * <li>A wheelchair.
-         * <li>An animal.
          * </ul>
          * 
          * @author RA Consulting OpenSCENARIO generation facility
@@ -979,9 +980,9 @@ namespace NET_ASAM_OPENSCENARIO
             enum PedestrianCategoryEnum
             {
                 UNKNOWN = -1,
+                ANIMAL,
                 PEDESTRIAN,
                 WHEELCHAIR,
-                ANIMAL,
             };
 
         private:
@@ -993,9 +994,9 @@ namespace NET_ASAM_OPENSCENARIO
             const std::vector<std::string> kPedestrianCategoryEnumString 
             {
                 "UNKNOWN",
+                "animal",
                 "pedestrian",
                 "wheelchair",
-                "animal",
             };
 
             /**
@@ -1009,7 +1010,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             PedestrianCategory(PedestrianCategoryEnum& pedestrianCategory)
             {
-                _literal = kPedestrianCategoryEnumString[pedestrianCategory];
+                _literal = kPedestrianCategoryEnumString[pedestrianCategory+1];
                 _pedestrianCategoryEnum = GetFromLiteral(_literal);
             }
 
@@ -1032,7 +1033,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 _pedestrianCategoryEnum = rhs;
                 if (_pedestrianCategoryEnum > -1)
-                    _literal = kPedestrianCategoryEnumString[_pedestrianCategoryEnum];
+                    _literal = kPedestrianCategoryEnumString[_pedestrianCategoryEnum+1];
                 else
                     _literal = "unknown";
                 return *this;
@@ -1117,7 +1118,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             PrecipitationType(PrecipitationTypeEnum& precipitationType)
             {
-                _literal = kPrecipitationTypeEnumString[precipitationType];
+                _literal = kPrecipitationTypeEnumString[precipitationType+1];
                 _precipitationTypeEnum = GetFromLiteral(_literal);
             }
 
@@ -1140,7 +1141,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 _precipitationTypeEnum = rhs;
                 if (_precipitationTypeEnum > -1)
-                    _literal = kPrecipitationTypeEnumString[_precipitationTypeEnum];
+                    _literal = kPrecipitationTypeEnumString[_precipitationTypeEnum+1];
                 else
                     _literal = "unknown";
                 return *this;
@@ -1184,9 +1185,9 @@ namespace NET_ASAM_OPENSCENARIO
          * <ul>
          * <li>If a starting event has priority Overwrite, all events in running state, within the same scope (maneuver) as the 
          * starting event, should be issued a stop command (stop transition).
+         * <li>Execute in parallel to other events.
          * <li>If a starting event has priority Skip, then it will not be ran if there is any other event in the same scope 
          * (maneuver) in the running state.
-         * <li>Execute in parallel to other events.
          * </ul>
          * 
          * @author RA Consulting OpenSCENARIO generation facility
@@ -1198,8 +1199,8 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 UNKNOWN = -1,
                 OVERWRITE,
-                SKIP,
                 PARALLEL,
+                SKIP,
             };
 
         private:
@@ -1212,8 +1213,8 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 "UNKNOWN",
                 "overwrite",
-                "skip",
                 "parallel",
+                "skip",
             };
 
             /**
@@ -1227,7 +1228,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             Priority(PriorityEnum& priority)
             {
-                _literal = kPriorityEnumString[priority];
+                _literal = kPriorityEnumString[priority+1];
                 _priorityEnum = GetFromLiteral(_literal);
             }
 
@@ -1250,7 +1251,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 _priorityEnum = rhs;
                 if (_priorityEnum > -1)
-                    _literal = kPriorityEnumString[_priorityEnum];
+                    _literal = kPriorityEnumString[_priorityEnum+1];
                 else
                     _literal = "unknown";
                 return *this;
@@ -1292,8 +1293,8 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * Values from OpenSCENARIO class model specification:
          * <ul>
-         * <li>Relative reference.
          * <li>Absolute reference.
+         * <li>Relative reference.
          * </ul>
          * 
          * @author RA Consulting OpenSCENARIO generation facility
@@ -1304,8 +1305,8 @@ namespace NET_ASAM_OPENSCENARIO
             enum ReferenceContextEnum
             {
                 UNKNOWN = -1,
-                RELATIVE,
                 ABSOLUTE,
+                RELATIVE,
             };
 
         private:
@@ -1317,8 +1318,8 @@ namespace NET_ASAM_OPENSCENARIO
             const std::vector<std::string> kReferenceContextEnumString 
             {
                 "UNKNOWN",
-                "relative",
                 "absolute",
+                "relative",
             };
 
             /**
@@ -1332,7 +1333,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             ReferenceContext(ReferenceContextEnum& referenceContext)
             {
-                _literal = kReferenceContextEnumString[referenceContext];
+                _literal = kReferenceContextEnumString[referenceContext+1];
                 _referenceContextEnum = GetFromLiteral(_literal);
             }
 
@@ -1355,7 +1356,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 _referenceContextEnum = rhs;
                 if (_referenceContextEnum > -1)
-                    _literal = kReferenceContextEnumString[_referenceContextEnum];
+                    _literal = kReferenceContextEnumString[_referenceContextEnum+1];
                 else
                     _literal = "unknown";
                 return *this;
@@ -1397,9 +1398,9 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * Values from OpenSCENARIO class model specification:
          * <ul>
-         * <li>Longitudinal distance offset.
-         * <li>Lateral distance offset.
          * <li>Cartesian distance offset.
+         * <li>Lateral distance offset.
+         * <li>Longitudinal distance offset.
          * </ul>
          * 
          * @author RA Consulting OpenSCENARIO generation facility
@@ -1410,9 +1411,9 @@ namespace NET_ASAM_OPENSCENARIO
             enum RelativeDistanceTypeEnum
             {
                 UNKNOWN = -1,
-                LONGITUDINAL,
-                LATERAL,
                 CARTESIAN_DISTANCE,
+                LATERAL,
+                LONGITUDINAL,
             };
 
         private:
@@ -1424,9 +1425,9 @@ namespace NET_ASAM_OPENSCENARIO
             const std::vector<std::string> kRelativeDistanceTypeEnumString 
             {
                 "UNKNOWN",
-                "longitudinal",
-                "lateral",
                 "cartesianDistance",
+                "lateral",
+                "longitudinal",
             };
 
             /**
@@ -1440,7 +1441,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             RelativeDistanceType(RelativeDistanceTypeEnum& relativeDistanceType)
             {
-                _literal = kRelativeDistanceTypeEnumString[relativeDistanceType];
+                _literal = kRelativeDistanceTypeEnumString[relativeDistanceType+1];
                 _relativeDistanceTypeEnum = GetFromLiteral(_literal);
             }
 
@@ -1463,7 +1464,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 _relativeDistanceTypeEnum = rhs;
                 if (_relativeDistanceTypeEnum > -1)
-                    _literal = kRelativeDistanceTypeEnumString[_relativeDistanceTypeEnum];
+                    _literal = kRelativeDistanceTypeEnumString[_relativeDistanceTypeEnum+1];
                 else
                     _literal = "unknown";
                 return *this;
@@ -1506,9 +1507,9 @@ namespace NET_ASAM_OPENSCENARIO
          * Values from OpenSCENARIO class model specification:
          * <ul>
          * <li>Fastest route.
-         * <li>Shortest route.
          * <li>Route with least number of intersections.
          * <li>Random route.
+         * <li>Shortest route.
          * </ul>
          * 
          * @author RA Consulting OpenSCENARIO generation facility
@@ -1520,9 +1521,9 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 UNKNOWN = -1,
                 FASTEST,
-                SHORTEST,
                 LEAST_INTERSECTIONS,
                 RANDOM,
+                SHORTEST,
             };
 
         private:
@@ -1535,9 +1536,9 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 "UNKNOWN",
                 "fastest",
-                "shortest",
                 "leastIntersections",
                 "random",
+                "shortest",
             };
 
             /**
@@ -1551,7 +1552,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             RouteStrategy(RouteStrategyEnum& routeStrategy)
             {
-                _literal = kRouteStrategyEnumString[routeStrategy];
+                _literal = kRouteStrategyEnumString[routeStrategy+1];
                 _routeStrategyEnum = GetFromLiteral(_literal);
             }
 
@@ -1574,7 +1575,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 _routeStrategyEnum = rhs;
                 if (_routeStrategyEnum > -1)
-                    _literal = kRouteStrategyEnumString[_routeStrategyEnum];
+                    _literal = kRouteStrategyEnumString[_routeStrategyEnum+1];
                 else
                     _literal = "unknown";
                 return *this;
@@ -1616,9 +1617,9 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * Values from OpenSCENARIO class model specification:
          * <ul>
+         * <li>'Equal to' operator.
          * <li>'Greater than' operator.
          * <li>'Less than' operator.
-         * <li>'Equal to' operator.
          * </ul>
          * 
          * @author RA Consulting OpenSCENARIO generation facility
@@ -1629,9 +1630,9 @@ namespace NET_ASAM_OPENSCENARIO
             enum RuleEnum
             {
                 UNKNOWN = -1,
+                EQUAL_TO,
                 GREATER_THAN,
                 LESS_THAN,
-                EQUAL_TO,
             };
 
         private:
@@ -1643,9 +1644,9 @@ namespace NET_ASAM_OPENSCENARIO
             const std::vector<std::string> kRuleEnumString 
             {
                 "UNKNOWN",
+                "equalTo",
                 "greaterThan",
                 "lessThan",
-                "equalTo",
             };
 
             /**
@@ -1659,7 +1660,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             Rule(RuleEnum& rule)
             {
-                _literal = kRuleEnumString[rule];
+                _literal = kRuleEnumString[rule+1];
                 _ruleEnum = GetFromLiteral(_literal);
             }
 
@@ -1682,7 +1683,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 _ruleEnum = rhs;
                 if (_ruleEnum > -1)
-                    _literal = kRuleEnumString[_ruleEnum];
+                    _literal = kRuleEnumString[_ruleEnum+1];
                 else
                     _literal = "unknown";
                 return *this;
@@ -1766,7 +1767,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             SpeedTargetValueType(SpeedTargetValueTypeEnum& speedTargetValueType)
             {
-                _literal = kSpeedTargetValueTypeEnumString[speedTargetValueType];
+                _literal = kSpeedTargetValueTypeEnumString[speedTargetValueType+1];
                 _speedTargetValueTypeEnum = GetFromLiteral(_literal);
             }
 
@@ -1789,7 +1790,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 _speedTargetValueTypeEnum = rhs;
                 if (_speedTargetValueTypeEnum > -1)
-                    _literal = kSpeedTargetValueTypeEnumString[_speedTargetValueTypeEnum];
+                    _literal = kSpeedTargetValueTypeEnumString[_speedTargetValueTypeEnum+1];
                 else
                     _literal = "unknown";
                 return *this;
@@ -1831,18 +1832,18 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * Values from OpenSCENARIO class model specification:
          * <ul>
-         * <li>Transition between the standby and running state. The moment the referenced StoryboardElement instance starts its 
-         * execution.
-         * <li>Transition between the running state and the standby state. The moment the referenced StoryboardElement terminates 
-         * its execution by completing its goal.
-         * <li>Transition between the running or standby states to the complete state. Occurs when the execution of the referenced 
-         * StoryboardElement instance is stopped via a stop trigger or overriding.
-         * <li>Transition marking the moment an element is asked to move to the running state but is instead skipped so it remains 
-         * in the standby state (Only for Event instances).
          * <li>State from which the Storyboard element cannot return to the running state without external interference (forced by 
          * a parent element).
+         * <li>Transition between the running state and the standby state. The moment the referenced StoryboardElement terminates 
+         * its execution by completing its goal.
          * <li>State in which the storyboard element is executing its actions.
+         * <li>Transition marking the moment an element is asked to move to the running state but is instead skipped so it remains 
+         * in the standby state (Only for Event instances).
          * <li>State in which the storyboard element could move to the running state given a start trigger.
+         * <li>Transition between the standby and running state. The moment the referenced StoryboardElement instance starts its 
+         * execution.
+         * <li>Transition between the running or standby states to the complete state. Occurs when the execution of the referenced 
+         * StoryboardElement instance is stopped via a stop trigger or overriding.
          * </ul>
          * 
          * @author RA Consulting OpenSCENARIO generation facility
@@ -1853,13 +1854,13 @@ namespace NET_ASAM_OPENSCENARIO
             enum StoryboardElementStateEnum
             {
                 UNKNOWN = -1,
-                START_TRANSITION,
-                END_TRANSITION,
-                STOP_TRANSITION,
-                SKIP_TRANSITION,
                 COMPLETE_STATE,
+                END_TRANSITION,
                 RUNNING_STATE,
+                SKIP_TRANSITION,
                 STANDBY_STATE,
+                START_TRANSITION,
+                STOP_TRANSITION,
             };
 
         private:
@@ -1871,13 +1872,13 @@ namespace NET_ASAM_OPENSCENARIO
             const std::vector<std::string> kStoryboardElementStateEnumString 
             {
                 "UNKNOWN",
-                "startTransition",
-                "endTransition",
-                "stopTransition",
-                "skipTransition",
                 "completeState",
+                "endTransition",
                 "runningState",
+                "skipTransition",
                 "standbyState",
+                "startTransition",
+                "stopTransition",
             };
 
             /**
@@ -1891,7 +1892,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             StoryboardElementState(StoryboardElementStateEnum& storyboardElementState)
             {
-                _literal = kStoryboardElementStateEnumString[storyboardElementState];
+                _literal = kStoryboardElementStateEnumString[storyboardElementState+1];
                 _storyboardElementStateEnum = GetFromLiteral(_literal);
             }
 
@@ -1914,7 +1915,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 _storyboardElementStateEnum = rhs;
                 if (_storyboardElementStateEnum > -1)
-                    _literal = kStoryboardElementStateEnumString[_storyboardElementStateEnum];
+                    _literal = kStoryboardElementStateEnumString[_storyboardElementStateEnum+1];
                 else
                     _literal = "unknown";
                 return *this;
@@ -1956,12 +1957,12 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * Values from OpenSCENARIO class model specification:
          * <ul>
-         * <li>The referenced StoryboardElement instance is a Story.
          * <li>The referenced StoryboardElement instance is an Act.
-         * <li>The referenced StoryboardElement instance is a Maneuver.
-         * <li>The referenced StoryboardElement instance is an Event.
          * <li>The referenced StoryboardElement instance is an Action.
+         * <li>The referenced StoryboardElement instance is an Event.
+         * <li>The referenced StoryboardElement instance is a Maneuver.
          * <li>The referenced StoryboardElement instance is a ManeuverGroup.
+         * <li>The referenced StoryboardElement instance is a Story.
          * </ul>
          * 
          * @author RA Consulting OpenSCENARIO generation facility
@@ -1972,12 +1973,12 @@ namespace NET_ASAM_OPENSCENARIO
             enum StoryboardElementTypeEnum
             {
                 UNKNOWN = -1,
-                STORY,
                 ACT,
-                MANEUVER,
-                EVENT,
                 ACTION,
+                EVENT,
+                MANEUVER,
                 MANEUVER_GROUP,
+                STORY,
             };
 
         private:
@@ -1989,12 +1990,12 @@ namespace NET_ASAM_OPENSCENARIO
             const std::vector<std::string> kStoryboardElementTypeEnumString 
             {
                 "UNKNOWN",
-                "story",
                 "act",
-                "maneuver",
-                "event",
                 "action",
+                "event",
+                "maneuver",
                 "maneuverGroup",
+                "story",
             };
 
             /**
@@ -2008,7 +2009,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             StoryboardElementType(StoryboardElementTypeEnum& storyboardElementType)
             {
-                _literal = kStoryboardElementTypeEnumString[storyboardElementType];
+                _literal = kStoryboardElementTypeEnumString[storyboardElementType+1];
                 _storyboardElementTypeEnum = GetFromLiteral(_literal);
             }
 
@@ -2031,7 +2032,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 _storyboardElementTypeEnum = rhs;
                 if (_storyboardElementTypeEnum > -1)
-                    _literal = kStoryboardElementTypeEnumString[_storyboardElementTypeEnum];
+                    _literal = kStoryboardElementTypeEnumString[_storyboardElementTypeEnum+1];
                 else
                     _literal = "unknown";
                 return *this;
@@ -2073,8 +2074,8 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * Values from OpenSCENARIO class model specification:
          * <ul>
-         * <li>One of the triggering entities reaching the position is enough to trigger the lane change.
          * <li>All listed triggering entities must reach the specifies position in order to start the lane change.
+         * <li>One of the triggering entities reaching the position is enough to trigger the lane change.
          * </ul>
          * 
          * @author RA Consulting OpenSCENARIO generation facility
@@ -2085,8 +2086,8 @@ namespace NET_ASAM_OPENSCENARIO
             enum TriggeringEntitiesRuleEnum
             {
                 UNKNOWN = -1,
-                ANY,
                 ALL,
+                ANY,
             };
 
         private:
@@ -2098,8 +2099,8 @@ namespace NET_ASAM_OPENSCENARIO
             const std::vector<std::string> kTriggeringEntitiesRuleEnumString 
             {
                 "UNKNOWN",
-                "any",
                 "all",
+                "any",
             };
 
             /**
@@ -2113,7 +2114,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             TriggeringEntitiesRule(TriggeringEntitiesRuleEnum& triggeringEntitiesRule)
             {
-                _literal = kTriggeringEntitiesRuleEnumString[triggeringEntitiesRule];
+                _literal = kTriggeringEntitiesRuleEnumString[triggeringEntitiesRule+1];
                 _triggeringEntitiesRuleEnum = GetFromLiteral(_literal);
             }
 
@@ -2136,7 +2137,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 _triggeringEntitiesRuleEnum = rhs;
                 if (_triggeringEntitiesRuleEnum > -1)
-                    _literal = kTriggeringEntitiesRuleEnumString[_triggeringEntitiesRuleEnum];
+                    _literal = kTriggeringEntitiesRuleEnumString[_triggeringEntitiesRuleEnum+1];
                 else
                     _literal = "unknown";
                 return *this;
@@ -2178,16 +2179,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * Values from OpenSCENARIO class model specification:
          * <ul>
-         * <li>The vehicle is a car.
-         * <li>The vehicle is a van.
-         * <li>The vehicle is a truck.
-         * <li>The vehicle is a trailer.
-         * <li>The vehicle is a semi trailer.
-         * <li>The vehicle is a bus.
-         * <li>The vehicle is a motor bike.
          * <li>The vehicle is a bicycle.
+         * <li>The vehicle is a bus.
+         * <li>The vehicle is a car.
+         * <li>The vehicle is a motor bike.
+         * <li>The vehicle is a semi trailer.
+         * <li>The vehicle is a trailer.
          * <li>The vehicle is a train.
          * <li>The vehicle is a tram.
+         * <li>The vehicle is a truck.
+         * <li>The vehicle is a van.
          * </ul>
          * 
          * @author RA Consulting OpenSCENARIO generation facility
@@ -2198,16 +2199,16 @@ namespace NET_ASAM_OPENSCENARIO
             enum VehicleCategoryEnum
             {
                 UNKNOWN = -1,
-                CAR,
-                VAN,
-                TRUCK,
-                TRAILER,
-                SEMITRAILER,
-                BUS,
-                MOTORBIKE,
                 BICYCLE,
+                BUS,
+                CAR,
+                MOTORBIKE,
+                SEMITRAILER,
+                TRAILER,
                 TRAIN,
                 TRAM,
+                TRUCK,
+                VAN,
             };
 
         private:
@@ -2219,16 +2220,16 @@ namespace NET_ASAM_OPENSCENARIO
             const std::vector<std::string> kVehicleCategoryEnumString 
             {
                 "UNKNOWN",
-                "car",
-                "van",
-                "truck",
-                "trailer",
-                "semitrailer",
-                "bus",
-                "motorbike",
                 "bicycle",
+                "bus",
+                "car",
+                "motorbike",
+                "semitrailer",
+                "trailer",
                 "train",
                 "tram",
+                "truck",
+                "van",
             };
 
             /**
@@ -2242,7 +2243,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             VehicleCategory(VehicleCategoryEnum& vehicleCategory)
             {
-                _literal = kVehicleCategoryEnumString[vehicleCategory];
+                _literal = kVehicleCategoryEnumString[vehicleCategory+1];
                 _vehicleCategoryEnum = GetFromLiteral(_literal);
             }
 
@@ -2265,7 +2266,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 _vehicleCategoryEnum = rhs;
                 if (_vehicleCategoryEnum > -1)
-                    _literal = kVehicleCategoryEnumString[_vehicleCategoryEnum];
+                    _literal = kVehicleCategoryEnumString[_vehicleCategoryEnum+1];
                 else
                     _literal = "unknown";
                 return *this;

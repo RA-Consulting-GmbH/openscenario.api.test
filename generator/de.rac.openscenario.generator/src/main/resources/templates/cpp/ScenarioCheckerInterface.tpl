@@ -23,6 +23,7 @@
 #include "ApiClassInterfaces.h"
 #include "ICheckerRule.h"
 #include "MemLeakDetection.h"
+#include "ITreeMessageLogger.h"
 
 namespace NET_ASAM_OPENSCENARIO
 {
@@ -34,7 +35,25 @@ namespace NET_ASAM_OPENSCENARIO
         public:
             IScenarioChecker() = default;
             virtual  ~IScenarioChecker() = default;
-            virtual void CheckScenario(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenario> openScenario) {}
+
+            /**
+             * Checks the scenario in a file context
+             *
+             * @param messageLogger the logger for file context
+             * @param openScenario the root of the tree
+            */
+
+            virtual void CheckScenarioInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenario> openScenario) {}
+
+            /**
+             * Checks the scenario in a tree  context
+             *
+             * @param messageLogger the logger for file context
+             * @param openScenario the root of the tree
+            */
+
+            virtual void CheckScenarioInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenario> openScenario) {}
+
     <%- element.each{ umlClass ->-%>
             virtual void Add<%=umlClass.name.toClassName()%>CheckerRule(std::shared_ptr<ICheckerRule<I<%=umlClass.name.toClassName()%>>> checkerRule) {};
     <%-}-%>

@@ -74,6 +74,7 @@ int main(int argc, char** argv)
     res = res && testFiles.TestFileNotFound();
 
     res = res && testImports.TestImportSuccess();
+    
     res = res && testImports.TestImportWithParametersSuccess();
 
     res = res && testReader.TestImportSuccess();

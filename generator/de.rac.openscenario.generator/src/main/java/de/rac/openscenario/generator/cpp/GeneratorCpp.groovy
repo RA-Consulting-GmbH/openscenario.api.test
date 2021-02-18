@@ -23,6 +23,9 @@ import de.rac.openscenario.generator.GeneratorHelper
 import de.rac.openscenario.generator.LicenseHelper
 import de.rac.openscenario.generator.TemplateProcessor
 import de.rac.openscenario.generator.helper.ApiClassInterfaceHelper
+import de.rac.openscenario.generator.helper.ApiClassWriterInterfaceHelper
+import de.rac.openscenario.generator.helper.ApiClassWriterFactoryImplHelper;
+import de.rac.openscenario.generator.helper.ApiClassWriterFactoryInterfaceHelper;
 import de.rac.openscenario.generator.helper.ApiEnumerationHelper
 import de.rac.openscenario.generator.helper.ApiInterfaceHelper
 import de.rac.openscenario.generator.helper.CatalogHelperHelper
@@ -32,7 +35,11 @@ import de.rac.openscenario.generator.helper.RangeCheckerHelper
 import de.rac.openscenario.generator.helper.RangeCheckerRuleHelper
 import de.rac.openscenario.generator.helper.ScenarioCheckerImplHelper
 import de.rac.openscenario.generator.helper.ScenarioCheckerInterfaceHelper
+import de.rac.openscenario.generator.helper.XmlExporterClassHelper;
 import de.rac.openscenario.generator.helper.XmlParserClassHelper
+import de.rac.openscenario.generator.helper.UnionCheckerRuleHelper
+import de.rac.openscenario.generator.helper.CardinalityCheckerRuleHelper
+import de.rac.openscenario.uml.framework.Stereotype
 import de.rac.openscenario.uml.framework.UmlClass
 import de.rac.openscenario.uml.framework.UmlModel
 import de.rac.openscenario.uml.framework.UmlProperty
@@ -45,288 +52,417 @@ import groovy.text.Template
  *
  */
 public class GeneratorCpp {
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-		File outputDir = null;
+        File outputDir = null;
 
-		// First argument is outputDir
-		if (args.length != 1)
-		{
-			println ("Argument must be <outputDir>")
-			return;
+        // First argument is outputDir
+        if (args.length != 1)
+        {
+            println ("Argument must be <outputDir>")
+            return;
 
-		}else
-		{
-			outputDir = new File(args[0])
-		}
-		TypeHelperCpp.init();
+        }else
+        {
+            outputDir = new File(args[0])
+        }
+        TypeHelperCpp.init();
 
-		def classLoader = GeneratorCpp.getClassLoader()
-		InputStream stream = classLoader.getResourceAsStream("input/OpenSCENARIO_Ea_1.0.0.xmi")
-		UmlModel umlModel = de.rac.openscenario.uml.ea.EaUmlLoader.loadModelFromStream(stream);
-
-
-		def jsonSlurper = new JsonSlurper()
-		def Map rangeCheckerRules = GeneratorHelper.getRangeCheckerRules();
+        def classLoader = GeneratorCpp.getClassLoader()
+        InputStream stream = classLoader.getResourceAsStream("input/OpenSCENARIO_Ea_1.0.0.xmi")
+        UmlModel umlModel = de.rac.openscenario.uml.ea.EaUmlLoader.loadModelFromStream(stream);
 
 
-		def binding = [
-			"JavaLicenseHelper": (LicenseHelper.class),
-			"model": umlModel,
-			"oscVersion" : "1.0",
-		];
+        def jsonSlurper = new JsonSlurper()
+        def Map rangeCheckerRules = GeneratorHelper.getRangeCheckerRules();
 
 
-		def processor = CommonTemplateProcessor.getProcessor();
-		def templateApplicationOrig = CommonTemplateProcessor.getTemplateApplication();
-		def templateApplication = templateApplicationOrig.curry(binding);
-		def TemplateProcessor templateProcessor = new TemplateProcessor(TemplateProcessor.CPP)
-		// put the directory in the Closure
-
-		processor  = processor.curry(outputDir);
-		GeneratorHelper.removeSubDirectories(outputDir);
-		// clean the complete Output directory
-		//TemplateProcessor.clean(outputDirectory);
-
-		/** Here goes the generator
-		 *
-		 */
-
-		Template template = null;
-		System.out.println("-- Class Interface");
-		binding["helper"] = new ApiClassInterfaceHelper();
-		template = templateProcessor.getTemplate('ApiClassInterface');
-		processor("api", "ApiClassInterfaces.h")
-		{
-			return templateApplication(template, null);
-		}
-
-		System.out.println("-- Enumerations");
-		binding["helper"] = new ApiEnumerationHelper();
-		template = templateProcessor.getTemplate('ApiEnumeration');
-		processor("api", "Enumerations.h")
-		{
-			return templateApplication(template, null);
-		}
-
-		template = templateProcessor.getTemplate('ApiEnumerationSourceFile');
-		processor("api", "Enumerations.cpp")
-		{
-			return templateApplication(template, null);
-		}
-
-		System.out.println("-- Osc Interfaces");
-		binding["helper"] = new ApiInterfaceHelper();
-		template = templateProcessor.getTemplate('ApiInterface');
-		processor("api", "OscInterfaces.h")
-		{
-			return templateApplication(template, null);
-		}
-
-		System.out.println("-- Impl Classes");
-		binding["helper"] = new ImplClassHelper();
-		template = templateProcessor.getTemplate('ImplClass');
-		processor("impl", "ApiClassImpl.h"){
-			return templateApplication(template, null);
-		}
-		template = templateProcessor.getTemplate('ImplClassSource');
-		processor("impl", "ApiClassImpl.cpp"){
-			return templateApplication(template, null);
-		}
-
-		System.out.println("-- Xml Parser Classes");
-		binding["helper"] = new XmlParserClassHelper();
-		def all = umlModel.getClasses();
-		def sublist = all.collate( all.size().intdiv(2) +1 );
-		template = templateProcessor.getTemplate('XmlParserClass');
-		processor("xmlParser", "XmlParsers.h"){
-			return templateApplication(template, umlModel.getClasses());
-		}
-		template = templateProcessor.getTemplate('XmlParserClassSource');
-		processor("xmlParser", "XmlParsers1.cpp"){
-			return templateApplication(template, sublist[0]);
-		}
-		processor("xmlParser", "XmlParsers2.cpp"){
-			return templateApplication(template, sublist[1]);
-		}
-
-		System.out.println("-- Constant Class");
-		binding["helper"] = new ConstantClassHelper();
-		template = templateProcessor.getTemplate('ConstantClass');
-		processor("common", "OscConstants.h"){
-			return templateApplication(template, getConstants(umlModel.getClasses()));
-		}
-
-		System.out.println("-- CheckerInterfaceTemplate");
-		binding["helper"] = new ScenarioCheckerInterfaceHelper();
-		template = templateProcessor.getTemplate('ScenarioCheckerInterface');
-		processor("checker", "IScenarioChecker.h"){
-			return templateApplication(template, umlModel.getClasses());
-		}
-
-		System.out.println("-- CheckerImplTemplate");
-		binding["helper"] = new ScenarioCheckerImplHelper();
-		template = templateProcessor.getTemplate('ScenarioCheckerImpl');
-		processor("checker/impl", "ScenarioCheckerImpl.h"){
-			return templateApplication(template, umlModel.getClasses());
-		}
-		template = templateProcessor.getTemplate('ScenarioCheckerImplSource');
-		processor("checker/impl", "ScenarioCheckerImpl.cpp"){
-			return templateApplication(template, umlModel.getClasses());
-		}
-
-		System.out.println("-- RangeCheckerHelper Class");
-		binding["helper"] = new RangeCheckerHelper();
-		template = templateProcessor.getTemplate('RangeCheckerHelper');
-		processor("checker/range", "RangeCheckerHelper.h"){
-			return templateApplication(template,umlModel.getClasses().findAll(){element->rangeCheckerRules[element.name.toClassName()] != null});
-		}
-
-		System.out.println("-- Range Checker Helper");
-		binding["rangeCheckerRules"] = rangeCheckerRules;
-		binding["helper"] = new RangeCheckerRuleHelper();
-		template = templateProcessor.getTemplate('RangeCheckerRule');
-		processor("checker/range", "RangeCheckerRules.h"){
-			return templateApplication(template, null);
-		}
-		template = templateProcessor.getTemplate('RangeCheckerRuleSource');
-		processor("checker/range", "RangeCheckerRules.cpp"){
-			return templateApplication(template, null);
-		}
-
-		System.out.println("-- CatalogHelper");
-		binding["helper"] = new CatalogHelperHelper();
-		template = templateProcessor.getTemplate('CatalogHelper');
-		processor("catalog", "CatalogHelper.h"){
-			return templateApplication(template, umlModel.getCatalogElementClasses());
-		}
-
-	}
+        def binding = [
+            "JavaLicenseHelper": (LicenseHelper.class),
+            "model": umlModel,
+            "oscVersion" : "1.0",
+        ];
 
 
-	private static class TypeHelperCpp {
+        def processor = CommonTemplateProcessor.getProcessor();
+        def templateApplicationOrig = CommonTemplateProcessor.getTemplateApplication();
+        def templateApplication = templateApplicationOrig.curry(binding);
+        def TemplateProcessor templateProcessor = new TemplateProcessor(TemplateProcessor.CPP)
+        // put the directory in the Closure
 
-		static void init(){
-			MainNamingHelper.init();
-			Memoizer.doInit(TypeHelperCpp.class, UmlType.class)
-		}
+        processor  = processor.curry(outputDir);
+        GeneratorHelper.removeSubDirectories(outputDir);
+        // clean the complete Output directory
+        //TemplateProcessor.clean(outputDirectory);
 
-		def static toCppName(UmlType type) {
-			if (type.isPrimitiveType())
-			{
-				if (type.name == "string")
-				{
-					return "std::string";
+        /** Here goes the generator
+         *
+         */
 
-				}else if (type.name == "unsignedInt")
-				{
-					return "uint32_t";
+        Template template = null;
+        System.out.println("-- Class Interface");
+        binding["helper"] = new ApiClassInterfaceHelper();
+        template = templateProcessor.getTemplate('ApiClassInterface');
+        processor("api", "ApiClassInterfaces.h")
+        {
+            return templateApplication(template, null);
+        }
 
-				}else if (type.name == "int")
-				{
-					return "int";
+        System.out.println("-- Enumerations");
+        binding["helper"] = new ApiEnumerationHelper();
+        template = templateProcessor.getTemplate('ApiEnumeration');
+        processor("api", "Enumerations.h")
+        {
+            return templateApplication(template, null);
+        }
 
-				}else if (type.name == "unsignedShort")
-				{
-					return "uint16_t";
-				}else if (type.name == "dateTime")
-				{
-					return "DateTime";
-				}else if (type.name == "boolean")
-				{
-					return "bool";
+        template = templateProcessor.getTemplate('ApiEnumerationSourceFile');
+        processor("api", "Enumerations.cpp")
+        {
+            return templateApplication(template, null);
+        }
 
-				}else if (type.name == "double")
-				{
-					return "double"
-				}
-			}else if (type.isEnumeration())
-			{
-				return type.name.toClassName();
-			}else
-			{
-				return "std::shared_ptr<I" + type.name.toClassName() + ">";
-			}
-		}
+        System.out.println("-- Osc Interfaces");
+        binding["helper"] = new ApiInterfaceHelper();
+        template = templateProcessor.getTemplate('ApiInterface');
+        processor("api", "OscInterfaces.h")
+        {
+            return templateApplication(template, null);
+        }
 
-		def static toCppDefaultValue(UmlType type) {
-			if (type.isPrimitiveType())
-			{
-				if (type.name == "string")
-				{
-					return "\"\"";
+        System.out.println("-- Impl Classes");
+        binding["helper"] = new ImplClassHelper();
+        template = templateProcessor.getTemplate('ImplClass');
+        processor("impl", "ApiClassImpl.h"){
+            return templateApplication(template, null);
+        }
+        template = templateProcessor.getTemplate('ImplClassSource');
+        processor("impl", "ApiClassImpl.cpp"){
+            return templateApplication(template, null);
+        }
 
-				}else if (type.name == "unsignedInt")
-				{
-					return "0";
+        System.out.println("-- Xml Parser Classes");
+        binding["helper"] = new XmlParserClassHelper();
+        def all = umlModel.getClasses();
+        def sublist = all.collate( all.size().intdiv(2) +1 );
+        template = templateProcessor.getTemplate('XmlParserClass');
+        processor("xmlParser", "XmlParsers.h"){
+            return templateApplication(template, umlModel.getClasses());
+        }
+        template = templateProcessor.getTemplate('XmlParserClassSource');
+        processor("xmlParser", "XmlParsers1.cpp"){
+            return templateApplication(template, sublist[0]);
+        }
+        processor("xmlParser", "XmlParsers2.cpp"){
+            return templateApplication(template, sublist[1]);
+        }
 
-				}else if (type.name == "int")
-				{
-					return "0";
+        System.out.println("-- Constant Class");
+        binding["helper"] = new ConstantClassHelper();
+        template = templateProcessor.getTemplate('ConstantClass');
+        processor("common", "OscConstants.h"){
+            return templateApplication(template, getConstants(umlModel.getClasses()));
+        }
 
-				}else if (type.name == "unsignedShort")
-				{
-					return "0";
-				}else if (type.name == "dateTime")
-				{
-					return "{}";
-				}else if (type.name == "boolean")
-				{
-					return "false";
+        System.out.println("-- CheckerInterfaceTemplate");
+        binding["helper"] = new ScenarioCheckerInterfaceHelper();
+        template = templateProcessor.getTemplate('ScenarioCheckerInterface');
+        processor("checker", "IScenarioChecker.h"){
+            return templateApplication(template, umlModel.getClasses());
+        }
 
-				}else if (type.name == "double")
-				{
-					return "0"
-				}
-			}else if (type.isEnumeration())
-			{
-				return type.name.toClassName() + "()";
-			}else
-			{
-				return "nullptr";
-			}
-		}
+        System.out.println("-- CheckerImplTemplate");
+        binding["helper"] = new ScenarioCheckerImplHelper();
+        template = templateProcessor.getTemplate('ScenarioCheckerImpl');
+        processor("checker/impl", "ScenarioCheckerImpl.h"){
+            return templateApplication(template, umlModel.getClasses());
+        }
+        template = templateProcessor.getTemplate('ScenarioCheckerImplSource');
+        processor("checker/impl", "ScenarioCheckerImpl.cpp"){
+            return templateApplication(template, umlModel.getClasses());
+        }
 
-		def static toCppTemplateName(UmlType type) {
-			if (type.isPrimitiveType())
-			{
-				return toCppName(type);
-			}else if (type.isEnumeration())
-			{
-				return toCppName(type);
-			}else
-			{
-				return "I" + type.name.toClassName();
-			}
-		}
+        System.out.println("-- RangeCheckerHelper Class");
+        binding["helper"] = new RangeCheckerHelper();
+        template = templateProcessor.getTemplate('RangeCheckerHelper');
+        processor("checker/range", "RangeCheckerHelper.h"){
+            return templateApplication(template,umlModel.getClasses().findAll(){element->rangeCheckerRules[element.name.toClassName()] != null});
+        }
+
+        System.out.println("-- Range Checker Helper");
+        binding["rangeCheckerRules"] = rangeCheckerRules;
+        binding["helper"] = new RangeCheckerRuleHelper();
+        template = templateProcessor.getTemplate('RangeCheckerRule');
+        processor("checker/range", "RangeCheckerRules.h"){
+            return templateApplication(template, null);
+        }
+        template = templateProcessor.getTemplate('RangeCheckerRuleSource');
+        processor("checker/range", "RangeCheckerRules.cpp"){
+            return templateApplication(template, null);
+        }
+
+        System.out.println("-- CatalogHelper");
+        binding["helper"] = new CatalogHelperHelper();
+        template = templateProcessor.getTemplate('CatalogHelper');
+        processor("catalog", "CatalogHelper.h"){
+            return templateApplication(template, umlModel.getCatalogElementClasses());
+        }
+
+        System.out.println("-- Union Checker Rule");
+        binding["helper"] = new UnionCheckerRuleHelper()
+        template = templateProcessor.getTemplate('UnionCheckerRule');
+        processor("checker/model", "UnionCheckerRules.h"){
+          return templateApplication(template, umlModel.getClasses().findAll(){ UmlClass umlClass ->umlClass.appliedStereotypes.find(){Stereotype s -> s.name == "union"}});
+        }
+
+        System.out.println("-- Cardinality Checker Rule");
+        binding["helper"] = new CardinalityCheckerRuleHelper()
+        template = templateProcessor.getTemplate('CardinalityCheckerRule');
+        processor("checker/model", "CardinalityCheckerRules.h"){
+          return templateApplication(template, umlModel.getClasses().findAll(){  UmlClass umlClass-> !umlClass.umlProperties.findAll(){UmlProperty p -> !p.isOptional() && !p.isOptionalUnboundList()}.isEmpty()});
+        }
+
+        System.out.println("-- OSC Writer Interface");
+        binding["helper"] = new ApiClassWriterInterfaceHelper();
+        template = templateProcessor.getTemplate('ApiWriterInterface');
+        processor("api/writer", "ApiWriterInterfaces.h")
+        {
+            return templateApplication(template, null);
+        }
+
+        System.out.println("-- Writer Interface");
+        binding["helper"] = new ApiClassWriterInterfaceHelper();
+        template = templateProcessor.getTemplate('ApiClassWriterInterface');
+        processor("api/writer", "ApiClassWriterInterfaces.h")
+        {
+            return templateApplication(template, null);
+        }
+
+        System.out.println("-- Writer Factory Interface");
+        binding["helper"] = new ApiClassWriterFactoryInterfaceHelper();
+        template = templateProcessor.getTemplate('ApiClassWriterFactoryInterface');
+        processor("api/writer", "IOpenScenarioWriterFactory.h")
+        {
+            return templateApplication(template, umlModel.getClasses());
+        }
+
+        System.out.println("-- Writer Factory Impl");
+        binding["helper"] = new ApiClassWriterFactoryImplHelper();
+        template = templateProcessor.getTemplate('ApiClassWriterFactoryImpl');
+        processor("impl", "OpenScenarioWriterFactoryImpl.h")
+        {
+            return templateApplication(template, umlModel.getClasses());
+        }
+
+        System.out.println("-- Xml Exporter");
+        binding["helper"] = new XmlExporterClassHelper();
+        template = templateProcessor.getTemplate('XmlExporterClass');
+        processor("export/xml", "OpenScenarioXmlExporter.h")
+        {
+            return templateApplication(template, umlModel);
+        }
+    }
+
+
+    private static class TypeHelperCpp {
+
+        static void init(){
+            MainNamingHelper.init();
+            Memoizer.doInit(TypeHelperCpp.class, UmlType.class)
+        }
+
+        def static toCppName(UmlType type) {
+            if (type.isPrimitiveType())
+            {
+                if (type.name == "string")
+                {
+                    return "std::string";
+
+                }else if (type.name == "unsignedInt")
+                {
+                    return "uint32_t";
+
+                }else if (type.name == "int")
+                {
+                    return "int";
+
+                }else if (type.name == "unsignedShort")
+                {
+                    return "uint16_t";
+                }else if (type.name == "dateTime")
+                {
+                    return "DateTime";
+                }else if (type.name == "boolean")
+                {
+                    return "bool";
+
+                }else if (type.name == "double")
+                {
+                    return "double"
+                }
+            }else if (type.isEnumeration())
+            {
+                return type.name.toClassName();
+            }else
+            {
+                return "std::shared_ptr<I" + type.name.toClassName() + ">";
+            }
+        }
+
+        def static toCppWriterName(UmlType type) {
+          if (type.isPrimitiveType())
+          {
+              if (type.name == "string")
+              {
+                  return "std::string&";
+
+              }else if (type.name == "unsignedInt")
+              {
+                  return "uint32_t&";
+
+              }else if (type.name == "int")
+              {
+                  return "int&";
+
+              }else if (type.name == "unsignedShort")
+              {
+                  return "uint16_t&";
+              }else if (type.name == "dateTime")
+              {
+                  return "DateTime&";
+              }else if (type.name == "boolean")
+              {
+                  return "bool&";
+
+              }else if (type.name == "double")
+              {
+                  return "double&"
+              }
+          }else if (type.isEnumeration())
+          {
+              return type.name.toClassName();
+          }else
+          {
+              return "std::shared_ptr<I" + type.name.toClassName() + "Writer>";
+          }
+      }
+        
+        def static toCppDefaultValue(UmlType type) {
+            if (type.isPrimitiveType())
+            {
+                if (type.name == "string")
+                {
+                    return "\"\"";
+
+                }else if (type.name == "unsignedInt")
+                {
+                    return "0";
+
+                }else if (type.name == "int")
+                {
+                    return "0";
+
+                }else if (type.name == "unsignedShort")
+                {
+                    return "0";
+                }else if (type.name == "dateTime")
+                {
+                    return "{}";
+                }else if (type.name == "boolean")
+                {
+                    return "false";
+
+                }else if (type.name == "double")
+                {
+                    return "0"
+                }
+            }else if (type.isEnumeration())
+            {
+                return type.name.toClassName() + "()";
+            }else
+            {
+                return "nullptr";
+            }
+        }
+
+        def static toCppIsDefaultValue(UmlType type) {
+          if (type.isPrimitiveType())
+          {
+              if (type.name == "string")
+              {
+                  return ".empty()";
+
+              }else if (type.name == "unsignedInt")
+              {
+                  return " == 0";
+
+              }else if (type.name == "int")
+              {
+                  return " == 0";
+
+              }else if (type.name == "unsignedShort")
+              {
+                  return " == 0";
+              }else if (type.name == "dateTime")
+              {
+                  return " == DateTime()";
+              }else if (type.name == "boolean")
+              {
+                  return " == false";
+
+              }else if (type.name == "double")
+              {
+                  return " == 0"
+              }
+          }else if (type.isEnumeration())
+          {
+              return " == " + type.name.toClassName() + "::UNKNOWN";
+          }else
+          {
+              return " == nullptr";
+          }
+      }
+
+        def static toCppTemplateName(UmlType type) {
+            if (type.isPrimitiveType())
+            {
+                return toCppName(type);
+            }else if (type.isEnumeration())
+            {
+                return toCppName(type);
+            }else
+            {
+                return "I" + type.name.toClassName();
+            }
+        }
 
 
 
-	}
+    }
 
-	public static Hashtable<String, String> getConstants(List<UmlClass> classes)
-	{
-		Hashtable<String, String> result  = new Hashtable<String, String>();
-		classes.each{UmlClass umlClass->
-			List properties = umlClass.umlProperties;
-			properties.each { UmlProperty property ->
-				if (property.isProxy()|| property.type.isPrimitiveType() || property.type.isEnumeration()){
-					result.put("ATTRIBUTE__"  + property.name.toMemberName().toUpperNameFromMemberName() , property.name.toMemberName());
-				}
-			}
+    public static Hashtable<String, String> getConstants(List<UmlClass> classes)
+    {
+        Hashtable<String, String> result  = new Hashtable<String, String>();
+        classes.each{UmlClass umlClass->
+            List properties = umlClass.umlProperties;
+            properties.each { UmlProperty property ->
+                if (property.isProxy()|| property.type.isPrimitiveType() || property.type.isEnumeration()){
+                    result.put("ATTRIBUTE__"  + property.name.toMemberName().toUpperNameFromMemberName() , property.name.toMemberName());
+                }
+            }
 
-			properties = umlClass.getXmlElementProperties();
-			properties.each { UmlProperty property ->
-				if (property.isWrappedList()){
-					result.put("ELEMENT__"  + property.getXsdWrapperElementName().toMemberName().toUpperNameFromMemberName() , property.getXsdWrapperElementName().toClassName());
-				}
-				result.put("ELEMENT__"  + property.getXmlTagName().toMemberName().toUpperNameFromMemberName() ,property.getXmlTagName().toClassName());
+            properties = umlClass.getXmlElementProperties();
+            properties.each { UmlProperty property ->
+                if (property.isWrappedList()){
+                    result.put("ELEMENT__"  + property.getXsdWrapperElementName().toMemberName().toUpperNameFromMemberName() , property.getXsdWrapperElementName().toClassName());
+                }
+                result.put("ELEMENT__"  + property.getXmlTagName().toMemberName().toUpperNameFromMemberName() ,property.getXmlTagName().toClassName());
 
-			}
+            }
 
 
-		}
-		return result;
-	}
+        }
+        return result;
+    }
 
 }

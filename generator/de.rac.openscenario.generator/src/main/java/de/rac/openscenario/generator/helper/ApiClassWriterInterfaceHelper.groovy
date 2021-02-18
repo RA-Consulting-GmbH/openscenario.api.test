@@ -48,6 +48,16 @@ public class ApiClassWriterInterfaceHelper {
         lines.addAll('@param parameterName the name of the parameter (without $)');
         return JavaDocHelper.makeComment(lines, "\t")
     }
+
+    public makeAttributeSetterParameterCppDoc(element, property, indent = "")
+    {
+        def lines = [];
+        lines.add("Set a parameter for the attribute  ${property.name.toMemberName()}")
+        lines.addAll("");
+        lines.addAll('@param parameterName the name of the parameter (without $)');
+        return JavaDocHelper.makeComment(lines, indent)
+    }
+
     public makeAttributeGetterParameterJavaDoc(element, property)
     {
         def lines = [];
@@ -56,6 +66,16 @@ public class ApiClassWriterInterfaceHelper {
         lines.addAll('@return the name of the parameter (without $). Null if not parameter set or if attribute is empty.');
         return JavaDocHelper.makeComment(lines, "\t")
     }
+
+    public makeAttributeGetterParameterCppDoc(element, property, indent = "")
+    {
+        def lines = [];
+        lines.add("Get the parameter for the attribute  ${property.name.toMemberName()}")
+        lines.addAll("");
+        lines.addAll('@return the name of the parameter (without $). Null if not parameter set or if attribute is empty.');
+        return JavaDocHelper.makeComment(lines, indent)
+    }
+
     public makeIsParameterizedJavaDoc(element, property)
     {
         def lines = [];
@@ -64,6 +84,16 @@ public class ApiClassWriterInterfaceHelper {
         lines.addAll('@return true if ${property.name.toMemberName()} is paramterized.');
         return JavaDocHelper.makeComment(lines, "\t")
     }
+
+    public makeIsParameterizedCppDoc(element, property, indent = "")
+    {
+        def lines = [];
+        lines.add("Retrieves whether the attribute ${property.name.toMemberName()} is parametrized.")
+        lines.addAll("");
+        lines.addAll('@return true if ${property.name.toMemberName()} is paramterized.');
+        return JavaDocHelper.makeComment(lines, indent)
+    }
+
     public makeChildWriterGetterJavaDoc(element, property)
     {
         def lines = [];
@@ -72,6 +102,16 @@ public class ApiClassWriterInterfaceHelper {
         lines.addAll("");
         lines.addAll("@return a writer for model property ${property.name.toMemberName()}");
         return JavaDocHelper.makeComment(lines, "\t")
+    }
+
+    public makeChildWriterGetterCppDoc(element, property, indent= "")
+    {
+        def lines = [];
+        lines.add("From OpenSCENARIO class model specification:")
+        lines.addAll(JavaDocHelper.formatString(property.annotation));
+        lines.addAll("");
+        lines.addAll("@return a writer for model property ${property.name.toMemberName()}");
+        return JavaDocHelper.makeComment(lines, indent)
     }
     
     public makeChildWriterSetterJavaDoc(element, property)
@@ -84,6 +124,16 @@ public class ApiClassWriterInterfaceHelper {
         return JavaDocHelper.makeComment(lines, "\t")
     }
     
+    public makeChildWriterSetterCppDoc(element, property, indent= "")
+    {
+        def lines = [];
+        lines.add("From OpenSCENARIO class model specification:")
+        lines.addAll(JavaDocHelper.formatString(property.annotation));
+        lines.addAll("");
+        lines.addAll("@param ${property.name.toMemberName()} writer for the model property ${property.name.toMemberName()}");
+        return JavaDocHelper.makeComment(lines, indent)
+    }
+    
     public makeChildListWriterGetterJavaDoc(element, property)
     {
         def lines = [];
@@ -92,6 +142,16 @@ public class ApiClassWriterInterfaceHelper {
         lines.addAll("");
         lines.addAll("@return a list of writers for model property ${property.name.toMemberName()}");
         return JavaDocHelper.makeComment(lines, "\t")
+    }
+    
+    public makeChildListWriterGetterCppDoc(element, property, indent = "")
+    {
+        def lines = [];
+        lines.add("From OpenSCENARIO class model specification:")
+        lines.addAll(JavaDocHelper.formatString(property.annotation));
+        lines.addAll("");
+        lines.addAll("@return a list of writers for model property ${property.name.toMemberName()}");
+        return JavaDocHelper.makeComment(lines, indent)
     }
     
     public makeChildListWriterSetterJavaDoc(element, property)
@@ -138,8 +198,8 @@ public class ApiClassWriterInterfaceHelper {
 
     public String getExtendsExpressionCpp(element)
     {
-        List interfaceRealizationList = element.implementedInterfaces().collect{interfaceRealization-> return "I" +interfaceRealization.name.toClassName()};
-        String result = ": public virtual IOpenScenarioModelElement";
+        List interfaceRealizationList = element.implementedInterfaces.collect{interfaceRealization-> return "I" +interfaceRealization.name.toClassName() + "Writer"};
+        String result = ": public IOpenScenarioElementWriter, public I${element.name.toClassName()}";
         if (interfaceRealizationList && !interfaceRealizationList.isEmpty()){
             return result +  ", public " + String.join(", public ", interfaceRealizationList);
         }else

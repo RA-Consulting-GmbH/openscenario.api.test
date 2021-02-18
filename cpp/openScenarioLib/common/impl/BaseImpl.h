@@ -168,6 +168,16 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
         /**
+         * Removes a parameter from a attribute.
+         *
+         * @param attributeKey the key of this attribute.
+         */
+        void RemoveAttributeParameter(const std::string attributeKey)
+        {
+            _attributeKeyToParameterName.erase(attributeKey);
+        }
+
+        /**
          * Adds the resolved attribute value to the list of resolved parameters.
          *
          * @param attributeKey attribute key of the property.

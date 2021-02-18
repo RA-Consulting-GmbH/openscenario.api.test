@@ -59,7 +59,7 @@ namespace NET_ASAM_OPENSCENARIO
     public:
 
         //2004-04-12T13:20:00-05:00 XML Schema 1.0 > xsd:dateTime
-        static std::string ToString(DateTime& dateTime)
+        static std::string ToString(const DateTime dateTime)
         {
             std::stringstream ss;
             ss << std::setw(4) << std::setfill('0') << dateTime.year+1900 << "-";
