@@ -44,7 +44,7 @@ namespace NET_ASAM_OPENSCENARIO
             int _majorRev;
             int _minorRev;
 
-            boolean IsRevValid(std::shared_ptr<IFileHeader> object)
+            bool IsRevValid(std::shared_ptr<IFileHeader> object)
             {
                 if (!object) return false;
 
