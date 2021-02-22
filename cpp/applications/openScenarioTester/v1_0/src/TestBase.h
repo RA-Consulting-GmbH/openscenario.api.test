@@ -27,6 +27,7 @@
 #include <fstream>
 #include <string>
 #include <iostream>
+#include "ApiClassImpl.h"
 
 #undef ERROR
 
