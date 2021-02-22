@@ -83,7 +83,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return static_cast<int>(_<%=property.name.toMemberName()%>.size());
             }
 
-            OPENSCENARIOLIB_EXP <%=property.type.toCppName()%> Get<%=property.name.toClassName()%>AtIndex(int index) override
+            OPENSCENARIOLIB_EXP <%=property.type.toCppName()%> Get<%=property.name.toClassName()%>AtIndex(unsigned int index) override
             {
                 if (index >= 0 && _<%=property.name.toMemberName()%>.size() > index)
                 {

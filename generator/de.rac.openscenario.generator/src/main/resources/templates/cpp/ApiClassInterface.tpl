@@ -78,7 +78,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param index the index of the list
             * @return the element at index
             */
-            virtual <%=property.type.toCppName()%> Get<%=property.name.toClassName()%>AtIndex(const int index) 
+            virtual <%=property.type.toCppName()%> Get<%=property.name.toClassName()%>AtIndex(const unsigned int index) 
             {
                 return <%=property.type.toCppDefaultValue()%>;
             }

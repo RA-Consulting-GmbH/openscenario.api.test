@@ -1037,7 +1037,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return static_cast<int>(_maneuverGroups.size());
             }
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IManeuverGroup> GetManeuverGroupsAtIndex(int index) override
+            OPENSCENARIOLIB_EXP std::shared_ptr<IManeuverGroup> GetManeuverGroupsAtIndex(unsigned int index) override
             {
                 if (index >= 0 && _maneuverGroups.size() > index)
                 {
@@ -1621,7 +1621,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return static_cast<int>(_entityRefs.size());
             }
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IEntityRef> GetEntityRefsAtIndex(int index) override
+            OPENSCENARIOLIB_EXP std::shared_ptr<IEntityRef> GetEntityRefsAtIndex(unsigned int index) override
             {
                 if (index >= 0 && _entityRefs.size() > index)
                 {
@@ -2532,7 +2532,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return static_cast<int>(_additionalAxles.size());
             }
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IAxle> GetAdditionalAxlesAtIndex(int index) override
+            OPENSCENARIOLIB_EXP std::shared_ptr<IAxle> GetAdditionalAxlesAtIndex(unsigned int index) override
             {
                 if (index >= 0 && _additionalAxles.size() > index)
                 {
@@ -3540,7 +3540,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return static_cast<int>(_vehicles.size());
             }
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IVehicle> GetVehiclesAtIndex(int index) override
+            OPENSCENARIOLIB_EXP std::shared_ptr<IVehicle> GetVehiclesAtIndex(unsigned int index) override
             {
                 if (index >= 0 && _vehicles.size() > index)
                 {
@@ -3560,7 +3560,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return static_cast<int>(_controllers.size());
             }
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IController> GetControllersAtIndex(int index) override
+            OPENSCENARIOLIB_EXP std::shared_ptr<IController> GetControllersAtIndex(unsigned int index) override
             {
                 if (index >= 0 && _controllers.size() > index)
                 {
@@ -3580,7 +3580,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return static_cast<int>(_pedestrians.size());
             }
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IPedestrian> GetPedestriansAtIndex(int index) override
+            OPENSCENARIOLIB_EXP std::shared_ptr<IPedestrian> GetPedestriansAtIndex(unsigned int index) override
             {
                 if (index >= 0 && _pedestrians.size() > index)
                 {
@@ -3600,7 +3600,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return static_cast<int>(_miscObjects.size());
             }
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IMiscObject> GetMiscObjectsAtIndex(int index) override
+            OPENSCENARIOLIB_EXP std::shared_ptr<IMiscObject> GetMiscObjectsAtIndex(unsigned int index) override
             {
                 if (index >= 0 && _miscObjects.size() > index)
                 {
@@ -3620,7 +3620,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return static_cast<int>(_environments.size());
             }
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IEnvironment> GetEnvironmentsAtIndex(int index) override
+            OPENSCENARIOLIB_EXP std::shared_ptr<IEnvironment> GetEnvironmentsAtIndex(unsigned int index) override
             {
                 if (index >= 0 && _environments.size() > index)
                 {
@@ -3640,7 +3640,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return static_cast<int>(_maneuvers.size());
             }
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IManeuver> GetManeuversAtIndex(int index) override
+            OPENSCENARIOLIB_EXP std::shared_ptr<IManeuver> GetManeuversAtIndex(unsigned int index) override
             {
                 if (index >= 0 && _maneuvers.size() > index)
                 {
@@ -3660,7 +3660,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return static_cast<int>(_trajectories.size());
             }
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<ITrajectory> GetTrajectoriesAtIndex(int index) override
+            OPENSCENARIOLIB_EXP std::shared_ptr<ITrajectory> GetTrajectoriesAtIndex(unsigned int index) override
             {
                 if (index >= 0 && _trajectories.size() > index)
                 {
@@ -3680,7 +3680,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return static_cast<int>(_routes.size());
             }
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IRoute> GetRoutesAtIndex(int index) override
+            OPENSCENARIOLIB_EXP std::shared_ptr<IRoute> GetRoutesAtIndex(unsigned int index) override
             {
                 if (index >= 0 && _routes.size() > index)
                 {
@@ -4239,7 +4239,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return static_cast<int>(_parameterAssignments.size());
             }
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IParameterAssignment> GetParameterAssignmentsAtIndex(int index) override
+            OPENSCENARIOLIB_EXP std::shared_ptr<IParameterAssignment> GetParameterAssignmentsAtIndex(unsigned int index) override
             {
                 if (index >= 0 && _parameterAssignments.size() > index)
                 {
@@ -5529,7 +5529,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return static_cast<int>(_conditions.size());
             }
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<ICondition> GetConditionsAtIndex(int index) override
+            OPENSCENARIOLIB_EXP std::shared_ptr<ICondition> GetConditionsAtIndex(unsigned int index) override
             {
                 if (index >= 0 && _conditions.size() > index)
                 {
@@ -5886,7 +5886,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return static_cast<int>(_parameterDeclarations.size());
             }
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IParameterDeclaration> GetParameterDeclarationsAtIndex(int index) override
+            OPENSCENARIOLIB_EXP std::shared_ptr<IParameterDeclaration> GetParameterDeclarationsAtIndex(unsigned int index) override
             {
                 if (index >= 0 && _parameterDeclarations.size() > index)
                 {
@@ -6351,7 +6351,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return static_cast<int>(_controllerDistributionEntries.size());
             }
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IControllerDistributionEntry> GetControllerDistributionEntriesAtIndex(int index) override
+            OPENSCENARIOLIB_EXP std::shared_ptr<IControllerDistributionEntry> GetControllerDistributionEntriesAtIndex(unsigned int index) override
             {
                 if (index >= 0 && _controllerDistributionEntries.size() > index)
                 {
@@ -8035,7 +8035,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return static_cast<int>(_scenarioObjects.size());
             }
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IScenarioObject> GetScenarioObjectsAtIndex(int index) override
+            OPENSCENARIOLIB_EXP std::shared_ptr<IScenarioObject> GetScenarioObjectsAtIndex(unsigned int index) override
             {
                 if (index >= 0 && _scenarioObjects.size() > index)
                 {
@@ -8055,7 +8055,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return static_cast<int>(_entitySelections.size());
             }
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IEntitySelection> GetEntitySelectionsAtIndex(int index) override
+            OPENSCENARIOLIB_EXP std::shared_ptr<IEntitySelection> GetEntitySelectionsAtIndex(unsigned int index) override
             {
                 if (index >= 0 && _entitySelections.size() > index)
                 {
@@ -9303,7 +9303,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return static_cast<int>(_parameterDeclarations.size());
             }
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IParameterDeclaration> GetParameterDeclarationsAtIndex(int index) override
+            OPENSCENARIOLIB_EXP std::shared_ptr<IParameterDeclaration> GetParameterDeclarationsAtIndex(unsigned int index) override
             {
                 if (index >= 0 && _parameterDeclarations.size() > index)
                 {
@@ -9797,7 +9797,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return static_cast<int>(_actions.size());
             }
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IAction> GetActionsAtIndex(int index) override
+            OPENSCENARIOLIB_EXP std::shared_ptr<IAction> GetActionsAtIndex(unsigned int index) override
             {
                 if (index >= 0 && _actions.size() > index)
                 {
@@ -11604,7 +11604,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return static_cast<int>(_globalActions.size());
             }
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IGlobalAction> GetGlobalActionsAtIndex(int index) override
+            OPENSCENARIOLIB_EXP std::shared_ptr<IGlobalAction> GetGlobalActionsAtIndex(unsigned int index) override
             {
                 if (index >= 0 && _globalActions.size() > index)
                 {
@@ -11624,7 +11624,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return static_cast<int>(_userDefinedActions.size());
             }
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IUserDefinedAction> GetUserDefinedActionsAtIndex(int index) override
+            OPENSCENARIOLIB_EXP std::shared_ptr<IUserDefinedAction> GetUserDefinedActionsAtIndex(unsigned int index) override
             {
                 if (index >= 0 && _userDefinedActions.size() > index)
                 {
@@ -11644,7 +11644,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return static_cast<int>(_privates.size());
             }
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IPrivate> GetPrivatesAtIndex(int index) override
+            OPENSCENARIOLIB_EXP std::shared_ptr<IPrivate> GetPrivatesAtIndex(unsigned int index) override
             {
                 if (index >= 0 && _privates.size() > index)
                 {
@@ -13972,7 +13972,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return static_cast<int>(_parameterDeclarations.size());
             }
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IParameterDeclaration> GetParameterDeclarationsAtIndex(int index) override
+            OPENSCENARIOLIB_EXP std::shared_ptr<IParameterDeclaration> GetParameterDeclarationsAtIndex(unsigned int index) override
             {
                 if (index >= 0 && _parameterDeclarations.size() > index)
                 {
@@ -13992,7 +13992,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return static_cast<int>(_events.size());
             }
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IEvent> GetEventsAtIndex(int index) override
+            OPENSCENARIOLIB_EXP std::shared_ptr<IEvent> GetEventsAtIndex(unsigned int index) override
             {
                 if (index >= 0 && _events.size() > index)
                 {
@@ -14315,7 +14315,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return static_cast<int>(_catalogReferences.size());
             }
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<ICatalogReference> GetCatalogReferencesAtIndex(int index) override
+            OPENSCENARIOLIB_EXP std::shared_ptr<ICatalogReference> GetCatalogReferencesAtIndex(unsigned int index) override
             {
                 if (index >= 0 && _catalogReferences.size() > index)
                 {
@@ -14335,7 +14335,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return static_cast<int>(_maneuvers.size());
             }
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IManeuver> GetManeuversAtIndex(int index) override
+            OPENSCENARIOLIB_EXP std::shared_ptr<IManeuver> GetManeuversAtIndex(unsigned int index) override
             {
                 if (index >= 0 && _maneuvers.size() > index)
                 {
@@ -14570,7 +14570,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return static_cast<int>(_parameterDeclarations.size());
             }
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IParameterDeclaration> GetParameterDeclarationsAtIndex(int index) override
+            OPENSCENARIOLIB_EXP std::shared_ptr<IParameterDeclaration> GetParameterDeclarationsAtIndex(unsigned int index) override
             {
                 if (index >= 0 && _parameterDeclarations.size() > index)
                 {
@@ -15237,7 +15237,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return static_cast<int>(_controlPoints.size());
             }
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IControlPoint> GetControlPointsAtIndex(int index) override
+            OPENSCENARIOLIB_EXP std::shared_ptr<IControlPoint> GetControlPointsAtIndex(unsigned int index) override
             {
                 if (index >= 0 && _controlPoints.size() > index)
                 {
@@ -15257,7 +15257,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return static_cast<int>(_knots.size());
             }
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IKnot> GetKnotsAtIndex(int index) override
+            OPENSCENARIOLIB_EXP std::shared_ptr<IKnot> GetKnotsAtIndex(unsigned int index) override
             {
                 if (index >= 0 && _knots.size() > index)
                 {
@@ -19044,7 +19044,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return static_cast<int>(_parameterDeclarations.size());
             }
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IParameterDeclaration> GetParameterDeclarationsAtIndex(int index) override
+            OPENSCENARIOLIB_EXP std::shared_ptr<IParameterDeclaration> GetParameterDeclarationsAtIndex(unsigned int index) override
             {
                 if (index >= 0 && _parameterDeclarations.size() > index)
                 {
@@ -19701,7 +19701,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return static_cast<int>(_trafficSignalStates.size());
             }
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<ITrafficSignalState> GetTrafficSignalStatesAtIndex(int index) override
+            OPENSCENARIOLIB_EXP std::shared_ptr<ITrafficSignalState> GetTrafficSignalStatesAtIndex(unsigned int index) override
             {
                 if (index >= 0 && _trafficSignalStates.size() > index)
                 {
@@ -19914,7 +19914,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return static_cast<int>(_vertices.size());
             }
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IVertex> GetVerticesAtIndex(int index) override
+            OPENSCENARIOLIB_EXP std::shared_ptr<IVertex> GetVerticesAtIndex(unsigned int index) override
             {
                 if (index >= 0 && _vertices.size() > index)
                 {
@@ -21093,7 +21093,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return static_cast<int>(_privateActions.size());
             }
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IPrivateAction> GetPrivateActionsAtIndex(int index) override
+            OPENSCENARIOLIB_EXP std::shared_ptr<IPrivateAction> GetPrivateActionsAtIndex(unsigned int index) override
             {
                 if (index >= 0 && _privateActions.size() > index)
                 {
@@ -21536,7 +21536,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return static_cast<int>(_properties.size());
             }
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IProperty> GetPropertiesAtIndex(int index) override
+            OPENSCENARIOLIB_EXP std::shared_ptr<IProperty> GetPropertiesAtIndex(unsigned int index) override
             {
                 if (index >= 0 && _properties.size() > index)
                 {
@@ -21556,7 +21556,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return static_cast<int>(_files.size());
             }
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IFile> GetFilesAtIndex(int index) override
+            OPENSCENARIOLIB_EXP std::shared_ptr<IFile> GetFilesAtIndex(unsigned int index) override
             {
                 if (index >= 0 && _files.size() > index)
                 {
@@ -24634,7 +24634,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return static_cast<int>(_trafficSignals.size());
             }
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<ITrafficSignalController> GetTrafficSignalsAtIndex(int index) override
+            OPENSCENARIOLIB_EXP std::shared_ptr<ITrafficSignalController> GetTrafficSignalsAtIndex(unsigned int index) override
             {
                 if (index >= 0 && _trafficSignals.size() > index)
                 {
@@ -25041,7 +25041,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return static_cast<int>(_parameterDeclarations.size());
             }
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IParameterDeclaration> GetParameterDeclarationsAtIndex(int index) override
+            OPENSCENARIOLIB_EXP std::shared_ptr<IParameterDeclaration> GetParameterDeclarationsAtIndex(unsigned int index) override
             {
                 if (index >= 0 && _parameterDeclarations.size() > index)
                 {
@@ -25061,7 +25061,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return static_cast<int>(_waypoints.size());
             }
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IWaypoint> GetWaypointsAtIndex(int index) override
+            OPENSCENARIOLIB_EXP std::shared_ptr<IWaypoint> GetWaypointsAtIndex(unsigned int index) override
             {
                 if (index >= 0 && _waypoints.size() > index)
                 {
@@ -25880,7 +25880,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return static_cast<int>(_parameterDeclarations.size());
             }
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IParameterDeclaration> GetParameterDeclarationsAtIndex(int index) override
+            OPENSCENARIOLIB_EXP std::shared_ptr<IParameterDeclaration> GetParameterDeclarationsAtIndex(unsigned int index) override
             {
                 if (index >= 0 && _parameterDeclarations.size() > index)
                 {
@@ -26245,7 +26245,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return static_cast<int>(_entityRef.size());
             }
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IEntityRef> GetEntityRefAtIndex(int index) override
+            OPENSCENARIOLIB_EXP std::shared_ptr<IEntityRef> GetEntityRefAtIndex(unsigned int index) override
             {
                 if (index >= 0 && _entityRef.size() > index)
                 {
@@ -26265,7 +26265,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return static_cast<int>(_byType.size());
             }
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IByType> GetByTypeAtIndex(int index) override
+            OPENSCENARIOLIB_EXP std::shared_ptr<IByType> GetByTypeAtIndex(unsigned int index) override
             {
                 if (index >= 0 && _byType.size() > index)
                 {
@@ -27417,7 +27417,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return static_cast<int>(_parameterDeclarations.size());
             }
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IParameterDeclaration> GetParameterDeclarationsAtIndex(int index) override
+            OPENSCENARIOLIB_EXP std::shared_ptr<IParameterDeclaration> GetParameterDeclarationsAtIndex(unsigned int index) override
             {
                 if (index >= 0 && _parameterDeclarations.size() > index)
                 {
@@ -27437,7 +27437,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return static_cast<int>(_acts.size());
             }
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IAct> GetActsAtIndex(int index) override
+            OPENSCENARIOLIB_EXP std::shared_ptr<IAct> GetActsAtIndex(unsigned int index) override
             {
                 if (index >= 0 && _acts.size() > index)
                 {
@@ -27623,7 +27623,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return static_cast<int>(_stories.size());
             }
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IStory> GetStoriesAtIndex(int index) override
+            OPENSCENARIOLIB_EXP std::shared_ptr<IStory> GetStoriesAtIndex(unsigned int index) override
             {
                 if (index >= 0 && _stories.size() > index)
                 {
@@ -30695,7 +30695,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return static_cast<int>(_phases.size());
             }
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IPhase> GetPhasesAtIndex(int index) override
+            OPENSCENARIOLIB_EXP std::shared_ptr<IPhase> GetPhasesAtIndex(unsigned int index) override
             {
                 if (index >= 0 && _phases.size() > index)
                 {
@@ -30936,7 +30936,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return static_cast<int>(_phaseRef.size());
             }
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IPhase> GetPhaseRefAtIndex(int index) override
+            OPENSCENARIOLIB_EXP std::shared_ptr<IPhase> GetPhaseRefAtIndex(unsigned int index) override
             {
                 if (index >= 0 && _phaseRef.size() > index)
                 {
@@ -31140,7 +31140,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return static_cast<int>(_phaseRef.size());
             }
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IPhase> GetPhaseRefAtIndex(int index) override
+            OPENSCENARIOLIB_EXP std::shared_ptr<IPhase> GetPhaseRefAtIndex(unsigned int index) override
             {
                 if (index >= 0 && _phaseRef.size() > index)
                 {
@@ -32539,7 +32539,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return static_cast<int>(_parameterDeclarations.size());
             }
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IParameterDeclaration> GetParameterDeclarationsAtIndex(int index) override
+            OPENSCENARIOLIB_EXP std::shared_ptr<IParameterDeclaration> GetParameterDeclarationsAtIndex(unsigned int index) override
             {
                 if (index >= 0 && _parameterDeclarations.size() > index)
                 {
@@ -33431,7 +33431,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return static_cast<int>(_conditionGroups.size());
             }
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IConditionGroup> GetConditionGroupsAtIndex(int index) override
+            OPENSCENARIOLIB_EXP std::shared_ptr<IConditionGroup> GetConditionGroupsAtIndex(unsigned int index) override
             {
                 if (index >= 0 && _conditionGroups.size() > index)
                 {
@@ -33581,7 +33581,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return static_cast<int>(_entityRefs.size());
             }
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IEntityRef> GetEntityRefsAtIndex(int index) override
+            OPENSCENARIOLIB_EXP std::shared_ptr<IEntityRef> GetEntityRefsAtIndex(unsigned int index) override
             {
                 if (index >= 0 && _entityRefs.size() > index)
                 {
@@ -34110,7 +34110,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return static_cast<int>(_parameterDeclarations.size());
             }
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IParameterDeclaration> GetParameterDeclarationsAtIndex(int index) override
+            OPENSCENARIOLIB_EXP std::shared_ptr<IParameterDeclaration> GetParameterDeclarationsAtIndex(unsigned int index) override
             {
                 if (index >= 0 && _parameterDeclarations.size() > index)
                 {
@@ -34489,7 +34489,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return static_cast<int>(_vehicleCategoryDistributionEntries.size());
             }
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IVehicleCategoryDistributionEntry> GetVehicleCategoryDistributionEntriesAtIndex(int index) override
+            OPENSCENARIOLIB_EXP std::shared_ptr<IVehicleCategoryDistributionEntry> GetVehicleCategoryDistributionEntriesAtIndex(unsigned int index) override
             {
                 if (index >= 0 && _vehicleCategoryDistributionEntries.size() > index)
                 {

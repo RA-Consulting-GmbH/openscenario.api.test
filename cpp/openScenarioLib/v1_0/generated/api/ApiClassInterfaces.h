@@ -468,7 +468,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IManeuverGroup> GetManeuverGroupsAtIndex(const int index) 
+            virtual std::shared_ptr<IManeuverGroup> GetManeuverGroupsAtIndex(const unsigned int index) 
             {
                 return nullptr;
             }
@@ -622,7 +622,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IEntityRef> GetEntityRefsAtIndex(const int index) 
+            virtual std::shared_ptr<IEntityRef> GetEntityRefsAtIndex(const unsigned int index) 
             {
                 return nullptr;
             }
@@ -869,7 +869,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IAxle> GetAdditionalAxlesAtIndex(const int index) 
+            virtual std::shared_ptr<IAxle> GetAdditionalAxlesAtIndex(const unsigned int index) 
             {
                 return nullptr;
             }
@@ -1232,7 +1232,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IVehicle> GetVehiclesAtIndex(const int index) 
+            virtual std::shared_ptr<IVehicle> GetVehiclesAtIndex(const unsigned int index) 
             {
                 return nullptr;
             }
@@ -1247,7 +1247,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IController> GetControllersAtIndex(const int index) 
+            virtual std::shared_ptr<IController> GetControllersAtIndex(const unsigned int index) 
             {
                 return nullptr;
             }
@@ -1262,7 +1262,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IPedestrian> GetPedestriansAtIndex(const int index) 
+            virtual std::shared_ptr<IPedestrian> GetPedestriansAtIndex(const unsigned int index) 
             {
                 return nullptr;
             }
@@ -1277,7 +1277,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IMiscObject> GetMiscObjectsAtIndex(const int index) 
+            virtual std::shared_ptr<IMiscObject> GetMiscObjectsAtIndex(const unsigned int index) 
             {
                 return nullptr;
             }
@@ -1292,7 +1292,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IEnvironment> GetEnvironmentsAtIndex(const int index) 
+            virtual std::shared_ptr<IEnvironment> GetEnvironmentsAtIndex(const unsigned int index) 
             {
                 return nullptr;
             }
@@ -1307,7 +1307,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IManeuver> GetManeuversAtIndex(const int index) 
+            virtual std::shared_ptr<IManeuver> GetManeuversAtIndex(const unsigned int index) 
             {
                 return nullptr;
             }
@@ -1322,7 +1322,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<ITrajectory> GetTrajectoriesAtIndex(const int index) 
+            virtual std::shared_ptr<ITrajectory> GetTrajectoriesAtIndex(const unsigned int index) 
             {
                 return nullptr;
             }
@@ -1337,7 +1337,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IRoute> GetRoutesAtIndex(const int index) 
+            virtual std::shared_ptr<IRoute> GetRoutesAtIndex(const unsigned int index) 
             {
                 return nullptr;
             }
@@ -1548,7 +1548,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IParameterAssignment> GetParameterAssignmentsAtIndex(const int index) 
+            virtual std::shared_ptr<IParameterAssignment> GetParameterAssignmentsAtIndex(const unsigned int index) 
             {
                 return nullptr;
             }
@@ -1869,7 +1869,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<ICondition> GetConditionsAtIndex(const int index) 
+            virtual std::shared_ptr<ICondition> GetConditionsAtIndex(const unsigned int index) 
             {
                 return nullptr;
             }
@@ -1985,7 +1985,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IParameterDeclaration> GetParameterDeclarationsAtIndex(const int index) 
+            virtual std::shared_ptr<IParameterDeclaration> GetParameterDeclarationsAtIndex(const unsigned int index) 
             {
                 return nullptr;
             }
@@ -2095,7 +2095,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IControllerDistributionEntry> GetControllerDistributionEntriesAtIndex(const int index) 
+            virtual std::shared_ptr<IControllerDistributionEntry> GetControllerDistributionEntriesAtIndex(const unsigned int index) 
             {
                 return nullptr;
             }
@@ -2485,7 +2485,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IScenarioObject> GetScenarioObjectsAtIndex(const int index) 
+            virtual std::shared_ptr<IScenarioObject> GetScenarioObjectsAtIndex(const unsigned int index) 
             {
                 return nullptr;
             }
@@ -2500,7 +2500,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IEntitySelection> GetEntitySelectionsAtIndex(const int index) 
+            virtual std::shared_ptr<IEntitySelection> GetEntitySelectionsAtIndex(const unsigned int index) 
             {
                 return nullptr;
             }
@@ -2926,7 +2926,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IParameterDeclaration> GetParameterDeclarationsAtIndex(const int index) 
+            virtual std::shared_ptr<IParameterDeclaration> GetParameterDeclarationsAtIndex(const unsigned int index) 
             {
                 return nullptr;
             }
@@ -3082,7 +3082,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IAction> GetActionsAtIndex(const int index) 
+            virtual std::shared_ptr<IAction> GetActionsAtIndex(const unsigned int index) 
             {
                 return nullptr;
             }
@@ -3569,7 +3569,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IGlobalAction> GetGlobalActionsAtIndex(const int index) 
+            virtual std::shared_ptr<IGlobalAction> GetGlobalActionsAtIndex(const unsigned int index) 
             {
                 return nullptr;
             }
@@ -3584,7 +3584,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IUserDefinedAction> GetUserDefinedActionsAtIndex(const int index) 
+            virtual std::shared_ptr<IUserDefinedAction> GetUserDefinedActionsAtIndex(const unsigned int index) 
             {
                 return nullptr;
             }
@@ -3599,7 +3599,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IPrivate> GetPrivatesAtIndex(const int index) 
+            virtual std::shared_ptr<IPrivate> GetPrivatesAtIndex(const unsigned int index) 
             {
                 return nullptr;
             }
@@ -4247,7 +4247,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IParameterDeclaration> GetParameterDeclarationsAtIndex(const int index) 
+            virtual std::shared_ptr<IParameterDeclaration> GetParameterDeclarationsAtIndex(const unsigned int index) 
             {
                 return nullptr;
             }
@@ -4262,7 +4262,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IEvent> GetEventsAtIndex(const int index) 
+            virtual std::shared_ptr<IEvent> GetEventsAtIndex(const unsigned int index) 
             {
                 return nullptr;
             }
@@ -4378,7 +4378,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<ICatalogReference> GetCatalogReferencesAtIndex(const int index) 
+            virtual std::shared_ptr<ICatalogReference> GetCatalogReferencesAtIndex(const unsigned int index) 
             {
                 return nullptr;
             }
@@ -4393,7 +4393,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IManeuver> GetManeuversAtIndex(const int index) 
+            virtual std::shared_ptr<IManeuver> GetManeuversAtIndex(const unsigned int index) 
             {
                 return nullptr;
             }
@@ -4491,7 +4491,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IParameterDeclaration> GetParameterDeclarationsAtIndex(const int index) 
+            virtual std::shared_ptr<IParameterDeclaration> GetParameterDeclarationsAtIndex(const unsigned int index) 
             {
                 return nullptr;
             }
@@ -4644,7 +4644,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IControlPoint> GetControlPointsAtIndex(const int index) 
+            virtual std::shared_ptr<IControlPoint> GetControlPointsAtIndex(const unsigned int index) 
             {
                 return nullptr;
             }
@@ -4659,7 +4659,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IKnot> GetKnotsAtIndex(const int index) 
+            virtual std::shared_ptr<IKnot> GetKnotsAtIndex(const unsigned int index) 
             {
                 return nullptr;
             }
@@ -5596,7 +5596,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IParameterDeclaration> GetParameterDeclarationsAtIndex(const int index) 
+            virtual std::shared_ptr<IParameterDeclaration> GetParameterDeclarationsAtIndex(const unsigned int index) 
             {
                 return nullptr;
             }
@@ -5741,7 +5741,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<ITrafficSignalState> GetTrafficSignalStatesAtIndex(const int index) 
+            virtual std::shared_ptr<ITrafficSignalState> GetTrafficSignalStatesAtIndex(const unsigned int index) 
             {
                 return nullptr;
             }
@@ -5784,7 +5784,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IVertex> GetVerticesAtIndex(const int index) 
+            virtual std::shared_ptr<IVertex> GetVerticesAtIndex(const unsigned int index) 
             {
                 return nullptr;
             }
@@ -6102,7 +6102,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IPrivateAction> GetPrivateActionsAtIndex(const int index) 
+            virtual std::shared_ptr<IPrivateAction> GetPrivateActionsAtIndex(const unsigned int index) 
             {
                 return nullptr;
             }
@@ -6267,7 +6267,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IProperty> GetPropertiesAtIndex(const int index) 
+            virtual std::shared_ptr<IProperty> GetPropertiesAtIndex(const unsigned int index) 
             {
                 return nullptr;
             }
@@ -6282,7 +6282,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IFile> GetFilesAtIndex(const int index) 
+            virtual std::shared_ptr<IFile> GetFilesAtIndex(const unsigned int index) 
             {
                 return nullptr;
             }
@@ -7054,7 +7054,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<ITrafficSignalController> GetTrafficSignalsAtIndex(const int index) 
+            virtual std::shared_ptr<ITrafficSignalController> GetTrafficSignalsAtIndex(const unsigned int index) 
             {
                 return nullptr;
             }
@@ -7193,7 +7193,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IParameterDeclaration> GetParameterDeclarationsAtIndex(const int index) 
+            virtual std::shared_ptr<IParameterDeclaration> GetParameterDeclarationsAtIndex(const unsigned int index) 
             {
                 return nullptr;
             }
@@ -7208,7 +7208,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IWaypoint> GetWaypointsAtIndex(const int index) 
+            virtual std::shared_ptr<IWaypoint> GetWaypointsAtIndex(const unsigned int index) 
             {
                 return nullptr;
             }
@@ -7469,7 +7469,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IParameterDeclaration> GetParameterDeclarationsAtIndex(const int index) 
+            virtual std::shared_ptr<IParameterDeclaration> GetParameterDeclarationsAtIndex(const unsigned int index) 
             {
                 return nullptr;
             }
@@ -7574,7 +7574,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IEntityRef> GetEntityRefAtIndex(const int index) 
+            virtual std::shared_ptr<IEntityRef> GetEntityRefAtIndex(const unsigned int index) 
             {
                 return nullptr;
             }
@@ -7589,7 +7589,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IByType> GetByTypeAtIndex(const int index) 
+            virtual std::shared_ptr<IByType> GetByTypeAtIndex(const unsigned int index) 
             {
                 return nullptr;
             }
@@ -7891,7 +7891,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IParameterDeclaration> GetParameterDeclarationsAtIndex(const int index) 
+            virtual std::shared_ptr<IParameterDeclaration> GetParameterDeclarationsAtIndex(const unsigned int index) 
             {
                 return nullptr;
             }
@@ -7906,7 +7906,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IAct> GetActsAtIndex(const int index) 
+            virtual std::shared_ptr<IAct> GetActsAtIndex(const unsigned int index) 
             {
                 return nullptr;
             }
@@ -7971,7 +7971,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IStory> GetStoriesAtIndex(const int index) 
+            virtual std::shared_ptr<IStory> GetStoriesAtIndex(const unsigned int index) 
             {
                 return nullptr;
             }
@@ -8785,7 +8785,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IPhase> GetPhasesAtIndex(const int index) 
+            virtual std::shared_ptr<IPhase> GetPhasesAtIndex(const unsigned int index) 
             {
                 return nullptr;
             }
@@ -8851,7 +8851,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IPhase> GetPhaseRefAtIndex(const int index) 
+            virtual std::shared_ptr<IPhase> GetPhaseRefAtIndex(const unsigned int index) 
             {
                 return nullptr;
             }
@@ -8918,7 +8918,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IPhase> GetPhaseRefAtIndex(const int index) 
+            virtual std::shared_ptr<IPhase> GetPhaseRefAtIndex(const unsigned int index) 
             {
                 return nullptr;
             }
@@ -9318,7 +9318,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IParameterDeclaration> GetParameterDeclarationsAtIndex(const int index) 
+            virtual std::shared_ptr<IParameterDeclaration> GetParameterDeclarationsAtIndex(const unsigned int index) 
             {
                 return nullptr;
             }
@@ -9502,7 +9502,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IConditionGroup> GetConditionGroupsAtIndex(const int index) 
+            virtual std::shared_ptr<IConditionGroup> GetConditionGroupsAtIndex(const unsigned int index) 
             {
                 return nullptr;
             }
@@ -9557,7 +9557,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IEntityRef> GetEntityRefsAtIndex(const int index) 
+            virtual std::shared_ptr<IEntityRef> GetEntityRefsAtIndex(const unsigned int index) 
             {
                 return nullptr;
             }
@@ -9747,7 +9747,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IParameterDeclaration> GetParameterDeclarationsAtIndex(const int index) 
+            virtual std::shared_ptr<IParameterDeclaration> GetParameterDeclarationsAtIndex(const unsigned int index) 
             {
                 return nullptr;
             }
@@ -9819,7 +9819,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IVehicleCategoryDistributionEntry> GetVehicleCategoryDistributionEntriesAtIndex(const int index) 
+            virtual std::shared_ptr<IVehicleCategoryDistributionEntry> GetVehicleCategoryDistributionEntriesAtIndex(const unsigned int index) 
             {
                 return nullptr;
             }
