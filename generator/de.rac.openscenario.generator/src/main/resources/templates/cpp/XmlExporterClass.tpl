@@ -89,6 +89,7 @@ namespace NET_ASAM_OPENSCENARIO
 <%- umlClass.umlProperties.findAll(){p-> !p.isTransient()}.each{ property -> -%>
 <%- if (property.isParameterizableProperty() && !property.isProxy()){-%>
                 const auto k<%=property.name.toClassName()%> = <%=umlClass.name.toMemberName()%>Writer->Get<%=property.name.toClassName()%>();
+<%-if (property.isOptional()){-%>
                 if (!( k<%=property.name.toClassName()%><%=property.type.toCppIsDefaultValue()%>))
                 {
 <%-if (property.type.isPrimitiveType()){-%>
@@ -97,10 +98,24 @@ namespace NET_ASAM_OPENSCENARIO
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>.c_str(), k<%=property.name.toClassName()%>.GetLiteral().c_str());
 <%-}-%>
                 }
-                else if (<%=umlClass.name.toMemberName()%>Writer->Is<%=property.name.toClassName()%>Parameterized())
+				else if (<%=umlClass.name.toMemberName()%>Writer->Is<%=property.name.toClassName()%>Parameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>.c_str(), <%=umlClass.name.toMemberName()%>Writer->GetParameterFrom<%=property.name.toClassName()%>().c_str());
                 }
+<%-} else {-%>
+                if (<%=umlClass.name.toMemberName()%>Writer->Is<%=property.name.toClassName()%>Parameterized())
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>.c_str(), <%=umlClass.name.toMemberName()%>Writer->GetParameterFrom<%=property.name.toClassName()%>().c_str());
+                }
+                else
+                {
+<%-if (property.type.isPrimitiveType()){-%>
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>.c_str(), XmlExportHelper::ToXmlStringFrom<%=property.type.name.toClassName()%>( k<%=property.name.toClassName()%>).c_str());
+<%-} else {-%>
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>.c_str(), k<%=property.name.toClassName()%>.GetLiteral().c_str());
+<%-}-%>
+                }
+<%-}-%>
 <%-}else if (property.isProxy()){-%>
                 const auto k<%=property.name.toClassName()%> = <%=umlClass.name.toMemberName()%>Writer->Get<%=property.name.toClassName()%>();
                 if (k<%=property.name.toClassName()%>)
@@ -127,9 +142,13 @@ namespace NET_ASAM_OPENSCENARIO
                 const auto k<%=property.name.toClassName()%> = <%=umlClass.name.toMemberName()%>Writer->GetWriter<%=property.name.toClassName()%>();
                 if (k<%=property.name.toClassName()%>)
                 {
+<%-if (property.type.isGroup()){-%>
+					Fill<%=property.type.name.toClassName()%>Node(document, elementNode, k<%=property.name.toClassName()%>);
+<%-} else {-%>
                     tinyxml2::XMLNode* <%=property.name.toMemberName()%>Element = document->NewElement(OSC_CONSTANTS::ELEMENT__<%=property.name.toUpperNameFromMemberName()%>.c_str());
                     elementNode->InsertEndChild(<%=property.name.toMemberName()%>Element);
                     Fill<%=property.type.name.toClassName()%>Node(document, <%=property.name.toMemberName()%>Element, k<%=property.name.toClassName()%>);
+<%-}-%>
                 }
 <%-}else if (property.isWrappedList()){-%>
                 const auto k<%=property.name.toClassName()%> = <%=umlClass.name.toMemberName()%>Writer->GetWriter<%=property.name.toClassName()%>();
