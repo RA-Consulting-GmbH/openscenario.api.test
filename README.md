@@ -69,7 +69,7 @@ The Linux and Windows (post) build steps are still under development and work in
 - cmake >= 3.8
 - SSD/HDD free space >= 1.5 GB
 - Main memory >= 8 GB
-If you have 8 GB then please change the last line in the script `generateLinux.sh` from `make -j8` to `make`. 
+If you have 8 GB then please change the last line in the script `generate_Linux.sh` from `make -j8` to `make`. 
 
 ##### Build steps:
 * Install `uuid-dev` (needed for building antlr4):
@@ -78,10 +78,10 @@ $ sudo apt install uuid-dev
 ```
 * Change your current directory to `cpp/build/generateLinux` and execute:
 ```bash
-$ ./generateLinux.sh Release make
+$ ./generate_Linux.sh Release make
 ```
 * This creates all necessary makefiles for building the openSCENARIO library as shared library and starts the compilation process by executing `make -j8` starting 8 build threads. If you have 8 GB then change the make command to `make` only as described above in the paragraph **"System requirements"**.
-* The general call to the script above is `./generateLinux.sh [Release|Debug] [static] [make]`.
+* The general call to the script above is `./generate_Linux.sh [Release|Debug] [static] [make]`.
 * To create a package containing all necessary include files and binaries (libraries) execute the bash script below. A file named `openSCENARIO_<date>.tgz` will be created.
 ```bash
 $ ./createLinuxBinPackage.sh
