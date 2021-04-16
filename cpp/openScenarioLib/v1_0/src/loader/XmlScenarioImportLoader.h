@@ -47,8 +47,16 @@ namespace NET_ASAM_OPENSCENARIO
         private:
             std::shared_ptr<XmlScenarioLoader> _innerScenarioLoader;
             std::shared_ptr<IParserMessageLogger> _catalogMessageLogger;
+            std::map<std::string, std::string> _customCatalogLocations;
 
         public:
+            /**
+             * Replace the catalog locations of the open scenario file with a set of different ones.
+             * To be used for fixing catalog locations while opening without modifying the file itself.
+             * @param valueMap map of oldCatalogPath and newCatalogPath for catalog locations to be replaced
+             */
+            void setExternalCatalogLocations(const std::map<std::string, std::string>& valueMap) { _customCatalogLocations = valueMap; }
+            
             /**
             * Constructor
             * @param innerScenarioLoader scenario loader that is used to get properties from (Resource locators, filename)
@@ -232,13 +240,19 @@ namespace NET_ASAM_OPENSCENARIO
              * @param result in/out parameter
              * @param directory the IDirectorx model element
              */
-            void AddPath(IResourceLocator& resourceLocator, std::string& filename, std::shared_ptr<IParserMessageLogger>& messageLogger, std::vector<std::string>& result, std::shared_ptr<IDirectory> directory)
+            void AddPath(IResourceLocator& resourceLocator, std::string& filename, std::shared_ptr<IParserMessageLogger>& messageLogger, std::vector<std::string>& result, std::shared_ptr<IDirectory> directory, const std::string& type = std::string())
             {
                 if (directory)
                 {
                     auto path = directory->GetPath();
                     if (!path.empty())
                     {
+                        auto modValueIt = _customCatalogLocations.find(type);
+                        if (modValueIt != _customCatalogLocations.end())
+                        {
+                            path = modValueIt->second;
+                            std::static_pointer_cast<DirectoryImpl>(directory->GetAdapter(typeid(DirectoryImpl).name()))->SetPath(modValueIt->second);
+                        }
                         const auto kSymbolicDirname = resourceLocator.GetSymbolicDirname(filename, path);
                         if (!kSymbolicDirname.empty())
                         {

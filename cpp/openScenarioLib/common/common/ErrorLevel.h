@@ -18,6 +18,9 @@
 #pragma once
 #include <string>
 #include "MemLeakDetection.h"
+#undef ERROR
+#undef ABSOLUTE
+#undef RELATIVE
 
 namespace NET_ASAM_OPENSCENARIO
 {

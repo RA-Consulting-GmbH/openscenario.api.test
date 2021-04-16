@@ -67,7 +67,7 @@ namespace NET_ASAM_OPENSCENARIO
           */
          void SetTargetObject(std::shared_ptr<T>& targetObject)
          {
-             this._targetObject = targetObject;
+             _targetObject = targetObject;
          }
 
         std::string GetNameRef() override
