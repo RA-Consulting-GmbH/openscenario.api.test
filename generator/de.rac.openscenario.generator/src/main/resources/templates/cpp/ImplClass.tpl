@@ -60,7 +60,7 @@ namespace NET_ASAM_OPENSCENARIO
 <%-}}-%>
         public:
 
-            <%=element.name.toClassName()%>Impl();
+            OPENSCENARIOLIB_EXP <%=element.name.toClassName()%>Impl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
             {

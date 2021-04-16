@@ -1,9 +1,9 @@
 /*
  * Copyright 2020 RA Consulting
  *
- * RA Consulting GmbH licenses this file under the Apache License, 
- * Version 2.0 (the "License"); you may not use this file except 
- * in compliance with the License. 
+ * RA Consulting GmbH licenses this file under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
  * You may obtain a copy of the License at
  *
  *    http://www.apache.org/licenses/LICENSE-2.0
@@ -30,16 +30,16 @@
 #include "MemLeakDetection.h"
 
 
-/*
-import org.w3c.dom.Attr;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import java.lang.Iterable;
-import java.util.List;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-*/
+ /*
+ import org.w3c.dom.Attr;
+ import org.w3c.dom.Document;
+ import org.w3c.dom.Element;
+ import java.lang.Iterable;
+ import java.util.List;
+ import javax.xml.parsers.DocumentBuilder;
+ import javax.xml.parsers.DocumentBuilderFactory;
+ import javax.xml.parsers.ParserConfigurationException;
+ */
 
 
 namespace NET_ASAM_OPENSCENARIO
@@ -49,11 +49,11 @@ namespace NET_ASAM_OPENSCENARIO
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
          * Exporting an XML document form a scenario tree.
-         * 
+         *
          * @author RA Consulting OpenSCENARIO generation facility
         */
 
-        class OpenScenarioXmlExporter  
+        class OpenScenarioXmlExporter
         {
 
         public:
@@ -65,7 +65,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     tinyxml2::XMLNode* root = document->NewElement("OpenSCENARIO");
                     document->InsertFirstChild(root);
-                    FillOpenScenarioNode(document, root, openScenarioWriter);    
+                    FillOpenScenarioNode(document, root, openScenarioWriter);
                 }
                 catch (std::exception& e)
                 {
@@ -88,13 +88,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kValue = absoluteSpeedWriter->GetValue();
-                if (!( kValue == 0))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromDouble( kValue).c_str());
-                }
-                else if (absoluteSpeedWriter->IsValueParameterized())
+                if (absoluteSpeedWriter->IsValueParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), absoluteSpeedWriter->GetParameterFromValue().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromDouble(kValue).c_str());
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
             }
@@ -109,13 +109,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kValue = absoluteTargetLaneWriter->GetValue();
-                if (!( kValue.empty()))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromString( kValue).c_str());
-                }
-                else if (absoluteTargetLaneWriter->IsValueParameterized())
+                if (absoluteTargetLaneWriter->IsValueParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), absoluteTargetLaneWriter->GetParameterFromValue().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromString(kValue).c_str());
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
             }
@@ -130,13 +130,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kValue = absoluteTargetLaneOffsetWriter->GetValue();
-                if (!( kValue == 0))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromDouble( kValue).c_str());
-                }
-                else if (absoluteTargetLaneOffsetWriter->IsValueParameterized())
+                if (absoluteTargetLaneOffsetWriter->IsValueParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), absoluteTargetLaneOffsetWriter->GetParameterFromValue().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromDouble(kValue).c_str());
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
             }
@@ -151,13 +151,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kValue = absoluteTargetSpeedWriter->GetValue();
-                if (!( kValue == 0))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromDouble( kValue).c_str());
-                }
-                else if (absoluteTargetSpeedWriter->IsValueParameterized())
+                if (absoluteTargetSpeedWriter->IsValueParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), absoluteTargetSpeedWriter->GetParameterFromValue().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromDouble(kValue).c_str());
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
             }
@@ -172,22 +172,22 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kRule = accelerationConditionWriter->GetRule();
-                if (!( kRule == Rule::UNKNOWN))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__RULE.c_str(), kRule.GetLiteral().c_str());
-                }
-                else if (accelerationConditionWriter->IsRuleParameterized())
+                if (accelerationConditionWriter->IsRuleParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__RULE.c_str(), accelerationConditionWriter->GetParameterFromRule().c_str());
                 }
-                const auto kValue = accelerationConditionWriter->GetValue();
-                if (!( kValue == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromDouble( kValue).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__RULE.c_str(), kRule.GetLiteral().c_str());
                 }
-                else if (accelerationConditionWriter->IsValueParameterized())
+                const auto kValue = accelerationConditionWriter->GetValue();
+                if (accelerationConditionWriter->IsValueParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), accelerationConditionWriter->GetParameterFromValue().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromDouble(kValue).c_str());
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
             }
@@ -221,13 +221,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kName = actWriter->GetName();
-                if (!( kName.empty()))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), XmlExportHelper::ToXmlStringFromString( kName).c_str());
-                }
-                else if (actWriter->IsNameParameterized())
+                if (actWriter->IsNameParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), actWriter->GetParameterFromName().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), XmlExportHelper::ToXmlStringFromString(kName).c_str());
                 }
                 const auto kManeuverGroups = actWriter->GetWriterManeuverGroups();
                 if (!kManeuverGroups.empty())
@@ -237,7 +237,7 @@ namespace NET_ASAM_OPENSCENARIO
                         tinyxml2::XMLNode* maneuverGroupsElement = document->NewElement(OSC_CONSTANTS::ELEMENT__MANEUVER_GROUP.c_str());
                         elementNode->InsertEndChild(maneuverGroupsElement);
                         FillManeuverGroupNode(document, maneuverGroupsElement, maneuverGroupsWriterItem);
-                        
+
                     }
                 }
                 const auto kStartTrigger = actWriter->GetWriterStartTrigger();
@@ -267,13 +267,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kName = actionWriter->GetName();
-                if (!( kName.empty()))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), XmlExportHelper::ToXmlStringFromString( kName).c_str());
-                }
-                else if (actionWriter->IsNameParameterized())
+                if (actionWriter->IsNameParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), actionWriter->GetParameterFromName().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), XmlExportHelper::ToXmlStringFromString(kName).c_str());
                 }
                 const auto kGlobalAction = actionWriter->GetWriterGlobalAction();
                 if (kGlobalAction)
@@ -309,18 +309,18 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kLateral = activateControllerActionWriter->GetLateral();
-                if (!( kLateral == false))
+                if (!(kLateral == false))
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__LATERAL.c_str(), XmlExportHelper::ToXmlStringFromBoolean( kLateral).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__LATERAL.c_str(), XmlExportHelper::ToXmlStringFromBoolean(kLateral).c_str());
                 }
                 else if (activateControllerActionWriter->IsLateralParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__LATERAL.c_str(), activateControllerActionWriter->GetParameterFromLateral().c_str());
                 }
                 const auto kLongitudinal = activateControllerActionWriter->GetLongitudinal();
-                if (!( kLongitudinal == false))
+                if (!(kLongitudinal == false))
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__LONGITUDINAL.c_str(), XmlExportHelper::ToXmlStringFromBoolean( kLongitudinal).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__LONGITUDINAL.c_str(), XmlExportHelper::ToXmlStringFromBoolean(kLongitudinal).c_str());
                 }
                 else if (activateControllerActionWriter->IsLongitudinalParameterized())
                 {
@@ -339,13 +339,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kSelectTriggeringEntities = actorsWriter->GetSelectTriggeringEntities();
-                if (!( kSelectTriggeringEntities == false))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__SELECT_TRIGGERING_ENTITIES.c_str(), XmlExportHelper::ToXmlStringFromBoolean( kSelectTriggeringEntities).c_str());
-                }
-                else if (actorsWriter->IsSelectTriggeringEntitiesParameterized())
+                if (actorsWriter->IsSelectTriggeringEntitiesParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__SELECT_TRIGGERING_ENTITIES.c_str(), actorsWriter->GetParameterFromSelectTriggeringEntities().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__SELECT_TRIGGERING_ENTITIES.c_str(), XmlExportHelper::ToXmlStringFromBoolean(kSelectTriggeringEntities).c_str());
                 }
                 const auto kEntityRefs = actorsWriter->GetWriterEntityRefs();
                 if (!kEntityRefs.empty())
@@ -355,7 +355,7 @@ namespace NET_ASAM_OPENSCENARIO
                         tinyxml2::XMLNode* entityRefsElement = document->NewElement(OSC_CONSTANTS::ELEMENT__ENTITY_REF.c_str());
                         elementNode->InsertEndChild(entityRefsElement);
                         FillEntityRefNode(document, entityRefsElement, entityRefsWriterItem);
-                        
+
                     }
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
@@ -442,49 +442,49 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kMaxSteering = axleWriter->GetMaxSteering();
-                if (!( kMaxSteering == 0))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__MAX_STEERING.c_str(), XmlExportHelper::ToXmlStringFromDouble( kMaxSteering).c_str());
-                }
-                else if (axleWriter->IsMaxSteeringParameterized())
+                if (axleWriter->IsMaxSteeringParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__MAX_STEERING.c_str(), axleWriter->GetParameterFromMaxSteering().c_str());
                 }
-                const auto kPositionX = axleWriter->GetPositionX();
-                if (!( kPositionX == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__POSITION_X.c_str(), XmlExportHelper::ToXmlStringFromDouble( kPositionX).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__MAX_STEERING.c_str(), XmlExportHelper::ToXmlStringFromDouble(kMaxSteering).c_str());
                 }
-                else if (axleWriter->IsPositionXParameterized())
+                const auto kPositionX = axleWriter->GetPositionX();
+                if (axleWriter->IsPositionXParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__POSITION_X.c_str(), axleWriter->GetParameterFromPositionX().c_str());
                 }
-                const auto kPositionZ = axleWriter->GetPositionZ();
-                if (!( kPositionZ == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__POSITION_Z.c_str(), XmlExportHelper::ToXmlStringFromDouble( kPositionZ).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__POSITION_X.c_str(), XmlExportHelper::ToXmlStringFromDouble(kPositionX).c_str());
                 }
-                else if (axleWriter->IsPositionZParameterized())
+                const auto kPositionZ = axleWriter->GetPositionZ();
+                if (axleWriter->IsPositionZParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__POSITION_Z.c_str(), axleWriter->GetParameterFromPositionZ().c_str());
                 }
-                const auto kTrackWidth = axleWriter->GetTrackWidth();
-                if (!( kTrackWidth == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__TRACK_WIDTH.c_str(), XmlExportHelper::ToXmlStringFromDouble( kTrackWidth).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__POSITION_Z.c_str(), XmlExportHelper::ToXmlStringFromDouble(kPositionZ).c_str());
                 }
-                else if (axleWriter->IsTrackWidthParameterized())
+                const auto kTrackWidth = axleWriter->GetTrackWidth();
+                if (axleWriter->IsTrackWidthParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__TRACK_WIDTH.c_str(), axleWriter->GetParameterFromTrackWidth().c_str());
                 }
-                const auto kWheelDiameter = axleWriter->GetWheelDiameter();
-                if (!( kWheelDiameter == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__WHEEL_DIAMETER.c_str(), XmlExportHelper::ToXmlStringFromDouble( kWheelDiameter).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__TRACK_WIDTH.c_str(), XmlExportHelper::ToXmlStringFromDouble(kTrackWidth).c_str());
                 }
-                else if (axleWriter->IsWheelDiameterParameterized())
+                const auto kWheelDiameter = axleWriter->GetWheelDiameter();
+                if (axleWriter->IsWheelDiameterParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__WHEEL_DIAMETER.c_str(), axleWriter->GetParameterFromWheelDiameter().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__WHEEL_DIAMETER.c_str(), XmlExportHelper::ToXmlStringFromDouble(kWheelDiameter).c_str());
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
             }
@@ -520,7 +520,7 @@ namespace NET_ASAM_OPENSCENARIO
                         tinyxml2::XMLNode* additionalAxlesElement = document->NewElement(OSC_CONSTANTS::ELEMENT__ADDITIONAL_AXLE.c_str());
                         elementNode->InsertEndChild(additionalAxlesElement);
                         FillAxleNode(document, additionalAxlesElement, additionalAxlesWriterItem);
-                        
+
                     }
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
@@ -588,13 +588,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kType = byObjectTypeWriter->GetType();
-                if (!( kType == ObjectType::UNKNOWN))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__TYPE.c_str(), kType.GetLiteral().c_str());
-                }
-                else if (byObjectTypeWriter->IsTypeParameterized())
+                if (byObjectTypeWriter->IsTypeParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__TYPE.c_str(), byObjectTypeWriter->GetParameterFromType().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__TYPE.c_str(), kType.GetLiteral().c_str());
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
             }
@@ -609,13 +609,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kObjectType = byTypeWriter->GetObjectType();
-                if (!( kObjectType == ObjectType::UNKNOWN))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__OBJECT_TYPE.c_str(), kObjectType.GetLiteral().c_str());
-                }
-                else if (byTypeWriter->IsObjectTypeParameterized())
+                if (byTypeWriter->IsObjectTypeParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__OBJECT_TYPE.c_str(), byTypeWriter->GetParameterFromObjectType().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__OBJECT_TYPE.c_str(), kObjectType.GetLiteral().c_str());
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
             }
@@ -691,9 +691,9 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kName = catalogWriter->GetName();
-                if (!( kName.empty()))
+                if (!(kName.empty()))
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), XmlExportHelper::ToXmlStringFromString( kName).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), XmlExportHelper::ToXmlStringFromString(kName).c_str());
                 }
                 else if (catalogWriter->IsNameParameterized())
                 {
@@ -707,7 +707,7 @@ namespace NET_ASAM_OPENSCENARIO
                         tinyxml2::XMLNode* vehiclesElement = document->NewElement(OSC_CONSTANTS::ELEMENT__VEHICLE.c_str());
                         elementNode->InsertEndChild(vehiclesElement);
                         FillVehicleNode(document, vehiclesElement, vehiclesWriterItem);
-                        
+
                     }
                 }
                 const auto kControllers = catalogWriter->GetWriterControllers();
@@ -718,7 +718,7 @@ namespace NET_ASAM_OPENSCENARIO
                         tinyxml2::XMLNode* controllersElement = document->NewElement(OSC_CONSTANTS::ELEMENT__CONTROLLER.c_str());
                         elementNode->InsertEndChild(controllersElement);
                         FillControllerNode(document, controllersElement, controllersWriterItem);
-                        
+
                     }
                 }
                 const auto kPedestrians = catalogWriter->GetWriterPedestrians();
@@ -729,7 +729,7 @@ namespace NET_ASAM_OPENSCENARIO
                         tinyxml2::XMLNode* pedestriansElement = document->NewElement(OSC_CONSTANTS::ELEMENT__PEDESTRIAN.c_str());
                         elementNode->InsertEndChild(pedestriansElement);
                         FillPedestrianNode(document, pedestriansElement, pedestriansWriterItem);
-                        
+
                     }
                 }
                 const auto kMiscObjects = catalogWriter->GetWriterMiscObjects();
@@ -740,7 +740,7 @@ namespace NET_ASAM_OPENSCENARIO
                         tinyxml2::XMLNode* miscObjectsElement = document->NewElement(OSC_CONSTANTS::ELEMENT__MISC_OBJECT.c_str());
                         elementNode->InsertEndChild(miscObjectsElement);
                         FillMiscObjectNode(document, miscObjectsElement, miscObjectsWriterItem);
-                        
+
                     }
                 }
                 const auto kEnvironments = catalogWriter->GetWriterEnvironments();
@@ -751,7 +751,7 @@ namespace NET_ASAM_OPENSCENARIO
                         tinyxml2::XMLNode* environmentsElement = document->NewElement(OSC_CONSTANTS::ELEMENT__ENVIRONMENT.c_str());
                         elementNode->InsertEndChild(environmentsElement);
                         FillEnvironmentNode(document, environmentsElement, environmentsWriterItem);
-                        
+
                     }
                 }
                 const auto kManeuvers = catalogWriter->GetWriterManeuvers();
@@ -762,7 +762,7 @@ namespace NET_ASAM_OPENSCENARIO
                         tinyxml2::XMLNode* maneuversElement = document->NewElement(OSC_CONSTANTS::ELEMENT__MANEUVER.c_str());
                         elementNode->InsertEndChild(maneuversElement);
                         FillManeuverNode(document, maneuversElement, maneuversWriterItem);
-                        
+
                     }
                 }
                 const auto kTrajectories = catalogWriter->GetWriterTrajectories();
@@ -773,7 +773,7 @@ namespace NET_ASAM_OPENSCENARIO
                         tinyxml2::XMLNode* trajectoriesElement = document->NewElement(OSC_CONSTANTS::ELEMENT__TRAJECTORY.c_str());
                         elementNode->InsertEndChild(trajectoriesElement);
                         FillTrajectoryNode(document, trajectoriesElement, trajectoriesWriterItem);
-                        
+
                     }
                 }
                 const auto kRoutes = catalogWriter->GetWriterRoutes();
@@ -784,7 +784,7 @@ namespace NET_ASAM_OPENSCENARIO
                         tinyxml2::XMLNode* routesElement = document->NewElement(OSC_CONSTANTS::ELEMENT__ROUTE.c_str());
                         elementNode->InsertEndChild(routesElement);
                         FillRouteNode(document, routesElement, routesWriterItem);
-                        
+
                     }
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
@@ -887,22 +887,22 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kCatalogName = catalogReferenceWriter->GetCatalogName();
-                if (!( kCatalogName.empty()))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__CATALOG_NAME.c_str(), XmlExportHelper::ToXmlStringFromString( kCatalogName).c_str());
-                }
-                else if (catalogReferenceWriter->IsCatalogNameParameterized())
+                if (catalogReferenceWriter->IsCatalogNameParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__CATALOG_NAME.c_str(), catalogReferenceWriter->GetParameterFromCatalogName().c_str());
                 }
-                const auto kEntryName = catalogReferenceWriter->GetEntryName();
-                if (!( kEntryName.empty()))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__ENTRY_NAME.c_str(), XmlExportHelper::ToXmlStringFromString( kEntryName).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__CATALOG_NAME.c_str(), XmlExportHelper::ToXmlStringFromString(kCatalogName).c_str());
                 }
-                else if (catalogReferenceWriter->IsEntryNameParameterized())
+                const auto kEntryName = catalogReferenceWriter->GetEntryName();
+                if (catalogReferenceWriter->IsEntryNameParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__ENTRY_NAME.c_str(), catalogReferenceWriter->GetParameterFromEntryName().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__ENTRY_NAME.c_str(), XmlExportHelper::ToXmlStringFromString(kEntryName).c_str());
                 }
                 const auto kParameterAssignments = catalogReferenceWriter->GetWriterParameterAssignments();
                 if (!kParameterAssignments.empty())
@@ -929,31 +929,31 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kX = centerWriter->GetX();
-                if (!( kX == 0))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__X.c_str(), XmlExportHelper::ToXmlStringFromDouble( kX).c_str());
-                }
-                else if (centerWriter->IsXParameterized())
+                if (centerWriter->IsXParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__X.c_str(), centerWriter->GetParameterFromX().c_str());
                 }
-                const auto kY = centerWriter->GetY();
-                if (!( kY == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__Y.c_str(), XmlExportHelper::ToXmlStringFromDouble( kY).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__X.c_str(), XmlExportHelper::ToXmlStringFromDouble(kX).c_str());
                 }
-                else if (centerWriter->IsYParameterized())
+                const auto kY = centerWriter->GetY();
+                if (centerWriter->IsYParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__Y.c_str(), centerWriter->GetParameterFromY().c_str());
                 }
-                const auto kZ = centerWriter->GetZ();
-                if (!( kZ == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__Z.c_str(), XmlExportHelper::ToXmlStringFromDouble( kZ).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__Y.c_str(), XmlExportHelper::ToXmlStringFromDouble(kY).c_str());
                 }
-                else if (centerWriter->IsZParameterized())
+                const auto kZ = centerWriter->GetZ();
+                if (centerWriter->IsZParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__Z.c_str(), centerWriter->GetParameterFromZ().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__Z.c_str(), XmlExportHelper::ToXmlStringFromDouble(kZ).c_str());
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
             }
@@ -985,45 +985,45 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kCurvature = clothoidWriter->GetCurvature();
-                if (!( kCurvature == 0))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__CURVATURE.c_str(), XmlExportHelper::ToXmlStringFromDouble( kCurvature).c_str());
-                }
-                else if (clothoidWriter->IsCurvatureParameterized())
+                if (clothoidWriter->IsCurvatureParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__CURVATURE.c_str(), clothoidWriter->GetParameterFromCurvature().c_str());
                 }
-                const auto kCurvatureDot = clothoidWriter->GetCurvatureDot();
-                if (!( kCurvatureDot == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__CURVATURE_DOT.c_str(), XmlExportHelper::ToXmlStringFromDouble( kCurvatureDot).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__CURVATURE.c_str(), XmlExportHelper::ToXmlStringFromDouble(kCurvature).c_str());
                 }
-                else if (clothoidWriter->IsCurvatureDotParameterized())
+                const auto kCurvatureDot = clothoidWriter->GetCurvatureDot();
+                if (clothoidWriter->IsCurvatureDotParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__CURVATURE_DOT.c_str(), clothoidWriter->GetParameterFromCurvatureDot().c_str());
                 }
-                const auto kLength = clothoidWriter->GetLength();
-                if (!( kLength == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__LENGTH.c_str(), XmlExportHelper::ToXmlStringFromDouble( kLength).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__CURVATURE_DOT.c_str(), XmlExportHelper::ToXmlStringFromDouble(kCurvatureDot).c_str());
                 }
-                else if (clothoidWriter->IsLengthParameterized())
+                const auto kLength = clothoidWriter->GetLength();
+                if (clothoidWriter->IsLengthParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__LENGTH.c_str(), clothoidWriter->GetParameterFromLength().c_str());
                 }
-                const auto kStartTime = clothoidWriter->GetStartTime();
-                if (!( kStartTime == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__START_TIME.c_str(), XmlExportHelper::ToXmlStringFromDouble( kStartTime).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__LENGTH.c_str(), XmlExportHelper::ToXmlStringFromDouble(kLength).c_str());
+                }
+                const auto kStartTime = clothoidWriter->GetStartTime();
+                if (!(kStartTime == 0))
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__START_TIME.c_str(), XmlExportHelper::ToXmlStringFromDouble(kStartTime).c_str());
                 }
                 else if (clothoidWriter->IsStartTimeParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__START_TIME.c_str(), clothoidWriter->GetParameterFromStartTime().c_str());
                 }
                 const auto kStopTime = clothoidWriter->GetStopTime();
-                if (!( kStopTime == 0))
+                if (!(kStopTime == 0))
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__STOP_TIME.c_str(), XmlExportHelper::ToXmlStringFromDouble( kStopTime).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__STOP_TIME.c_str(), XmlExportHelper::ToXmlStringFromDouble(kStopTime).c_str());
                 }
                 else if (clothoidWriter->IsStopTimeParameterized())
                 {
@@ -1075,31 +1075,31 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kConditionEdge = conditionWriter->GetConditionEdge();
-                if (!( kConditionEdge == ConditionEdge::UNKNOWN))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__CONDITION_EDGE.c_str(), kConditionEdge.GetLiteral().c_str());
-                }
-                else if (conditionWriter->IsConditionEdgeParameterized())
+                if (conditionWriter->IsConditionEdgeParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__CONDITION_EDGE.c_str(), conditionWriter->GetParameterFromConditionEdge().c_str());
                 }
-                const auto kDelay = conditionWriter->GetDelay();
-                if (!( kDelay == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DELAY.c_str(), XmlExportHelper::ToXmlStringFromDouble( kDelay).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__CONDITION_EDGE.c_str(), kConditionEdge.GetLiteral().c_str());
                 }
-                else if (conditionWriter->IsDelayParameterized())
+                const auto kDelay = conditionWriter->GetDelay();
+                if (conditionWriter->IsDelayParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DELAY.c_str(), conditionWriter->GetParameterFromDelay().c_str());
                 }
-                const auto kName = conditionWriter->GetName();
-                if (!( kName.empty()))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), XmlExportHelper::ToXmlStringFromString( kName).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DELAY.c_str(), XmlExportHelper::ToXmlStringFromDouble(kDelay).c_str());
                 }
-                else if (conditionWriter->IsNameParameterized())
+                const auto kName = conditionWriter->GetName();
+                if (conditionWriter->IsNameParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), conditionWriter->GetParameterFromName().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), XmlExportHelper::ToXmlStringFromString(kName).c_str());
                 }
                 const auto kByEntityCondition = conditionWriter->GetWriterByEntityCondition();
                 if (kByEntityCondition)
@@ -1135,7 +1135,7 @@ namespace NET_ASAM_OPENSCENARIO
                         tinyxml2::XMLNode* conditionsElement = document->NewElement(OSC_CONSTANTS::ELEMENT__CONDITION.c_str());
                         elementNode->InsertEndChild(conditionsElement);
                         FillConditionNode(document, conditionsElement, conditionsWriterItem);
-                        
+
                     }
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
@@ -1151,18 +1151,18 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kTime = controlPointWriter->GetTime();
-                if (!( kTime == 0))
+                if (!(kTime == 0))
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__TIME.c_str(), XmlExportHelper::ToXmlStringFromDouble( kTime).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__TIME.c_str(), XmlExportHelper::ToXmlStringFromDouble(kTime).c_str());
                 }
                 else if (controlPointWriter->IsTimeParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__TIME.c_str(), controlPointWriter->GetParameterFromTime().c_str());
                 }
                 const auto kWeight = controlPointWriter->GetWeight();
-                if (!( kWeight == 0))
+                if (!(kWeight == 0))
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__WEIGHT.c_str(), XmlExportHelper::ToXmlStringFromDouble( kWeight).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__WEIGHT.c_str(), XmlExportHelper::ToXmlStringFromDouble(kWeight).c_str());
                 }
                 else if (controlPointWriter->IsWeightParameterized())
                 {
@@ -1188,13 +1188,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kName = controllerWriter->GetName();
-                if (!( kName.empty()))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), XmlExportHelper::ToXmlStringFromString( kName).c_str());
-                }
-                else if (controllerWriter->IsNameParameterized())
+                if (controllerWriter->IsNameParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), controllerWriter->GetParameterFromName().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), XmlExportHelper::ToXmlStringFromString(kName).c_str());
                 }
                 const auto kParameterDeclarations = controllerWriter->GetWriterParameterDeclarations();
                 if (!kParameterDeclarations.empty())
@@ -1280,7 +1280,7 @@ namespace NET_ASAM_OPENSCENARIO
                         tinyxml2::XMLNode* controllerDistributionEntriesElement = document->NewElement(OSC_CONSTANTS::ELEMENT__CONTROLLER_DISTRIBUTION_ENTRY.c_str());
                         elementNode->InsertEndChild(controllerDistributionEntriesElement);
                         FillControllerDistributionEntryNode(document, controllerDistributionEntriesElement, controllerDistributionEntriesWriterItem);
-                        
+
                     }
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
@@ -1296,13 +1296,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kWeight = controllerDistributionEntryWriter->GetWeight();
-                if (!( kWeight == 0))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__WEIGHT.c_str(), XmlExportHelper::ToXmlStringFromDouble( kWeight).c_str());
-                }
-                else if (controllerDistributionEntryWriter->IsWeightParameterized())
+                if (controllerDistributionEntryWriter->IsWeightParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__WEIGHT.c_str(), controllerDistributionEntryWriter->GetParameterFromWeight().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__WEIGHT.c_str(), XmlExportHelper::ToXmlStringFromDouble(kWeight).c_str());
                 }
                 const auto kController = controllerDistributionEntryWriter->GetWriterController();
                 if (kController)
@@ -1331,22 +1331,22 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kContent = customCommandActionWriter->GetContent();
-                if (!( kContent.empty()))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__CONTENT.c_str(), XmlExportHelper::ToXmlStringFromString( kContent).c_str());
-                }
-                else if (customCommandActionWriter->IsContentParameterized())
+                if (customCommandActionWriter->IsContentParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__CONTENT.c_str(), customCommandActionWriter->GetParameterFromContent().c_str());
                 }
-                const auto kType = customCommandActionWriter->GetType();
-                if (!( kType.empty()))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__TYPE.c_str(), XmlExportHelper::ToXmlStringFromString( kType).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__CONTENT.c_str(), XmlExportHelper::ToXmlStringFromString(kContent).c_str());
                 }
-                else if (customCommandActionWriter->IsTypeParameterized())
+                const auto kType = customCommandActionWriter->GetType();
+                if (customCommandActionWriter->IsTypeParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__TYPE.c_str(), customCommandActionWriter->GetParameterFromType().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__TYPE.c_str(), XmlExportHelper::ToXmlStringFromString(kType).c_str());
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
             }
@@ -1373,31 +1373,31 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kHeight = dimensionsWriter->GetHeight();
-                if (!( kHeight == 0))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__HEIGHT.c_str(), XmlExportHelper::ToXmlStringFromDouble( kHeight).c_str());
-                }
-                else if (dimensionsWriter->IsHeightParameterized())
+                if (dimensionsWriter->IsHeightParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__HEIGHT.c_str(), dimensionsWriter->GetParameterFromHeight().c_str());
                 }
-                const auto kLength = dimensionsWriter->GetLength();
-                if (!( kLength == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__LENGTH.c_str(), XmlExportHelper::ToXmlStringFromDouble( kLength).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__HEIGHT.c_str(), XmlExportHelper::ToXmlStringFromDouble(kHeight).c_str());
                 }
-                else if (dimensionsWriter->IsLengthParameterized())
+                const auto kLength = dimensionsWriter->GetLength();
+                if (dimensionsWriter->IsLengthParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__LENGTH.c_str(), dimensionsWriter->GetParameterFromLength().c_str());
                 }
-                const auto kWidth = dimensionsWriter->GetWidth();
-                if (!( kWidth == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__WIDTH.c_str(), XmlExportHelper::ToXmlStringFromDouble( kWidth).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__LENGTH.c_str(), XmlExportHelper::ToXmlStringFromDouble(kLength).c_str());
                 }
-                else if (dimensionsWriter->IsWidthParameterized())
+                const auto kWidth = dimensionsWriter->GetWidth();
+                if (dimensionsWriter->IsWidthParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__WIDTH.c_str(), dimensionsWriter->GetParameterFromWidth().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__WIDTH.c_str(), XmlExportHelper::ToXmlStringFromDouble(kWidth).c_str());
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
             }
@@ -1412,13 +1412,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kPath = directoryWriter->GetPath();
-                if (!( kPath.empty()))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__PATH.c_str(), XmlExportHelper::ToXmlStringFromString( kPath).c_str());
-                }
-                else if (directoryWriter->IsPathParameterized())
+                if (directoryWriter->IsPathParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__PATH.c_str(), directoryWriter->GetParameterFromPath().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__PATH.c_str(), XmlExportHelper::ToXmlStringFromString(kPath).c_str());
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
             }
@@ -1433,40 +1433,40 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kAlongRoute = distanceConditionWriter->GetAlongRoute();
-                if (!( kAlongRoute == false))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__ALONG_ROUTE.c_str(), XmlExportHelper::ToXmlStringFromBoolean( kAlongRoute).c_str());
-                }
-                else if (distanceConditionWriter->IsAlongRouteParameterized())
+                if (distanceConditionWriter->IsAlongRouteParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__ALONG_ROUTE.c_str(), distanceConditionWriter->GetParameterFromAlongRoute().c_str());
                 }
-                const auto kFreespace = distanceConditionWriter->GetFreespace();
-                if (!( kFreespace == false))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__FREESPACE.c_str(), XmlExportHelper::ToXmlStringFromBoolean( kFreespace).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__ALONG_ROUTE.c_str(), XmlExportHelper::ToXmlStringFromBoolean(kAlongRoute).c_str());
                 }
-                else if (distanceConditionWriter->IsFreespaceParameterized())
+                const auto kFreespace = distanceConditionWriter->GetFreespace();
+                if (distanceConditionWriter->IsFreespaceParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__FREESPACE.c_str(), distanceConditionWriter->GetParameterFromFreespace().c_str());
                 }
-                const auto kRule = distanceConditionWriter->GetRule();
-                if (!( kRule == Rule::UNKNOWN))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__RULE.c_str(), kRule.GetLiteral().c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__FREESPACE.c_str(), XmlExportHelper::ToXmlStringFromBoolean(kFreespace).c_str());
                 }
-                else if (distanceConditionWriter->IsRuleParameterized())
+                const auto kRule = distanceConditionWriter->GetRule();
+                if (distanceConditionWriter->IsRuleParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__RULE.c_str(), distanceConditionWriter->GetParameterFromRule().c_str());
                 }
-                const auto kValue = distanceConditionWriter->GetValue();
-                if (!( kValue == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromDouble( kValue).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__RULE.c_str(), kRule.GetLiteral().c_str());
                 }
-                else if (distanceConditionWriter->IsValueParameterized())
+                const auto kValue = distanceConditionWriter->GetValue();
+                if (distanceConditionWriter->IsValueParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), distanceConditionWriter->GetParameterFromValue().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromDouble(kValue).c_str());
                 }
                 const auto kPosition = distanceConditionWriter->GetWriterPosition();
                 if (kPosition)
@@ -1488,27 +1488,27 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kMaxAcceleration = dynamicConstraintsWriter->GetMaxAcceleration();
-                if (!( kMaxAcceleration == 0))
+                if (!(kMaxAcceleration == 0))
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__MAX_ACCELERATION.c_str(), XmlExportHelper::ToXmlStringFromDouble( kMaxAcceleration).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__MAX_ACCELERATION.c_str(), XmlExportHelper::ToXmlStringFromDouble(kMaxAcceleration).c_str());
                 }
                 else if (dynamicConstraintsWriter->IsMaxAccelerationParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__MAX_ACCELERATION.c_str(), dynamicConstraintsWriter->GetParameterFromMaxAcceleration().c_str());
                 }
                 const auto kMaxDeceleration = dynamicConstraintsWriter->GetMaxDeceleration();
-                if (!( kMaxDeceleration == 0))
+                if (!(kMaxDeceleration == 0))
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__MAX_DECELERATION.c_str(), XmlExportHelper::ToXmlStringFromDouble( kMaxDeceleration).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__MAX_DECELERATION.c_str(), XmlExportHelper::ToXmlStringFromDouble(kMaxDeceleration).c_str());
                 }
                 else if (dynamicConstraintsWriter->IsMaxDecelerationParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__MAX_DECELERATION.c_str(), dynamicConstraintsWriter->GetParameterFromMaxDeceleration().c_str());
                 }
                 const auto kMaxSpeed = dynamicConstraintsWriter->GetMaxSpeed();
-                if (!( kMaxSpeed == 0))
+                if (!(kMaxSpeed == 0))
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__MAX_SPEED.c_str(), XmlExportHelper::ToXmlStringFromDouble( kMaxSpeed).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__MAX_SPEED.c_str(), XmlExportHelper::ToXmlStringFromDouble(kMaxSpeed).c_str());
                 }
                 else if (dynamicConstraintsWriter->IsMaxSpeedParameterized())
                 {
@@ -1527,13 +1527,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kDuration = endOfRoadConditionWriter->GetDuration();
-                if (!( kDuration == 0))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DURATION.c_str(), XmlExportHelper::ToXmlStringFromDouble( kDuration).c_str());
-                }
-                else if (endOfRoadConditionWriter->IsDurationParameterized())
+                if (endOfRoadConditionWriter->IsDurationParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DURATION.c_str(), endOfRoadConditionWriter->GetParameterFromDuration().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DURATION.c_str(), XmlExportHelper::ToXmlStringFromDouble(kDuration).c_str());
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
             }
@@ -1555,7 +1555,7 @@ namespace NET_ASAM_OPENSCENARIO
                         tinyxml2::XMLNode* scenarioObjectsElement = document->NewElement(OSC_CONSTANTS::ELEMENT__SCENARIO_OBJECT.c_str());
                         elementNode->InsertEndChild(scenarioObjectsElement);
                         FillScenarioObjectNode(document, scenarioObjectsElement, scenarioObjectsWriterItem);
-                        
+
                     }
                 }
                 const auto kEntitySelections = entitiesWriter->GetWriterEntitySelections();
@@ -1566,7 +1566,7 @@ namespace NET_ASAM_OPENSCENARIO
                         tinyxml2::XMLNode* entitySelectionsElement = document->NewElement(OSC_CONSTANTS::ELEMENT__ENTITY_SELECTION.c_str());
                         elementNode->InsertEndChild(entitySelectionsElement);
                         FillEntitySelectionNode(document, entitySelectionsElement, entitySelectionsWriterItem);
-                        
+
                     }
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
@@ -1773,13 +1773,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kName = entitySelectionWriter->GetName();
-                if (!( kName.empty()))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), XmlExportHelper::ToXmlStringFromString( kName).c_str());
-                }
-                else if (entitySelectionWriter->IsNameParameterized())
+                if (entitySelectionWriter->IsNameParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), entitySelectionWriter->GetParameterFromName().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), XmlExportHelper::ToXmlStringFromString(kName).c_str());
                 }
                 const auto kMembers = entitySelectionWriter->GetWriterMembers();
                 if (kMembers)
@@ -1801,13 +1801,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kName = environmentWriter->GetName();
-                if (!( kName.empty()))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), XmlExportHelper::ToXmlStringFromString( kName).c_str());
-                }
-                else if (environmentWriter->IsNameParameterized())
+                if (environmentWriter->IsNameParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), environmentWriter->GetParameterFromName().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), XmlExportHelper::ToXmlStringFromString(kName).c_str());
                 }
                 const auto kParameterDeclarations = environmentWriter->GetWriterParameterDeclarations();
                 if (!kParameterDeclarations.empty())
@@ -1900,31 +1900,31 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kMaximumExecutionCount = eventWriter->GetMaximumExecutionCount();
-                if (!( kMaximumExecutionCount == 0))
+                if (!(kMaximumExecutionCount == 0))
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__MAXIMUM_EXECUTION_COUNT.c_str(), XmlExportHelper::ToXmlStringFromUnsignedInt( kMaximumExecutionCount).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__MAXIMUM_EXECUTION_COUNT.c_str(), XmlExportHelper::ToXmlStringFromUnsignedInt(kMaximumExecutionCount).c_str());
                 }
                 else if (eventWriter->IsMaximumExecutionCountParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__MAXIMUM_EXECUTION_COUNT.c_str(), eventWriter->GetParameterFromMaximumExecutionCount().c_str());
                 }
                 const auto kName = eventWriter->GetName();
-                if (!( kName.empty()))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), XmlExportHelper::ToXmlStringFromString( kName).c_str());
-                }
-                else if (eventWriter->IsNameParameterized())
+                if (eventWriter->IsNameParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), eventWriter->GetParameterFromName().c_str());
                 }
-                const auto kPriority = eventWriter->GetPriority();
-                if (!( kPriority == Priority::UNKNOWN))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__PRIORITY.c_str(), kPriority.GetLiteral().c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), XmlExportHelper::ToXmlStringFromString(kName).c_str());
                 }
-                else if (eventWriter->IsPriorityParameterized())
+                const auto kPriority = eventWriter->GetPriority();
+                if (eventWriter->IsPriorityParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__PRIORITY.c_str(), eventWriter->GetParameterFromPriority().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__PRIORITY.c_str(), kPriority.GetLiteral().c_str());
                 }
                 const auto kActions = eventWriter->GetWriterActions();
                 if (!kActions.empty())
@@ -1934,7 +1934,7 @@ namespace NET_ASAM_OPENSCENARIO
                         tinyxml2::XMLNode* actionsElement = document->NewElement(OSC_CONSTANTS::ELEMENT__ACTION.c_str());
                         elementNode->InsertEndChild(actionsElement);
                         FillActionNode(document, actionsElement, actionsWriterItem);
-                        
+
                     }
                 }
                 const auto kStartTrigger = eventWriter->GetWriterStartTrigger();
@@ -1957,13 +1957,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kFilepath = fileWriter->GetFilepath();
-                if (!( kFilepath.empty()))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__FILEPATH.c_str(), XmlExportHelper::ToXmlStringFromString( kFilepath).c_str());
-                }
-                else if (fileWriter->IsFilepathParameterized())
+                if (fileWriter->IsFilepathParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__FILEPATH.c_str(), fileWriter->GetParameterFromFilepath().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__FILEPATH.c_str(), XmlExportHelper::ToXmlStringFromString(kFilepath).c_str());
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
             }
@@ -1978,49 +1978,49 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kAuthor = fileHeaderWriter->GetAuthor();
-                if (!( kAuthor.empty()))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__AUTHOR.c_str(), XmlExportHelper::ToXmlStringFromString( kAuthor).c_str());
-                }
-                else if (fileHeaderWriter->IsAuthorParameterized())
+                if (fileHeaderWriter->IsAuthorParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__AUTHOR.c_str(), fileHeaderWriter->GetParameterFromAuthor().c_str());
                 }
-                const auto kDate = fileHeaderWriter->GetDate();
-                if (!( kDate == DateTime()))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DATE.c_str(), XmlExportHelper::ToXmlStringFromDateTime( kDate).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__AUTHOR.c_str(), XmlExportHelper::ToXmlStringFromString(kAuthor).c_str());
                 }
-                else if (fileHeaderWriter->IsDateParameterized())
+                const auto kDate = fileHeaderWriter->GetDate();
+                if (fileHeaderWriter->IsDateParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DATE.c_str(), fileHeaderWriter->GetParameterFromDate().c_str());
                 }
-                const auto kDescription = fileHeaderWriter->GetDescription();
-                if (!( kDescription.empty()))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DESCRIPTION.c_str(), XmlExportHelper::ToXmlStringFromString( kDescription).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DATE.c_str(), XmlExportHelper::ToXmlStringFromDateTime(kDate).c_str());
                 }
-                else if (fileHeaderWriter->IsDescriptionParameterized())
+                const auto kDescription = fileHeaderWriter->GetDescription();
+                if (fileHeaderWriter->IsDescriptionParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DESCRIPTION.c_str(), fileHeaderWriter->GetParameterFromDescription().c_str());
                 }
-                const auto kRevMajor = fileHeaderWriter->GetRevMajor();
-                if (!( kRevMajor == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__REV_MAJOR.c_str(), XmlExportHelper::ToXmlStringFromUnsignedShort( kRevMajor).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DESCRIPTION.c_str(), XmlExportHelper::ToXmlStringFromString(kDescription).c_str());
                 }
-                else if (fileHeaderWriter->IsRevMajorParameterized())
+                const auto kRevMajor = fileHeaderWriter->GetRevMajor();
+                if (fileHeaderWriter->IsRevMajorParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__REV_MAJOR.c_str(), fileHeaderWriter->GetParameterFromRevMajor().c_str());
                 }
-                const auto kRevMinor = fileHeaderWriter->GetRevMinor();
-                if (!( kRevMinor == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__REV_MINOR.c_str(), XmlExportHelper::ToXmlStringFromUnsignedShort( kRevMinor).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__REV_MAJOR.c_str(), XmlExportHelper::ToXmlStringFromUnsignedShort(kRevMajor).c_str());
                 }
-                else if (fileHeaderWriter->IsRevMinorParameterized())
+                const auto kRevMinor = fileHeaderWriter->GetRevMinor();
+                if (fileHeaderWriter->IsRevMinorParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__REV_MINOR.c_str(), fileHeaderWriter->GetParameterFromRevMinor().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__REV_MINOR.c_str(), XmlExportHelper::ToXmlStringFromUnsignedShort(kRevMinor).c_str());
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
             }
@@ -2061,13 +2061,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kVisualRange = fogWriter->GetVisualRange();
-                if (!( kVisualRange == 0))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VISUAL_RANGE.c_str(), XmlExportHelper::ToXmlStringFromDouble( kVisualRange).c_str());
-                }
-                else if (fogWriter->IsVisualRangeParameterized())
+                if (fogWriter->IsVisualRangeParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VISUAL_RANGE.c_str(), fogWriter->GetParameterFromVisualRange().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VISUAL_RANGE.c_str(), XmlExportHelper::ToXmlStringFromDouble(kVisualRange).c_str());
                 }
                 const auto kBoundingBox = fogWriter->GetWriterBoundingBox();
                 if (kBoundingBox)
@@ -2254,7 +2254,7 @@ namespace NET_ASAM_OPENSCENARIO
                         tinyxml2::XMLNode* globalActionsElement = document->NewElement(OSC_CONSTANTS::ELEMENT__GLOBAL_ACTION.c_str());
                         elementNode->InsertEndChild(globalActionsElement);
                         FillGlobalActionNode(document, globalActionsElement, globalActionsWriterItem);
-                        
+
                     }
                 }
                 const auto kUserDefinedActions = initActionsWriter->GetWriterUserDefinedActions();
@@ -2265,7 +2265,7 @@ namespace NET_ASAM_OPENSCENARIO
                         tinyxml2::XMLNode* userDefinedActionsElement = document->NewElement(OSC_CONSTANTS::ELEMENT__USER_DEFINED_ACTION.c_str());
                         elementNode->InsertEndChild(userDefinedActionsElement);
                         FillUserDefinedActionNode(document, userDefinedActionsElement, userDefinedActionsWriterItem);
-                        
+
                     }
                 }
                 const auto kPrivates = initActionsWriter->GetWriterPrivates();
@@ -2276,7 +2276,7 @@ namespace NET_ASAM_OPENSCENARIO
                         tinyxml2::XMLNode* privatesElement = document->NewElement(OSC_CONSTANTS::ELEMENT__PRIVATE.c_str());
                         elementNode->InsertEndChild(privatesElement);
                         FillPrivateNode(document, privatesElement, privatesWriterItem);
-                        
+
                     }
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
@@ -2292,13 +2292,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kValue = knotWriter->GetValue();
-                if (!( kValue == 0))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromDouble( kValue).c_str());
-                }
-                else if (knotWriter->IsValueParameterized())
+                if (knotWriter->IsValueParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), knotWriter->GetParameterFromValue().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromDouble(kValue).c_str());
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
             }
@@ -2313,9 +2313,9 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kTargetLaneOffset = laneChangeActionWriter->GetTargetLaneOffset();
-                if (!( kTargetLaneOffset == 0))
+                if (!(kTargetLaneOffset == 0))
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__TARGET_LANE_OFFSET.c_str(), XmlExportHelper::ToXmlStringFromDouble( kTargetLaneOffset).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__TARGET_LANE_OFFSET.c_str(), XmlExportHelper::ToXmlStringFromDouble(kTargetLaneOffset).c_str());
                 }
                 else if (laneChangeActionWriter->IsTargetLaneOffsetParameterized())
                 {
@@ -2374,13 +2374,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kContinuous = laneOffsetActionWriter->GetContinuous();
-                if (!( kContinuous == false))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS.c_str(), XmlExportHelper::ToXmlStringFromBoolean( kContinuous).c_str());
-                }
-                else if (laneOffsetActionWriter->IsContinuousParameterized())
+                if (laneOffsetActionWriter->IsContinuousParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS.c_str(), laneOffsetActionWriter->GetParameterFromContinuous().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS.c_str(), XmlExportHelper::ToXmlStringFromBoolean(kContinuous).c_str());
                 }
                 const auto kLaneOffsetActionDynamics = laneOffsetActionWriter->GetWriterLaneOffsetActionDynamics();
                 if (kLaneOffsetActionDynamics)
@@ -2409,18 +2409,18 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kDynamicsShape = laneOffsetActionDynamicsWriter->GetDynamicsShape();
-                if (!( kDynamicsShape == DynamicsShape::UNKNOWN))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DYNAMICS_SHAPE.c_str(), kDynamicsShape.GetLiteral().c_str());
-                }
-                else if (laneOffsetActionDynamicsWriter->IsDynamicsShapeParameterized())
+                if (laneOffsetActionDynamicsWriter->IsDynamicsShapeParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DYNAMICS_SHAPE.c_str(), laneOffsetActionDynamicsWriter->GetParameterFromDynamicsShape().c_str());
                 }
-                const auto kMaxLateralAcc = laneOffsetActionDynamicsWriter->GetMaxLateralAcc();
-                if (!( kMaxLateralAcc == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__MAX_LATERAL_ACC.c_str(), XmlExportHelper::ToXmlStringFromDouble( kMaxLateralAcc).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DYNAMICS_SHAPE.c_str(), kDynamicsShape.GetLiteral().c_str());
+                }
+                const auto kMaxLateralAcc = laneOffsetActionDynamicsWriter->GetMaxLateralAcc();
+                if (!(kMaxLateralAcc == 0))
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__MAX_LATERAL_ACC.c_str(), XmlExportHelper::ToXmlStringFromDouble(kMaxLateralAcc).c_str());
                 }
                 else if (laneOffsetActionDynamicsWriter->IsMaxLateralAccParameterized())
                 {
@@ -2465,40 +2465,40 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kLaneId = lanePositionWriter->GetLaneId();
-                if (!( kLaneId.empty()))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__LANE_ID.c_str(), XmlExportHelper::ToXmlStringFromString( kLaneId).c_str());
-                }
-                else if (lanePositionWriter->IsLaneIdParameterized())
+                if (lanePositionWriter->IsLaneIdParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__LANE_ID.c_str(), lanePositionWriter->GetParameterFromLaneId().c_str());
                 }
-                const auto kOffset = lanePositionWriter->GetOffset();
-                if (!( kOffset == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__OFFSET.c_str(), XmlExportHelper::ToXmlStringFromDouble( kOffset).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__LANE_ID.c_str(), XmlExportHelper::ToXmlStringFromString(kLaneId).c_str());
+                }
+                const auto kOffset = lanePositionWriter->GetOffset();
+                if (!(kOffset == 0))
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__OFFSET.c_str(), XmlExportHelper::ToXmlStringFromDouble(kOffset).c_str());
                 }
                 else if (lanePositionWriter->IsOffsetParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__OFFSET.c_str(), lanePositionWriter->GetParameterFromOffset().c_str());
                 }
                 const auto kRoadId = lanePositionWriter->GetRoadId();
-                if (!( kRoadId.empty()))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__ROAD_ID.c_str(), XmlExportHelper::ToXmlStringFromString( kRoadId).c_str());
-                }
-                else if (lanePositionWriter->IsRoadIdParameterized())
+                if (lanePositionWriter->IsRoadIdParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__ROAD_ID.c_str(), lanePositionWriter->GetParameterFromRoadId().c_str());
                 }
-                const auto kS = lanePositionWriter->GetS();
-                if (!( kS == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__S.c_str(), XmlExportHelper::ToXmlStringFromDouble( kS).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__ROAD_ID.c_str(), XmlExportHelper::ToXmlStringFromString(kRoadId).c_str());
                 }
-                else if (lanePositionWriter->IsSParameterized())
+                const auto kS = lanePositionWriter->GetS();
+                if (lanePositionWriter->IsSParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__S.c_str(), lanePositionWriter->GetParameterFromS().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__S.c_str(), XmlExportHelper::ToXmlStringFromDouble(kS).c_str());
                 }
                 const auto kOrientation = lanePositionWriter->GetWriterOrientation();
                 if (kOrientation)
@@ -2553,18 +2553,18 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kContinuous = lateralDistanceActionWriter->GetContinuous();
-                if (!( kContinuous == false))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS.c_str(), XmlExportHelper::ToXmlStringFromBoolean( kContinuous).c_str());
-                }
-                else if (lateralDistanceActionWriter->IsContinuousParameterized())
+                if (lateralDistanceActionWriter->IsContinuousParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS.c_str(), lateralDistanceActionWriter->GetParameterFromContinuous().c_str());
                 }
-                const auto kDistance = lateralDistanceActionWriter->GetDistance();
-                if (!( kDistance == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DISTANCE.c_str(), XmlExportHelper::ToXmlStringFromDouble( kDistance).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS.c_str(), XmlExportHelper::ToXmlStringFromBoolean(kContinuous).c_str());
+                }
+                const auto kDistance = lateralDistanceActionWriter->GetDistance();
+                if (!(kDistance == 0))
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DISTANCE.c_str(), XmlExportHelper::ToXmlStringFromDouble(kDistance).c_str());
                 }
                 else if (lateralDistanceActionWriter->IsDistanceParameterized())
                 {
@@ -2576,13 +2576,13 @@ namespace NET_ASAM_OPENSCENARIO
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF.c_str(), XmlExportHelper::ToXmlStringFromString(kEntityRef->GetNameRef()).c_str());
                 }
                 const auto kFreespace = lateralDistanceActionWriter->GetFreespace();
-                if (!( kFreespace == false))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__FREESPACE.c_str(), XmlExportHelper::ToXmlStringFromBoolean( kFreespace).c_str());
-                }
-                else if (lateralDistanceActionWriter->IsFreespaceParameterized())
+                if (lateralDistanceActionWriter->IsFreespaceParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__FREESPACE.c_str(), lateralDistanceActionWriter->GetParameterFromFreespace().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__FREESPACE.c_str(), XmlExportHelper::ToXmlStringFromBoolean(kFreespace).c_str());
                 }
                 const auto kDynamicConstraints = lateralDistanceActionWriter->GetWriterDynamicConstraints();
                 if (kDynamicConstraints)
@@ -2630,18 +2630,18 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kContinuous = longitudinalDistanceActionWriter->GetContinuous();
-                if (!( kContinuous == false))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS.c_str(), XmlExportHelper::ToXmlStringFromBoolean( kContinuous).c_str());
-                }
-                else if (longitudinalDistanceActionWriter->IsContinuousParameterized())
+                if (longitudinalDistanceActionWriter->IsContinuousParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS.c_str(), longitudinalDistanceActionWriter->GetParameterFromContinuous().c_str());
                 }
-                const auto kDistance = longitudinalDistanceActionWriter->GetDistance();
-                if (!( kDistance == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DISTANCE.c_str(), XmlExportHelper::ToXmlStringFromDouble( kDistance).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS.c_str(), XmlExportHelper::ToXmlStringFromBoolean(kContinuous).c_str());
+                }
+                const auto kDistance = longitudinalDistanceActionWriter->GetDistance();
+                if (!(kDistance == 0))
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DISTANCE.c_str(), XmlExportHelper::ToXmlStringFromDouble(kDistance).c_str());
                 }
                 else if (longitudinalDistanceActionWriter->IsDistanceParameterized())
                 {
@@ -2653,18 +2653,18 @@ namespace NET_ASAM_OPENSCENARIO
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF.c_str(), XmlExportHelper::ToXmlStringFromString(kEntityRef->GetNameRef()).c_str());
                 }
                 const auto kFreespace = longitudinalDistanceActionWriter->GetFreespace();
-                if (!( kFreespace == false))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__FREESPACE.c_str(), XmlExportHelper::ToXmlStringFromBoolean( kFreespace).c_str());
-                }
-                else if (longitudinalDistanceActionWriter->IsFreespaceParameterized())
+                if (longitudinalDistanceActionWriter->IsFreespaceParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__FREESPACE.c_str(), longitudinalDistanceActionWriter->GetParameterFromFreespace().c_str());
                 }
-                const auto kTimeGap = longitudinalDistanceActionWriter->GetTimeGap();
-                if (!( kTimeGap == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__TIME_GAP.c_str(), XmlExportHelper::ToXmlStringFromDouble( kTimeGap).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__FREESPACE.c_str(), XmlExportHelper::ToXmlStringFromBoolean(kFreespace).c_str());
+                }
+                const auto kTimeGap = longitudinalDistanceActionWriter->GetTimeGap();
+                if (!(kTimeGap == 0))
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__TIME_GAP.c_str(), XmlExportHelper::ToXmlStringFromDouble(kTimeGap).c_str());
                 }
                 else if (longitudinalDistanceActionWriter->IsTimeGapParameterized())
                 {
@@ -2690,13 +2690,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kName = maneuverWriter->GetName();
-                if (!( kName.empty()))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), XmlExportHelper::ToXmlStringFromString( kName).c_str());
-                }
-                else if (maneuverWriter->IsNameParameterized())
+                if (maneuverWriter->IsNameParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), maneuverWriter->GetParameterFromName().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), XmlExportHelper::ToXmlStringFromString(kName).c_str());
                 }
                 const auto kParameterDeclarations = maneuverWriter->GetWriterParameterDeclarations();
                 if (!kParameterDeclarations.empty())
@@ -2718,7 +2718,7 @@ namespace NET_ASAM_OPENSCENARIO
                         tinyxml2::XMLNode* eventsElement = document->NewElement(OSC_CONSTANTS::ELEMENT__EVENT.c_str());
                         elementNode->InsertEndChild(eventsElement);
                         FillEventNode(document, eventsElement, eventsWriterItem);
-                        
+
                     }
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
@@ -2753,22 +2753,22 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kMaximumExecutionCount = maneuverGroupWriter->GetMaximumExecutionCount();
-                if (!( kMaximumExecutionCount == 0))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__MAXIMUM_EXECUTION_COUNT.c_str(), XmlExportHelper::ToXmlStringFromUnsignedInt( kMaximumExecutionCount).c_str());
-                }
-                else if (maneuverGroupWriter->IsMaximumExecutionCountParameterized())
+                if (maneuverGroupWriter->IsMaximumExecutionCountParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__MAXIMUM_EXECUTION_COUNT.c_str(), maneuverGroupWriter->GetParameterFromMaximumExecutionCount().c_str());
                 }
-                const auto kName = maneuverGroupWriter->GetName();
-                if (!( kName.empty()))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), XmlExportHelper::ToXmlStringFromString( kName).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__MAXIMUM_EXECUTION_COUNT.c_str(), XmlExportHelper::ToXmlStringFromUnsignedInt(kMaximumExecutionCount).c_str());
                 }
-                else if (maneuverGroupWriter->IsNameParameterized())
+                const auto kName = maneuverGroupWriter->GetName();
+                if (maneuverGroupWriter->IsNameParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), maneuverGroupWriter->GetParameterFromName().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), XmlExportHelper::ToXmlStringFromString(kName).c_str());
                 }
                 const auto kActors = maneuverGroupWriter->GetWriterActors();
                 if (kActors)
@@ -2785,7 +2785,7 @@ namespace NET_ASAM_OPENSCENARIO
                         tinyxml2::XMLNode* catalogReferencesElement = document->NewElement(OSC_CONSTANTS::ELEMENT__CATALOG_REFERENCE.c_str());
                         elementNode->InsertEndChild(catalogReferencesElement);
                         FillCatalogReferenceNode(document, catalogReferencesElement, catalogReferencesWriterItem);
-                        
+
                     }
                 }
                 const auto kManeuvers = maneuverGroupWriter->GetWriterManeuvers();
@@ -2796,7 +2796,7 @@ namespace NET_ASAM_OPENSCENARIO
                         tinyxml2::XMLNode* maneuversElement = document->NewElement(OSC_CONSTANTS::ELEMENT__MANEUVER.c_str());
                         elementNode->InsertEndChild(maneuversElement);
                         FillManeuverNode(document, maneuversElement, maneuversWriterItem);
-                        
+
                     }
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
@@ -2812,31 +2812,31 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kMass = miscObjectWriter->GetMass();
-                if (!( kMass == 0))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__MASS.c_str(), XmlExportHelper::ToXmlStringFromDouble( kMass).c_str());
-                }
-                else if (miscObjectWriter->IsMassParameterized())
+                if (miscObjectWriter->IsMassParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__MASS.c_str(), miscObjectWriter->GetParameterFromMass().c_str());
                 }
-                const auto kMiscObjectCategory = miscObjectWriter->GetMiscObjectCategory();
-                if (!( kMiscObjectCategory == MiscObjectCategory::UNKNOWN))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__MISC_OBJECT_CATEGORY.c_str(), kMiscObjectCategory.GetLiteral().c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__MASS.c_str(), XmlExportHelper::ToXmlStringFromDouble(kMass).c_str());
                 }
-                else if (miscObjectWriter->IsMiscObjectCategoryParameterized())
+                const auto kMiscObjectCategory = miscObjectWriter->GetMiscObjectCategory();
+                if (miscObjectWriter->IsMiscObjectCategoryParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__MISC_OBJECT_CATEGORY.c_str(), miscObjectWriter->GetParameterFromMiscObjectCategory().c_str());
                 }
-                const auto kName = miscObjectWriter->GetName();
-                if (!( kName.empty()))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), XmlExportHelper::ToXmlStringFromString( kName).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__MISC_OBJECT_CATEGORY.c_str(), kMiscObjectCategory.GetLiteral().c_str());
                 }
-                else if (miscObjectWriter->IsNameParameterized())
+                const auto kName = miscObjectWriter->GetName();
+                if (miscObjectWriter->IsNameParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), miscObjectWriter->GetParameterFromName().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), XmlExportHelper::ToXmlStringFromString(kName).c_str());
                 }
                 const auto kParameterDeclarations = miscObjectWriter->GetWriterParameterDeclarations();
                 if (!kParameterDeclarations.empty())
@@ -2934,13 +2934,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kOrder = nurbsWriter->GetOrder();
-                if (!( kOrder == 0))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__ORDER.c_str(), XmlExportHelper::ToXmlStringFromUnsignedInt( kOrder).c_str());
-                }
-                else if (nurbsWriter->IsOrderParameterized())
+                if (nurbsWriter->IsOrderParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__ORDER.c_str(), nurbsWriter->GetParameterFromOrder().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__ORDER.c_str(), XmlExportHelper::ToXmlStringFromUnsignedInt(kOrder).c_str());
                 }
                 const auto kControlPoints = nurbsWriter->GetWriterControlPoints();
                 if (!kControlPoints.empty())
@@ -2950,7 +2950,7 @@ namespace NET_ASAM_OPENSCENARIO
                         tinyxml2::XMLNode* controlPointsElement = document->NewElement(OSC_CONSTANTS::ELEMENT__CONTROL_POINT.c_str());
                         elementNode->InsertEndChild(controlPointsElement);
                         FillControlPointNode(document, controlPointsElement, controlPointsWriterItem);
-                        
+
                     }
                 }
                 const auto kKnots = nurbsWriter->GetWriterKnots();
@@ -2961,7 +2961,7 @@ namespace NET_ASAM_OPENSCENARIO
                         tinyxml2::XMLNode* knotsElement = document->NewElement(OSC_CONSTANTS::ELEMENT__KNOT.c_str());
                         elementNode->InsertEndChild(knotsElement);
                         FillKnotNode(document, knotsElement, knotsWriterItem);
-                        
+
                     }
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
@@ -3003,13 +3003,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kDuration = offroadConditionWriter->GetDuration();
-                if (!( kDuration == 0))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DURATION.c_str(), XmlExportHelper::ToXmlStringFromDouble( kDuration).c_str());
-                }
-                else if (offroadConditionWriter->IsDurationParameterized())
+                if (offroadConditionWriter->IsDurationParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DURATION.c_str(), offroadConditionWriter->GetParameterFromDuration().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DURATION.c_str(), XmlExportHelper::ToXmlStringFromDouble(kDuration).c_str());
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
             }
@@ -3033,9 +3033,7 @@ namespace NET_ASAM_OPENSCENARIO
                 const auto kOpenScenarioCategory = openScenarioWriter->GetWriterOpenScenarioCategory();
                 if (kOpenScenarioCategory)
                 {
-                    tinyxml2::XMLNode* openScenarioCategoryElement = document->NewElement(OSC_CONSTANTS::ELEMENT__OPEN_SCENARIO_CATEGORY.c_str());
-                    elementNode->InsertEndChild(openScenarioCategoryElement);
-                    FillOpenScenarioCategoryNode(document, openScenarioCategoryElement, kOpenScenarioCategory);
+                    FillOpenScenarioCategoryNode(document, elementNode, kOpenScenarioCategory);
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
             }
@@ -3052,16 +3050,12 @@ namespace NET_ASAM_OPENSCENARIO
                 const auto kScenarioDefinition = openScenarioCategoryWriter->GetWriterScenarioDefinition();
                 if (kScenarioDefinition)
                 {
-                    tinyxml2::XMLNode* scenarioDefinitionElement = document->NewElement(OSC_CONSTANTS::ELEMENT__SCENARIO_DEFINITION.c_str());
-                    elementNode->InsertEndChild(scenarioDefinitionElement);
-                    FillScenarioDefinitionNode(document, scenarioDefinitionElement, kScenarioDefinition);
+                    FillScenarioDefinitionNode(document, elementNode, kScenarioDefinition);
                 }
                 const auto kCatalogDefinition = openScenarioCategoryWriter->GetWriterCatalogDefinition();
                 if (kCatalogDefinition)
                 {
-                    tinyxml2::XMLNode* catalogDefinitionElement = document->NewElement(OSC_CONSTANTS::ELEMENT__CATALOG_DEFINITION.c_str());
-                    elementNode->InsertEndChild(catalogDefinitionElement);
-                    FillCatalogDefinitionNode(document, catalogDefinitionElement, kCatalogDefinition);
+                    FillCatalogDefinitionNode(document, elementNode, kCatalogDefinition);
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
             }
@@ -3076,34 +3070,34 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kH = orientationWriter->GetH();
-                if (!( kH == 0))
+                if (!(kH == 0))
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__H.c_str(), XmlExportHelper::ToXmlStringFromDouble( kH).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__H.c_str(), XmlExportHelper::ToXmlStringFromDouble(kH).c_str());
                 }
                 else if (orientationWriter->IsHParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__H.c_str(), orientationWriter->GetParameterFromH().c_str());
                 }
                 const auto kP = orientationWriter->GetP();
-                if (!( kP == 0))
+                if (!(kP == 0))
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__P.c_str(), XmlExportHelper::ToXmlStringFromDouble( kP).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__P.c_str(), XmlExportHelper::ToXmlStringFromDouble(kP).c_str());
                 }
                 else if (orientationWriter->IsPParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__P.c_str(), orientationWriter->GetParameterFromP().c_str());
                 }
                 const auto kR = orientationWriter->GetR();
-                if (!( kR == 0))
+                if (!(kR == 0))
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__R.c_str(), XmlExportHelper::ToXmlStringFromDouble( kR).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__R.c_str(), XmlExportHelper::ToXmlStringFromDouble(kR).c_str());
                 }
                 else if (orientationWriter->IsRParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__R.c_str(), orientationWriter->GetParameterFromR().c_str());
                 }
                 const auto kType = orientationWriter->GetType();
-                if (!( kType == ReferenceContext::UNKNOWN))
+                if (!(kType == ReferenceContext::UNKNOWN))
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__TYPE.c_str(), kType.GetLiteral().c_str());
                 }
@@ -3124,22 +3118,22 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kActive = overrideBrakeActionWriter->GetActive();
-                if (!( kActive == false))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__ACTIVE.c_str(), XmlExportHelper::ToXmlStringFromBoolean( kActive).c_str());
-                }
-                else if (overrideBrakeActionWriter->IsActiveParameterized())
+                if (overrideBrakeActionWriter->IsActiveParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__ACTIVE.c_str(), overrideBrakeActionWriter->GetParameterFromActive().c_str());
                 }
-                const auto kValue = overrideBrakeActionWriter->GetValue();
-                if (!( kValue == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromDouble( kValue).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__ACTIVE.c_str(), XmlExportHelper::ToXmlStringFromBoolean(kActive).c_str());
                 }
-                else if (overrideBrakeActionWriter->IsValueParameterized())
+                const auto kValue = overrideBrakeActionWriter->GetValue();
+                if (overrideBrakeActionWriter->IsValueParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), overrideBrakeActionWriter->GetParameterFromValue().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromDouble(kValue).c_str());
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
             }
@@ -3154,22 +3148,22 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kActive = overrideClutchActionWriter->GetActive();
-                if (!( kActive == false))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__ACTIVE.c_str(), XmlExportHelper::ToXmlStringFromBoolean( kActive).c_str());
-                }
-                else if (overrideClutchActionWriter->IsActiveParameterized())
+                if (overrideClutchActionWriter->IsActiveParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__ACTIVE.c_str(), overrideClutchActionWriter->GetParameterFromActive().c_str());
                 }
-                const auto kValue = overrideClutchActionWriter->GetValue();
-                if (!( kValue == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromDouble( kValue).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__ACTIVE.c_str(), XmlExportHelper::ToXmlStringFromBoolean(kActive).c_str());
                 }
-                else if (overrideClutchActionWriter->IsValueParameterized())
+                const auto kValue = overrideClutchActionWriter->GetValue();
+                if (overrideClutchActionWriter->IsValueParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), overrideClutchActionWriter->GetParameterFromValue().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromDouble(kValue).c_str());
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
             }
@@ -3238,22 +3232,22 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kActive = overrideGearActionWriter->GetActive();
-                if (!( kActive == false))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__ACTIVE.c_str(), XmlExportHelper::ToXmlStringFromBoolean( kActive).c_str());
-                }
-                else if (overrideGearActionWriter->IsActiveParameterized())
+                if (overrideGearActionWriter->IsActiveParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__ACTIVE.c_str(), overrideGearActionWriter->GetParameterFromActive().c_str());
                 }
-                const auto kNumber = overrideGearActionWriter->GetNumber();
-                if (!( kNumber == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NUMBER.c_str(), XmlExportHelper::ToXmlStringFromDouble( kNumber).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__ACTIVE.c_str(), XmlExportHelper::ToXmlStringFromBoolean(kActive).c_str());
                 }
-                else if (overrideGearActionWriter->IsNumberParameterized())
+                const auto kNumber = overrideGearActionWriter->GetNumber();
+                if (overrideGearActionWriter->IsNumberParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NUMBER.c_str(), overrideGearActionWriter->GetParameterFromNumber().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NUMBER.c_str(), XmlExportHelper::ToXmlStringFromDouble(kNumber).c_str());
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
             }
@@ -3268,22 +3262,22 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kActive = overrideParkingBrakeActionWriter->GetActive();
-                if (!( kActive == false))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__ACTIVE.c_str(), XmlExportHelper::ToXmlStringFromBoolean( kActive).c_str());
-                }
-                else if (overrideParkingBrakeActionWriter->IsActiveParameterized())
+                if (overrideParkingBrakeActionWriter->IsActiveParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__ACTIVE.c_str(), overrideParkingBrakeActionWriter->GetParameterFromActive().c_str());
                 }
-                const auto kValue = overrideParkingBrakeActionWriter->GetValue();
-                if (!( kValue == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromDouble( kValue).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__ACTIVE.c_str(), XmlExportHelper::ToXmlStringFromBoolean(kActive).c_str());
                 }
-                else if (overrideParkingBrakeActionWriter->IsValueParameterized())
+                const auto kValue = overrideParkingBrakeActionWriter->GetValue();
+                if (overrideParkingBrakeActionWriter->IsValueParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), overrideParkingBrakeActionWriter->GetParameterFromValue().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromDouble(kValue).c_str());
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
             }
@@ -3298,22 +3292,22 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kActive = overrideSteeringWheelActionWriter->GetActive();
-                if (!( kActive == false))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__ACTIVE.c_str(), XmlExportHelper::ToXmlStringFromBoolean( kActive).c_str());
-                }
-                else if (overrideSteeringWheelActionWriter->IsActiveParameterized())
+                if (overrideSteeringWheelActionWriter->IsActiveParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__ACTIVE.c_str(), overrideSteeringWheelActionWriter->GetParameterFromActive().c_str());
                 }
-                const auto kValue = overrideSteeringWheelActionWriter->GetValue();
-                if (!( kValue == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromDouble( kValue).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__ACTIVE.c_str(), XmlExportHelper::ToXmlStringFromBoolean(kActive).c_str());
                 }
-                else if (overrideSteeringWheelActionWriter->IsValueParameterized())
+                const auto kValue = overrideSteeringWheelActionWriter->GetValue();
+                if (overrideSteeringWheelActionWriter->IsValueParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), overrideSteeringWheelActionWriter->GetParameterFromValue().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromDouble(kValue).c_str());
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
             }
@@ -3328,22 +3322,22 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kActive = overrideThrottleActionWriter->GetActive();
-                if (!( kActive == false))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__ACTIVE.c_str(), XmlExportHelper::ToXmlStringFromBoolean( kActive).c_str());
-                }
-                else if (overrideThrottleActionWriter->IsActiveParameterized())
+                if (overrideThrottleActionWriter->IsActiveParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__ACTIVE.c_str(), overrideThrottleActionWriter->GetParameterFromActive().c_str());
                 }
-                const auto kValue = overrideThrottleActionWriter->GetValue();
-                if (!( kValue == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromDouble( kValue).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__ACTIVE.c_str(), XmlExportHelper::ToXmlStringFromBoolean(kActive).c_str());
                 }
-                else if (overrideThrottleActionWriter->IsValueParameterized())
+                const auto kValue = overrideThrottleActionWriter->GetValue();
+                if (overrideThrottleActionWriter->IsValueParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), overrideThrottleActionWriter->GetParameterFromValue().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromDouble(kValue).c_str());
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
             }
@@ -3389,13 +3383,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kValue = parameterAddValueRuleWriter->GetValue();
-                if (!( kValue == 0))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromDouble( kValue).c_str());
-                }
-                else if (parameterAddValueRuleWriter->IsValueParameterized())
+                if (parameterAddValueRuleWriter->IsValueParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), parameterAddValueRuleWriter->GetParameterFromValue().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromDouble(kValue).c_str());
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
             }
@@ -3415,13 +3409,13 @@ namespace NET_ASAM_OPENSCENARIO
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_REF.c_str(), XmlExportHelper::ToXmlStringFromString(kParameterRef->GetNameRef()).c_str());
                 }
                 const auto kValue = parameterAssignmentWriter->GetValue();
-                if (!( kValue.empty()))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromString( kValue).c_str());
-                }
-                else if (parameterAssignmentWriter->IsValueParameterized())
+                if (parameterAssignmentWriter->IsValueParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), parameterAssignmentWriter->GetParameterFromValue().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromString(kValue).c_str());
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
             }
@@ -3441,22 +3435,22 @@ namespace NET_ASAM_OPENSCENARIO
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_REF.c_str(), XmlExportHelper::ToXmlStringFromString(kParameterRef->GetNameRef()).c_str());
                 }
                 const auto kRule = parameterConditionWriter->GetRule();
-                if (!( kRule == Rule::UNKNOWN))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__RULE.c_str(), kRule.GetLiteral().c_str());
-                }
-                else if (parameterConditionWriter->IsRuleParameterized())
+                if (parameterConditionWriter->IsRuleParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__RULE.c_str(), parameterConditionWriter->GetParameterFromRule().c_str());
                 }
-                const auto kValue = parameterConditionWriter->GetValue();
-                if (!( kValue.empty()))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromString( kValue).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__RULE.c_str(), kRule.GetLiteral().c_str());
                 }
-                else if (parameterConditionWriter->IsValueParameterized())
+                const auto kValue = parameterConditionWriter->GetValue();
+                if (parameterConditionWriter->IsValueParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), parameterConditionWriter->GetParameterFromValue().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromString(kValue).c_str());
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
             }
@@ -3476,22 +3470,22 @@ namespace NET_ASAM_OPENSCENARIO
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), XmlExportHelper::ToXmlStringFromString(kName).c_str());
                 }
                 const auto kParameterType = parameterDeclarationWriter->GetParameterType();
-                if (!( kParameterType == ParameterType::UNKNOWN))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_TYPE.c_str(), kParameterType.GetLiteral().c_str());
-                }
-                else if (parameterDeclarationWriter->IsParameterTypeParameterized())
+                if (parameterDeclarationWriter->IsParameterTypeParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_TYPE.c_str(), parameterDeclarationWriter->GetParameterFromParameterType().c_str());
                 }
-                const auto kValue = parameterDeclarationWriter->GetValue();
-                if (!( kValue.empty()))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromString( kValue).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_TYPE.c_str(), kParameterType.GetLiteral().c_str());
                 }
-                else if (parameterDeclarationWriter->IsValueParameterized())
+                const auto kValue = parameterDeclarationWriter->GetValue();
+                if (parameterDeclarationWriter->IsValueParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), parameterDeclarationWriter->GetParameterFromValue().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromString(kValue).c_str());
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
             }
@@ -3525,13 +3519,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kValue = parameterMultiplyByValueRuleWriter->GetValue();
-                if (!( kValue == 0))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromDouble( kValue).c_str());
-                }
-                else if (parameterMultiplyByValueRuleWriter->IsValueParameterized())
+                if (parameterMultiplyByValueRuleWriter->IsValueParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), parameterMultiplyByValueRuleWriter->GetParameterFromValue().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromDouble(kValue).c_str());
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
             }
@@ -3546,13 +3540,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kValue = parameterSetActionWriter->GetValue();
-                if (!( kValue.empty()))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromString( kValue).c_str());
-                }
-                else if (parameterSetActionWriter->IsValueParameterized())
+                if (parameterSetActionWriter->IsValueParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), parameterSetActionWriter->GetParameterFromValue().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromString(kValue).c_str());
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
             }
@@ -3567,40 +3561,40 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kMass = pedestrianWriter->GetMass();
-                if (!( kMass == 0))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__MASS.c_str(), XmlExportHelper::ToXmlStringFromDouble( kMass).c_str());
-                }
-                else if (pedestrianWriter->IsMassParameterized())
+                if (pedestrianWriter->IsMassParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__MASS.c_str(), pedestrianWriter->GetParameterFromMass().c_str());
                 }
-                const auto kModel = pedestrianWriter->GetModel();
-                if (!( kModel.empty()))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__MODEL.c_str(), XmlExportHelper::ToXmlStringFromString( kModel).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__MASS.c_str(), XmlExportHelper::ToXmlStringFromDouble(kMass).c_str());
                 }
-                else if (pedestrianWriter->IsModelParameterized())
+                const auto kModel = pedestrianWriter->GetModel();
+                if (pedestrianWriter->IsModelParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__MODEL.c_str(), pedestrianWriter->GetParameterFromModel().c_str());
                 }
-                const auto kName = pedestrianWriter->GetName();
-                if (!( kName.empty()))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), XmlExportHelper::ToXmlStringFromString( kName).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__MODEL.c_str(), XmlExportHelper::ToXmlStringFromString(kModel).c_str());
                 }
-                else if (pedestrianWriter->IsNameParameterized())
+                const auto kName = pedestrianWriter->GetName();
+                if (pedestrianWriter->IsNameParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), pedestrianWriter->GetParameterFromName().c_str());
                 }
-                const auto kPedestrianCategory = pedestrianWriter->GetPedestrianCategory();
-                if (!( kPedestrianCategory == PedestrianCategory::UNKNOWN))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__PEDESTRIAN_CATEGORY.c_str(), kPedestrianCategory.GetLiteral().c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), XmlExportHelper::ToXmlStringFromString(kName).c_str());
                 }
-                else if (pedestrianWriter->IsPedestrianCategoryParameterized())
+                const auto kPedestrianCategory = pedestrianWriter->GetPedestrianCategory();
+                if (pedestrianWriter->IsPedestrianCategoryParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__PEDESTRIAN_CATEGORY.c_str(), pedestrianWriter->GetParameterFromPedestrianCategory().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__PEDESTRIAN_CATEGORY.c_str(), kPedestrianCategory.GetLiteral().c_str());
                 }
                 const auto kParameterDeclarations = pedestrianWriter->GetWriterParameterDeclarations();
                 if (!kParameterDeclarations.empty())
@@ -3660,31 +3654,31 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kMaxAcceleration = performanceWriter->GetMaxAcceleration();
-                if (!( kMaxAcceleration == 0))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__MAX_ACCELERATION.c_str(), XmlExportHelper::ToXmlStringFromDouble( kMaxAcceleration).c_str());
-                }
-                else if (performanceWriter->IsMaxAccelerationParameterized())
+                if (performanceWriter->IsMaxAccelerationParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__MAX_ACCELERATION.c_str(), performanceWriter->GetParameterFromMaxAcceleration().c_str());
                 }
-                const auto kMaxDeceleration = performanceWriter->GetMaxDeceleration();
-                if (!( kMaxDeceleration == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__MAX_DECELERATION.c_str(), XmlExportHelper::ToXmlStringFromDouble( kMaxDeceleration).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__MAX_ACCELERATION.c_str(), XmlExportHelper::ToXmlStringFromDouble(kMaxAcceleration).c_str());
                 }
-                else if (performanceWriter->IsMaxDecelerationParameterized())
+                const auto kMaxDeceleration = performanceWriter->GetMaxDeceleration();
+                if (performanceWriter->IsMaxDecelerationParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__MAX_DECELERATION.c_str(), performanceWriter->GetParameterFromMaxDeceleration().c_str());
                 }
-                const auto kMaxSpeed = performanceWriter->GetMaxSpeed();
-                if (!( kMaxSpeed == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__MAX_SPEED.c_str(), XmlExportHelper::ToXmlStringFromDouble( kMaxSpeed).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__MAX_DECELERATION.c_str(), XmlExportHelper::ToXmlStringFromDouble(kMaxDeceleration).c_str());
                 }
-                else if (performanceWriter->IsMaxSpeedParameterized())
+                const auto kMaxSpeed = performanceWriter->GetMaxSpeed();
+                if (performanceWriter->IsMaxSpeedParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__MAX_SPEED.c_str(), performanceWriter->GetParameterFromMaxSpeed().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__MAX_SPEED.c_str(), XmlExportHelper::ToXmlStringFromDouble(kMaxSpeed).c_str());
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
             }
@@ -3699,22 +3693,22 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kDuration = phaseWriter->GetDuration();
-                if (!( kDuration == 0))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DURATION.c_str(), XmlExportHelper::ToXmlStringFromDouble( kDuration).c_str());
-                }
-                else if (phaseWriter->IsDurationParameterized())
+                if (phaseWriter->IsDurationParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DURATION.c_str(), phaseWriter->GetParameterFromDuration().c_str());
                 }
-                const auto kName = phaseWriter->GetName();
-                if (!( kName.empty()))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), XmlExportHelper::ToXmlStringFromString( kName).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DURATION.c_str(), XmlExportHelper::ToXmlStringFromDouble(kDuration).c_str());
                 }
-                else if (phaseWriter->IsNameParameterized())
+                const auto kName = phaseWriter->GetName();
+                if (phaseWriter->IsNameParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), phaseWriter->GetParameterFromName().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), XmlExportHelper::ToXmlStringFromString(kName).c_str());
                 }
                 const auto kTrafficSignalStates = phaseWriter->GetWriterTrafficSignalStates();
                 if (!kTrafficSignalStates.empty())
@@ -3724,7 +3718,7 @@ namespace NET_ASAM_OPENSCENARIO
                         tinyxml2::XMLNode* trafficSignalStatesElement = document->NewElement(OSC_CONSTANTS::ELEMENT__TRAFFIC_SIGNAL_STATE.c_str());
                         elementNode->InsertEndChild(trafficSignalStatesElement);
                         FillTrafficSignalStateNode(document, trafficSignalStatesElement, trafficSignalStatesWriterItem);
-                        
+
                     }
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
@@ -3747,7 +3741,7 @@ namespace NET_ASAM_OPENSCENARIO
                         tinyxml2::XMLNode* verticesElement = document->NewElement(OSC_CONSTANTS::ELEMENT__VERTEX.c_str());
                         elementNode->InsertEndChild(verticesElement);
                         FillVertexNode(document, verticesElement, verticesWriterItem);
-                        
+
                     }
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
@@ -3831,31 +3825,31 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kLaneId = positionInLaneCoordinatesWriter->GetLaneId();
-                if (!( kLaneId.empty()))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__LANE_ID.c_str(), XmlExportHelper::ToXmlStringFromString( kLaneId).c_str());
-                }
-                else if (positionInLaneCoordinatesWriter->IsLaneIdParameterized())
+                if (positionInLaneCoordinatesWriter->IsLaneIdParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__LANE_ID.c_str(), positionInLaneCoordinatesWriter->GetParameterFromLaneId().c_str());
                 }
-                const auto kLaneOffset = positionInLaneCoordinatesWriter->GetLaneOffset();
-                if (!( kLaneOffset == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__LANE_OFFSET.c_str(), XmlExportHelper::ToXmlStringFromDouble( kLaneOffset).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__LANE_ID.c_str(), XmlExportHelper::ToXmlStringFromString(kLaneId).c_str());
+                }
+                const auto kLaneOffset = positionInLaneCoordinatesWriter->GetLaneOffset();
+                if (!(kLaneOffset == 0))
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__LANE_OFFSET.c_str(), XmlExportHelper::ToXmlStringFromDouble(kLaneOffset).c_str());
                 }
                 else if (positionInLaneCoordinatesWriter->IsLaneOffsetParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__LANE_OFFSET.c_str(), positionInLaneCoordinatesWriter->GetParameterFromLaneOffset().c_str());
                 }
                 const auto kPathS = positionInLaneCoordinatesWriter->GetPathS();
-                if (!( kPathS == 0))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__PATH_S.c_str(), XmlExportHelper::ToXmlStringFromDouble( kPathS).c_str());
-                }
-                else if (positionInLaneCoordinatesWriter->IsPathSParameterized())
+                if (positionInLaneCoordinatesWriter->IsPathSParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__PATH_S.c_str(), positionInLaneCoordinatesWriter->GetParameterFromPathS().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__PATH_S.c_str(), XmlExportHelper::ToXmlStringFromDouble(kPathS).c_str());
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
             }
@@ -3870,22 +3864,22 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kPathS = positionInRoadCoordinatesWriter->GetPathS();
-                if (!( kPathS == 0))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__PATH_S.c_str(), XmlExportHelper::ToXmlStringFromDouble( kPathS).c_str());
-                }
-                else if (positionInRoadCoordinatesWriter->IsPathSParameterized())
+                if (positionInRoadCoordinatesWriter->IsPathSParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__PATH_S.c_str(), positionInRoadCoordinatesWriter->GetParameterFromPathS().c_str());
                 }
-                const auto kT = positionInRoadCoordinatesWriter->GetT();
-                if (!( kT == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__T.c_str(), XmlExportHelper::ToXmlStringFromDouble( kT).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__PATH_S.c_str(), XmlExportHelper::ToXmlStringFromDouble(kPathS).c_str());
                 }
-                else if (positionInRoadCoordinatesWriter->IsTParameterized())
+                const auto kT = positionInRoadCoordinatesWriter->GetT();
+                if (positionInRoadCoordinatesWriter->IsTParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__T.c_str(), positionInRoadCoordinatesWriter->GetParameterFromT().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__T.c_str(), XmlExportHelper::ToXmlStringFromDouble(kT).c_str());
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
             }
@@ -3917,22 +3911,22 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kIntensity = precipitationWriter->GetIntensity();
-                if (!( kIntensity == 0))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__INTENSITY.c_str(), XmlExportHelper::ToXmlStringFromDouble( kIntensity).c_str());
-                }
-                else if (precipitationWriter->IsIntensityParameterized())
+                if (precipitationWriter->IsIntensityParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__INTENSITY.c_str(), precipitationWriter->GetParameterFromIntensity().c_str());
                 }
-                const auto kPrecipitationType = precipitationWriter->GetPrecipitationType();
-                if (!( kPrecipitationType == PrecipitationType::UNKNOWN))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__PRECIPITATION_TYPE.c_str(), kPrecipitationType.GetLiteral().c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__INTENSITY.c_str(), XmlExportHelper::ToXmlStringFromDouble(kIntensity).c_str());
                 }
-                else if (precipitationWriter->IsPrecipitationTypeParameterized())
+                const auto kPrecipitationType = precipitationWriter->GetPrecipitationType();
+                if (precipitationWriter->IsPrecipitationTypeParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__PRECIPITATION_TYPE.c_str(), precipitationWriter->GetParameterFromPrecipitationType().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__PRECIPITATION_TYPE.c_str(), kPrecipitationType.GetLiteral().c_str());
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
             }
@@ -3959,7 +3953,7 @@ namespace NET_ASAM_OPENSCENARIO
                         tinyxml2::XMLNode* privateActionsElement = document->NewElement(OSC_CONSTANTS::ELEMENT__PRIVATE_ACTION.c_str());
                         elementNode->InsertEndChild(privateActionsElement);
                         FillPrivateActionNode(document, privateActionsElement, privateActionsWriterItem);
-                        
+
                     }
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
@@ -4050,7 +4044,7 @@ namespace NET_ASAM_OPENSCENARIO
                         tinyxml2::XMLNode* propertiesElement = document->NewElement(OSC_CONSTANTS::ELEMENT__PROPERTY.c_str());
                         elementNode->InsertEndChild(propertiesElement);
                         FillPropertyNode(document, propertiesElement, propertiesWriterItem);
-                        
+
                     }
                 }
                 const auto kFiles = propertiesWriter->GetWriterFiles();
@@ -4061,7 +4055,7 @@ namespace NET_ASAM_OPENSCENARIO
                         tinyxml2::XMLNode* filesElement = document->NewElement(OSC_CONSTANTS::ELEMENT__FILE.c_str());
                         elementNode->InsertEndChild(filesElement);
                         FillFileNode(document, filesElement, filesWriterItem);
-                        
+
                     }
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
@@ -4077,22 +4071,22 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kName = propertyWriter->GetName();
-                if (!( kName.empty()))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), XmlExportHelper::ToXmlStringFromString( kName).c_str());
-                }
-                else if (propertyWriter->IsNameParameterized())
+                if (propertyWriter->IsNameParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), propertyWriter->GetParameterFromName().c_str());
                 }
-                const auto kValue = propertyWriter->GetValue();
-                if (!( kValue.empty()))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromString( kValue).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), XmlExportHelper::ToXmlStringFromString(kName).c_str());
                 }
-                else if (propertyWriter->IsValueParameterized())
+                const auto kValue = propertyWriter->GetValue();
+                if (propertyWriter->IsValueParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), propertyWriter->GetParameterFromValue().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromString(kValue).c_str());
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
             }
@@ -4107,13 +4101,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kTolerance = reachPositionConditionWriter->GetTolerance();
-                if (!( kTolerance == 0))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__TOLERANCE.c_str(), XmlExportHelper::ToXmlStringFromDouble( kTolerance).c_str());
-                }
-                else if (reachPositionConditionWriter->IsToleranceParameterized())
+                if (reachPositionConditionWriter->IsToleranceParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__TOLERANCE.c_str(), reachPositionConditionWriter->GetParameterFromTolerance().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__TOLERANCE.c_str(), XmlExportHelper::ToXmlStringFromDouble(kTolerance).c_str());
                 }
                 const auto kPosition = reachPositionConditionWriter->GetWriterPosition();
                 if (kPosition)
@@ -4140,40 +4134,40 @@ namespace NET_ASAM_OPENSCENARIO
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF.c_str(), XmlExportHelper::ToXmlStringFromString(kEntityRef->GetNameRef()).c_str());
                 }
                 const auto kFreespace = relativeDistanceConditionWriter->GetFreespace();
-                if (!( kFreespace == false))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__FREESPACE.c_str(), XmlExportHelper::ToXmlStringFromBoolean( kFreespace).c_str());
-                }
-                else if (relativeDistanceConditionWriter->IsFreespaceParameterized())
+                if (relativeDistanceConditionWriter->IsFreespaceParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__FREESPACE.c_str(), relativeDistanceConditionWriter->GetParameterFromFreespace().c_str());
                 }
-                const auto kRelativeDistanceType = relativeDistanceConditionWriter->GetRelativeDistanceType();
-                if (!( kRelativeDistanceType == RelativeDistanceType::UNKNOWN))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__RELATIVE_DISTANCE_TYPE.c_str(), kRelativeDistanceType.GetLiteral().c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__FREESPACE.c_str(), XmlExportHelper::ToXmlStringFromBoolean(kFreespace).c_str());
                 }
-                else if (relativeDistanceConditionWriter->IsRelativeDistanceTypeParameterized())
+                const auto kRelativeDistanceType = relativeDistanceConditionWriter->GetRelativeDistanceType();
+                if (relativeDistanceConditionWriter->IsRelativeDistanceTypeParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__RELATIVE_DISTANCE_TYPE.c_str(), relativeDistanceConditionWriter->GetParameterFromRelativeDistanceType().c_str());
                 }
-                const auto kRule = relativeDistanceConditionWriter->GetRule();
-                if (!( kRule == Rule::UNKNOWN))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__RULE.c_str(), kRule.GetLiteral().c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__RELATIVE_DISTANCE_TYPE.c_str(), kRelativeDistanceType.GetLiteral().c_str());
                 }
-                else if (relativeDistanceConditionWriter->IsRuleParameterized())
+                const auto kRule = relativeDistanceConditionWriter->GetRule();
+                if (relativeDistanceConditionWriter->IsRuleParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__RULE.c_str(), relativeDistanceConditionWriter->GetParameterFromRule().c_str());
                 }
-                const auto kValue = relativeDistanceConditionWriter->GetValue();
-                if (!( kValue == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromDouble( kValue).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__RULE.c_str(), kRule.GetLiteral().c_str());
                 }
-                else if (relativeDistanceConditionWriter->IsValueParameterized())
+                const auto kValue = relativeDistanceConditionWriter->GetValue();
+                if (relativeDistanceConditionWriter->IsValueParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), relativeDistanceConditionWriter->GetParameterFromValue().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromDouble(kValue).c_str());
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
             }
@@ -4188,22 +4182,22 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kDLane = relativeLanePositionWriter->GetDLane();
-                if (!( kDLane == 0))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__D_LANE.c_str(), XmlExportHelper::ToXmlStringFromInt( kDLane).c_str());
-                }
-                else if (relativeLanePositionWriter->IsDLaneParameterized())
+                if (relativeLanePositionWriter->IsDLaneParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__D_LANE.c_str(), relativeLanePositionWriter->GetParameterFromDLane().c_str());
                 }
-                const auto kDs = relativeLanePositionWriter->GetDs();
-                if (!( kDs == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DS.c_str(), XmlExportHelper::ToXmlStringFromDouble( kDs).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__D_LANE.c_str(), XmlExportHelper::ToXmlStringFromInt(kDLane).c_str());
                 }
-                else if (relativeLanePositionWriter->IsDsParameterized())
+                const auto kDs = relativeLanePositionWriter->GetDs();
+                if (relativeLanePositionWriter->IsDsParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DS.c_str(), relativeLanePositionWriter->GetParameterFromDs().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DS.c_str(), XmlExportHelper::ToXmlStringFromDouble(kDs).c_str());
                 }
                 const auto kEntityRef = relativeLanePositionWriter->GetEntityRef();
                 if (kEntityRef)
@@ -4211,9 +4205,9 @@ namespace NET_ASAM_OPENSCENARIO
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF.c_str(), XmlExportHelper::ToXmlStringFromString(kEntityRef->GetNameRef()).c_str());
                 }
                 const auto kOffset = relativeLanePositionWriter->GetOffset();
-                if (!( kOffset == 0))
+                if (!(kOffset == 0))
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__OFFSET.c_str(), XmlExportHelper::ToXmlStringFromDouble( kOffset).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__OFFSET.c_str(), XmlExportHelper::ToXmlStringFromDouble(kOffset).c_str());
                 }
                 else if (relativeLanePositionWriter->IsOffsetParameterized())
                 {
@@ -4239,27 +4233,27 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kDx = relativeObjectPositionWriter->GetDx();
-                if (!( kDx == 0))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DX.c_str(), XmlExportHelper::ToXmlStringFromDouble( kDx).c_str());
-                }
-                else if (relativeObjectPositionWriter->IsDxParameterized())
+                if (relativeObjectPositionWriter->IsDxParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DX.c_str(), relativeObjectPositionWriter->GetParameterFromDx().c_str());
                 }
-                const auto kDy = relativeObjectPositionWriter->GetDy();
-                if (!( kDy == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DY.c_str(), XmlExportHelper::ToXmlStringFromDouble( kDy).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DX.c_str(), XmlExportHelper::ToXmlStringFromDouble(kDx).c_str());
                 }
-                else if (relativeObjectPositionWriter->IsDyParameterized())
+                const auto kDy = relativeObjectPositionWriter->GetDy();
+                if (relativeObjectPositionWriter->IsDyParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DY.c_str(), relativeObjectPositionWriter->GetParameterFromDy().c_str());
                 }
-                const auto kDz = relativeObjectPositionWriter->GetDz();
-                if (!( kDz == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DZ.c_str(), XmlExportHelper::ToXmlStringFromDouble( kDz).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DY.c_str(), XmlExportHelper::ToXmlStringFromDouble(kDy).c_str());
+                }
+                const auto kDz = relativeObjectPositionWriter->GetDz();
+                if (!(kDz == 0))
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DZ.c_str(), XmlExportHelper::ToXmlStringFromDouble(kDz).c_str());
                 }
                 else if (relativeObjectPositionWriter->IsDzParameterized())
                 {
@@ -4290,22 +4284,22 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kDs = relativeRoadPositionWriter->GetDs();
-                if (!( kDs == 0))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DS.c_str(), XmlExportHelper::ToXmlStringFromDouble( kDs).c_str());
-                }
-                else if (relativeRoadPositionWriter->IsDsParameterized())
+                if (relativeRoadPositionWriter->IsDsParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DS.c_str(), relativeRoadPositionWriter->GetParameterFromDs().c_str());
                 }
-                const auto kDt = relativeRoadPositionWriter->GetDt();
-                if (!( kDt == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DT.c_str(), XmlExportHelper::ToXmlStringFromDouble( kDt).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DS.c_str(), XmlExportHelper::ToXmlStringFromDouble(kDs).c_str());
                 }
-                else if (relativeRoadPositionWriter->IsDtParameterized())
+                const auto kDt = relativeRoadPositionWriter->GetDt();
+                if (relativeRoadPositionWriter->IsDtParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DT.c_str(), relativeRoadPositionWriter->GetParameterFromDt().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DT.c_str(), XmlExportHelper::ToXmlStringFromDouble(kDt).c_str());
                 }
                 const auto kEntityRef = relativeRoadPositionWriter->GetEntityRef();
                 if (kEntityRef)
@@ -4337,22 +4331,22 @@ namespace NET_ASAM_OPENSCENARIO
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF.c_str(), XmlExportHelper::ToXmlStringFromString(kEntityRef->GetNameRef()).c_str());
                 }
                 const auto kRule = relativeSpeedConditionWriter->GetRule();
-                if (!( kRule == Rule::UNKNOWN))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__RULE.c_str(), kRule.GetLiteral().c_str());
-                }
-                else if (relativeSpeedConditionWriter->IsRuleParameterized())
+                if (relativeSpeedConditionWriter->IsRuleParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__RULE.c_str(), relativeSpeedConditionWriter->GetParameterFromRule().c_str());
                 }
-                const auto kValue = relativeSpeedConditionWriter->GetValue();
-                if (!( kValue == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromDouble( kValue).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__RULE.c_str(), kRule.GetLiteral().c_str());
                 }
-                else if (relativeSpeedConditionWriter->IsValueParameterized())
+                const auto kValue = relativeSpeedConditionWriter->GetValue();
+                if (relativeSpeedConditionWriter->IsValueParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), relativeSpeedConditionWriter->GetParameterFromValue().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromDouble(kValue).c_str());
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
             }
@@ -4367,22 +4361,22 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kSpeedTargetValueType = relativeSpeedToMasterWriter->GetSpeedTargetValueType();
-                if (!( kSpeedTargetValueType == SpeedTargetValueType::UNKNOWN))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__SPEED_TARGET_VALUE_TYPE.c_str(), kSpeedTargetValueType.GetLiteral().c_str());
-                }
-                else if (relativeSpeedToMasterWriter->IsSpeedTargetValueTypeParameterized())
+                if (relativeSpeedToMasterWriter->IsSpeedTargetValueTypeParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__SPEED_TARGET_VALUE_TYPE.c_str(), relativeSpeedToMasterWriter->GetParameterFromSpeedTargetValueType().c_str());
                 }
-                const auto kValue = relativeSpeedToMasterWriter->GetValue();
-                if (!( kValue == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromDouble( kValue).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__SPEED_TARGET_VALUE_TYPE.c_str(), kSpeedTargetValueType.GetLiteral().c_str());
                 }
-                else if (relativeSpeedToMasterWriter->IsValueParameterized())
+                const auto kValue = relativeSpeedToMasterWriter->GetValue();
+                if (relativeSpeedToMasterWriter->IsValueParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), relativeSpeedToMasterWriter->GetParameterFromValue().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromDouble(kValue).c_str());
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
             }
@@ -4402,13 +4396,13 @@ namespace NET_ASAM_OPENSCENARIO
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF.c_str(), XmlExportHelper::ToXmlStringFromString(kEntityRef->GetNameRef()).c_str());
                 }
                 const auto kValue = relativeTargetLaneWriter->GetValue();
-                if (!( kValue == 0))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromInt( kValue).c_str());
-                }
-                else if (relativeTargetLaneWriter->IsValueParameterized())
+                if (relativeTargetLaneWriter->IsValueParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), relativeTargetLaneWriter->GetParameterFromValue().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromInt(kValue).c_str());
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
             }
@@ -4428,13 +4422,13 @@ namespace NET_ASAM_OPENSCENARIO
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF.c_str(), XmlExportHelper::ToXmlStringFromString(kEntityRef->GetNameRef()).c_str());
                 }
                 const auto kValue = relativeTargetLaneOffsetWriter->GetValue();
-                if (!( kValue == 0))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromDouble( kValue).c_str());
-                }
-                else if (relativeTargetLaneOffsetWriter->IsValueParameterized())
+                if (relativeTargetLaneOffsetWriter->IsValueParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), relativeTargetLaneOffsetWriter->GetParameterFromValue().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromDouble(kValue).c_str());
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
             }
@@ -4449,13 +4443,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kContinuous = relativeTargetSpeedWriter->GetContinuous();
-                if (!( kContinuous == false))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS.c_str(), XmlExportHelper::ToXmlStringFromBoolean( kContinuous).c_str());
-                }
-                else if (relativeTargetSpeedWriter->IsContinuousParameterized())
+                if (relativeTargetSpeedWriter->IsContinuousParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS.c_str(), relativeTargetSpeedWriter->GetParameterFromContinuous().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS.c_str(), XmlExportHelper::ToXmlStringFromBoolean(kContinuous).c_str());
                 }
                 const auto kEntityRef = relativeTargetSpeedWriter->GetEntityRef();
                 if (kEntityRef)
@@ -4463,22 +4457,22 @@ namespace NET_ASAM_OPENSCENARIO
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF.c_str(), XmlExportHelper::ToXmlStringFromString(kEntityRef->GetNameRef()).c_str());
                 }
                 const auto kSpeedTargetValueType = relativeTargetSpeedWriter->GetSpeedTargetValueType();
-                if (!( kSpeedTargetValueType == SpeedTargetValueType::UNKNOWN))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__SPEED_TARGET_VALUE_TYPE.c_str(), kSpeedTargetValueType.GetLiteral().c_str());
-                }
-                else if (relativeTargetSpeedWriter->IsSpeedTargetValueTypeParameterized())
+                if (relativeTargetSpeedWriter->IsSpeedTargetValueTypeParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__SPEED_TARGET_VALUE_TYPE.c_str(), relativeTargetSpeedWriter->GetParameterFromSpeedTargetValueType().c_str());
                 }
-                const auto kValue = relativeTargetSpeedWriter->GetValue();
-                if (!( kValue == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromDouble( kValue).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__SPEED_TARGET_VALUE_TYPE.c_str(), kSpeedTargetValueType.GetLiteral().c_str());
                 }
-                else if (relativeTargetSpeedWriter->IsValueParameterized())
+                const auto kValue = relativeTargetSpeedWriter->GetValue();
+                if (relativeTargetSpeedWriter->IsValueParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), relativeTargetSpeedWriter->GetParameterFromValue().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromDouble(kValue).c_str());
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
             }
@@ -4493,27 +4487,27 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kDx = relativeWorldPositionWriter->GetDx();
-                if (!( kDx == 0))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DX.c_str(), XmlExportHelper::ToXmlStringFromDouble( kDx).c_str());
-                }
-                else if (relativeWorldPositionWriter->IsDxParameterized())
+                if (relativeWorldPositionWriter->IsDxParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DX.c_str(), relativeWorldPositionWriter->GetParameterFromDx().c_str());
                 }
-                const auto kDy = relativeWorldPositionWriter->GetDy();
-                if (!( kDy == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DY.c_str(), XmlExportHelper::ToXmlStringFromDouble( kDy).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DX.c_str(), XmlExportHelper::ToXmlStringFromDouble(kDx).c_str());
                 }
-                else if (relativeWorldPositionWriter->IsDyParameterized())
+                const auto kDy = relativeWorldPositionWriter->GetDy();
+                if (relativeWorldPositionWriter->IsDyParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DY.c_str(), relativeWorldPositionWriter->GetParameterFromDy().c_str());
                 }
-                const auto kDz = relativeWorldPositionWriter->GetDz();
-                if (!( kDz == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DZ.c_str(), XmlExportHelper::ToXmlStringFromDouble( kDz).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DY.c_str(), XmlExportHelper::ToXmlStringFromDouble(kDy).c_str());
+                }
+                const auto kDz = relativeWorldPositionWriter->GetDz();
+                if (!(kDz == 0))
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DZ.c_str(), XmlExportHelper::ToXmlStringFromDouble(kDz).c_str());
                 }
                 else if (relativeWorldPositionWriter->IsDzParameterized())
                 {
@@ -4544,13 +4538,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kFrictionScaleFactor = roadConditionWriter->GetFrictionScaleFactor();
-                if (!( kFrictionScaleFactor == 0))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__FRICTION_SCALE_FACTOR.c_str(), XmlExportHelper::ToXmlStringFromDouble( kFrictionScaleFactor).c_str());
-                }
-                else if (roadConditionWriter->IsFrictionScaleFactorParameterized())
+                if (roadConditionWriter->IsFrictionScaleFactorParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__FRICTION_SCALE_FACTOR.c_str(), roadConditionWriter->GetParameterFromFrictionScaleFactor().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__FRICTION_SCALE_FACTOR.c_str(), XmlExportHelper::ToXmlStringFromDouble(kFrictionScaleFactor).c_str());
                 }
                 const auto kProperties = roadConditionWriter->GetWriterProperties();
                 if (kProperties)
@@ -4610,31 +4604,31 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kRoadId = roadPositionWriter->GetRoadId();
-                if (!( kRoadId.empty()))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__ROAD_ID.c_str(), XmlExportHelper::ToXmlStringFromString( kRoadId).c_str());
-                }
-                else if (roadPositionWriter->IsRoadIdParameterized())
+                if (roadPositionWriter->IsRoadIdParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__ROAD_ID.c_str(), roadPositionWriter->GetParameterFromRoadId().c_str());
                 }
-                const auto kS = roadPositionWriter->GetS();
-                if (!( kS == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__S.c_str(), XmlExportHelper::ToXmlStringFromDouble( kS).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__ROAD_ID.c_str(), XmlExportHelper::ToXmlStringFromString(kRoadId).c_str());
                 }
-                else if (roadPositionWriter->IsSParameterized())
+                const auto kS = roadPositionWriter->GetS();
+                if (roadPositionWriter->IsSParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__S.c_str(), roadPositionWriter->GetParameterFromS().c_str());
                 }
-                const auto kT = roadPositionWriter->GetT();
-                if (!( kT == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__T.c_str(), XmlExportHelper::ToXmlStringFromDouble( kT).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__S.c_str(), XmlExportHelper::ToXmlStringFromDouble(kS).c_str());
                 }
-                else if (roadPositionWriter->IsTParameterized())
+                const auto kT = roadPositionWriter->GetT();
+                if (roadPositionWriter->IsTParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__T.c_str(), roadPositionWriter->GetParameterFromT().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__T.c_str(), XmlExportHelper::ToXmlStringFromDouble(kT).c_str());
                 }
                 const auto kOrientation = roadPositionWriter->GetWriterOrientation();
                 if (kOrientation)
@@ -4656,22 +4650,22 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kClosed = routeWriter->GetClosed();
-                if (!( kClosed == false))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__CLOSED.c_str(), XmlExportHelper::ToXmlStringFromBoolean( kClosed).c_str());
-                }
-                else if (routeWriter->IsClosedParameterized())
+                if (routeWriter->IsClosedParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__CLOSED.c_str(), routeWriter->GetParameterFromClosed().c_str());
                 }
-                const auto kName = routeWriter->GetName();
-                if (!( kName.empty()))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), XmlExportHelper::ToXmlStringFromString( kName).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__CLOSED.c_str(), XmlExportHelper::ToXmlStringFromBoolean(kClosed).c_str());
                 }
-                else if (routeWriter->IsNameParameterized())
+                const auto kName = routeWriter->GetName();
+                if (routeWriter->IsNameParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), routeWriter->GetParameterFromName().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), XmlExportHelper::ToXmlStringFromString(kName).c_str());
                 }
                 const auto kParameterDeclarations = routeWriter->GetWriterParameterDeclarations();
                 if (!kParameterDeclarations.empty())
@@ -4693,7 +4687,7 @@ namespace NET_ASAM_OPENSCENARIO
                         tinyxml2::XMLNode* waypointsElement = document->NewElement(OSC_CONSTANTS::ELEMENT__WAYPOINT.c_str());
                         elementNode->InsertEndChild(waypointsElement);
                         FillWaypointNode(document, waypointsElement, waypointsWriterItem);
-                        
+
                     }
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
@@ -4872,20 +4866,18 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kName = scenarioObjectWriter->GetName();
-                if (!( kName.empty()))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), XmlExportHelper::ToXmlStringFromString( kName).c_str());
-                }
-                else if (scenarioObjectWriter->IsNameParameterized())
+                if (scenarioObjectWriter->IsNameParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), scenarioObjectWriter->GetParameterFromName().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), XmlExportHelper::ToXmlStringFromString(kName).c_str());
                 }
                 const auto kEntityObject = scenarioObjectWriter->GetWriterEntityObject();
                 if (kEntityObject)
                 {
-                    tinyxml2::XMLNode* entityObjectElement = document->NewElement(OSC_CONSTANTS::ELEMENT__ENTITY_OBJECT.c_str());
-                    elementNode->InsertEndChild(entityObjectElement);
-                    FillEntityObjectNode(document, entityObjectElement, kEntityObject);
+                    FillEntityObjectNode(document, elementNode, kEntityObject);
                 }
                 const auto kObjectController = scenarioObjectWriter->GetWriterObjectController();
                 if (kObjectController)
@@ -4914,7 +4906,7 @@ namespace NET_ASAM_OPENSCENARIO
                         tinyxml2::XMLNode* entityRefElement = document->NewElement(OSC_CONSTANTS::ELEMENT__ENTITY_REF.c_str());
                         elementNode->InsertEndChild(entityRefElement);
                         FillEntityRefNode(document, entityRefElement, entityRefWriterItem);
-                        
+
                     }
                 }
                 const auto kByType = selectedEntitiesWriter->GetWriterByType();
@@ -4925,7 +4917,7 @@ namespace NET_ASAM_OPENSCENARIO
                         tinyxml2::XMLNode* byTypeElement = document->NewElement(OSC_CONSTANTS::ELEMENT__BY_TYPE.c_str());
                         elementNode->InsertEndChild(byTypeElement);
                         FillByTypeNode(document, byTypeElement, byTypeWriterItem);
-                        
+
                     }
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
@@ -4974,22 +4966,22 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kRule = simulationTimeConditionWriter->GetRule();
-                if (!( kRule == Rule::UNKNOWN))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__RULE.c_str(), kRule.GetLiteral().c_str());
-                }
-                else if (simulationTimeConditionWriter->IsRuleParameterized())
+                if (simulationTimeConditionWriter->IsRuleParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__RULE.c_str(), simulationTimeConditionWriter->GetParameterFromRule().c_str());
                 }
-                const auto kValue = simulationTimeConditionWriter->GetValue();
-                if (!( kValue == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromDouble( kValue).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__RULE.c_str(), kRule.GetLiteral().c_str());
                 }
-                else if (simulationTimeConditionWriter->IsValueParameterized())
+                const auto kValue = simulationTimeConditionWriter->GetValue();
+                if (simulationTimeConditionWriter->IsValueParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), simulationTimeConditionWriter->GetParameterFromValue().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromDouble(kValue).c_str());
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
             }
@@ -5056,22 +5048,22 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kRule = speedConditionWriter->GetRule();
-                if (!( kRule == Rule::UNKNOWN))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__RULE.c_str(), kRule.GetLiteral().c_str());
-                }
-                else if (speedConditionWriter->IsRuleParameterized())
+                if (speedConditionWriter->IsRuleParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__RULE.c_str(), speedConditionWriter->GetParameterFromRule().c_str());
                 }
-                const auto kValue = speedConditionWriter->GetValue();
-                if (!( kValue == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromDouble( kValue).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__RULE.c_str(), kRule.GetLiteral().c_str());
                 }
-                else if (speedConditionWriter->IsValueParameterized())
+                const auto kValue = speedConditionWriter->GetValue();
+                if (speedConditionWriter->IsValueParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), speedConditionWriter->GetParameterFromValue().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromDouble(kValue).c_str());
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
             }
@@ -5086,13 +5078,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kDuration = standStillConditionWriter->GetDuration();
-                if (!( kDuration == 0))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DURATION.c_str(), XmlExportHelper::ToXmlStringFromDouble( kDuration).c_str());
-                }
-                else if (standStillConditionWriter->IsDurationParameterized())
+                if (standStillConditionWriter->IsDurationParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DURATION.c_str(), standStillConditionWriter->GetParameterFromDuration().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DURATION.c_str(), XmlExportHelper::ToXmlStringFromDouble(kDuration).c_str());
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
             }
@@ -5107,13 +5099,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kName = storyWriter->GetName();
-                if (!( kName.empty()))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), XmlExportHelper::ToXmlStringFromString( kName).c_str());
-                }
-                else if (storyWriter->IsNameParameterized())
+                if (storyWriter->IsNameParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), storyWriter->GetParameterFromName().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), XmlExportHelper::ToXmlStringFromString(kName).c_str());
                 }
                 const auto kParameterDeclarations = storyWriter->GetWriterParameterDeclarations();
                 if (!kParameterDeclarations.empty())
@@ -5135,7 +5127,7 @@ namespace NET_ASAM_OPENSCENARIO
                         tinyxml2::XMLNode* actsElement = document->NewElement(OSC_CONSTANTS::ELEMENT__ACT.c_str());
                         elementNode->InsertEndChild(actsElement);
                         FillActNode(document, actsElement, actsWriterItem);
-                        
+
                     }
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
@@ -5165,7 +5157,7 @@ namespace NET_ASAM_OPENSCENARIO
                         tinyxml2::XMLNode* storiesElement = document->NewElement(OSC_CONSTANTS::ELEMENT__STORY.c_str());
                         elementNode->InsertEndChild(storiesElement);
                         FillStoryNode(document, storiesElement, storiesWriterItem);
-                        
+
                     }
                 }
                 const auto kStopTrigger = storyboardWriter->GetWriterStopTrigger();
@@ -5188,13 +5180,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kState = storyboardElementStateConditionWriter->GetState();
-                if (!( kState == StoryboardElementState::UNKNOWN))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__STATE.c_str(), kState.GetLiteral().c_str());
-                }
-                else if (storyboardElementStateConditionWriter->IsStateParameterized())
+                if (storyboardElementStateConditionWriter->IsStateParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__STATE.c_str(), storyboardElementStateConditionWriter->GetParameterFromState().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__STATE.c_str(), kState.GetLiteral().c_str());
                 }
                 const auto kStoryboardElementRef = storyboardElementStateConditionWriter->GetStoryboardElementRef();
                 if (kStoryboardElementRef)
@@ -5202,13 +5194,13 @@ namespace NET_ASAM_OPENSCENARIO
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__STORYBOARD_ELEMENT_REF.c_str(), XmlExportHelper::ToXmlStringFromString(kStoryboardElementRef->GetNameRef()).c_str());
                 }
                 const auto kStoryboardElementType = storyboardElementStateConditionWriter->GetStoryboardElementType();
-                if (!( kStoryboardElementType == StoryboardElementType::UNKNOWN))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__STORYBOARD_ELEMENT_TYPE.c_str(), kStoryboardElementType.GetLiteral().c_str());
-                }
-                else if (storyboardElementStateConditionWriter->IsStoryboardElementTypeParameterized())
+                if (storyboardElementStateConditionWriter->IsStoryboardElementTypeParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__STORYBOARD_ELEMENT_TYPE.c_str(), storyboardElementStateConditionWriter->GetParameterFromStoryboardElementType().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__STORYBOARD_ELEMENT_TYPE.c_str(), kStoryboardElementType.GetLiteral().c_str());
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
             }
@@ -5223,31 +5215,31 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kAzimuth = sunWriter->GetAzimuth();
-                if (!( kAzimuth == 0))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__AZIMUTH.c_str(), XmlExportHelper::ToXmlStringFromDouble( kAzimuth).c_str());
-                }
-                else if (sunWriter->IsAzimuthParameterized())
+                if (sunWriter->IsAzimuthParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__AZIMUTH.c_str(), sunWriter->GetParameterFromAzimuth().c_str());
                 }
-                const auto kElevation = sunWriter->GetElevation();
-                if (!( kElevation == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__ELEVATION.c_str(), XmlExportHelper::ToXmlStringFromDouble( kElevation).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__AZIMUTH.c_str(), XmlExportHelper::ToXmlStringFromDouble(kAzimuth).c_str());
                 }
-                else if (sunWriter->IsElevationParameterized())
+                const auto kElevation = sunWriter->GetElevation();
+                if (sunWriter->IsElevationParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__ELEVATION.c_str(), sunWriter->GetParameterFromElevation().c_str());
                 }
-                const auto kIntensity = sunWriter->GetIntensity();
-                if (!( kIntensity == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__INTENSITY.c_str(), XmlExportHelper::ToXmlStringFromDouble( kIntensity).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__ELEVATION.c_str(), XmlExportHelper::ToXmlStringFromDouble(kElevation).c_str());
                 }
-                else if (sunWriter->IsIntensityParameterized())
+                const auto kIntensity = sunWriter->GetIntensity();
+                if (sunWriter->IsIntensityParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__INTENSITY.c_str(), sunWriter->GetParameterFromIntensity().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__INTENSITY.c_str(), XmlExportHelper::ToXmlStringFromDouble(kIntensity).c_str());
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
             }
@@ -5319,13 +5311,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kAlongRoute = timeHeadwayConditionWriter->GetAlongRoute();
-                if (!( kAlongRoute == false))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__ALONG_ROUTE.c_str(), XmlExportHelper::ToXmlStringFromBoolean( kAlongRoute).c_str());
-                }
-                else if (timeHeadwayConditionWriter->IsAlongRouteParameterized())
+                if (timeHeadwayConditionWriter->IsAlongRouteParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__ALONG_ROUTE.c_str(), timeHeadwayConditionWriter->GetParameterFromAlongRoute().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__ALONG_ROUTE.c_str(), XmlExportHelper::ToXmlStringFromBoolean(kAlongRoute).c_str());
                 }
                 const auto kEntityRef = timeHeadwayConditionWriter->GetEntityRef();
                 if (kEntityRef)
@@ -5333,31 +5325,31 @@ namespace NET_ASAM_OPENSCENARIO
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF.c_str(), XmlExportHelper::ToXmlStringFromString(kEntityRef->GetNameRef()).c_str());
                 }
                 const auto kFreespace = timeHeadwayConditionWriter->GetFreespace();
-                if (!( kFreespace == false))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__FREESPACE.c_str(), XmlExportHelper::ToXmlStringFromBoolean( kFreespace).c_str());
-                }
-                else if (timeHeadwayConditionWriter->IsFreespaceParameterized())
+                if (timeHeadwayConditionWriter->IsFreespaceParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__FREESPACE.c_str(), timeHeadwayConditionWriter->GetParameterFromFreespace().c_str());
                 }
-                const auto kRule = timeHeadwayConditionWriter->GetRule();
-                if (!( kRule == Rule::UNKNOWN))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__RULE.c_str(), kRule.GetLiteral().c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__FREESPACE.c_str(), XmlExportHelper::ToXmlStringFromBoolean(kFreespace).c_str());
                 }
-                else if (timeHeadwayConditionWriter->IsRuleParameterized())
+                const auto kRule = timeHeadwayConditionWriter->GetRule();
+                if (timeHeadwayConditionWriter->IsRuleParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__RULE.c_str(), timeHeadwayConditionWriter->GetParameterFromRule().c_str());
                 }
-                const auto kValue = timeHeadwayConditionWriter->GetValue();
-                if (!( kValue == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromDouble( kValue).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__RULE.c_str(), kRule.GetLiteral().c_str());
                 }
-                else if (timeHeadwayConditionWriter->IsValueParameterized())
+                const auto kValue = timeHeadwayConditionWriter->GetValue();
+                if (timeHeadwayConditionWriter->IsValueParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), timeHeadwayConditionWriter->GetParameterFromValue().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromDouble(kValue).c_str());
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
             }
@@ -5372,22 +5364,22 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kAnimation = timeOfDayWriter->GetAnimation();
-                if (!( kAnimation == false))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__ANIMATION.c_str(), XmlExportHelper::ToXmlStringFromBoolean( kAnimation).c_str());
-                }
-                else if (timeOfDayWriter->IsAnimationParameterized())
+                if (timeOfDayWriter->IsAnimationParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__ANIMATION.c_str(), timeOfDayWriter->GetParameterFromAnimation().c_str());
                 }
-                const auto kDateTime = timeOfDayWriter->GetDateTime();
-                if (!( kDateTime == DateTime()))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DATE_TIME.c_str(), XmlExportHelper::ToXmlStringFromDateTime( kDateTime).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__ANIMATION.c_str(), XmlExportHelper::ToXmlStringFromBoolean(kAnimation).c_str());
                 }
-                else if (timeOfDayWriter->IsDateTimeParameterized())
+                const auto kDateTime = timeOfDayWriter->GetDateTime();
+                if (timeOfDayWriter->IsDateTimeParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DATE_TIME.c_str(), timeOfDayWriter->GetParameterFromDateTime().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DATE_TIME.c_str(), XmlExportHelper::ToXmlStringFromDateTime(kDateTime).c_str());
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
             }
@@ -5402,22 +5394,22 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kDateTime = timeOfDayConditionWriter->GetDateTime();
-                if (!( kDateTime == DateTime()))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DATE_TIME.c_str(), XmlExportHelper::ToXmlStringFromDateTime( kDateTime).c_str());
-                }
-                else if (timeOfDayConditionWriter->IsDateTimeParameterized())
+                if (timeOfDayConditionWriter->IsDateTimeParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DATE_TIME.c_str(), timeOfDayConditionWriter->GetParameterFromDateTime().c_str());
                 }
-                const auto kRule = timeOfDayConditionWriter->GetRule();
-                if (!( kRule == Rule::UNKNOWN))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__RULE.c_str(), kRule.GetLiteral().c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DATE_TIME.c_str(), XmlExportHelper::ToXmlStringFromDateTime(kDateTime).c_str());
                 }
-                else if (timeOfDayConditionWriter->IsRuleParameterized())
+                const auto kRule = timeOfDayConditionWriter->GetRule();
+                if (timeOfDayConditionWriter->IsRuleParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__RULE.c_str(), timeOfDayConditionWriter->GetParameterFromRule().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__RULE.c_str(), kRule.GetLiteral().c_str());
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
             }
@@ -5458,40 +5450,40 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kAlongRoute = timeToCollisionConditionWriter->GetAlongRoute();
-                if (!( kAlongRoute == false))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__ALONG_ROUTE.c_str(), XmlExportHelper::ToXmlStringFromBoolean( kAlongRoute).c_str());
-                }
-                else if (timeToCollisionConditionWriter->IsAlongRouteParameterized())
+                if (timeToCollisionConditionWriter->IsAlongRouteParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__ALONG_ROUTE.c_str(), timeToCollisionConditionWriter->GetParameterFromAlongRoute().c_str());
                 }
-                const auto kFreespace = timeToCollisionConditionWriter->GetFreespace();
-                if (!( kFreespace == false))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__FREESPACE.c_str(), XmlExportHelper::ToXmlStringFromBoolean( kFreespace).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__ALONG_ROUTE.c_str(), XmlExportHelper::ToXmlStringFromBoolean(kAlongRoute).c_str());
                 }
-                else if (timeToCollisionConditionWriter->IsFreespaceParameterized())
+                const auto kFreespace = timeToCollisionConditionWriter->GetFreespace();
+                if (timeToCollisionConditionWriter->IsFreespaceParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__FREESPACE.c_str(), timeToCollisionConditionWriter->GetParameterFromFreespace().c_str());
                 }
-                const auto kRule = timeToCollisionConditionWriter->GetRule();
-                if (!( kRule == Rule::UNKNOWN))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__RULE.c_str(), kRule.GetLiteral().c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__FREESPACE.c_str(), XmlExportHelper::ToXmlStringFromBoolean(kFreespace).c_str());
                 }
-                else if (timeToCollisionConditionWriter->IsRuleParameterized())
+                const auto kRule = timeToCollisionConditionWriter->GetRule();
+                if (timeToCollisionConditionWriter->IsRuleParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__RULE.c_str(), timeToCollisionConditionWriter->GetParameterFromRule().c_str());
                 }
-                const auto kValue = timeToCollisionConditionWriter->GetValue();
-                if (!( kValue == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromDouble( kValue).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__RULE.c_str(), kRule.GetLiteral().c_str());
                 }
-                else if (timeToCollisionConditionWriter->IsValueParameterized())
+                const auto kValue = timeToCollisionConditionWriter->GetValue();
+                if (timeToCollisionConditionWriter->IsValueParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), timeToCollisionConditionWriter->GetParameterFromValue().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromDouble(kValue).c_str());
                 }
                 const auto kTimeToCollisionConditionTarget = timeToCollisionConditionWriter->GetWriterTimeToCollisionConditionTarget();
                 if (kTimeToCollisionConditionTarget)
@@ -5539,31 +5531,31 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kDomainAbsoluteRelative = timingWriter->GetDomainAbsoluteRelative();
-                if (!( kDomainAbsoluteRelative == ReferenceContext::UNKNOWN))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DOMAIN_ABSOLUTE_RELATIVE.c_str(), kDomainAbsoluteRelative.GetLiteral().c_str());
-                }
-                else if (timingWriter->IsDomainAbsoluteRelativeParameterized())
+                if (timingWriter->IsDomainAbsoluteRelativeParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DOMAIN_ABSOLUTE_RELATIVE.c_str(), timingWriter->GetParameterFromDomainAbsoluteRelative().c_str());
                 }
-                const auto kOffset = timingWriter->GetOffset();
-                if (!( kOffset == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__OFFSET.c_str(), XmlExportHelper::ToXmlStringFromDouble( kOffset).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DOMAIN_ABSOLUTE_RELATIVE.c_str(), kDomainAbsoluteRelative.GetLiteral().c_str());
                 }
-                else if (timingWriter->IsOffsetParameterized())
+                const auto kOffset = timingWriter->GetOffset();
+                if (timingWriter->IsOffsetParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__OFFSET.c_str(), timingWriter->GetParameterFromOffset().c_str());
                 }
-                const auto kScale = timingWriter->GetScale();
-                if (!( kScale == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__SCALE.c_str(), XmlExportHelper::ToXmlStringFromDouble( kScale).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__OFFSET.c_str(), XmlExportHelper::ToXmlStringFromDouble(kOffset).c_str());
                 }
-                else if (timingWriter->IsScaleParameterized())
+                const auto kScale = timingWriter->GetScale();
+                if (timingWriter->IsScaleParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__SCALE.c_str(), timingWriter->GetParameterFromScale().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__SCALE.c_str(), XmlExportHelper::ToXmlStringFromDouble(kScale).c_str());
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
             }
@@ -5611,13 +5603,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kName = trafficDefinitionWriter->GetName();
-                if (!( kName.empty()))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), XmlExportHelper::ToXmlStringFromString( kName).c_str());
-                }
-                else if (trafficDefinitionWriter->IsNameParameterized())
+                if (trafficDefinitionWriter->IsNameParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), trafficDefinitionWriter->GetParameterFromName().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), XmlExportHelper::ToXmlStringFromString(kName).c_str());
                 }
                 const auto kVehicleCategoryDistribution = trafficDefinitionWriter->GetWriterVehicleCategoryDistribution();
                 if (kVehicleCategoryDistribution)
@@ -5672,22 +5664,22 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kName = trafficSignalConditionWriter->GetName();
-                if (!( kName.empty()))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), XmlExportHelper::ToXmlStringFromString( kName).c_str());
-                }
-                else if (trafficSignalConditionWriter->IsNameParameterized())
+                if (trafficSignalConditionWriter->IsNameParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), trafficSignalConditionWriter->GetParameterFromName().c_str());
                 }
-                const auto kState = trafficSignalConditionWriter->GetState();
-                if (!( kState.empty()))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__STATE.c_str(), XmlExportHelper::ToXmlStringFromString( kState).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), XmlExportHelper::ToXmlStringFromString(kName).c_str());
                 }
-                else if (trafficSignalConditionWriter->IsStateParameterized())
+                const auto kState = trafficSignalConditionWriter->GetState();
+                if (trafficSignalConditionWriter->IsStateParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__STATE.c_str(), trafficSignalConditionWriter->GetParameterFromState().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__STATE.c_str(), XmlExportHelper::ToXmlStringFromString(kState).c_str());
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
             }
@@ -5702,27 +5694,27 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kDelay = trafficSignalControllerWriter->GetDelay();
-                if (!( kDelay == 0))
+                if (!(kDelay == 0))
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DELAY.c_str(), XmlExportHelper::ToXmlStringFromDouble( kDelay).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DELAY.c_str(), XmlExportHelper::ToXmlStringFromDouble(kDelay).c_str());
                 }
                 else if (trafficSignalControllerWriter->IsDelayParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DELAY.c_str(), trafficSignalControllerWriter->GetParameterFromDelay().c_str());
                 }
                 const auto kName = trafficSignalControllerWriter->GetName();
-                if (!( kName.empty()))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), XmlExportHelper::ToXmlStringFromString( kName).c_str());
-                }
-                else if (trafficSignalControllerWriter->IsNameParameterized())
+                if (trafficSignalControllerWriter->IsNameParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), trafficSignalControllerWriter->GetParameterFromName().c_str());
                 }
-                const auto kReference = trafficSignalControllerWriter->GetReference();
-                if (!( kReference.empty()))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__REFERENCE.c_str(), XmlExportHelper::ToXmlStringFromString( kReference).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), XmlExportHelper::ToXmlStringFromString(kName).c_str());
+                }
+                const auto kReference = trafficSignalControllerWriter->GetReference();
+                if (!(kReference.empty()))
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__REFERENCE.c_str(), XmlExportHelper::ToXmlStringFromString(kReference).c_str());
                 }
                 else if (trafficSignalControllerWriter->IsReferenceParameterized())
                 {
@@ -5736,7 +5728,7 @@ namespace NET_ASAM_OPENSCENARIO
                         tinyxml2::XMLNode* phasesElement = document->NewElement(OSC_CONSTANTS::ELEMENT__PHASE.c_str());
                         elementNode->InsertEndChild(phasesElement);
                         FillPhaseNode(document, phasesElement, phasesWriterItem);
-                        
+
                     }
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
@@ -5752,13 +5744,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kPhase = trafficSignalControllerActionWriter->GetPhase();
-                if (!( kPhase.empty()))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__PHASE.c_str(), XmlExportHelper::ToXmlStringFromString( kPhase).c_str());
-                }
-                else if (trafficSignalControllerActionWriter->IsPhaseParameterized())
+                if (trafficSignalControllerActionWriter->IsPhaseParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__PHASE.c_str(), trafficSignalControllerActionWriter->GetParameterFromPhase().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__PHASE.c_str(), XmlExportHelper::ToXmlStringFromString(kPhase).c_str());
                 }
                 const auto kTrafficSignalControllerRef = trafficSignalControllerActionWriter->GetTrafficSignalControllerRef();
                 if (kTrafficSignalControllerRef)
@@ -5778,13 +5770,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kPhase = trafficSignalControllerConditionWriter->GetPhase();
-                if (!( kPhase.empty()))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__PHASE.c_str(), XmlExportHelper::ToXmlStringFromString( kPhase).c_str());
-                }
-                else if (trafficSignalControllerConditionWriter->IsPhaseParameterized())
+                if (trafficSignalControllerConditionWriter->IsPhaseParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__PHASE.c_str(), trafficSignalControllerConditionWriter->GetParameterFromPhase().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__PHASE.c_str(), XmlExportHelper::ToXmlStringFromString(kPhase).c_str());
                 }
                 const auto kTrafficSignalControllerRef = trafficSignalControllerConditionWriter->GetTrafficSignalControllerRef();
                 if (kTrafficSignalControllerRef)
@@ -5804,22 +5796,22 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kState = trafficSignalStateWriter->GetState();
-                if (!( kState.empty()))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__STATE.c_str(), XmlExportHelper::ToXmlStringFromString( kState).c_str());
-                }
-                else if (trafficSignalStateWriter->IsStateParameterized())
+                if (trafficSignalStateWriter->IsStateParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__STATE.c_str(), trafficSignalStateWriter->GetParameterFromState().c_str());
                 }
-                const auto kTrafficSignalId = trafficSignalStateWriter->GetTrafficSignalId();
-                if (!( kTrafficSignalId.empty()))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__TRAFFIC_SIGNAL_ID.c_str(), XmlExportHelper::ToXmlStringFromString( kTrafficSignalId).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__STATE.c_str(), XmlExportHelper::ToXmlStringFromString(kState).c_str());
                 }
-                else if (trafficSignalStateWriter->IsTrafficSignalIdParameterized())
+                const auto kTrafficSignalId = trafficSignalStateWriter->GetTrafficSignalId();
+                if (trafficSignalStateWriter->IsTrafficSignalIdParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__TRAFFIC_SIGNAL_ID.c_str(), trafficSignalStateWriter->GetParameterFromTrafficSignalId().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__TRAFFIC_SIGNAL_ID.c_str(), XmlExportHelper::ToXmlStringFromString(kTrafficSignalId).c_str());
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
             }
@@ -5834,22 +5826,22 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kName = trafficSignalStateActionWriter->GetName();
-                if (!( kName.empty()))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), XmlExportHelper::ToXmlStringFromString( kName).c_str());
-                }
-                else if (trafficSignalStateActionWriter->IsNameParameterized())
+                if (trafficSignalStateActionWriter->IsNameParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), trafficSignalStateActionWriter->GetParameterFromName().c_str());
                 }
-                const auto kState = trafficSignalStateActionWriter->GetState();
-                if (!( kState.empty()))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__STATE.c_str(), XmlExportHelper::ToXmlStringFromString( kState).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), XmlExportHelper::ToXmlStringFromString(kName).c_str());
                 }
-                else if (trafficSignalStateActionWriter->IsStateParameterized())
+                const auto kState = trafficSignalStateActionWriter->GetState();
+                if (trafficSignalStateActionWriter->IsStateParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__STATE.c_str(), trafficSignalStateActionWriter->GetParameterFromState().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__STATE.c_str(), XmlExportHelper::ToXmlStringFromString(kState).c_str());
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
             }
@@ -5864,18 +5856,18 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kRadius = trafficSinkActionWriter->GetRadius();
-                if (!( kRadius == 0))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__RADIUS.c_str(), XmlExportHelper::ToXmlStringFromDouble( kRadius).c_str());
-                }
-                else if (trafficSinkActionWriter->IsRadiusParameterized())
+                if (trafficSinkActionWriter->IsRadiusParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__RADIUS.c_str(), trafficSinkActionWriter->GetParameterFromRadius().c_str());
                 }
-                const auto kRate = trafficSinkActionWriter->GetRate();
-                if (!( kRate == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__RATE.c_str(), XmlExportHelper::ToXmlStringFromDouble( kRate).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__RADIUS.c_str(), XmlExportHelper::ToXmlStringFromDouble(kRadius).c_str());
+                }
+                const auto kRate = trafficSinkActionWriter->GetRate();
+                if (!(kRate == 0))
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__RATE.c_str(), XmlExportHelper::ToXmlStringFromDouble(kRate).c_str());
                 }
                 else if (trafficSinkActionWriter->IsRateParameterized())
                 {
@@ -5908,27 +5900,27 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kRadius = trafficSourceActionWriter->GetRadius();
-                if (!( kRadius == 0))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__RADIUS.c_str(), XmlExportHelper::ToXmlStringFromDouble( kRadius).c_str());
-                }
-                else if (trafficSourceActionWriter->IsRadiusParameterized())
+                if (trafficSourceActionWriter->IsRadiusParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__RADIUS.c_str(), trafficSourceActionWriter->GetParameterFromRadius().c_str());
                 }
-                const auto kRate = trafficSourceActionWriter->GetRate();
-                if (!( kRate == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__RATE.c_str(), XmlExportHelper::ToXmlStringFromDouble( kRate).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__RADIUS.c_str(), XmlExportHelper::ToXmlStringFromDouble(kRadius).c_str());
                 }
-                else if (trafficSourceActionWriter->IsRateParameterized())
+                const auto kRate = trafficSourceActionWriter->GetRate();
+                if (trafficSourceActionWriter->IsRateParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__RATE.c_str(), trafficSourceActionWriter->GetParameterFromRate().c_str());
                 }
-                const auto kVelocity = trafficSourceActionWriter->GetVelocity();
-                if (!( kVelocity == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VELOCITY.c_str(), XmlExportHelper::ToXmlStringFromDouble( kVelocity).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__RATE.c_str(), XmlExportHelper::ToXmlStringFromDouble(kRate).c_str());
+                }
+                const auto kVelocity = trafficSourceActionWriter->GetVelocity();
+                if (!(kVelocity == 0))
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VELOCITY.c_str(), XmlExportHelper::ToXmlStringFromDouble(kVelocity).c_str());
                 }
                 else if (trafficSourceActionWriter->IsVelocityParameterized())
                 {
@@ -5961,54 +5953,54 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kInnerRadius = trafficSwarmActionWriter->GetInnerRadius();
-                if (!( kInnerRadius == 0))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__INNER_RADIUS.c_str(), XmlExportHelper::ToXmlStringFromDouble( kInnerRadius).c_str());
-                }
-                else if (trafficSwarmActionWriter->IsInnerRadiusParameterized())
+                if (trafficSwarmActionWriter->IsInnerRadiusParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__INNER_RADIUS.c_str(), trafficSwarmActionWriter->GetParameterFromInnerRadius().c_str());
                 }
-                const auto kNumberOfVehicles = trafficSwarmActionWriter->GetNumberOfVehicles();
-                if (!( kNumberOfVehicles == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NUMBER_OF_VEHICLES.c_str(), XmlExportHelper::ToXmlStringFromUnsignedInt( kNumberOfVehicles).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__INNER_RADIUS.c_str(), XmlExportHelper::ToXmlStringFromDouble(kInnerRadius).c_str());
                 }
-                else if (trafficSwarmActionWriter->IsNumberOfVehiclesParameterized())
+                const auto kNumberOfVehicles = trafficSwarmActionWriter->GetNumberOfVehicles();
+                if (trafficSwarmActionWriter->IsNumberOfVehiclesParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NUMBER_OF_VEHICLES.c_str(), trafficSwarmActionWriter->GetParameterFromNumberOfVehicles().c_str());
                 }
-                const auto kOffset = trafficSwarmActionWriter->GetOffset();
-                if (!( kOffset == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__OFFSET.c_str(), XmlExportHelper::ToXmlStringFromDouble( kOffset).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NUMBER_OF_VEHICLES.c_str(), XmlExportHelper::ToXmlStringFromUnsignedInt(kNumberOfVehicles).c_str());
                 }
-                else if (trafficSwarmActionWriter->IsOffsetParameterized())
+                const auto kOffset = trafficSwarmActionWriter->GetOffset();
+                if (trafficSwarmActionWriter->IsOffsetParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__OFFSET.c_str(), trafficSwarmActionWriter->GetParameterFromOffset().c_str());
                 }
-                const auto kSemiMajorAxis = trafficSwarmActionWriter->GetSemiMajorAxis();
-                if (!( kSemiMajorAxis == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__SEMI_MAJOR_AXIS.c_str(), XmlExportHelper::ToXmlStringFromDouble( kSemiMajorAxis).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__OFFSET.c_str(), XmlExportHelper::ToXmlStringFromDouble(kOffset).c_str());
                 }
-                else if (trafficSwarmActionWriter->IsSemiMajorAxisParameterized())
+                const auto kSemiMajorAxis = trafficSwarmActionWriter->GetSemiMajorAxis();
+                if (trafficSwarmActionWriter->IsSemiMajorAxisParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__SEMI_MAJOR_AXIS.c_str(), trafficSwarmActionWriter->GetParameterFromSemiMajorAxis().c_str());
                 }
-                const auto kSemiMinorAxis = trafficSwarmActionWriter->GetSemiMinorAxis();
-                if (!( kSemiMinorAxis == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__SEMI_MINOR_AXIS.c_str(), XmlExportHelper::ToXmlStringFromDouble( kSemiMinorAxis).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__SEMI_MAJOR_AXIS.c_str(), XmlExportHelper::ToXmlStringFromDouble(kSemiMajorAxis).c_str());
                 }
-                else if (trafficSwarmActionWriter->IsSemiMinorAxisParameterized())
+                const auto kSemiMinorAxis = trafficSwarmActionWriter->GetSemiMinorAxis();
+                if (trafficSwarmActionWriter->IsSemiMinorAxisParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__SEMI_MINOR_AXIS.c_str(), trafficSwarmActionWriter->GetParameterFromSemiMinorAxis().c_str());
                 }
-                const auto kVelocity = trafficSwarmActionWriter->GetVelocity();
-                if (!( kVelocity == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VELOCITY.c_str(), XmlExportHelper::ToXmlStringFromDouble( kVelocity).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__SEMI_MINOR_AXIS.c_str(), XmlExportHelper::ToXmlStringFromDouble(kSemiMinorAxis).c_str());
+                }
+                const auto kVelocity = trafficSwarmActionWriter->GetVelocity();
+                if (!(kVelocity == 0))
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VELOCITY.c_str(), XmlExportHelper::ToXmlStringFromDouble(kVelocity).c_str());
                 }
                 else if (trafficSwarmActionWriter->IsVelocityParameterized())
                 {
@@ -6041,22 +6033,22 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kClosed = trajectoryWriter->GetClosed();
-                if (!( kClosed == false))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__CLOSED.c_str(), XmlExportHelper::ToXmlStringFromBoolean( kClosed).c_str());
-                }
-                else if (trajectoryWriter->IsClosedParameterized())
+                if (trajectoryWriter->IsClosedParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__CLOSED.c_str(), trajectoryWriter->GetParameterFromClosed().c_str());
                 }
-                const auto kName = trajectoryWriter->GetName();
-                if (!( kName.empty()))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), XmlExportHelper::ToXmlStringFromString( kName).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__CLOSED.c_str(), XmlExportHelper::ToXmlStringFromBoolean(kClosed).c_str());
                 }
-                else if (trajectoryWriter->IsNameParameterized())
+                const auto kName = trajectoryWriter->GetName();
+                if (trajectoryWriter->IsNameParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), trajectoryWriter->GetParameterFromName().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), XmlExportHelper::ToXmlStringFromString(kName).c_str());
                 }
                 const auto kParameterDeclarations = trajectoryWriter->GetWriterParameterDeclarations();
                 if (!kParameterDeclarations.empty())
@@ -6109,13 +6101,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kFollowingMode = trajectoryFollowingModeWriter->GetFollowingMode();
-                if (!( kFollowingMode == FollowingMode::UNKNOWN))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__FOLLOWING_MODE.c_str(), kFollowingMode.GetLiteral().c_str());
-                }
-                else if (trajectoryFollowingModeWriter->IsFollowingModeParameterized())
+                if (trajectoryFollowingModeWriter->IsFollowingModeParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__FOLLOWING_MODE.c_str(), trajectoryFollowingModeWriter->GetParameterFromFollowingMode().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__FOLLOWING_MODE.c_str(), kFollowingMode.GetLiteral().c_str());
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
             }
@@ -6130,31 +6122,31 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kDynamicsDimension = transitionDynamicsWriter->GetDynamicsDimension();
-                if (!( kDynamicsDimension == DynamicsDimension::UNKNOWN))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DYNAMICS_DIMENSION.c_str(), kDynamicsDimension.GetLiteral().c_str());
-                }
-                else if (transitionDynamicsWriter->IsDynamicsDimensionParameterized())
+                if (transitionDynamicsWriter->IsDynamicsDimensionParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DYNAMICS_DIMENSION.c_str(), transitionDynamicsWriter->GetParameterFromDynamicsDimension().c_str());
                 }
-                const auto kDynamicsShape = transitionDynamicsWriter->GetDynamicsShape();
-                if (!( kDynamicsShape == DynamicsShape::UNKNOWN))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DYNAMICS_SHAPE.c_str(), kDynamicsShape.GetLiteral().c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DYNAMICS_DIMENSION.c_str(), kDynamicsDimension.GetLiteral().c_str());
                 }
-                else if (transitionDynamicsWriter->IsDynamicsShapeParameterized())
+                const auto kDynamicsShape = transitionDynamicsWriter->GetDynamicsShape();
+                if (transitionDynamicsWriter->IsDynamicsShapeParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DYNAMICS_SHAPE.c_str(), transitionDynamicsWriter->GetParameterFromDynamicsShape().c_str());
                 }
-                const auto kValue = transitionDynamicsWriter->GetValue();
-                if (!( kValue == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromDouble( kValue).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__DYNAMICS_SHAPE.c_str(), kDynamicsShape.GetLiteral().c_str());
                 }
-                else if (transitionDynamicsWriter->IsValueParameterized())
+                const auto kValue = transitionDynamicsWriter->GetValue();
+                if (transitionDynamicsWriter->IsValueParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), transitionDynamicsWriter->GetParameterFromValue().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromDouble(kValue).c_str());
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
             }
@@ -6169,13 +6161,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kValue = traveledDistanceConditionWriter->GetValue();
-                if (!( kValue == 0))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromDouble( kValue).c_str());
-                }
-                else if (traveledDistanceConditionWriter->IsValueParameterized())
+                if (traveledDistanceConditionWriter->IsValueParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), traveledDistanceConditionWriter->GetParameterFromValue().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromDouble(kValue).c_str());
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
             }
@@ -6197,7 +6189,7 @@ namespace NET_ASAM_OPENSCENARIO
                         tinyxml2::XMLNode* conditionGroupsElement = document->NewElement(OSC_CONSTANTS::ELEMENT__CONDITION_GROUP.c_str());
                         elementNode->InsertEndChild(conditionGroupsElement);
                         FillConditionGroupNode(document, conditionGroupsElement, conditionGroupsWriterItem);
-                        
+
                     }
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
@@ -6213,13 +6205,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kTriggeringEntitiesRule = triggeringEntitiesWriter->GetTriggeringEntitiesRule();
-                if (!( kTriggeringEntitiesRule == TriggeringEntitiesRule::UNKNOWN))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__TRIGGERING_ENTITIES_RULE.c_str(), kTriggeringEntitiesRule.GetLiteral().c_str());
-                }
-                else if (triggeringEntitiesWriter->IsTriggeringEntitiesRuleParameterized())
+                if (triggeringEntitiesWriter->IsTriggeringEntitiesRuleParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__TRIGGERING_ENTITIES_RULE.c_str(), triggeringEntitiesWriter->GetParameterFromTriggeringEntitiesRule().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__TRIGGERING_ENTITIES_RULE.c_str(), kTriggeringEntitiesRule.GetLiteral().c_str());
                 }
                 const auto kEntityRefs = triggeringEntitiesWriter->GetWriterEntityRefs();
                 if (!kEntityRefs.empty())
@@ -6229,7 +6221,7 @@ namespace NET_ASAM_OPENSCENARIO
                         tinyxml2::XMLNode* entityRefsElement = document->NewElement(OSC_CONSTANTS::ELEMENT__ENTITY_REF.c_str());
                         elementNode->InsertEndChild(entityRefsElement);
                         FillEntityRefNode(document, entityRefsElement, entityRefsWriterItem);
-                        
+
                     }
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
@@ -6264,31 +6256,31 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kName = userDefinedValueConditionWriter->GetName();
-                if (!( kName.empty()))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), XmlExportHelper::ToXmlStringFromString( kName).c_str());
-                }
-                else if (userDefinedValueConditionWriter->IsNameParameterized())
+                if (userDefinedValueConditionWriter->IsNameParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), userDefinedValueConditionWriter->GetParameterFromName().c_str());
                 }
-                const auto kRule = userDefinedValueConditionWriter->GetRule();
-                if (!( kRule == Rule::UNKNOWN))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__RULE.c_str(), kRule.GetLiteral().c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), XmlExportHelper::ToXmlStringFromString(kName).c_str());
                 }
-                else if (userDefinedValueConditionWriter->IsRuleParameterized())
+                const auto kRule = userDefinedValueConditionWriter->GetRule();
+                if (userDefinedValueConditionWriter->IsRuleParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__RULE.c_str(), userDefinedValueConditionWriter->GetParameterFromRule().c_str());
                 }
-                const auto kValue = userDefinedValueConditionWriter->GetValue();
-                if (!( kValue.empty()))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromString( kValue).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__RULE.c_str(), kRule.GetLiteral().c_str());
                 }
-                else if (userDefinedValueConditionWriter->IsValueParameterized())
+                const auto kValue = userDefinedValueConditionWriter->GetValue();
+                if (userDefinedValueConditionWriter->IsValueParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), userDefinedValueConditionWriter->GetParameterFromValue().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VALUE.c_str(), XmlExportHelper::ToXmlStringFromString(kValue).c_str());
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
             }
@@ -6303,22 +6295,22 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kName = vehicleWriter->GetName();
-                if (!( kName.empty()))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), XmlExportHelper::ToXmlStringFromString( kName).c_str());
-                }
-                else if (vehicleWriter->IsNameParameterized())
+                if (vehicleWriter->IsNameParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), vehicleWriter->GetParameterFromName().c_str());
                 }
-                const auto kVehicleCategory = vehicleWriter->GetVehicleCategory();
-                if (!( kVehicleCategory == VehicleCategory::UNKNOWN))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VEHICLE_CATEGORY.c_str(), kVehicleCategory.GetLiteral().c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__NAME.c_str(), XmlExportHelper::ToXmlStringFromString(kName).c_str());
                 }
-                else if (vehicleWriter->IsVehicleCategoryParameterized())
+                const auto kVehicleCategory = vehicleWriter->GetVehicleCategory();
+                if (vehicleWriter->IsVehicleCategoryParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VEHICLE_CATEGORY.c_str(), vehicleWriter->GetParameterFromVehicleCategory().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__VEHICLE_CATEGORY.c_str(), kVehicleCategory.GetLiteral().c_str());
                 }
                 const auto kParameterDeclarations = vehicleWriter->GetWriterParameterDeclarations();
                 if (!kParameterDeclarations.empty())
@@ -6399,7 +6391,7 @@ namespace NET_ASAM_OPENSCENARIO
                         tinyxml2::XMLNode* vehicleCategoryDistributionEntriesElement = document->NewElement(OSC_CONSTANTS::ELEMENT__VEHICLE_CATEGORY_DISTRIBUTION_ENTRY.c_str());
                         elementNode->InsertEndChild(vehicleCategoryDistributionEntriesElement);
                         FillVehicleCategoryDistributionEntryNode(document, vehicleCategoryDistributionEntriesElement, vehicleCategoryDistributionEntriesWriterItem);
-                        
+
                     }
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
@@ -6415,22 +6407,22 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kCategory = vehicleCategoryDistributionEntryWriter->GetCategory();
-                if (!( kCategory == VehicleCategory::UNKNOWN))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__CATEGORY.c_str(), kCategory.GetLiteral().c_str());
-                }
-                else if (vehicleCategoryDistributionEntryWriter->IsCategoryParameterized())
+                if (vehicleCategoryDistributionEntryWriter->IsCategoryParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__CATEGORY.c_str(), vehicleCategoryDistributionEntryWriter->GetParameterFromCategory().c_str());
                 }
-                const auto kWeight = vehicleCategoryDistributionEntryWriter->GetWeight();
-                if (!( kWeight == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__WEIGHT.c_str(), XmlExportHelper::ToXmlStringFromDouble( kWeight).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__CATEGORY.c_str(), kCategory.GetLiteral().c_str());
                 }
-                else if (vehicleCategoryDistributionEntryWriter->IsWeightParameterized())
+                const auto kWeight = vehicleCategoryDistributionEntryWriter->GetWeight();
+                if (vehicleCategoryDistributionEntryWriter->IsWeightParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__WEIGHT.c_str(), vehicleCategoryDistributionEntryWriter->GetParameterFromWeight().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__WEIGHT.c_str(), XmlExportHelper::ToXmlStringFromDouble(kWeight).c_str());
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
             }
@@ -6445,13 +6437,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kTime = vertexWriter->GetTime();
-                if (!( kTime == 0))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__TIME.c_str(), XmlExportHelper::ToXmlStringFromDouble( kTime).c_str());
-                }
-                else if (vertexWriter->IsTimeParameterized())
+                if (vertexWriter->IsTimeParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__TIME.c_str(), vertexWriter->GetParameterFromTime().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__TIME.c_str(), XmlExportHelper::ToXmlStringFromDouble(kTime).c_str());
                 }
                 const auto kPosition = vertexWriter->GetWriterPosition();
                 if (kPosition)
@@ -6473,31 +6465,31 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kGraphics = visibilityActionWriter->GetGraphics();
-                if (!( kGraphics == false))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__GRAPHICS.c_str(), XmlExportHelper::ToXmlStringFromBoolean( kGraphics).c_str());
-                }
-                else if (visibilityActionWriter->IsGraphicsParameterized())
+                if (visibilityActionWriter->IsGraphicsParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__GRAPHICS.c_str(), visibilityActionWriter->GetParameterFromGraphics().c_str());
                 }
-                const auto kSensors = visibilityActionWriter->GetSensors();
-                if (!( kSensors == false))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__SENSORS.c_str(), XmlExportHelper::ToXmlStringFromBoolean( kSensors).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__GRAPHICS.c_str(), XmlExportHelper::ToXmlStringFromBoolean(kGraphics).c_str());
                 }
-                else if (visibilityActionWriter->IsSensorsParameterized())
+                const auto kSensors = visibilityActionWriter->GetSensors();
+                if (visibilityActionWriter->IsSensorsParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__SENSORS.c_str(), visibilityActionWriter->GetParameterFromSensors().c_str());
                 }
-                const auto kTraffic = visibilityActionWriter->GetTraffic();
-                if (!( kTraffic == false))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__TRAFFIC.c_str(), XmlExportHelper::ToXmlStringFromBoolean( kTraffic).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__SENSORS.c_str(), XmlExportHelper::ToXmlStringFromBoolean(kSensors).c_str());
                 }
-                else if (visibilityActionWriter->IsTrafficParameterized())
+                const auto kTraffic = visibilityActionWriter->GetTraffic();
+                if (visibilityActionWriter->IsTrafficParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__TRAFFIC.c_str(), visibilityActionWriter->GetParameterFromTraffic().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__TRAFFIC.c_str(), XmlExportHelper::ToXmlStringFromBoolean(kTraffic).c_str());
                 }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
             }
@@ -6512,13 +6504,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kRouteStrategy = waypointWriter->GetRouteStrategy();
-                if (!( kRouteStrategy == RouteStrategy::UNKNOWN))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__ROUTE_STRATEGY.c_str(), kRouteStrategy.GetLiteral().c_str());
-                }
-                else if (waypointWriter->IsRouteStrategyParameterized())
+                if (waypointWriter->IsRouteStrategyParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__ROUTE_STRATEGY.c_str(), waypointWriter->GetParameterFromRouteStrategy().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__ROUTE_STRATEGY.c_str(), kRouteStrategy.GetLiteral().c_str());
                 }
                 const auto kPosition = waypointWriter->GetWriterPosition();
                 if (kPosition)
@@ -6540,13 +6532,13 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kCloudState = weatherWriter->GetCloudState();
-                if (!( kCloudState == CloudState::UNKNOWN))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__CLOUD_STATE.c_str(), kCloudState.GetLiteral().c_str());
-                }
-                else if (weatherWriter->IsCloudStateParameterized())
+                if (weatherWriter->IsCloudStateParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__CLOUD_STATE.c_str(), weatherWriter->GetParameterFromCloudState().c_str());
+                }
+                else
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__CLOUD_STATE.c_str(), kCloudState.GetLiteral().c_str());
                 }
                 const auto kSun = weatherWriter->GetWriterSun();
                 if (kSun)
@@ -6582,54 +6574,54 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 // Add Attributes (Parameters)
                 const auto kH = worldPositionWriter->GetH();
-                if (!( kH == 0))
+                if (!(kH == 0))
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__H.c_str(), XmlExportHelper::ToXmlStringFromDouble( kH).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__H.c_str(), XmlExportHelper::ToXmlStringFromDouble(kH).c_str());
                 }
                 else if (worldPositionWriter->IsHParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__H.c_str(), worldPositionWriter->GetParameterFromH().c_str());
                 }
                 const auto kP = worldPositionWriter->GetP();
-                if (!( kP == 0))
+                if (!(kP == 0))
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__P.c_str(), XmlExportHelper::ToXmlStringFromDouble( kP).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__P.c_str(), XmlExportHelper::ToXmlStringFromDouble(kP).c_str());
                 }
                 else if (worldPositionWriter->IsPParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__P.c_str(), worldPositionWriter->GetParameterFromP().c_str());
                 }
                 const auto kR = worldPositionWriter->GetR();
-                if (!( kR == 0))
+                if (!(kR == 0))
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__R.c_str(), XmlExportHelper::ToXmlStringFromDouble( kR).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__R.c_str(), XmlExportHelper::ToXmlStringFromDouble(kR).c_str());
                 }
                 else if (worldPositionWriter->IsRParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__R.c_str(), worldPositionWriter->GetParameterFromR().c_str());
                 }
                 const auto kX = worldPositionWriter->GetX();
-                if (!( kX == 0))
-                {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__X.c_str(), XmlExportHelper::ToXmlStringFromDouble( kX).c_str());
-                }
-                else if (worldPositionWriter->IsXParameterized())
+                if (worldPositionWriter->IsXParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__X.c_str(), worldPositionWriter->GetParameterFromX().c_str());
                 }
-                const auto kY = worldPositionWriter->GetY();
-                if (!( kY == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__Y.c_str(), XmlExportHelper::ToXmlStringFromDouble( kY).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__X.c_str(), XmlExportHelper::ToXmlStringFromDouble(kX).c_str());
                 }
-                else if (worldPositionWriter->IsYParameterized())
+                const auto kY = worldPositionWriter->GetY();
+                if (worldPositionWriter->IsYParameterized())
                 {
                     elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__Y.c_str(), worldPositionWriter->GetParameterFromY().c_str());
                 }
-                const auto kZ = worldPositionWriter->GetZ();
-                if (!( kZ == 0))
+                else
                 {
-                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__Z.c_str(), XmlExportHelper::ToXmlStringFromDouble( kZ).c_str());
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__Y.c_str(), XmlExportHelper::ToXmlStringFromDouble(kY).c_str());
+                }
+                const auto kZ = worldPositionWriter->GetZ();
+                if (!(kZ == 0))
+                {
+                    elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__Z.c_str(), XmlExportHelper::ToXmlStringFromDouble(kZ).c_str());
                 }
                 else if (worldPositionWriter->IsZParameterized())
                 {

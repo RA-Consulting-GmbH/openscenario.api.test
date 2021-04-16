@@ -22,6 +22,10 @@
 #include <vector>
 #include "DateTime.h"
 #include "MemLeakDetection.h"
+#undef ERROR
+#undef ABSOLUTE
+#undef RELATIVE
+
 
 namespace NET_ASAM_OPENSCENARIO
 {
