@@ -90,16 +90,13 @@ namespace NET_ASAM_OPENSCENARIO
             <%=element.name.toClassName()%>& operator= (const <%=element.name.toClassName()%>Enum &rhs)
             {
                 _<%=element.name.toMemberName()%>Enum = rhs;
-                if (_<%=element.name.toMemberName()%>Enum > -1)
-                    _literal = k<%=element.name.toClassName()%>EnumString[_<%=element.name.toMemberName()%>Enum+1];
-                else
-                    _literal = "unknown";
+                _literal = k<%=element.name.toClassName()%>EnumString[_<%=element.name.toMemberName()%>Enum+1];
                 return *this;
             }
 
             <%=element.name.toClassName()%>& operator= (const <%=element.name.toClassName()%> &rhs ) 
             { 
-                 _literal = rhs._literal;
+                _literal = rhs._literal;
                 _<%=element.name.toMemberName()%>Enum = rhs._<%=element.name.toMemberName()%>Enum;
                 return *this;
             }

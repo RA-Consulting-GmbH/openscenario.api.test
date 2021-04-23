@@ -106,16 +106,13 @@ namespace NET_ASAM_OPENSCENARIO
             CloudState& operator= (const CloudStateEnum &rhs)
             {
                 _cloudStateEnum = rhs;
-                if (_cloudStateEnum > -1)
-                    _literal = kCloudStateEnumString[_cloudStateEnum+1];
-                else
-                    _literal = "unknown";
+                _literal = kCloudStateEnumString[_cloudStateEnum+1];
                 return *this;
             }
 
             CloudState& operator= (const CloudState &rhs ) 
             { 
-                 _literal = rhs._literal;
+                _literal = rhs._literal;
                 _cloudStateEnum = rhs._cloudStateEnum;
                 return *this;
             }
@@ -222,16 +219,13 @@ namespace NET_ASAM_OPENSCENARIO
             ConditionEdge& operator= (const ConditionEdgeEnum &rhs)
             {
                 _conditionEdgeEnum = rhs;
-                if (_conditionEdgeEnum > -1)
-                    _literal = kConditionEdgeEnumString[_conditionEdgeEnum+1];
-                else
-                    _literal = "unknown";
+                _literal = kConditionEdgeEnumString[_conditionEdgeEnum+1];
                 return *this;
             }
 
             ConditionEdge& operator= (const ConditionEdge &rhs ) 
             { 
-                 _literal = rhs._literal;
+                _literal = rhs._literal;
                 _conditionEdgeEnum = rhs._conditionEdgeEnum;
                 return *this;
             }
@@ -330,16 +324,13 @@ namespace NET_ASAM_OPENSCENARIO
             DynamicsDimension& operator= (const DynamicsDimensionEnum &rhs)
             {
                 _dynamicsDimensionEnum = rhs;
-                if (_dynamicsDimensionEnum > -1)
-                    _literal = kDynamicsDimensionEnumString[_dynamicsDimensionEnum+1];
-                else
-                    _literal = "unknown";
+                _literal = kDynamicsDimensionEnumString[_dynamicsDimensionEnum+1];
                 return *this;
             }
 
             DynamicsDimension& operator= (const DynamicsDimension &rhs ) 
             { 
-                 _literal = rhs._literal;
+                _literal = rhs._literal;
                 _dynamicsDimensionEnum = rhs._dynamicsDimensionEnum;
                 return *this;
             }
@@ -441,16 +432,13 @@ namespace NET_ASAM_OPENSCENARIO
             DynamicsShape& operator= (const DynamicsShapeEnum &rhs)
             {
                 _dynamicsShapeEnum = rhs;
-                if (_dynamicsShapeEnum > -1)
-                    _literal = kDynamicsShapeEnumString[_dynamicsShapeEnum+1];
-                else
-                    _literal = "unknown";
+                _literal = kDynamicsShapeEnumString[_dynamicsShapeEnum+1];
                 return *this;
             }
 
             DynamicsShape& operator= (const DynamicsShape &rhs ) 
             { 
-                 _literal = rhs._literal;
+                _literal = rhs._literal;
                 _dynamicsShapeEnum = rhs._dynamicsShapeEnum;
                 return *this;
             }
@@ -546,16 +534,13 @@ namespace NET_ASAM_OPENSCENARIO
             FollowingMode& operator= (const FollowingModeEnum &rhs)
             {
                 _followingModeEnum = rhs;
-                if (_followingModeEnum > -1)
-                    _literal = kFollowingModeEnumString[_followingModeEnum+1];
-                else
-                    _literal = "unknown";
+                _literal = kFollowingModeEnumString[_followingModeEnum+1];
                 return *this;
             }
 
             FollowingMode& operator= (const FollowingMode &rhs ) 
             { 
-                 _literal = rhs._literal;
+                _literal = rhs._literal;
                 _followingModeEnum = rhs._followingModeEnum;
                 return *this;
             }
@@ -696,16 +681,13 @@ namespace NET_ASAM_OPENSCENARIO
             MiscObjectCategory& operator= (const MiscObjectCategoryEnum &rhs)
             {
                 _miscObjectCategoryEnum = rhs;
-                if (_miscObjectCategoryEnum > -1)
-                    _literal = kMiscObjectCategoryEnumString[_miscObjectCategoryEnum+1];
-                else
-                    _literal = "unknown";
+                _literal = kMiscObjectCategoryEnumString[_miscObjectCategoryEnum+1];
                 return *this;
             }
 
             MiscObjectCategory& operator= (const MiscObjectCategory &rhs ) 
             { 
-                 _literal = rhs._literal;
+                _literal = rhs._literal;
                 _miscObjectCategoryEnum = rhs._miscObjectCategoryEnum;
                 return *this;
             }
@@ -804,16 +786,13 @@ namespace NET_ASAM_OPENSCENARIO
             ObjectType& operator= (const ObjectTypeEnum &rhs)
             {
                 _objectTypeEnum = rhs;
-                if (_objectTypeEnum > -1)
-                    _literal = kObjectTypeEnumString[_objectTypeEnum+1];
-                else
-                    _literal = "unknown";
+                _literal = kObjectTypeEnumString[_objectTypeEnum+1];
                 return *this;
             }
 
             ObjectType& operator= (const ObjectType &rhs ) 
             { 
-                 _literal = rhs._literal;
+                _literal = rhs._literal;
                 _objectTypeEnum = rhs._objectTypeEnum;
                 return *this;
             }
@@ -924,16 +903,13 @@ namespace NET_ASAM_OPENSCENARIO
             ParameterType& operator= (const ParameterTypeEnum &rhs)
             {
                 _parameterTypeEnum = rhs;
-                if (_parameterTypeEnum > -1)
-                    _literal = kParameterTypeEnumString[_parameterTypeEnum+1];
-                else
-                    _literal = "unknown";
+                _literal = kParameterTypeEnumString[_parameterTypeEnum+1];
                 return *this;
             }
 
             ParameterType& operator= (const ParameterType &rhs ) 
             { 
-                 _literal = rhs._literal;
+                _literal = rhs._literal;
                 _parameterTypeEnum = rhs._parameterTypeEnum;
                 return *this;
             }
@@ -1032,16 +1008,13 @@ namespace NET_ASAM_OPENSCENARIO
             PedestrianCategory& operator= (const PedestrianCategoryEnum &rhs)
             {
                 _pedestrianCategoryEnum = rhs;
-                if (_pedestrianCategoryEnum > -1)
-                    _literal = kPedestrianCategoryEnumString[_pedestrianCategoryEnum+1];
-                else
-                    _literal = "unknown";
+                _literal = kPedestrianCategoryEnumString[_pedestrianCategoryEnum+1];
                 return *this;
             }
 
             PedestrianCategory& operator= (const PedestrianCategory &rhs ) 
             { 
-                 _literal = rhs._literal;
+                _literal = rhs._literal;
                 _pedestrianCategoryEnum = rhs._pedestrianCategoryEnum;
                 return *this;
             }
@@ -1140,16 +1113,13 @@ namespace NET_ASAM_OPENSCENARIO
             PrecipitationType& operator= (const PrecipitationTypeEnum &rhs)
             {
                 _precipitationTypeEnum = rhs;
-                if (_precipitationTypeEnum > -1)
-                    _literal = kPrecipitationTypeEnumString[_precipitationTypeEnum+1];
-                else
-                    _literal = "unknown";
+                _literal = kPrecipitationTypeEnumString[_precipitationTypeEnum+1];
                 return *this;
             }
 
             PrecipitationType& operator= (const PrecipitationType &rhs ) 
             { 
-                 _literal = rhs._literal;
+                _literal = rhs._literal;
                 _precipitationTypeEnum = rhs._precipitationTypeEnum;
                 return *this;
             }
@@ -1250,16 +1220,13 @@ namespace NET_ASAM_OPENSCENARIO
             Priority& operator= (const PriorityEnum &rhs)
             {
                 _priorityEnum = rhs;
-                if (_priorityEnum > -1)
-                    _literal = kPriorityEnumString[_priorityEnum+1];
-                else
-                    _literal = "unknown";
+                _literal = kPriorityEnumString[_priorityEnum+1];
                 return *this;
             }
 
             Priority& operator= (const Priority &rhs ) 
             { 
-                 _literal = rhs._literal;
+                _literal = rhs._literal;
                 _priorityEnum = rhs._priorityEnum;
                 return *this;
             }
@@ -1355,16 +1322,13 @@ namespace NET_ASAM_OPENSCENARIO
             ReferenceContext& operator= (const ReferenceContextEnum &rhs)
             {
                 _referenceContextEnum = rhs;
-                if (_referenceContextEnum > -1)
-                    _literal = kReferenceContextEnumString[_referenceContextEnum+1];
-                else
-                    _literal = "unknown";
+                _literal = kReferenceContextEnumString[_referenceContextEnum+1];
                 return *this;
             }
 
             ReferenceContext& operator= (const ReferenceContext &rhs ) 
             { 
-                 _literal = rhs._literal;
+                _literal = rhs._literal;
                 _referenceContextEnum = rhs._referenceContextEnum;
                 return *this;
             }
@@ -1463,16 +1427,13 @@ namespace NET_ASAM_OPENSCENARIO
             RelativeDistanceType& operator= (const RelativeDistanceTypeEnum &rhs)
             {
                 _relativeDistanceTypeEnum = rhs;
-                if (_relativeDistanceTypeEnum > -1)
-                    _literal = kRelativeDistanceTypeEnumString[_relativeDistanceTypeEnum+1];
-                else
-                    _literal = "unknown";
+                _literal = kRelativeDistanceTypeEnumString[_relativeDistanceTypeEnum+1];
                 return *this;
             }
 
             RelativeDistanceType& operator= (const RelativeDistanceType &rhs ) 
             { 
-                 _literal = rhs._literal;
+                _literal = rhs._literal;
                 _relativeDistanceTypeEnum = rhs._relativeDistanceTypeEnum;
                 return *this;
             }
@@ -1574,16 +1535,13 @@ namespace NET_ASAM_OPENSCENARIO
             RouteStrategy& operator= (const RouteStrategyEnum &rhs)
             {
                 _routeStrategyEnum = rhs;
-                if (_routeStrategyEnum > -1)
-                    _literal = kRouteStrategyEnumString[_routeStrategyEnum+1];
-                else
-                    _literal = "unknown";
+                _literal = kRouteStrategyEnumString[_routeStrategyEnum+1];
                 return *this;
             }
 
             RouteStrategy& operator= (const RouteStrategy &rhs ) 
             { 
-                 _literal = rhs._literal;
+                _literal = rhs._literal;
                 _routeStrategyEnum = rhs._routeStrategyEnum;
                 return *this;
             }
@@ -1682,16 +1640,13 @@ namespace NET_ASAM_OPENSCENARIO
             Rule& operator= (const RuleEnum &rhs)
             {
                 _ruleEnum = rhs;
-                if (_ruleEnum > -1)
-                    _literal = kRuleEnumString[_ruleEnum+1];
-                else
-                    _literal = "unknown";
+                _literal = kRuleEnumString[_ruleEnum+1];
                 return *this;
             }
 
             Rule& operator= (const Rule &rhs ) 
             { 
-                 _literal = rhs._literal;
+                _literal = rhs._literal;
                 _ruleEnum = rhs._ruleEnum;
                 return *this;
             }
@@ -1789,16 +1744,13 @@ namespace NET_ASAM_OPENSCENARIO
             SpeedTargetValueType& operator= (const SpeedTargetValueTypeEnum &rhs)
             {
                 _speedTargetValueTypeEnum = rhs;
-                if (_speedTargetValueTypeEnum > -1)
-                    _literal = kSpeedTargetValueTypeEnumString[_speedTargetValueTypeEnum+1];
-                else
-                    _literal = "unknown";
+                _literal = kSpeedTargetValueTypeEnumString[_speedTargetValueTypeEnum+1];
                 return *this;
             }
 
             SpeedTargetValueType& operator= (const SpeedTargetValueType &rhs ) 
             { 
-                 _literal = rhs._literal;
+                _literal = rhs._literal;
                 _speedTargetValueTypeEnum = rhs._speedTargetValueTypeEnum;
                 return *this;
             }
@@ -1914,16 +1866,13 @@ namespace NET_ASAM_OPENSCENARIO
             StoryboardElementState& operator= (const StoryboardElementStateEnum &rhs)
             {
                 _storyboardElementStateEnum = rhs;
-                if (_storyboardElementStateEnum > -1)
-                    _literal = kStoryboardElementStateEnumString[_storyboardElementStateEnum+1];
-                else
-                    _literal = "unknown";
+                _literal = kStoryboardElementStateEnumString[_storyboardElementStateEnum+1];
                 return *this;
             }
 
             StoryboardElementState& operator= (const StoryboardElementState &rhs ) 
             { 
-                 _literal = rhs._literal;
+                _literal = rhs._literal;
                 _storyboardElementStateEnum = rhs._storyboardElementStateEnum;
                 return *this;
             }
@@ -2031,16 +1980,13 @@ namespace NET_ASAM_OPENSCENARIO
             StoryboardElementType& operator= (const StoryboardElementTypeEnum &rhs)
             {
                 _storyboardElementTypeEnum = rhs;
-                if (_storyboardElementTypeEnum > -1)
-                    _literal = kStoryboardElementTypeEnumString[_storyboardElementTypeEnum+1];
-                else
-                    _literal = "unknown";
+                _literal = kStoryboardElementTypeEnumString[_storyboardElementTypeEnum+1];
                 return *this;
             }
 
             StoryboardElementType& operator= (const StoryboardElementType &rhs ) 
             { 
-                 _literal = rhs._literal;
+                _literal = rhs._literal;
                 _storyboardElementTypeEnum = rhs._storyboardElementTypeEnum;
                 return *this;
             }
@@ -2136,16 +2082,13 @@ namespace NET_ASAM_OPENSCENARIO
             TriggeringEntitiesRule& operator= (const TriggeringEntitiesRuleEnum &rhs)
             {
                 _triggeringEntitiesRuleEnum = rhs;
-                if (_triggeringEntitiesRuleEnum > -1)
-                    _literal = kTriggeringEntitiesRuleEnumString[_triggeringEntitiesRuleEnum+1];
-                else
-                    _literal = "unknown";
+                _literal = kTriggeringEntitiesRuleEnumString[_triggeringEntitiesRuleEnum+1];
                 return *this;
             }
 
             TriggeringEntitiesRule& operator= (const TriggeringEntitiesRule &rhs ) 
             { 
-                 _literal = rhs._literal;
+                _literal = rhs._literal;
                 _triggeringEntitiesRuleEnum = rhs._triggeringEntitiesRuleEnum;
                 return *this;
             }
@@ -2265,16 +2208,13 @@ namespace NET_ASAM_OPENSCENARIO
             VehicleCategory& operator= (const VehicleCategoryEnum &rhs)
             {
                 _vehicleCategoryEnum = rhs;
-                if (_vehicleCategoryEnum > -1)
-                    _literal = kVehicleCategoryEnumString[_vehicleCategoryEnum+1];
-                else
-                    _literal = "unknown";
+                _literal = kVehicleCategoryEnumString[_vehicleCategoryEnum+1];
                 return *this;
             }
 
             VehicleCategory& operator= (const VehicleCategory &rhs ) 
             { 
-                 _literal = rhs._literal;
+                _literal = rhs._literal;
                 _vehicleCategoryEnum = rhs._vehicleCategoryEnum;
                 return *this;
             }
