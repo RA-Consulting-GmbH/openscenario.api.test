@@ -1,3 +1,4 @@
+
 /*
  * Copyright 2020 RA Consulting
  *
@@ -22,7 +23,7 @@
 #include "DateTime.h"
 #include "MemLeakDetection.h"
 
-    namespace NET_ASAM_OPENSCENARIO
+namespace NET_ASAM_OPENSCENARIO
 {
     namespace v1_0
     {
@@ -105,10 +106,7 @@
             CloudState& operator= (const CloudStateEnum &rhs)
             {
                 _cloudStateEnum = rhs;
-                if (_cloudStateEnum > -1)
-                    _literal = kCloudStateEnumString[_cloudStateEnum + 1];
-                else
-                    _literal = "unknown";
+                _literal = kCloudStateEnumString[_cloudStateEnum + 1];
                 return *this;
             }
 
@@ -221,10 +219,7 @@
             ConditionEdge& operator= (const ConditionEdgeEnum &rhs)
             {
                 _conditionEdgeEnum = rhs;
-                if (_conditionEdgeEnum > -1)
-                    _literal = kConditionEdgeEnumString[_conditionEdgeEnum + 1];
-                else
-                    _literal = "unknown";
+                _literal = kConditionEdgeEnumString[_conditionEdgeEnum + 1];
                 return *this;
             }
 
@@ -329,10 +324,7 @@
             DynamicsDimension& operator= (const DynamicsDimensionEnum &rhs)
             {
                 _dynamicsDimensionEnum = rhs;
-                if (_dynamicsDimensionEnum > -1)
-                    _literal = kDynamicsDimensionEnumString[_dynamicsDimensionEnum + 1];
-                else
-                    _literal = "unknown";
+                _literal = kDynamicsDimensionEnumString[_dynamicsDimensionEnum + 1];
                 return *this;
             }
 
@@ -440,10 +432,7 @@
             DynamicsShape& operator= (const DynamicsShapeEnum &rhs)
             {
                 _dynamicsShapeEnum = rhs;
-                if (_dynamicsShapeEnum > -1)
-                    _literal = kDynamicsShapeEnumString[_dynamicsShapeEnum + 1];
-                else
-                    _literal = "unknown";
+                _literal = kDynamicsShapeEnumString[_dynamicsShapeEnum + 1];
                 return *this;
             }
 
@@ -545,10 +534,7 @@
             FollowingMode& operator= (const FollowingModeEnum &rhs)
             {
                 _followingModeEnum = rhs;
-                if (_followingModeEnum > -1)
-                    _literal = kFollowingModeEnumString[_followingModeEnum + 1];
-                else
-                    _literal = "unknown";
+                _literal = kFollowingModeEnumString[_followingModeEnum + 1];
                 return *this;
             }
 
@@ -695,10 +681,7 @@
             MiscObjectCategory& operator= (const MiscObjectCategoryEnum &rhs)
             {
                 _miscObjectCategoryEnum = rhs;
-                if (_miscObjectCategoryEnum > -1)
-                    _literal = kMiscObjectCategoryEnumString[_miscObjectCategoryEnum + 1];
-                else
-                    _literal = "unknown";
+                _literal = kMiscObjectCategoryEnumString[_miscObjectCategoryEnum + 1];
                 return *this;
             }
 
@@ -803,10 +786,7 @@
             ObjectType& operator= (const ObjectTypeEnum &rhs)
             {
                 _objectTypeEnum = rhs;
-                if (_objectTypeEnum > -1)
-                    _literal = kObjectTypeEnumString[_objectTypeEnum + 1];
-                else
-                    _literal = "unknown";
+                _literal = kObjectTypeEnumString[_objectTypeEnum + 1];
                 return *this;
             }
 
@@ -923,10 +903,7 @@
             ParameterType& operator= (const ParameterTypeEnum &rhs)
             {
                 _parameterTypeEnum = rhs;
-                if (_parameterTypeEnum > -1)
-                    _literal = kParameterTypeEnumString[_parameterTypeEnum + 1];
-                else
-                    _literal = "unknown";
+                _literal = kParameterTypeEnumString[_parameterTypeEnum + 1];
                 return *this;
             }
 
@@ -1031,10 +1008,7 @@
             PedestrianCategory& operator= (const PedestrianCategoryEnum &rhs)
             {
                 _pedestrianCategoryEnum = rhs;
-                if (_pedestrianCategoryEnum > -1)
-                    _literal = kPedestrianCategoryEnumString[_pedestrianCategoryEnum + 1];
-                else
-                    _literal = "unknown";
+                _literal = kPedestrianCategoryEnumString[_pedestrianCategoryEnum + 1];
                 return *this;
             }
 
@@ -1139,10 +1113,7 @@
             PrecipitationType& operator= (const PrecipitationTypeEnum &rhs)
             {
                 _precipitationTypeEnum = rhs;
-                if (_precipitationTypeEnum > -1)
-                    _literal = kPrecipitationTypeEnumString[_precipitationTypeEnum + 1];
-                else
-                    _literal = "unknown";
+                _literal = kPrecipitationTypeEnumString[_precipitationTypeEnum + 1];
                 return *this;
             }
 
@@ -1249,10 +1220,7 @@
             Priority& operator= (const PriorityEnum &rhs)
             {
                 _priorityEnum = rhs;
-                if (_priorityEnum > -1)
-                    _literal = kPriorityEnumString[_priorityEnum + 1];
-                else
-                    _literal = "unknown";
+                _literal = kPriorityEnumString[_priorityEnum + 1];
                 return *this;
             }
 
@@ -1354,10 +1322,7 @@
             ReferenceContext& operator= (const ReferenceContextEnum &rhs)
             {
                 _referenceContextEnum = rhs;
-                if (_referenceContextEnum > -1)
-                    _literal = kReferenceContextEnumString[_referenceContextEnum + 1];
-                else
-                    _literal = "unknown";
+                _literal = kReferenceContextEnumString[_referenceContextEnum + 1];
                 return *this;
             }
 
@@ -1462,10 +1427,7 @@
             RelativeDistanceType& operator= (const RelativeDistanceTypeEnum &rhs)
             {
                 _relativeDistanceTypeEnum = rhs;
-                if (_relativeDistanceTypeEnum > -1)
-                    _literal = kRelativeDistanceTypeEnumString[_relativeDistanceTypeEnum + 1];
-                else
-                    _literal = "unknown";
+                _literal = kRelativeDistanceTypeEnumString[_relativeDistanceTypeEnum + 1];
                 return *this;
             }
 
@@ -1573,10 +1535,7 @@
             RouteStrategy& operator= (const RouteStrategyEnum &rhs)
             {
                 _routeStrategyEnum = rhs;
-                if (_routeStrategyEnum > -1)
-                    _literal = kRouteStrategyEnumString[_routeStrategyEnum + 1];
-                else
-                    _literal = "unknown";
+                _literal = kRouteStrategyEnumString[_routeStrategyEnum + 1];
                 return *this;
             }
 
@@ -1681,10 +1640,7 @@
             Rule& operator= (const RuleEnum &rhs)
             {
                 _ruleEnum = rhs;
-                if (_ruleEnum > -1)
-                    _literal = kRuleEnumString[_ruleEnum + 1];
-                else
-                    _literal = "unknown";
+                _literal = kRuleEnumString[_ruleEnum + 1];
                 return *this;
             }
 
@@ -1788,10 +1744,7 @@
             SpeedTargetValueType& operator= (const SpeedTargetValueTypeEnum &rhs)
             {
                 _speedTargetValueTypeEnum = rhs;
-                if (_speedTargetValueTypeEnum > -1)
-                    _literal = kSpeedTargetValueTypeEnumString[_speedTargetValueTypeEnum + 1];
-                else
-                    _literal = "unknown";
+                _literal = kSpeedTargetValueTypeEnumString[_speedTargetValueTypeEnum + 1];
                 return *this;
             }
 
@@ -1913,10 +1866,7 @@
             StoryboardElementState& operator= (const StoryboardElementStateEnum &rhs)
             {
                 _storyboardElementStateEnum = rhs;
-                if (_storyboardElementStateEnum > -1)
-                    _literal = kStoryboardElementStateEnumString[_storyboardElementStateEnum + 1];
-                else
-                    _literal = "unknown";
+                _literal = kStoryboardElementStateEnumString[_storyboardElementStateEnum + 1];
                 return *this;
             }
 
@@ -2030,10 +1980,7 @@
             StoryboardElementType& operator= (const StoryboardElementTypeEnum &rhs)
             {
                 _storyboardElementTypeEnum = rhs;
-                if (_storyboardElementTypeEnum > -1)
-                    _literal = kStoryboardElementTypeEnumString[_storyboardElementTypeEnum + 1];
-                else
-                    _literal = "unknown";
+                _literal = kStoryboardElementTypeEnumString[_storyboardElementTypeEnum + 1];
                 return *this;
             }
 
@@ -2135,10 +2082,7 @@
             TriggeringEntitiesRule& operator= (const TriggeringEntitiesRuleEnum &rhs)
             {
                 _triggeringEntitiesRuleEnum = rhs;
-                if (_triggeringEntitiesRuleEnum > -1)
-                    _literal = kTriggeringEntitiesRuleEnumString[_triggeringEntitiesRuleEnum + 1];
-                else
-                    _literal = "unknown";
+                _literal = kTriggeringEntitiesRuleEnumString[_triggeringEntitiesRuleEnum + 1];
                 return *this;
             }
 
@@ -2264,10 +2208,7 @@
             VehicleCategory& operator= (const VehicleCategoryEnum &rhs)
             {
                 _vehicleCategoryEnum = rhs;
-                if (_vehicleCategoryEnum > -1)
-                    _literal = kVehicleCategoryEnumString[_vehicleCategoryEnum + 1];
-                else
-                    _literal = "unknown";
+                _literal = kVehicleCategoryEnumString[_vehicleCategoryEnum + 1];
                 return *this;
             }
 
