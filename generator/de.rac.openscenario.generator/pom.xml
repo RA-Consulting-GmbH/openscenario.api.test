@@ -27,6 +27,8 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.7.0</version>
 				<configuration>
+					<source>11</source>
+					<target>11</target>
 					<compilerId>groovy-eclipse-compiler</compilerId>
 					<compilerArguments>
 						<indy />
@@ -95,10 +97,4 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<jvm.options>-Duser.language=en</jvm.options>
 	</properties>
-		<repositories>
-		<repository>
-			<id>repo</id>
-			<url>file://${project.basedir}/repo</url>
-		</repository>
-	</repositories>
 </project>
