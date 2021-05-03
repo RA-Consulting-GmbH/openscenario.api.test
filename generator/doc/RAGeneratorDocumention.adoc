@@ -73,6 +73,8 @@ image:image2.png[image,width=520,height=350]
 * Restart Eclipse
 
 ==== Install Template Editor Plugin
+If you install a new version of the plugin, it is safe to uninstall the current plugin first. See here <<Uninstall Template Editor Plugin>>.
+
 
 * Open Eclipse. _Choose Help->Install New Software_. Choose _Add..._ + 
 image:image3.png[image,width=604,height=490]
@@ -84,8 +86,21 @@ image:image5.png[image,width=604,height=490]
 image:image6.png[image,width=534,height=148]
 * Restart Eclipse as suggested.
 
-== Adding Projects to Eclipse
+==== Uninstall Template Editor Plugin
+* Open Eclipse. _Choose Help->About Eclipse IDE_. Choose _Installation Details_ + 
+image:uninstallPlugin1.png[image,width=604]
+* Choose _Installed Software_ tab and select 'RAC template ediotor feature' +
+image:uninstallPlugin2.png[image,width=604]
+* Choose _Uninstall_, follow the uninstall process.
 
+==== Setting code style
+The template plugin allows you to set the code style appearance. 
+
+* Open Eclipse. _Windows->Preference->Template Editor_.  + 
+image:templateEditorPreferences1.png[image,width=604]
+* Select a style (Classic, Highlighted or Dark) from the combo box and choose _Apply_ or _Apply and Close_.
+
+== Adding Projects to Eclipse
 Checkout the source code together with the OpenSCENARIO API
 
 === Adding the generator project
