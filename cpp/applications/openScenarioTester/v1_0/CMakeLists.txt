@@ -83,6 +83,7 @@ set( HEADERS
   "src/TestBase.h"
   "src/TestFiles.h"
   "src/TestReader.h"
+  "src/TestWriterApi.h"
   "src/TestImports.h"
   "src/TestSimpleDemos.h"
   "src/TestRangeChecker.h"

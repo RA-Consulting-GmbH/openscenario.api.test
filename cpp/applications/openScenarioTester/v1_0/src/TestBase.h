@@ -20,6 +20,7 @@
 #include "SimpleMessageLogger.h"
 #include "IScenarioLoaderFactory.h"
 #include "XmlScenarioLoaderFactory.h"
+#include "IOpenScenarioWriterFactory.h"
 #include "FileResourceLocator.h"
 #include "XmlScenarioImportLoaderFactory.h"
 #include "ErrorLevel.h"

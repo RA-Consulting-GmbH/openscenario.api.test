@@ -138,7 +138,7 @@ public:
         }
     }
 
-    bool TestParamsConvertion()
+    bool TestParamsConversion()
     {
         try
         {
