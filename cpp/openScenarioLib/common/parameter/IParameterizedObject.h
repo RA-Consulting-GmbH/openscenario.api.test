@@ -40,7 +40,7 @@ namespace NET_ASAM_OPENSCENARIO
          * A set with all keys for attributes that have parameters instead of real values.
          * @return the set of keys
          */
-        virtual std::vector<std::string> GetParameterizedAttributeKeys()
+        virtual std::vector<std::string> GetParameterizedAttributeKeys() const
         {
             return {};
         }
@@ -67,7 +67,7 @@ namespace NET_ASAM_OPENSCENARIO
          * All parameter definition of a parameter.
          * @return a list of ParameterValues
          */
-        virtual std::vector<std::shared_ptr<ParameterValue>> GetParameterDefinitions()
+        virtual std::vector<std::shared_ptr<ParameterValue>> GetParameterDefinitions() const
         {
             return {};
         }
@@ -77,7 +77,7 @@ namespace NET_ASAM_OPENSCENARIO
          * @param attributeKey the key constant
          * @return the textmarker or null if the parameter key does not exists or the parameter is not parameterized.
          */
-        virtual std::shared_ptr<Textmarker> GetTextmarker(std::string& attributeKey)
+        virtual std::shared_ptr<Textmarker> GetTextmarker(std::string& attributeKey) const
         {
             return nullptr;
         }
@@ -87,7 +87,7 @@ namespace NET_ASAM_OPENSCENARIO
          * @param attributeKey the key constant
          * @return the name of the constant.
          */
-        virtual std::string GetParameterNameFromAttribute(std::string& attributeKey)
+        virtual std::string GetParameterNameFromAttribute(std::string& attributeKey) const
         {
             return "";
         }
@@ -97,7 +97,7 @@ namespace NET_ASAM_OPENSCENARIO
          * @param attributeKey the key constant
          * @return the Simpletype Enum
          */
-        virtual SimpleType GetTypeFromAttributeName(std::string& attributeKey)
+        virtual SimpleType GetTypeFromAttributeName(std::string& attributeKey) const
         {
             return SimpleType::UNKNOWN;
         }
@@ -106,7 +106,7 @@ namespace NET_ASAM_OPENSCENARIO
         * The keys of the attributes that are resolved
         * @return set with the keys
         */
-        virtual std::vector<std::string> GetResolvedAttributeKeys()
+        virtual std::vector<std::string> GetResolvedAttributeKeys() const
         {
             return {};
         }

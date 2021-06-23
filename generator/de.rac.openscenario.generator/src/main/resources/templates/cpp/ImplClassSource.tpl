@@ -50,7 +50,7 @@ namespace NET_ASAM_OPENSCENARIO
 
     <%-properties.each{ property ->-%>
         <%-if (property.upper== -1){-%>
-        std::vector<<%=property.type.toCppName()%>> <%=element.name.toClassName()%>Impl::Get<%=property.name.toClassName()%>()
+        std::vector<<%=property.type.toCppName()%>> <%=element.name.toClassName()%>Impl::Get<%=property.name.toClassName()%>() const
         {
             std::vector<<%=property.type.toCppName()%>> temp;
             for(auto&& elm: _<%=property.name.toMemberName()%>)
@@ -58,12 +58,12 @@ namespace NET_ASAM_OPENSCENARIO
             return temp;
         }
         <%-}else if (property.isProxy()){-%>
-        std::shared_ptr<INamedReference<I<%=property.type.name.toClassName()%>>> <%=element.name.toClassName()%>Impl::Get<%=property.name.toClassName()%>()
+        std::shared_ptr<INamedReference<I<%=property.type.name.toClassName()%>>> <%=element.name.toClassName()%>Impl::Get<%=property.name.toClassName()%>() const
         {
             return _<%=property.name.toMemberName()%>;
         }
         <%-}else{-%>
-        <%=property.type.toCppName()%> <%=element.name.toClassName()%>Impl::Get<%=property.name.toClassName()%>()
+        <%=property.type.toCppName()%> <%=element.name.toClassName()%>Impl::Get<%=property.name.toClassName()%>() const
         {
             return _<%=property.name.toMemberName()%>;
         }
@@ -102,7 +102,7 @@ namespace NET_ASAM_OPENSCENARIO
         <%-}-%>
         }
 
-        SimpleType <%=element.name.toClassName()%>Impl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType <%=element.name.toClassName()%>Impl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -118,7 +118,7 @@ namespace NET_ASAM_OPENSCENARIO
             return true;
         }
 
-        std::vector<std::shared_ptr<ParameterValue>> <%=element.name.toClassName()%>Impl::GetParameterDefinitions() 
+        std::vector<std::shared_ptr<ParameterValue>> <%=element.name.toClassName()%>Impl::GetParameterDefinitions() const
         {
             std::vector<std::shared_ptr<ParameterValue>> result;
             if (!_<%=parameterDeclaration.name.toMemberName()%>.empty())
@@ -139,7 +139,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> <%=element.name.toClassName()%>Impl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> <%=element.name.toClassName()%>Impl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -229,7 +229,7 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string <%=element.name.toClassName()%>Impl::GetStringProperty(std::string key)
+        std::string <%=element.name.toClassName()%>Impl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             <%- List proxiesAndStringAttributes = element.umlProperties.findAll(){ it.isProxy() || (it.type.isPrimitiveType() && it.type.name.toClassName().equals("String"))  }-%>
@@ -257,7 +257,7 @@ namespace NET_ASAM_OPENSCENARIO
             <%-}-%>
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> <%=element.name.toClassName()%>Impl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> <%=element.name.toClassName()%>Impl::GetChildElement(std::string key) const
         {
             <%-List childElements = element.getXmlElementProperties().findAll(){ !it.isList() }-%>
             <%-if (childElements.isEmpty()){-%>
@@ -279,7 +279,7 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
         <%-List listChildElements = element.getXmlElementProperties().findAll(){ it.isList() }-%>
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> <%=element.name.toClassName()%>Impl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> <%=element.name.toClassName()%>Impl::GetListChildElement(std::string key) const
         {
             <%-if (listChildElements.isEmpty()){-%>
             throw KeyNotSupportedException();
@@ -311,7 +311,7 @@ namespace NET_ASAM_OPENSCENARIO
             <%-}-%>
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> <%=element.name.toClassName()%>Impl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> <%=element.name.toClassName()%>Impl::GetReferencedElement(std::string key, std::string name) const
         {
             <%- List proxies = element.umlProperties.findAll(){ it.isProxy() }-%>
             <%-if (proxies.isEmpty()){-%>
@@ -334,7 +334,7 @@ namespace NET_ASAM_OPENSCENARIO
             <%-}-%>
         }
 
-        std::string <%=element.name.toClassName()%>Impl::GetEnumerationLiteral(std::string key)
+        std::string <%=element.name.toClassName()%>Impl::GetEnumerationLiteral(std::string key) const
         {
             <%- List enumerationProperties = element.umlProperties.findAll(){ it.type.isEnumeration()}-%>
             <%-if (enumerationProperties.isEmpty()){-%>

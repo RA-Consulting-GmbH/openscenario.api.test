@@ -35,7 +35,7 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
         }
 
-        double AbsoluteSpeedImpl::GetValue()
+        double AbsoluteSpeedImpl::GetValue() const
         {
             return _value;
         }
@@ -50,7 +50,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType AbsoluteSpeedImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType AbsoluteSpeedImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -64,7 +64,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> AbsoluteSpeedImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> AbsoluteSpeedImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -91,28 +91,28 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string AbsoluteSpeedImpl::GetStringProperty(std::string key)
+        std::string AbsoluteSpeedImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> AbsoluteSpeedImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> AbsoluteSpeedImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> AbsoluteSpeedImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> AbsoluteSpeedImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> AbsoluteSpeedImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> AbsoluteSpeedImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string AbsoluteSpeedImpl::GetEnumerationLiteral(std::string key)
+        std::string AbsoluteSpeedImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -126,7 +126,7 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::STRING);
         }
 
-        std::string AbsoluteTargetLaneImpl::GetValue()
+        std::string AbsoluteTargetLaneImpl::GetValue() const
         {
             return _value;
         }
@@ -141,7 +141,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType AbsoluteTargetLaneImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType AbsoluteTargetLaneImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -155,7 +155,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> AbsoluteTargetLaneImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> AbsoluteTargetLaneImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -182,7 +182,7 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string AbsoluteTargetLaneImpl::GetStringProperty(std::string key)
+        std::string AbsoluteTargetLaneImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             if (key.empty())
@@ -197,22 +197,22 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> AbsoluteTargetLaneImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> AbsoluteTargetLaneImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> AbsoluteTargetLaneImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> AbsoluteTargetLaneImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> AbsoluteTargetLaneImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> AbsoluteTargetLaneImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string AbsoluteTargetLaneImpl::GetEnumerationLiteral(std::string key)
+        std::string AbsoluteTargetLaneImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -226,7 +226,7 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
         }
 
-        double AbsoluteTargetLaneOffsetImpl::GetValue()
+        double AbsoluteTargetLaneOffsetImpl::GetValue() const
         {
             return _value;
         }
@@ -241,7 +241,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType AbsoluteTargetLaneOffsetImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType AbsoluteTargetLaneOffsetImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -255,7 +255,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> AbsoluteTargetLaneOffsetImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> AbsoluteTargetLaneOffsetImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -282,28 +282,28 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string AbsoluteTargetLaneOffsetImpl::GetStringProperty(std::string key)
+        std::string AbsoluteTargetLaneOffsetImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> AbsoluteTargetLaneOffsetImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> AbsoluteTargetLaneOffsetImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> AbsoluteTargetLaneOffsetImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> AbsoluteTargetLaneOffsetImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> AbsoluteTargetLaneOffsetImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> AbsoluteTargetLaneOffsetImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string AbsoluteTargetLaneOffsetImpl::GetEnumerationLiteral(std::string key)
+        std::string AbsoluteTargetLaneOffsetImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -317,7 +317,7 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
         }
 
-        double AbsoluteTargetSpeedImpl::GetValue()
+        double AbsoluteTargetSpeedImpl::GetValue() const
         {
             return _value;
         }
@@ -332,7 +332,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType AbsoluteTargetSpeedImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType AbsoluteTargetSpeedImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -346,7 +346,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> AbsoluteTargetSpeedImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> AbsoluteTargetSpeedImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -373,28 +373,28 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string AbsoluteTargetSpeedImpl::GetStringProperty(std::string key)
+        std::string AbsoluteTargetSpeedImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> AbsoluteTargetSpeedImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> AbsoluteTargetSpeedImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> AbsoluteTargetSpeedImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> AbsoluteTargetSpeedImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> AbsoluteTargetSpeedImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> AbsoluteTargetSpeedImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string AbsoluteTargetSpeedImpl::GetEnumerationLiteral(std::string key)
+        std::string AbsoluteTargetSpeedImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -409,11 +409,11 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
         }
 
-        Rule AccelerationConditionImpl::GetRule()
+        Rule AccelerationConditionImpl::GetRule() const
         {
             return _rule;
         }
-        double AccelerationConditionImpl::GetValue()
+        double AccelerationConditionImpl::GetValue() const
         {
             return _value;
         }
@@ -443,7 +443,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType AccelerationConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType AccelerationConditionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -457,7 +457,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> AccelerationConditionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> AccelerationConditionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -490,28 +490,28 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string AccelerationConditionImpl::GetStringProperty(std::string key)
+        std::string AccelerationConditionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> AccelerationConditionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> AccelerationConditionImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> AccelerationConditionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> AccelerationConditionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> AccelerationConditionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> AccelerationConditionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string AccelerationConditionImpl::GetEnumerationLiteral(std::string key)
+        std::string AccelerationConditionImpl::GetEnumerationLiteral(std::string key) const
         {
             if (key.empty())
             {
@@ -534,7 +534,7 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::shared_ptr<IPosition> AcquirePositionActionImpl::GetPosition()
+        std::shared_ptr<IPosition> AcquirePositionActionImpl::GetPosition() const
         {
             return _position;
         }
@@ -543,7 +543,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType AcquirePositionActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType AcquirePositionActionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -557,7 +557,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> AcquirePositionActionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> AcquirePositionActionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -595,13 +595,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string AcquirePositionActionImpl::GetStringProperty(std::string key)
+        std::string AcquirePositionActionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> AcquirePositionActionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> AcquirePositionActionImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -615,17 +615,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> AcquirePositionActionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> AcquirePositionActionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> AcquirePositionActionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> AcquirePositionActionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string AcquirePositionActionImpl::GetEnumerationLiteral(std::string key)
+        std::string AcquirePositionActionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -639,22 +639,22 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, SimpleType::STRING);
         }
 
-        std::string ActImpl::GetName()
+        std::string ActImpl::GetName() const
         {
             return _name;
         }
-        std::vector<std::shared_ptr<IManeuverGroup>> ActImpl::GetManeuverGroups()
+        std::vector<std::shared_ptr<IManeuverGroup>> ActImpl::GetManeuverGroups() const
         {
             std::vector<std::shared_ptr<IManeuverGroup>> temp;
             for(auto&& elm: _maneuverGroups)
                 temp.push_back(elm);
             return temp;
         }
-        std::shared_ptr<ITrigger> ActImpl::GetStartTrigger()
+        std::shared_ptr<ITrigger> ActImpl::GetStartTrigger() const
         {
             return _startTrigger;
         }
-        std::shared_ptr<ITrigger> ActImpl::GetStopTrigger()
+        std::shared_ptr<ITrigger> ActImpl::GetStopTrigger() const
         {
             return _stopTrigger;
         }
@@ -669,7 +669,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType ActImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ActImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -683,7 +683,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> ActImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> ActImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -756,7 +756,7 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string ActImpl::GetStringProperty(std::string key)
+        std::string ActImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             if (key.empty())
@@ -771,7 +771,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ActImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> ActImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -790,7 +790,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ActImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ActImpl::GetListChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -808,12 +808,12 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ActImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> ActImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string ActImpl::GetEnumerationLiteral(std::string key)
+        std::string ActImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -827,19 +827,19 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, SimpleType::STRING);
         }
 
-        std::string ActionImpl::GetName()
+        std::string ActionImpl::GetName() const
         {
             return _name;
         }
-        std::shared_ptr<IGlobalAction> ActionImpl::GetGlobalAction()
+        std::shared_ptr<IGlobalAction> ActionImpl::GetGlobalAction() const
         {
             return _globalAction;
         }
-        std::shared_ptr<IUserDefinedAction> ActionImpl::GetUserDefinedAction()
+        std::shared_ptr<IUserDefinedAction> ActionImpl::GetUserDefinedAction() const
         {
             return _userDefinedAction;
         }
-        std::shared_ptr<IPrivateAction> ActionImpl::GetPrivateAction()
+        std::shared_ptr<IPrivateAction> ActionImpl::GetPrivateAction() const
         {
             return _privateAction;
         }
@@ -854,7 +854,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType ActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ActionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -868,7 +868,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> ActionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> ActionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -934,7 +934,7 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string ActionImpl::GetStringProperty(std::string key)
+        std::string ActionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             if (key.empty())
@@ -949,7 +949,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ActionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> ActionImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -973,17 +973,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ActionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ActionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ActionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> ActionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string ActionImpl::GetEnumerationLiteral(std::string key)
+        std::string ActionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -998,11 +998,11 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__LONGITUDINAL, SimpleType::BOOLEAN);
         }
 
-        bool ActivateControllerActionImpl::GetLateral()
+        bool ActivateControllerActionImpl::GetLateral() const
         {
             return _lateral;
         }
-        bool ActivateControllerActionImpl::GetLongitudinal()
+        bool ActivateControllerActionImpl::GetLongitudinal() const
         {
             return _longitudinal;
         }
@@ -1023,7 +1023,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType ActivateControllerActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ActivateControllerActionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -1037,7 +1037,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> ActivateControllerActionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> ActivateControllerActionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -1066,28 +1066,28 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string ActivateControllerActionImpl::GetStringProperty(std::string key)
+        std::string ActivateControllerActionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ActivateControllerActionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> ActivateControllerActionImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ActivateControllerActionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ActivateControllerActionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ActivateControllerActionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> ActivateControllerActionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string ActivateControllerActionImpl::GetEnumerationLiteral(std::string key)
+        std::string ActivateControllerActionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -1101,11 +1101,11 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__SELECT_TRIGGERING_ENTITIES, SimpleType::BOOLEAN);
         }
 
-        bool ActorsImpl::GetSelectTriggeringEntities()
+        bool ActorsImpl::GetSelectTriggeringEntities() const
         {
             return _selectTriggeringEntities;
         }
-        std::vector<std::shared_ptr<IEntityRef>> ActorsImpl::GetEntityRefs()
+        std::vector<std::shared_ptr<IEntityRef>> ActorsImpl::GetEntityRefs() const
         {
             std::vector<std::shared_ptr<IEntityRef>> temp;
             for(auto&& elm: _entityRefs)
@@ -1123,7 +1123,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType ActorsImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ActorsImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -1137,7 +1137,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> ActorsImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> ActorsImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -1184,18 +1184,18 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string ActorsImpl::GetStringProperty(std::string key)
+        std::string ActorsImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ActorsImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> ActorsImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ActorsImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ActorsImpl::GetListChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -1213,12 +1213,12 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ActorsImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> ActorsImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string ActorsImpl::GetEnumerationLiteral(std::string key)
+        std::string ActorsImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -1231,7 +1231,7 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::shared_ptr<IPosition> AddEntityActionImpl::GetPosition()
+        std::shared_ptr<IPosition> AddEntityActionImpl::GetPosition() const
         {
             return _position;
         }
@@ -1240,7 +1240,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType AddEntityActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType AddEntityActionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -1254,7 +1254,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> AddEntityActionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> AddEntityActionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -1292,13 +1292,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string AddEntityActionImpl::GetStringProperty(std::string key)
+        std::string AddEntityActionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> AddEntityActionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> AddEntityActionImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -1312,17 +1312,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> AddEntityActionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> AddEntityActionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> AddEntityActionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> AddEntityActionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string AddEntityActionImpl::GetEnumerationLiteral(std::string key)
+        std::string AddEntityActionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -1335,11 +1335,11 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::shared_ptr<IController> AssignControllerActionImpl::GetController()
+        std::shared_ptr<IController> AssignControllerActionImpl::GetController() const
         {
             return _controller;
         }
-        std::shared_ptr<ICatalogReference> AssignControllerActionImpl::GetCatalogReference()
+        std::shared_ptr<ICatalogReference> AssignControllerActionImpl::GetCatalogReference() const
         {
             return _catalogReference;
         }
@@ -1348,7 +1348,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType AssignControllerActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType AssignControllerActionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -1362,7 +1362,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> AssignControllerActionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> AssignControllerActionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -1413,13 +1413,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string AssignControllerActionImpl::GetStringProperty(std::string key)
+        std::string AssignControllerActionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> AssignControllerActionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> AssignControllerActionImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -1438,17 +1438,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> AssignControllerActionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> AssignControllerActionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> AssignControllerActionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> AssignControllerActionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string AssignControllerActionImpl::GetEnumerationLiteral(std::string key)
+        std::string AssignControllerActionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -1461,11 +1461,11 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::shared_ptr<IRoute> AssignRouteActionImpl::GetRoute()
+        std::shared_ptr<IRoute> AssignRouteActionImpl::GetRoute() const
         {
             return _route;
         }
-        std::shared_ptr<ICatalogReference> AssignRouteActionImpl::GetCatalogReference()
+        std::shared_ptr<ICatalogReference> AssignRouteActionImpl::GetCatalogReference() const
         {
             return _catalogReference;
         }
@@ -1474,7 +1474,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType AssignRouteActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType AssignRouteActionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -1488,7 +1488,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> AssignRouteActionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> AssignRouteActionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -1539,13 +1539,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string AssignRouteActionImpl::GetStringProperty(std::string key)
+        std::string AssignRouteActionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> AssignRouteActionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> AssignRouteActionImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -1564,17 +1564,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> AssignRouteActionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> AssignRouteActionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> AssignRouteActionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> AssignRouteActionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string AssignRouteActionImpl::GetEnumerationLiteral(std::string key)
+        std::string AssignRouteActionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -1592,23 +1592,23 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__WHEEL_DIAMETER, SimpleType::DOUBLE);
         }
 
-        double AxleImpl::GetMaxSteering()
+        double AxleImpl::GetMaxSteering() const
         {
             return _maxSteering;
         }
-        double AxleImpl::GetPositionX()
+        double AxleImpl::GetPositionX() const
         {
             return _positionX;
         }
-        double AxleImpl::GetPositionZ()
+        double AxleImpl::GetPositionZ() const
         {
             return _positionZ;
         }
-        double AxleImpl::GetTrackWidth()
+        double AxleImpl::GetTrackWidth() const
         {
             return _trackWidth;
         }
-        double AxleImpl::GetWheelDiameter()
+        double AxleImpl::GetWheelDiameter() const
         {
             return _wheelDiameter;
         }
@@ -1647,7 +1647,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType AxleImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType AxleImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -1661,7 +1661,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> AxleImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> AxleImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -1696,28 +1696,28 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string AxleImpl::GetStringProperty(std::string key)
+        std::string AxleImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> AxleImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> AxleImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> AxleImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> AxleImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> AxleImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> AxleImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string AxleImpl::GetEnumerationLiteral(std::string key)
+        std::string AxleImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -1730,15 +1730,15 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::shared_ptr<IAxle> AxlesImpl::GetFrontAxle()
+        std::shared_ptr<IAxle> AxlesImpl::GetFrontAxle() const
         {
             return _frontAxle;
         }
-        std::shared_ptr<IAxle> AxlesImpl::GetRearAxle()
+        std::shared_ptr<IAxle> AxlesImpl::GetRearAxle() const
         {
             return _rearAxle;
         }
-        std::vector<std::shared_ptr<IAxle>> AxlesImpl::GetAdditionalAxles()
+        std::vector<std::shared_ptr<IAxle>> AxlesImpl::GetAdditionalAxles() const
         {
             std::vector<std::shared_ptr<IAxle>> temp;
             for(auto&& elm: _additionalAxles)
@@ -1750,7 +1750,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType AxlesImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType AxlesImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -1764,7 +1764,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> AxlesImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> AxlesImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -1835,13 +1835,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string AxlesImpl::GetStringProperty(std::string key)
+        std::string AxlesImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> AxlesImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> AxlesImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -1860,7 +1860,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> AxlesImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> AxlesImpl::GetListChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -1878,12 +1878,12 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> AxlesImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> AxlesImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string AxlesImpl::GetEnumerationLiteral(std::string key)
+        std::string AxlesImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -1896,11 +1896,11 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::shared_ptr<ICenter> BoundingBoxImpl::GetCenter()
+        std::shared_ptr<ICenter> BoundingBoxImpl::GetCenter() const
         {
             return _center;
         }
-        std::shared_ptr<IDimensions> BoundingBoxImpl::GetDimensions()
+        std::shared_ptr<IDimensions> BoundingBoxImpl::GetDimensions() const
         {
             return _dimensions;
         }
@@ -1909,7 +1909,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType BoundingBoxImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType BoundingBoxImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -1923,7 +1923,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> BoundingBoxImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> BoundingBoxImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -1974,13 +1974,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string BoundingBoxImpl::GetStringProperty(std::string key)
+        std::string BoundingBoxImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> BoundingBoxImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> BoundingBoxImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -1999,17 +1999,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> BoundingBoxImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> BoundingBoxImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> BoundingBoxImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> BoundingBoxImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string BoundingBoxImpl::GetEnumerationLiteral(std::string key)
+        std::string BoundingBoxImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -2022,11 +2022,11 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::shared_ptr<ITriggeringEntities> ByEntityConditionImpl::GetTriggeringEntities()
+        std::shared_ptr<ITriggeringEntities> ByEntityConditionImpl::GetTriggeringEntities() const
         {
             return _triggeringEntities;
         }
-        std::shared_ptr<IEntityCondition> ByEntityConditionImpl::GetEntityCondition()
+        std::shared_ptr<IEntityCondition> ByEntityConditionImpl::GetEntityCondition() const
         {
             return _entityCondition;
         }
@@ -2035,7 +2035,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType ByEntityConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ByEntityConditionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -2049,7 +2049,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> ByEntityConditionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> ByEntityConditionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -2100,13 +2100,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string ByEntityConditionImpl::GetStringProperty(std::string key)
+        std::string ByEntityConditionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ByEntityConditionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> ByEntityConditionImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -2125,17 +2125,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ByEntityConditionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ByEntityConditionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ByEntityConditionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> ByEntityConditionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string ByEntityConditionImpl::GetEnumerationLiteral(std::string key)
+        std::string ByEntityConditionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -2149,7 +2149,7 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__TYPE, SimpleType::ENUM_TYPE);
         }
 
-        ObjectType ByObjectTypeImpl::GetType()
+        ObjectType ByObjectTypeImpl::GetType() const
         {
             return _type;
         }
@@ -2173,7 +2173,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType ByObjectTypeImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ByObjectTypeImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -2187,7 +2187,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> ByObjectTypeImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> ByObjectTypeImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -2218,28 +2218,28 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string ByObjectTypeImpl::GetStringProperty(std::string key)
+        std::string ByObjectTypeImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ByObjectTypeImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> ByObjectTypeImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ByObjectTypeImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ByObjectTypeImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ByObjectTypeImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> ByObjectTypeImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string ByObjectTypeImpl::GetEnumerationLiteral(std::string key)
+        std::string ByObjectTypeImpl::GetEnumerationLiteral(std::string key) const
         {
             if (key.empty())
             {
@@ -2263,7 +2263,7 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__OBJECT_TYPE, SimpleType::ENUM_TYPE);
         }
 
-        ObjectType ByTypeImpl::GetObjectType()
+        ObjectType ByTypeImpl::GetObjectType() const
         {
             return _objectType;
         }
@@ -2287,7 +2287,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType ByTypeImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ByTypeImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -2301,7 +2301,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> ByTypeImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> ByTypeImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -2332,28 +2332,28 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string ByTypeImpl::GetStringProperty(std::string key)
+        std::string ByTypeImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ByTypeImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> ByTypeImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ByTypeImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ByTypeImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ByTypeImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> ByTypeImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string ByTypeImpl::GetEnumerationLiteral(std::string key)
+        std::string ByTypeImpl::GetEnumerationLiteral(std::string key) const
         {
             if (key.empty())
             {
@@ -2376,31 +2376,31 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::shared_ptr<IParameterCondition> ByValueConditionImpl::GetParameterCondition()
+        std::shared_ptr<IParameterCondition> ByValueConditionImpl::GetParameterCondition() const
         {
             return _parameterCondition;
         }
-        std::shared_ptr<ITimeOfDayCondition> ByValueConditionImpl::GetTimeOfDayCondition()
+        std::shared_ptr<ITimeOfDayCondition> ByValueConditionImpl::GetTimeOfDayCondition() const
         {
             return _timeOfDayCondition;
         }
-        std::shared_ptr<ISimulationTimeCondition> ByValueConditionImpl::GetSimulationTimeCondition()
+        std::shared_ptr<ISimulationTimeCondition> ByValueConditionImpl::GetSimulationTimeCondition() const
         {
             return _simulationTimeCondition;
         }
-        std::shared_ptr<IStoryboardElementStateCondition> ByValueConditionImpl::GetStoryboardElementStateCondition()
+        std::shared_ptr<IStoryboardElementStateCondition> ByValueConditionImpl::GetStoryboardElementStateCondition() const
         {
             return _storyboardElementStateCondition;
         }
-        std::shared_ptr<IUserDefinedValueCondition> ByValueConditionImpl::GetUserDefinedValueCondition()
+        std::shared_ptr<IUserDefinedValueCondition> ByValueConditionImpl::GetUserDefinedValueCondition() const
         {
             return _userDefinedValueCondition;
         }
-        std::shared_ptr<ITrafficSignalCondition> ByValueConditionImpl::GetTrafficSignalCondition()
+        std::shared_ptr<ITrafficSignalCondition> ByValueConditionImpl::GetTrafficSignalCondition() const
         {
             return _trafficSignalCondition;
         }
-        std::shared_ptr<ITrafficSignalControllerCondition> ByValueConditionImpl::GetTrafficSignalControllerCondition()
+        std::shared_ptr<ITrafficSignalControllerCondition> ByValueConditionImpl::GetTrafficSignalControllerCondition() const
         {
             return _trafficSignalControllerCondition;
         }
@@ -2409,7 +2409,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType ByValueConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ByValueConditionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -2423,7 +2423,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> ByValueConditionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> ByValueConditionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -2539,13 +2539,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string ByValueConditionImpl::GetStringProperty(std::string key)
+        std::string ByValueConditionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ByValueConditionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> ByValueConditionImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -2589,17 +2589,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ByValueConditionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ByValueConditionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ByValueConditionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> ByValueConditionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string ByValueConditionImpl::GetEnumerationLiteral(std::string key)
+        std::string ByValueConditionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -2613,60 +2613,60 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, SimpleType::STRING);
         }
 
-        std::string CatalogImpl::GetName()
+        std::string CatalogImpl::GetName() const
         {
             return _name;
         }
-        std::vector<std::shared_ptr<IVehicle>> CatalogImpl::GetVehicles()
+        std::vector<std::shared_ptr<IVehicle>> CatalogImpl::GetVehicles() const
         {
             std::vector<std::shared_ptr<IVehicle>> temp;
             for(auto&& elm: _vehicles)
                 temp.push_back(elm);
             return temp;
         }
-        std::vector<std::shared_ptr<IController>> CatalogImpl::GetControllers()
+        std::vector<std::shared_ptr<IController>> CatalogImpl::GetControllers() const
         {
             std::vector<std::shared_ptr<IController>> temp;
             for(auto&& elm: _controllers)
                 temp.push_back(elm);
             return temp;
         }
-        std::vector<std::shared_ptr<IPedestrian>> CatalogImpl::GetPedestrians()
+        std::vector<std::shared_ptr<IPedestrian>> CatalogImpl::GetPedestrians() const
         {
             std::vector<std::shared_ptr<IPedestrian>> temp;
             for(auto&& elm: _pedestrians)
                 temp.push_back(elm);
             return temp;
         }
-        std::vector<std::shared_ptr<IMiscObject>> CatalogImpl::GetMiscObjects()
+        std::vector<std::shared_ptr<IMiscObject>> CatalogImpl::GetMiscObjects() const
         {
             std::vector<std::shared_ptr<IMiscObject>> temp;
             for(auto&& elm: _miscObjects)
                 temp.push_back(elm);
             return temp;
         }
-        std::vector<std::shared_ptr<IEnvironment>> CatalogImpl::GetEnvironments()
+        std::vector<std::shared_ptr<IEnvironment>> CatalogImpl::GetEnvironments() const
         {
             std::vector<std::shared_ptr<IEnvironment>> temp;
             for(auto&& elm: _environments)
                 temp.push_back(elm);
             return temp;
         }
-        std::vector<std::shared_ptr<IManeuver>> CatalogImpl::GetManeuvers()
+        std::vector<std::shared_ptr<IManeuver>> CatalogImpl::GetManeuvers() const
         {
             std::vector<std::shared_ptr<IManeuver>> temp;
             for(auto&& elm: _maneuvers)
                 temp.push_back(elm);
             return temp;
         }
-        std::vector<std::shared_ptr<ITrajectory>> CatalogImpl::GetTrajectories()
+        std::vector<std::shared_ptr<ITrajectory>> CatalogImpl::GetTrajectories() const
         {
             std::vector<std::shared_ptr<ITrajectory>> temp;
             for(auto&& elm: _trajectories)
                 temp.push_back(elm);
             return temp;
         }
-        std::vector<std::shared_ptr<IRoute>> CatalogImpl::GetRoutes()
+        std::vector<std::shared_ptr<IRoute>> CatalogImpl::GetRoutes() const
         {
             std::vector<std::shared_ptr<IRoute>> temp;
             for(auto&& elm: _routes)
@@ -2684,7 +2684,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType CatalogImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType CatalogImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -2698,7 +2698,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> CatalogImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> CatalogImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -2885,7 +2885,7 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string CatalogImpl::GetStringProperty(std::string key)
+        std::string CatalogImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             if (key.empty())
@@ -2900,12 +2900,12 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> CatalogImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> CatalogImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> CatalogImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> CatalogImpl::GetListChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -2979,12 +2979,12 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> CatalogImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> CatalogImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string CatalogImpl::GetEnumerationLiteral(std::string key)
+        std::string CatalogImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -2997,7 +2997,7 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::shared_ptr<ICatalog> CatalogDefinitionImpl::GetCatalog()
+        std::shared_ptr<ICatalog> CatalogDefinitionImpl::GetCatalog() const
         {
             return _catalog;
         }
@@ -3006,7 +3006,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType CatalogDefinitionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType CatalogDefinitionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -3020,7 +3020,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> CatalogDefinitionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> CatalogDefinitionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -3058,13 +3058,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string CatalogDefinitionImpl::GetStringProperty(std::string key)
+        std::string CatalogDefinitionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> CatalogDefinitionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> CatalogDefinitionImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -3078,17 +3078,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> CatalogDefinitionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> CatalogDefinitionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> CatalogDefinitionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> CatalogDefinitionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string CatalogDefinitionImpl::GetEnumerationLiteral(std::string key)
+        std::string CatalogDefinitionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -3101,35 +3101,35 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::shared_ptr<IVehicleCatalogLocation> CatalogLocationsImpl::GetVehicleCatalog()
+        std::shared_ptr<IVehicleCatalogLocation> CatalogLocationsImpl::GetVehicleCatalog() const
         {
             return _vehicleCatalog;
         }
-        std::shared_ptr<IControllerCatalogLocation> CatalogLocationsImpl::GetControllerCatalog()
+        std::shared_ptr<IControllerCatalogLocation> CatalogLocationsImpl::GetControllerCatalog() const
         {
             return _controllerCatalog;
         }
-        std::shared_ptr<IPedestrianCatalogLocation> CatalogLocationsImpl::GetPedestrianCatalog()
+        std::shared_ptr<IPedestrianCatalogLocation> CatalogLocationsImpl::GetPedestrianCatalog() const
         {
             return _pedestrianCatalog;
         }
-        std::shared_ptr<IMiscObjectCatalogLocation> CatalogLocationsImpl::GetMiscObjectCatalog()
+        std::shared_ptr<IMiscObjectCatalogLocation> CatalogLocationsImpl::GetMiscObjectCatalog() const
         {
             return _miscObjectCatalog;
         }
-        std::shared_ptr<IEnvironmentCatalogLocation> CatalogLocationsImpl::GetEnvironmentCatalog()
+        std::shared_ptr<IEnvironmentCatalogLocation> CatalogLocationsImpl::GetEnvironmentCatalog() const
         {
             return _environmentCatalog;
         }
-        std::shared_ptr<IManeuverCatalogLocation> CatalogLocationsImpl::GetManeuverCatalog()
+        std::shared_ptr<IManeuverCatalogLocation> CatalogLocationsImpl::GetManeuverCatalog() const
         {
             return _maneuverCatalog;
         }
-        std::shared_ptr<ITrajectoryCatalogLocation> CatalogLocationsImpl::GetTrajectoryCatalog()
+        std::shared_ptr<ITrajectoryCatalogLocation> CatalogLocationsImpl::GetTrajectoryCatalog() const
         {
             return _trajectoryCatalog;
         }
-        std::shared_ptr<IRouteCatalogLocation> CatalogLocationsImpl::GetRouteCatalog()
+        std::shared_ptr<IRouteCatalogLocation> CatalogLocationsImpl::GetRouteCatalog() const
         {
             return _routeCatalog;
         }
@@ -3138,7 +3138,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType CatalogLocationsImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType CatalogLocationsImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -3152,7 +3152,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> CatalogLocationsImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> CatalogLocationsImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -3281,13 +3281,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string CatalogLocationsImpl::GetStringProperty(std::string key)
+        std::string CatalogLocationsImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> CatalogLocationsImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> CatalogLocationsImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -3336,17 +3336,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> CatalogLocationsImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> CatalogLocationsImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> CatalogLocationsImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> CatalogLocationsImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string CatalogLocationsImpl::GetEnumerationLiteral(std::string key)
+        std::string CatalogLocationsImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -3361,22 +3361,22 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTRY_NAME, SimpleType::STRING);
         }
 
-        std::string CatalogReferenceImpl::GetCatalogName()
+        std::string CatalogReferenceImpl::GetCatalogName() const
         {
             return _catalogName;
         }
-        std::string CatalogReferenceImpl::GetEntryName()
+        std::string CatalogReferenceImpl::GetEntryName() const
         {
             return _entryName;
         }
-        std::vector<std::shared_ptr<IParameterAssignment>> CatalogReferenceImpl::GetParameterAssignments()
+        std::vector<std::shared_ptr<IParameterAssignment>> CatalogReferenceImpl::GetParameterAssignments() const
         {
             std::vector<std::shared_ptr<IParameterAssignment>> temp;
             for(auto&& elm: _parameterAssignments)
                 temp.push_back(elm);
             return temp;
         }
-        std::shared_ptr<ICatalogElement> CatalogReferenceImpl::GetRef()
+        std::shared_ptr<ICatalogElement> CatalogReferenceImpl::GetRef() const
         {
             return _ref;
         }
@@ -3397,7 +3397,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType CatalogReferenceImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType CatalogReferenceImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -3411,7 +3411,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> CatalogReferenceImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> CatalogReferenceImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -3460,7 +3460,7 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string CatalogReferenceImpl::GetStringProperty(std::string key)
+        std::string CatalogReferenceImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             if (key.empty())
@@ -3480,12 +3480,12 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> CatalogReferenceImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> CatalogReferenceImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> CatalogReferenceImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> CatalogReferenceImpl::GetListChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -3502,12 +3502,12 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> CatalogReferenceImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> CatalogReferenceImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string CatalogReferenceImpl::GetEnumerationLiteral(std::string key)
+        std::string CatalogReferenceImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -3523,15 +3523,15 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__Z, SimpleType::DOUBLE);
         }
 
-        double CenterImpl::GetX()
+        double CenterImpl::GetX() const
         {
             return _x;
         }
-        double CenterImpl::GetY()
+        double CenterImpl::GetY() const
         {
             return _y;
         }
-        double CenterImpl::GetZ()
+        double CenterImpl::GetZ() const
         {
             return _z;
         }
@@ -3558,7 +3558,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType CenterImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType CenterImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -3572,7 +3572,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> CenterImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> CenterImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -3603,28 +3603,28 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string CenterImpl::GetStringProperty(std::string key)
+        std::string CenterImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> CenterImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> CenterImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> CenterImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> CenterImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> CenterImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> CenterImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string CenterImpl::GetEnumerationLiteral(std::string key)
+        std::string CenterImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -3638,7 +3638,7 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, SimpleType::STRING);
         }
 
-        std::shared_ptr<INamedReference<IEntity>> CentralSwarmObjectImpl::GetEntityRef()
+        std::shared_ptr<INamedReference<IEntity>> CentralSwarmObjectImpl::GetEntityRef() const
         {
             return _entityRef;
         }
@@ -3654,7 +3654,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType CentralSwarmObjectImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType CentralSwarmObjectImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -3668,7 +3668,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> CentralSwarmObjectImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> CentralSwarmObjectImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -3698,7 +3698,7 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string CentralSwarmObjectImpl::GetStringProperty(std::string key)
+        std::string CentralSwarmObjectImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             if (key.empty())
@@ -3715,17 +3715,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> CentralSwarmObjectImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> CentralSwarmObjectImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> CentralSwarmObjectImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> CentralSwarmObjectImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> CentralSwarmObjectImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> CentralSwarmObjectImpl::GetReferencedElement(std::string key, std::string name) const
         {
             if (key.empty())
             {
@@ -3741,7 +3741,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::string CentralSwarmObjectImpl::GetEnumerationLiteral(std::string key)
+        std::string CentralSwarmObjectImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -3759,27 +3759,27 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__STOP_TIME, SimpleType::DOUBLE);
         }
 
-        double ClothoidImpl::GetCurvature()
+        double ClothoidImpl::GetCurvature() const
         {
             return _curvature;
         }
-        double ClothoidImpl::GetCurvatureDot()
+        double ClothoidImpl::GetCurvatureDot() const
         {
             return _curvatureDot;
         }
-        double ClothoidImpl::GetLength()
+        double ClothoidImpl::GetLength() const
         {
             return _length;
         }
-        double ClothoidImpl::GetStartTime()
+        double ClothoidImpl::GetStartTime() const
         {
             return _startTime;
         }
-        double ClothoidImpl::GetStopTime()
+        double ClothoidImpl::GetStopTime() const
         {
             return _stopTime;
         }
-        std::shared_ptr<IPosition> ClothoidImpl::GetPosition()
+        std::shared_ptr<IPosition> ClothoidImpl::GetPosition() const
         {
             return _position;
         }
@@ -3818,7 +3818,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType ClothoidImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ClothoidImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -3832,7 +3832,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> ClothoidImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> ClothoidImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -3880,13 +3880,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string ClothoidImpl::GetStringProperty(std::string key)
+        std::string ClothoidImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ClothoidImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> ClothoidImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -3900,17 +3900,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ClothoidImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ClothoidImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ClothoidImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> ClothoidImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string ClothoidImpl::GetEnumerationLiteral(std::string key)
+        std::string ClothoidImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -3923,11 +3923,11 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::shared_ptr<IEntityRef> CollisionConditionImpl::GetEntityRef()
+        std::shared_ptr<IEntityRef> CollisionConditionImpl::GetEntityRef() const
         {
             return _entityRef;
         }
-        std::shared_ptr<IByObjectType> CollisionConditionImpl::GetByType()
+        std::shared_ptr<IByObjectType> CollisionConditionImpl::GetByType() const
         {
             return _byType;
         }
@@ -3936,7 +3936,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType CollisionConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType CollisionConditionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -3950,7 +3950,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> CollisionConditionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> CollisionConditionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -4001,13 +4001,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string CollisionConditionImpl::GetStringProperty(std::string key)
+        std::string CollisionConditionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> CollisionConditionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> CollisionConditionImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -4026,17 +4026,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> CollisionConditionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> CollisionConditionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> CollisionConditionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> CollisionConditionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string CollisionConditionImpl::GetEnumerationLiteral(std::string key)
+        std::string CollisionConditionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -4052,23 +4052,23 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, SimpleType::STRING);
         }
 
-        ConditionEdge ConditionImpl::GetConditionEdge()
+        ConditionEdge ConditionImpl::GetConditionEdge() const
         {
             return _conditionEdge;
         }
-        double ConditionImpl::GetDelay()
+        double ConditionImpl::GetDelay() const
         {
             return _delay;
         }
-        std::string ConditionImpl::GetName()
+        std::string ConditionImpl::GetName() const
         {
             return _name;
         }
-        std::shared_ptr<IByEntityCondition> ConditionImpl::GetByEntityCondition()
+        std::shared_ptr<IByEntityCondition> ConditionImpl::GetByEntityCondition() const
         {
             return _byEntityCondition;
         }
-        std::shared_ptr<IByValueCondition> ConditionImpl::GetByValueCondition()
+        std::shared_ptr<IByValueCondition> ConditionImpl::GetByValueCondition() const
         {
             return _byValueCondition;
         }
@@ -4104,7 +4104,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType ConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ConditionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -4118,7 +4118,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> ConditionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> ConditionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -4179,7 +4179,7 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string ConditionImpl::GetStringProperty(std::string key)
+        std::string ConditionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             if (key.empty())
@@ -4194,7 +4194,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ConditionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> ConditionImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -4213,17 +4213,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ConditionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ConditionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ConditionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> ConditionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string ConditionImpl::GetEnumerationLiteral(std::string key)
+        std::string ConditionImpl::GetEnumerationLiteral(std::string key) const
         {
             if (key.empty())
             {
@@ -4246,7 +4246,7 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::vector<std::shared_ptr<ICondition>> ConditionGroupImpl::GetConditions()
+        std::vector<std::shared_ptr<ICondition>> ConditionGroupImpl::GetConditions() const
         {
             std::vector<std::shared_ptr<ICondition>> temp;
             for(auto&& elm: _conditions)
@@ -4258,7 +4258,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType ConditionGroupImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ConditionGroupImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -4272,7 +4272,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> ConditionGroupImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> ConditionGroupImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -4317,18 +4317,18 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string ConditionGroupImpl::GetStringProperty(std::string key)
+        std::string ConditionGroupImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ConditionGroupImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> ConditionGroupImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ConditionGroupImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ConditionGroupImpl::GetListChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -4346,12 +4346,12 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ConditionGroupImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> ConditionGroupImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string ConditionGroupImpl::GetEnumerationLiteral(std::string key)
+        std::string ConditionGroupImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -4366,15 +4366,15 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__WEIGHT, SimpleType::DOUBLE);
         }
 
-        double ControlPointImpl::GetTime()
+        double ControlPointImpl::GetTime() const
         {
             return _time;
         }
-        double ControlPointImpl::GetWeight()
+        double ControlPointImpl::GetWeight() const
         {
             return _weight;
         }
-        std::shared_ptr<IPosition> ControlPointImpl::GetPosition()
+        std::shared_ptr<IPosition> ControlPointImpl::GetPosition() const
         {
             return _position;
         }
@@ -4395,7 +4395,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType ControlPointImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ControlPointImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -4409,7 +4409,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> ControlPointImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> ControlPointImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -4451,13 +4451,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string ControlPointImpl::GetStringProperty(std::string key)
+        std::string ControlPointImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ControlPointImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> ControlPointImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -4471,17 +4471,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ControlPointImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ControlPointImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ControlPointImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> ControlPointImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string ControlPointImpl::GetEnumerationLiteral(std::string key)
+        std::string ControlPointImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -4495,18 +4495,18 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, SimpleType::STRING);
         }
 
-        std::string ControllerImpl::GetName()
+        std::string ControllerImpl::GetName() const
         {
             return _name;
         }
-        std::vector<std::shared_ptr<IParameterDeclaration>> ControllerImpl::GetParameterDeclarations()
+        std::vector<std::shared_ptr<IParameterDeclaration>> ControllerImpl::GetParameterDeclarations() const
         {
             std::vector<std::shared_ptr<IParameterDeclaration>> temp;
             for(auto&& elm: _parameterDeclarations)
                 temp.push_back(elm);
             return temp;
         }
-        std::shared_ptr<IProperties> ControllerImpl::GetProperties()
+        std::shared_ptr<IProperties> ControllerImpl::GetProperties() const
         {
             return _properties;
         }
@@ -4521,7 +4521,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType ControllerImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ControllerImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -4535,7 +4535,7 @@ namespace NET_ASAM_OPENSCENARIO
             return true;
         }
 
-        std::vector<std::shared_ptr<ParameterValue>> ControllerImpl::GetParameterDefinitions() 
+        std::vector<std::shared_ptr<ParameterValue>> ControllerImpl::GetParameterDefinitions() const
         {
             std::vector<std::shared_ptr<ParameterValue>> result;
             if (!_parameterDeclarations.empty())
@@ -4555,7 +4555,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> ControllerImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> ControllerImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -4615,7 +4615,7 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string ControllerImpl::GetStringProperty(std::string key)
+        std::string ControllerImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             if (key.empty())
@@ -4630,7 +4630,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ControllerImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> ControllerImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -4644,7 +4644,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ControllerImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ControllerImpl::GetListChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -4661,12 +4661,12 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ControllerImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> ControllerImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string ControllerImpl::GetEnumerationLiteral(std::string key)
+        std::string ControllerImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -4679,11 +4679,11 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::shared_ptr<IAssignControllerAction> ControllerActionImpl::GetAssignControllerAction()
+        std::shared_ptr<IAssignControllerAction> ControllerActionImpl::GetAssignControllerAction() const
         {
             return _assignControllerAction;
         }
-        std::shared_ptr<IOverrideControllerValueAction> ControllerActionImpl::GetOverrideControllerValueAction()
+        std::shared_ptr<IOverrideControllerValueAction> ControllerActionImpl::GetOverrideControllerValueAction() const
         {
             return _overrideControllerValueAction;
         }
@@ -4692,7 +4692,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType ControllerActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ControllerActionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -4706,7 +4706,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> ControllerActionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> ControllerActionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -4757,13 +4757,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string ControllerActionImpl::GetStringProperty(std::string key)
+        std::string ControllerActionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ControllerActionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> ControllerActionImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -4782,17 +4782,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ControllerActionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ControllerActionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ControllerActionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> ControllerActionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string ControllerActionImpl::GetEnumerationLiteral(std::string key)
+        std::string ControllerActionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -4805,7 +4805,7 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::shared_ptr<IDirectory> ControllerCatalogLocationImpl::GetDirectory()
+        std::shared_ptr<IDirectory> ControllerCatalogLocationImpl::GetDirectory() const
         {
             return _directory;
         }
@@ -4814,7 +4814,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType ControllerCatalogLocationImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ControllerCatalogLocationImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -4828,7 +4828,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> ControllerCatalogLocationImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> ControllerCatalogLocationImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -4866,13 +4866,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string ControllerCatalogLocationImpl::GetStringProperty(std::string key)
+        std::string ControllerCatalogLocationImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ControllerCatalogLocationImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> ControllerCatalogLocationImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -4886,17 +4886,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ControllerCatalogLocationImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ControllerCatalogLocationImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ControllerCatalogLocationImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> ControllerCatalogLocationImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string ControllerCatalogLocationImpl::GetEnumerationLiteral(std::string key)
+        std::string ControllerCatalogLocationImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -4909,7 +4909,7 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::vector<std::shared_ptr<IControllerDistributionEntry>> ControllerDistributionImpl::GetControllerDistributionEntries()
+        std::vector<std::shared_ptr<IControllerDistributionEntry>> ControllerDistributionImpl::GetControllerDistributionEntries() const
         {
             std::vector<std::shared_ptr<IControllerDistributionEntry>> temp;
             for(auto&& elm: _controllerDistributionEntries)
@@ -4921,7 +4921,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType ControllerDistributionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ControllerDistributionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -4935,7 +4935,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> ControllerDistributionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> ControllerDistributionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -4980,18 +4980,18 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string ControllerDistributionImpl::GetStringProperty(std::string key)
+        std::string ControllerDistributionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ControllerDistributionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> ControllerDistributionImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ControllerDistributionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ControllerDistributionImpl::GetListChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -5009,12 +5009,12 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ControllerDistributionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> ControllerDistributionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string ControllerDistributionImpl::GetEnumerationLiteral(std::string key)
+        std::string ControllerDistributionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -5028,15 +5028,15 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__WEIGHT, SimpleType::DOUBLE);
         }
 
-        double ControllerDistributionEntryImpl::GetWeight()
+        double ControllerDistributionEntryImpl::GetWeight() const
         {
             return _weight;
         }
-        std::shared_ptr<IController> ControllerDistributionEntryImpl::GetController()
+        std::shared_ptr<IController> ControllerDistributionEntryImpl::GetController() const
         {
             return _controller;
         }
-        std::shared_ptr<ICatalogReference> ControllerDistributionEntryImpl::GetCatalogReference()
+        std::shared_ptr<ICatalogReference> ControllerDistributionEntryImpl::GetCatalogReference() const
         {
             return _catalogReference;
         }
@@ -5051,7 +5051,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType ControllerDistributionEntryImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ControllerDistributionEntryImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -5065,7 +5065,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> ControllerDistributionEntryImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> ControllerDistributionEntryImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -5118,13 +5118,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string ControllerDistributionEntryImpl::GetStringProperty(std::string key)
+        std::string ControllerDistributionEntryImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ControllerDistributionEntryImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> ControllerDistributionEntryImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -5143,17 +5143,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ControllerDistributionEntryImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ControllerDistributionEntryImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ControllerDistributionEntryImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> ControllerDistributionEntryImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string ControllerDistributionEntryImpl::GetEnumerationLiteral(std::string key)
+        std::string ControllerDistributionEntryImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -5168,11 +5168,11 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__TYPE, SimpleType::STRING);
         }
 
-        std::string CustomCommandActionImpl::GetContent()
+        std::string CustomCommandActionImpl::GetContent() const
         {
             return _content;
         }
-        std::string CustomCommandActionImpl::GetType()
+        std::string CustomCommandActionImpl::GetType() const
         {
             return _type;
         }
@@ -5193,7 +5193,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType CustomCommandActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType CustomCommandActionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -5207,7 +5207,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> CustomCommandActionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> CustomCommandActionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -5234,7 +5234,7 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string CustomCommandActionImpl::GetStringProperty(std::string key)
+        std::string CustomCommandActionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             if (key.empty())
@@ -5254,22 +5254,22 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> CustomCommandActionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> CustomCommandActionImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> CustomCommandActionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> CustomCommandActionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> CustomCommandActionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> CustomCommandActionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string CustomCommandActionImpl::GetEnumerationLiteral(std::string key)
+        std::string CustomCommandActionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -5287,7 +5287,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType DeleteEntityActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType DeleteEntityActionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -5301,7 +5301,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> DeleteEntityActionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> DeleteEntityActionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -5326,28 +5326,28 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string DeleteEntityActionImpl::GetStringProperty(std::string key)
+        std::string DeleteEntityActionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> DeleteEntityActionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> DeleteEntityActionImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> DeleteEntityActionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> DeleteEntityActionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> DeleteEntityActionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> DeleteEntityActionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string DeleteEntityActionImpl::GetEnumerationLiteral(std::string key)
+        std::string DeleteEntityActionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -5363,15 +5363,15 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__WIDTH, SimpleType::DOUBLE);
         }
 
-        double DimensionsImpl::GetHeight()
+        double DimensionsImpl::GetHeight() const
         {
             return _height;
         }
-        double DimensionsImpl::GetLength()
+        double DimensionsImpl::GetLength() const
         {
             return _length;
         }
-        double DimensionsImpl::GetWidth()
+        double DimensionsImpl::GetWidth() const
         {
             return _width;
         }
@@ -5398,7 +5398,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType DimensionsImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType DimensionsImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -5412,7 +5412,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> DimensionsImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> DimensionsImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -5443,28 +5443,28 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string DimensionsImpl::GetStringProperty(std::string key)
+        std::string DimensionsImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> DimensionsImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> DimensionsImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> DimensionsImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> DimensionsImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> DimensionsImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> DimensionsImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string DimensionsImpl::GetEnumerationLiteral(std::string key)
+        std::string DimensionsImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -5478,7 +5478,7 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__PATH, SimpleType::STRING);
         }
 
-        std::string DirectoryImpl::GetPath()
+        std::string DirectoryImpl::GetPath() const
         {
             return _path;
         }
@@ -5493,7 +5493,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType DirectoryImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType DirectoryImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -5507,7 +5507,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> DirectoryImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> DirectoryImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -5534,7 +5534,7 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string DirectoryImpl::GetStringProperty(std::string key)
+        std::string DirectoryImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             if (key.empty())
@@ -5549,22 +5549,22 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> DirectoryImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> DirectoryImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> DirectoryImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> DirectoryImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> DirectoryImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> DirectoryImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string DirectoryImpl::GetEnumerationLiteral(std::string key)
+        std::string DirectoryImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -5581,23 +5581,23 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
         }
 
-        bool DistanceConditionImpl::GetAlongRoute()
+        bool DistanceConditionImpl::GetAlongRoute() const
         {
             return _alongRoute;
         }
-        bool DistanceConditionImpl::GetFreespace()
+        bool DistanceConditionImpl::GetFreespace() const
         {
             return _freespace;
         }
-        Rule DistanceConditionImpl::GetRule()
+        Rule DistanceConditionImpl::GetRule() const
         {
             return _rule;
         }
-        double DistanceConditionImpl::GetValue()
+        double DistanceConditionImpl::GetValue() const
         {
             return _value;
         }
-        std::shared_ptr<IPosition> DistanceConditionImpl::GetPosition()
+        std::shared_ptr<IPosition> DistanceConditionImpl::GetPosition() const
         {
             return _position;
         }
@@ -5639,7 +5639,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType DistanceConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType DistanceConditionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -5653,7 +5653,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> DistanceConditionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> DistanceConditionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -5703,13 +5703,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string DistanceConditionImpl::GetStringProperty(std::string key)
+        std::string DistanceConditionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> DistanceConditionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> DistanceConditionImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -5723,17 +5723,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> DistanceConditionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> DistanceConditionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> DistanceConditionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> DistanceConditionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string DistanceConditionImpl::GetEnumerationLiteral(std::string key)
+        std::string DistanceConditionImpl::GetEnumerationLiteral(std::string key) const
         {
             if (key.empty())
             {
@@ -5759,15 +5759,15 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__MAX_SPEED, SimpleType::DOUBLE);
         }
 
-        double DynamicConstraintsImpl::GetMaxAcceleration()
+        double DynamicConstraintsImpl::GetMaxAcceleration() const
         {
             return _maxAcceleration;
         }
-        double DynamicConstraintsImpl::GetMaxDeceleration()
+        double DynamicConstraintsImpl::GetMaxDeceleration() const
         {
             return _maxDeceleration;
         }
-        double DynamicConstraintsImpl::GetMaxSpeed()
+        double DynamicConstraintsImpl::GetMaxSpeed() const
         {
             return _maxSpeed;
         }
@@ -5794,7 +5794,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType DynamicConstraintsImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType DynamicConstraintsImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -5808,7 +5808,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> DynamicConstraintsImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> DynamicConstraintsImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -5839,28 +5839,28 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string DynamicConstraintsImpl::GetStringProperty(std::string key)
+        std::string DynamicConstraintsImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> DynamicConstraintsImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> DynamicConstraintsImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> DynamicConstraintsImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> DynamicConstraintsImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> DynamicConstraintsImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> DynamicConstraintsImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string DynamicConstraintsImpl::GetEnumerationLiteral(std::string key)
+        std::string DynamicConstraintsImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -5874,7 +5874,7 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DURATION, SimpleType::DOUBLE);
         }
 
-        double EndOfRoadConditionImpl::GetDuration()
+        double EndOfRoadConditionImpl::GetDuration() const
         {
             return _duration;
         }
@@ -5889,7 +5889,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType EndOfRoadConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType EndOfRoadConditionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -5903,7 +5903,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> EndOfRoadConditionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> EndOfRoadConditionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -5930,28 +5930,28 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string EndOfRoadConditionImpl::GetStringProperty(std::string key)
+        std::string EndOfRoadConditionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> EndOfRoadConditionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> EndOfRoadConditionImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> EndOfRoadConditionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> EndOfRoadConditionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> EndOfRoadConditionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> EndOfRoadConditionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string EndOfRoadConditionImpl::GetEnumerationLiteral(std::string key)
+        std::string EndOfRoadConditionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -5964,14 +5964,14 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::vector<std::shared_ptr<IScenarioObject>> EntitiesImpl::GetScenarioObjects()
+        std::vector<std::shared_ptr<IScenarioObject>> EntitiesImpl::GetScenarioObjects() const
         {
             std::vector<std::shared_ptr<IScenarioObject>> temp;
             for(auto&& elm: _scenarioObjects)
                 temp.push_back(elm);
             return temp;
         }
-        std::vector<std::shared_ptr<IEntitySelection>> EntitiesImpl::GetEntitySelections()
+        std::vector<std::shared_ptr<IEntitySelection>> EntitiesImpl::GetEntitySelections() const
         {
             std::vector<std::shared_ptr<IEntitySelection>> temp;
             for(auto&& elm: _entitySelections)
@@ -5983,7 +5983,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType EntitiesImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType EntitiesImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -5997,7 +5997,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> EntitiesImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> EntitiesImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -6062,18 +6062,18 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string EntitiesImpl::GetStringProperty(std::string key)
+        std::string EntitiesImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> EntitiesImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> EntitiesImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> EntitiesImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> EntitiesImpl::GetListChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -6099,12 +6099,12 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> EntitiesImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> EntitiesImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string EntitiesImpl::GetEnumerationLiteral(std::string key)
+        std::string EntitiesImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -6118,15 +6118,15 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, SimpleType::STRING);
         }
 
-        std::shared_ptr<INamedReference<IEntity>> EntityActionImpl::GetEntityRef()
+        std::shared_ptr<INamedReference<IEntity>> EntityActionImpl::GetEntityRef() const
         {
             return _entityRef;
         }
-        std::shared_ptr<IAddEntityAction> EntityActionImpl::GetAddEntityAction()
+        std::shared_ptr<IAddEntityAction> EntityActionImpl::GetAddEntityAction() const
         {
             return _addEntityAction;
         }
-        std::shared_ptr<IDeleteEntityAction> EntityActionImpl::GetDeleteEntityAction()
+        std::shared_ptr<IDeleteEntityAction> EntityActionImpl::GetDeleteEntityAction() const
         {
             return _deleteEntityAction;
         }
@@ -6142,7 +6142,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType EntityActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType EntityActionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -6156,7 +6156,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> EntityActionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> EntityActionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -6212,7 +6212,7 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string EntityActionImpl::GetStringProperty(std::string key)
+        std::string EntityActionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             if (key.empty())
@@ -6229,7 +6229,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> EntityActionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> EntityActionImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -6248,12 +6248,12 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> EntityActionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> EntityActionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> EntityActionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> EntityActionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             if (key.empty())
             {
@@ -6269,7 +6269,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::string EntityActionImpl::GetEnumerationLiteral(std::string key)
+        std::string EntityActionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -6282,55 +6282,55 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::shared_ptr<IEndOfRoadCondition> EntityConditionImpl::GetEndOfRoadCondition()
+        std::shared_ptr<IEndOfRoadCondition> EntityConditionImpl::GetEndOfRoadCondition() const
         {
             return _endOfRoadCondition;
         }
-        std::shared_ptr<ICollisionCondition> EntityConditionImpl::GetCollisionCondition()
+        std::shared_ptr<ICollisionCondition> EntityConditionImpl::GetCollisionCondition() const
         {
             return _collisionCondition;
         }
-        std::shared_ptr<IOffroadCondition> EntityConditionImpl::GetOffroadCondition()
+        std::shared_ptr<IOffroadCondition> EntityConditionImpl::GetOffroadCondition() const
         {
             return _offroadCondition;
         }
-        std::shared_ptr<ITimeHeadwayCondition> EntityConditionImpl::GetTimeHeadwayCondition()
+        std::shared_ptr<ITimeHeadwayCondition> EntityConditionImpl::GetTimeHeadwayCondition() const
         {
             return _timeHeadwayCondition;
         }
-        std::shared_ptr<ITimeToCollisionCondition> EntityConditionImpl::GetTimeToCollisionCondition()
+        std::shared_ptr<ITimeToCollisionCondition> EntityConditionImpl::GetTimeToCollisionCondition() const
         {
             return _timeToCollisionCondition;
         }
-        std::shared_ptr<IAccelerationCondition> EntityConditionImpl::GetAccelerationCondition()
+        std::shared_ptr<IAccelerationCondition> EntityConditionImpl::GetAccelerationCondition() const
         {
             return _accelerationCondition;
         }
-        std::shared_ptr<IStandStillCondition> EntityConditionImpl::GetStandStillCondition()
+        std::shared_ptr<IStandStillCondition> EntityConditionImpl::GetStandStillCondition() const
         {
             return _standStillCondition;
         }
-        std::shared_ptr<ISpeedCondition> EntityConditionImpl::GetSpeedCondition()
+        std::shared_ptr<ISpeedCondition> EntityConditionImpl::GetSpeedCondition() const
         {
             return _speedCondition;
         }
-        std::shared_ptr<IRelativeSpeedCondition> EntityConditionImpl::GetRelativeSpeedCondition()
+        std::shared_ptr<IRelativeSpeedCondition> EntityConditionImpl::GetRelativeSpeedCondition() const
         {
             return _relativeSpeedCondition;
         }
-        std::shared_ptr<ITraveledDistanceCondition> EntityConditionImpl::GetTraveledDistanceCondition()
+        std::shared_ptr<ITraveledDistanceCondition> EntityConditionImpl::GetTraveledDistanceCondition() const
         {
             return _traveledDistanceCondition;
         }
-        std::shared_ptr<IReachPositionCondition> EntityConditionImpl::GetReachPositionCondition()
+        std::shared_ptr<IReachPositionCondition> EntityConditionImpl::GetReachPositionCondition() const
         {
             return _reachPositionCondition;
         }
-        std::shared_ptr<IDistanceCondition> EntityConditionImpl::GetDistanceCondition()
+        std::shared_ptr<IDistanceCondition> EntityConditionImpl::GetDistanceCondition() const
         {
             return _distanceCondition;
         }
-        std::shared_ptr<IRelativeDistanceCondition> EntityConditionImpl::GetRelativeDistanceCondition()
+        std::shared_ptr<IRelativeDistanceCondition> EntityConditionImpl::GetRelativeDistanceCondition() const
         {
             return _relativeDistanceCondition;
         }
@@ -6339,7 +6339,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType EntityConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType EntityConditionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -6353,7 +6353,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> EntityConditionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> EntityConditionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -6547,13 +6547,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string EntityConditionImpl::GetStringProperty(std::string key)
+        std::string EntityConditionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> EntityConditionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> EntityConditionImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -6627,17 +6627,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> EntityConditionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> EntityConditionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> EntityConditionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> EntityConditionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string EntityConditionImpl::GetEnumerationLiteral(std::string key)
+        std::string EntityConditionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -6650,19 +6650,19 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::shared_ptr<ICatalogReference> EntityObjectImpl::GetCatalogReference()
+        std::shared_ptr<ICatalogReference> EntityObjectImpl::GetCatalogReference() const
         {
             return _catalogReference;
         }
-        std::shared_ptr<IVehicle> EntityObjectImpl::GetVehicle()
+        std::shared_ptr<IVehicle> EntityObjectImpl::GetVehicle() const
         {
             return _vehicle;
         }
-        std::shared_ptr<IPedestrian> EntityObjectImpl::GetPedestrian()
+        std::shared_ptr<IPedestrian> EntityObjectImpl::GetPedestrian() const
         {
             return _pedestrian;
         }
-        std::shared_ptr<IMiscObject> EntityObjectImpl::GetMiscObject()
+        std::shared_ptr<IMiscObject> EntityObjectImpl::GetMiscObject() const
         {
             return _miscObject;
         }
@@ -6671,7 +6671,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType EntityObjectImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType EntityObjectImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -6685,7 +6685,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> EntityObjectImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> EntityObjectImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -6762,13 +6762,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string EntityObjectImpl::GetStringProperty(std::string key)
+        std::string EntityObjectImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> EntityObjectImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> EntityObjectImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -6797,17 +6797,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> EntityObjectImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> EntityObjectImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> EntityObjectImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> EntityObjectImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string EntityObjectImpl::GetEnumerationLiteral(std::string key)
+        std::string EntityObjectImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -6821,7 +6821,7 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, SimpleType::STRING);
         }
 
-        std::shared_ptr<INamedReference<IEntity>> EntityRefImpl::GetEntityRef()
+        std::shared_ptr<INamedReference<IEntity>> EntityRefImpl::GetEntityRef() const
         {
             return _entityRef;
         }
@@ -6837,7 +6837,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType EntityRefImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType EntityRefImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -6851,7 +6851,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> EntityRefImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> EntityRefImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -6881,7 +6881,7 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string EntityRefImpl::GetStringProperty(std::string key)
+        std::string EntityRefImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             if (key.empty())
@@ -6898,17 +6898,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> EntityRefImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> EntityRefImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> EntityRefImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> EntityRefImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> EntityRefImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> EntityRefImpl::GetReferencedElement(std::string key, std::string name) const
         {
             if (key.empty())
             {
@@ -6924,7 +6924,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::string EntityRefImpl::GetEnumerationLiteral(std::string key)
+        std::string EntityRefImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -6938,11 +6938,11 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, SimpleType::STRING);
         }
 
-        std::string EntitySelectionImpl::GetName()
+        std::string EntitySelectionImpl::GetName() const
         {
             return _name;
         }
-        std::shared_ptr<ISelectedEntities> EntitySelectionImpl::GetMembers()
+        std::shared_ptr<ISelectedEntities> EntitySelectionImpl::GetMembers() const
         {
             return _members;
         }
@@ -6957,7 +6957,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType EntitySelectionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType EntitySelectionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -6971,7 +6971,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> EntitySelectionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> EntitySelectionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -7011,7 +7011,7 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string EntitySelectionImpl::GetStringProperty(std::string key)
+        std::string EntitySelectionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             if (key.empty())
@@ -7026,7 +7026,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> EntitySelectionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> EntitySelectionImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -7040,17 +7040,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> EntitySelectionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> EntitySelectionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> EntitySelectionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> EntitySelectionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string EntitySelectionImpl::GetEnumerationLiteral(std::string key)
+        std::string EntitySelectionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -7064,26 +7064,26 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, SimpleType::STRING);
         }
 
-        std::string EnvironmentImpl::GetName()
+        std::string EnvironmentImpl::GetName() const
         {
             return _name;
         }
-        std::vector<std::shared_ptr<IParameterDeclaration>> EnvironmentImpl::GetParameterDeclarations()
+        std::vector<std::shared_ptr<IParameterDeclaration>> EnvironmentImpl::GetParameterDeclarations() const
         {
             std::vector<std::shared_ptr<IParameterDeclaration>> temp;
             for(auto&& elm: _parameterDeclarations)
                 temp.push_back(elm);
             return temp;
         }
-        std::shared_ptr<ITimeOfDay> EnvironmentImpl::GetTimeOfDay()
+        std::shared_ptr<ITimeOfDay> EnvironmentImpl::GetTimeOfDay() const
         {
             return _timeOfDay;
         }
-        std::shared_ptr<IWeather> EnvironmentImpl::GetWeather()
+        std::shared_ptr<IWeather> EnvironmentImpl::GetWeather() const
         {
             return _weather;
         }
-        std::shared_ptr<IRoadCondition> EnvironmentImpl::GetRoadCondition()
+        std::shared_ptr<IRoadCondition> EnvironmentImpl::GetRoadCondition() const
         {
             return _roadCondition;
         }
@@ -7098,7 +7098,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType EnvironmentImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType EnvironmentImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -7112,7 +7112,7 @@ namespace NET_ASAM_OPENSCENARIO
             return true;
         }
 
-        std::vector<std::shared_ptr<ParameterValue>> EnvironmentImpl::GetParameterDefinitions() 
+        std::vector<std::shared_ptr<ParameterValue>> EnvironmentImpl::GetParameterDefinitions() const
         {
             std::vector<std::shared_ptr<ParameterValue>> result;
             if (!_parameterDeclarations.empty())
@@ -7132,7 +7132,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> EnvironmentImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> EnvironmentImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -7218,7 +7218,7 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string EnvironmentImpl::GetStringProperty(std::string key)
+        std::string EnvironmentImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             if (key.empty())
@@ -7233,7 +7233,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> EnvironmentImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> EnvironmentImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -7257,7 +7257,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> EnvironmentImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> EnvironmentImpl::GetListChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -7274,12 +7274,12 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> EnvironmentImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> EnvironmentImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string EnvironmentImpl::GetEnumerationLiteral(std::string key)
+        std::string EnvironmentImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -7292,11 +7292,11 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::shared_ptr<IEnvironment> EnvironmentActionImpl::GetEnvironment()
+        std::shared_ptr<IEnvironment> EnvironmentActionImpl::GetEnvironment() const
         {
             return _environment;
         }
-        std::shared_ptr<ICatalogReference> EnvironmentActionImpl::GetCatalogReference()
+        std::shared_ptr<ICatalogReference> EnvironmentActionImpl::GetCatalogReference() const
         {
             return _catalogReference;
         }
@@ -7305,7 +7305,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType EnvironmentActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType EnvironmentActionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -7319,7 +7319,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> EnvironmentActionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> EnvironmentActionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -7370,13 +7370,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string EnvironmentActionImpl::GetStringProperty(std::string key)
+        std::string EnvironmentActionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> EnvironmentActionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> EnvironmentActionImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -7395,17 +7395,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> EnvironmentActionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> EnvironmentActionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> EnvironmentActionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> EnvironmentActionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string EnvironmentActionImpl::GetEnumerationLiteral(std::string key)
+        std::string EnvironmentActionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -7418,7 +7418,7 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::shared_ptr<IDirectory> EnvironmentCatalogLocationImpl::GetDirectory()
+        std::shared_ptr<IDirectory> EnvironmentCatalogLocationImpl::GetDirectory() const
         {
             return _directory;
         }
@@ -7427,7 +7427,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType EnvironmentCatalogLocationImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType EnvironmentCatalogLocationImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -7441,7 +7441,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> EnvironmentCatalogLocationImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> EnvironmentCatalogLocationImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -7479,13 +7479,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string EnvironmentCatalogLocationImpl::GetStringProperty(std::string key)
+        std::string EnvironmentCatalogLocationImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> EnvironmentCatalogLocationImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> EnvironmentCatalogLocationImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -7499,17 +7499,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> EnvironmentCatalogLocationImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> EnvironmentCatalogLocationImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> EnvironmentCatalogLocationImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> EnvironmentCatalogLocationImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string EnvironmentCatalogLocationImpl::GetEnumerationLiteral(std::string key)
+        std::string EnvironmentCatalogLocationImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -7525,26 +7525,26 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__PRIORITY, SimpleType::ENUM_TYPE);
         }
 
-        uint32_t EventImpl::GetMaximumExecutionCount()
+        uint32_t EventImpl::GetMaximumExecutionCount() const
         {
             return _maximumExecutionCount;
         }
-        std::string EventImpl::GetName()
+        std::string EventImpl::GetName() const
         {
             return _name;
         }
-        Priority EventImpl::GetPriority()
+        Priority EventImpl::GetPriority() const
         {
             return _priority;
         }
-        std::vector<std::shared_ptr<IAction>> EventImpl::GetActions()
+        std::vector<std::shared_ptr<IAction>> EventImpl::GetActions() const
         {
             std::vector<std::shared_ptr<IAction>> temp;
             for(auto&& elm: _actions)
                 temp.push_back(elm);
             return temp;
         }
-        std::shared_ptr<ITrigger> EventImpl::GetStartTrigger()
+        std::shared_ptr<ITrigger> EventImpl::GetStartTrigger() const
         {
             return _startTrigger;
         }
@@ -7580,7 +7580,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType EventImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType EventImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -7594,7 +7594,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> EventImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> EventImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -7662,7 +7662,7 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string EventImpl::GetStringProperty(std::string key)
+        std::string EventImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             if (key.empty())
@@ -7677,7 +7677,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> EventImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> EventImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -7691,7 +7691,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> EventImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> EventImpl::GetListChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -7709,12 +7709,12 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> EventImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> EventImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string EventImpl::GetEnumerationLiteral(std::string key)
+        std::string EventImpl::GetEnumerationLiteral(std::string key) const
         {
             if (key.empty())
             {
@@ -7738,7 +7738,7 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__FILEPATH, SimpleType::STRING);
         }
 
-        std::string FileImpl::GetFilepath()
+        std::string FileImpl::GetFilepath() const
         {
             return _filepath;
         }
@@ -7753,7 +7753,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType FileImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType FileImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -7767,7 +7767,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> FileImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> FileImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -7794,7 +7794,7 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string FileImpl::GetStringProperty(std::string key)
+        std::string FileImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             if (key.empty())
@@ -7809,22 +7809,22 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> FileImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> FileImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> FileImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> FileImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> FileImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> FileImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string FileImpl::GetEnumerationLiteral(std::string key)
+        std::string FileImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -7842,23 +7842,23 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__REV_MINOR, SimpleType::UNSIGNED_SHORT);
         }
 
-        std::string FileHeaderImpl::GetAuthor()
+        std::string FileHeaderImpl::GetAuthor() const
         {
             return _author;
         }
-        DateTime FileHeaderImpl::GetDate()
+        DateTime FileHeaderImpl::GetDate() const
         {
             return _date;
         }
-        std::string FileHeaderImpl::GetDescription()
+        std::string FileHeaderImpl::GetDescription() const
         {
             return _description;
         }
-        uint16_t FileHeaderImpl::GetRevMajor()
+        uint16_t FileHeaderImpl::GetRevMajor() const
         {
             return _revMajor;
         }
-        uint16_t FileHeaderImpl::GetRevMinor()
+        uint16_t FileHeaderImpl::GetRevMinor() const
         {
             return _revMinor;
         }
@@ -7897,7 +7897,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType FileHeaderImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType FileHeaderImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -7911,7 +7911,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> FileHeaderImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> FileHeaderImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -7946,7 +7946,7 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string FileHeaderImpl::GetStringProperty(std::string key)
+        std::string FileHeaderImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             if (key.empty())
@@ -7966,22 +7966,22 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> FileHeaderImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> FileHeaderImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> FileHeaderImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> FileHeaderImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> FileHeaderImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> FileHeaderImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string FileHeaderImpl::GetEnumerationLiteral(std::string key)
+        std::string FileHeaderImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -7994,11 +7994,11 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::shared_ptr<IAbsoluteSpeed> FinalSpeedImpl::GetAbsoluteSpeed()
+        std::shared_ptr<IAbsoluteSpeed> FinalSpeedImpl::GetAbsoluteSpeed() const
         {
             return _absoluteSpeed;
         }
-        std::shared_ptr<IRelativeSpeedToMaster> FinalSpeedImpl::GetRelativeSpeedToMaster()
+        std::shared_ptr<IRelativeSpeedToMaster> FinalSpeedImpl::GetRelativeSpeedToMaster() const
         {
             return _relativeSpeedToMaster;
         }
@@ -8007,7 +8007,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType FinalSpeedImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType FinalSpeedImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -8021,7 +8021,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> FinalSpeedImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> FinalSpeedImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -8072,13 +8072,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string FinalSpeedImpl::GetStringProperty(std::string key)
+        std::string FinalSpeedImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> FinalSpeedImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> FinalSpeedImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -8097,17 +8097,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> FinalSpeedImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> FinalSpeedImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> FinalSpeedImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> FinalSpeedImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string FinalSpeedImpl::GetEnumerationLiteral(std::string key)
+        std::string FinalSpeedImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -8121,11 +8121,11 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VISUAL_RANGE, SimpleType::DOUBLE);
         }
 
-        double FogImpl::GetVisualRange()
+        double FogImpl::GetVisualRange() const
         {
             return _visualRange;
         }
-        std::shared_ptr<IBoundingBox> FogImpl::GetBoundingBox()
+        std::shared_ptr<IBoundingBox> FogImpl::GetBoundingBox() const
         {
             return _boundingBox;
         }
@@ -8140,7 +8140,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType FogImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType FogImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -8154,7 +8154,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> FogImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> FogImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -8194,13 +8194,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string FogImpl::GetStringProperty(std::string key)
+        std::string FogImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> FogImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> FogImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -8214,17 +8214,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> FogImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> FogImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> FogImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> FogImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string FogImpl::GetEnumerationLiteral(std::string key)
+        std::string FogImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -8237,19 +8237,19 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::shared_ptr<ITrajectory> FollowTrajectoryActionImpl::GetTrajectory()
+        std::shared_ptr<ITrajectory> FollowTrajectoryActionImpl::GetTrajectory() const
         {
             return _trajectory;
         }
-        std::shared_ptr<ICatalogReference> FollowTrajectoryActionImpl::GetCatalogReference()
+        std::shared_ptr<ICatalogReference> FollowTrajectoryActionImpl::GetCatalogReference() const
         {
             return _catalogReference;
         }
-        std::shared_ptr<ITimeReference> FollowTrajectoryActionImpl::GetTimeReference()
+        std::shared_ptr<ITimeReference> FollowTrajectoryActionImpl::GetTimeReference() const
         {
             return _timeReference;
         }
-        std::shared_ptr<ITrajectoryFollowingMode> FollowTrajectoryActionImpl::GetTrajectoryFollowingMode()
+        std::shared_ptr<ITrajectoryFollowingMode> FollowTrajectoryActionImpl::GetTrajectoryFollowingMode() const
         {
             return _trajectoryFollowingMode;
         }
@@ -8258,7 +8258,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType FollowTrajectoryActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType FollowTrajectoryActionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -8272,7 +8272,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> FollowTrajectoryActionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> FollowTrajectoryActionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -8349,13 +8349,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string FollowTrajectoryActionImpl::GetStringProperty(std::string key)
+        std::string FollowTrajectoryActionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> FollowTrajectoryActionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> FollowTrajectoryActionImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -8384,17 +8384,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> FollowTrajectoryActionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> FollowTrajectoryActionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> FollowTrajectoryActionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> FollowTrajectoryActionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string FollowTrajectoryActionImpl::GetEnumerationLiteral(std::string key)
+        std::string FollowTrajectoryActionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -8407,23 +8407,23 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::shared_ptr<IEnvironmentAction> GlobalActionImpl::GetEnvironmentAction()
+        std::shared_ptr<IEnvironmentAction> GlobalActionImpl::GetEnvironmentAction() const
         {
             return _environmentAction;
         }
-        std::shared_ptr<IEntityAction> GlobalActionImpl::GetEntityAction()
+        std::shared_ptr<IEntityAction> GlobalActionImpl::GetEntityAction() const
         {
             return _entityAction;
         }
-        std::shared_ptr<IParameterAction> GlobalActionImpl::GetParameterAction()
+        std::shared_ptr<IParameterAction> GlobalActionImpl::GetParameterAction() const
         {
             return _parameterAction;
         }
-        std::shared_ptr<IInfrastructureAction> GlobalActionImpl::GetInfrastructureAction()
+        std::shared_ptr<IInfrastructureAction> GlobalActionImpl::GetInfrastructureAction() const
         {
             return _infrastructureAction;
         }
-        std::shared_ptr<ITrafficAction> GlobalActionImpl::GetTrafficAction()
+        std::shared_ptr<ITrafficAction> GlobalActionImpl::GetTrafficAction() const
         {
             return _trafficAction;
         }
@@ -8432,7 +8432,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType GlobalActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType GlobalActionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -8446,7 +8446,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> GlobalActionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> GlobalActionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -8536,13 +8536,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string GlobalActionImpl::GetStringProperty(std::string key)
+        std::string GlobalActionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> GlobalActionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> GlobalActionImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -8576,17 +8576,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GlobalActionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GlobalActionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> GlobalActionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> GlobalActionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string GlobalActionImpl::GetEnumerationLiteral(std::string key)
+        std::string GlobalActionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -8599,15 +8599,15 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::shared_ptr<IPositionOfCurrentEntity> InRoutePositionImpl::GetFromCurrentEntity()
+        std::shared_ptr<IPositionOfCurrentEntity> InRoutePositionImpl::GetFromCurrentEntity() const
         {
             return _fromCurrentEntity;
         }
-        std::shared_ptr<IPositionInRoadCoordinates> InRoutePositionImpl::GetFromRoadCoordinates()
+        std::shared_ptr<IPositionInRoadCoordinates> InRoutePositionImpl::GetFromRoadCoordinates() const
         {
             return _fromRoadCoordinates;
         }
-        std::shared_ptr<IPositionInLaneCoordinates> InRoutePositionImpl::GetFromLaneCoordinates()
+        std::shared_ptr<IPositionInLaneCoordinates> InRoutePositionImpl::GetFromLaneCoordinates() const
         {
             return _fromLaneCoordinates;
         }
@@ -8616,7 +8616,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType InRoutePositionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType InRoutePositionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -8630,7 +8630,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> InRoutePositionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> InRoutePositionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -8694,13 +8694,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string InRoutePositionImpl::GetStringProperty(std::string key)
+        std::string InRoutePositionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> InRoutePositionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> InRoutePositionImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -8724,17 +8724,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> InRoutePositionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> InRoutePositionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> InRoutePositionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> InRoutePositionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string InRoutePositionImpl::GetEnumerationLiteral(std::string key)
+        std::string InRoutePositionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -8747,7 +8747,7 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::shared_ptr<ITrafficSignalAction> InfrastructureActionImpl::GetTrafficSignalAction()
+        std::shared_ptr<ITrafficSignalAction> InfrastructureActionImpl::GetTrafficSignalAction() const
         {
             return _trafficSignalAction;
         }
@@ -8756,7 +8756,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType InfrastructureActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType InfrastructureActionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -8770,7 +8770,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> InfrastructureActionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> InfrastructureActionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -8808,13 +8808,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string InfrastructureActionImpl::GetStringProperty(std::string key)
+        std::string InfrastructureActionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> InfrastructureActionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> InfrastructureActionImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -8828,17 +8828,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> InfrastructureActionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> InfrastructureActionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> InfrastructureActionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> InfrastructureActionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string InfrastructureActionImpl::GetEnumerationLiteral(std::string key)
+        std::string InfrastructureActionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -8851,7 +8851,7 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::shared_ptr<IInitActions> InitImpl::GetActions()
+        std::shared_ptr<IInitActions> InitImpl::GetActions() const
         {
             return _actions;
         }
@@ -8860,7 +8860,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType InitImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType InitImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -8874,7 +8874,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> InitImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> InitImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -8912,13 +8912,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string InitImpl::GetStringProperty(std::string key)
+        std::string InitImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> InitImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> InitImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -8932,17 +8932,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> InitImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> InitImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> InitImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> InitImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string InitImpl::GetEnumerationLiteral(std::string key)
+        std::string InitImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -8955,21 +8955,21 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::vector<std::shared_ptr<IGlobalAction>> InitActionsImpl::GetGlobalActions()
+        std::vector<std::shared_ptr<IGlobalAction>> InitActionsImpl::GetGlobalActions() const
         {
             std::vector<std::shared_ptr<IGlobalAction>> temp;
             for(auto&& elm: _globalActions)
                 temp.push_back(elm);
             return temp;
         }
-        std::vector<std::shared_ptr<IUserDefinedAction>> InitActionsImpl::GetUserDefinedActions()
+        std::vector<std::shared_ptr<IUserDefinedAction>> InitActionsImpl::GetUserDefinedActions() const
         {
             std::vector<std::shared_ptr<IUserDefinedAction>> temp;
             for(auto&& elm: _userDefinedActions)
                 temp.push_back(elm);
             return temp;
         }
-        std::vector<std::shared_ptr<IPrivate>> InitActionsImpl::GetPrivates()
+        std::vector<std::shared_ptr<IPrivate>> InitActionsImpl::GetPrivates() const
         {
             std::vector<std::shared_ptr<IPrivate>> temp;
             for(auto&& elm: _privates)
@@ -8981,7 +8981,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType InitActionsImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType InitActionsImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -8995,7 +8995,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> InitActionsImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> InitActionsImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -9080,18 +9080,18 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string InitActionsImpl::GetStringProperty(std::string key)
+        std::string InitActionsImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> InitActionsImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> InitActionsImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> InitActionsImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> InitActionsImpl::GetListChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -9125,12 +9125,12 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> InitActionsImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> InitActionsImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string InitActionsImpl::GetEnumerationLiteral(std::string key)
+        std::string InitActionsImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -9144,7 +9144,7 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
         }
 
-        double KnotImpl::GetValue()
+        double KnotImpl::GetValue() const
         {
             return _value;
         }
@@ -9159,7 +9159,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType KnotImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType KnotImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -9173,7 +9173,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> KnotImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> KnotImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -9200,28 +9200,28 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string KnotImpl::GetStringProperty(std::string key)
+        std::string KnotImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> KnotImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> KnotImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> KnotImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> KnotImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> KnotImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> KnotImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string KnotImpl::GetEnumerationLiteral(std::string key)
+        std::string KnotImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -9235,15 +9235,15 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__TARGET_LANE_OFFSET, SimpleType::DOUBLE);
         }
 
-        double LaneChangeActionImpl::GetTargetLaneOffset()
+        double LaneChangeActionImpl::GetTargetLaneOffset() const
         {
             return _targetLaneOffset;
         }
-        std::shared_ptr<ITransitionDynamics> LaneChangeActionImpl::GetLaneChangeActionDynamics()
+        std::shared_ptr<ITransitionDynamics> LaneChangeActionImpl::GetLaneChangeActionDynamics() const
         {
             return _laneChangeActionDynamics;
         }
-        std::shared_ptr<ILaneChangeTarget> LaneChangeActionImpl::GetLaneChangeTarget()
+        std::shared_ptr<ILaneChangeTarget> LaneChangeActionImpl::GetLaneChangeTarget() const
         {
             return _laneChangeTarget;
         }
@@ -9258,7 +9258,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType LaneChangeActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType LaneChangeActionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -9272,7 +9272,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> LaneChangeActionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> LaneChangeActionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -9325,13 +9325,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string LaneChangeActionImpl::GetStringProperty(std::string key)
+        std::string LaneChangeActionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> LaneChangeActionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> LaneChangeActionImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -9350,17 +9350,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> LaneChangeActionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> LaneChangeActionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> LaneChangeActionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> LaneChangeActionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string LaneChangeActionImpl::GetEnumerationLiteral(std::string key)
+        std::string LaneChangeActionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -9373,11 +9373,11 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::shared_ptr<IRelativeTargetLane> LaneChangeTargetImpl::GetRelativeTargetLane()
+        std::shared_ptr<IRelativeTargetLane> LaneChangeTargetImpl::GetRelativeTargetLane() const
         {
             return _relativeTargetLane;
         }
-        std::shared_ptr<IAbsoluteTargetLane> LaneChangeTargetImpl::GetAbsoluteTargetLane()
+        std::shared_ptr<IAbsoluteTargetLane> LaneChangeTargetImpl::GetAbsoluteTargetLane() const
         {
             return _absoluteTargetLane;
         }
@@ -9386,7 +9386,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType LaneChangeTargetImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType LaneChangeTargetImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -9400,7 +9400,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> LaneChangeTargetImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> LaneChangeTargetImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -9451,13 +9451,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string LaneChangeTargetImpl::GetStringProperty(std::string key)
+        std::string LaneChangeTargetImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> LaneChangeTargetImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> LaneChangeTargetImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -9476,17 +9476,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> LaneChangeTargetImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> LaneChangeTargetImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> LaneChangeTargetImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> LaneChangeTargetImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string LaneChangeTargetImpl::GetEnumerationLiteral(std::string key)
+        std::string LaneChangeTargetImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -9500,15 +9500,15 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS, SimpleType::BOOLEAN);
         }
 
-        bool LaneOffsetActionImpl::GetContinuous()
+        bool LaneOffsetActionImpl::GetContinuous() const
         {
             return _continuous;
         }
-        std::shared_ptr<ILaneOffsetActionDynamics> LaneOffsetActionImpl::GetLaneOffsetActionDynamics()
+        std::shared_ptr<ILaneOffsetActionDynamics> LaneOffsetActionImpl::GetLaneOffsetActionDynamics() const
         {
             return _laneOffsetActionDynamics;
         }
-        std::shared_ptr<ILaneOffsetTarget> LaneOffsetActionImpl::GetLaneOffsetTarget()
+        std::shared_ptr<ILaneOffsetTarget> LaneOffsetActionImpl::GetLaneOffsetTarget() const
         {
             return _laneOffsetTarget;
         }
@@ -9523,7 +9523,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType LaneOffsetActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType LaneOffsetActionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -9537,7 +9537,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> LaneOffsetActionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> LaneOffsetActionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -9590,13 +9590,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string LaneOffsetActionImpl::GetStringProperty(std::string key)
+        std::string LaneOffsetActionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> LaneOffsetActionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> LaneOffsetActionImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -9615,17 +9615,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> LaneOffsetActionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> LaneOffsetActionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> LaneOffsetActionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> LaneOffsetActionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string LaneOffsetActionImpl::GetEnumerationLiteral(std::string key)
+        std::string LaneOffsetActionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -9640,11 +9640,11 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__MAX_LATERAL_ACC, SimpleType::DOUBLE);
         }
 
-        DynamicsShape LaneOffsetActionDynamicsImpl::GetDynamicsShape()
+        DynamicsShape LaneOffsetActionDynamicsImpl::GetDynamicsShape() const
         {
             return _dynamicsShape;
         }
-        double LaneOffsetActionDynamicsImpl::GetMaxLateralAcc()
+        double LaneOffsetActionDynamicsImpl::GetMaxLateralAcc() const
         {
             return _maxLateralAcc;
         }
@@ -9674,7 +9674,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType LaneOffsetActionDynamicsImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType LaneOffsetActionDynamicsImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -9688,7 +9688,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> LaneOffsetActionDynamicsImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> LaneOffsetActionDynamicsImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -9721,28 +9721,28 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string LaneOffsetActionDynamicsImpl::GetStringProperty(std::string key)
+        std::string LaneOffsetActionDynamicsImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> LaneOffsetActionDynamicsImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> LaneOffsetActionDynamicsImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> LaneOffsetActionDynamicsImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> LaneOffsetActionDynamicsImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> LaneOffsetActionDynamicsImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> LaneOffsetActionDynamicsImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string LaneOffsetActionDynamicsImpl::GetEnumerationLiteral(std::string key)
+        std::string LaneOffsetActionDynamicsImpl::GetEnumerationLiteral(std::string key) const
         {
             if (key.empty())
             {
@@ -9765,11 +9765,11 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::shared_ptr<IRelativeTargetLaneOffset> LaneOffsetTargetImpl::GetRelativeTargetLaneOffset()
+        std::shared_ptr<IRelativeTargetLaneOffset> LaneOffsetTargetImpl::GetRelativeTargetLaneOffset() const
         {
             return _relativeTargetLaneOffset;
         }
-        std::shared_ptr<IAbsoluteTargetLaneOffset> LaneOffsetTargetImpl::GetAbsoluteTargetLaneOffset()
+        std::shared_ptr<IAbsoluteTargetLaneOffset> LaneOffsetTargetImpl::GetAbsoluteTargetLaneOffset() const
         {
             return _absoluteTargetLaneOffset;
         }
@@ -9778,7 +9778,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType LaneOffsetTargetImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType LaneOffsetTargetImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -9792,7 +9792,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> LaneOffsetTargetImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> LaneOffsetTargetImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -9843,13 +9843,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string LaneOffsetTargetImpl::GetStringProperty(std::string key)
+        std::string LaneOffsetTargetImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> LaneOffsetTargetImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> LaneOffsetTargetImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -9868,17 +9868,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> LaneOffsetTargetImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> LaneOffsetTargetImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> LaneOffsetTargetImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> LaneOffsetTargetImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string LaneOffsetTargetImpl::GetEnumerationLiteral(std::string key)
+        std::string LaneOffsetTargetImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -9895,23 +9895,23 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__S, SimpleType::DOUBLE);
         }
 
-        std::string LanePositionImpl::GetLaneId()
+        std::string LanePositionImpl::GetLaneId() const
         {
             return _laneId;
         }
-        double LanePositionImpl::GetOffset()
+        double LanePositionImpl::GetOffset() const
         {
             return _offset;
         }
-        std::string LanePositionImpl::GetRoadId()
+        std::string LanePositionImpl::GetRoadId() const
         {
             return _roadId;
         }
-        double LanePositionImpl::GetS()
+        double LanePositionImpl::GetS() const
         {
             return _s;
         }
-        std::shared_ptr<IOrientation> LanePositionImpl::GetOrientation()
+        std::shared_ptr<IOrientation> LanePositionImpl::GetOrientation() const
         {
             return _orientation;
         }
@@ -9944,7 +9944,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType LanePositionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType LanePositionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -9958,7 +9958,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> LanePositionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> LanePositionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -10004,7 +10004,7 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string LanePositionImpl::GetStringProperty(std::string key)
+        std::string LanePositionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             if (key.empty())
@@ -10024,7 +10024,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> LanePositionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> LanePositionImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -10038,17 +10038,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> LanePositionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> LanePositionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> LanePositionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> LanePositionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string LanePositionImpl::GetEnumerationLiteral(std::string key)
+        std::string LanePositionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -10061,15 +10061,15 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::shared_ptr<ILaneChangeAction> LateralActionImpl::GetLaneChangeAction()
+        std::shared_ptr<ILaneChangeAction> LateralActionImpl::GetLaneChangeAction() const
         {
             return _laneChangeAction;
         }
-        std::shared_ptr<ILaneOffsetAction> LateralActionImpl::GetLaneOffsetAction()
+        std::shared_ptr<ILaneOffsetAction> LateralActionImpl::GetLaneOffsetAction() const
         {
             return _laneOffsetAction;
         }
-        std::shared_ptr<ILateralDistanceAction> LateralActionImpl::GetLateralDistanceAction()
+        std::shared_ptr<ILateralDistanceAction> LateralActionImpl::GetLateralDistanceAction() const
         {
             return _lateralDistanceAction;
         }
@@ -10078,7 +10078,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType LateralActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType LateralActionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -10092,7 +10092,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> LateralActionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> LateralActionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -10156,13 +10156,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string LateralActionImpl::GetStringProperty(std::string key)
+        std::string LateralActionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> LateralActionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> LateralActionImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -10186,17 +10186,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> LateralActionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> LateralActionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> LateralActionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> LateralActionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string LateralActionImpl::GetEnumerationLiteral(std::string key)
+        std::string LateralActionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -10213,23 +10213,23 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, SimpleType::BOOLEAN);
         }
 
-        bool LateralDistanceActionImpl::GetContinuous()
+        bool LateralDistanceActionImpl::GetContinuous() const
         {
             return _continuous;
         }
-        double LateralDistanceActionImpl::GetDistance()
+        double LateralDistanceActionImpl::GetDistance() const
         {
             return _distance;
         }
-        std::shared_ptr<INamedReference<IEntity>> LateralDistanceActionImpl::GetEntityRef()
+        std::shared_ptr<INamedReference<IEntity>> LateralDistanceActionImpl::GetEntityRef() const
         {
             return _entityRef;
         }
-        bool LateralDistanceActionImpl::GetFreespace()
+        bool LateralDistanceActionImpl::GetFreespace() const
         {
             return _freespace;
         }
-        std::shared_ptr<IDynamicConstraints> LateralDistanceActionImpl::GetDynamicConstraints()
+        std::shared_ptr<IDynamicConstraints> LateralDistanceActionImpl::GetDynamicConstraints() const
         {
             return _dynamicConstraints;
         }
@@ -10263,7 +10263,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType LateralDistanceActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType LateralDistanceActionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -10277,7 +10277,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> LateralDistanceActionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> LateralDistanceActionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -10326,7 +10326,7 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string LateralDistanceActionImpl::GetStringProperty(std::string key)
+        std::string LateralDistanceActionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             if (key.empty())
@@ -10343,7 +10343,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> LateralDistanceActionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> LateralDistanceActionImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -10357,12 +10357,12 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> LateralDistanceActionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> LateralDistanceActionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> LateralDistanceActionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> LateralDistanceActionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             if (key.empty())
             {
@@ -10378,7 +10378,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::string LateralDistanceActionImpl::GetEnumerationLiteral(std::string key)
+        std::string LateralDistanceActionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -10391,11 +10391,11 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::shared_ptr<ISpeedAction> LongitudinalActionImpl::GetSpeedAction()
+        std::shared_ptr<ISpeedAction> LongitudinalActionImpl::GetSpeedAction() const
         {
             return _speedAction;
         }
-        std::shared_ptr<ILongitudinalDistanceAction> LongitudinalActionImpl::GetLongitudinalDistanceAction()
+        std::shared_ptr<ILongitudinalDistanceAction> LongitudinalActionImpl::GetLongitudinalDistanceAction() const
         {
             return _longitudinalDistanceAction;
         }
@@ -10404,7 +10404,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType LongitudinalActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType LongitudinalActionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -10418,7 +10418,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> LongitudinalActionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> LongitudinalActionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -10469,13 +10469,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string LongitudinalActionImpl::GetStringProperty(std::string key)
+        std::string LongitudinalActionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> LongitudinalActionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> LongitudinalActionImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -10494,17 +10494,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> LongitudinalActionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> LongitudinalActionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> LongitudinalActionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> LongitudinalActionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string LongitudinalActionImpl::GetEnumerationLiteral(std::string key)
+        std::string LongitudinalActionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -10522,27 +10522,27 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__TIME_GAP, SimpleType::DOUBLE);
         }
 
-        bool LongitudinalDistanceActionImpl::GetContinuous()
+        bool LongitudinalDistanceActionImpl::GetContinuous() const
         {
             return _continuous;
         }
-        double LongitudinalDistanceActionImpl::GetDistance()
+        double LongitudinalDistanceActionImpl::GetDistance() const
         {
             return _distance;
         }
-        std::shared_ptr<INamedReference<IEntity>> LongitudinalDistanceActionImpl::GetEntityRef()
+        std::shared_ptr<INamedReference<IEntity>> LongitudinalDistanceActionImpl::GetEntityRef() const
         {
             return _entityRef;
         }
-        bool LongitudinalDistanceActionImpl::GetFreespace()
+        bool LongitudinalDistanceActionImpl::GetFreespace() const
         {
             return _freespace;
         }
-        double LongitudinalDistanceActionImpl::GetTimeGap()
+        double LongitudinalDistanceActionImpl::GetTimeGap() const
         {
             return _timeGap;
         }
-        std::shared_ptr<IDynamicConstraints> LongitudinalDistanceActionImpl::GetDynamicConstraints()
+        std::shared_ptr<IDynamicConstraints> LongitudinalDistanceActionImpl::GetDynamicConstraints() const
         {
             return _dynamicConstraints;
         }
@@ -10582,7 +10582,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType LongitudinalDistanceActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType LongitudinalDistanceActionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -10596,7 +10596,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> LongitudinalDistanceActionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> LongitudinalDistanceActionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -10647,7 +10647,7 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string LongitudinalDistanceActionImpl::GetStringProperty(std::string key)
+        std::string LongitudinalDistanceActionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             if (key.empty())
@@ -10664,7 +10664,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> LongitudinalDistanceActionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> LongitudinalDistanceActionImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -10678,12 +10678,12 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> LongitudinalDistanceActionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> LongitudinalDistanceActionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> LongitudinalDistanceActionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> LongitudinalDistanceActionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             if (key.empty())
             {
@@ -10699,7 +10699,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::string LongitudinalDistanceActionImpl::GetEnumerationLiteral(std::string key)
+        std::string LongitudinalDistanceActionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -10713,18 +10713,18 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, SimpleType::STRING);
         }
 
-        std::string ManeuverImpl::GetName()
+        std::string ManeuverImpl::GetName() const
         {
             return _name;
         }
-        std::vector<std::shared_ptr<IParameterDeclaration>> ManeuverImpl::GetParameterDeclarations()
+        std::vector<std::shared_ptr<IParameterDeclaration>> ManeuverImpl::GetParameterDeclarations() const
         {
             std::vector<std::shared_ptr<IParameterDeclaration>> temp;
             for(auto&& elm: _parameterDeclarations)
                 temp.push_back(elm);
             return temp;
         }
-        std::vector<std::shared_ptr<IEvent>> ManeuverImpl::GetEvents()
+        std::vector<std::shared_ptr<IEvent>> ManeuverImpl::GetEvents() const
         {
             std::vector<std::shared_ptr<IEvent>> temp;
             for(auto&& elm: _events)
@@ -10742,7 +10742,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType ManeuverImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ManeuverImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -10756,7 +10756,7 @@ namespace NET_ASAM_OPENSCENARIO
             return true;
         }
 
-        std::vector<std::shared_ptr<ParameterValue>> ManeuverImpl::GetParameterDefinitions() 
+        std::vector<std::shared_ptr<ParameterValue>> ManeuverImpl::GetParameterDefinitions() const
         {
             std::vector<std::shared_ptr<ParameterValue>> result;
             if (!_parameterDeclarations.empty())
@@ -10776,7 +10776,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> ManeuverImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> ManeuverImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -10843,7 +10843,7 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string ManeuverImpl::GetStringProperty(std::string key)
+        std::string ManeuverImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             if (key.empty())
@@ -10858,12 +10858,12 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ManeuverImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> ManeuverImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ManeuverImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ManeuverImpl::GetListChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -10888,12 +10888,12 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ManeuverImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> ManeuverImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string ManeuverImpl::GetEnumerationLiteral(std::string key)
+        std::string ManeuverImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -10906,7 +10906,7 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::shared_ptr<IDirectory> ManeuverCatalogLocationImpl::GetDirectory()
+        std::shared_ptr<IDirectory> ManeuverCatalogLocationImpl::GetDirectory() const
         {
             return _directory;
         }
@@ -10915,7 +10915,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType ManeuverCatalogLocationImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ManeuverCatalogLocationImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -10929,7 +10929,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> ManeuverCatalogLocationImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> ManeuverCatalogLocationImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -10967,13 +10967,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string ManeuverCatalogLocationImpl::GetStringProperty(std::string key)
+        std::string ManeuverCatalogLocationImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ManeuverCatalogLocationImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> ManeuverCatalogLocationImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -10987,17 +10987,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ManeuverCatalogLocationImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ManeuverCatalogLocationImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ManeuverCatalogLocationImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> ManeuverCatalogLocationImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string ManeuverCatalogLocationImpl::GetEnumerationLiteral(std::string key)
+        std::string ManeuverCatalogLocationImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -11012,26 +11012,26 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, SimpleType::STRING);
         }
 
-        uint32_t ManeuverGroupImpl::GetMaximumExecutionCount()
+        uint32_t ManeuverGroupImpl::GetMaximumExecutionCount() const
         {
             return _maximumExecutionCount;
         }
-        std::string ManeuverGroupImpl::GetName()
+        std::string ManeuverGroupImpl::GetName() const
         {
             return _name;
         }
-        std::shared_ptr<IActors> ManeuverGroupImpl::GetActors()
+        std::shared_ptr<IActors> ManeuverGroupImpl::GetActors() const
         {
             return _actors;
         }
-        std::vector<std::shared_ptr<ICatalogReference>> ManeuverGroupImpl::GetCatalogReferences()
+        std::vector<std::shared_ptr<ICatalogReference>> ManeuverGroupImpl::GetCatalogReferences() const
         {
             std::vector<std::shared_ptr<ICatalogReference>> temp;
             for(auto&& elm: _catalogReferences)
                 temp.push_back(elm);
             return temp;
         }
-        std::vector<std::shared_ptr<IManeuver>> ManeuverGroupImpl::GetManeuvers()
+        std::vector<std::shared_ptr<IManeuver>> ManeuverGroupImpl::GetManeuvers() const
         {
             std::vector<std::shared_ptr<IManeuver>> temp;
             for(auto&& elm: _maneuvers)
@@ -11055,7 +11055,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType ManeuverGroupImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ManeuverGroupImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -11069,7 +11069,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> ManeuverGroupImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> ManeuverGroupImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -11151,7 +11151,7 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string ManeuverGroupImpl::GetStringProperty(std::string key)
+        std::string ManeuverGroupImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             if (key.empty())
@@ -11166,7 +11166,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ManeuverGroupImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> ManeuverGroupImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -11180,7 +11180,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ManeuverGroupImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ManeuverGroupImpl::GetListChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -11206,12 +11206,12 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ManeuverGroupImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> ManeuverGroupImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string ManeuverGroupImpl::GetEnumerationLiteral(std::string key)
+        std::string ManeuverGroupImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -11227,30 +11227,30 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, SimpleType::STRING);
         }
 
-        double MiscObjectImpl::GetMass()
+        double MiscObjectImpl::GetMass() const
         {
             return _mass;
         }
-        MiscObjectCategory MiscObjectImpl::GetMiscObjectCategory()
+        MiscObjectCategory MiscObjectImpl::GetMiscObjectCategory() const
         {
             return _miscObjectCategory;
         }
-        std::string MiscObjectImpl::GetName()
+        std::string MiscObjectImpl::GetName() const
         {
             return _name;
         }
-        std::vector<std::shared_ptr<IParameterDeclaration>> MiscObjectImpl::GetParameterDeclarations()
+        std::vector<std::shared_ptr<IParameterDeclaration>> MiscObjectImpl::GetParameterDeclarations() const
         {
             std::vector<std::shared_ptr<IParameterDeclaration>> temp;
             for(auto&& elm: _parameterDeclarations)
                 temp.push_back(elm);
             return temp;
         }
-        std::shared_ptr<IBoundingBox> MiscObjectImpl::GetBoundingBox()
+        std::shared_ptr<IBoundingBox> MiscObjectImpl::GetBoundingBox() const
         {
             return _boundingBox;
         }
-        std::shared_ptr<IProperties> MiscObjectImpl::GetProperties()
+        std::shared_ptr<IProperties> MiscObjectImpl::GetProperties() const
         {
             return _properties;
         }
@@ -11286,7 +11286,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType MiscObjectImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType MiscObjectImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -11300,7 +11300,7 @@ namespace NET_ASAM_OPENSCENARIO
             return true;
         }
 
-        std::vector<std::shared_ptr<ParameterValue>> MiscObjectImpl::GetParameterDefinitions() 
+        std::vector<std::shared_ptr<ParameterValue>> MiscObjectImpl::GetParameterDefinitions() const
         {
             std::vector<std::shared_ptr<ParameterValue>> result;
             if (!_parameterDeclarations.empty())
@@ -11320,7 +11320,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> MiscObjectImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> MiscObjectImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -11401,7 +11401,7 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string MiscObjectImpl::GetStringProperty(std::string key)
+        std::string MiscObjectImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             if (key.empty())
@@ -11416,7 +11416,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> MiscObjectImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> MiscObjectImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -11435,7 +11435,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> MiscObjectImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> MiscObjectImpl::GetListChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -11452,12 +11452,12 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> MiscObjectImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> MiscObjectImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string MiscObjectImpl::GetEnumerationLiteral(std::string key)
+        std::string MiscObjectImpl::GetEnumerationLiteral(std::string key) const
         {
             if (key.empty())
             {
@@ -11480,7 +11480,7 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::shared_ptr<IDirectory> MiscObjectCatalogLocationImpl::GetDirectory()
+        std::shared_ptr<IDirectory> MiscObjectCatalogLocationImpl::GetDirectory() const
         {
             return _directory;
         }
@@ -11489,7 +11489,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType MiscObjectCatalogLocationImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType MiscObjectCatalogLocationImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -11503,7 +11503,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> MiscObjectCatalogLocationImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> MiscObjectCatalogLocationImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -11541,13 +11541,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string MiscObjectCatalogLocationImpl::GetStringProperty(std::string key)
+        std::string MiscObjectCatalogLocationImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> MiscObjectCatalogLocationImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> MiscObjectCatalogLocationImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -11561,17 +11561,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> MiscObjectCatalogLocationImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> MiscObjectCatalogLocationImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> MiscObjectCatalogLocationImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> MiscObjectCatalogLocationImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string MiscObjectCatalogLocationImpl::GetEnumerationLiteral(std::string key)
+        std::string MiscObjectCatalogLocationImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -11584,11 +11584,11 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::shared_ptr<IParameterAddValueRule> ModifyRuleImpl::GetAddValue()
+        std::shared_ptr<IParameterAddValueRule> ModifyRuleImpl::GetAddValue() const
         {
             return _addValue;
         }
-        std::shared_ptr<IParameterMultiplyByValueRule> ModifyRuleImpl::GetMultiplyByValue()
+        std::shared_ptr<IParameterMultiplyByValueRule> ModifyRuleImpl::GetMultiplyByValue() const
         {
             return _multiplyByValue;
         }
@@ -11597,7 +11597,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType ModifyRuleImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ModifyRuleImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -11611,7 +11611,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> ModifyRuleImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> ModifyRuleImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -11662,13 +11662,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string ModifyRuleImpl::GetStringProperty(std::string key)
+        std::string ModifyRuleImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ModifyRuleImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> ModifyRuleImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -11687,17 +11687,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ModifyRuleImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ModifyRuleImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ModifyRuleImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> ModifyRuleImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string ModifyRuleImpl::GetEnumerationLiteral(std::string key)
+        std::string ModifyRuleImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -11715,7 +11715,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType NoneImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType NoneImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -11729,7 +11729,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> NoneImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> NoneImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -11754,28 +11754,28 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string NoneImpl::GetStringProperty(std::string key)
+        std::string NoneImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> NoneImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> NoneImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> NoneImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> NoneImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> NoneImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> NoneImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string NoneImpl::GetEnumerationLiteral(std::string key)
+        std::string NoneImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -11789,18 +11789,18 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ORDER, SimpleType::UNSIGNED_INT);
         }
 
-        uint32_t NurbsImpl::GetOrder()
+        uint32_t NurbsImpl::GetOrder() const
         {
             return _order;
         }
-        std::vector<std::shared_ptr<IControlPoint>> NurbsImpl::GetControlPoints()
+        std::vector<std::shared_ptr<IControlPoint>> NurbsImpl::GetControlPoints() const
         {
             std::vector<std::shared_ptr<IControlPoint>> temp;
             for(auto&& elm: _controlPoints)
                 temp.push_back(elm);
             return temp;
         }
-        std::vector<std::shared_ptr<IKnot>> NurbsImpl::GetKnots()
+        std::vector<std::shared_ptr<IKnot>> NurbsImpl::GetKnots() const
         {
             std::vector<std::shared_ptr<IKnot>> temp;
             for(auto&& elm: _knots)
@@ -11818,7 +11818,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType NurbsImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType NurbsImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -11832,7 +11832,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> NurbsImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> NurbsImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -11899,18 +11899,18 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string NurbsImpl::GetStringProperty(std::string key)
+        std::string NurbsImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> NurbsImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> NurbsImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> NurbsImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> NurbsImpl::GetListChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -11936,12 +11936,12 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> NurbsImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> NurbsImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string NurbsImpl::GetEnumerationLiteral(std::string key)
+        std::string NurbsImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -11954,11 +11954,11 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::shared_ptr<ICatalogReference> ObjectControllerImpl::GetCatalogReference()
+        std::shared_ptr<ICatalogReference> ObjectControllerImpl::GetCatalogReference() const
         {
             return _catalogReference;
         }
-        std::shared_ptr<IController> ObjectControllerImpl::GetController()
+        std::shared_ptr<IController> ObjectControllerImpl::GetController() const
         {
             return _controller;
         }
@@ -11967,7 +11967,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType ObjectControllerImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ObjectControllerImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -11981,7 +11981,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> ObjectControllerImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> ObjectControllerImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -12032,13 +12032,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string ObjectControllerImpl::GetStringProperty(std::string key)
+        std::string ObjectControllerImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ObjectControllerImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> ObjectControllerImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -12057,17 +12057,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ObjectControllerImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ObjectControllerImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ObjectControllerImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> ObjectControllerImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string ObjectControllerImpl::GetEnumerationLiteral(std::string key)
+        std::string ObjectControllerImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -12081,7 +12081,7 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DURATION, SimpleType::DOUBLE);
         }
 
-        double OffroadConditionImpl::GetDuration()
+        double OffroadConditionImpl::GetDuration() const
         {
             return _duration;
         }
@@ -12096,7 +12096,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType OffroadConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType OffroadConditionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -12110,7 +12110,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> OffroadConditionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> OffroadConditionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -12137,28 +12137,28 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string OffroadConditionImpl::GetStringProperty(std::string key)
+        std::string OffroadConditionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> OffroadConditionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> OffroadConditionImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> OffroadConditionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> OffroadConditionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> OffroadConditionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> OffroadConditionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string OffroadConditionImpl::GetEnumerationLiteral(std::string key)
+        std::string OffroadConditionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -12171,11 +12171,11 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::shared_ptr<IFileHeader> OpenScenarioImpl::GetFileHeader()
+        std::shared_ptr<IFileHeader> OpenScenarioImpl::GetFileHeader() const
         {
             return _fileHeader;
         }
-        std::shared_ptr<IOpenScenarioCategory> OpenScenarioImpl::GetOpenScenarioCategory()
+        std::shared_ptr<IOpenScenarioCategory> OpenScenarioImpl::GetOpenScenarioCategory() const
         {
             return _openScenarioCategory;
         }
@@ -12184,7 +12184,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType OpenScenarioImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType OpenScenarioImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -12198,7 +12198,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> OpenScenarioImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> OpenScenarioImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -12249,13 +12249,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string OpenScenarioImpl::GetStringProperty(std::string key)
+        std::string OpenScenarioImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> OpenScenarioImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> OpenScenarioImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -12274,17 +12274,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> OpenScenarioImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> OpenScenarioImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> OpenScenarioImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> OpenScenarioImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string OpenScenarioImpl::GetEnumerationLiteral(std::string key)
+        std::string OpenScenarioImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -12297,11 +12297,11 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::shared_ptr<IScenarioDefinition> OpenScenarioCategoryImpl::GetScenarioDefinition()
+        std::shared_ptr<IScenarioDefinition> OpenScenarioCategoryImpl::GetScenarioDefinition() const
         {
             return _scenarioDefinition;
         }
-        std::shared_ptr<ICatalogDefinition> OpenScenarioCategoryImpl::GetCatalogDefinition()
+        std::shared_ptr<ICatalogDefinition> OpenScenarioCategoryImpl::GetCatalogDefinition() const
         {
             return _catalogDefinition;
         }
@@ -12310,7 +12310,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType OpenScenarioCategoryImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType OpenScenarioCategoryImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -12324,7 +12324,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> OpenScenarioCategoryImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> OpenScenarioCategoryImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -12375,13 +12375,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string OpenScenarioCategoryImpl::GetStringProperty(std::string key)
+        std::string OpenScenarioCategoryImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> OpenScenarioCategoryImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> OpenScenarioCategoryImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -12400,17 +12400,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> OpenScenarioCategoryImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> OpenScenarioCategoryImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> OpenScenarioCategoryImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> OpenScenarioCategoryImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string OpenScenarioCategoryImpl::GetEnumerationLiteral(std::string key)
+        std::string OpenScenarioCategoryImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -12427,19 +12427,19 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__TYPE, SimpleType::ENUM_TYPE);
         }
 
-        double OrientationImpl::GetH()
+        double OrientationImpl::GetH() const
         {
             return _h;
         }
-        double OrientationImpl::GetP()
+        double OrientationImpl::GetP() const
         {
             return _p;
         }
-        double OrientationImpl::GetR()
+        double OrientationImpl::GetR() const
         {
             return _r;
         }
-        ReferenceContext OrientationImpl::GetType()
+        ReferenceContext OrientationImpl::GetType() const
         {
             return _type;
         }
@@ -12481,7 +12481,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType OrientationImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType OrientationImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -12495,7 +12495,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> OrientationImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> OrientationImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -12532,28 +12532,28 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string OrientationImpl::GetStringProperty(std::string key)
+        std::string OrientationImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> OrientationImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> OrientationImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> OrientationImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> OrientationImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> OrientationImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> OrientationImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string OrientationImpl::GetEnumerationLiteral(std::string key)
+        std::string OrientationImpl::GetEnumerationLiteral(std::string key) const
         {
             if (key.empty())
             {
@@ -12578,11 +12578,11 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
         }
 
-        bool OverrideBrakeActionImpl::GetActive()
+        bool OverrideBrakeActionImpl::GetActive() const
         {
             return _active;
         }
-        double OverrideBrakeActionImpl::GetValue()
+        double OverrideBrakeActionImpl::GetValue() const
         {
             return _value;
         }
@@ -12603,7 +12603,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType OverrideBrakeActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType OverrideBrakeActionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -12617,7 +12617,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> OverrideBrakeActionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> OverrideBrakeActionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -12646,28 +12646,28 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string OverrideBrakeActionImpl::GetStringProperty(std::string key)
+        std::string OverrideBrakeActionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> OverrideBrakeActionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> OverrideBrakeActionImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> OverrideBrakeActionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> OverrideBrakeActionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> OverrideBrakeActionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> OverrideBrakeActionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string OverrideBrakeActionImpl::GetEnumerationLiteral(std::string key)
+        std::string OverrideBrakeActionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -12682,11 +12682,11 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
         }
 
-        bool OverrideClutchActionImpl::GetActive()
+        bool OverrideClutchActionImpl::GetActive() const
         {
             return _active;
         }
-        double OverrideClutchActionImpl::GetValue()
+        double OverrideClutchActionImpl::GetValue() const
         {
             return _value;
         }
@@ -12707,7 +12707,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType OverrideClutchActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType OverrideClutchActionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -12721,7 +12721,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> OverrideClutchActionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> OverrideClutchActionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -12750,28 +12750,28 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string OverrideClutchActionImpl::GetStringProperty(std::string key)
+        std::string OverrideClutchActionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> OverrideClutchActionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> OverrideClutchActionImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> OverrideClutchActionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> OverrideClutchActionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> OverrideClutchActionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> OverrideClutchActionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string OverrideClutchActionImpl::GetEnumerationLiteral(std::string key)
+        std::string OverrideClutchActionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -12784,27 +12784,27 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::shared_ptr<IOverrideThrottleAction> OverrideControllerValueActionImpl::GetThrottle()
+        std::shared_ptr<IOverrideThrottleAction> OverrideControllerValueActionImpl::GetThrottle() const
         {
             return _throttle;
         }
-        std::shared_ptr<IOverrideBrakeAction> OverrideControllerValueActionImpl::GetBrake()
+        std::shared_ptr<IOverrideBrakeAction> OverrideControllerValueActionImpl::GetBrake() const
         {
             return _brake;
         }
-        std::shared_ptr<IOverrideClutchAction> OverrideControllerValueActionImpl::GetClutch()
+        std::shared_ptr<IOverrideClutchAction> OverrideControllerValueActionImpl::GetClutch() const
         {
             return _clutch;
         }
-        std::shared_ptr<IOverrideParkingBrakeAction> OverrideControllerValueActionImpl::GetParkingBrake()
+        std::shared_ptr<IOverrideParkingBrakeAction> OverrideControllerValueActionImpl::GetParkingBrake() const
         {
             return _parkingBrake;
         }
-        std::shared_ptr<IOverrideSteeringWheelAction> OverrideControllerValueActionImpl::GetSteeringWheel()
+        std::shared_ptr<IOverrideSteeringWheelAction> OverrideControllerValueActionImpl::GetSteeringWheel() const
         {
             return _steeringWheel;
         }
-        std::shared_ptr<IOverrideGearAction> OverrideControllerValueActionImpl::GetGear()
+        std::shared_ptr<IOverrideGearAction> OverrideControllerValueActionImpl::GetGear() const
         {
             return _gear;
         }
@@ -12813,7 +12813,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType OverrideControllerValueActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType OverrideControllerValueActionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -12827,7 +12827,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> OverrideControllerValueActionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> OverrideControllerValueActionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -12930,13 +12930,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string OverrideControllerValueActionImpl::GetStringProperty(std::string key)
+        std::string OverrideControllerValueActionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> OverrideControllerValueActionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> OverrideControllerValueActionImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -12975,17 +12975,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> OverrideControllerValueActionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> OverrideControllerValueActionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> OverrideControllerValueActionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> OverrideControllerValueActionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string OverrideControllerValueActionImpl::GetEnumerationLiteral(std::string key)
+        std::string OverrideControllerValueActionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -13000,11 +13000,11 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NUMBER, SimpleType::DOUBLE);
         }
 
-        bool OverrideGearActionImpl::GetActive()
+        bool OverrideGearActionImpl::GetActive() const
         {
             return _active;
         }
-        double OverrideGearActionImpl::GetNumber()
+        double OverrideGearActionImpl::GetNumber() const
         {
             return _number;
         }
@@ -13025,7 +13025,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType OverrideGearActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType OverrideGearActionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -13039,7 +13039,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> OverrideGearActionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> OverrideGearActionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -13068,28 +13068,28 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string OverrideGearActionImpl::GetStringProperty(std::string key)
+        std::string OverrideGearActionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> OverrideGearActionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> OverrideGearActionImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> OverrideGearActionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> OverrideGearActionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> OverrideGearActionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> OverrideGearActionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string OverrideGearActionImpl::GetEnumerationLiteral(std::string key)
+        std::string OverrideGearActionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -13104,11 +13104,11 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
         }
 
-        bool OverrideParkingBrakeActionImpl::GetActive()
+        bool OverrideParkingBrakeActionImpl::GetActive() const
         {
             return _active;
         }
-        double OverrideParkingBrakeActionImpl::GetValue()
+        double OverrideParkingBrakeActionImpl::GetValue() const
         {
             return _value;
         }
@@ -13129,7 +13129,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType OverrideParkingBrakeActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType OverrideParkingBrakeActionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -13143,7 +13143,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> OverrideParkingBrakeActionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> OverrideParkingBrakeActionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -13172,28 +13172,28 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string OverrideParkingBrakeActionImpl::GetStringProperty(std::string key)
+        std::string OverrideParkingBrakeActionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> OverrideParkingBrakeActionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> OverrideParkingBrakeActionImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> OverrideParkingBrakeActionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> OverrideParkingBrakeActionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> OverrideParkingBrakeActionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> OverrideParkingBrakeActionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string OverrideParkingBrakeActionImpl::GetEnumerationLiteral(std::string key)
+        std::string OverrideParkingBrakeActionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -13208,11 +13208,11 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
         }
 
-        bool OverrideSteeringWheelActionImpl::GetActive()
+        bool OverrideSteeringWheelActionImpl::GetActive() const
         {
             return _active;
         }
-        double OverrideSteeringWheelActionImpl::GetValue()
+        double OverrideSteeringWheelActionImpl::GetValue() const
         {
             return _value;
         }
@@ -13233,7 +13233,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType OverrideSteeringWheelActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType OverrideSteeringWheelActionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -13247,7 +13247,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> OverrideSteeringWheelActionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> OverrideSteeringWheelActionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -13276,28 +13276,28 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string OverrideSteeringWheelActionImpl::GetStringProperty(std::string key)
+        std::string OverrideSteeringWheelActionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> OverrideSteeringWheelActionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> OverrideSteeringWheelActionImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> OverrideSteeringWheelActionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> OverrideSteeringWheelActionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> OverrideSteeringWheelActionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> OverrideSteeringWheelActionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string OverrideSteeringWheelActionImpl::GetEnumerationLiteral(std::string key)
+        std::string OverrideSteeringWheelActionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -13312,11 +13312,11 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
         }
 
-        bool OverrideThrottleActionImpl::GetActive()
+        bool OverrideThrottleActionImpl::GetActive() const
         {
             return _active;
         }
-        double OverrideThrottleActionImpl::GetValue()
+        double OverrideThrottleActionImpl::GetValue() const
         {
             return _value;
         }
@@ -13337,7 +13337,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType OverrideThrottleActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType OverrideThrottleActionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -13351,7 +13351,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> OverrideThrottleActionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> OverrideThrottleActionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -13380,28 +13380,28 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string OverrideThrottleActionImpl::GetStringProperty(std::string key)
+        std::string OverrideThrottleActionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> OverrideThrottleActionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> OverrideThrottleActionImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> OverrideThrottleActionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> OverrideThrottleActionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> OverrideThrottleActionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> OverrideThrottleActionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string OverrideThrottleActionImpl::GetEnumerationLiteral(std::string key)
+        std::string OverrideThrottleActionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -13415,15 +13415,15 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_REF, SimpleType::STRING);
         }
 
-        std::shared_ptr<INamedReference<IParameterDeclaration>> ParameterActionImpl::GetParameterRef()
+        std::shared_ptr<INamedReference<IParameterDeclaration>> ParameterActionImpl::GetParameterRef() const
         {
             return _parameterRef;
         }
-        std::shared_ptr<IParameterSetAction> ParameterActionImpl::GetSetAction()
+        std::shared_ptr<IParameterSetAction> ParameterActionImpl::GetSetAction() const
         {
             return _setAction;
         }
-        std::shared_ptr<IParameterModifyAction> ParameterActionImpl::GetModifyAction()
+        std::shared_ptr<IParameterModifyAction> ParameterActionImpl::GetModifyAction() const
         {
             return _modifyAction;
         }
@@ -13439,7 +13439,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType ParameterActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ParameterActionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -13453,7 +13453,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> ParameterActionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> ParameterActionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -13509,7 +13509,7 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string ParameterActionImpl::GetStringProperty(std::string key)
+        std::string ParameterActionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             if (key.empty())
@@ -13526,7 +13526,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ParameterActionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> ParameterActionImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -13545,12 +13545,12 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ParameterActionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ParameterActionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ParameterActionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> ParameterActionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             if (key.empty())
             {
@@ -13566,7 +13566,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::string ParameterActionImpl::GetEnumerationLiteral(std::string key)
+        std::string ParameterActionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -13580,7 +13580,7 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
         }
 
-        double ParameterAddValueRuleImpl::GetValue()
+        double ParameterAddValueRuleImpl::GetValue() const
         {
             return _value;
         }
@@ -13595,7 +13595,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType ParameterAddValueRuleImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ParameterAddValueRuleImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -13609,7 +13609,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> ParameterAddValueRuleImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> ParameterAddValueRuleImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -13636,28 +13636,28 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string ParameterAddValueRuleImpl::GetStringProperty(std::string key)
+        std::string ParameterAddValueRuleImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ParameterAddValueRuleImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> ParameterAddValueRuleImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ParameterAddValueRuleImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ParameterAddValueRuleImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ParameterAddValueRuleImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> ParameterAddValueRuleImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string ParameterAddValueRuleImpl::GetEnumerationLiteral(std::string key)
+        std::string ParameterAddValueRuleImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -13672,11 +13672,11 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::STRING);
         }
 
-        std::shared_ptr<INamedReference<IParameterDeclaration>> ParameterAssignmentImpl::GetParameterRef()
+        std::shared_ptr<INamedReference<IParameterDeclaration>> ParameterAssignmentImpl::GetParameterRef() const
         {
             return _parameterRef;
         }
-        std::string ParameterAssignmentImpl::GetValue()
+        std::string ParameterAssignmentImpl::GetValue() const
         {
             return _value;
         }
@@ -13691,7 +13691,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType ParameterAssignmentImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ParameterAssignmentImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -13705,7 +13705,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> ParameterAssignmentImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> ParameterAssignmentImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -13737,7 +13737,7 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string ParameterAssignmentImpl::GetStringProperty(std::string key)
+        std::string ParameterAssignmentImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             if (key.empty())
@@ -13759,17 +13759,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ParameterAssignmentImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> ParameterAssignmentImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ParameterAssignmentImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ParameterAssignmentImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ParameterAssignmentImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> ParameterAssignmentImpl::GetReferencedElement(std::string key, std::string name) const
         {
             if (key.empty())
             {
@@ -13785,7 +13785,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::string ParameterAssignmentImpl::GetEnumerationLiteral(std::string key)
+        std::string ParameterAssignmentImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -13801,15 +13801,15 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::STRING);
         }
 
-        std::shared_ptr<INamedReference<IParameterDeclaration>> ParameterConditionImpl::GetParameterRef()
+        std::shared_ptr<INamedReference<IParameterDeclaration>> ParameterConditionImpl::GetParameterRef() const
         {
             return _parameterRef;
         }
-        Rule ParameterConditionImpl::GetRule()
+        Rule ParameterConditionImpl::GetRule() const
         {
             return _rule;
         }
-        std::string ParameterConditionImpl::GetValue()
+        std::string ParameterConditionImpl::GetValue() const
         {
             return _value;
         }
@@ -13846,7 +13846,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType ParameterConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ParameterConditionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -13860,7 +13860,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> ParameterConditionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> ParameterConditionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -13898,7 +13898,7 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string ParameterConditionImpl::GetStringProperty(std::string key)
+        std::string ParameterConditionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             if (key.empty())
@@ -13920,17 +13920,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ParameterConditionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> ParameterConditionImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ParameterConditionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ParameterConditionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ParameterConditionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> ParameterConditionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             if (key.empty())
             {
@@ -13946,7 +13946,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::string ParameterConditionImpl::GetEnumerationLiteral(std::string key)
+        std::string ParameterConditionImpl::GetEnumerationLiteral(std::string key) const
         {
             if (key.empty())
             {
@@ -13972,15 +13972,15 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::STRING);
         }
 
-        std::string ParameterDeclarationImpl::GetName()
+        std::string ParameterDeclarationImpl::GetName() const
         {
             return _name;
         }
-        ParameterType ParameterDeclarationImpl::GetParameterType()
+        ParameterType ParameterDeclarationImpl::GetParameterType() const
         {
             return _parameterType;
         }
-        std::string ParameterDeclarationImpl::GetValue()
+        std::string ParameterDeclarationImpl::GetValue() const
         {
             return _value;
         }
@@ -14010,7 +14010,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType ParameterDeclarationImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ParameterDeclarationImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -14024,7 +14024,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> ParameterDeclarationImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> ParameterDeclarationImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -14059,7 +14059,7 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string ParameterDeclarationImpl::GetStringProperty(std::string key)
+        std::string ParameterDeclarationImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             if (key.empty())
@@ -14079,22 +14079,22 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ParameterDeclarationImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> ParameterDeclarationImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ParameterDeclarationImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ParameterDeclarationImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ParameterDeclarationImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> ParameterDeclarationImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string ParameterDeclarationImpl::GetEnumerationLiteral(std::string key)
+        std::string ParameterDeclarationImpl::GetEnumerationLiteral(std::string key) const
         {
             if (key.empty())
             {
@@ -14117,7 +14117,7 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::shared_ptr<IModifyRule> ParameterModifyActionImpl::GetRule()
+        std::shared_ptr<IModifyRule> ParameterModifyActionImpl::GetRule() const
         {
             return _rule;
         }
@@ -14126,7 +14126,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType ParameterModifyActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ParameterModifyActionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -14140,7 +14140,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> ParameterModifyActionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> ParameterModifyActionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -14178,13 +14178,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string ParameterModifyActionImpl::GetStringProperty(std::string key)
+        std::string ParameterModifyActionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ParameterModifyActionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> ParameterModifyActionImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -14198,17 +14198,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ParameterModifyActionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ParameterModifyActionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ParameterModifyActionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> ParameterModifyActionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string ParameterModifyActionImpl::GetEnumerationLiteral(std::string key)
+        std::string ParameterModifyActionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -14222,7 +14222,7 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
         }
 
-        double ParameterMultiplyByValueRuleImpl::GetValue()
+        double ParameterMultiplyByValueRuleImpl::GetValue() const
         {
             return _value;
         }
@@ -14237,7 +14237,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType ParameterMultiplyByValueRuleImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ParameterMultiplyByValueRuleImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -14251,7 +14251,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> ParameterMultiplyByValueRuleImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> ParameterMultiplyByValueRuleImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -14278,28 +14278,28 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string ParameterMultiplyByValueRuleImpl::GetStringProperty(std::string key)
+        std::string ParameterMultiplyByValueRuleImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ParameterMultiplyByValueRuleImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> ParameterMultiplyByValueRuleImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ParameterMultiplyByValueRuleImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ParameterMultiplyByValueRuleImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ParameterMultiplyByValueRuleImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> ParameterMultiplyByValueRuleImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string ParameterMultiplyByValueRuleImpl::GetEnumerationLiteral(std::string key)
+        std::string ParameterMultiplyByValueRuleImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -14313,7 +14313,7 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::STRING);
         }
 
-        std::string ParameterSetActionImpl::GetValue()
+        std::string ParameterSetActionImpl::GetValue() const
         {
             return _value;
         }
@@ -14328,7 +14328,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType ParameterSetActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ParameterSetActionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -14342,7 +14342,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> ParameterSetActionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> ParameterSetActionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -14369,7 +14369,7 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string ParameterSetActionImpl::GetStringProperty(std::string key)
+        std::string ParameterSetActionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             if (key.empty())
@@ -14384,22 +14384,22 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ParameterSetActionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> ParameterSetActionImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ParameterSetActionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ParameterSetActionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ParameterSetActionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> ParameterSetActionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string ParameterSetActionImpl::GetEnumerationLiteral(std::string key)
+        std::string ParameterSetActionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -14416,34 +14416,34 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__PEDESTRIAN_CATEGORY, SimpleType::ENUM_TYPE);
         }
 
-        double PedestrianImpl::GetMass()
+        double PedestrianImpl::GetMass() const
         {
             return _mass;
         }
-        std::string PedestrianImpl::GetModel()
+        std::string PedestrianImpl::GetModel() const
         {
             return _model;
         }
-        std::string PedestrianImpl::GetName()
+        std::string PedestrianImpl::GetName() const
         {
             return _name;
         }
-        PedestrianCategory PedestrianImpl::GetPedestrianCategory()
+        PedestrianCategory PedestrianImpl::GetPedestrianCategory() const
         {
             return _pedestrianCategory;
         }
-        std::vector<std::shared_ptr<IParameterDeclaration>> PedestrianImpl::GetParameterDeclarations()
+        std::vector<std::shared_ptr<IParameterDeclaration>> PedestrianImpl::GetParameterDeclarations() const
         {
             std::vector<std::shared_ptr<IParameterDeclaration>> temp;
             for(auto&& elm: _parameterDeclarations)
                 temp.push_back(elm);
             return temp;
         }
-        std::shared_ptr<IBoundingBox> PedestrianImpl::GetBoundingBox()
+        std::shared_ptr<IBoundingBox> PedestrianImpl::GetBoundingBox() const
         {
             return _boundingBox;
         }
-        std::shared_ptr<IProperties> PedestrianImpl::GetProperties()
+        std::shared_ptr<IProperties> PedestrianImpl::GetProperties() const
         {
             return _properties;
         }
@@ -14485,7 +14485,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType PedestrianImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType PedestrianImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -14499,7 +14499,7 @@ namespace NET_ASAM_OPENSCENARIO
             return true;
         }
 
-        std::vector<std::shared_ptr<ParameterValue>> PedestrianImpl::GetParameterDefinitions() 
+        std::vector<std::shared_ptr<ParameterValue>> PedestrianImpl::GetParameterDefinitions() const
         {
             std::vector<std::shared_ptr<ParameterValue>> result;
             if (!_parameterDeclarations.empty())
@@ -14519,7 +14519,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> PedestrianImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> PedestrianImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -14602,7 +14602,7 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string PedestrianImpl::GetStringProperty(std::string key)
+        std::string PedestrianImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             if (key.empty())
@@ -14622,7 +14622,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> PedestrianImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> PedestrianImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -14641,7 +14641,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> PedestrianImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> PedestrianImpl::GetListChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -14658,12 +14658,12 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> PedestrianImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> PedestrianImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string PedestrianImpl::GetEnumerationLiteral(std::string key)
+        std::string PedestrianImpl::GetEnumerationLiteral(std::string key) const
         {
             if (key.empty())
             {
@@ -14686,7 +14686,7 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::shared_ptr<IDirectory> PedestrianCatalogLocationImpl::GetDirectory()
+        std::shared_ptr<IDirectory> PedestrianCatalogLocationImpl::GetDirectory() const
         {
             return _directory;
         }
@@ -14695,7 +14695,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType PedestrianCatalogLocationImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType PedestrianCatalogLocationImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -14709,7 +14709,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> PedestrianCatalogLocationImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> PedestrianCatalogLocationImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -14747,13 +14747,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string PedestrianCatalogLocationImpl::GetStringProperty(std::string key)
+        std::string PedestrianCatalogLocationImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> PedestrianCatalogLocationImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> PedestrianCatalogLocationImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -14767,17 +14767,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> PedestrianCatalogLocationImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> PedestrianCatalogLocationImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> PedestrianCatalogLocationImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> PedestrianCatalogLocationImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string PedestrianCatalogLocationImpl::GetEnumerationLiteral(std::string key)
+        std::string PedestrianCatalogLocationImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -14793,15 +14793,15 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__MAX_SPEED, SimpleType::DOUBLE);
         }
 
-        double PerformanceImpl::GetMaxAcceleration()
+        double PerformanceImpl::GetMaxAcceleration() const
         {
             return _maxAcceleration;
         }
-        double PerformanceImpl::GetMaxDeceleration()
+        double PerformanceImpl::GetMaxDeceleration() const
         {
             return _maxDeceleration;
         }
-        double PerformanceImpl::GetMaxSpeed()
+        double PerformanceImpl::GetMaxSpeed() const
         {
             return _maxSpeed;
         }
@@ -14828,7 +14828,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType PerformanceImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType PerformanceImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -14842,7 +14842,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> PerformanceImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> PerformanceImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -14873,28 +14873,28 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string PerformanceImpl::GetStringProperty(std::string key)
+        std::string PerformanceImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> PerformanceImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> PerformanceImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> PerformanceImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> PerformanceImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> PerformanceImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> PerformanceImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string PerformanceImpl::GetEnumerationLiteral(std::string key)
+        std::string PerformanceImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -14909,15 +14909,15 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, SimpleType::STRING);
         }
 
-        double PhaseImpl::GetDuration()
+        double PhaseImpl::GetDuration() const
         {
             return _duration;
         }
-        std::string PhaseImpl::GetName()
+        std::string PhaseImpl::GetName() const
         {
             return _name;
         }
-        std::vector<std::shared_ptr<ITrafficSignalState>> PhaseImpl::GetTrafficSignalStates()
+        std::vector<std::shared_ptr<ITrafficSignalState>> PhaseImpl::GetTrafficSignalStates() const
         {
             std::vector<std::shared_ptr<ITrafficSignalState>> temp;
             for(auto&& elm: _trafficSignalStates)
@@ -14941,7 +14941,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType PhaseImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType PhaseImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -14955,7 +14955,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> PhaseImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> PhaseImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -15004,7 +15004,7 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string PhaseImpl::GetStringProperty(std::string key)
+        std::string PhaseImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             if (key.empty())
@@ -15019,12 +15019,12 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> PhaseImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> PhaseImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> PhaseImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> PhaseImpl::GetListChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -15042,12 +15042,12 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> PhaseImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> PhaseImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string PhaseImpl::GetEnumerationLiteral(std::string key)
+        std::string PhaseImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -15060,7 +15060,7 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::vector<std::shared_ptr<IVertex>> PolylineImpl::GetVertices()
+        std::vector<std::shared_ptr<IVertex>> PolylineImpl::GetVertices() const
         {
             std::vector<std::shared_ptr<IVertex>> temp;
             for(auto&& elm: _vertices)
@@ -15072,7 +15072,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType PolylineImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType PolylineImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -15086,7 +15086,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> PolylineImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> PolylineImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -15131,18 +15131,18 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string PolylineImpl::GetStringProperty(std::string key)
+        std::string PolylineImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> PolylineImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> PolylineImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> PolylineImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> PolylineImpl::GetListChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -15160,12 +15160,12 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> PolylineImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> PolylineImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string PolylineImpl::GetEnumerationLiteral(std::string key)
+        std::string PolylineImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -15178,35 +15178,35 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::shared_ptr<IWorldPosition> PositionImpl::GetWorldPosition()
+        std::shared_ptr<IWorldPosition> PositionImpl::GetWorldPosition() const
         {
             return _worldPosition;
         }
-        std::shared_ptr<IRelativeWorldPosition> PositionImpl::GetRelativeWorldPosition()
+        std::shared_ptr<IRelativeWorldPosition> PositionImpl::GetRelativeWorldPosition() const
         {
             return _relativeWorldPosition;
         }
-        std::shared_ptr<IRelativeObjectPosition> PositionImpl::GetRelativeObjectPosition()
+        std::shared_ptr<IRelativeObjectPosition> PositionImpl::GetRelativeObjectPosition() const
         {
             return _relativeObjectPosition;
         }
-        std::shared_ptr<IRoadPosition> PositionImpl::GetRoadPosition()
+        std::shared_ptr<IRoadPosition> PositionImpl::GetRoadPosition() const
         {
             return _roadPosition;
         }
-        std::shared_ptr<IRelativeRoadPosition> PositionImpl::GetRelativeRoadPosition()
+        std::shared_ptr<IRelativeRoadPosition> PositionImpl::GetRelativeRoadPosition() const
         {
             return _relativeRoadPosition;
         }
-        std::shared_ptr<ILanePosition> PositionImpl::GetLanePosition()
+        std::shared_ptr<ILanePosition> PositionImpl::GetLanePosition() const
         {
             return _lanePosition;
         }
-        std::shared_ptr<IRelativeLanePosition> PositionImpl::GetRelativeLanePosition()
+        std::shared_ptr<IRelativeLanePosition> PositionImpl::GetRelativeLanePosition() const
         {
             return _relativeLanePosition;
         }
-        std::shared_ptr<IRoutePosition> PositionImpl::GetRoutePosition()
+        std::shared_ptr<IRoutePosition> PositionImpl::GetRoutePosition() const
         {
             return _routePosition;
         }
@@ -15215,7 +15215,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType PositionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType PositionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -15229,7 +15229,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> PositionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> PositionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -15358,13 +15358,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string PositionImpl::GetStringProperty(std::string key)
+        std::string PositionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> PositionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> PositionImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -15413,17 +15413,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> PositionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> PositionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> PositionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> PositionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string PositionImpl::GetEnumerationLiteral(std::string key)
+        std::string PositionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -15439,15 +15439,15 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__PATH_S, SimpleType::DOUBLE);
         }
 
-        std::string PositionInLaneCoordinatesImpl::GetLaneId()
+        std::string PositionInLaneCoordinatesImpl::GetLaneId() const
         {
             return _laneId;
         }
-        double PositionInLaneCoordinatesImpl::GetLaneOffset()
+        double PositionInLaneCoordinatesImpl::GetLaneOffset() const
         {
             return _laneOffset;
         }
-        double PositionInLaneCoordinatesImpl::GetPathS()
+        double PositionInLaneCoordinatesImpl::GetPathS() const
         {
             return _pathS;
         }
@@ -15474,7 +15474,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType PositionInLaneCoordinatesImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType PositionInLaneCoordinatesImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -15488,7 +15488,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> PositionInLaneCoordinatesImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> PositionInLaneCoordinatesImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -15519,7 +15519,7 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string PositionInLaneCoordinatesImpl::GetStringProperty(std::string key)
+        std::string PositionInLaneCoordinatesImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             if (key.empty())
@@ -15534,22 +15534,22 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> PositionInLaneCoordinatesImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> PositionInLaneCoordinatesImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> PositionInLaneCoordinatesImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> PositionInLaneCoordinatesImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> PositionInLaneCoordinatesImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> PositionInLaneCoordinatesImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string PositionInLaneCoordinatesImpl::GetEnumerationLiteral(std::string key)
+        std::string PositionInLaneCoordinatesImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -15564,11 +15564,11 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__T, SimpleType::DOUBLE);
         }
 
-        double PositionInRoadCoordinatesImpl::GetPathS()
+        double PositionInRoadCoordinatesImpl::GetPathS() const
         {
             return _pathS;
         }
-        double PositionInRoadCoordinatesImpl::GetT()
+        double PositionInRoadCoordinatesImpl::GetT() const
         {
             return _t;
         }
@@ -15589,7 +15589,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType PositionInRoadCoordinatesImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType PositionInRoadCoordinatesImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -15603,7 +15603,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> PositionInRoadCoordinatesImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> PositionInRoadCoordinatesImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -15632,28 +15632,28 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string PositionInRoadCoordinatesImpl::GetStringProperty(std::string key)
+        std::string PositionInRoadCoordinatesImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> PositionInRoadCoordinatesImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> PositionInRoadCoordinatesImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> PositionInRoadCoordinatesImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> PositionInRoadCoordinatesImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> PositionInRoadCoordinatesImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> PositionInRoadCoordinatesImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string PositionInRoadCoordinatesImpl::GetEnumerationLiteral(std::string key)
+        std::string PositionInRoadCoordinatesImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -15667,7 +15667,7 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, SimpleType::STRING);
         }
 
-        std::shared_ptr<INamedReference<IEntity>> PositionOfCurrentEntityImpl::GetEntityRef()
+        std::shared_ptr<INamedReference<IEntity>> PositionOfCurrentEntityImpl::GetEntityRef() const
         {
             return _entityRef;
         }
@@ -15683,7 +15683,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType PositionOfCurrentEntityImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType PositionOfCurrentEntityImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -15697,7 +15697,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> PositionOfCurrentEntityImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> PositionOfCurrentEntityImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -15727,7 +15727,7 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string PositionOfCurrentEntityImpl::GetStringProperty(std::string key)
+        std::string PositionOfCurrentEntityImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             if (key.empty())
@@ -15744,17 +15744,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> PositionOfCurrentEntityImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> PositionOfCurrentEntityImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> PositionOfCurrentEntityImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> PositionOfCurrentEntityImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> PositionOfCurrentEntityImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> PositionOfCurrentEntityImpl::GetReferencedElement(std::string key, std::string name) const
         {
             if (key.empty())
             {
@@ -15770,7 +15770,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::string PositionOfCurrentEntityImpl::GetEnumerationLiteral(std::string key)
+        std::string PositionOfCurrentEntityImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -15785,11 +15785,11 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__PRECIPITATION_TYPE, SimpleType::ENUM_TYPE);
         }
 
-        double PrecipitationImpl::GetIntensity()
+        double PrecipitationImpl::GetIntensity() const
         {
             return _intensity;
         }
-        PrecipitationType PrecipitationImpl::GetPrecipitationType()
+        PrecipitationType PrecipitationImpl::GetPrecipitationType() const
         {
             return _precipitationType;
         }
@@ -15819,7 +15819,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType PrecipitationImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType PrecipitationImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -15833,7 +15833,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> PrecipitationImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> PrecipitationImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -15866,28 +15866,28 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string PrecipitationImpl::GetStringProperty(std::string key)
+        std::string PrecipitationImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> PrecipitationImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> PrecipitationImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> PrecipitationImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> PrecipitationImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> PrecipitationImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> PrecipitationImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string PrecipitationImpl::GetEnumerationLiteral(std::string key)
+        std::string PrecipitationImpl::GetEnumerationLiteral(std::string key) const
         {
             if (key.empty())
             {
@@ -15911,11 +15911,11 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, SimpleType::STRING);
         }
 
-        std::shared_ptr<INamedReference<IEntity>> PrivateImpl::GetEntityRef()
+        std::shared_ptr<INamedReference<IEntity>> PrivateImpl::GetEntityRef() const
         {
             return _entityRef;
         }
-        std::vector<std::shared_ptr<IPrivateAction>> PrivateImpl::GetPrivateActions()
+        std::vector<std::shared_ptr<IPrivateAction>> PrivateImpl::GetPrivateActions() const
         {
             std::vector<std::shared_ptr<IPrivateAction>> temp;
             for(auto&& elm: _privateActions)
@@ -15934,7 +15934,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType PrivateImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType PrivateImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -15948,7 +15948,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> PrivateImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> PrivateImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -15998,7 +15998,7 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string PrivateImpl::GetStringProperty(std::string key)
+        std::string PrivateImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             if (key.empty())
@@ -16015,12 +16015,12 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> PrivateImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> PrivateImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> PrivateImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> PrivateImpl::GetListChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -16038,7 +16038,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> PrivateImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> PrivateImpl::GetReferencedElement(std::string key, std::string name) const
         {
             if (key.empty())
             {
@@ -16054,7 +16054,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::string PrivateImpl::GetEnumerationLiteral(std::string key)
+        std::string PrivateImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -16067,35 +16067,35 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::shared_ptr<ILongitudinalAction> PrivateActionImpl::GetLongitudinalAction()
+        std::shared_ptr<ILongitudinalAction> PrivateActionImpl::GetLongitudinalAction() const
         {
             return _longitudinalAction;
         }
-        std::shared_ptr<ILateralAction> PrivateActionImpl::GetLateralAction()
+        std::shared_ptr<ILateralAction> PrivateActionImpl::GetLateralAction() const
         {
             return _lateralAction;
         }
-        std::shared_ptr<IVisibilityAction> PrivateActionImpl::GetVisibilityAction()
+        std::shared_ptr<IVisibilityAction> PrivateActionImpl::GetVisibilityAction() const
         {
             return _visibilityAction;
         }
-        std::shared_ptr<ISynchronizeAction> PrivateActionImpl::GetSynchronizeAction()
+        std::shared_ptr<ISynchronizeAction> PrivateActionImpl::GetSynchronizeAction() const
         {
             return _synchronizeAction;
         }
-        std::shared_ptr<IActivateControllerAction> PrivateActionImpl::GetActivateControllerAction()
+        std::shared_ptr<IActivateControllerAction> PrivateActionImpl::GetActivateControllerAction() const
         {
             return _activateControllerAction;
         }
-        std::shared_ptr<IControllerAction> PrivateActionImpl::GetControllerAction()
+        std::shared_ptr<IControllerAction> PrivateActionImpl::GetControllerAction() const
         {
             return _controllerAction;
         }
-        std::shared_ptr<ITeleportAction> PrivateActionImpl::GetTeleportAction()
+        std::shared_ptr<ITeleportAction> PrivateActionImpl::GetTeleportAction() const
         {
             return _teleportAction;
         }
-        std::shared_ptr<IRoutingAction> PrivateActionImpl::GetRoutingAction()
+        std::shared_ptr<IRoutingAction> PrivateActionImpl::GetRoutingAction() const
         {
             return _routingAction;
         }
@@ -16104,7 +16104,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType PrivateActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType PrivateActionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -16118,7 +16118,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> PrivateActionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> PrivateActionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -16247,13 +16247,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string PrivateActionImpl::GetStringProperty(std::string key)
+        std::string PrivateActionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> PrivateActionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> PrivateActionImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -16302,17 +16302,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> PrivateActionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> PrivateActionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> PrivateActionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> PrivateActionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string PrivateActionImpl::GetEnumerationLiteral(std::string key)
+        std::string PrivateActionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -16325,14 +16325,14 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::vector<std::shared_ptr<IProperty>> PropertiesImpl::GetProperties()
+        std::vector<std::shared_ptr<IProperty>> PropertiesImpl::GetProperties() const
         {
             std::vector<std::shared_ptr<IProperty>> temp;
             for(auto&& elm: _properties)
                 temp.push_back(elm);
             return temp;
         }
-        std::vector<std::shared_ptr<IFile>> PropertiesImpl::GetFiles()
+        std::vector<std::shared_ptr<IFile>> PropertiesImpl::GetFiles() const
         {
             std::vector<std::shared_ptr<IFile>> temp;
             for(auto&& elm: _files)
@@ -16344,7 +16344,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType PropertiesImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType PropertiesImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -16358,7 +16358,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> PropertiesImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> PropertiesImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -16423,18 +16423,18 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string PropertiesImpl::GetStringProperty(std::string key)
+        std::string PropertiesImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> PropertiesImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> PropertiesImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> PropertiesImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> PropertiesImpl::GetListChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -16460,12 +16460,12 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> PropertiesImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> PropertiesImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string PropertiesImpl::GetEnumerationLiteral(std::string key)
+        std::string PropertiesImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -16480,11 +16480,11 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::STRING);
         }
 
-        std::string PropertyImpl::GetName()
+        std::string PropertyImpl::GetName() const
         {
             return _name;
         }
-        std::string PropertyImpl::GetValue()
+        std::string PropertyImpl::GetValue() const
         {
             return _value;
         }
@@ -16505,7 +16505,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType PropertyImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType PropertyImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -16519,7 +16519,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> PropertyImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> PropertyImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -16548,7 +16548,7 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string PropertyImpl::GetStringProperty(std::string key)
+        std::string PropertyImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             if (key.empty())
@@ -16568,22 +16568,22 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> PropertyImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> PropertyImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> PropertyImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> PropertyImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> PropertyImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> PropertyImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string PropertyImpl::GetEnumerationLiteral(std::string key)
+        std::string PropertyImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -16597,11 +16597,11 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__TOLERANCE, SimpleType::DOUBLE);
         }
 
-        double ReachPositionConditionImpl::GetTolerance()
+        double ReachPositionConditionImpl::GetTolerance() const
         {
             return _tolerance;
         }
-        std::shared_ptr<IPosition> ReachPositionConditionImpl::GetPosition()
+        std::shared_ptr<IPosition> ReachPositionConditionImpl::GetPosition() const
         {
             return _position;
         }
@@ -16616,7 +16616,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType ReachPositionConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ReachPositionConditionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -16630,7 +16630,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> ReachPositionConditionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> ReachPositionConditionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -16670,13 +16670,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string ReachPositionConditionImpl::GetStringProperty(std::string key)
+        std::string ReachPositionConditionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ReachPositionConditionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> ReachPositionConditionImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -16690,17 +16690,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ReachPositionConditionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ReachPositionConditionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ReachPositionConditionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> ReachPositionConditionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string ReachPositionConditionImpl::GetEnumerationLiteral(std::string key)
+        std::string ReachPositionConditionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -16718,23 +16718,23 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
         }
 
-        std::shared_ptr<INamedReference<IEntity>> RelativeDistanceConditionImpl::GetEntityRef()
+        std::shared_ptr<INamedReference<IEntity>> RelativeDistanceConditionImpl::GetEntityRef() const
         {
             return _entityRef;
         }
-        bool RelativeDistanceConditionImpl::GetFreespace()
+        bool RelativeDistanceConditionImpl::GetFreespace() const
         {
             return _freespace;
         }
-        RelativeDistanceType RelativeDistanceConditionImpl::GetRelativeDistanceType()
+        RelativeDistanceType RelativeDistanceConditionImpl::GetRelativeDistanceType() const
         {
             return _relativeDistanceType;
         }
-        Rule RelativeDistanceConditionImpl::GetRule()
+        Rule RelativeDistanceConditionImpl::GetRule() const
         {
             return _rule;
         }
-        double RelativeDistanceConditionImpl::GetValue()
+        double RelativeDistanceConditionImpl::GetValue() const
         {
             return _value;
         }
@@ -16792,7 +16792,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType RelativeDistanceConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType RelativeDistanceConditionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -16806,7 +16806,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> RelativeDistanceConditionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> RelativeDistanceConditionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -16852,7 +16852,7 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string RelativeDistanceConditionImpl::GetStringProperty(std::string key)
+        std::string RelativeDistanceConditionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             if (key.empty())
@@ -16869,17 +16869,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> RelativeDistanceConditionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> RelativeDistanceConditionImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> RelativeDistanceConditionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> RelativeDistanceConditionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> RelativeDistanceConditionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> RelativeDistanceConditionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             if (key.empty())
             {
@@ -16895,7 +16895,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::string RelativeDistanceConditionImpl::GetEnumerationLiteral(std::string key)
+        std::string RelativeDistanceConditionImpl::GetEnumerationLiteral(std::string key) const
         {
             if (key.empty())
             {
@@ -16927,23 +16927,23 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__OFFSET, SimpleType::DOUBLE);
         }
 
-        int RelativeLanePositionImpl::GetDLane()
+        int RelativeLanePositionImpl::GetDLane() const
         {
             return _dLane;
         }
-        double RelativeLanePositionImpl::GetDs()
+        double RelativeLanePositionImpl::GetDs() const
         {
             return _ds;
         }
-        std::shared_ptr<INamedReference<IEntity>> RelativeLanePositionImpl::GetEntityRef()
+        std::shared_ptr<INamedReference<IEntity>> RelativeLanePositionImpl::GetEntityRef() const
         {
             return _entityRef;
         }
-        double RelativeLanePositionImpl::GetOffset()
+        double RelativeLanePositionImpl::GetOffset() const
         {
             return _offset;
         }
-        std::shared_ptr<IOrientation> RelativeLanePositionImpl::GetOrientation()
+        std::shared_ptr<IOrientation> RelativeLanePositionImpl::GetOrientation() const
         {
             return _orientation;
         }
@@ -16977,7 +16977,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType RelativeLanePositionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType RelativeLanePositionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -16991,7 +16991,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> RelativeLanePositionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> RelativeLanePositionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -17040,7 +17040,7 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string RelativeLanePositionImpl::GetStringProperty(std::string key)
+        std::string RelativeLanePositionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             if (key.empty())
@@ -17057,7 +17057,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> RelativeLanePositionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> RelativeLanePositionImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -17071,12 +17071,12 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> RelativeLanePositionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> RelativeLanePositionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> RelativeLanePositionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> RelativeLanePositionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             if (key.empty())
             {
@@ -17092,7 +17092,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::string RelativeLanePositionImpl::GetEnumerationLiteral(std::string key)
+        std::string RelativeLanePositionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -17109,23 +17109,23 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, SimpleType::STRING);
         }
 
-        double RelativeObjectPositionImpl::GetDx()
+        double RelativeObjectPositionImpl::GetDx() const
         {
             return _dx;
         }
-        double RelativeObjectPositionImpl::GetDy()
+        double RelativeObjectPositionImpl::GetDy() const
         {
             return _dy;
         }
-        double RelativeObjectPositionImpl::GetDz()
+        double RelativeObjectPositionImpl::GetDz() const
         {
             return _dz;
         }
-        std::shared_ptr<INamedReference<IEntity>> RelativeObjectPositionImpl::GetEntityRef()
+        std::shared_ptr<INamedReference<IEntity>> RelativeObjectPositionImpl::GetEntityRef() const
         {
             return _entityRef;
         }
-        std::shared_ptr<IOrientation> RelativeObjectPositionImpl::GetOrientation()
+        std::shared_ptr<IOrientation> RelativeObjectPositionImpl::GetOrientation() const
         {
             return _orientation;
         }
@@ -17159,7 +17159,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType RelativeObjectPositionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType RelativeObjectPositionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -17173,7 +17173,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> RelativeObjectPositionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> RelativeObjectPositionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -17222,7 +17222,7 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string RelativeObjectPositionImpl::GetStringProperty(std::string key)
+        std::string RelativeObjectPositionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             if (key.empty())
@@ -17239,7 +17239,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> RelativeObjectPositionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> RelativeObjectPositionImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -17253,12 +17253,12 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> RelativeObjectPositionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> RelativeObjectPositionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> RelativeObjectPositionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> RelativeObjectPositionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             if (key.empty())
             {
@@ -17274,7 +17274,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::string RelativeObjectPositionImpl::GetEnumerationLiteral(std::string key)
+        std::string RelativeObjectPositionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -17290,19 +17290,19 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, SimpleType::STRING);
         }
 
-        double RelativeRoadPositionImpl::GetDs()
+        double RelativeRoadPositionImpl::GetDs() const
         {
             return _ds;
         }
-        double RelativeRoadPositionImpl::GetDt()
+        double RelativeRoadPositionImpl::GetDt() const
         {
             return _dt;
         }
-        std::shared_ptr<INamedReference<IEntity>> RelativeRoadPositionImpl::GetEntityRef()
+        std::shared_ptr<INamedReference<IEntity>> RelativeRoadPositionImpl::GetEntityRef() const
         {
             return _entityRef;
         }
-        std::shared_ptr<IOrientation> RelativeRoadPositionImpl::GetOrientation()
+        std::shared_ptr<IOrientation> RelativeRoadPositionImpl::GetOrientation() const
         {
             return _orientation;
         }
@@ -17330,7 +17330,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType RelativeRoadPositionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType RelativeRoadPositionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -17344,7 +17344,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> RelativeRoadPositionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> RelativeRoadPositionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -17391,7 +17391,7 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string RelativeRoadPositionImpl::GetStringProperty(std::string key)
+        std::string RelativeRoadPositionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             if (key.empty())
@@ -17408,7 +17408,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> RelativeRoadPositionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> RelativeRoadPositionImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -17422,12 +17422,12 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> RelativeRoadPositionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> RelativeRoadPositionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> RelativeRoadPositionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> RelativeRoadPositionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             if (key.empty())
             {
@@ -17443,7 +17443,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::string RelativeRoadPositionImpl::GetEnumerationLiteral(std::string key)
+        std::string RelativeRoadPositionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -17459,15 +17459,15 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
         }
 
-        std::shared_ptr<INamedReference<IEntity>> RelativeSpeedConditionImpl::GetEntityRef()
+        std::shared_ptr<INamedReference<IEntity>> RelativeSpeedConditionImpl::GetEntityRef() const
         {
             return _entityRef;
         }
-        Rule RelativeSpeedConditionImpl::GetRule()
+        Rule RelativeSpeedConditionImpl::GetRule() const
         {
             return _rule;
         }
-        double RelativeSpeedConditionImpl::GetValue()
+        double RelativeSpeedConditionImpl::GetValue() const
         {
             return _value;
         }
@@ -17504,7 +17504,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType RelativeSpeedConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType RelativeSpeedConditionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -17518,7 +17518,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> RelativeSpeedConditionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> RelativeSpeedConditionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -17556,7 +17556,7 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string RelativeSpeedConditionImpl::GetStringProperty(std::string key)
+        std::string RelativeSpeedConditionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             if (key.empty())
@@ -17573,17 +17573,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> RelativeSpeedConditionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> RelativeSpeedConditionImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> RelativeSpeedConditionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> RelativeSpeedConditionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> RelativeSpeedConditionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> RelativeSpeedConditionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             if (key.empty())
             {
@@ -17599,7 +17599,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::string RelativeSpeedConditionImpl::GetEnumerationLiteral(std::string key)
+        std::string RelativeSpeedConditionImpl::GetEnumerationLiteral(std::string key) const
         {
             if (key.empty())
             {
@@ -17624,11 +17624,11 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
         }
 
-        SpeedTargetValueType RelativeSpeedToMasterImpl::GetSpeedTargetValueType()
+        SpeedTargetValueType RelativeSpeedToMasterImpl::GetSpeedTargetValueType() const
         {
             return _speedTargetValueType;
         }
-        double RelativeSpeedToMasterImpl::GetValue()
+        double RelativeSpeedToMasterImpl::GetValue() const
         {
             return _value;
         }
@@ -17658,7 +17658,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType RelativeSpeedToMasterImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType RelativeSpeedToMasterImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -17672,7 +17672,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> RelativeSpeedToMasterImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> RelativeSpeedToMasterImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -17705,28 +17705,28 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string RelativeSpeedToMasterImpl::GetStringProperty(std::string key)
+        std::string RelativeSpeedToMasterImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> RelativeSpeedToMasterImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> RelativeSpeedToMasterImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> RelativeSpeedToMasterImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> RelativeSpeedToMasterImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> RelativeSpeedToMasterImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> RelativeSpeedToMasterImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string RelativeSpeedToMasterImpl::GetEnumerationLiteral(std::string key)
+        std::string RelativeSpeedToMasterImpl::GetEnumerationLiteral(std::string key) const
         {
             if (key.empty())
             {
@@ -17751,11 +17751,11 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::INT);
         }
 
-        std::shared_ptr<INamedReference<IEntity>> RelativeTargetLaneImpl::GetEntityRef()
+        std::shared_ptr<INamedReference<IEntity>> RelativeTargetLaneImpl::GetEntityRef() const
         {
             return _entityRef;
         }
-        int RelativeTargetLaneImpl::GetValue()
+        int RelativeTargetLaneImpl::GetValue() const
         {
             return _value;
         }
@@ -17777,7 +17777,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType RelativeTargetLaneImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType RelativeTargetLaneImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -17791,7 +17791,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> RelativeTargetLaneImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> RelativeTargetLaneImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -17823,7 +17823,7 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string RelativeTargetLaneImpl::GetStringProperty(std::string key)
+        std::string RelativeTargetLaneImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             if (key.empty())
@@ -17840,17 +17840,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> RelativeTargetLaneImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> RelativeTargetLaneImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> RelativeTargetLaneImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> RelativeTargetLaneImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> RelativeTargetLaneImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> RelativeTargetLaneImpl::GetReferencedElement(std::string key, std::string name) const
         {
             if (key.empty())
             {
@@ -17866,7 +17866,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::string RelativeTargetLaneImpl::GetEnumerationLiteral(std::string key)
+        std::string RelativeTargetLaneImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -17881,11 +17881,11 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
         }
 
-        std::shared_ptr<INamedReference<IEntity>> RelativeTargetLaneOffsetImpl::GetEntityRef()
+        std::shared_ptr<INamedReference<IEntity>> RelativeTargetLaneOffsetImpl::GetEntityRef() const
         {
             return _entityRef;
         }
-        double RelativeTargetLaneOffsetImpl::GetValue()
+        double RelativeTargetLaneOffsetImpl::GetValue() const
         {
             return _value;
         }
@@ -17907,7 +17907,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType RelativeTargetLaneOffsetImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType RelativeTargetLaneOffsetImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -17921,7 +17921,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> RelativeTargetLaneOffsetImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> RelativeTargetLaneOffsetImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -17953,7 +17953,7 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string RelativeTargetLaneOffsetImpl::GetStringProperty(std::string key)
+        std::string RelativeTargetLaneOffsetImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             if (key.empty())
@@ -17970,17 +17970,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> RelativeTargetLaneOffsetImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> RelativeTargetLaneOffsetImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> RelativeTargetLaneOffsetImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> RelativeTargetLaneOffsetImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> RelativeTargetLaneOffsetImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> RelativeTargetLaneOffsetImpl::GetReferencedElement(std::string key, std::string name) const
         {
             if (key.empty())
             {
@@ -17996,7 +17996,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::string RelativeTargetLaneOffsetImpl::GetEnumerationLiteral(std::string key)
+        std::string RelativeTargetLaneOffsetImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -18013,19 +18013,19 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
         }
 
-        bool RelativeTargetSpeedImpl::GetContinuous()
+        bool RelativeTargetSpeedImpl::GetContinuous() const
         {
             return _continuous;
         }
-        std::shared_ptr<INamedReference<IEntity>> RelativeTargetSpeedImpl::GetEntityRef()
+        std::shared_ptr<INamedReference<IEntity>> RelativeTargetSpeedImpl::GetEntityRef() const
         {
             return _entityRef;
         }
-        SpeedTargetValueType RelativeTargetSpeedImpl::GetSpeedTargetValueType()
+        SpeedTargetValueType RelativeTargetSpeedImpl::GetSpeedTargetValueType() const
         {
             return _speedTargetValueType;
         }
-        double RelativeTargetSpeedImpl::GetValue()
+        double RelativeTargetSpeedImpl::GetValue() const
         {
             return _value;
         }
@@ -18068,7 +18068,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType RelativeTargetSpeedImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType RelativeTargetSpeedImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -18082,7 +18082,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> RelativeTargetSpeedImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> RelativeTargetSpeedImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -18122,7 +18122,7 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string RelativeTargetSpeedImpl::GetStringProperty(std::string key)
+        std::string RelativeTargetSpeedImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             if (key.empty())
@@ -18139,17 +18139,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> RelativeTargetSpeedImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> RelativeTargetSpeedImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> RelativeTargetSpeedImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> RelativeTargetSpeedImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> RelativeTargetSpeedImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> RelativeTargetSpeedImpl::GetReferencedElement(std::string key, std::string name) const
         {
             if (key.empty())
             {
@@ -18165,7 +18165,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::string RelativeTargetSpeedImpl::GetEnumerationLiteral(std::string key)
+        std::string RelativeTargetSpeedImpl::GetEnumerationLiteral(std::string key) const
         {
             if (key.empty())
             {
@@ -18192,23 +18192,23 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, SimpleType::STRING);
         }
 
-        double RelativeWorldPositionImpl::GetDx()
+        double RelativeWorldPositionImpl::GetDx() const
         {
             return _dx;
         }
-        double RelativeWorldPositionImpl::GetDy()
+        double RelativeWorldPositionImpl::GetDy() const
         {
             return _dy;
         }
-        double RelativeWorldPositionImpl::GetDz()
+        double RelativeWorldPositionImpl::GetDz() const
         {
             return _dz;
         }
-        std::shared_ptr<INamedReference<IEntity>> RelativeWorldPositionImpl::GetEntityRef()
+        std::shared_ptr<INamedReference<IEntity>> RelativeWorldPositionImpl::GetEntityRef() const
         {
             return _entityRef;
         }
-        std::shared_ptr<IOrientation> RelativeWorldPositionImpl::GetOrientation()
+        std::shared_ptr<IOrientation> RelativeWorldPositionImpl::GetOrientation() const
         {
             return _orientation;
         }
@@ -18242,7 +18242,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType RelativeWorldPositionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType RelativeWorldPositionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -18256,7 +18256,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> RelativeWorldPositionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> RelativeWorldPositionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -18305,7 +18305,7 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string RelativeWorldPositionImpl::GetStringProperty(std::string key)
+        std::string RelativeWorldPositionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             if (key.empty())
@@ -18322,7 +18322,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> RelativeWorldPositionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> RelativeWorldPositionImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -18336,12 +18336,12 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> RelativeWorldPositionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> RelativeWorldPositionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> RelativeWorldPositionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> RelativeWorldPositionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             if (key.empty())
             {
@@ -18357,7 +18357,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::string RelativeWorldPositionImpl::GetEnumerationLiteral(std::string key)
+        std::string RelativeWorldPositionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -18371,11 +18371,11 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__FRICTION_SCALE_FACTOR, SimpleType::DOUBLE);
         }
 
-        double RoadConditionImpl::GetFrictionScaleFactor()
+        double RoadConditionImpl::GetFrictionScaleFactor() const
         {
             return _frictionScaleFactor;
         }
-        std::shared_ptr<IProperties> RoadConditionImpl::GetProperties()
+        std::shared_ptr<IProperties> RoadConditionImpl::GetProperties() const
         {
             return _properties;
         }
@@ -18390,7 +18390,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType RoadConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType RoadConditionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -18404,7 +18404,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> RoadConditionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> RoadConditionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -18444,13 +18444,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string RoadConditionImpl::GetStringProperty(std::string key)
+        std::string RoadConditionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> RoadConditionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> RoadConditionImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -18464,17 +18464,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> RoadConditionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> RoadConditionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> RoadConditionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> RoadConditionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string RoadConditionImpl::GetEnumerationLiteral(std::string key)
+        std::string RoadConditionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -18487,15 +18487,15 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::shared_ptr<IFile> RoadNetworkImpl::GetLogicFile()
+        std::shared_ptr<IFile> RoadNetworkImpl::GetLogicFile() const
         {
             return _logicFile;
         }
-        std::shared_ptr<IFile> RoadNetworkImpl::GetSceneGraphFile()
+        std::shared_ptr<IFile> RoadNetworkImpl::GetSceneGraphFile() const
         {
             return _sceneGraphFile;
         }
-        std::vector<std::shared_ptr<ITrafficSignalController>> RoadNetworkImpl::GetTrafficSignals()
+        std::vector<std::shared_ptr<ITrafficSignalController>> RoadNetworkImpl::GetTrafficSignals() const
         {
             std::vector<std::shared_ptr<ITrafficSignalController>> temp;
             for(auto&& elm: _trafficSignals)
@@ -18507,7 +18507,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType RoadNetworkImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType RoadNetworkImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -18521,7 +18521,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> RoadNetworkImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> RoadNetworkImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -18592,13 +18592,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string RoadNetworkImpl::GetStringProperty(std::string key)
+        std::string RoadNetworkImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> RoadNetworkImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> RoadNetworkImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -18617,7 +18617,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> RoadNetworkImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> RoadNetworkImpl::GetListChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -18634,12 +18634,12 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> RoadNetworkImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> RoadNetworkImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string RoadNetworkImpl::GetEnumerationLiteral(std::string key)
+        std::string RoadNetworkImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -18655,19 +18655,19 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__T, SimpleType::DOUBLE);
         }
 
-        std::string RoadPositionImpl::GetRoadId()
+        std::string RoadPositionImpl::GetRoadId() const
         {
             return _roadId;
         }
-        double RoadPositionImpl::GetS()
+        double RoadPositionImpl::GetS() const
         {
             return _s;
         }
-        double RoadPositionImpl::GetT()
+        double RoadPositionImpl::GetT() const
         {
             return _t;
         }
-        std::shared_ptr<IOrientation> RoadPositionImpl::GetOrientation()
+        std::shared_ptr<IOrientation> RoadPositionImpl::GetOrientation() const
         {
             return _orientation;
         }
@@ -18694,7 +18694,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType RoadPositionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType RoadPositionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -18708,7 +18708,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> RoadPositionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> RoadPositionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -18752,7 +18752,7 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string RoadPositionImpl::GetStringProperty(std::string key)
+        std::string RoadPositionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             if (key.empty())
@@ -18767,7 +18767,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> RoadPositionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> RoadPositionImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -18781,17 +18781,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> RoadPositionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> RoadPositionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> RoadPositionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> RoadPositionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string RoadPositionImpl::GetEnumerationLiteral(std::string key)
+        std::string RoadPositionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -18806,22 +18806,22 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, SimpleType::STRING);
         }
 
-        bool RouteImpl::GetClosed()
+        bool RouteImpl::GetClosed() const
         {
             return _closed;
         }
-        std::string RouteImpl::GetName()
+        std::string RouteImpl::GetName() const
         {
             return _name;
         }
-        std::vector<std::shared_ptr<IParameterDeclaration>> RouteImpl::GetParameterDeclarations()
+        std::vector<std::shared_ptr<IParameterDeclaration>> RouteImpl::GetParameterDeclarations() const
         {
             std::vector<std::shared_ptr<IParameterDeclaration>> temp;
             for(auto&& elm: _parameterDeclarations)
                 temp.push_back(elm);
             return temp;
         }
-        std::vector<std::shared_ptr<IWaypoint>> RouteImpl::GetWaypoints()
+        std::vector<std::shared_ptr<IWaypoint>> RouteImpl::GetWaypoints() const
         {
             std::vector<std::shared_ptr<IWaypoint>> temp;
             for(auto&& elm: _waypoints)
@@ -18845,7 +18845,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType RouteImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType RouteImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -18859,7 +18859,7 @@ namespace NET_ASAM_OPENSCENARIO
             return true;
         }
 
-        std::vector<std::shared_ptr<ParameterValue>> RouteImpl::GetParameterDefinitions() 
+        std::vector<std::shared_ptr<ParameterValue>> RouteImpl::GetParameterDefinitions() const
         {
             std::vector<std::shared_ptr<ParameterValue>> result;
             if (!_parameterDeclarations.empty())
@@ -18879,7 +18879,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> RouteImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> RouteImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -18948,7 +18948,7 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string RouteImpl::GetStringProperty(std::string key)
+        std::string RouteImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             if (key.empty())
@@ -18963,12 +18963,12 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> RouteImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> RouteImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> RouteImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> RouteImpl::GetListChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -18993,12 +18993,12 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> RouteImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> RouteImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string RouteImpl::GetEnumerationLiteral(std::string key)
+        std::string RouteImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -19011,7 +19011,7 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::shared_ptr<IDirectory> RouteCatalogLocationImpl::GetDirectory()
+        std::shared_ptr<IDirectory> RouteCatalogLocationImpl::GetDirectory() const
         {
             return _directory;
         }
@@ -19020,7 +19020,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType RouteCatalogLocationImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType RouteCatalogLocationImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -19034,7 +19034,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> RouteCatalogLocationImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> RouteCatalogLocationImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -19072,13 +19072,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string RouteCatalogLocationImpl::GetStringProperty(std::string key)
+        std::string RouteCatalogLocationImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> RouteCatalogLocationImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> RouteCatalogLocationImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -19092,17 +19092,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> RouteCatalogLocationImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> RouteCatalogLocationImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> RouteCatalogLocationImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> RouteCatalogLocationImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string RouteCatalogLocationImpl::GetEnumerationLiteral(std::string key)
+        std::string RouteCatalogLocationImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -19115,15 +19115,15 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::shared_ptr<IRouteRef> RoutePositionImpl::GetRouteRef()
+        std::shared_ptr<IRouteRef> RoutePositionImpl::GetRouteRef() const
         {
             return _routeRef;
         }
-        std::shared_ptr<IOrientation> RoutePositionImpl::GetOrientation()
+        std::shared_ptr<IOrientation> RoutePositionImpl::GetOrientation() const
         {
             return _orientation;
         }
-        std::shared_ptr<IInRoutePosition> RoutePositionImpl::GetInRoutePosition()
+        std::shared_ptr<IInRoutePosition> RoutePositionImpl::GetInRoutePosition() const
         {
             return _inRoutePosition;
         }
@@ -19132,7 +19132,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType RoutePositionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType RoutePositionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -19146,7 +19146,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> RoutePositionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> RoutePositionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -19210,13 +19210,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string RoutePositionImpl::GetStringProperty(std::string key)
+        std::string RoutePositionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> RoutePositionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> RoutePositionImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -19240,17 +19240,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> RoutePositionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> RoutePositionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> RoutePositionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> RoutePositionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string RoutePositionImpl::GetEnumerationLiteral(std::string key)
+        std::string RoutePositionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -19263,11 +19263,11 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::shared_ptr<IRoute> RouteRefImpl::GetRoute()
+        std::shared_ptr<IRoute> RouteRefImpl::GetRoute() const
         {
             return _route;
         }
-        std::shared_ptr<ICatalogReference> RouteRefImpl::GetCatalogReference()
+        std::shared_ptr<ICatalogReference> RouteRefImpl::GetCatalogReference() const
         {
             return _catalogReference;
         }
@@ -19276,7 +19276,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType RouteRefImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType RouteRefImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -19290,7 +19290,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> RouteRefImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> RouteRefImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -19341,13 +19341,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string RouteRefImpl::GetStringProperty(std::string key)
+        std::string RouteRefImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> RouteRefImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> RouteRefImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -19366,17 +19366,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> RouteRefImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> RouteRefImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> RouteRefImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> RouteRefImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string RouteRefImpl::GetEnumerationLiteral(std::string key)
+        std::string RouteRefImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -19389,15 +19389,15 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::shared_ptr<IAssignRouteAction> RoutingActionImpl::GetAssignRouteAction()
+        std::shared_ptr<IAssignRouteAction> RoutingActionImpl::GetAssignRouteAction() const
         {
             return _assignRouteAction;
         }
-        std::shared_ptr<IFollowTrajectoryAction> RoutingActionImpl::GetFollowTrajectoryAction()
+        std::shared_ptr<IFollowTrajectoryAction> RoutingActionImpl::GetFollowTrajectoryAction() const
         {
             return _followTrajectoryAction;
         }
-        std::shared_ptr<IAcquirePositionAction> RoutingActionImpl::GetAcquirePositionAction()
+        std::shared_ptr<IAcquirePositionAction> RoutingActionImpl::GetAcquirePositionAction() const
         {
             return _acquirePositionAction;
         }
@@ -19406,7 +19406,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType RoutingActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType RoutingActionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -19420,7 +19420,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> RoutingActionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> RoutingActionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -19484,13 +19484,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string RoutingActionImpl::GetStringProperty(std::string key)
+        std::string RoutingActionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> RoutingActionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> RoutingActionImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -19514,17 +19514,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> RoutingActionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> RoutingActionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> RoutingActionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> RoutingActionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string RoutingActionImpl::GetEnumerationLiteral(std::string key)
+        std::string RoutingActionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -19537,26 +19537,26 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::vector<std::shared_ptr<IParameterDeclaration>> ScenarioDefinitionImpl::GetParameterDeclarations()
+        std::vector<std::shared_ptr<IParameterDeclaration>> ScenarioDefinitionImpl::GetParameterDeclarations() const
         {
             std::vector<std::shared_ptr<IParameterDeclaration>> temp;
             for(auto&& elm: _parameterDeclarations)
                 temp.push_back(elm);
             return temp;
         }
-        std::shared_ptr<ICatalogLocations> ScenarioDefinitionImpl::GetCatalogLocations()
+        std::shared_ptr<ICatalogLocations> ScenarioDefinitionImpl::GetCatalogLocations() const
         {
             return _catalogLocations;
         }
-        std::shared_ptr<IRoadNetwork> ScenarioDefinitionImpl::GetRoadNetwork()
+        std::shared_ptr<IRoadNetwork> ScenarioDefinitionImpl::GetRoadNetwork() const
         {
             return _roadNetwork;
         }
-        std::shared_ptr<IEntities> ScenarioDefinitionImpl::GetEntities()
+        std::shared_ptr<IEntities> ScenarioDefinitionImpl::GetEntities() const
         {
             return _entities;
         }
-        std::shared_ptr<IStoryboard> ScenarioDefinitionImpl::GetStoryboard()
+        std::shared_ptr<IStoryboard> ScenarioDefinitionImpl::GetStoryboard() const
         {
             return _storyboard;
         }
@@ -19565,7 +19565,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType ScenarioDefinitionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ScenarioDefinitionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -19579,7 +19579,7 @@ namespace NET_ASAM_OPENSCENARIO
             return true;
         }
 
-        std::vector<std::shared_ptr<ParameterValue>> ScenarioDefinitionImpl::GetParameterDefinitions() 
+        std::vector<std::shared_ptr<ParameterValue>> ScenarioDefinitionImpl::GetParameterDefinitions() const
         {
             std::vector<std::shared_ptr<ParameterValue>> result;
             if (!_parameterDeclarations.empty())
@@ -19599,7 +19599,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> ScenarioDefinitionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> ScenarioDefinitionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -19696,13 +19696,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string ScenarioDefinitionImpl::GetStringProperty(std::string key)
+        std::string ScenarioDefinitionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ScenarioDefinitionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> ScenarioDefinitionImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -19731,7 +19731,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ScenarioDefinitionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ScenarioDefinitionImpl::GetListChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -19748,12 +19748,12 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ScenarioDefinitionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> ScenarioDefinitionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string ScenarioDefinitionImpl::GetEnumerationLiteral(std::string key)
+        std::string ScenarioDefinitionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -19767,15 +19767,15 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, SimpleType::STRING);
         }
 
-        std::string ScenarioObjectImpl::GetName()
+        std::string ScenarioObjectImpl::GetName() const
         {
             return _name;
         }
-        std::shared_ptr<IEntityObject> ScenarioObjectImpl::GetEntityObject()
+        std::shared_ptr<IEntityObject> ScenarioObjectImpl::GetEntityObject() const
         {
             return _entityObject;
         }
-        std::shared_ptr<IObjectController> ScenarioObjectImpl::GetObjectController()
+        std::shared_ptr<IObjectController> ScenarioObjectImpl::GetObjectController() const
         {
             return _objectController;
         }
@@ -19790,7 +19790,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType ScenarioObjectImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ScenarioObjectImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -19804,7 +19804,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> ScenarioObjectImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> ScenarioObjectImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -19857,7 +19857,7 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string ScenarioObjectImpl::GetStringProperty(std::string key)
+        std::string ScenarioObjectImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             if (key.empty())
@@ -19872,7 +19872,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ScenarioObjectImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> ScenarioObjectImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -19891,17 +19891,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ScenarioObjectImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ScenarioObjectImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ScenarioObjectImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> ScenarioObjectImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string ScenarioObjectImpl::GetEnumerationLiteral(std::string key)
+        std::string ScenarioObjectImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -19914,14 +19914,14 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::vector<std::shared_ptr<IEntityRef>> SelectedEntitiesImpl::GetEntityRef()
+        std::vector<std::shared_ptr<IEntityRef>> SelectedEntitiesImpl::GetEntityRef() const
         {
             std::vector<std::shared_ptr<IEntityRef>> temp;
             for(auto&& elm: _entityRef)
                 temp.push_back(elm);
             return temp;
         }
-        std::vector<std::shared_ptr<IByType>> SelectedEntitiesImpl::GetByType()
+        std::vector<std::shared_ptr<IByType>> SelectedEntitiesImpl::GetByType() const
         {
             std::vector<std::shared_ptr<IByType>> temp;
             for(auto&& elm: _byType)
@@ -19933,7 +19933,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType SelectedEntitiesImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType SelectedEntitiesImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -19947,7 +19947,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> SelectedEntitiesImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> SelectedEntitiesImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -20012,18 +20012,18 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string SelectedEntitiesImpl::GetStringProperty(std::string key)
+        std::string SelectedEntitiesImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> SelectedEntitiesImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> SelectedEntitiesImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> SelectedEntitiesImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> SelectedEntitiesImpl::GetListChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -20049,12 +20049,12 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> SelectedEntitiesImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> SelectedEntitiesImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string SelectedEntitiesImpl::GetEnumerationLiteral(std::string key)
+        std::string SelectedEntitiesImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -20067,15 +20067,15 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::shared_ptr<IPolyline> ShapeImpl::GetPolyline()
+        std::shared_ptr<IPolyline> ShapeImpl::GetPolyline() const
         {
             return _polyline;
         }
-        std::shared_ptr<IClothoid> ShapeImpl::GetClothoid()
+        std::shared_ptr<IClothoid> ShapeImpl::GetClothoid() const
         {
             return _clothoid;
         }
-        std::shared_ptr<INurbs> ShapeImpl::GetNurbs()
+        std::shared_ptr<INurbs> ShapeImpl::GetNurbs() const
         {
             return _nurbs;
         }
@@ -20084,7 +20084,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType ShapeImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType ShapeImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -20098,7 +20098,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> ShapeImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> ShapeImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -20162,13 +20162,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string ShapeImpl::GetStringProperty(std::string key)
+        std::string ShapeImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ShapeImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> ShapeImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -20192,17 +20192,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ShapeImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> ShapeImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> ShapeImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> ShapeImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string ShapeImpl::GetEnumerationLiteral(std::string key)
+        std::string ShapeImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -20217,11 +20217,11 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
         }
 
-        Rule SimulationTimeConditionImpl::GetRule()
+        Rule SimulationTimeConditionImpl::GetRule() const
         {
             return _rule;
         }
-        double SimulationTimeConditionImpl::GetValue()
+        double SimulationTimeConditionImpl::GetValue() const
         {
             return _value;
         }
@@ -20251,7 +20251,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType SimulationTimeConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType SimulationTimeConditionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -20265,7 +20265,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> SimulationTimeConditionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> SimulationTimeConditionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -20298,28 +20298,28 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string SimulationTimeConditionImpl::GetStringProperty(std::string key)
+        std::string SimulationTimeConditionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> SimulationTimeConditionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> SimulationTimeConditionImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> SimulationTimeConditionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> SimulationTimeConditionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> SimulationTimeConditionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> SimulationTimeConditionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string SimulationTimeConditionImpl::GetEnumerationLiteral(std::string key)
+        std::string SimulationTimeConditionImpl::GetEnumerationLiteral(std::string key) const
         {
             if (key.empty())
             {
@@ -20342,11 +20342,11 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::shared_ptr<ITransitionDynamics> SpeedActionImpl::GetSpeedActionDynamics()
+        std::shared_ptr<ITransitionDynamics> SpeedActionImpl::GetSpeedActionDynamics() const
         {
             return _speedActionDynamics;
         }
-        std::shared_ptr<ISpeedActionTarget> SpeedActionImpl::GetSpeedActionTarget()
+        std::shared_ptr<ISpeedActionTarget> SpeedActionImpl::GetSpeedActionTarget() const
         {
             return _speedActionTarget;
         }
@@ -20355,7 +20355,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType SpeedActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType SpeedActionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -20369,7 +20369,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> SpeedActionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> SpeedActionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -20420,13 +20420,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string SpeedActionImpl::GetStringProperty(std::string key)
+        std::string SpeedActionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> SpeedActionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> SpeedActionImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -20445,17 +20445,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> SpeedActionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> SpeedActionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> SpeedActionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> SpeedActionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string SpeedActionImpl::GetEnumerationLiteral(std::string key)
+        std::string SpeedActionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -20468,11 +20468,11 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::shared_ptr<IRelativeTargetSpeed> SpeedActionTargetImpl::GetRelativeTargetSpeed()
+        std::shared_ptr<IRelativeTargetSpeed> SpeedActionTargetImpl::GetRelativeTargetSpeed() const
         {
             return _relativeTargetSpeed;
         }
-        std::shared_ptr<IAbsoluteTargetSpeed> SpeedActionTargetImpl::GetAbsoluteTargetSpeed()
+        std::shared_ptr<IAbsoluteTargetSpeed> SpeedActionTargetImpl::GetAbsoluteTargetSpeed() const
         {
             return _absoluteTargetSpeed;
         }
@@ -20481,7 +20481,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType SpeedActionTargetImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType SpeedActionTargetImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -20495,7 +20495,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> SpeedActionTargetImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> SpeedActionTargetImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -20546,13 +20546,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string SpeedActionTargetImpl::GetStringProperty(std::string key)
+        std::string SpeedActionTargetImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> SpeedActionTargetImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> SpeedActionTargetImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -20571,17 +20571,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> SpeedActionTargetImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> SpeedActionTargetImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> SpeedActionTargetImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> SpeedActionTargetImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string SpeedActionTargetImpl::GetEnumerationLiteral(std::string key)
+        std::string SpeedActionTargetImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -20596,11 +20596,11 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
         }
 
-        Rule SpeedConditionImpl::GetRule()
+        Rule SpeedConditionImpl::GetRule() const
         {
             return _rule;
         }
-        double SpeedConditionImpl::GetValue()
+        double SpeedConditionImpl::GetValue() const
         {
             return _value;
         }
@@ -20630,7 +20630,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType SpeedConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType SpeedConditionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -20644,7 +20644,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> SpeedConditionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> SpeedConditionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -20677,28 +20677,28 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string SpeedConditionImpl::GetStringProperty(std::string key)
+        std::string SpeedConditionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> SpeedConditionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> SpeedConditionImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> SpeedConditionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> SpeedConditionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> SpeedConditionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> SpeedConditionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string SpeedConditionImpl::GetEnumerationLiteral(std::string key)
+        std::string SpeedConditionImpl::GetEnumerationLiteral(std::string key) const
         {
             if (key.empty())
             {
@@ -20722,7 +20722,7 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DURATION, SimpleType::DOUBLE);
         }
 
-        double StandStillConditionImpl::GetDuration()
+        double StandStillConditionImpl::GetDuration() const
         {
             return _duration;
         }
@@ -20737,7 +20737,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType StandStillConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType StandStillConditionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -20751,7 +20751,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> StandStillConditionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> StandStillConditionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -20778,28 +20778,28 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string StandStillConditionImpl::GetStringProperty(std::string key)
+        std::string StandStillConditionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> StandStillConditionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> StandStillConditionImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> StandStillConditionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> StandStillConditionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> StandStillConditionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> StandStillConditionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string StandStillConditionImpl::GetEnumerationLiteral(std::string key)
+        std::string StandStillConditionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -20813,18 +20813,18 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, SimpleType::STRING);
         }
 
-        std::string StoryImpl::GetName()
+        std::string StoryImpl::GetName() const
         {
             return _name;
         }
-        std::vector<std::shared_ptr<IParameterDeclaration>> StoryImpl::GetParameterDeclarations()
+        std::vector<std::shared_ptr<IParameterDeclaration>> StoryImpl::GetParameterDeclarations() const
         {
             std::vector<std::shared_ptr<IParameterDeclaration>> temp;
             for(auto&& elm: _parameterDeclarations)
                 temp.push_back(elm);
             return temp;
         }
-        std::vector<std::shared_ptr<IAct>> StoryImpl::GetActs()
+        std::vector<std::shared_ptr<IAct>> StoryImpl::GetActs() const
         {
             std::vector<std::shared_ptr<IAct>> temp;
             for(auto&& elm: _acts)
@@ -20842,7 +20842,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType StoryImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType StoryImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -20856,7 +20856,7 @@ namespace NET_ASAM_OPENSCENARIO
             return true;
         }
 
-        std::vector<std::shared_ptr<ParameterValue>> StoryImpl::GetParameterDefinitions() 
+        std::vector<std::shared_ptr<ParameterValue>> StoryImpl::GetParameterDefinitions() const
         {
             std::vector<std::shared_ptr<ParameterValue>> result;
             if (!_parameterDeclarations.empty())
@@ -20876,7 +20876,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> StoryImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> StoryImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -20943,7 +20943,7 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string StoryImpl::GetStringProperty(std::string key)
+        std::string StoryImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             if (key.empty())
@@ -20958,12 +20958,12 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> StoryImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> StoryImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> StoryImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> StoryImpl::GetListChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -20988,12 +20988,12 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> StoryImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> StoryImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string StoryImpl::GetEnumerationLiteral(std::string key)
+        std::string StoryImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -21006,18 +21006,18 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::shared_ptr<IInit> StoryboardImpl::GetInit()
+        std::shared_ptr<IInit> StoryboardImpl::GetInit() const
         {
             return _init;
         }
-        std::vector<std::shared_ptr<IStory>> StoryboardImpl::GetStories()
+        std::vector<std::shared_ptr<IStory>> StoryboardImpl::GetStories() const
         {
             std::vector<std::shared_ptr<IStory>> temp;
             for(auto&& elm: _stories)
                 temp.push_back(elm);
             return temp;
         }
-        std::shared_ptr<ITrigger> StoryboardImpl::GetStopTrigger()
+        std::shared_ptr<ITrigger> StoryboardImpl::GetStopTrigger() const
         {
             return _stopTrigger;
         }
@@ -21026,7 +21026,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType StoryboardImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType StoryboardImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -21040,7 +21040,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> StoryboardImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> StoryboardImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -21111,13 +21111,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string StoryboardImpl::GetStringProperty(std::string key)
+        std::string StoryboardImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> StoryboardImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> StoryboardImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -21136,7 +21136,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> StoryboardImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> StoryboardImpl::GetListChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -21154,12 +21154,12 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> StoryboardImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> StoryboardImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string StoryboardImpl::GetEnumerationLiteral(std::string key)
+        std::string StoryboardImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -21175,15 +21175,15 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__STORYBOARD_ELEMENT_TYPE, SimpleType::ENUM_TYPE);
         }
 
-        StoryboardElementState StoryboardElementStateConditionImpl::GetState()
+        StoryboardElementState StoryboardElementStateConditionImpl::GetState() const
         {
             return _state;
         }
-        std::shared_ptr<INamedReference<IStoryboardElement>> StoryboardElementStateConditionImpl::GetStoryboardElementRef()
+        std::shared_ptr<INamedReference<IStoryboardElement>> StoryboardElementStateConditionImpl::GetStoryboardElementRef() const
         {
             return _storyboardElementRef;
         }
-        StoryboardElementType StoryboardElementStateConditionImpl::GetStoryboardElementType()
+        StoryboardElementType StoryboardElementStateConditionImpl::GetStoryboardElementType() const
         {
             return _storyboardElementType;
         }
@@ -21229,7 +21229,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType StoryboardElementStateConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType StoryboardElementStateConditionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -21243,7 +21243,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> StoryboardElementStateConditionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> StoryboardElementStateConditionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -21285,7 +21285,7 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string StoryboardElementStateConditionImpl::GetStringProperty(std::string key)
+        std::string StoryboardElementStateConditionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             if (key.empty())
@@ -21302,17 +21302,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> StoryboardElementStateConditionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> StoryboardElementStateConditionImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> StoryboardElementStateConditionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> StoryboardElementStateConditionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> StoryboardElementStateConditionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> StoryboardElementStateConditionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             if (key.empty())
             {
@@ -21328,7 +21328,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::string StoryboardElementStateConditionImpl::GetEnumerationLiteral(std::string key)
+        std::string StoryboardElementStateConditionImpl::GetEnumerationLiteral(std::string key) const
         {
             if (key.empty())
             {
@@ -21359,15 +21359,15 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__INTENSITY, SimpleType::DOUBLE);
         }
 
-        double SunImpl::GetAzimuth()
+        double SunImpl::GetAzimuth() const
         {
             return _azimuth;
         }
-        double SunImpl::GetElevation()
+        double SunImpl::GetElevation() const
         {
             return _elevation;
         }
-        double SunImpl::GetIntensity()
+        double SunImpl::GetIntensity() const
         {
             return _intensity;
         }
@@ -21394,7 +21394,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType SunImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType SunImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -21408,7 +21408,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> SunImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> SunImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -21439,28 +21439,28 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string SunImpl::GetStringProperty(std::string key)
+        std::string SunImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> SunImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> SunImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> SunImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> SunImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> SunImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> SunImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string SunImpl::GetEnumerationLiteral(std::string key)
+        std::string SunImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -21474,19 +21474,19 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__MASTER_ENTITY_REF, SimpleType::STRING);
         }
 
-        std::shared_ptr<INamedReference<IEntity>> SynchronizeActionImpl::GetMasterEntityRef()
+        std::shared_ptr<INamedReference<IEntity>> SynchronizeActionImpl::GetMasterEntityRef() const
         {
             return _masterEntityRef;
         }
-        std::shared_ptr<IPosition> SynchronizeActionImpl::GetTargetPositionMaster()
+        std::shared_ptr<IPosition> SynchronizeActionImpl::GetTargetPositionMaster() const
         {
             return _targetPositionMaster;
         }
-        std::shared_ptr<IPosition> SynchronizeActionImpl::GetTargetPosition()
+        std::shared_ptr<IPosition> SynchronizeActionImpl::GetTargetPosition() const
         {
             return _targetPosition;
         }
-        std::shared_ptr<IFinalSpeed> SynchronizeActionImpl::GetFinalSpeed()
+        std::shared_ptr<IFinalSpeed> SynchronizeActionImpl::GetFinalSpeed() const
         {
             return _finalSpeed;
         }
@@ -21502,7 +21502,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType SynchronizeActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType SynchronizeActionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -21516,7 +21516,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> SynchronizeActionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> SynchronizeActionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -21585,7 +21585,7 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string SynchronizeActionImpl::GetStringProperty(std::string key)
+        std::string SynchronizeActionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             if (key.empty())
@@ -21602,7 +21602,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> SynchronizeActionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> SynchronizeActionImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -21626,12 +21626,12 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> SynchronizeActionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> SynchronizeActionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> SynchronizeActionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> SynchronizeActionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             if (key.empty())
             {
@@ -21647,7 +21647,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::string SynchronizeActionImpl::GetEnumerationLiteral(std::string key)
+        std::string SynchronizeActionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -21660,7 +21660,7 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::shared_ptr<IPosition> TeleportActionImpl::GetPosition()
+        std::shared_ptr<IPosition> TeleportActionImpl::GetPosition() const
         {
             return _position;
         }
@@ -21669,7 +21669,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType TeleportActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType TeleportActionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -21683,7 +21683,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> TeleportActionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> TeleportActionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -21721,13 +21721,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string TeleportActionImpl::GetStringProperty(std::string key)
+        std::string TeleportActionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> TeleportActionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> TeleportActionImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -21741,17 +21741,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TeleportActionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TeleportActionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> TeleportActionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> TeleportActionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string TeleportActionImpl::GetEnumerationLiteral(std::string key)
+        std::string TeleportActionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -21769,23 +21769,23 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
         }
 
-        bool TimeHeadwayConditionImpl::GetAlongRoute()
+        bool TimeHeadwayConditionImpl::GetAlongRoute() const
         {
             return _alongRoute;
         }
-        std::shared_ptr<INamedReference<IEntity>> TimeHeadwayConditionImpl::GetEntityRef()
+        std::shared_ptr<INamedReference<IEntity>> TimeHeadwayConditionImpl::GetEntityRef() const
         {
             return _entityRef;
         }
-        bool TimeHeadwayConditionImpl::GetFreespace()
+        bool TimeHeadwayConditionImpl::GetFreespace() const
         {
             return _freespace;
         }
-        Rule TimeHeadwayConditionImpl::GetRule()
+        Rule TimeHeadwayConditionImpl::GetRule() const
         {
             return _rule;
         }
-        double TimeHeadwayConditionImpl::GetValue()
+        double TimeHeadwayConditionImpl::GetValue() const
         {
             return _value;
         }
@@ -21834,7 +21834,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType TimeHeadwayConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType TimeHeadwayConditionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -21848,7 +21848,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> TimeHeadwayConditionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> TimeHeadwayConditionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -21890,7 +21890,7 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string TimeHeadwayConditionImpl::GetStringProperty(std::string key)
+        std::string TimeHeadwayConditionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             if (key.empty())
@@ -21907,17 +21907,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> TimeHeadwayConditionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> TimeHeadwayConditionImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TimeHeadwayConditionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TimeHeadwayConditionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> TimeHeadwayConditionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> TimeHeadwayConditionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             if (key.empty())
             {
@@ -21933,7 +21933,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::string TimeHeadwayConditionImpl::GetEnumerationLiteral(std::string key)
+        std::string TimeHeadwayConditionImpl::GetEnumerationLiteral(std::string key) const
         {
             if (key.empty())
             {
@@ -21958,11 +21958,11 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__DATE_TIME, SimpleType::DATE_TIME);
         }
 
-        bool TimeOfDayImpl::GetAnimation()
+        bool TimeOfDayImpl::GetAnimation() const
         {
             return _animation;
         }
-        DateTime TimeOfDayImpl::GetDateTime()
+        DateTime TimeOfDayImpl::GetDateTime() const
         {
             return _dateTime;
         }
@@ -21983,7 +21983,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType TimeOfDayImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType TimeOfDayImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -21997,7 +21997,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> TimeOfDayImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> TimeOfDayImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -22026,28 +22026,28 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string TimeOfDayImpl::GetStringProperty(std::string key)
+        std::string TimeOfDayImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> TimeOfDayImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> TimeOfDayImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TimeOfDayImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TimeOfDayImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> TimeOfDayImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> TimeOfDayImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string TimeOfDayImpl::GetEnumerationLiteral(std::string key)
+        std::string TimeOfDayImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -22062,11 +22062,11 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__RULE, SimpleType::ENUM_TYPE);
         }
 
-        DateTime TimeOfDayConditionImpl::GetDateTime()
+        DateTime TimeOfDayConditionImpl::GetDateTime() const
         {
             return _dateTime;
         }
-        Rule TimeOfDayConditionImpl::GetRule()
+        Rule TimeOfDayConditionImpl::GetRule() const
         {
             return _rule;
         }
@@ -22096,7 +22096,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType TimeOfDayConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType TimeOfDayConditionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -22110,7 +22110,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> TimeOfDayConditionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> TimeOfDayConditionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -22143,28 +22143,28 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string TimeOfDayConditionImpl::GetStringProperty(std::string key)
+        std::string TimeOfDayConditionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> TimeOfDayConditionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> TimeOfDayConditionImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TimeOfDayConditionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TimeOfDayConditionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> TimeOfDayConditionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> TimeOfDayConditionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string TimeOfDayConditionImpl::GetEnumerationLiteral(std::string key)
+        std::string TimeOfDayConditionImpl::GetEnumerationLiteral(std::string key) const
         {
             if (key.empty())
             {
@@ -22187,11 +22187,11 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::shared_ptr<INone> TimeReferenceImpl::GetNone()
+        std::shared_ptr<INone> TimeReferenceImpl::GetNone() const
         {
             return _none;
         }
-        std::shared_ptr<ITiming> TimeReferenceImpl::GetTiming()
+        std::shared_ptr<ITiming> TimeReferenceImpl::GetTiming() const
         {
             return _timing;
         }
@@ -22200,7 +22200,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType TimeReferenceImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType TimeReferenceImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -22214,7 +22214,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> TimeReferenceImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> TimeReferenceImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -22265,13 +22265,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string TimeReferenceImpl::GetStringProperty(std::string key)
+        std::string TimeReferenceImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> TimeReferenceImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> TimeReferenceImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -22290,17 +22290,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TimeReferenceImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TimeReferenceImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> TimeReferenceImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> TimeReferenceImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string TimeReferenceImpl::GetEnumerationLiteral(std::string key)
+        std::string TimeReferenceImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -22317,23 +22317,23 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
         }
 
-        bool TimeToCollisionConditionImpl::GetAlongRoute()
+        bool TimeToCollisionConditionImpl::GetAlongRoute() const
         {
             return _alongRoute;
         }
-        bool TimeToCollisionConditionImpl::GetFreespace()
+        bool TimeToCollisionConditionImpl::GetFreespace() const
         {
             return _freespace;
         }
-        Rule TimeToCollisionConditionImpl::GetRule()
+        Rule TimeToCollisionConditionImpl::GetRule() const
         {
             return _rule;
         }
-        double TimeToCollisionConditionImpl::GetValue()
+        double TimeToCollisionConditionImpl::GetValue() const
         {
             return _value;
         }
-        std::shared_ptr<ITimeToCollisionConditionTarget> TimeToCollisionConditionImpl::GetTimeToCollisionConditionTarget()
+        std::shared_ptr<ITimeToCollisionConditionTarget> TimeToCollisionConditionImpl::GetTimeToCollisionConditionTarget() const
         {
             return _timeToCollisionConditionTarget;
         }
@@ -22375,7 +22375,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType TimeToCollisionConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType TimeToCollisionConditionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -22389,7 +22389,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> TimeToCollisionConditionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> TimeToCollisionConditionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -22439,13 +22439,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string TimeToCollisionConditionImpl::GetStringProperty(std::string key)
+        std::string TimeToCollisionConditionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> TimeToCollisionConditionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> TimeToCollisionConditionImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -22459,17 +22459,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TimeToCollisionConditionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TimeToCollisionConditionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> TimeToCollisionConditionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> TimeToCollisionConditionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string TimeToCollisionConditionImpl::GetEnumerationLiteral(std::string key)
+        std::string TimeToCollisionConditionImpl::GetEnumerationLiteral(std::string key) const
         {
             if (key.empty())
             {
@@ -22492,11 +22492,11 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::shared_ptr<IPosition> TimeToCollisionConditionTargetImpl::GetPosition()
+        std::shared_ptr<IPosition> TimeToCollisionConditionTargetImpl::GetPosition() const
         {
             return _position;
         }
-        std::shared_ptr<IEntityRef> TimeToCollisionConditionTargetImpl::GetEntityRef()
+        std::shared_ptr<IEntityRef> TimeToCollisionConditionTargetImpl::GetEntityRef() const
         {
             return _entityRef;
         }
@@ -22505,7 +22505,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType TimeToCollisionConditionTargetImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType TimeToCollisionConditionTargetImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -22519,7 +22519,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> TimeToCollisionConditionTargetImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> TimeToCollisionConditionTargetImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -22570,13 +22570,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string TimeToCollisionConditionTargetImpl::GetStringProperty(std::string key)
+        std::string TimeToCollisionConditionTargetImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> TimeToCollisionConditionTargetImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> TimeToCollisionConditionTargetImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -22595,17 +22595,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TimeToCollisionConditionTargetImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TimeToCollisionConditionTargetImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> TimeToCollisionConditionTargetImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> TimeToCollisionConditionTargetImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string TimeToCollisionConditionTargetImpl::GetEnumerationLiteral(std::string key)
+        std::string TimeToCollisionConditionTargetImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -22621,15 +22621,15 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__SCALE, SimpleType::DOUBLE);
         }
 
-        ReferenceContext TimingImpl::GetDomainAbsoluteRelative()
+        ReferenceContext TimingImpl::GetDomainAbsoluteRelative() const
         {
             return _domainAbsoluteRelative;
         }
-        double TimingImpl::GetOffset()
+        double TimingImpl::GetOffset() const
         {
             return _offset;
         }
-        double TimingImpl::GetScale()
+        double TimingImpl::GetScale() const
         {
             return _scale;
         }
@@ -22665,7 +22665,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType TimingImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType TimingImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -22679,7 +22679,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> TimingImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> TimingImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -22714,28 +22714,28 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string TimingImpl::GetStringProperty(std::string key)
+        std::string TimingImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> TimingImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> TimingImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TimingImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TimingImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> TimingImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> TimingImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string TimingImpl::GetEnumerationLiteral(std::string key)
+        std::string TimingImpl::GetEnumerationLiteral(std::string key) const
         {
             if (key.empty())
             {
@@ -22758,15 +22758,15 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::shared_ptr<ITrafficSourceAction> TrafficActionImpl::GetTrafficSourceAction()
+        std::shared_ptr<ITrafficSourceAction> TrafficActionImpl::GetTrafficSourceAction() const
         {
             return _trafficSourceAction;
         }
-        std::shared_ptr<ITrafficSinkAction> TrafficActionImpl::GetTrafficSinkAction()
+        std::shared_ptr<ITrafficSinkAction> TrafficActionImpl::GetTrafficSinkAction() const
         {
             return _trafficSinkAction;
         }
-        std::shared_ptr<ITrafficSwarmAction> TrafficActionImpl::GetTrafficSwarmAction()
+        std::shared_ptr<ITrafficSwarmAction> TrafficActionImpl::GetTrafficSwarmAction() const
         {
             return _trafficSwarmAction;
         }
@@ -22775,7 +22775,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType TrafficActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType TrafficActionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -22789,7 +22789,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> TrafficActionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> TrafficActionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -22853,13 +22853,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string TrafficActionImpl::GetStringProperty(std::string key)
+        std::string TrafficActionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> TrafficActionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> TrafficActionImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -22883,17 +22883,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TrafficActionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TrafficActionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> TrafficActionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> TrafficActionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string TrafficActionImpl::GetEnumerationLiteral(std::string key)
+        std::string TrafficActionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -22907,15 +22907,15 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, SimpleType::STRING);
         }
 
-        std::string TrafficDefinitionImpl::GetName()
+        std::string TrafficDefinitionImpl::GetName() const
         {
             return _name;
         }
-        std::shared_ptr<IVehicleCategoryDistribution> TrafficDefinitionImpl::GetVehicleCategoryDistribution()
+        std::shared_ptr<IVehicleCategoryDistribution> TrafficDefinitionImpl::GetVehicleCategoryDistribution() const
         {
             return _vehicleCategoryDistribution;
         }
-        std::shared_ptr<IControllerDistribution> TrafficDefinitionImpl::GetControllerDistribution()
+        std::shared_ptr<IControllerDistribution> TrafficDefinitionImpl::GetControllerDistribution() const
         {
             return _controllerDistribution;
         }
@@ -22930,7 +22930,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType TrafficDefinitionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType TrafficDefinitionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -22944,7 +22944,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> TrafficDefinitionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> TrafficDefinitionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -22997,7 +22997,7 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string TrafficDefinitionImpl::GetStringProperty(std::string key)
+        std::string TrafficDefinitionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             if (key.empty())
@@ -23012,7 +23012,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> TrafficDefinitionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> TrafficDefinitionImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -23031,17 +23031,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TrafficDefinitionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TrafficDefinitionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> TrafficDefinitionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> TrafficDefinitionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string TrafficDefinitionImpl::GetEnumerationLiteral(std::string key)
+        std::string TrafficDefinitionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -23054,11 +23054,11 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::shared_ptr<ITrafficSignalControllerAction> TrafficSignalActionImpl::GetTrafficSignalControllerAction()
+        std::shared_ptr<ITrafficSignalControllerAction> TrafficSignalActionImpl::GetTrafficSignalControllerAction() const
         {
             return _trafficSignalControllerAction;
         }
-        std::shared_ptr<ITrafficSignalStateAction> TrafficSignalActionImpl::GetTrafficSignalStateAction()
+        std::shared_ptr<ITrafficSignalStateAction> TrafficSignalActionImpl::GetTrafficSignalStateAction() const
         {
             return _trafficSignalStateAction;
         }
@@ -23067,7 +23067,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType TrafficSignalActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType TrafficSignalActionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -23081,7 +23081,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> TrafficSignalActionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> TrafficSignalActionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -23132,13 +23132,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string TrafficSignalActionImpl::GetStringProperty(std::string key)
+        std::string TrafficSignalActionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> TrafficSignalActionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> TrafficSignalActionImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -23157,17 +23157,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TrafficSignalActionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TrafficSignalActionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> TrafficSignalActionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> TrafficSignalActionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string TrafficSignalActionImpl::GetEnumerationLiteral(std::string key)
+        std::string TrafficSignalActionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -23182,11 +23182,11 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__STATE, SimpleType::STRING);
         }
 
-        std::string TrafficSignalConditionImpl::GetName()
+        std::string TrafficSignalConditionImpl::GetName() const
         {
             return _name;
         }
-        std::string TrafficSignalConditionImpl::GetState()
+        std::string TrafficSignalConditionImpl::GetState() const
         {
             return _state;
         }
@@ -23207,7 +23207,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType TrafficSignalConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType TrafficSignalConditionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -23221,7 +23221,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> TrafficSignalConditionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> TrafficSignalConditionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -23250,7 +23250,7 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string TrafficSignalConditionImpl::GetStringProperty(std::string key)
+        std::string TrafficSignalConditionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             if (key.empty())
@@ -23270,22 +23270,22 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> TrafficSignalConditionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> TrafficSignalConditionImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TrafficSignalConditionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TrafficSignalConditionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> TrafficSignalConditionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> TrafficSignalConditionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string TrafficSignalConditionImpl::GetEnumerationLiteral(std::string key)
+        std::string TrafficSignalConditionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -23301,19 +23301,19 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__REFERENCE, SimpleType::STRING);
         }
 
-        double TrafficSignalControllerImpl::GetDelay()
+        double TrafficSignalControllerImpl::GetDelay() const
         {
             return _delay;
         }
-        std::string TrafficSignalControllerImpl::GetName()
+        std::string TrafficSignalControllerImpl::GetName() const
         {
             return _name;
         }
-        std::string TrafficSignalControllerImpl::GetReference()
+        std::string TrafficSignalControllerImpl::GetReference() const
         {
             return _reference;
         }
-        std::vector<std::shared_ptr<IPhase>> TrafficSignalControllerImpl::GetPhases()
+        std::vector<std::shared_ptr<IPhase>> TrafficSignalControllerImpl::GetPhases() const
         {
             std::vector<std::shared_ptr<IPhase>> temp;
             for(auto&& elm: _phases)
@@ -23343,7 +23343,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType TrafficSignalControllerImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType TrafficSignalControllerImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -23357,7 +23357,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> TrafficSignalControllerImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> TrafficSignalControllerImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -23408,7 +23408,7 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string TrafficSignalControllerImpl::GetStringProperty(std::string key)
+        std::string TrafficSignalControllerImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             if (key.empty())
@@ -23428,12 +23428,12 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> TrafficSignalControllerImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> TrafficSignalControllerImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TrafficSignalControllerImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TrafficSignalControllerImpl::GetListChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -23451,12 +23451,12 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> TrafficSignalControllerImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> TrafficSignalControllerImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string TrafficSignalControllerImpl::GetEnumerationLiteral(std::string key)
+        std::string TrafficSignalControllerImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -23471,15 +23471,15 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__TRAFFIC_SIGNAL_CONTROLLER_REF, SimpleType::STRING);
         }
 
-        std::string TrafficSignalControllerActionImpl::GetPhase()
+        std::string TrafficSignalControllerActionImpl::GetPhase() const
         {
             return _phase;
         }
-        std::shared_ptr<INamedReference<ITrafficSignalController>> TrafficSignalControllerActionImpl::GetTrafficSignalControllerRef()
+        std::shared_ptr<INamedReference<ITrafficSignalController>> TrafficSignalControllerActionImpl::GetTrafficSignalControllerRef() const
         {
             return _trafficSignalControllerRef;
         }
-        std::vector<std::shared_ptr<IPhase>> TrafficSignalControllerActionImpl::GetPhaseRef()
+        std::vector<std::shared_ptr<IPhase>> TrafficSignalControllerActionImpl::GetPhaseRef() const
         {
             std::vector<std::shared_ptr<IPhase>> temp;
             for(auto&& elm: _phaseRef)
@@ -23504,7 +23504,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType TrafficSignalControllerActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType TrafficSignalControllerActionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -23518,7 +23518,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> TrafficSignalControllerActionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> TrafficSignalControllerActionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -23550,7 +23550,7 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string TrafficSignalControllerActionImpl::GetStringProperty(std::string key)
+        std::string TrafficSignalControllerActionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             if (key.empty())
@@ -23572,17 +23572,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> TrafficSignalControllerActionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> TrafficSignalControllerActionImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TrafficSignalControllerActionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TrafficSignalControllerActionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> TrafficSignalControllerActionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> TrafficSignalControllerActionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             if (key.empty())
             {
@@ -23598,7 +23598,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::string TrafficSignalControllerActionImpl::GetEnumerationLiteral(std::string key)
+        std::string TrafficSignalControllerActionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -23613,15 +23613,15 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__TRAFFIC_SIGNAL_CONTROLLER_REF, SimpleType::STRING);
         }
 
-        std::string TrafficSignalControllerConditionImpl::GetPhase()
+        std::string TrafficSignalControllerConditionImpl::GetPhase() const
         {
             return _phase;
         }
-        std::shared_ptr<INamedReference<ITrafficSignalController>> TrafficSignalControllerConditionImpl::GetTrafficSignalControllerRef()
+        std::shared_ptr<INamedReference<ITrafficSignalController>> TrafficSignalControllerConditionImpl::GetTrafficSignalControllerRef() const
         {
             return _trafficSignalControllerRef;
         }
-        std::vector<std::shared_ptr<IPhase>> TrafficSignalControllerConditionImpl::GetPhaseRef()
+        std::vector<std::shared_ptr<IPhase>> TrafficSignalControllerConditionImpl::GetPhaseRef() const
         {
             std::vector<std::shared_ptr<IPhase>> temp;
             for(auto&& elm: _phaseRef)
@@ -23646,7 +23646,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType TrafficSignalControllerConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType TrafficSignalControllerConditionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -23660,7 +23660,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> TrafficSignalControllerConditionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> TrafficSignalControllerConditionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -23692,7 +23692,7 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string TrafficSignalControllerConditionImpl::GetStringProperty(std::string key)
+        std::string TrafficSignalControllerConditionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             if (key.empty())
@@ -23714,17 +23714,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> TrafficSignalControllerConditionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> TrafficSignalControllerConditionImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TrafficSignalControllerConditionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TrafficSignalControllerConditionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> TrafficSignalControllerConditionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> TrafficSignalControllerConditionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             if (key.empty())
             {
@@ -23740,7 +23740,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::string TrafficSignalControllerConditionImpl::GetEnumerationLiteral(std::string key)
+        std::string TrafficSignalControllerConditionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -23755,11 +23755,11 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__TRAFFIC_SIGNAL_ID, SimpleType::STRING);
         }
 
-        std::string TrafficSignalStateImpl::GetState()
+        std::string TrafficSignalStateImpl::GetState() const
         {
             return _state;
         }
-        std::string TrafficSignalStateImpl::GetTrafficSignalId()
+        std::string TrafficSignalStateImpl::GetTrafficSignalId() const
         {
             return _trafficSignalId;
         }
@@ -23780,7 +23780,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType TrafficSignalStateImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType TrafficSignalStateImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -23794,7 +23794,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> TrafficSignalStateImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> TrafficSignalStateImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -23823,7 +23823,7 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string TrafficSignalStateImpl::GetStringProperty(std::string key)
+        std::string TrafficSignalStateImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             if (key.empty())
@@ -23843,22 +23843,22 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> TrafficSignalStateImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> TrafficSignalStateImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TrafficSignalStateImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TrafficSignalStateImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> TrafficSignalStateImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> TrafficSignalStateImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string TrafficSignalStateImpl::GetEnumerationLiteral(std::string key)
+        std::string TrafficSignalStateImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -23873,11 +23873,11 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__STATE, SimpleType::STRING);
         }
 
-        std::string TrafficSignalStateActionImpl::GetName()
+        std::string TrafficSignalStateActionImpl::GetName() const
         {
             return _name;
         }
-        std::string TrafficSignalStateActionImpl::GetState()
+        std::string TrafficSignalStateActionImpl::GetState() const
         {
             return _state;
         }
@@ -23898,7 +23898,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType TrafficSignalStateActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType TrafficSignalStateActionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -23912,7 +23912,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> TrafficSignalStateActionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> TrafficSignalStateActionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -23941,7 +23941,7 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string TrafficSignalStateActionImpl::GetStringProperty(std::string key)
+        std::string TrafficSignalStateActionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             if (key.empty())
@@ -23961,22 +23961,22 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> TrafficSignalStateActionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> TrafficSignalStateActionImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TrafficSignalStateActionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TrafficSignalStateActionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> TrafficSignalStateActionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> TrafficSignalStateActionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string TrafficSignalStateActionImpl::GetEnumerationLiteral(std::string key)
+        std::string TrafficSignalStateActionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -23991,19 +23991,19 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__RATE, SimpleType::DOUBLE);
         }
 
-        double TrafficSinkActionImpl::GetRadius()
+        double TrafficSinkActionImpl::GetRadius() const
         {
             return _radius;
         }
-        double TrafficSinkActionImpl::GetRate()
+        double TrafficSinkActionImpl::GetRate() const
         {
             return _rate;
         }
-        std::shared_ptr<IPosition> TrafficSinkActionImpl::GetPosition()
+        std::shared_ptr<IPosition> TrafficSinkActionImpl::GetPosition() const
         {
             return _position;
         }
-        std::shared_ptr<ITrafficDefinition> TrafficSinkActionImpl::GetTrafficDefinition()
+        std::shared_ptr<ITrafficDefinition> TrafficSinkActionImpl::GetTrafficDefinition() const
         {
             return _trafficDefinition;
         }
@@ -24024,7 +24024,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType TrafficSinkActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType TrafficSinkActionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -24038,7 +24038,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> TrafficSinkActionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> TrafficSinkActionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -24093,13 +24093,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string TrafficSinkActionImpl::GetStringProperty(std::string key)
+        std::string TrafficSinkActionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> TrafficSinkActionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> TrafficSinkActionImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -24118,17 +24118,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TrafficSinkActionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TrafficSinkActionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> TrafficSinkActionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> TrafficSinkActionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string TrafficSinkActionImpl::GetEnumerationLiteral(std::string key)
+        std::string TrafficSinkActionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -24144,23 +24144,23 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VELOCITY, SimpleType::DOUBLE);
         }
 
-        double TrafficSourceActionImpl::GetRadius()
+        double TrafficSourceActionImpl::GetRadius() const
         {
             return _radius;
         }
-        double TrafficSourceActionImpl::GetRate()
+        double TrafficSourceActionImpl::GetRate() const
         {
             return _rate;
         }
-        double TrafficSourceActionImpl::GetVelocity()
+        double TrafficSourceActionImpl::GetVelocity() const
         {
             return _velocity;
         }
-        std::shared_ptr<IPosition> TrafficSourceActionImpl::GetPosition()
+        std::shared_ptr<IPosition> TrafficSourceActionImpl::GetPosition() const
         {
             return _position;
         }
-        std::shared_ptr<ITrafficDefinition> TrafficSourceActionImpl::GetTrafficDefinition()
+        std::shared_ptr<ITrafficDefinition> TrafficSourceActionImpl::GetTrafficDefinition() const
         {
             return _trafficDefinition;
         }
@@ -24187,7 +24187,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType TrafficSourceActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType TrafficSourceActionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -24201,7 +24201,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> TrafficSourceActionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> TrafficSourceActionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -24258,13 +24258,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string TrafficSourceActionImpl::GetStringProperty(std::string key)
+        std::string TrafficSourceActionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> TrafficSourceActionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> TrafficSourceActionImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -24283,17 +24283,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TrafficSourceActionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TrafficSourceActionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> TrafficSourceActionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> TrafficSourceActionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string TrafficSourceActionImpl::GetEnumerationLiteral(std::string key)
+        std::string TrafficSourceActionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -24312,35 +24312,35 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VELOCITY, SimpleType::DOUBLE);
         }
 
-        double TrafficSwarmActionImpl::GetInnerRadius()
+        double TrafficSwarmActionImpl::GetInnerRadius() const
         {
             return _innerRadius;
         }
-        uint32_t TrafficSwarmActionImpl::GetNumberOfVehicles()
+        uint32_t TrafficSwarmActionImpl::GetNumberOfVehicles() const
         {
             return _numberOfVehicles;
         }
-        double TrafficSwarmActionImpl::GetOffset()
+        double TrafficSwarmActionImpl::GetOffset() const
         {
             return _offset;
         }
-        double TrafficSwarmActionImpl::GetSemiMajorAxis()
+        double TrafficSwarmActionImpl::GetSemiMajorAxis() const
         {
             return _semiMajorAxis;
         }
-        double TrafficSwarmActionImpl::GetSemiMinorAxis()
+        double TrafficSwarmActionImpl::GetSemiMinorAxis() const
         {
             return _semiMinorAxis;
         }
-        double TrafficSwarmActionImpl::GetVelocity()
+        double TrafficSwarmActionImpl::GetVelocity() const
         {
             return _velocity;
         }
-        std::shared_ptr<ICentralSwarmObject> TrafficSwarmActionImpl::GetCentralObject()
+        std::shared_ptr<ICentralSwarmObject> TrafficSwarmActionImpl::GetCentralObject() const
         {
             return _centralObject;
         }
-        std::shared_ptr<ITrafficDefinition> TrafficSwarmActionImpl::GetTrafficDefinition()
+        std::shared_ptr<ITrafficDefinition> TrafficSwarmActionImpl::GetTrafficDefinition() const
         {
             return _trafficDefinition;
         }
@@ -24385,7 +24385,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType TrafficSwarmActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType TrafficSwarmActionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -24399,7 +24399,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> TrafficSwarmActionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> TrafficSwarmActionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -24462,13 +24462,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string TrafficSwarmActionImpl::GetStringProperty(std::string key)
+        std::string TrafficSwarmActionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> TrafficSwarmActionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> TrafficSwarmActionImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -24487,17 +24487,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TrafficSwarmActionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TrafficSwarmActionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> TrafficSwarmActionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> TrafficSwarmActionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string TrafficSwarmActionImpl::GetEnumerationLiteral(std::string key)
+        std::string TrafficSwarmActionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -24512,22 +24512,22 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__NAME, SimpleType::STRING);
         }
 
-        bool TrajectoryImpl::GetClosed()
+        bool TrajectoryImpl::GetClosed() const
         {
             return _closed;
         }
-        std::string TrajectoryImpl::GetName()
+        std::string TrajectoryImpl::GetName() const
         {
             return _name;
         }
-        std::vector<std::shared_ptr<IParameterDeclaration>> TrajectoryImpl::GetParameterDeclarations()
+        std::vector<std::shared_ptr<IParameterDeclaration>> TrajectoryImpl::GetParameterDeclarations() const
         {
             std::vector<std::shared_ptr<IParameterDeclaration>> temp;
             for(auto&& elm: _parameterDeclarations)
                 temp.push_back(elm);
             return temp;
         }
-        std::shared_ptr<IShape> TrajectoryImpl::GetShape()
+        std::shared_ptr<IShape> TrajectoryImpl::GetShape() const
         {
             return _shape;
         }
@@ -24548,7 +24548,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType TrajectoryImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType TrajectoryImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -24562,7 +24562,7 @@ namespace NET_ASAM_OPENSCENARIO
             return true;
         }
 
-        std::vector<std::shared_ptr<ParameterValue>> TrajectoryImpl::GetParameterDefinitions() 
+        std::vector<std::shared_ptr<ParameterValue>> TrajectoryImpl::GetParameterDefinitions() const
         {
             std::vector<std::shared_ptr<ParameterValue>> result;
             if (!_parameterDeclarations.empty())
@@ -24582,7 +24582,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> TrajectoryImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> TrajectoryImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -24644,7 +24644,7 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string TrajectoryImpl::GetStringProperty(std::string key)
+        std::string TrajectoryImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             if (key.empty())
@@ -24659,7 +24659,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> TrajectoryImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> TrajectoryImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -24673,7 +24673,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TrajectoryImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TrajectoryImpl::GetListChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -24690,12 +24690,12 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> TrajectoryImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> TrajectoryImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string TrajectoryImpl::GetEnumerationLiteral(std::string key)
+        std::string TrajectoryImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -24708,7 +24708,7 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::shared_ptr<IDirectory> TrajectoryCatalogLocationImpl::GetDirectory()
+        std::shared_ptr<IDirectory> TrajectoryCatalogLocationImpl::GetDirectory() const
         {
             return _directory;
         }
@@ -24717,7 +24717,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType TrajectoryCatalogLocationImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType TrajectoryCatalogLocationImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -24731,7 +24731,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> TrajectoryCatalogLocationImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> TrajectoryCatalogLocationImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -24769,13 +24769,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string TrajectoryCatalogLocationImpl::GetStringProperty(std::string key)
+        std::string TrajectoryCatalogLocationImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> TrajectoryCatalogLocationImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> TrajectoryCatalogLocationImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -24789,17 +24789,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TrajectoryCatalogLocationImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TrajectoryCatalogLocationImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> TrajectoryCatalogLocationImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> TrajectoryCatalogLocationImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string TrajectoryCatalogLocationImpl::GetEnumerationLiteral(std::string key)
+        std::string TrajectoryCatalogLocationImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -24813,7 +24813,7 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__FOLLOWING_MODE, SimpleType::ENUM_TYPE);
         }
 
-        FollowingMode TrajectoryFollowingModeImpl::GetFollowingMode()
+        FollowingMode TrajectoryFollowingModeImpl::GetFollowingMode() const
         {
             return _followingMode;
         }
@@ -24837,7 +24837,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType TrajectoryFollowingModeImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType TrajectoryFollowingModeImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -24851,7 +24851,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> TrajectoryFollowingModeImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> TrajectoryFollowingModeImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -24882,28 +24882,28 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string TrajectoryFollowingModeImpl::GetStringProperty(std::string key)
+        std::string TrajectoryFollowingModeImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> TrajectoryFollowingModeImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> TrajectoryFollowingModeImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TrajectoryFollowingModeImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TrajectoryFollowingModeImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> TrajectoryFollowingModeImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> TrajectoryFollowingModeImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string TrajectoryFollowingModeImpl::GetEnumerationLiteral(std::string key)
+        std::string TrajectoryFollowingModeImpl::GetEnumerationLiteral(std::string key) const
         {
             if (key.empty())
             {
@@ -24929,15 +24929,15 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
         }
 
-        DynamicsDimension TransitionDynamicsImpl::GetDynamicsDimension()
+        DynamicsDimension TransitionDynamicsImpl::GetDynamicsDimension() const
         {
             return _dynamicsDimension;
         }
-        DynamicsShape TransitionDynamicsImpl::GetDynamicsShape()
+        DynamicsShape TransitionDynamicsImpl::GetDynamicsShape() const
         {
             return _dynamicsShape;
         }
-        double TransitionDynamicsImpl::GetValue()
+        double TransitionDynamicsImpl::GetValue() const
         {
             return _value;
         }
@@ -24982,7 +24982,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType TransitionDynamicsImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType TransitionDynamicsImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -24996,7 +24996,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> TransitionDynamicsImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> TransitionDynamicsImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -25035,28 +25035,28 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string TransitionDynamicsImpl::GetStringProperty(std::string key)
+        std::string TransitionDynamicsImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> TransitionDynamicsImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> TransitionDynamicsImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TransitionDynamicsImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TransitionDynamicsImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> TransitionDynamicsImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> TransitionDynamicsImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string TransitionDynamicsImpl::GetEnumerationLiteral(std::string key)
+        std::string TransitionDynamicsImpl::GetEnumerationLiteral(std::string key) const
         {
             if (key.empty())
             {
@@ -25085,7 +25085,7 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::DOUBLE);
         }
 
-        double TraveledDistanceConditionImpl::GetValue()
+        double TraveledDistanceConditionImpl::GetValue() const
         {
             return _value;
         }
@@ -25100,7 +25100,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType TraveledDistanceConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType TraveledDistanceConditionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -25114,7 +25114,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> TraveledDistanceConditionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> TraveledDistanceConditionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -25141,28 +25141,28 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string TraveledDistanceConditionImpl::GetStringProperty(std::string key)
+        std::string TraveledDistanceConditionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> TraveledDistanceConditionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> TraveledDistanceConditionImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TraveledDistanceConditionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TraveledDistanceConditionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> TraveledDistanceConditionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> TraveledDistanceConditionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string TraveledDistanceConditionImpl::GetEnumerationLiteral(std::string key)
+        std::string TraveledDistanceConditionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -25175,7 +25175,7 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::vector<std::shared_ptr<IConditionGroup>> TriggerImpl::GetConditionGroups()
+        std::vector<std::shared_ptr<IConditionGroup>> TriggerImpl::GetConditionGroups() const
         {
             std::vector<std::shared_ptr<IConditionGroup>> temp;
             for(auto&& elm: _conditionGroups)
@@ -25187,7 +25187,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType TriggerImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType TriggerImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -25201,7 +25201,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> TriggerImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> TriggerImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -25246,18 +25246,18 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string TriggerImpl::GetStringProperty(std::string key)
+        std::string TriggerImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> TriggerImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> TriggerImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TriggerImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TriggerImpl::GetListChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -25275,12 +25275,12 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> TriggerImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> TriggerImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string TriggerImpl::GetEnumerationLiteral(std::string key)
+        std::string TriggerImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -25294,11 +25294,11 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__TRIGGERING_ENTITIES_RULE, SimpleType::ENUM_TYPE);
         }
 
-        TriggeringEntitiesRule TriggeringEntitiesImpl::GetTriggeringEntitiesRule()
+        TriggeringEntitiesRule TriggeringEntitiesImpl::GetTriggeringEntitiesRule() const
         {
             return _triggeringEntitiesRule;
         }
-        std::vector<std::shared_ptr<IEntityRef>> TriggeringEntitiesImpl::GetEntityRefs()
+        std::vector<std::shared_ptr<IEntityRef>> TriggeringEntitiesImpl::GetEntityRefs() const
         {
             std::vector<std::shared_ptr<IEntityRef>> temp;
             for(auto&& elm: _entityRefs)
@@ -25325,7 +25325,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType TriggeringEntitiesImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType TriggeringEntitiesImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -25339,7 +25339,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> TriggeringEntitiesImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> TriggeringEntitiesImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -25390,18 +25390,18 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string TriggeringEntitiesImpl::GetStringProperty(std::string key)
+        std::string TriggeringEntitiesImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> TriggeringEntitiesImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> TriggeringEntitiesImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TriggeringEntitiesImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> TriggeringEntitiesImpl::GetListChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -25419,12 +25419,12 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> TriggeringEntitiesImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> TriggeringEntitiesImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string TriggeringEntitiesImpl::GetEnumerationLiteral(std::string key)
+        std::string TriggeringEntitiesImpl::GetEnumerationLiteral(std::string key) const
         {
             if (key.empty())
             {
@@ -25447,7 +25447,7 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::shared_ptr<ICustomCommandAction> UserDefinedActionImpl::GetCustomCommandAction()
+        std::shared_ptr<ICustomCommandAction> UserDefinedActionImpl::GetCustomCommandAction() const
         {
             return _customCommandAction;
         }
@@ -25456,7 +25456,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType UserDefinedActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType UserDefinedActionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -25470,7 +25470,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> UserDefinedActionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> UserDefinedActionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -25508,13 +25508,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string UserDefinedActionImpl::GetStringProperty(std::string key)
+        std::string UserDefinedActionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> UserDefinedActionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> UserDefinedActionImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -25528,17 +25528,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> UserDefinedActionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> UserDefinedActionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> UserDefinedActionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> UserDefinedActionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string UserDefinedActionImpl::GetEnumerationLiteral(std::string key)
+        std::string UserDefinedActionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -25554,15 +25554,15 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VALUE, SimpleType::STRING);
         }
 
-        std::string UserDefinedValueConditionImpl::GetName()
+        std::string UserDefinedValueConditionImpl::GetName() const
         {
             return _name;
         }
-        Rule UserDefinedValueConditionImpl::GetRule()
+        Rule UserDefinedValueConditionImpl::GetRule() const
         {
             return _rule;
         }
-        std::string UserDefinedValueConditionImpl::GetValue()
+        std::string UserDefinedValueConditionImpl::GetValue() const
         {
             return _value;
         }
@@ -25598,7 +25598,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType UserDefinedValueConditionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType UserDefinedValueConditionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -25612,7 +25612,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> UserDefinedValueConditionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> UserDefinedValueConditionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -25647,7 +25647,7 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string UserDefinedValueConditionImpl::GetStringProperty(std::string key)
+        std::string UserDefinedValueConditionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             if (key.empty())
@@ -25667,22 +25667,22 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> UserDefinedValueConditionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> UserDefinedValueConditionImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> UserDefinedValueConditionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> UserDefinedValueConditionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> UserDefinedValueConditionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> UserDefinedValueConditionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string UserDefinedValueConditionImpl::GetEnumerationLiteral(std::string key)
+        std::string UserDefinedValueConditionImpl::GetEnumerationLiteral(std::string key) const
         {
             if (key.empty())
             {
@@ -25707,34 +25707,34 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__VEHICLE_CATEGORY, SimpleType::ENUM_TYPE);
         }
 
-        std::string VehicleImpl::GetName()
+        std::string VehicleImpl::GetName() const
         {
             return _name;
         }
-        VehicleCategory VehicleImpl::GetVehicleCategory()
+        VehicleCategory VehicleImpl::GetVehicleCategory() const
         {
             return _vehicleCategory;
         }
-        std::vector<std::shared_ptr<IParameterDeclaration>> VehicleImpl::GetParameterDeclarations()
+        std::vector<std::shared_ptr<IParameterDeclaration>> VehicleImpl::GetParameterDeclarations() const
         {
             std::vector<std::shared_ptr<IParameterDeclaration>> temp;
             for(auto&& elm: _parameterDeclarations)
                 temp.push_back(elm);
             return temp;
         }
-        std::shared_ptr<IBoundingBox> VehicleImpl::GetBoundingBox()
+        std::shared_ptr<IBoundingBox> VehicleImpl::GetBoundingBox() const
         {
             return _boundingBox;
         }
-        std::shared_ptr<IPerformance> VehicleImpl::GetPerformance()
+        std::shared_ptr<IPerformance> VehicleImpl::GetPerformance() const
         {
             return _performance;
         }
-        std::shared_ptr<IAxles> VehicleImpl::GetAxles()
+        std::shared_ptr<IAxles> VehicleImpl::GetAxles() const
         {
             return _axles;
         }
-        std::shared_ptr<IProperties> VehicleImpl::GetProperties()
+        std::shared_ptr<IProperties> VehicleImpl::GetProperties() const
         {
             return _properties;
         }
@@ -25764,7 +25764,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType VehicleImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType VehicleImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -25778,7 +25778,7 @@ namespace NET_ASAM_OPENSCENARIO
             return true;
         }
 
-        std::vector<std::shared_ptr<ParameterValue>> VehicleImpl::GetParameterDefinitions() 
+        std::vector<std::shared_ptr<ParameterValue>> VehicleImpl::GetParameterDefinitions() const
         {
             std::vector<std::shared_ptr<ParameterValue>> result;
             if (!_parameterDeclarations.empty())
@@ -25798,7 +25798,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> VehicleImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> VehicleImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -25903,7 +25903,7 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string VehicleImpl::GetStringProperty(std::string key)
+        std::string VehicleImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             if (key.empty())
@@ -25918,7 +25918,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> VehicleImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> VehicleImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -25947,7 +25947,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> VehicleImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> VehicleImpl::GetListChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -25964,12 +25964,12 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> VehicleImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> VehicleImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string VehicleImpl::GetEnumerationLiteral(std::string key)
+        std::string VehicleImpl::GetEnumerationLiteral(std::string key) const
         {
             if (key.empty())
             {
@@ -25992,7 +25992,7 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::shared_ptr<IDirectory> VehicleCatalogLocationImpl::GetDirectory()
+        std::shared_ptr<IDirectory> VehicleCatalogLocationImpl::GetDirectory() const
         {
             return _directory;
         }
@@ -26001,7 +26001,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType VehicleCatalogLocationImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType VehicleCatalogLocationImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -26015,7 +26015,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> VehicleCatalogLocationImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> VehicleCatalogLocationImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -26053,13 +26053,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string VehicleCatalogLocationImpl::GetStringProperty(std::string key)
+        std::string VehicleCatalogLocationImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> VehicleCatalogLocationImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> VehicleCatalogLocationImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -26073,17 +26073,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> VehicleCatalogLocationImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> VehicleCatalogLocationImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> VehicleCatalogLocationImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> VehicleCatalogLocationImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string VehicleCatalogLocationImpl::GetEnumerationLiteral(std::string key)
+        std::string VehicleCatalogLocationImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -26096,7 +26096,7 @@ namespace NET_ASAM_OPENSCENARIO
             */
         }
 
-        std::vector<std::shared_ptr<IVehicleCategoryDistributionEntry>> VehicleCategoryDistributionImpl::GetVehicleCategoryDistributionEntries()
+        std::vector<std::shared_ptr<IVehicleCategoryDistributionEntry>> VehicleCategoryDistributionImpl::GetVehicleCategoryDistributionEntries() const
         {
             std::vector<std::shared_ptr<IVehicleCategoryDistributionEntry>> temp;
             for(auto&& elm: _vehicleCategoryDistributionEntries)
@@ -26108,7 +26108,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         }
 
-        SimpleType VehicleCategoryDistributionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType VehicleCategoryDistributionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -26122,7 +26122,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> VehicleCategoryDistributionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> VehicleCategoryDistributionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -26167,18 +26167,18 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string VehicleCategoryDistributionImpl::GetStringProperty(std::string key)
+        std::string VehicleCategoryDistributionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> VehicleCategoryDistributionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> VehicleCategoryDistributionImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> VehicleCategoryDistributionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> VehicleCategoryDistributionImpl::GetListChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -26196,12 +26196,12 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> VehicleCategoryDistributionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> VehicleCategoryDistributionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string VehicleCategoryDistributionImpl::GetEnumerationLiteral(std::string key)
+        std::string VehicleCategoryDistributionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -26216,11 +26216,11 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__WEIGHT, SimpleType::DOUBLE);
         }
 
-        VehicleCategory VehicleCategoryDistributionEntryImpl::GetCategory()
+        VehicleCategory VehicleCategoryDistributionEntryImpl::GetCategory() const
         {
             return _category;
         }
-        double VehicleCategoryDistributionEntryImpl::GetWeight()
+        double VehicleCategoryDistributionEntryImpl::GetWeight() const
         {
             return _weight;
         }
@@ -26250,7 +26250,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType VehicleCategoryDistributionEntryImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType VehicleCategoryDistributionEntryImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -26264,7 +26264,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> VehicleCategoryDistributionEntryImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> VehicleCategoryDistributionEntryImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -26297,28 +26297,28 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string VehicleCategoryDistributionEntryImpl::GetStringProperty(std::string key)
+        std::string VehicleCategoryDistributionEntryImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> VehicleCategoryDistributionEntryImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> VehicleCategoryDistributionEntryImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> VehicleCategoryDistributionEntryImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> VehicleCategoryDistributionEntryImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> VehicleCategoryDistributionEntryImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> VehicleCategoryDistributionEntryImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string VehicleCategoryDistributionEntryImpl::GetEnumerationLiteral(std::string key)
+        std::string VehicleCategoryDistributionEntryImpl::GetEnumerationLiteral(std::string key) const
         {
             if (key.empty())
             {
@@ -26342,11 +26342,11 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__TIME, SimpleType::DOUBLE);
         }
 
-        double VertexImpl::GetTime()
+        double VertexImpl::GetTime() const
         {
             return _time;
         }
-        std::shared_ptr<IPosition> VertexImpl::GetPosition()
+        std::shared_ptr<IPosition> VertexImpl::GetPosition() const
         {
             return _position;
         }
@@ -26361,7 +26361,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType VertexImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType VertexImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -26375,7 +26375,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> VertexImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> VertexImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -26415,13 +26415,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string VertexImpl::GetStringProperty(std::string key)
+        std::string VertexImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> VertexImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> VertexImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -26435,17 +26435,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> VertexImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> VertexImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> VertexImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> VertexImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string VertexImpl::GetEnumerationLiteral(std::string key)
+        std::string VertexImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -26461,15 +26461,15 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__TRAFFIC, SimpleType::BOOLEAN);
         }
 
-        bool VisibilityActionImpl::GetGraphics()
+        bool VisibilityActionImpl::GetGraphics() const
         {
             return _graphics;
         }
-        bool VisibilityActionImpl::GetSensors()
+        bool VisibilityActionImpl::GetSensors() const
         {
             return _sensors;
         }
-        bool VisibilityActionImpl::GetTraffic()
+        bool VisibilityActionImpl::GetTraffic() const
         {
             return _traffic;
         }
@@ -26496,7 +26496,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType VisibilityActionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType VisibilityActionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -26510,7 +26510,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> VisibilityActionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> VisibilityActionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -26541,28 +26541,28 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string VisibilityActionImpl::GetStringProperty(std::string key)
+        std::string VisibilityActionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> VisibilityActionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> VisibilityActionImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> VisibilityActionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> VisibilityActionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> VisibilityActionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> VisibilityActionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string VisibilityActionImpl::GetEnumerationLiteral(std::string key)
+        std::string VisibilityActionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }
@@ -26576,11 +26576,11 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__ROUTE_STRATEGY, SimpleType::ENUM_TYPE);
         }
 
-        RouteStrategy WaypointImpl::GetRouteStrategy()
+        RouteStrategy WaypointImpl::GetRouteStrategy() const
         {
             return _routeStrategy;
         }
-        std::shared_ptr<IPosition> WaypointImpl::GetPosition()
+        std::shared_ptr<IPosition> WaypointImpl::GetPosition() const
         {
             return _position;
         }
@@ -26604,7 +26604,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType WaypointImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType WaypointImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -26618,7 +26618,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> WaypointImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> WaypointImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -26662,13 +26662,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string WaypointImpl::GetStringProperty(std::string key)
+        std::string WaypointImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> WaypointImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> WaypointImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -26682,17 +26682,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> WaypointImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> WaypointImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> WaypointImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> WaypointImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string WaypointImpl::GetEnumerationLiteral(std::string key)
+        std::string WaypointImpl::GetEnumerationLiteral(std::string key) const
         {
             if (key.empty())
             {
@@ -26716,19 +26716,19 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__CLOUD_STATE, SimpleType::ENUM_TYPE);
         }
 
-        CloudState WeatherImpl::GetCloudState()
+        CloudState WeatherImpl::GetCloudState() const
         {
             return _cloudState;
         }
-        std::shared_ptr<ISun> WeatherImpl::GetSun()
+        std::shared_ptr<ISun> WeatherImpl::GetSun() const
         {
             return _sun;
         }
-        std::shared_ptr<IFog> WeatherImpl::GetFog()
+        std::shared_ptr<IFog> WeatherImpl::GetFog() const
         {
             return _fog;
         }
-        std::shared_ptr<IPrecipitation> WeatherImpl::GetPrecipitation()
+        std::shared_ptr<IPrecipitation> WeatherImpl::GetPrecipitation() const
         {
             return _precipitation;
         }
@@ -26752,7 +26752,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType WeatherImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType WeatherImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -26766,7 +26766,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> WeatherImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> WeatherImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -26836,13 +26836,13 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string WeatherImpl::GetStringProperty(std::string key)
+        std::string WeatherImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> WeatherImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> WeatherImpl::GetChildElement(std::string key) const
         {
             if (key.empty())
             {
@@ -26866,17 +26866,17 @@ namespace NET_ASAM_OPENSCENARIO
             throw  KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> WeatherImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> WeatherImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> WeatherImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> WeatherImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string WeatherImpl::GetEnumerationLiteral(std::string key)
+        std::string WeatherImpl::GetEnumerationLiteral(std::string key) const
         {
             if (key.empty())
             {
@@ -26905,27 +26905,27 @@ namespace NET_ASAM_OPENSCENARIO
             _propertyToType.emplace(OSC_CONSTANTS::ATTRIBUTE__Z, SimpleType::DOUBLE);
         }
 
-        double WorldPositionImpl::GetH()
+        double WorldPositionImpl::GetH() const
         {
             return _h;
         }
-        double WorldPositionImpl::GetP()
+        double WorldPositionImpl::GetP() const
         {
             return _p;
         }
-        double WorldPositionImpl::GetR()
+        double WorldPositionImpl::GetR() const
         {
             return _r;
         }
-        double WorldPositionImpl::GetX()
+        double WorldPositionImpl::GetX() const
         {
             return _x;
         }
-        double WorldPositionImpl::GetY()
+        double WorldPositionImpl::GetY() const
         {
             return _y;
         }
-        double WorldPositionImpl::GetZ()
+        double WorldPositionImpl::GetZ() const
         {
             return _z;
         }
@@ -26970,7 +26970,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        SimpleType WorldPositionImpl::GetTypeFromAttributeName(std::string& attributeKey)
+        SimpleType WorldPositionImpl::GetTypeFromAttributeName(std::string& attributeKey) const
         {
             const auto kIt = _propertyToType.find(attributeKey);
             if (kIt != _propertyToType.end())
@@ -26984,7 +26984,7 @@ namespace NET_ASAM_OPENSCENARIO
         * method for any child.
         * @return a list with all children (as BaseImpl)
         */
-        std::vector<std::shared_ptr<BaseImpl>> WorldPositionImpl::GetChildren()
+        std::vector<std::shared_ptr<BaseImpl>> WorldPositionImpl::GetChildren() const
         {
             std::vector<std::shared_ptr<BaseImpl>> result;
 
@@ -27021,28 +27021,28 @@ namespace NET_ASAM_OPENSCENARIO
             return clonedObject;
         }
 
-        std::string WorldPositionImpl::GetStringProperty(std::string key)
+        std::string WorldPositionImpl::GetStringProperty(std::string key) const
         {
             // proxies and string attributes 
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> WorldPositionImpl::GetChildElement(std::string key)
+        std::shared_ptr<IOpenScenarioFlexElement> WorldPositionImpl::GetChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> WorldPositionImpl::GetListChildElement(std::string key)
+        std::vector<std::shared_ptr<IOpenScenarioFlexElement>> WorldPositionImpl::GetListChildElement(std::string key) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::shared_ptr<IOpenScenarioFlexElement> WorldPositionImpl::GetReferencedElement(std::string key, std::string name)
+        std::shared_ptr<IOpenScenarioFlexElement> WorldPositionImpl::GetReferencedElement(std::string key, std::string name) const
         {
             throw KeyNotSupportedException();
         }
 
-        std::string WorldPositionImpl::GetEnumerationLiteral(std::string key)
+        std::string WorldPositionImpl::GetEnumerationLiteral(std::string key) const
         {
             throw KeyNotSupportedException();
         }

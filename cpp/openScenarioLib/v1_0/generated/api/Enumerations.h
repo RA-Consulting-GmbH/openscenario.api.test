@@ -22,10 +22,6 @@
 #include <vector>
 #include "DateTime.h"
 #include "MemLeakDetection.h"
-#undef ERROR
-#undef ABSOLUTE
-#undef RELATIVE
-
 
 namespace NET_ASAM_OPENSCENARIO
 {
@@ -87,6 +83,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
             CloudState(CloudStateEnum& cloudState)
+            {
+                _literal = kCloudStateEnumString[cloudState+1];
+                _cloudStateEnum = GetFromLiteral(_literal);
+            }
+
+            CloudState(const CloudStateEnum cloudState)
             {
                 _literal = kCloudStateEnumString[cloudState+1];
                 _cloudStateEnum = GetFromLiteral(_literal);
@@ -205,6 +207,12 @@ namespace NET_ASAM_OPENSCENARIO
                 _conditionEdgeEnum = GetFromLiteral(_literal);
             }
 
+            ConditionEdge(const ConditionEdgeEnum conditionEdge)
+            {
+                _literal = kConditionEdgeEnumString[conditionEdge+1];
+                _conditionEdgeEnum = GetFromLiteral(_literal);
+            }
+
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO
@@ -305,6 +313,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
             DynamicsDimension(DynamicsDimensionEnum& dynamicsDimension)
+            {
+                _literal = kDynamicsDimensionEnumString[dynamicsDimension+1];
+                _dynamicsDimensionEnum = GetFromLiteral(_literal);
+            }
+
+            DynamicsDimension(const DynamicsDimensionEnum dynamicsDimension)
             {
                 _literal = kDynamicsDimensionEnumString[dynamicsDimension+1];
                 _dynamicsDimensionEnum = GetFromLiteral(_literal);
@@ -418,6 +432,12 @@ namespace NET_ASAM_OPENSCENARIO
                 _dynamicsShapeEnum = GetFromLiteral(_literal);
             }
 
+            DynamicsShape(const DynamicsShapeEnum dynamicsShape)
+            {
+                _literal = kDynamicsShapeEnumString[dynamicsShape+1];
+                _dynamicsShapeEnum = GetFromLiteral(_literal);
+            }
+
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO
@@ -515,6 +535,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
             FollowingMode(FollowingModeEnum& followingMode)
+            {
+                _literal = kFollowingModeEnumString[followingMode+1];
+                _followingModeEnum = GetFromLiteral(_literal);
+            }
+
+            FollowingMode(const FollowingModeEnum followingMode)
             {
                 _literal = kFollowingModeEnumString[followingMode+1];
                 _followingModeEnum = GetFromLiteral(_literal);
@@ -667,6 +693,12 @@ namespace NET_ASAM_OPENSCENARIO
                 _miscObjectCategoryEnum = GetFromLiteral(_literal);
             }
 
+            MiscObjectCategory(const MiscObjectCategoryEnum miscObjectCategory)
+            {
+                _literal = kMiscObjectCategoryEnumString[miscObjectCategory+1];
+                _miscObjectCategoryEnum = GetFromLiteral(_literal);
+            }
+
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO
@@ -767,6 +799,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
             ObjectType(ObjectTypeEnum& objectType)
+            {
+                _literal = kObjectTypeEnumString[objectType+1];
+                _objectTypeEnum = GetFromLiteral(_literal);
+            }
+
+            ObjectType(const ObjectTypeEnum objectType)
             {
                 _literal = kObjectTypeEnumString[objectType+1];
                 _objectTypeEnum = GetFromLiteral(_literal);
@@ -889,6 +927,12 @@ namespace NET_ASAM_OPENSCENARIO
                 _parameterTypeEnum = GetFromLiteral(_literal);
             }
 
+            ParameterType(const ParameterTypeEnum parameterType)
+            {
+                _literal = kParameterTypeEnumString[parameterType+1];
+                _parameterTypeEnum = GetFromLiteral(_literal);
+            }
+
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO
@@ -994,6 +1038,12 @@ namespace NET_ASAM_OPENSCENARIO
                 _pedestrianCategoryEnum = GetFromLiteral(_literal);
             }
 
+            PedestrianCategory(const PedestrianCategoryEnum pedestrianCategory)
+            {
+                _literal = kPedestrianCategoryEnumString[pedestrianCategory+1];
+                _pedestrianCategoryEnum = GetFromLiteral(_literal);
+            }
+
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO
@@ -1094,6 +1144,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
             PrecipitationType(PrecipitationTypeEnum& precipitationType)
+            {
+                _literal = kPrecipitationTypeEnumString[precipitationType+1];
+                _precipitationTypeEnum = GetFromLiteral(_literal);
+            }
+
+            PrecipitationType(const PrecipitationTypeEnum precipitationType)
             {
                 _literal = kPrecipitationTypeEnumString[precipitationType+1];
                 _precipitationTypeEnum = GetFromLiteral(_literal);
@@ -1206,6 +1262,12 @@ namespace NET_ASAM_OPENSCENARIO
                 _priorityEnum = GetFromLiteral(_literal);
             }
 
+            Priority(const PriorityEnum priority)
+            {
+                _literal = kPriorityEnumString[priority+1];
+                _priorityEnum = GetFromLiteral(_literal);
+            }
+
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO
@@ -1303,6 +1365,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
             ReferenceContext(ReferenceContextEnum& referenceContext)
+            {
+                _literal = kReferenceContextEnumString[referenceContext+1];
+                _referenceContextEnum = GetFromLiteral(_literal);
+            }
+
+            ReferenceContext(const ReferenceContextEnum referenceContext)
             {
                 _literal = kReferenceContextEnumString[referenceContext+1];
                 _referenceContextEnum = GetFromLiteral(_literal);
@@ -1408,6 +1476,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
             RelativeDistanceType(RelativeDistanceTypeEnum& relativeDistanceType)
+            {
+                _literal = kRelativeDistanceTypeEnumString[relativeDistanceType+1];
+                _relativeDistanceTypeEnum = GetFromLiteral(_literal);
+            }
+
+            RelativeDistanceType(const RelativeDistanceTypeEnum relativeDistanceType)
             {
                 _literal = kRelativeDistanceTypeEnumString[relativeDistanceType+1];
                 _relativeDistanceTypeEnum = GetFromLiteral(_literal);
@@ -1521,6 +1595,12 @@ namespace NET_ASAM_OPENSCENARIO
                 _routeStrategyEnum = GetFromLiteral(_literal);
             }
 
+            RouteStrategy(const RouteStrategyEnum routeStrategy)
+            {
+                _literal = kRouteStrategyEnumString[routeStrategy+1];
+                _routeStrategyEnum = GetFromLiteral(_literal);
+            }
+
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO
@@ -1626,6 +1706,12 @@ namespace NET_ASAM_OPENSCENARIO
                 _ruleEnum = GetFromLiteral(_literal);
             }
 
+            Rule(const RuleEnum rule)
+            {
+                _literal = kRuleEnumString[rule+1];
+                _ruleEnum = GetFromLiteral(_literal);
+            }
+
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO
@@ -1725,6 +1811,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
             SpeedTargetValueType(SpeedTargetValueTypeEnum& speedTargetValueType)
+            {
+                _literal = kSpeedTargetValueTypeEnumString[speedTargetValueType+1];
+                _speedTargetValueTypeEnum = GetFromLiteral(_literal);
+            }
+
+            SpeedTargetValueType(const SpeedTargetValueTypeEnum speedTargetValueType)
             {
                 _literal = kSpeedTargetValueTypeEnumString[speedTargetValueType+1];
                 _speedTargetValueTypeEnum = GetFromLiteral(_literal);
@@ -1852,6 +1944,12 @@ namespace NET_ASAM_OPENSCENARIO
                 _storyboardElementStateEnum = GetFromLiteral(_literal);
             }
 
+            StoryboardElementState(const StoryboardElementStateEnum storyboardElementState)
+            {
+                _literal = kStoryboardElementStateEnumString[storyboardElementState+1];
+                _storyboardElementStateEnum = GetFromLiteral(_literal);
+            }
+
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO
@@ -1966,6 +2064,12 @@ namespace NET_ASAM_OPENSCENARIO
                 _storyboardElementTypeEnum = GetFromLiteral(_literal);
             }
 
+            StoryboardElementType(const StoryboardElementTypeEnum storyboardElementType)
+            {
+                _literal = kStoryboardElementTypeEnumString[storyboardElementType+1];
+                _storyboardElementTypeEnum = GetFromLiteral(_literal);
+            }
+
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO
@@ -2063,6 +2167,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
             TriggeringEntitiesRule(TriggeringEntitiesRuleEnum& triggeringEntitiesRule)
+            {
+                _literal = kTriggeringEntitiesRuleEnumString[triggeringEntitiesRule+1];
+                _triggeringEntitiesRuleEnum = GetFromLiteral(_literal);
+            }
+
+            TriggeringEntitiesRule(const TriggeringEntitiesRuleEnum triggeringEntitiesRule)
             {
                 _literal = kTriggeringEntitiesRuleEnumString[triggeringEntitiesRule+1];
                 _triggeringEntitiesRuleEnum = GetFromLiteral(_literal);
@@ -2189,6 +2299,12 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
             VehicleCategory(VehicleCategoryEnum& vehicleCategory)
+            {
+                _literal = kVehicleCategoryEnumString[vehicleCategory+1];
+                _vehicleCategoryEnum = GetFromLiteral(_literal);
+            }
+
+            VehicleCategory(const VehicleCategoryEnum vehicleCategory)
             {
                 _literal = kVehicleCategoryEnumString[vehicleCategory+1];
                 _vehicleCategoryEnum = GetFromLiteral(_literal);

@@ -72,6 +72,12 @@ namespace NET_ASAM_OPENSCENARIO
                 _<%=element.name.toMemberName()%>Enum = GetFromLiteral(_literal);
             }
 
+            <%=element.name.toClassName()%>(const <%=element.name.toClassName()%>Enum <%=element.name.toMemberName()%>)
+            {
+                _literal = k<%=element.name.toClassName()%>EnumString[<%=element.name.toMemberName()%>+1];
+                _<%=element.name.toMemberName()%>Enum = GetFromLiteral(_literal);
+            }
+
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO

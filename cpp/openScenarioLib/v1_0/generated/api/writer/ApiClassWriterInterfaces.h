@@ -259,7 +259,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromValue() { return ""; }
+            virtual std::string GetParameterFromValue() const { return ""; }
 
             /**
              * Retrieves whether the attribute value is parametrized.
@@ -309,7 +309,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromValue() { return ""; }
+            virtual std::string GetParameterFromValue() const { return ""; }
 
             /**
              * Retrieves whether the attribute value is parametrized.
@@ -359,7 +359,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromValue() { return ""; }
+            virtual std::string GetParameterFromValue() const { return ""; }
 
             /**
              * Retrieves whether the attribute value is parametrized.
@@ -409,7 +409,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromValue() { return ""; }
+            virtual std::string GetParameterFromValue() const { return ""; }
 
             /**
              * Retrieves whether the attribute value is parametrized.
@@ -474,13 +474,13 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromRule() { return ""; }
+            virtual std::string GetParameterFromRule() const { return ""; }
             /**
              * Get the parameter for the attribute  value
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromValue() { return ""; }
+            virtual std::string GetParameterFromValue() const { return ""; }
 
             /**
              * Retrieves whether the attribute rule is parametrized.
@@ -534,7 +534,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property position
             */
-            virtual std::shared_ptr<IPositionWriter> GetWriterPosition() 
+            virtual std::shared_ptr<IPositionWriter> GetWriterPosition() const 
             {
                 return nullptr;
             } 
@@ -603,7 +603,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromName() { return ""; }
+            virtual std::string GetParameterFromName() const { return ""; }
 
             /**
              * Retrieves whether the attribute name is parametrized.
@@ -619,7 +619,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property startTrigger
             */
-            virtual std::shared_ptr<ITriggerWriter> GetWriterStartTrigger() 
+            virtual std::shared_ptr<ITriggerWriter> GetWriterStartTrigger() const 
             {
                 return nullptr;
             } 
@@ -629,7 +629,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property stopTrigger
             */
-            virtual std::shared_ptr<ITriggerWriter> GetWriterStopTrigger() 
+            virtual std::shared_ptr<ITriggerWriter> GetWriterStopTrigger() const 
             {
                 return nullptr;
             } 
@@ -640,7 +640,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a list of writers for model property maneuverGroups
             */
-            virtual std::vector<std::shared_ptr<IManeuverGroupWriter>> GetWriterManeuverGroups()
+            virtual std::vector<std::shared_ptr<IManeuverGroupWriter>> GetWriterManeuverGroups() const
             {
                 return std::vector<std::shared_ptr<IManeuverGroupWriter>>();
             }
@@ -707,7 +707,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromName() { return ""; }
+            virtual std::string GetParameterFromName() const { return ""; }
 
             /**
              * Retrieves whether the attribute name is parametrized.
@@ -723,7 +723,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property globalAction
             */
-            virtual std::shared_ptr<IGlobalActionWriter> GetWriterGlobalAction() 
+            virtual std::shared_ptr<IGlobalActionWriter> GetWriterGlobalAction() const 
             {
                 return nullptr;
             } 
@@ -733,7 +733,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property userDefinedAction
             */
-            virtual std::shared_ptr<IUserDefinedActionWriter> GetWriterUserDefinedAction() 
+            virtual std::shared_ptr<IUserDefinedActionWriter> GetWriterUserDefinedAction() const 
             {
                 return nullptr;
             } 
@@ -743,7 +743,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property privateAction
             */
-            virtual std::shared_ptr<IPrivateActionWriter> GetWriterPrivateAction() 
+            virtual std::shared_ptr<IPrivateActionWriter> GetWriterPrivateAction() const 
             {
                 return nullptr;
             } 
@@ -801,13 +801,13 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromLateral() { return ""; }
+            virtual std::string GetParameterFromLateral() const { return ""; }
             /**
              * Get the parameter for the attribute  longitudinal
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromLongitudinal() { return ""; }
+            virtual std::string GetParameterFromLongitudinal() const { return ""; }
 
             /**
              * Retrieves whether the attribute lateral is parametrized.
@@ -871,7 +871,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromSelectTriggeringEntities() { return ""; }
+            virtual std::string GetParameterFromSelectTriggeringEntities() const { return ""; }
 
             /**
              * Retrieves whether the attribute selectTriggeringEntities is parametrized.
@@ -888,7 +888,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a list of writers for model property entityRefs
             */
-            virtual std::vector<std::shared_ptr<IEntityRefWriter>> GetWriterEntityRefs()
+            virtual std::vector<std::shared_ptr<IEntityRefWriter>> GetWriterEntityRefs() const
             {
                 return std::vector<std::shared_ptr<IEntityRefWriter>>();
             }
@@ -929,7 +929,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property position
             */
-            virtual std::shared_ptr<IPositionWriter> GetWriterPosition() 
+            virtual std::shared_ptr<IPositionWriter> GetWriterPosition() const 
             {
                 return nullptr;
             } 
@@ -980,7 +980,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property controller
             */
-            virtual std::shared_ptr<IControllerWriter> GetWriterController() 
+            virtual std::shared_ptr<IControllerWriter> GetWriterController() const 
             {
                 return nullptr;
             } 
@@ -990,7 +990,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property catalogReference
             */
-            virtual std::shared_ptr<ICatalogReferenceWriter> GetWriterCatalogReference() 
+            virtual std::shared_ptr<ICatalogReferenceWriter> GetWriterCatalogReference() const 
             {
                 return nullptr;
             } 
@@ -1042,7 +1042,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property route
             */
-            virtual std::shared_ptr<IRouteWriter> GetWriterRoute() 
+            virtual std::shared_ptr<IRouteWriter> GetWriterRoute() const 
             {
                 return nullptr;
             } 
@@ -1052,7 +1052,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property catalogReference
             */
-            virtual std::shared_ptr<ICatalogReferenceWriter> GetWriterCatalogReference() 
+            virtual std::shared_ptr<ICatalogReferenceWriter> GetWriterCatalogReference() const 
             {
                 return nullptr;
             } 
@@ -1153,31 +1153,31 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromMaxSteering() { return ""; }
+            virtual std::string GetParameterFromMaxSteering() const { return ""; }
             /**
              * Get the parameter for the attribute  positionX
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromPositionX() { return ""; }
+            virtual std::string GetParameterFromPositionX() const { return ""; }
             /**
              * Get the parameter for the attribute  positionZ
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromPositionZ() { return ""; }
+            virtual std::string GetParameterFromPositionZ() const { return ""; }
             /**
              * Get the parameter for the attribute  trackWidth
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromTrackWidth() { return ""; }
+            virtual std::string GetParameterFromTrackWidth() const { return ""; }
             /**
              * Get the parameter for the attribute  wheelDiameter
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromWheelDiameter() { return ""; }
+            virtual std::string GetParameterFromWheelDiameter() const { return ""; }
 
             /**
              * Retrieves whether the attribute maxSteering is parametrized.
@@ -1265,7 +1265,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property frontAxle
             */
-            virtual std::shared_ptr<IAxleWriter> GetWriterFrontAxle() 
+            virtual std::shared_ptr<IAxleWriter> GetWriterFrontAxle() const 
             {
                 return nullptr;
             } 
@@ -1275,7 +1275,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property rearAxle
             */
-            virtual std::shared_ptr<IAxleWriter> GetWriterRearAxle() 
+            virtual std::shared_ptr<IAxleWriter> GetWriterRearAxle() const 
             {
                 return nullptr;
             } 
@@ -1286,7 +1286,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a list of writers for model property additionalAxles
             */
-            virtual std::vector<std::shared_ptr<IAxleWriter>> GetWriterAdditionalAxles()
+            virtual std::vector<std::shared_ptr<IAxleWriter>> GetWriterAdditionalAxles() const
             {
                 return std::vector<std::shared_ptr<IAxleWriter>>();
             }
@@ -1337,7 +1337,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property center
             */
-            virtual std::shared_ptr<ICenterWriter> GetWriterCenter() 
+            virtual std::shared_ptr<ICenterWriter> GetWriterCenter() const 
             {
                 return nullptr;
             } 
@@ -1347,7 +1347,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property dimensions
             */
-            virtual std::shared_ptr<IDimensionsWriter> GetWriterDimensions() 
+            virtual std::shared_ptr<IDimensionsWriter> GetWriterDimensions() const 
             {
                 return nullptr;
             } 
@@ -1399,7 +1399,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property triggeringEntities
             */
-            virtual std::shared_ptr<ITriggeringEntitiesWriter> GetWriterTriggeringEntities() 
+            virtual std::shared_ptr<ITriggeringEntitiesWriter> GetWriterTriggeringEntities() const 
             {
                 return nullptr;
             } 
@@ -1409,7 +1409,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property entityCondition
             */
-            virtual std::shared_ptr<IEntityConditionWriter> GetWriterEntityCondition() 
+            virtual std::shared_ptr<IEntityConditionWriter> GetWriterEntityCondition() const 
             {
                 return nullptr;
             } 
@@ -1453,7 +1453,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromType() { return ""; }
+            virtual std::string GetParameterFromType() const { return ""; }
 
             /**
              * Retrieves whether the attribute type is parametrized.
@@ -1503,7 +1503,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromObjectType() { return ""; }
+            virtual std::string GetParameterFromObjectType() const { return ""; }
 
             /**
              * Retrieves whether the attribute objectType is parametrized.
@@ -1599,7 +1599,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property parameterCondition
             */
-            virtual std::shared_ptr<IParameterConditionWriter> GetWriterParameterCondition() 
+            virtual std::shared_ptr<IParameterConditionWriter> GetWriterParameterCondition() const 
             {
                 return nullptr;
             } 
@@ -1609,7 +1609,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property timeOfDayCondition
             */
-            virtual std::shared_ptr<ITimeOfDayConditionWriter> GetWriterTimeOfDayCondition() 
+            virtual std::shared_ptr<ITimeOfDayConditionWriter> GetWriterTimeOfDayCondition() const 
             {
                 return nullptr;
             } 
@@ -1619,7 +1619,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property simulationTimeCondition
             */
-            virtual std::shared_ptr<ISimulationTimeConditionWriter> GetWriterSimulationTimeCondition() 
+            virtual std::shared_ptr<ISimulationTimeConditionWriter> GetWriterSimulationTimeCondition() const 
             {
                 return nullptr;
             } 
@@ -1629,7 +1629,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property storyboardElementStateCondition
             */
-            virtual std::shared_ptr<IStoryboardElementStateConditionWriter> GetWriterStoryboardElementStateCondition() 
+            virtual std::shared_ptr<IStoryboardElementStateConditionWriter> GetWriterStoryboardElementStateCondition() const 
             {
                 return nullptr;
             } 
@@ -1639,7 +1639,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property userDefinedValueCondition
             */
-            virtual std::shared_ptr<IUserDefinedValueConditionWriter> GetWriterUserDefinedValueCondition() 
+            virtual std::shared_ptr<IUserDefinedValueConditionWriter> GetWriterUserDefinedValueCondition() const 
             {
                 return nullptr;
             } 
@@ -1649,7 +1649,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property trafficSignalCondition
             */
-            virtual std::shared_ptr<ITrafficSignalConditionWriter> GetWriterTrafficSignalCondition() 
+            virtual std::shared_ptr<ITrafficSignalConditionWriter> GetWriterTrafficSignalCondition() const 
             {
                 return nullptr;
             } 
@@ -1659,7 +1659,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property trafficSignalControllerCondition
             */
-            virtual std::shared_ptr<ITrafficSignalControllerConditionWriter> GetWriterTrafficSignalControllerCondition() 
+            virtual std::shared_ptr<ITrafficSignalControllerConditionWriter> GetWriterTrafficSignalControllerCondition() const 
             {
                 return nullptr;
             } 
@@ -1768,7 +1768,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromName() { return ""; }
+            virtual std::string GetParameterFromName() const { return ""; }
 
             /**
              * Retrieves whether the attribute name is parametrized.
@@ -1785,7 +1785,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a list of writers for model property vehicles
             */
-            virtual std::vector<std::shared_ptr<IVehicleWriter>> GetWriterVehicles()
+            virtual std::vector<std::shared_ptr<IVehicleWriter>> GetWriterVehicles() const
             {
                 return std::vector<std::shared_ptr<IVehicleWriter>>();
             }
@@ -1795,7 +1795,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a list of writers for model property controllers
             */
-            virtual std::vector<std::shared_ptr<IControllerWriter>> GetWriterControllers()
+            virtual std::vector<std::shared_ptr<IControllerWriter>> GetWriterControllers() const
             {
                 return std::vector<std::shared_ptr<IControllerWriter>>();
             }
@@ -1805,7 +1805,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a list of writers for model property pedestrians
             */
-            virtual std::vector<std::shared_ptr<IPedestrianWriter>> GetWriterPedestrians()
+            virtual std::vector<std::shared_ptr<IPedestrianWriter>> GetWriterPedestrians() const
             {
                 return std::vector<std::shared_ptr<IPedestrianWriter>>();
             }
@@ -1815,7 +1815,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a list of writers for model property miscObjects
             */
-            virtual std::vector<std::shared_ptr<IMiscObjectWriter>> GetWriterMiscObjects()
+            virtual std::vector<std::shared_ptr<IMiscObjectWriter>> GetWriterMiscObjects() const
             {
                 return std::vector<std::shared_ptr<IMiscObjectWriter>>();
             }
@@ -1825,7 +1825,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a list of writers for model property environments
             */
-            virtual std::vector<std::shared_ptr<IEnvironmentWriter>> GetWriterEnvironments()
+            virtual std::vector<std::shared_ptr<IEnvironmentWriter>> GetWriterEnvironments() const
             {
                 return std::vector<std::shared_ptr<IEnvironmentWriter>>();
             }
@@ -1835,7 +1835,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a list of writers for model property maneuvers
             */
-            virtual std::vector<std::shared_ptr<IManeuverWriter>> GetWriterManeuvers()
+            virtual std::vector<std::shared_ptr<IManeuverWriter>> GetWriterManeuvers() const
             {
                 return std::vector<std::shared_ptr<IManeuverWriter>>();
             }
@@ -1845,7 +1845,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a list of writers for model property trajectories
             */
-            virtual std::vector<std::shared_ptr<ITrajectoryWriter>> GetWriterTrajectories()
+            virtual std::vector<std::shared_ptr<ITrajectoryWriter>> GetWriterTrajectories() const
             {
                 return std::vector<std::shared_ptr<ITrajectoryWriter>>();
             }
@@ -1855,7 +1855,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a list of writers for model property routes
             */
-            virtual std::vector<std::shared_ptr<IRouteWriter>> GetWriterRoutes()
+            virtual std::vector<std::shared_ptr<IRouteWriter>> GetWriterRoutes() const
             {
                 return std::vector<std::shared_ptr<IRouteWriter>>();
             }
@@ -1896,7 +1896,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property catalog
             */
-            virtual std::shared_ptr<ICatalogWriter> GetWriterCatalog() 
+            virtual std::shared_ptr<ICatalogWriter> GetWriterCatalog() const 
             {
                 return nullptr;
             } 
@@ -1994,7 +1994,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property vehicleCatalog
             */
-            virtual std::shared_ptr<IVehicleCatalogLocationWriter> GetWriterVehicleCatalog() 
+            virtual std::shared_ptr<IVehicleCatalogLocationWriter> GetWriterVehicleCatalog() const 
             {
                 return nullptr;
             } 
@@ -2004,7 +2004,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property controllerCatalog
             */
-            virtual std::shared_ptr<IControllerCatalogLocationWriter> GetWriterControllerCatalog() 
+            virtual std::shared_ptr<IControllerCatalogLocationWriter> GetWriterControllerCatalog() const 
             {
                 return nullptr;
             } 
@@ -2014,7 +2014,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property pedestrianCatalog
             */
-            virtual std::shared_ptr<IPedestrianCatalogLocationWriter> GetWriterPedestrianCatalog() 
+            virtual std::shared_ptr<IPedestrianCatalogLocationWriter> GetWriterPedestrianCatalog() const 
             {
                 return nullptr;
             } 
@@ -2024,7 +2024,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property miscObjectCatalog
             */
-            virtual std::shared_ptr<IMiscObjectCatalogLocationWriter> GetWriterMiscObjectCatalog() 
+            virtual std::shared_ptr<IMiscObjectCatalogLocationWriter> GetWriterMiscObjectCatalog() const 
             {
                 return nullptr;
             } 
@@ -2034,7 +2034,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property environmentCatalog
             */
-            virtual std::shared_ptr<IEnvironmentCatalogLocationWriter> GetWriterEnvironmentCatalog() 
+            virtual std::shared_ptr<IEnvironmentCatalogLocationWriter> GetWriterEnvironmentCatalog() const 
             {
                 return nullptr;
             } 
@@ -2044,7 +2044,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property maneuverCatalog
             */
-            virtual std::shared_ptr<IManeuverCatalogLocationWriter> GetWriterManeuverCatalog() 
+            virtual std::shared_ptr<IManeuverCatalogLocationWriter> GetWriterManeuverCatalog() const 
             {
                 return nullptr;
             } 
@@ -2054,7 +2054,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property trajectoryCatalog
             */
-            virtual std::shared_ptr<ITrajectoryCatalogLocationWriter> GetWriterTrajectoryCatalog() 
+            virtual std::shared_ptr<ITrajectoryCatalogLocationWriter> GetWriterTrajectoryCatalog() const 
             {
                 return nullptr;
             } 
@@ -2064,7 +2064,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property routeCatalog
             */
-            virtual std::shared_ptr<IRouteCatalogLocationWriter> GetWriterRouteCatalog() 
+            virtual std::shared_ptr<IRouteCatalogLocationWriter> GetWriterRouteCatalog() const 
             {
                 return nullptr;
             } 
@@ -2140,13 +2140,13 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromCatalogName() { return ""; }
+            virtual std::string GetParameterFromCatalogName() const { return ""; }
             /**
              * Get the parameter for the attribute  entryName
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromEntryName() { return ""; }
+            virtual std::string GetParameterFromEntryName() const { return ""; }
 
             /**
              * Retrieves whether the attribute catalogName is parametrized.
@@ -2169,7 +2169,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a list of writers for model property parameterAssignments
             */
-            virtual std::vector<std::shared_ptr<IParameterAssignmentWriter>> GetWriterParameterAssignments()
+            virtual std::vector<std::shared_ptr<IParameterAssignmentWriter>> GetWriterParameterAssignments() const
             {
                 return std::vector<std::shared_ptr<IParameterAssignmentWriter>>();
             }
@@ -2241,19 +2241,19 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromX() { return ""; }
+            virtual std::string GetParameterFromX() const { return ""; }
             /**
              * Get the parameter for the attribute  y
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromY() { return ""; }
+            virtual std::string GetParameterFromY() const { return ""; }
             /**
              * Get the parameter for the attribute  z
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromZ() { return ""; }
+            virtual std::string GetParameterFromZ() const { return ""; }
 
             /**
              * Retrieves whether the attribute x is parametrized.
@@ -2315,7 +2315,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromEntityRef() { return ""; }
+            virtual std::string GetParameterFromEntityRef() const { return ""; }
 
             /**
              * Retrieves whether the attribute entityRef is parametrized.
@@ -2429,31 +2429,31 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromCurvature() { return ""; }
+            virtual std::string GetParameterFromCurvature() const { return ""; }
             /**
              * Get the parameter for the attribute  curvatureDot
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromCurvatureDot() { return ""; }
+            virtual std::string GetParameterFromCurvatureDot() const { return ""; }
             /**
              * Get the parameter for the attribute  length
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromLength() { return ""; }
+            virtual std::string GetParameterFromLength() const { return ""; }
             /**
              * Get the parameter for the attribute  startTime
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromStartTime() { return ""; }
+            virtual std::string GetParameterFromStartTime() const { return ""; }
             /**
              * Get the parameter for the attribute  stopTime
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromStopTime() { return ""; }
+            virtual std::string GetParameterFromStopTime() const { return ""; }
 
             /**
              * Retrieves whether the attribute curvature is parametrized.
@@ -2493,7 +2493,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property position
             */
-            virtual std::shared_ptr<IPositionWriter> GetWriterPosition() 
+            virtual std::shared_ptr<IPositionWriter> GetWriterPosition() const 
             {
                 return nullptr;
             } 
@@ -2544,7 +2544,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property entityRef
             */
-            virtual std::shared_ptr<IEntityRefWriter> GetWriterEntityRef() 
+            virtual std::shared_ptr<IEntityRefWriter> GetWriterEntityRef() const 
             {
                 return nullptr;
             } 
@@ -2554,7 +2554,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property byType
             */
-            virtual std::shared_ptr<IByObjectTypeWriter> GetWriterByType() 
+            virtual std::shared_ptr<IByObjectTypeWriter> GetWriterByType() const 
             {
                 return nullptr;
             } 
@@ -2645,19 +2645,19 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromConditionEdge() { return ""; }
+            virtual std::string GetParameterFromConditionEdge() const { return ""; }
             /**
              * Get the parameter for the attribute  delay
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromDelay() { return ""; }
+            virtual std::string GetParameterFromDelay() const { return ""; }
             /**
              * Get the parameter for the attribute  name
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromName() { return ""; }
+            virtual std::string GetParameterFromName() const { return ""; }
 
             /**
              * Retrieves whether the attribute conditionEdge is parametrized.
@@ -2685,7 +2685,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property byEntityCondition
             */
-            virtual std::shared_ptr<IByEntityConditionWriter> GetWriterByEntityCondition() 
+            virtual std::shared_ptr<IByEntityConditionWriter> GetWriterByEntityCondition() const 
             {
                 return nullptr;
             } 
@@ -2695,7 +2695,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property byValueCondition
             */
-            virtual std::shared_ptr<IByValueConditionWriter> GetWriterByValueCondition() 
+            virtual std::shared_ptr<IByValueConditionWriter> GetWriterByValueCondition() const 
             {
                 return nullptr;
             } 
@@ -2739,7 +2739,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a list of writers for model property conditions
             */
-            virtual std::vector<std::shared_ptr<IConditionWriter>> GetWriterConditions()
+            virtual std::vector<std::shared_ptr<IConditionWriter>> GetWriterConditions() const
             {
                 return std::vector<std::shared_ptr<IConditionWriter>>();
             }
@@ -2805,13 +2805,13 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromTime() { return ""; }
+            virtual std::string GetParameterFromTime() const { return ""; }
             /**
              * Get the parameter for the attribute  weight
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromWeight() { return ""; }
+            virtual std::string GetParameterFromWeight() const { return ""; }
 
             /**
              * Retrieves whether the attribute time is parametrized.
@@ -2833,7 +2833,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property position
             */
-            virtual std::shared_ptr<IPositionWriter> GetWriterPosition() 
+            virtual std::shared_ptr<IPositionWriter> GetWriterPosition() const 
             {
                 return nullptr;
             } 
@@ -2893,7 +2893,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromName() { return ""; }
+            virtual std::string GetParameterFromName() const { return ""; }
 
             /**
              * Retrieves whether the attribute name is parametrized.
@@ -2909,7 +2909,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property properties
             */
-            virtual std::shared_ptr<IPropertiesWriter> GetWriterProperties() 
+            virtual std::shared_ptr<IPropertiesWriter> GetWriterProperties() const 
             {
                 return nullptr;
             } 
@@ -2920,7 +2920,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a list of writers for model property parameterDeclarations
             */
-            virtual std::vector<std::shared_ptr<IParameterDeclarationWriter>> GetWriterParameterDeclarations()
+            virtual std::vector<std::shared_ptr<IParameterDeclarationWriter>> GetWriterParameterDeclarations() const
             {
                 return std::vector<std::shared_ptr<IParameterDeclarationWriter>>();
             }
@@ -2969,7 +2969,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property assignControllerAction
             */
-            virtual std::shared_ptr<IAssignControllerActionWriter> GetWriterAssignControllerAction() 
+            virtual std::shared_ptr<IAssignControllerActionWriter> GetWriterAssignControllerAction() const 
             {
                 return nullptr;
             } 
@@ -2979,7 +2979,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property overrideControllerValueAction
             */
-            virtual std::shared_ptr<IOverrideControllerValueActionWriter> GetWriterOverrideControllerValueAction() 
+            virtual std::shared_ptr<IOverrideControllerValueActionWriter> GetWriterOverrideControllerValueAction() const 
             {
                 return nullptr;
             } 
@@ -3021,7 +3021,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property directory
             */
-            virtual std::shared_ptr<IDirectoryWriter> GetWriterDirectory() 
+            virtual std::shared_ptr<IDirectoryWriter> GetWriterDirectory() const 
             {
                 return nullptr;
             } 
@@ -3064,7 +3064,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a list of writers for model property controllerDistributionEntries
             */
-            virtual std::vector<std::shared_ptr<IControllerDistributionEntryWriter>> GetWriterControllerDistributionEntries()
+            virtual std::vector<std::shared_ptr<IControllerDistributionEntryWriter>> GetWriterControllerDistributionEntries() const
             {
                 return std::vector<std::shared_ptr<IControllerDistributionEntryWriter>>();
             }
@@ -3123,7 +3123,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromWeight() { return ""; }
+            virtual std::string GetParameterFromWeight() const { return ""; }
 
             /**
              * Retrieves whether the attribute weight is parametrized.
@@ -3139,7 +3139,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property controller
             */
-            virtual std::shared_ptr<IControllerWriter> GetWriterController() 
+            virtual std::shared_ptr<IControllerWriter> GetWriterController() const 
             {
                 return nullptr;
             } 
@@ -3149,7 +3149,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property catalogReference
             */
-            virtual std::shared_ptr<ICatalogReferenceWriter> GetWriterCatalogReference() 
+            virtual std::shared_ptr<ICatalogReferenceWriter> GetWriterCatalogReference() const 
             {
                 return nullptr;
             } 
@@ -3207,13 +3207,13 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromContent() { return ""; }
+            virtual std::string GetParameterFromContent() const { return ""; }
             /**
              * Get the parameter for the attribute  type
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromType() { return ""; }
+            virtual std::string GetParameterFromType() const { return ""; }
 
             /**
              * Retrieves whether the attribute content is parametrized.
@@ -3321,19 +3321,19 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromHeight() { return ""; }
+            virtual std::string GetParameterFromHeight() const { return ""; }
             /**
              * Get the parameter for the attribute  length
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromLength() { return ""; }
+            virtual std::string GetParameterFromLength() const { return ""; }
             /**
              * Get the parameter for the attribute  width
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromWidth() { return ""; }
+            virtual std::string GetParameterFromWidth() const { return ""; }
 
             /**
              * Retrieves whether the attribute height is parametrized.
@@ -3395,7 +3395,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromPath() { return ""; }
+            virtual std::string GetParameterFromPath() const { return ""; }
 
             /**
              * Retrieves whether the attribute path is parametrized.
@@ -3496,25 +3496,25 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromAlongRoute() { return ""; }
+            virtual std::string GetParameterFromAlongRoute() const { return ""; }
             /**
              * Get the parameter for the attribute  freespace
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromFreespace() { return ""; }
+            virtual std::string GetParameterFromFreespace() const { return ""; }
             /**
              * Get the parameter for the attribute  rule
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromRule() { return ""; }
+            virtual std::string GetParameterFromRule() const { return ""; }
             /**
              * Get the parameter for the attribute  value
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromValue() { return ""; }
+            virtual std::string GetParameterFromValue() const { return ""; }
 
             /**
              * Retrieves whether the attribute alongRoute is parametrized.
@@ -3548,7 +3548,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property position
             */
-            virtual std::shared_ptr<IPositionWriter> GetWriterPosition() 
+            virtual std::shared_ptr<IPositionWriter> GetWriterPosition() const 
             {
                 return nullptr;
             } 
@@ -3620,19 +3620,19 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromMaxAcceleration() { return ""; }
+            virtual std::string GetParameterFromMaxAcceleration() const { return ""; }
             /**
              * Get the parameter for the attribute  maxDeceleration
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromMaxDeceleration() { return ""; }
+            virtual std::string GetParameterFromMaxDeceleration() const { return ""; }
             /**
              * Get the parameter for the attribute  maxSpeed
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromMaxSpeed() { return ""; }
+            virtual std::string GetParameterFromMaxSpeed() const { return ""; }
 
             /**
              * Retrieves whether the attribute maxAcceleration is parametrized.
@@ -3694,7 +3694,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromDuration() { return ""; }
+            virtual std::string GetParameterFromDuration() const { return ""; }
 
             /**
              * Retrieves whether the attribute duration is parametrized.
@@ -3751,7 +3751,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a list of writers for model property scenarioObjects
             */
-            virtual std::vector<std::shared_ptr<IScenarioObjectWriter>> GetWriterScenarioObjects()
+            virtual std::vector<std::shared_ptr<IScenarioObjectWriter>> GetWriterScenarioObjects() const
             {
                 return std::vector<std::shared_ptr<IScenarioObjectWriter>>();
             }
@@ -3761,7 +3761,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a list of writers for model property entitySelections
             */
-            virtual std::vector<std::shared_ptr<IEntitySelectionWriter>> GetWriterEntitySelections()
+            virtual std::vector<std::shared_ptr<IEntitySelectionWriter>> GetWriterEntitySelections() const
             {
                 return std::vector<std::shared_ptr<IEntitySelectionWriter>>();
             }
@@ -3820,7 +3820,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromEntityRef() { return ""; }
+            virtual std::string GetParameterFromEntityRef() const { return ""; }
 
             /**
              * Retrieves whether the attribute entityRef is parametrized.
@@ -3836,7 +3836,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property addEntityAction
             */
-            virtual std::shared_ptr<IAddEntityActionWriter> GetWriterAddEntityAction() 
+            virtual std::shared_ptr<IAddEntityActionWriter> GetWriterAddEntityAction() const 
             {
                 return nullptr;
             } 
@@ -3846,7 +3846,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property deleteEntityAction
             */
-            virtual std::shared_ptr<IDeleteEntityActionWriter> GetWriterDeleteEntityAction() 
+            virtual std::shared_ptr<IDeleteEntityActionWriter> GetWriterDeleteEntityAction() const 
             {
                 return nullptr;
             } 
@@ -3984,7 +3984,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property endOfRoadCondition
             */
-            virtual std::shared_ptr<IEndOfRoadConditionWriter> GetWriterEndOfRoadCondition() 
+            virtual std::shared_ptr<IEndOfRoadConditionWriter> GetWriterEndOfRoadCondition() const 
             {
                 return nullptr;
             } 
@@ -3994,7 +3994,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property collisionCondition
             */
-            virtual std::shared_ptr<ICollisionConditionWriter> GetWriterCollisionCondition() 
+            virtual std::shared_ptr<ICollisionConditionWriter> GetWriterCollisionCondition() const 
             {
                 return nullptr;
             } 
@@ -4004,7 +4004,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property offroadCondition
             */
-            virtual std::shared_ptr<IOffroadConditionWriter> GetWriterOffroadCondition() 
+            virtual std::shared_ptr<IOffroadConditionWriter> GetWriterOffroadCondition() const 
             {
                 return nullptr;
             } 
@@ -4014,7 +4014,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property timeHeadwayCondition
             */
-            virtual std::shared_ptr<ITimeHeadwayConditionWriter> GetWriterTimeHeadwayCondition() 
+            virtual std::shared_ptr<ITimeHeadwayConditionWriter> GetWriterTimeHeadwayCondition() const 
             {
                 return nullptr;
             } 
@@ -4024,7 +4024,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property timeToCollisionCondition
             */
-            virtual std::shared_ptr<ITimeToCollisionConditionWriter> GetWriterTimeToCollisionCondition() 
+            virtual std::shared_ptr<ITimeToCollisionConditionWriter> GetWriterTimeToCollisionCondition() const 
             {
                 return nullptr;
             } 
@@ -4034,7 +4034,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property accelerationCondition
             */
-            virtual std::shared_ptr<IAccelerationConditionWriter> GetWriterAccelerationCondition() 
+            virtual std::shared_ptr<IAccelerationConditionWriter> GetWriterAccelerationCondition() const 
             {
                 return nullptr;
             } 
@@ -4044,7 +4044,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property standStillCondition
             */
-            virtual std::shared_ptr<IStandStillConditionWriter> GetWriterStandStillCondition() 
+            virtual std::shared_ptr<IStandStillConditionWriter> GetWriterStandStillCondition() const 
             {
                 return nullptr;
             } 
@@ -4054,7 +4054,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property speedCondition
             */
-            virtual std::shared_ptr<ISpeedConditionWriter> GetWriterSpeedCondition() 
+            virtual std::shared_ptr<ISpeedConditionWriter> GetWriterSpeedCondition() const 
             {
                 return nullptr;
             } 
@@ -4064,7 +4064,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property relativeSpeedCondition
             */
-            virtual std::shared_ptr<IRelativeSpeedConditionWriter> GetWriterRelativeSpeedCondition() 
+            virtual std::shared_ptr<IRelativeSpeedConditionWriter> GetWriterRelativeSpeedCondition() const 
             {
                 return nullptr;
             } 
@@ -4074,7 +4074,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property traveledDistanceCondition
             */
-            virtual std::shared_ptr<ITraveledDistanceConditionWriter> GetWriterTraveledDistanceCondition() 
+            virtual std::shared_ptr<ITraveledDistanceConditionWriter> GetWriterTraveledDistanceCondition() const 
             {
                 return nullptr;
             } 
@@ -4084,7 +4084,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property reachPositionCondition
             */
-            virtual std::shared_ptr<IReachPositionConditionWriter> GetWriterReachPositionCondition() 
+            virtual std::shared_ptr<IReachPositionConditionWriter> GetWriterReachPositionCondition() const 
             {
                 return nullptr;
             } 
@@ -4094,7 +4094,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property distanceCondition
             */
-            virtual std::shared_ptr<IDistanceConditionWriter> GetWriterDistanceCondition() 
+            virtual std::shared_ptr<IDistanceConditionWriter> GetWriterDistanceCondition() const 
             {
                 return nullptr;
             } 
@@ -4104,7 +4104,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property relativeDistanceCondition
             */
-            virtual std::shared_ptr<IRelativeDistanceConditionWriter> GetWriterRelativeDistanceCondition() 
+            virtual std::shared_ptr<IRelativeDistanceConditionWriter> GetWriterRelativeDistanceCondition() const 
             {
                 return nullptr;
             } 
@@ -4170,7 +4170,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property catalogReference
             */
-            virtual std::shared_ptr<ICatalogReferenceWriter> GetWriterCatalogReference() 
+            virtual std::shared_ptr<ICatalogReferenceWriter> GetWriterCatalogReference() const 
             {
                 return nullptr;
             } 
@@ -4180,7 +4180,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property vehicle
             */
-            virtual std::shared_ptr<IVehicleWriter> GetWriterVehicle() 
+            virtual std::shared_ptr<IVehicleWriter> GetWriterVehicle() const 
             {
                 return nullptr;
             } 
@@ -4190,7 +4190,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property pedestrian
             */
-            virtual std::shared_ptr<IPedestrianWriter> GetWriterPedestrian() 
+            virtual std::shared_ptr<IPedestrianWriter> GetWriterPedestrian() const 
             {
                 return nullptr;
             } 
@@ -4200,7 +4200,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property miscObject
             */
-            virtual std::shared_ptr<IMiscObjectWriter> GetWriterMiscObject() 
+            virtual std::shared_ptr<IMiscObjectWriter> GetWriterMiscObject() const 
             {
                 return nullptr;
             } 
@@ -4244,7 +4244,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromEntityRef() { return ""; }
+            virtual std::string GetParameterFromEntityRef() const { return ""; }
 
             /**
              * Retrieves whether the attribute entityRef is parametrized.
@@ -4303,7 +4303,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromName() { return ""; }
+            virtual std::string GetParameterFromName() const { return ""; }
 
             /**
              * Retrieves whether the attribute name is parametrized.
@@ -4319,7 +4319,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property members
             */
-            virtual std::shared_ptr<ISelectedEntitiesWriter> GetWriterMembers() 
+            virtual std::shared_ptr<ISelectedEntitiesWriter> GetWriterMembers() const 
             {
                 return nullptr;
             } 
@@ -4395,7 +4395,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromName() { return ""; }
+            virtual std::string GetParameterFromName() const { return ""; }
 
             /**
              * Retrieves whether the attribute name is parametrized.
@@ -4411,7 +4411,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property timeOfDay
             */
-            virtual std::shared_ptr<ITimeOfDayWriter> GetWriterTimeOfDay() 
+            virtual std::shared_ptr<ITimeOfDayWriter> GetWriterTimeOfDay() const 
             {
                 return nullptr;
             } 
@@ -4421,7 +4421,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property weather
             */
-            virtual std::shared_ptr<IWeatherWriter> GetWriterWeather() 
+            virtual std::shared_ptr<IWeatherWriter> GetWriterWeather() const 
             {
                 return nullptr;
             } 
@@ -4431,7 +4431,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property roadCondition
             */
-            virtual std::shared_ptr<IRoadConditionWriter> GetWriterRoadCondition() 
+            virtual std::shared_ptr<IRoadConditionWriter> GetWriterRoadCondition() const 
             {
                 return nullptr;
             } 
@@ -4442,7 +4442,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a list of writers for model property parameterDeclarations
             */
-            virtual std::vector<std::shared_ptr<IParameterDeclarationWriter>> GetWriterParameterDeclarations()
+            virtual std::vector<std::shared_ptr<IParameterDeclarationWriter>> GetWriterParameterDeclarations() const
             {
                 return std::vector<std::shared_ptr<IParameterDeclarationWriter>>();
             }
@@ -4492,7 +4492,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property environment
             */
-            virtual std::shared_ptr<IEnvironmentWriter> GetWriterEnvironment() 
+            virtual std::shared_ptr<IEnvironmentWriter> GetWriterEnvironment() const 
             {
                 return nullptr;
             } 
@@ -4502,7 +4502,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property catalogReference
             */
-            virtual std::shared_ptr<ICatalogReferenceWriter> GetWriterCatalogReference() 
+            virtual std::shared_ptr<ICatalogReferenceWriter> GetWriterCatalogReference() const 
             {
                 return nullptr;
             } 
@@ -4544,7 +4544,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property directory
             */
-            virtual std::shared_ptr<IDirectoryWriter> GetWriterDirectory() 
+            virtual std::shared_ptr<IDirectoryWriter> GetWriterDirectory() const 
             {
                 return nullptr;
             } 
@@ -4633,19 +4633,19 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromMaximumExecutionCount() { return ""; }
+            virtual std::string GetParameterFromMaximumExecutionCount() const { return ""; }
             /**
              * Get the parameter for the attribute  name
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromName() { return ""; }
+            virtual std::string GetParameterFromName() const { return ""; }
             /**
              * Get the parameter for the attribute  priority
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromPriority() { return ""; }
+            virtual std::string GetParameterFromPriority() const { return ""; }
 
             /**
              * Retrieves whether the attribute maximumExecutionCount is parametrized.
@@ -4673,7 +4673,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property startTrigger
             */
-            virtual std::shared_ptr<ITriggerWriter> GetWriterStartTrigger() 
+            virtual std::shared_ptr<ITriggerWriter> GetWriterStartTrigger() const 
             {
                 return nullptr;
             } 
@@ -4684,7 +4684,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a list of writers for model property actions
             */
-            virtual std::vector<std::shared_ptr<IActionWriter>> GetWriterActions()
+            virtual std::vector<std::shared_ptr<IActionWriter>> GetWriterActions() const
             {
                 return std::vector<std::shared_ptr<IActionWriter>>();
             }
@@ -4727,7 +4727,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromFilepath() { return ""; }
+            virtual std::string GetParameterFromFilepath() const { return ""; }
 
             /**
              * Retrieves whether the attribute filepath is parametrized.
@@ -4833,31 +4833,31 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromAuthor() { return ""; }
+            virtual std::string GetParameterFromAuthor() const { return ""; }
             /**
              * Get the parameter for the attribute  date
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromDate() { return ""; }
+            virtual std::string GetParameterFromDate() const { return ""; }
             /**
              * Get the parameter for the attribute  description
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromDescription() { return ""; }
+            virtual std::string GetParameterFromDescription() const { return ""; }
             /**
              * Get the parameter for the attribute  revMajor
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromRevMajor() { return ""; }
+            virtual std::string GetParameterFromRevMajor() const { return ""; }
             /**
              * Get the parameter for the attribute  revMinor
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromRevMinor() { return ""; }
+            virtual std::string GetParameterFromRevMinor() const { return ""; }
 
             /**
              * Retrieves whether the attribute author is parametrized.
@@ -4937,7 +4937,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property absoluteSpeed
             */
-            virtual std::shared_ptr<IAbsoluteSpeedWriter> GetWriterAbsoluteSpeed() 
+            virtual std::shared_ptr<IAbsoluteSpeedWriter> GetWriterAbsoluteSpeed() const 
             {
                 return nullptr;
             } 
@@ -4947,7 +4947,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property relativeSpeedToMaster
             */
-            virtual std::shared_ptr<IRelativeSpeedToMasterWriter> GetWriterRelativeSpeedToMaster() 
+            virtual std::shared_ptr<IRelativeSpeedToMasterWriter> GetWriterRelativeSpeedToMaster() const 
             {
                 return nullptr;
             } 
@@ -4999,7 +4999,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromVisualRange() { return ""; }
+            virtual std::string GetParameterFromVisualRange() const { return ""; }
 
             /**
              * Retrieves whether the attribute visualRange is parametrized.
@@ -5015,7 +5015,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property boundingBox
             */
-            virtual std::shared_ptr<IBoundingBoxWriter> GetWriterBoundingBox() 
+            virtual std::shared_ptr<IBoundingBoxWriter> GetWriterBoundingBox() const 
             {
                 return nullptr;
             } 
@@ -5084,7 +5084,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property trajectory
             */
-            virtual std::shared_ptr<ITrajectoryWriter> GetWriterTrajectory() 
+            virtual std::shared_ptr<ITrajectoryWriter> GetWriterTrajectory() const 
             {
                 return nullptr;
             } 
@@ -5094,7 +5094,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property catalogReference
             */
-            virtual std::shared_ptr<ICatalogReferenceWriter> GetWriterCatalogReference() 
+            virtual std::shared_ptr<ICatalogReferenceWriter> GetWriterCatalogReference() const 
             {
                 return nullptr;
             } 
@@ -5106,7 +5106,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property timeReference
             */
-            virtual std::shared_ptr<ITimeReferenceWriter> GetWriterTimeReference() 
+            virtual std::shared_ptr<ITimeReferenceWriter> GetWriterTimeReference() const 
             {
                 return nullptr;
             } 
@@ -5116,7 +5116,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property trajectoryFollowingMode
             */
-            virtual std::shared_ptr<ITrajectoryFollowingModeWriter> GetWriterTrajectoryFollowingMode() 
+            virtual std::shared_ptr<ITrajectoryFollowingModeWriter> GetWriterTrajectoryFollowingMode() const 
             {
                 return nullptr;
             } 
@@ -5190,7 +5190,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property environmentAction
             */
-            virtual std::shared_ptr<IEnvironmentActionWriter> GetWriterEnvironmentAction() 
+            virtual std::shared_ptr<IEnvironmentActionWriter> GetWriterEnvironmentAction() const 
             {
                 return nullptr;
             } 
@@ -5200,7 +5200,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property entityAction
             */
-            virtual std::shared_ptr<IEntityActionWriter> GetWriterEntityAction() 
+            virtual std::shared_ptr<IEntityActionWriter> GetWriterEntityAction() const 
             {
                 return nullptr;
             } 
@@ -5210,7 +5210,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property parameterAction
             */
-            virtual std::shared_ptr<IParameterActionWriter> GetWriterParameterAction() 
+            virtual std::shared_ptr<IParameterActionWriter> GetWriterParameterAction() const 
             {
                 return nullptr;
             } 
@@ -5220,7 +5220,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property infrastructureAction
             */
-            virtual std::shared_ptr<IInfrastructureActionWriter> GetWriterInfrastructureAction() 
+            virtual std::shared_ptr<IInfrastructureActionWriter> GetWriterInfrastructureAction() const 
             {
                 return nullptr;
             } 
@@ -5230,7 +5230,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property trafficAction
             */
-            virtual std::shared_ptr<ITrafficActionWriter> GetWriterTrafficAction() 
+            virtual std::shared_ptr<ITrafficActionWriter> GetWriterTrafficAction() const 
             {
                 return nullptr;
             } 
@@ -5289,7 +5289,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property fromCurrentEntity
             */
-            virtual std::shared_ptr<IPositionOfCurrentEntityWriter> GetWriterFromCurrentEntity() 
+            virtual std::shared_ptr<IPositionOfCurrentEntityWriter> GetWriterFromCurrentEntity() const 
             {
                 return nullptr;
             } 
@@ -5299,7 +5299,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property fromRoadCoordinates
             */
-            virtual std::shared_ptr<IPositionInRoadCoordinatesWriter> GetWriterFromRoadCoordinates() 
+            virtual std::shared_ptr<IPositionInRoadCoordinatesWriter> GetWriterFromRoadCoordinates() const 
             {
                 return nullptr;
             } 
@@ -5309,7 +5309,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property fromLaneCoordinates
             */
-            virtual std::shared_ptr<IPositionInLaneCoordinatesWriter> GetWriterFromLaneCoordinates() 
+            virtual std::shared_ptr<IPositionInLaneCoordinatesWriter> GetWriterFromLaneCoordinates() const 
             {
                 return nullptr;
             } 
@@ -5351,7 +5351,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property trafficSignalAction
             */
-            virtual std::shared_ptr<ITrafficSignalActionWriter> GetWriterTrafficSignalAction() 
+            virtual std::shared_ptr<ITrafficSignalActionWriter> GetWriterTrafficSignalAction() const 
             {
                 return nullptr;
             } 
@@ -5393,7 +5393,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property actions
             */
-            virtual std::shared_ptr<IInitActionsWriter> GetWriterActions() 
+            virtual std::shared_ptr<IInitActionsWriter> GetWriterActions() const 
             {
                 return nullptr;
             } 
@@ -5453,7 +5453,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a list of writers for model property globalActions
             */
-            virtual std::vector<std::shared_ptr<IGlobalActionWriter>> GetWriterGlobalActions()
+            virtual std::vector<std::shared_ptr<IGlobalActionWriter>> GetWriterGlobalActions() const
             {
                 return std::vector<std::shared_ptr<IGlobalActionWriter>>();
             }
@@ -5463,7 +5463,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a list of writers for model property userDefinedActions
             */
-            virtual std::vector<std::shared_ptr<IUserDefinedActionWriter>> GetWriterUserDefinedActions()
+            virtual std::vector<std::shared_ptr<IUserDefinedActionWriter>> GetWriterUserDefinedActions() const
             {
                 return std::vector<std::shared_ptr<IUserDefinedActionWriter>>();
             }
@@ -5473,7 +5473,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a list of writers for model property privates
             */
-            virtual std::vector<std::shared_ptr<IPrivateWriter>> GetWriterPrivates()
+            virtual std::vector<std::shared_ptr<IPrivateWriter>> GetWriterPrivates() const
             {
                 return std::vector<std::shared_ptr<IPrivateWriter>>();
             }
@@ -5516,7 +5516,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromValue() { return ""; }
+            virtual std::string GetParameterFromValue() const { return ""; }
 
             /**
              * Retrieves whether the attribute value is parametrized.
@@ -5586,7 +5586,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromTargetLaneOffset() { return ""; }
+            virtual std::string GetParameterFromTargetLaneOffset() const { return ""; }
 
             /**
              * Retrieves whether the attribute targetLaneOffset is parametrized.
@@ -5602,7 +5602,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property laneChangeActionDynamics
             */
-            virtual std::shared_ptr<ITransitionDynamicsWriter> GetWriterLaneChangeActionDynamics() 
+            virtual std::shared_ptr<ITransitionDynamicsWriter> GetWriterLaneChangeActionDynamics() const 
             {
                 return nullptr;
             } 
@@ -5612,7 +5612,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property laneChangeTarget
             */
-            virtual std::shared_ptr<ILaneChangeTargetWriter> GetWriterLaneChangeTarget() 
+            virtual std::shared_ptr<ILaneChangeTargetWriter> GetWriterLaneChangeTarget() const 
             {
                 return nullptr;
             } 
@@ -5662,7 +5662,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property relativeTargetLane
             */
-            virtual std::shared_ptr<IRelativeTargetLaneWriter> GetWriterRelativeTargetLane() 
+            virtual std::shared_ptr<IRelativeTargetLaneWriter> GetWriterRelativeTargetLane() const 
             {
                 return nullptr;
             } 
@@ -5672,7 +5672,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property absoluteTargetLane
             */
-            virtual std::shared_ptr<IAbsoluteTargetLaneWriter> GetWriterAbsoluteTargetLane() 
+            virtual std::shared_ptr<IAbsoluteTargetLaneWriter> GetWriterAbsoluteTargetLane() const 
             {
                 return nullptr;
             } 
@@ -5740,7 +5740,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromContinuous() { return ""; }
+            virtual std::string GetParameterFromContinuous() const { return ""; }
 
             /**
              * Retrieves whether the attribute continuous is parametrized.
@@ -5756,7 +5756,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property laneOffsetActionDynamics
             */
-            virtual std::shared_ptr<ILaneOffsetActionDynamicsWriter> GetWriterLaneOffsetActionDynamics() 
+            virtual std::shared_ptr<ILaneOffsetActionDynamicsWriter> GetWriterLaneOffsetActionDynamics() const 
             {
                 return nullptr;
             } 
@@ -5767,7 +5767,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property laneOffsetTarget
             */
-            virtual std::shared_ptr<ILaneOffsetTargetWriter> GetWriterLaneOffsetTarget() 
+            virtual std::shared_ptr<ILaneOffsetTargetWriter> GetWriterLaneOffsetTarget() const 
             {
                 return nullptr;
             } 
@@ -5825,13 +5825,13 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromDynamicsShape() { return ""; }
+            virtual std::string GetParameterFromDynamicsShape() const { return ""; }
             /**
              * Get the parameter for the attribute  maxLateralAcc
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromMaxLateralAcc() { return ""; }
+            virtual std::string GetParameterFromMaxLateralAcc() const { return ""; }
 
             /**
              * Retrieves whether the attribute dynamicsShape is parametrized.
@@ -5893,7 +5893,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property relativeTargetLaneOffset
             */
-            virtual std::shared_ptr<IRelativeTargetLaneOffsetWriter> GetWriterRelativeTargetLaneOffset() 
+            virtual std::shared_ptr<IRelativeTargetLaneOffsetWriter> GetWriterRelativeTargetLaneOffset() const 
             {
                 return nullptr;
             } 
@@ -5903,7 +5903,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property absoluteTargetLaneOffset
             */
-            virtual std::shared_ptr<IAbsoluteTargetLaneOffsetWriter> GetWriterAbsoluteTargetLaneOffset() 
+            virtual std::shared_ptr<IAbsoluteTargetLaneOffsetWriter> GetWriterAbsoluteTargetLaneOffset() const 
             {
                 return nullptr;
             } 
@@ -5997,25 +5997,25 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromLaneId() { return ""; }
+            virtual std::string GetParameterFromLaneId() const { return ""; }
             /**
              * Get the parameter for the attribute  offset
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromOffset() { return ""; }
+            virtual std::string GetParameterFromOffset() const { return ""; }
             /**
              * Get the parameter for the attribute  roadId
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromRoadId() { return ""; }
+            virtual std::string GetParameterFromRoadId() const { return ""; }
             /**
              * Get the parameter for the attribute  s
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromS() { return ""; }
+            virtual std::string GetParameterFromS() const { return ""; }
 
             /**
              * Retrieves whether the attribute laneId is parametrized.
@@ -6049,7 +6049,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property orientation
             */
-            virtual std::shared_ptr<IOrientationWriter> GetWriterOrientation() 
+            virtual std::shared_ptr<IOrientationWriter> GetWriterOrientation() const 
             {
                 return nullptr;
             } 
@@ -6107,7 +6107,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property laneChangeAction
             */
-            virtual std::shared_ptr<ILaneChangeActionWriter> GetWriterLaneChangeAction() 
+            virtual std::shared_ptr<ILaneChangeActionWriter> GetWriterLaneChangeAction() const 
             {
                 return nullptr;
             } 
@@ -6117,7 +6117,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property laneOffsetAction
             */
-            virtual std::shared_ptr<ILaneOffsetActionWriter> GetWriterLaneOffsetAction() 
+            virtual std::shared_ptr<ILaneOffsetActionWriter> GetWriterLaneOffsetAction() const 
             {
                 return nullptr;
             } 
@@ -6127,7 +6127,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property lateralDistanceAction
             */
-            virtual std::shared_ptr<ILateralDistanceActionWriter> GetWriterLateralDistanceAction() 
+            virtual std::shared_ptr<ILateralDistanceActionWriter> GetWriterLateralDistanceAction() const 
             {
                 return nullptr;
             } 
@@ -6227,25 +6227,25 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromContinuous() { return ""; }
+            virtual std::string GetParameterFromContinuous() const { return ""; }
             /**
              * Get the parameter for the attribute  distance
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromDistance() { return ""; }
+            virtual std::string GetParameterFromDistance() const { return ""; }
             /**
              * Get the parameter for the attribute  entityRef
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromEntityRef() { return ""; }
+            virtual std::string GetParameterFromEntityRef() const { return ""; }
             /**
              * Get the parameter for the attribute  freespace
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromFreespace() { return ""; }
+            virtual std::string GetParameterFromFreespace() const { return ""; }
 
             /**
              * Retrieves whether the attribute continuous is parametrized.
@@ -6280,7 +6280,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property dynamicConstraints
             */
-            virtual std::shared_ptr<IDynamicConstraintsWriter> GetWriterDynamicConstraints() 
+            virtual std::shared_ptr<IDynamicConstraintsWriter> GetWriterDynamicConstraints() const 
             {
                 return nullptr;
             } 
@@ -6330,7 +6330,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property speedAction
             */
-            virtual std::shared_ptr<ISpeedActionWriter> GetWriterSpeedAction() 
+            virtual std::shared_ptr<ISpeedActionWriter> GetWriterSpeedAction() const 
             {
                 return nullptr;
             } 
@@ -6340,7 +6340,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property longitudinalDistanceAction
             */
-            virtual std::shared_ptr<ILongitudinalDistanceActionWriter> GetWriterLongitudinalDistanceAction() 
+            virtual std::shared_ptr<ILongitudinalDistanceActionWriter> GetWriterLongitudinalDistanceAction() const 
             {
                 return nullptr;
             } 
@@ -6452,31 +6452,31 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromContinuous() { return ""; }
+            virtual std::string GetParameterFromContinuous() const { return ""; }
             /**
              * Get the parameter for the attribute  distance
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromDistance() { return ""; }
+            virtual std::string GetParameterFromDistance() const { return ""; }
             /**
              * Get the parameter for the attribute  entityRef
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromEntityRef() { return ""; }
+            virtual std::string GetParameterFromEntityRef() const { return ""; }
             /**
              * Get the parameter for the attribute  freespace
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromFreespace() { return ""; }
+            virtual std::string GetParameterFromFreespace() const { return ""; }
             /**
              * Get the parameter for the attribute  timeGap
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromTimeGap() { return ""; }
+            virtual std::string GetParameterFromTimeGap() const { return ""; }
 
             /**
              * Retrieves whether the attribute continuous is parametrized.
@@ -6517,7 +6517,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property dynamicConstraints
             */
-            virtual std::shared_ptr<IDynamicConstraintsWriter> GetWriterDynamicConstraints() 
+            virtual std::shared_ptr<IDynamicConstraintsWriter> GetWriterDynamicConstraints() const 
             {
                 return nullptr;
             } 
@@ -6577,7 +6577,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromName() { return ""; }
+            virtual std::string GetParameterFromName() const { return ""; }
 
             /**
              * Retrieves whether the attribute name is parametrized.
@@ -6594,7 +6594,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a list of writers for model property parameterDeclarations
             */
-            virtual std::vector<std::shared_ptr<IParameterDeclarationWriter>> GetWriterParameterDeclarations()
+            virtual std::vector<std::shared_ptr<IParameterDeclarationWriter>> GetWriterParameterDeclarations() const
             {
                 return std::vector<std::shared_ptr<IParameterDeclarationWriter>>();
             }
@@ -6604,7 +6604,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a list of writers for model property events
             */
-            virtual std::vector<std::shared_ptr<IEventWriter>> GetWriterEvents()
+            virtual std::vector<std::shared_ptr<IEventWriter>> GetWriterEvents() const
             {
                 return std::vector<std::shared_ptr<IEventWriter>>();
             }
@@ -6645,7 +6645,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property directory
             */
-            virtual std::shared_ptr<IDirectoryWriter> GetWriterDirectory() 
+            virtual std::shared_ptr<IDirectoryWriter> GetWriterDirectory() const 
             {
                 return nullptr;
             } 
@@ -6728,13 +6728,13 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromMaximumExecutionCount() { return ""; }
+            virtual std::string GetParameterFromMaximumExecutionCount() const { return ""; }
             /**
              * Get the parameter for the attribute  name
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromName() { return ""; }
+            virtual std::string GetParameterFromName() const { return ""; }
 
             /**
              * Retrieves whether the attribute maximumExecutionCount is parametrized.
@@ -6756,7 +6756,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property actors
             */
-            virtual std::shared_ptr<IActorsWriter> GetWriterActors() 
+            virtual std::shared_ptr<IActorsWriter> GetWriterActors() const 
             {
                 return nullptr;
             } 
@@ -6767,7 +6767,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a list of writers for model property catalogReferences
             */
-            virtual std::vector<std::shared_ptr<ICatalogReferenceWriter>> GetWriterCatalogReferences()
+            virtual std::vector<std::shared_ptr<ICatalogReferenceWriter>> GetWriterCatalogReferences() const
             {
                 return std::vector<std::shared_ptr<ICatalogReferenceWriter>>();
             }
@@ -6777,7 +6777,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a list of writers for model property maneuvers
             */
-            virtual std::vector<std::shared_ptr<IManeuverWriter>> GetWriterManeuvers()
+            virtual std::vector<std::shared_ptr<IManeuverWriter>> GetWriterManeuvers() const
             {
                 return std::vector<std::shared_ptr<IManeuverWriter>>();
             }
@@ -6872,19 +6872,19 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromMass() { return ""; }
+            virtual std::string GetParameterFromMass() const { return ""; }
             /**
              * Get the parameter for the attribute  miscObjectCategory
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromMiscObjectCategory() { return ""; }
+            virtual std::string GetParameterFromMiscObjectCategory() const { return ""; }
             /**
              * Get the parameter for the attribute  name
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromName() { return ""; }
+            virtual std::string GetParameterFromName() const { return ""; }
 
             /**
              * Retrieves whether the attribute mass is parametrized.
@@ -6912,7 +6912,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property boundingBox
             */
-            virtual std::shared_ptr<IBoundingBoxWriter> GetWriterBoundingBox() 
+            virtual std::shared_ptr<IBoundingBoxWriter> GetWriterBoundingBox() const 
             {
                 return nullptr;
             } 
@@ -6922,7 +6922,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property properties
             */
-            virtual std::shared_ptr<IPropertiesWriter> GetWriterProperties() 
+            virtual std::shared_ptr<IPropertiesWriter> GetWriterProperties() const 
             {
                 return nullptr;
             } 
@@ -6933,7 +6933,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a list of writers for model property parameterDeclarations
             */
-            virtual std::vector<std::shared_ptr<IParameterDeclarationWriter>> GetWriterParameterDeclarations()
+            virtual std::vector<std::shared_ptr<IParameterDeclarationWriter>> GetWriterParameterDeclarations() const
             {
                 return std::vector<std::shared_ptr<IParameterDeclarationWriter>>();
             }
@@ -6974,7 +6974,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property directory
             */
-            virtual std::shared_ptr<IDirectoryWriter> GetWriterDirectory() 
+            virtual std::shared_ptr<IDirectoryWriter> GetWriterDirectory() const 
             {
                 return nullptr;
             } 
@@ -7025,7 +7025,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property addValue
             */
-            virtual std::shared_ptr<IParameterAddValueRuleWriter> GetWriterAddValue() 
+            virtual std::shared_ptr<IParameterAddValueRuleWriter> GetWriterAddValue() const 
             {
                 return nullptr;
             } 
@@ -7035,7 +7035,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property multiplyByValue
             */
-            virtual std::shared_ptr<IParameterMultiplyByValueRuleWriter> GetWriterMultiplyByValue() 
+            virtual std::shared_ptr<IParameterMultiplyByValueRuleWriter> GetWriterMultiplyByValue() const 
             {
                 return nullptr;
             } 
@@ -7121,7 +7121,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromOrder() { return ""; }
+            virtual std::string GetParameterFromOrder() const { return ""; }
 
             /**
              * Retrieves whether the attribute order is parametrized.
@@ -7139,7 +7139,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a list of writers for model property controlPoints
             */
-            virtual std::vector<std::shared_ptr<IControlPointWriter>> GetWriterControlPoints()
+            virtual std::vector<std::shared_ptr<IControlPointWriter>> GetWriterControlPoints() const
             {
                 return std::vector<std::shared_ptr<IControlPointWriter>>();
             }
@@ -7150,7 +7150,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a list of writers for model property knots
             */
-            virtual std::vector<std::shared_ptr<IKnotWriter>> GetWriterKnots()
+            virtual std::vector<std::shared_ptr<IKnotWriter>> GetWriterKnots() const
             {
                 return std::vector<std::shared_ptr<IKnotWriter>>();
             }
@@ -7199,7 +7199,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property catalogReference
             */
-            virtual std::shared_ptr<ICatalogReferenceWriter> GetWriterCatalogReference() 
+            virtual std::shared_ptr<ICatalogReferenceWriter> GetWriterCatalogReference() const 
             {
                 return nullptr;
             } 
@@ -7209,7 +7209,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property controller
             */
-            virtual std::shared_ptr<IControllerWriter> GetWriterController() 
+            virtual std::shared_ptr<IControllerWriter> GetWriterController() const 
             {
                 return nullptr;
             } 
@@ -7254,7 +7254,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromDuration() { return ""; }
+            virtual std::string GetParameterFromDuration() const { return ""; }
 
             /**
              * Retrieves whether the attribute duration is parametrized.
@@ -7310,7 +7310,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property fileHeader
             */
-            virtual std::shared_ptr<IFileHeaderWriter> GetWriterFileHeader() 
+            virtual std::shared_ptr<IFileHeaderWriter> GetWriterFileHeader() const 
             {
                 return nullptr;
             } 
@@ -7320,7 +7320,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property openScenarioCategory
             */
-            virtual std::shared_ptr<IOpenScenarioCategoryWriter> GetWriterOpenScenarioCategory() 
+            virtual std::shared_ptr<IOpenScenarioCategoryWriter> GetWriterOpenScenarioCategory() const 
             {
                 return nullptr;
             } 
@@ -7370,7 +7370,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property scenarioDefinition
             */
-            virtual std::shared_ptr<IScenarioDefinitionWriter> GetWriterScenarioDefinition() 
+            virtual std::shared_ptr<IScenarioDefinitionWriter> GetWriterScenarioDefinition() const 
             {
                 return nullptr;
             } 
@@ -7380,7 +7380,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property catalogDefinition
             */
-            virtual std::shared_ptr<ICatalogDefinitionWriter> GetWriterCatalogDefinition() 
+            virtual std::shared_ptr<ICatalogDefinitionWriter> GetWriterCatalogDefinition() const 
             {
                 return nullptr;
             } 
@@ -7466,25 +7466,25 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromH() { return ""; }
+            virtual std::string GetParameterFromH() const { return ""; }
             /**
              * Get the parameter for the attribute  p
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromP() { return ""; }
+            virtual std::string GetParameterFromP() const { return ""; }
             /**
              * Get the parameter for the attribute  r
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromR() { return ""; }
+            virtual std::string GetParameterFromR() const { return ""; }
             /**
              * Get the parameter for the attribute  type
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromType() { return ""; }
+            virtual std::string GetParameterFromType() const { return ""; }
 
             /**
              * Retrieves whether the attribute h is parametrized.
@@ -7566,13 +7566,13 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromActive() { return ""; }
+            virtual std::string GetParameterFromActive() const { return ""; }
             /**
              * Get the parameter for the attribute  value
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromValue() { return ""; }
+            virtual std::string GetParameterFromValue() const { return ""; }
 
             /**
              * Retrieves whether the attribute active is parametrized.
@@ -7642,13 +7642,13 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromActive() { return ""; }
+            virtual std::string GetParameterFromActive() const { return ""; }
             /**
              * Get the parameter for the attribute  value
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromValue() { return ""; }
+            virtual std::string GetParameterFromValue() const { return ""; }
 
             /**
              * Retrieves whether the attribute active is parametrized.
@@ -7742,7 +7742,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property throttle
             */
-            virtual std::shared_ptr<IOverrideThrottleActionWriter> GetWriterThrottle() 
+            virtual std::shared_ptr<IOverrideThrottleActionWriter> GetWriterThrottle() const 
             {
                 return nullptr;
             } 
@@ -7752,7 +7752,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property brake
             */
-            virtual std::shared_ptr<IOverrideBrakeActionWriter> GetWriterBrake() 
+            virtual std::shared_ptr<IOverrideBrakeActionWriter> GetWriterBrake() const 
             {
                 return nullptr;
             } 
@@ -7762,7 +7762,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property clutch
             */
-            virtual std::shared_ptr<IOverrideClutchActionWriter> GetWriterClutch() 
+            virtual std::shared_ptr<IOverrideClutchActionWriter> GetWriterClutch() const 
             {
                 return nullptr;
             } 
@@ -7772,7 +7772,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property parkingBrake
             */
-            virtual std::shared_ptr<IOverrideParkingBrakeActionWriter> GetWriterParkingBrake() 
+            virtual std::shared_ptr<IOverrideParkingBrakeActionWriter> GetWriterParkingBrake() const 
             {
                 return nullptr;
             } 
@@ -7782,7 +7782,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property steeringWheel
             */
-            virtual std::shared_ptr<IOverrideSteeringWheelActionWriter> GetWriterSteeringWheel() 
+            virtual std::shared_ptr<IOverrideSteeringWheelActionWriter> GetWriterSteeringWheel() const 
             {
                 return nullptr;
             } 
@@ -7792,7 +7792,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property gear
             */
-            virtual std::shared_ptr<IOverrideGearActionWriter> GetWriterGear() 
+            virtual std::shared_ptr<IOverrideGearActionWriter> GetWriterGear() const 
             {
                 return nullptr;
             } 
@@ -7850,13 +7850,13 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromActive() { return ""; }
+            virtual std::string GetParameterFromActive() const { return ""; }
             /**
              * Get the parameter for the attribute  number
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromNumber() { return ""; }
+            virtual std::string GetParameterFromNumber() const { return ""; }
 
             /**
              * Retrieves whether the attribute active is parametrized.
@@ -7926,13 +7926,13 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromActive() { return ""; }
+            virtual std::string GetParameterFromActive() const { return ""; }
             /**
              * Get the parameter for the attribute  value
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromValue() { return ""; }
+            virtual std::string GetParameterFromValue() const { return ""; }
 
             /**
              * Retrieves whether the attribute active is parametrized.
@@ -8002,13 +8002,13 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromActive() { return ""; }
+            virtual std::string GetParameterFromActive() const { return ""; }
             /**
              * Get the parameter for the attribute  value
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromValue() { return ""; }
+            virtual std::string GetParameterFromValue() const { return ""; }
 
             /**
              * Retrieves whether the attribute active is parametrized.
@@ -8078,13 +8078,13 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromActive() { return ""; }
+            virtual std::string GetParameterFromActive() const { return ""; }
             /**
              * Get the parameter for the attribute  value
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromValue() { return ""; }
+            virtual std::string GetParameterFromValue() const { return ""; }
 
             /**
              * Retrieves whether the attribute active is parametrized.
@@ -8156,7 +8156,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromParameterRef() { return ""; }
+            virtual std::string GetParameterFromParameterRef() const { return ""; }
 
             /**
              * Retrieves whether the attribute parameterRef is parametrized.
@@ -8172,7 +8172,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property setAction
             */
-            virtual std::shared_ptr<IParameterSetActionWriter> GetWriterSetAction() 
+            virtual std::shared_ptr<IParameterSetActionWriter> GetWriterSetAction() const 
             {
                 return nullptr;
             } 
@@ -8182,7 +8182,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property modifyAction
             */
-            virtual std::shared_ptr<IParameterModifyActionWriter> GetWriterModifyAction() 
+            virtual std::shared_ptr<IParameterModifyActionWriter> GetWriterModifyAction() const 
             {
                 return nullptr;
             } 
@@ -8226,7 +8226,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromValue() { return ""; }
+            virtual std::string GetParameterFromValue() const { return ""; }
 
             /**
              * Retrieves whether the attribute value is parametrized.
@@ -8285,7 +8285,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromValue() { return ""; }
+            virtual std::string GetParameterFromValue() const { return ""; }
 
             /**
              * Retrieves whether the attribute value is parametrized.
@@ -8365,19 +8365,19 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromParameterRef() { return ""; }
+            virtual std::string GetParameterFromParameterRef() const { return ""; }
             /**
              * Get the parameter for the attribute  rule
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromRule() { return ""; }
+            virtual std::string GetParameterFromRule() const { return ""; }
             /**
              * Get the parameter for the attribute  value
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromValue() { return ""; }
+            virtual std::string GetParameterFromValue() const { return ""; }
 
             /**
              * Retrieves whether the attribute parameterRef is parametrized.
@@ -8461,13 +8461,13 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromParameterType() { return ""; }
+            virtual std::string GetParameterFromParameterType() const { return ""; }
             /**
              * Get the parameter for the attribute  value
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromValue() { return ""; }
+            virtual std::string GetParameterFromValue() const { return ""; }
 
             /**
              * Retrieves whether the attribute parameterType is parametrized.
@@ -8521,7 +8521,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property rule
             */
-            virtual std::shared_ptr<IModifyRuleWriter> GetWriterRule() 
+            virtual std::shared_ptr<IModifyRuleWriter> GetWriterRule() const 
             {
                 return nullptr;
             } 
@@ -8565,7 +8565,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromValue() { return ""; }
+            virtual std::string GetParameterFromValue() const { return ""; }
 
             /**
              * Retrieves whether the attribute value is parametrized.
@@ -8615,7 +8615,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromValue() { return ""; }
+            virtual std::string GetParameterFromValue() const { return ""; }
 
             /**
              * Retrieves whether the attribute value is parametrized.
@@ -8731,25 +8731,25 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromMass() { return ""; }
+            virtual std::string GetParameterFromMass() const { return ""; }
             /**
              * Get the parameter for the attribute  model
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromModel() { return ""; }
+            virtual std::string GetParameterFromModel() const { return ""; }
             /**
              * Get the parameter for the attribute  name
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromName() { return ""; }
+            virtual std::string GetParameterFromName() const { return ""; }
             /**
              * Get the parameter for the attribute  pedestrianCategory
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromPedestrianCategory() { return ""; }
+            virtual std::string GetParameterFromPedestrianCategory() const { return ""; }
 
             /**
              * Retrieves whether the attribute mass is parametrized.
@@ -8783,7 +8783,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property boundingBox
             */
-            virtual std::shared_ptr<IBoundingBoxWriter> GetWriterBoundingBox() 
+            virtual std::shared_ptr<IBoundingBoxWriter> GetWriterBoundingBox() const 
             {
                 return nullptr;
             } 
@@ -8793,7 +8793,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property properties
             */
-            virtual std::shared_ptr<IPropertiesWriter> GetWriterProperties() 
+            virtual std::shared_ptr<IPropertiesWriter> GetWriterProperties() const 
             {
                 return nullptr;
             } 
@@ -8804,7 +8804,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a list of writers for model property parameterDeclarations
             */
-            virtual std::vector<std::shared_ptr<IParameterDeclarationWriter>> GetWriterParameterDeclarations()
+            virtual std::vector<std::shared_ptr<IParameterDeclarationWriter>> GetWriterParameterDeclarations() const
             {
                 return std::vector<std::shared_ptr<IParameterDeclarationWriter>>();
             }
@@ -8845,7 +8845,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property directory
             */
-            virtual std::shared_ptr<IDirectoryWriter> GetWriterDirectory() 
+            virtual std::shared_ptr<IDirectoryWriter> GetWriterDirectory() const 
             {
                 return nullptr;
             } 
@@ -8917,19 +8917,19 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromMaxAcceleration() { return ""; }
+            virtual std::string GetParameterFromMaxAcceleration() const { return ""; }
             /**
              * Get the parameter for the attribute  maxDeceleration
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromMaxDeceleration() { return ""; }
+            virtual std::string GetParameterFromMaxDeceleration() const { return ""; }
             /**
              * Get the parameter for the attribute  maxSpeed
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromMaxSpeed() { return ""; }
+            virtual std::string GetParameterFromMaxSpeed() const { return ""; }
 
             /**
              * Retrieves whether the attribute maxAcceleration is parametrized.
@@ -9015,13 +9015,13 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromDuration() { return ""; }
+            virtual std::string GetParameterFromDuration() const { return ""; }
             /**
              * Get the parameter for the attribute  name
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromName() { return ""; }
+            virtual std::string GetParameterFromName() const { return ""; }
 
             /**
              * Retrieves whether the attribute duration is parametrized.
@@ -9045,7 +9045,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a list of writers for model property trafficSignalStates
             */
-            virtual std::vector<std::shared_ptr<ITrafficSignalStateWriter>> GetWriterTrafficSignalStates()
+            virtual std::vector<std::shared_ptr<ITrafficSignalStateWriter>> GetWriterTrafficSignalStates() const
             {
                 return std::vector<std::shared_ptr<ITrafficSignalStateWriter>>();
             }
@@ -9087,7 +9087,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a list of writers for model property vertices
             */
-            virtual std::vector<std::shared_ptr<IVertexWriter>> GetWriterVertices()
+            virtual std::vector<std::shared_ptr<IVertexWriter>> GetWriterVertices() const
             {
                 return std::vector<std::shared_ptr<IVertexWriter>>();
             }
@@ -9185,7 +9185,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property worldPosition
             */
-            virtual std::shared_ptr<IWorldPositionWriter> GetWriterWorldPosition() 
+            virtual std::shared_ptr<IWorldPositionWriter> GetWriterWorldPosition() const 
             {
                 return nullptr;
             } 
@@ -9195,7 +9195,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property relativeWorldPosition
             */
-            virtual std::shared_ptr<IRelativeWorldPositionWriter> GetWriterRelativeWorldPosition() 
+            virtual std::shared_ptr<IRelativeWorldPositionWriter> GetWriterRelativeWorldPosition() const 
             {
                 return nullptr;
             } 
@@ -9205,7 +9205,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property relativeObjectPosition
             */
-            virtual std::shared_ptr<IRelativeObjectPositionWriter> GetWriterRelativeObjectPosition() 
+            virtual std::shared_ptr<IRelativeObjectPositionWriter> GetWriterRelativeObjectPosition() const 
             {
                 return nullptr;
             } 
@@ -9215,7 +9215,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property roadPosition
             */
-            virtual std::shared_ptr<IRoadPositionWriter> GetWriterRoadPosition() 
+            virtual std::shared_ptr<IRoadPositionWriter> GetWriterRoadPosition() const 
             {
                 return nullptr;
             } 
@@ -9225,7 +9225,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property relativeRoadPosition
             */
-            virtual std::shared_ptr<IRelativeRoadPositionWriter> GetWriterRelativeRoadPosition() 
+            virtual std::shared_ptr<IRelativeRoadPositionWriter> GetWriterRelativeRoadPosition() const 
             {
                 return nullptr;
             } 
@@ -9235,7 +9235,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property lanePosition
             */
-            virtual std::shared_ptr<ILanePositionWriter> GetWriterLanePosition() 
+            virtual std::shared_ptr<ILanePositionWriter> GetWriterLanePosition() const 
             {
                 return nullptr;
             } 
@@ -9246,7 +9246,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property relativeLanePosition
             */
-            virtual std::shared_ptr<IRelativeLanePositionWriter> GetWriterRelativeLanePosition() 
+            virtual std::shared_ptr<IRelativeLanePositionWriter> GetWriterRelativeLanePosition() const 
             {
                 return nullptr;
             } 
@@ -9256,7 +9256,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property routePosition
             */
-            virtual std::shared_ptr<IRoutePositionWriter> GetWriterRoutePosition() 
+            virtual std::shared_ptr<IRoutePositionWriter> GetWriterRoutePosition() const 
             {
                 return nullptr;
             } 
@@ -9328,19 +9328,19 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromLaneId() { return ""; }
+            virtual std::string GetParameterFromLaneId() const { return ""; }
             /**
              * Get the parameter for the attribute  laneOffset
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromLaneOffset() { return ""; }
+            virtual std::string GetParameterFromLaneOffset() const { return ""; }
             /**
              * Get the parameter for the attribute  pathS
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromPathS() { return ""; }
+            virtual std::string GetParameterFromPathS() const { return ""; }
 
             /**
              * Retrieves whether the attribute laneId is parametrized.
@@ -9417,13 +9417,13 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromPathS() { return ""; }
+            virtual std::string GetParameterFromPathS() const { return ""; }
             /**
              * Get the parameter for the attribute  t
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromT() { return ""; }
+            virtual std::string GetParameterFromT() const { return ""; }
 
             /**
              * Retrieves whether the attribute pathS is parametrized.
@@ -9480,7 +9480,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromEntityRef() { return ""; }
+            virtual std::string GetParameterFromEntityRef() const { return ""; }
 
             /**
              * Retrieves whether the attribute entityRef is parametrized.
@@ -9544,13 +9544,13 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromIntensity() { return ""; }
+            virtual std::string GetParameterFromIntensity() const { return ""; }
             /**
              * Get the parameter for the attribute  precipitationType
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromPrecipitationType() { return ""; }
+            virtual std::string GetParameterFromPrecipitationType() const { return ""; }
 
             /**
              * Retrieves whether the attribute intensity is parametrized.
@@ -9614,7 +9614,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromEntityRef() { return ""; }
+            virtual std::string GetParameterFromEntityRef() const { return ""; }
 
             /**
              * Retrieves whether the attribute entityRef is parametrized.
@@ -9631,7 +9631,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a list of writers for model property privateActions
             */
-            virtual std::vector<std::shared_ptr<IPrivateActionWriter>> GetWriterPrivateActions()
+            virtual std::vector<std::shared_ptr<IPrivateActionWriter>> GetWriterPrivateActions() const
             {
                 return std::vector<std::shared_ptr<IPrivateActionWriter>>();
             }
@@ -9733,7 +9733,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property longitudinalAction
             */
-            virtual std::shared_ptr<ILongitudinalActionWriter> GetWriterLongitudinalAction() 
+            virtual std::shared_ptr<ILongitudinalActionWriter> GetWriterLongitudinalAction() const 
             {
                 return nullptr;
             } 
@@ -9744,7 +9744,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property lateralAction
             */
-            virtual std::shared_ptr<ILateralActionWriter> GetWriterLateralAction() 
+            virtual std::shared_ptr<ILateralActionWriter> GetWriterLateralAction() const 
             {
                 return nullptr;
             } 
@@ -9754,7 +9754,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property visibilityAction
             */
-            virtual std::shared_ptr<IVisibilityActionWriter> GetWriterVisibilityAction() 
+            virtual std::shared_ptr<IVisibilityActionWriter> GetWriterVisibilityAction() const 
             {
                 return nullptr;
             } 
@@ -9765,7 +9765,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property synchronizeAction
             */
-            virtual std::shared_ptr<ISynchronizeActionWriter> GetWriterSynchronizeAction() 
+            virtual std::shared_ptr<ISynchronizeActionWriter> GetWriterSynchronizeAction() const 
             {
                 return nullptr;
             } 
@@ -9775,7 +9775,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property activateControllerAction
             */
-            virtual std::shared_ptr<IActivateControllerActionWriter> GetWriterActivateControllerAction() 
+            virtual std::shared_ptr<IActivateControllerActionWriter> GetWriterActivateControllerAction() const 
             {
                 return nullptr;
             } 
@@ -9785,7 +9785,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property controllerAction
             */
-            virtual std::shared_ptr<IControllerActionWriter> GetWriterControllerAction() 
+            virtual std::shared_ptr<IControllerActionWriter> GetWriterControllerAction() const 
             {
                 return nullptr;
             } 
@@ -9795,7 +9795,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property teleportAction
             */
-            virtual std::shared_ptr<ITeleportActionWriter> GetWriterTeleportAction() 
+            virtual std::shared_ptr<ITeleportActionWriter> GetWriterTeleportAction() const 
             {
                 return nullptr;
             } 
@@ -9805,7 +9805,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property routingAction
             */
-            virtual std::shared_ptr<IRoutingActionWriter> GetWriterRoutingAction() 
+            virtual std::shared_ptr<IRoutingActionWriter> GetWriterRoutingAction() const 
             {
                 return nullptr;
             } 
@@ -9859,7 +9859,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a list of writers for model property properties
             */
-            virtual std::vector<std::shared_ptr<IPropertyWriter>> GetWriterProperties()
+            virtual std::vector<std::shared_ptr<IPropertyWriter>> GetWriterProperties() const
             {
                 return std::vector<std::shared_ptr<IPropertyWriter>>();
             }
@@ -9870,7 +9870,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a list of writers for model property files
             */
-            virtual std::vector<std::shared_ptr<IFileWriter>> GetWriterFiles()
+            virtual std::vector<std::shared_ptr<IFileWriter>> GetWriterFiles() const
             {
                 return std::vector<std::shared_ptr<IFileWriter>>();
             }
@@ -9927,13 +9927,13 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromName() { return ""; }
+            virtual std::string GetParameterFromName() const { return ""; }
             /**
              * Get the parameter for the attribute  value
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromValue() { return ""; }
+            virtual std::string GetParameterFromValue() const { return ""; }
 
             /**
              * Retrieves whether the attribute name is parametrized.
@@ -9997,7 +9997,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromTolerance() { return ""; }
+            virtual std::string GetParameterFromTolerance() const { return ""; }
 
             /**
              * Retrieves whether the attribute tolerance is parametrized.
@@ -10013,7 +10013,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property position
             */
-            virtual std::shared_ptr<IPositionWriter> GetWriterPosition() 
+            virtual std::shared_ptr<IPositionWriter> GetWriterPosition() const 
             {
                 return nullptr;
             } 
@@ -10114,31 +10114,31 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromEntityRef() { return ""; }
+            virtual std::string GetParameterFromEntityRef() const { return ""; }
             /**
              * Get the parameter for the attribute  freespace
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromFreespace() { return ""; }
+            virtual std::string GetParameterFromFreespace() const { return ""; }
             /**
              * Get the parameter for the attribute  relativeDistanceType
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromRelativeDistanceType() { return ""; }
+            virtual std::string GetParameterFromRelativeDistanceType() const { return ""; }
             /**
              * Get the parameter for the attribute  rule
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromRule() { return ""; }
+            virtual std::string GetParameterFromRule() const { return ""; }
             /**
              * Get the parameter for the attribute  value
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromValue() { return ""; }
+            virtual std::string GetParameterFromValue() const { return ""; }
 
             /**
              * Retrieves whether the attribute entityRef is parametrized.
@@ -10262,25 +10262,25 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromDLane() { return ""; }
+            virtual std::string GetParameterFromDLane() const { return ""; }
             /**
              * Get the parameter for the attribute  ds
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromDs() { return ""; }
+            virtual std::string GetParameterFromDs() const { return ""; }
             /**
              * Get the parameter for the attribute  entityRef
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromEntityRef() { return ""; }
+            virtual std::string GetParameterFromEntityRef() const { return ""; }
             /**
              * Get the parameter for the attribute  offset
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromOffset() { return ""; }
+            virtual std::string GetParameterFromOffset() const { return ""; }
 
             /**
              * Retrieves whether the attribute dLane is parametrized.
@@ -10314,7 +10314,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property orientation
             */
-            virtual std::shared_ptr<IOrientationWriter> GetWriterOrientation() 
+            virtual std::shared_ptr<IOrientationWriter> GetWriterOrientation() const 
             {
                 return nullptr;
             } 
@@ -10410,25 +10410,25 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromDx() { return ""; }
+            virtual std::string GetParameterFromDx() const { return ""; }
             /**
              * Get the parameter for the attribute  dy
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromDy() { return ""; }
+            virtual std::string GetParameterFromDy() const { return ""; }
             /**
              * Get the parameter for the attribute  dz
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromDz() { return ""; }
+            virtual std::string GetParameterFromDz() const { return ""; }
             /**
              * Get the parameter for the attribute  entityRef
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromEntityRef() { return ""; }
+            virtual std::string GetParameterFromEntityRef() const { return ""; }
 
             /**
              * Retrieves whether the attribute dx is parametrized.
@@ -10462,7 +10462,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property orientation
             */
-            virtual std::shared_ptr<IOrientationWriter> GetWriterOrientation() 
+            virtual std::shared_ptr<IOrientationWriter> GetWriterOrientation() const 
             {
                 return nullptr;
             } 
@@ -10542,19 +10542,19 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromDs() { return ""; }
+            virtual std::string GetParameterFromDs() const { return ""; }
             /**
              * Get the parameter for the attribute  dt
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromDt() { return ""; }
+            virtual std::string GetParameterFromDt() const { return ""; }
             /**
              * Get the parameter for the attribute  entityRef
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromEntityRef() { return ""; }
+            virtual std::string GetParameterFromEntityRef() const { return ""; }
 
             /**
              * Retrieves whether the attribute ds is parametrized.
@@ -10582,7 +10582,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property orientation
             */
-            virtual std::shared_ptr<IOrientationWriter> GetWriterOrientation() 
+            virtual std::shared_ptr<IOrientationWriter> GetWriterOrientation() const 
             {
                 return nullptr;
             } 
@@ -10655,19 +10655,19 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromEntityRef() { return ""; }
+            virtual std::string GetParameterFromEntityRef() const { return ""; }
             /**
              * Get the parameter for the attribute  rule
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromRule() { return ""; }
+            virtual std::string GetParameterFromRule() const { return ""; }
             /**
              * Get the parameter for the attribute  value
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromValue() { return ""; }
+            virtual std::string GetParameterFromValue() const { return ""; }
 
             /**
              * Retrieves whether the attribute entityRef is parametrized.
@@ -10743,13 +10743,13 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromSpeedTargetValueType() { return ""; }
+            virtual std::string GetParameterFromSpeedTargetValueType() const { return ""; }
             /**
              * Get the parameter for the attribute  value
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromValue() { return ""; }
+            virtual std::string GetParameterFromValue() const { return ""; }
 
             /**
              * Retrieves whether the attribute speedTargetValueType is parametrized.
@@ -10819,13 +10819,13 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromEntityRef() { return ""; }
+            virtual std::string GetParameterFromEntityRef() const { return ""; }
             /**
              * Get the parameter for the attribute  value
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromValue() { return ""; }
+            virtual std::string GetParameterFromValue() const { return ""; }
 
             /**
              * Retrieves whether the attribute entityRef is parametrized.
@@ -10896,13 +10896,13 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromEntityRef() { return ""; }
+            virtual std::string GetParameterFromEntityRef() const { return ""; }
             /**
              * Get the parameter for the attribute  value
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromValue() { return ""; }
+            virtual std::string GetParameterFromValue() const { return ""; }
 
             /**
              * Retrieves whether the attribute entityRef is parametrized.
@@ -11004,25 +11004,25 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromContinuous() { return ""; }
+            virtual std::string GetParameterFromContinuous() const { return ""; }
             /**
              * Get the parameter for the attribute  entityRef
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromEntityRef() { return ""; }
+            virtual std::string GetParameterFromEntityRef() const { return ""; }
             /**
              * Get the parameter for the attribute  speedTargetValueType
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromSpeedTargetValueType() { return ""; }
+            virtual std::string GetParameterFromSpeedTargetValueType() const { return ""; }
             /**
              * Get the parameter for the attribute  value
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromValue() { return ""; }
+            virtual std::string GetParameterFromValue() const { return ""; }
 
             /**
              * Retrieves whether the attribute continuous is parametrized.
@@ -11141,25 +11141,25 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromDx() { return ""; }
+            virtual std::string GetParameterFromDx() const { return ""; }
             /**
              * Get the parameter for the attribute  dy
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromDy() { return ""; }
+            virtual std::string GetParameterFromDy() const { return ""; }
             /**
              * Get the parameter for the attribute  dz
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromDz() { return ""; }
+            virtual std::string GetParameterFromDz() const { return ""; }
             /**
              * Get the parameter for the attribute  entityRef
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromEntityRef() { return ""; }
+            virtual std::string GetParameterFromEntityRef() const { return ""; }
 
             /**
              * Retrieves whether the attribute dx is parametrized.
@@ -11193,7 +11193,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property orientation
             */
-            virtual std::shared_ptr<IOrientationWriter> GetWriterOrientation() 
+            virtual std::shared_ptr<IOrientationWriter> GetWriterOrientation() const 
             {
                 return nullptr;
             } 
@@ -11245,7 +11245,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromFrictionScaleFactor() { return ""; }
+            virtual std::string GetParameterFromFrictionScaleFactor() const { return ""; }
 
             /**
              * Retrieves whether the attribute frictionScaleFactor is parametrized.
@@ -11261,7 +11261,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property properties
             */
-            virtual std::shared_ptr<IPropertiesWriter> GetWriterProperties() 
+            virtual std::shared_ptr<IPropertiesWriter> GetWriterProperties() const 
             {
                 return nullptr;
             } 
@@ -11322,7 +11322,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property logicFile
             */
-            virtual std::shared_ptr<IFileWriter> GetWriterLogicFile() 
+            virtual std::shared_ptr<IFileWriter> GetWriterLogicFile() const 
             {
                 return nullptr;
             } 
@@ -11332,7 +11332,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property sceneGraphFile
             */
-            virtual std::shared_ptr<IFileWriter> GetWriterSceneGraphFile() 
+            virtual std::shared_ptr<IFileWriter> GetWriterSceneGraphFile() const 
             {
                 return nullptr;
             } 
@@ -11343,7 +11343,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a list of writers for model property trafficSignals
             */
-            virtual std::vector<std::shared_ptr<ITrafficSignalControllerWriter>> GetWriterTrafficSignals()
+            virtual std::vector<std::shared_ptr<ITrafficSignalControllerWriter>> GetWriterTrafficSignals() const
             {
                 return std::vector<std::shared_ptr<ITrafficSignalControllerWriter>>();
             }
@@ -11423,19 +11423,19 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromRoadId() { return ""; }
+            virtual std::string GetParameterFromRoadId() const { return ""; }
             /**
              * Get the parameter for the attribute  s
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromS() { return ""; }
+            virtual std::string GetParameterFromS() const { return ""; }
             /**
              * Get the parameter for the attribute  t
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromT() { return ""; }
+            virtual std::string GetParameterFromT() const { return ""; }
 
             /**
              * Retrieves whether the attribute roadId is parametrized.
@@ -11463,7 +11463,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property orientation
             */
-            virtual std::shared_ptr<IOrientationWriter> GetWriterOrientation() 
+            virtual std::shared_ptr<IOrientationWriter> GetWriterOrientation() const 
             {
                 return nullptr;
             } 
@@ -11538,13 +11538,13 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromClosed() { return ""; }
+            virtual std::string GetParameterFromClosed() const { return ""; }
             /**
              * Get the parameter for the attribute  name
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromName() { return ""; }
+            virtual std::string GetParameterFromName() const { return ""; }
 
             /**
              * Retrieves whether the attribute closed is parametrized.
@@ -11567,7 +11567,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a list of writers for model property parameterDeclarations
             */
-            virtual std::vector<std::shared_ptr<IParameterDeclarationWriter>> GetWriterParameterDeclarations()
+            virtual std::vector<std::shared_ptr<IParameterDeclarationWriter>> GetWriterParameterDeclarations() const
             {
                 return std::vector<std::shared_ptr<IParameterDeclarationWriter>>();
             }
@@ -11577,7 +11577,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a list of writers for model property waypoints
             */
-            virtual std::vector<std::shared_ptr<IWaypointWriter>> GetWriterWaypoints()
+            virtual std::vector<std::shared_ptr<IWaypointWriter>> GetWriterWaypoints() const
             {
                 return std::vector<std::shared_ptr<IWaypointWriter>>();
             }
@@ -11618,7 +11618,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property directory
             */
-            virtual std::shared_ptr<IDirectoryWriter> GetWriterDirectory() 
+            virtual std::shared_ptr<IDirectoryWriter> GetWriterDirectory() const 
             {
                 return nullptr;
             } 
@@ -11678,7 +11678,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property routeRef
             */
-            virtual std::shared_ptr<IRouteRefWriter> GetWriterRouteRef() 
+            virtual std::shared_ptr<IRouteRefWriter> GetWriterRouteRef() const 
             {
                 return nullptr;
             } 
@@ -11689,7 +11689,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property orientation
             */
-            virtual std::shared_ptr<IOrientationWriter> GetWriterOrientation() 
+            virtual std::shared_ptr<IOrientationWriter> GetWriterOrientation() const 
             {
                 return nullptr;
             } 
@@ -11699,7 +11699,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property inRoutePosition
             */
-            virtual std::shared_ptr<IInRoutePositionWriter> GetWriterInRoutePosition() 
+            virtual std::shared_ptr<IInRoutePositionWriter> GetWriterInRoutePosition() const 
             {
                 return nullptr;
             } 
@@ -11749,7 +11749,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property route
             */
-            virtual std::shared_ptr<IRouteWriter> GetWriterRoute() 
+            virtual std::shared_ptr<IRouteWriter> GetWriterRoute() const 
             {
                 return nullptr;
             } 
@@ -11759,7 +11759,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property catalogReference
             */
-            virtual std::shared_ptr<ICatalogReferenceWriter> GetWriterCatalogReference() 
+            virtual std::shared_ptr<ICatalogReferenceWriter> GetWriterCatalogReference() const 
             {
                 return nullptr;
             } 
@@ -11819,7 +11819,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property assignRouteAction
             */
-            virtual std::shared_ptr<IAssignRouteActionWriter> GetWriterAssignRouteAction() 
+            virtual std::shared_ptr<IAssignRouteActionWriter> GetWriterAssignRouteAction() const 
             {
                 return nullptr;
             } 
@@ -11829,7 +11829,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property followTrajectoryAction
             */
-            virtual std::shared_ptr<IFollowTrajectoryActionWriter> GetWriterFollowTrajectoryAction() 
+            virtual std::shared_ptr<IFollowTrajectoryActionWriter> GetWriterFollowTrajectoryAction() const 
             {
                 return nullptr;
             } 
@@ -11840,7 +11840,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property acquirePositionAction
             */
-            virtual std::shared_ptr<IAcquirePositionActionWriter> GetWriterAcquirePositionAction() 
+            virtual std::shared_ptr<IAcquirePositionActionWriter> GetWriterAcquirePositionAction() const 
             {
                 return nullptr;
             } 
@@ -11917,7 +11917,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property catalogLocations
             */
-            virtual std::shared_ptr<ICatalogLocationsWriter> GetWriterCatalogLocations() 
+            virtual std::shared_ptr<ICatalogLocationsWriter> GetWriterCatalogLocations() const 
             {
                 return nullptr;
             } 
@@ -11927,7 +11927,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property roadNetwork
             */
-            virtual std::shared_ptr<IRoadNetworkWriter> GetWriterRoadNetwork() 
+            virtual std::shared_ptr<IRoadNetworkWriter> GetWriterRoadNetwork() const 
             {
                 return nullptr;
             } 
@@ -11938,7 +11938,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property entities
             */
-            virtual std::shared_ptr<IEntitiesWriter> GetWriterEntities() 
+            virtual std::shared_ptr<IEntitiesWriter> GetWriterEntities() const 
             {
                 return nullptr;
             } 
@@ -11948,7 +11948,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property storyboard
             */
-            virtual std::shared_ptr<IStoryboardWriter> GetWriterStoryboard() 
+            virtual std::shared_ptr<IStoryboardWriter> GetWriterStoryboard() const 
             {
                 return nullptr;
             } 
@@ -11961,7 +11961,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a list of writers for model property parameterDeclarations
             */
-            virtual std::vector<std::shared_ptr<IParameterDeclarationWriter>> GetWriterParameterDeclarations()
+            virtual std::vector<std::shared_ptr<IParameterDeclarationWriter>> GetWriterParameterDeclarations() const
             {
                 return std::vector<std::shared_ptr<IParameterDeclarationWriter>>();
             }
@@ -12021,7 +12021,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromName() { return ""; }
+            virtual std::string GetParameterFromName() const { return ""; }
 
             /**
              * Retrieves whether the attribute name is parametrized.
@@ -12037,7 +12037,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property entityObject
             */
-            virtual std::shared_ptr<IEntityObjectWriter> GetWriterEntityObject() 
+            virtual std::shared_ptr<IEntityObjectWriter> GetWriterEntityObject() const 
             {
                 return nullptr;
             } 
@@ -12047,7 +12047,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property objectController
             */
-            virtual std::shared_ptr<IObjectControllerWriter> GetWriterObjectController() 
+            virtual std::shared_ptr<IObjectControllerWriter> GetWriterObjectController() const 
             {
                 return nullptr;
             } 
@@ -12098,7 +12098,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a list of writers for model property entityRef
             */
-            virtual std::vector<std::shared_ptr<IEntityRefWriter>> GetWriterEntityRef()
+            virtual std::vector<std::shared_ptr<IEntityRefWriter>> GetWriterEntityRef() const
             {
                 return std::vector<std::shared_ptr<IEntityRefWriter>>();
             }
@@ -12108,7 +12108,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a list of writers for model property byType
             */
-            virtual std::vector<std::shared_ptr<IByTypeWriter>> GetWriterByType()
+            virtual std::vector<std::shared_ptr<IByTypeWriter>> GetWriterByType() const
             {
                 return std::vector<std::shared_ptr<IByTypeWriter>>();
             }
@@ -12165,7 +12165,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property polyline
             */
-            virtual std::shared_ptr<IPolylineWriter> GetWriterPolyline() 
+            virtual std::shared_ptr<IPolylineWriter> GetWriterPolyline() const 
             {
                 return nullptr;
             } 
@@ -12175,7 +12175,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property clothoid
             */
-            virtual std::shared_ptr<IClothoidWriter> GetWriterClothoid() 
+            virtual std::shared_ptr<IClothoidWriter> GetWriterClothoid() const 
             {
                 return nullptr;
             } 
@@ -12185,7 +12185,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property nurbs
             */
-            virtual std::shared_ptr<INurbsWriter> GetWriterNurbs() 
+            virtual std::shared_ptr<INurbsWriter> GetWriterNurbs() const 
             {
                 return nullptr;
             } 
@@ -12243,13 +12243,13 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromRule() { return ""; }
+            virtual std::string GetParameterFromRule() const { return ""; }
             /**
              * Get the parameter for the attribute  value
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromValue() { return ""; }
+            virtual std::string GetParameterFromValue() const { return ""; }
 
             /**
              * Retrieves whether the attribute rule is parametrized.
@@ -12312,7 +12312,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property speedActionDynamics
             */
-            virtual std::shared_ptr<ITransitionDynamicsWriter> GetWriterSpeedActionDynamics() 
+            virtual std::shared_ptr<ITransitionDynamicsWriter> GetWriterSpeedActionDynamics() const 
             {
                 return nullptr;
             } 
@@ -12322,7 +12322,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property speedActionTarget
             */
-            virtual std::shared_ptr<ISpeedActionTargetWriter> GetWriterSpeedActionTarget() 
+            virtual std::shared_ptr<ISpeedActionTargetWriter> GetWriterSpeedActionTarget() const 
             {
                 return nullptr;
             } 
@@ -12373,7 +12373,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property relativeTargetSpeed
             */
-            virtual std::shared_ptr<IRelativeTargetSpeedWriter> GetWriterRelativeTargetSpeed() 
+            virtual std::shared_ptr<IRelativeTargetSpeedWriter> GetWriterRelativeTargetSpeed() const 
             {
                 return nullptr;
             } 
@@ -12383,7 +12383,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property absoluteTargetSpeed
             */
-            virtual std::shared_ptr<IAbsoluteTargetSpeedWriter> GetWriterAbsoluteTargetSpeed() 
+            virtual std::shared_ptr<IAbsoluteTargetSpeedWriter> GetWriterAbsoluteTargetSpeed() const 
             {
                 return nullptr;
             } 
@@ -12442,13 +12442,13 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromRule() { return ""; }
+            virtual std::string GetParameterFromRule() const { return ""; }
             /**
              * Get the parameter for the attribute  value
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromValue() { return ""; }
+            virtual std::string GetParameterFromValue() const { return ""; }
 
             /**
              * Retrieves whether the attribute rule is parametrized.
@@ -12504,7 +12504,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromDuration() { return ""; }
+            virtual std::string GetParameterFromDuration() const { return ""; }
 
             /**
              * Retrieves whether the attribute duration is parametrized.
@@ -12570,7 +12570,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromName() { return ""; }
+            virtual std::string GetParameterFromName() const { return ""; }
 
             /**
              * Retrieves whether the attribute name is parametrized.
@@ -12587,7 +12587,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a list of writers for model property parameterDeclarations
             */
-            virtual std::vector<std::shared_ptr<IParameterDeclarationWriter>> GetWriterParameterDeclarations()
+            virtual std::vector<std::shared_ptr<IParameterDeclarationWriter>> GetWriterParameterDeclarations() const
             {
                 return std::vector<std::shared_ptr<IParameterDeclarationWriter>>();
             }
@@ -12597,7 +12597,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a list of writers for model property acts
             */
-            virtual std::vector<std::shared_ptr<IActWriter>> GetWriterActs()
+            virtual std::vector<std::shared_ptr<IActWriter>> GetWriterActs() const
             {
                 return std::vector<std::shared_ptr<IActWriter>>();
             }
@@ -12654,7 +12654,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property init
             */
-            virtual std::shared_ptr<IInitWriter> GetWriterInit() 
+            virtual std::shared_ptr<IInitWriter> GetWriterInit() const 
             {
                 return nullptr;
             } 
@@ -12664,7 +12664,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property stopTrigger
             */
-            virtual std::shared_ptr<ITriggerWriter> GetWriterStopTrigger() 
+            virtual std::shared_ptr<ITriggerWriter> GetWriterStopTrigger() const 
             {
                 return nullptr;
             } 
@@ -12675,7 +12675,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a list of writers for model property stories
             */
-            virtual std::vector<std::shared_ptr<IStoryWriter>> GetWriterStories()
+            virtual std::vector<std::shared_ptr<IStoryWriter>> GetWriterStories() const
             {
                 return std::vector<std::shared_ptr<IStoryWriter>>();
             }
@@ -12748,19 +12748,19 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromState() { return ""; }
+            virtual std::string GetParameterFromState() const { return ""; }
             /**
              * Get the parameter for the attribute  storyboardElementRef
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromStoryboardElementRef() { return ""; }
+            virtual std::string GetParameterFromStoryboardElementRef() const { return ""; }
             /**
              * Get the parameter for the attribute  storyboardElementType
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromStoryboardElementType() { return ""; }
+            virtual std::string GetParameterFromStoryboardElementType() const { return ""; }
 
             /**
              * Retrieves whether the attribute state is parametrized.
@@ -12851,19 +12851,19 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromAzimuth() { return ""; }
+            virtual std::string GetParameterFromAzimuth() const { return ""; }
             /**
              * Get the parameter for the attribute  elevation
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromElevation() { return ""; }
+            virtual std::string GetParameterFromElevation() const { return ""; }
             /**
              * Get the parameter for the attribute  intensity
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromIntensity() { return ""; }
+            virtual std::string GetParameterFromIntensity() const { return ""; }
 
             /**
              * Retrieves whether the attribute azimuth is parametrized.
@@ -12951,7 +12951,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromMasterEntityRef() { return ""; }
+            virtual std::string GetParameterFromMasterEntityRef() const { return ""; }
 
             /**
              * Retrieves whether the attribute masterEntityRef is parametrized.
@@ -12967,7 +12967,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property targetPositionMaster
             */
-            virtual std::shared_ptr<IPositionWriter> GetWriterTargetPositionMaster() 
+            virtual std::shared_ptr<IPositionWriter> GetWriterTargetPositionMaster() const 
             {
                 return nullptr;
             } 
@@ -12977,7 +12977,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property targetPosition
             */
-            virtual std::shared_ptr<IPositionWriter> GetWriterTargetPosition() 
+            virtual std::shared_ptr<IPositionWriter> GetWriterTargetPosition() const 
             {
                 return nullptr;
             } 
@@ -12987,7 +12987,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property finalSpeed
             */
-            virtual std::shared_ptr<IFinalSpeedWriter> GetWriterFinalSpeed() 
+            virtual std::shared_ptr<IFinalSpeedWriter> GetWriterFinalSpeed() const 
             {
                 return nullptr;
             } 
@@ -13029,7 +13029,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property position
             */
-            virtual std::shared_ptr<IPositionWriter> GetWriterPosition() 
+            virtual std::shared_ptr<IPositionWriter> GetWriterPosition() const 
             {
                 return nullptr;
             } 
@@ -13131,31 +13131,31 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromAlongRoute() { return ""; }
+            virtual std::string GetParameterFromAlongRoute() const { return ""; }
             /**
              * Get the parameter for the attribute  entityRef
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromEntityRef() { return ""; }
+            virtual std::string GetParameterFromEntityRef() const { return ""; }
             /**
              * Get the parameter for the attribute  freespace
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromFreespace() { return ""; }
+            virtual std::string GetParameterFromFreespace() const { return ""; }
             /**
              * Get the parameter for the attribute  rule
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromRule() { return ""; }
+            virtual std::string GetParameterFromRule() const { return ""; }
             /**
              * Get the parameter for the attribute  value
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromValue() { return ""; }
+            virtual std::string GetParameterFromValue() const { return ""; }
 
             /**
              * Retrieves whether the attribute alongRoute is parametrized.
@@ -13243,13 +13243,13 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromAnimation() { return ""; }
+            virtual std::string GetParameterFromAnimation() const { return ""; }
             /**
              * Get the parameter for the attribute  dateTime
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromDateTime() { return ""; }
+            virtual std::string GetParameterFromDateTime() const { return ""; }
 
             /**
              * Retrieves whether the attribute animation is parametrized.
@@ -13320,13 +13320,13 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromDateTime() { return ""; }
+            virtual std::string GetParameterFromDateTime() const { return ""; }
             /**
              * Get the parameter for the attribute  rule
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromRule() { return ""; }
+            virtual std::string GetParameterFromRule() const { return ""; }
 
             /**
              * Retrieves whether the attribute dateTime is parametrized.
@@ -13390,7 +13390,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property none
             */
-            virtual std::shared_ptr<INoneWriter> GetWriterNone() 
+            virtual std::shared_ptr<INoneWriter> GetWriterNone() const 
             {
                 return nullptr;
             } 
@@ -13401,7 +13401,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property timing
             */
-            virtual std::shared_ptr<ITimingWriter> GetWriterTiming() 
+            virtual std::shared_ptr<ITimingWriter> GetWriterTiming() const 
             {
                 return nullptr;
             } 
@@ -13498,25 +13498,25 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromAlongRoute() { return ""; }
+            virtual std::string GetParameterFromAlongRoute() const { return ""; }
             /**
              * Get the parameter for the attribute  freespace
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromFreespace() { return ""; }
+            virtual std::string GetParameterFromFreespace() const { return ""; }
             /**
              * Get the parameter for the attribute  rule
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromRule() { return ""; }
+            virtual std::string GetParameterFromRule() const { return ""; }
             /**
              * Get the parameter for the attribute  value
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromValue() { return ""; }
+            virtual std::string GetParameterFromValue() const { return ""; }
 
             /**
              * Retrieves whether the attribute alongRoute is parametrized.
@@ -13550,7 +13550,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property timeToCollisionConditionTarget
             */
-            virtual std::shared_ptr<ITimeToCollisionConditionTargetWriter> GetWriterTimeToCollisionConditionTarget() 
+            virtual std::shared_ptr<ITimeToCollisionConditionTargetWriter> GetWriterTimeToCollisionConditionTarget() const 
             {
                 return nullptr;
             } 
@@ -13601,7 +13601,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property position
             */
-            virtual std::shared_ptr<IPositionWriter> GetWriterPosition() 
+            virtual std::shared_ptr<IPositionWriter> GetWriterPosition() const 
             {
                 return nullptr;
             } 
@@ -13611,7 +13611,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property entityRef
             */
-            virtual std::shared_ptr<IEntityRefWriter> GetWriterEntityRef() 
+            virtual std::shared_ptr<IEntityRefWriter> GetWriterEntityRef() const 
             {
                 return nullptr;
             } 
@@ -13684,19 +13684,19 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromDomainAbsoluteRelative() { return ""; }
+            virtual std::string GetParameterFromDomainAbsoluteRelative() const { return ""; }
             /**
              * Get the parameter for the attribute  offset
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromOffset() { return ""; }
+            virtual std::string GetParameterFromOffset() const { return ""; }
             /**
              * Get the parameter for the attribute  scale
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromScale() { return ""; }
+            virtual std::string GetParameterFromScale() const { return ""; }
 
             /**
              * Retrieves whether the attribute domainAbsoluteRelative is parametrized.
@@ -13772,7 +13772,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property trafficSourceAction
             */
-            virtual std::shared_ptr<ITrafficSourceActionWriter> GetWriterTrafficSourceAction() 
+            virtual std::shared_ptr<ITrafficSourceActionWriter> GetWriterTrafficSourceAction() const 
             {
                 return nullptr;
             } 
@@ -13782,7 +13782,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property trafficSinkAction
             */
-            virtual std::shared_ptr<ITrafficSinkActionWriter> GetWriterTrafficSinkAction() 
+            virtual std::shared_ptr<ITrafficSinkActionWriter> GetWriterTrafficSinkAction() const 
             {
                 return nullptr;
             } 
@@ -13792,7 +13792,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property trafficSwarmAction
             */
-            virtual std::shared_ptr<ITrafficSwarmActionWriter> GetWriterTrafficSwarmAction() 
+            virtual std::shared_ptr<ITrafficSwarmActionWriter> GetWriterTrafficSwarmAction() const 
             {
                 return nullptr;
             } 
@@ -13852,7 +13852,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromName() { return ""; }
+            virtual std::string GetParameterFromName() const { return ""; }
 
             /**
              * Retrieves whether the attribute name is parametrized.
@@ -13868,7 +13868,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property vehicleCategoryDistribution
             */
-            virtual std::shared_ptr<IVehicleCategoryDistributionWriter> GetWriterVehicleCategoryDistribution() 
+            virtual std::shared_ptr<IVehicleCategoryDistributionWriter> GetWriterVehicleCategoryDistribution() const 
             {
                 return nullptr;
             } 
@@ -13878,7 +13878,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property controllerDistribution
             */
-            virtual std::shared_ptr<IControllerDistributionWriter> GetWriterControllerDistribution() 
+            virtual std::shared_ptr<IControllerDistributionWriter> GetWriterControllerDistribution() const 
             {
                 return nullptr;
             } 
@@ -13928,7 +13928,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property trafficSignalControllerAction
             */
-            virtual std::shared_ptr<ITrafficSignalControllerActionWriter> GetWriterTrafficSignalControllerAction() 
+            virtual std::shared_ptr<ITrafficSignalControllerActionWriter> GetWriterTrafficSignalControllerAction() const 
             {
                 return nullptr;
             } 
@@ -13938,7 +13938,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property trafficSignalStateAction
             */
-            virtual std::shared_ptr<ITrafficSignalStateActionWriter> GetWriterTrafficSignalStateAction() 
+            virtual std::shared_ptr<ITrafficSignalStateActionWriter> GetWriterTrafficSignalStateAction() const 
             {
                 return nullptr;
             } 
@@ -13999,13 +13999,13 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromName() { return ""; }
+            virtual std::string GetParameterFromName() const { return ""; }
             /**
              * Get the parameter for the attribute  state
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromState() { return ""; }
+            virtual std::string GetParameterFromState() const { return ""; }
 
             /**
              * Retrieves whether the attribute name is parametrized.
@@ -14100,19 +14100,19 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromDelay() { return ""; }
+            virtual std::string GetParameterFromDelay() const { return ""; }
             /**
              * Get the parameter for the attribute  name
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromName() { return ""; }
+            virtual std::string GetParameterFromName() const { return ""; }
             /**
              * Get the parameter for the attribute  reference
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromReference() { return ""; }
+            virtual std::string GetParameterFromReference() const { return ""; }
 
             /**
              * Retrieves whether the attribute delay is parametrized.
@@ -14141,7 +14141,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a list of writers for model property phases
             */
-            virtual std::vector<std::shared_ptr<IPhaseWriter>> GetWriterPhases()
+            virtual std::vector<std::shared_ptr<IPhaseWriter>> GetWriterPhases() const
             {
                 return std::vector<std::shared_ptr<IPhaseWriter>>();
             }
@@ -14207,13 +14207,13 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromPhase() { return ""; }
+            virtual std::string GetParameterFromPhase() const { return ""; }
             /**
              * Get the parameter for the attribute  trafficSignalControllerRef
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromTrafficSignalControllerRef() { return ""; }
+            virtual std::string GetParameterFromTrafficSignalControllerRef() const { return ""; }
 
             /**
              * Retrieves whether the attribute phase is parametrized.
@@ -14293,13 +14293,13 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromPhase() { return ""; }
+            virtual std::string GetParameterFromPhase() const { return ""; }
             /**
              * Get the parameter for the attribute  trafficSignalControllerRef
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromTrafficSignalControllerRef() { return ""; }
+            virtual std::string GetParameterFromTrafficSignalControllerRef() const { return ""; }
 
             /**
              * Retrieves whether the attribute phase is parametrized.
@@ -14369,13 +14369,13 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromState() { return ""; }
+            virtual std::string GetParameterFromState() const { return ""; }
             /**
              * Get the parameter for the attribute  trafficSignalId
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromTrafficSignalId() { return ""; }
+            virtual std::string GetParameterFromTrafficSignalId() const { return ""; }
 
             /**
              * Retrieves whether the attribute state is parametrized.
@@ -14445,13 +14445,13 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromName() { return ""; }
+            virtual std::string GetParameterFromName() const { return ""; }
             /**
              * Get the parameter for the attribute  state
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromState() { return ""; }
+            virtual std::string GetParameterFromState() const { return ""; }
 
             /**
              * Retrieves whether the attribute name is parametrized.
@@ -14537,13 +14537,13 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromRadius() { return ""; }
+            virtual std::string GetParameterFromRadius() const { return ""; }
             /**
              * Get the parameter for the attribute  rate
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromRate() { return ""; }
+            virtual std::string GetParameterFromRate() const { return ""; }
 
             /**
              * Retrieves whether the attribute radius is parametrized.
@@ -14565,7 +14565,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property position
             */
-            virtual std::shared_ptr<IPositionWriter> GetWriterPosition() 
+            virtual std::shared_ptr<IPositionWriter> GetWriterPosition() const 
             {
                 return nullptr;
             } 
@@ -14575,7 +14575,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property trafficDefinition
             */
-            virtual std::shared_ptr<ITrafficDefinitionWriter> GetWriterTrafficDefinition() 
+            virtual std::shared_ptr<ITrafficDefinitionWriter> GetWriterTrafficDefinition() const 
             {
                 return nullptr;
             } 
@@ -14663,19 +14663,19 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromRadius() { return ""; }
+            virtual std::string GetParameterFromRadius() const { return ""; }
             /**
              * Get the parameter for the attribute  rate
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromRate() { return ""; }
+            virtual std::string GetParameterFromRate() const { return ""; }
             /**
              * Get the parameter for the attribute  velocity
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromVelocity() { return ""; }
+            virtual std::string GetParameterFromVelocity() const { return ""; }
 
             /**
              * Retrieves whether the attribute radius is parametrized.
@@ -14703,7 +14703,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property position
             */
-            virtual std::shared_ptr<IPositionWriter> GetWriterPosition() 
+            virtual std::shared_ptr<IPositionWriter> GetWriterPosition() const 
             {
                 return nullptr;
             } 
@@ -14713,7 +14713,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property trafficDefinition
             */
-            virtual std::shared_ptr<ITrafficDefinitionWriter> GetWriterTrafficDefinition() 
+            virtual std::shared_ptr<ITrafficDefinitionWriter> GetWriterTrafficDefinition() const 
             {
                 return nullptr;
             } 
@@ -14851,37 +14851,37 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromInnerRadius() { return ""; }
+            virtual std::string GetParameterFromInnerRadius() const { return ""; }
             /**
              * Get the parameter for the attribute  numberOfVehicles
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromNumberOfVehicles() { return ""; }
+            virtual std::string GetParameterFromNumberOfVehicles() const { return ""; }
             /**
              * Get the parameter for the attribute  offset
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromOffset() { return ""; }
+            virtual std::string GetParameterFromOffset() const { return ""; }
             /**
              * Get the parameter for the attribute  semiMajorAxis
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromSemiMajorAxis() { return ""; }
+            virtual std::string GetParameterFromSemiMajorAxis() const { return ""; }
             /**
              * Get the parameter for the attribute  semiMinorAxis
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromSemiMinorAxis() { return ""; }
+            virtual std::string GetParameterFromSemiMinorAxis() const { return ""; }
             /**
              * Get the parameter for the attribute  velocity
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromVelocity() { return ""; }
+            virtual std::string GetParameterFromVelocity() const { return ""; }
 
             /**
              * Retrieves whether the attribute innerRadius is parametrized.
@@ -14927,7 +14927,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property centralObject
             */
-            virtual std::shared_ptr<ICentralSwarmObjectWriter> GetWriterCentralObject() 
+            virtual std::shared_ptr<ICentralSwarmObjectWriter> GetWriterCentralObject() const 
             {
                 return nullptr;
             } 
@@ -14937,7 +14937,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property trafficDefinition
             */
-            virtual std::shared_ptr<ITrafficDefinitionWriter> GetWriterTrafficDefinition() 
+            virtual std::shared_ptr<ITrafficDefinitionWriter> GetWriterTrafficDefinition() const 
             {
                 return nullptr;
             } 
@@ -15011,13 +15011,13 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromClosed() { return ""; }
+            virtual std::string GetParameterFromClosed() const { return ""; }
             /**
              * Get the parameter for the attribute  name
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromName() { return ""; }
+            virtual std::string GetParameterFromName() const { return ""; }
 
             /**
              * Retrieves whether the attribute closed is parametrized.
@@ -15039,7 +15039,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property shape
             */
-            virtual std::shared_ptr<IShapeWriter> GetWriterShape() 
+            virtual std::shared_ptr<IShapeWriter> GetWriterShape() const 
             {
                 return nullptr;
             } 
@@ -15050,7 +15050,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a list of writers for model property parameterDeclarations
             */
-            virtual std::vector<std::shared_ptr<IParameterDeclarationWriter>> GetWriterParameterDeclarations()
+            virtual std::vector<std::shared_ptr<IParameterDeclarationWriter>> GetWriterParameterDeclarations() const
             {
                 return std::vector<std::shared_ptr<IParameterDeclarationWriter>>();
             }
@@ -15091,7 +15091,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property directory
             */
-            virtual std::shared_ptr<IDirectoryWriter> GetWriterDirectory() 
+            virtual std::shared_ptr<IDirectoryWriter> GetWriterDirectory() const 
             {
                 return nullptr;
             } 
@@ -15137,7 +15137,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromFollowingMode() { return ""; }
+            virtual std::string GetParameterFromFollowingMode() const { return ""; }
 
             /**
              * Retrieves whether the attribute followingMode is parametrized.
@@ -15219,19 +15219,19 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromDynamicsDimension() { return ""; }
+            virtual std::string GetParameterFromDynamicsDimension() const { return ""; }
             /**
              * Get the parameter for the attribute  dynamicsShape
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromDynamicsShape() { return ""; }
+            virtual std::string GetParameterFromDynamicsShape() const { return ""; }
             /**
              * Get the parameter for the attribute  value
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromValue() { return ""; }
+            virtual std::string GetParameterFromValue() const { return ""; }
 
             /**
              * Retrieves whether the attribute dynamicsDimension is parametrized.
@@ -15293,7 +15293,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromValue() { return ""; }
+            virtual std::string GetParameterFromValue() const { return ""; }
 
             /**
              * Retrieves whether the attribute value is parametrized.
@@ -15343,7 +15343,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a list of writers for model property conditionGroups
             */
-            virtual std::vector<std::shared_ptr<IConditionGroupWriter>> GetWriterConditionGroups()
+            virtual std::vector<std::shared_ptr<IConditionGroupWriter>> GetWriterConditionGroups() const
             {
                 return std::vector<std::shared_ptr<IConditionGroupWriter>>();
             }
@@ -15395,7 +15395,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromTriggeringEntitiesRule() { return ""; }
+            virtual std::string GetParameterFromTriggeringEntitiesRule() const { return ""; }
 
             /**
              * Retrieves whether the attribute triggeringEntitiesRule is parametrized.
@@ -15412,7 +15412,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a list of writers for model property entityRefs
             */
-            virtual std::vector<std::shared_ptr<IEntityRefWriter>> GetWriterEntityRefs()
+            virtual std::vector<std::shared_ptr<IEntityRefWriter>> GetWriterEntityRefs() const
             {
                 return std::vector<std::shared_ptr<IEntityRefWriter>>();
             }
@@ -15454,7 +15454,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property customCommandAction
             */
-            virtual std::shared_ptr<ICustomCommandActionWriter> GetWriterCustomCommandAction() 
+            virtual std::shared_ptr<ICustomCommandActionWriter> GetWriterCustomCommandAction() const 
             {
                 return nullptr;
             } 
@@ -15528,19 +15528,19 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromName() { return ""; }
+            virtual std::string GetParameterFromName() const { return ""; }
             /**
              * Get the parameter for the attribute  rule
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromRule() { return ""; }
+            virtual std::string GetParameterFromRule() const { return ""; }
             /**
              * Get the parameter for the attribute  value
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromValue() { return ""; }
+            virtual std::string GetParameterFromValue() const { return ""; }
 
             /**
              * Retrieves whether the attribute name is parametrized.
@@ -15656,13 +15656,13 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromName() { return ""; }
+            virtual std::string GetParameterFromName() const { return ""; }
             /**
              * Get the parameter for the attribute  vehicleCategory
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromVehicleCategory() { return ""; }
+            virtual std::string GetParameterFromVehicleCategory() const { return ""; }
 
             /**
              * Retrieves whether the attribute name is parametrized.
@@ -15684,7 +15684,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property boundingBox
             */
-            virtual std::shared_ptr<IBoundingBoxWriter> GetWriterBoundingBox() 
+            virtual std::shared_ptr<IBoundingBoxWriter> GetWriterBoundingBox() const 
             {
                 return nullptr;
             } 
@@ -15694,7 +15694,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property performance
             */
-            virtual std::shared_ptr<IPerformanceWriter> GetWriterPerformance() 
+            virtual std::shared_ptr<IPerformanceWriter> GetWriterPerformance() const 
             {
                 return nullptr;
             } 
@@ -15704,7 +15704,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property axles
             */
-            virtual std::shared_ptr<IAxlesWriter> GetWriterAxles() 
+            virtual std::shared_ptr<IAxlesWriter> GetWriterAxles() const 
             {
                 return nullptr;
             } 
@@ -15714,7 +15714,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property properties
             */
-            virtual std::shared_ptr<IPropertiesWriter> GetWriterProperties() 
+            virtual std::shared_ptr<IPropertiesWriter> GetWriterProperties() const 
             {
                 return nullptr;
             } 
@@ -15725,7 +15725,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a list of writers for model property parameterDeclarations
             */
-            virtual std::vector<std::shared_ptr<IParameterDeclarationWriter>> GetWriterParameterDeclarations()
+            virtual std::vector<std::shared_ptr<IParameterDeclarationWriter>> GetWriterParameterDeclarations() const
             {
                 return std::vector<std::shared_ptr<IParameterDeclarationWriter>>();
             }
@@ -15766,7 +15766,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property directory
             */
-            virtual std::shared_ptr<IDirectoryWriter> GetWriterDirectory() 
+            virtual std::shared_ptr<IDirectoryWriter> GetWriterDirectory() const 
             {
                 return nullptr;
             } 
@@ -15810,7 +15810,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a list of writers for model property vehicleCategoryDistributionEntries
             */
-            virtual std::vector<std::shared_ptr<IVehicleCategoryDistributionEntryWriter>> GetWriterVehicleCategoryDistributionEntries()
+            virtual std::vector<std::shared_ptr<IVehicleCategoryDistributionEntryWriter>> GetWriterVehicleCategoryDistributionEntries() const
             {
                 return std::vector<std::shared_ptr<IVehicleCategoryDistributionEntryWriter>>();
             }
@@ -15868,13 +15868,13 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromCategory() { return ""; }
+            virtual std::string GetParameterFromCategory() const { return ""; }
             /**
              * Get the parameter for the attribute  weight
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromWeight() { return ""; }
+            virtual std::string GetParameterFromWeight() const { return ""; }
 
             /**
              * Retrieves whether the attribute category is parametrized.
@@ -15938,7 +15938,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromTime() { return ""; }
+            virtual std::string GetParameterFromTime() const { return ""; }
 
             /**
              * Retrieves whether the attribute time is parametrized.
@@ -15954,7 +15954,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property position
             */
-            virtual std::shared_ptr<IPositionWriter> GetWriterPosition() 
+            virtual std::shared_ptr<IPositionWriter> GetWriterPosition() const 
             {
                 return nullptr;
             } 
@@ -16028,19 +16028,19 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromGraphics() { return ""; }
+            virtual std::string GetParameterFromGraphics() const { return ""; }
             /**
              * Get the parameter for the attribute  sensors
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromSensors() { return ""; }
+            virtual std::string GetParameterFromSensors() const { return ""; }
             /**
              * Get the parameter for the attribute  traffic
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromTraffic() { return ""; }
+            virtual std::string GetParameterFromTraffic() const { return ""; }
 
             /**
              * Retrieves whether the attribute graphics is parametrized.
@@ -16110,7 +16110,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromRouteStrategy() { return ""; }
+            virtual std::string GetParameterFromRouteStrategy() const { return ""; }
 
             /**
              * Retrieves whether the attribute routeStrategy is parametrized.
@@ -16126,7 +16126,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property position
             */
-            virtual std::shared_ptr<IPositionWriter> GetWriterPosition() 
+            virtual std::shared_ptr<IPositionWriter> GetWriterPosition() const 
             {
                 return nullptr;
             } 
@@ -16194,7 +16194,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromCloudState() { return ""; }
+            virtual std::string GetParameterFromCloudState() const { return ""; }
 
             /**
              * Retrieves whether the attribute cloudState is parametrized.
@@ -16210,7 +16210,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property sun
             */
-            virtual std::shared_ptr<ISunWriter> GetWriterSun() 
+            virtual std::shared_ptr<ISunWriter> GetWriterSun() const 
             {
                 return nullptr;
             } 
@@ -16220,7 +16220,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property fog
             */
-            virtual std::shared_ptr<IFogWriter> GetWriterFog() 
+            virtual std::shared_ptr<IFogWriter> GetWriterFog() const 
             {
                 return nullptr;
             } 
@@ -16230,7 +16230,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return a writer for model property precipitation
             */
-            virtual std::shared_ptr<IPrecipitationWriter> GetWriterPrecipitation() 
+            virtual std::shared_ptr<IPrecipitationWriter> GetWriterPrecipitation() const 
             {
                 return nullptr;
             } 
@@ -16345,37 +16345,37 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromH() { return ""; }
+            virtual std::string GetParameterFromH() const { return ""; }
             /**
              * Get the parameter for the attribute  p
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromP() { return ""; }
+            virtual std::string GetParameterFromP() const { return ""; }
             /**
              * Get the parameter for the attribute  r
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromR() { return ""; }
+            virtual std::string GetParameterFromR() const { return ""; }
             /**
              * Get the parameter for the attribute  x
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromX() { return ""; }
+            virtual std::string GetParameterFromX() const { return ""; }
             /**
              * Get the parameter for the attribute  y
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromY() { return ""; }
+            virtual std::string GetParameterFromY() const { return ""; }
             /**
              * Get the parameter for the attribute  z
              * 
              * @return the name of the parameter (without $). Null if not parameter set or if attribute is empty.
             */
-            virtual std::string GetParameterFromZ() { return ""; }
+            virtual std::string GetParameterFromZ() const { return ""; }
 
             /**
              * Retrieves whether the attribute h is parametrized.

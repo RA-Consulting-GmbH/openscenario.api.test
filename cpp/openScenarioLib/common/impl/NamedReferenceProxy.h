@@ -85,7 +85,7 @@ namespace NET_ASAM_OPENSCENARIO
             return nullptr;
         }
 
-        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() const override
         {
             return _parent;
         }

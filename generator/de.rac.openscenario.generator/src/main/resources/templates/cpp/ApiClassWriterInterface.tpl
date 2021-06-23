@@ -78,7 +78,7 @@ namespace NET_ASAM_OPENSCENARIO
 
 <%-properties.each{ property ->-%>
 <%=helper.makeAttributeGetterParameterCppDoc(element, property, "            ")%>
-            virtual std::string GetParameterFrom<%=property.name.toClassName()%>() { return ""; }
+            virtual std::string GetParameterFrom<%=property.name.toClassName()%>() const { return ""; }
 <%-}-%>
 
 <%-properties.each{ property ->-%>
@@ -90,7 +90,7 @@ namespace NET_ASAM_OPENSCENARIO
 <%-properties = element.getXmlElementProperties().findAll(){ !it.isList() }-%>
 <%-properties.each{ property ->-%>
 <%=helper.makeChildWriterGetterCppDoc(element, property, "            ")%>
-            virtual <%=property.type.toCppWriterName()%> GetWriter<%=property.name.toClassName()%>() 
+            virtual <%=property.type.toCppWriterName()%> GetWriter<%=property.name.toClassName()%>() const 
             {
                 return <%=property.type.toCppDefaultValue()%>;
             } 
@@ -99,7 +99,7 @@ namespace NET_ASAM_OPENSCENARIO
 <%-properties = element.getXmlElementProperties().findAll(){ it.isList() }-%>
 <%-properties.each{ property ->-%>
 <%=helper.makeChildListWriterGetterCppDoc(element, property, "            ")%>
-            virtual std::vector<<%=property.type.toCppWriterName()%>> GetWriter<%=property.name.toClassName()%>()
+            virtual std::vector<<%=property.type.toCppWriterName()%>> GetWriter<%=property.name.toClassName()%>() const
             {
                 return std::vector<<%=property.type.toCppWriterName()%>>();
             }
