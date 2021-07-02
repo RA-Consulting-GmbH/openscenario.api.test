@@ -17,8 +17,6 @@
 
 package net.asam.openscenario.v1_0.test;
 
-import java.util.List;
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -111,7 +109,7 @@ public class TestImports extends TestBase {
 
   private ICatalogReference getVehicleImport(
       IOpenScenario openScenario, String scenarioObjectName, String entryName) {
-    List<IScenarioObject> scenarioObjects =
+    Iterable<IScenarioObject> scenarioObjects =
         openScenario
             .getOpenScenarioCategory()
             .getScenarioDefinition()

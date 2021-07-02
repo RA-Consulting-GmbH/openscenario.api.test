@@ -16,7 +16,6 @@
  */
 package net.asam.openscenario.v1_0.api;
 
-import java.util.List;
 import net.asam.openscenario.api.IOpenScenarioModelElement;
 
 /**
@@ -40,11 +39,25 @@ public interface IStoryboard extends IOpenScenarioModelElement {
    *
    * @return value of model property stories
    */
-  public List<IStory> getStories();
+  public Iterable<IStory> getStories();
   /**
    * From OpenSCENARIO class model specification: Trigger to stop the Storyboard instance.
    *
    * @return value of model property stopTrigger
    */
   public ITrigger getStopTrigger();
+
+  /**
+   * Retrieves the size of the list
+   *
+   * @return the size of the list
+   */
+  public int getStoriesSize();
+  /**
+   * The element at specific index
+   *
+   * @param index the index of the list
+   * @return the element at index
+   */
+  public IStory getStoriesAtIndex(int index);
 }

@@ -30,6 +30,7 @@ import net.asam.openscenario.impl.NamedReferenceProxy;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IEntity;
 import net.asam.openscenario.v1_0.api.IRelativeTargetLaneOffset;
+import net.asam.openscenario.v1_0.api.writer.IRelativeTargetLaneOffsetWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -48,7 +49,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class RelativeTargetLaneOffsetImpl extends BaseImpl implements IRelativeTargetLaneOffset {
+public class RelativeTargetLaneOffsetImpl extends BaseImpl
+    implements IRelativeTargetLaneOffsetWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -57,13 +59,15 @@ public class RelativeTargetLaneOffsetImpl extends BaseImpl implements IRelativeT
     propertyToType.put(OscConstants.ATTRIBUTE__VALUE, SimpleType.DOUBLE);
   }
 
-  private NamedReferenceProxy<IEntity> entityRef;
+  private INamedReference<IEntity> entityRef;
   private Double value;
+
   /** Default constructor */
   public RelativeTargetLaneOffsetImpl() {
     super();
     addAdapter(RelativeTargetLaneOffsetImpl.class, this);
     addAdapter(IRelativeTargetLaneOffset.class, this);
+    addAdapter(IRelativeTargetLaneOffsetWriter.class, this);
   }
 
   @Override
@@ -80,22 +84,17 @@ public class RelativeTargetLaneOffsetImpl extends BaseImpl implements IRelativeT
   public Double getValue() {
     return this.value;
   }
-  /**
-   * Sets the value of model property entityRef
-   *
-   * @param entityRef from OpenSCENARIO class model specification: [Reference entity.]
-   */
-  public void setEntityRef(NamedReferenceProxy<IEntity> entityRef) {
+
+  @Override
+  public void setEntityRef(INamedReference<IEntity> entityRef) {
     this.entityRef = entityRef;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__ENTITY_REF);
   }
-  /**
-   * Sets the value of model property value
-   *
-   * @param value from OpenSCENARIO class model specification: [Lane offset with respect to the
-   *     reference entity's current lane position. Unit: m.]
-   */
+
+  @Override
   public void setValue(Double value) {
     this.value = value;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__VALUE);
   }
 
   @Override
@@ -150,10 +149,10 @@ public class RelativeTargetLaneOffsetImpl extends BaseImpl implements IRelativeT
     // clone attributes;
     // Proxy
     NamedReferenceProxy<IEntity> proxy = ((NamedReferenceProxy<IEntity>) getEntityRef()).clone();
-    clonedObject.setEntityRef(proxy);
+    clonedObject.entityRef = proxy;
     proxy.setParent(clonedObject);
     // Simple type
-    clonedObject.setValue(getValue());
+    clonedObject.value = getValue();
     // clone children
     return clonedObject;
   }
@@ -250,4 +249,40 @@ public class RelativeTargetLaneOffsetImpl extends BaseImpl implements IRelativeT
   public String getModelType() {
     return "RelativeTargetLaneOffset";
   }
+
+  @Override
+  public void writeParameterToEntityRef(String parameterName) {
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__ENTITY_REF, parameterName, null /*no textmarker*/);
+    this.entityRef = null;
+  }
+
+  @Override
+  public void writeParameterToValue(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__VALUE, parameterName, null /*no textmarker*/);
+    this.value = null;
+  }
+
+  @Override
+  public String getParameterFromEntityRef() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__ENTITY_REF);
+  }
+
+  @Override
+  public String getParameterFromValue() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__VALUE);
+  }
+
+  @Override
+  public boolean isEntityRefParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__ENTITY_REF);
+  }
+
+  @Override
+  public boolean isValueParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__VALUE);
+  }
+
+  // children
+
 }

@@ -16,7 +16,6 @@
  */
 package net.asam.openscenario.v1_0.api;
 
-import java.util.List;
 import net.asam.openscenario.api.IOpenScenarioModelElement;
 
 /**
@@ -33,5 +32,19 @@ public interface IPolyline extends IOpenScenarioModelElement {
    *
    * @return value of model property vertices
    */
-  public List<IVertex> getVertices();
+  public Iterable<IVertex> getVertices();
+
+  /**
+   * Retrieves the size of the list
+   *
+   * @return the size of the list
+   */
+  public int getVerticesSize();
+  /**
+   * The element at specific index
+   *
+   * @param index the index of the list
+   * @return the element at index
+   */
+  public IVertex getVerticesAtIndex(int index);
 }

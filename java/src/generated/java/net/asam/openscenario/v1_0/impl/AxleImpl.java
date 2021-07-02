@@ -27,6 +27,7 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IAxle;
+import net.asam.openscenario.v1_0.api.writer.IAxleWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -44,7 +45,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class AxleImpl extends BaseImpl implements IAxle {
+public class AxleImpl extends BaseImpl implements IAxleWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -61,11 +62,13 @@ public class AxleImpl extends BaseImpl implements IAxle {
   private Double trackWidth;
   private Double positionX;
   private Double positionZ;
+
   /** Default constructor */
   public AxleImpl() {
     super();
     addAdapter(AxleImpl.class, this);
     addAdapter(IAxle.class, this);
+    addAdapter(IAxleWriter.class, this);
   }
 
   @Override
@@ -97,51 +100,35 @@ public class AxleImpl extends BaseImpl implements IAxle {
   public Double getPositionZ() {
     return this.positionZ;
   }
-  /**
-   * Sets the value of model property maxSteering
-   *
-   * @param maxSteering from OpenSCENARIO class model specification: [Maximum steering angle which
-   *     can be performed by the wheels on this axle. Unit: rad; Range: [0;PI], symmetrical.]
-   */
+
+  @Override
   public void setMaxSteering(Double maxSteering) {
     this.maxSteering = maxSteering;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__MAX_STEERING);
   }
-  /**
-   * Sets the value of model property wheelDiameter
-   *
-   * @param wheelDiameter from OpenSCENARIO class model specification: [Diameter of the wheels on
-   *     this axle. Unit: m; Range: ]0..inf[.]
-   */
+
+  @Override
   public void setWheelDiameter(Double wheelDiameter) {
     this.wheelDiameter = wheelDiameter;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__WHEEL_DIAMETER);
   }
-  /**
-   * Sets the value of model property trackWidth
-   *
-   * @param trackWidth from OpenSCENARIO class model specification: [Distance of the wheels center
-   *     lines at zero steering. Unit: m; Range: [0..inf[.]
-   */
+
+  @Override
   public void setTrackWidth(Double trackWidth) {
     this.trackWidth = trackWidth;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__TRACK_WIDTH);
   }
-  /**
-   * Sets the value of model property positionX
-   *
-   * @param positionX from OpenSCENARIO class model specification: [Longitudinal position of the
-   *     axle with respect to the vehicles reference point. Unit: m; Range: [0..inf[.]
-   */
+
+  @Override
   public void setPositionX(Double positionX) {
     this.positionX = positionX;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__POSITION_X);
   }
-  /**
-   * Sets the value of model property positionZ
-   *
-   * @param positionZ from OpenSCENARIO class model specification: [Z-position of the axle with
-   *     respect to the vehicles reference point. Usually this is half of wheel diameter. Unit:m; ,
-   *     Range:[0..inf[.]
-   */
+
+  @Override
   public void setPositionZ(Double positionZ) {
     this.positionZ = positionZ;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__POSITION_Z);
   }
 
   @Override
@@ -213,15 +200,15 @@ public class AxleImpl extends BaseImpl implements IAxle {
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setMaxSteering(getMaxSteering());
+    clonedObject.maxSteering = getMaxSteering();
     // Simple type
-    clonedObject.setWheelDiameter(getWheelDiameter());
+    clonedObject.wheelDiameter = getWheelDiameter();
     // Simple type
-    clonedObject.setTrackWidth(getTrackWidth());
+    clonedObject.trackWidth = getTrackWidth();
     // Simple type
-    clonedObject.setPositionX(getPositionX());
+    clonedObject.positionX = getPositionX();
     // Simple type
-    clonedObject.setPositionZ(getPositionZ());
+    clonedObject.positionZ = getPositionZ();
     // clone children
     return clonedObject;
   }
@@ -310,4 +297,92 @@ public class AxleImpl extends BaseImpl implements IAxle {
   public String getModelType() {
     return "Axle";
   }
+
+  @Override
+  public void writeParameterToMaxSteering(String parameterName) {
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__MAX_STEERING, parameterName, null /*no textmarker*/);
+    this.maxSteering = null;
+  }
+
+  @Override
+  public void writeParameterToWheelDiameter(String parameterName) {
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__WHEEL_DIAMETER, parameterName, null /*no textmarker*/);
+    this.wheelDiameter = null;
+  }
+
+  @Override
+  public void writeParameterToTrackWidth(String parameterName) {
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__TRACK_WIDTH, parameterName, null /*no textmarker*/);
+    this.trackWidth = null;
+  }
+
+  @Override
+  public void writeParameterToPositionX(String parameterName) {
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__POSITION_X, parameterName, null /*no textmarker*/);
+    this.positionX = null;
+  }
+
+  @Override
+  public void writeParameterToPositionZ(String parameterName) {
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__POSITION_Z, parameterName, null /*no textmarker*/);
+    this.positionZ = null;
+  }
+
+  @Override
+  public String getParameterFromMaxSteering() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__MAX_STEERING);
+  }
+
+  @Override
+  public String getParameterFromWheelDiameter() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__WHEEL_DIAMETER);
+  }
+
+  @Override
+  public String getParameterFromTrackWidth() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__TRACK_WIDTH);
+  }
+
+  @Override
+  public String getParameterFromPositionX() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__POSITION_X);
+  }
+
+  @Override
+  public String getParameterFromPositionZ() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__POSITION_Z);
+  }
+
+  @Override
+  public boolean isMaxSteeringParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__MAX_STEERING);
+  }
+
+  @Override
+  public boolean isWheelDiameterParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__WHEEL_DIAMETER);
+  }
+
+  @Override
+  public boolean isTrackWidthParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__TRACK_WIDTH);
+  }
+
+  @Override
+  public boolean isPositionXParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__POSITION_X);
+  }
+
+  @Override
+  public boolean isPositionZParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__POSITION_Z);
+  }
+
+  // children
+
 }

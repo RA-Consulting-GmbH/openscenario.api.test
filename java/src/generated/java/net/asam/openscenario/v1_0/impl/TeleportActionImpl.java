@@ -27,6 +27,8 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.IPosition;
 import net.asam.openscenario.v1_0.api.ITeleportAction;
+import net.asam.openscenario.v1_0.api.writer.IPositionWriter;
+import net.asam.openscenario.v1_0.api.writer.ITeleportActionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -44,15 +46,17 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class TeleportActionImpl extends BaseImpl implements ITeleportAction {
+public class TeleportActionImpl extends BaseImpl implements ITeleportActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private IPosition position;
+  private IPositionWriter position;
+
   /** Default constructor */
   public TeleportActionImpl() {
     super();
     addAdapter(TeleportActionImpl.class, this);
     addAdapter(ITeleportAction.class, this);
+    addAdapter(ITeleportActionWriter.class, this);
   }
 
   @Override
@@ -64,13 +68,9 @@ public class TeleportActionImpl extends BaseImpl implements ITeleportAction {
   public IPosition getPosition() {
     return this.position;
   }
-  /**
-   * Sets the value of model property position
-   *
-   * @param position from OpenSCENARIO class model specification: [The position the entity/entities
-   *     are teleported to.]
-   */
-  public void setPosition(IPosition position) {
+
+  @Override
+  public void setPosition(IPositionWriter position) {
     this.position = position;
   }
 
@@ -95,8 +95,8 @@ public class TeleportActionImpl extends BaseImpl implements ITeleportAction {
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IPosition position = null;
-    position = getPosition();
+    IPositionWriter position = null;
+    position = getWriterPosition();
     if (position != null) {
       result.add((BaseImpl) position);
     }
@@ -119,10 +119,10 @@ public class TeleportActionImpl extends BaseImpl implements ITeleportAction {
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    IPosition position = null;
-    position = getPosition();
+    IPositionWriter position = null;
+    position = getWriterPosition();
     if (position != null) {
-      PositionImpl clonedChild = ((PositionImpl) position).clone();
+      IPositionWriter clonedChild = ((PositionImpl) position).clone();
       clonedObject.setPosition(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -204,5 +204,11 @@ public class TeleportActionImpl extends BaseImpl implements ITeleportAction {
   @Override
   public String getModelType() {
     return "TeleportAction";
+  }
+
+  // children
+  @Override
+  public IPositionWriter getWriterPosition() {
+    return this.position;
   }
 }

@@ -28,8 +28,8 @@ import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
 import net.asam.openscenario.simple.struct.IndexedElement;
-import net.asam.openscenario.v1_0.api.IEntityRef;
 import net.asam.openscenario.v1_0.api.TriggeringEntitiesRule;
+import net.asam.openscenario.v1_0.api.writer.IEntityRefWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 import net.asam.openscenario.v1_0.impl.EntityRefImpl;
 import net.asam.openscenario.v1_0.impl.TriggeringEntitiesImpl;
@@ -156,7 +156,7 @@ public class TriggeringEntitiesXmlParser extends XmlComplexTypeParser<Triggering
       // Setting the parent
       entityRefs.setParent(object);
       this.entityRefXmlParser.parseElement(indexedElement, parserContext, entityRefs);
-      List<IEntityRef> entityRefsList = object.getEntityRefs();
+      List<IEntityRefWriter> entityRefsList = object.getWriterEntityRefs();
       if (entityRefsList == null) {
         entityRefsList = new ArrayList<>();
         object.setEntityRefs(entityRefsList);

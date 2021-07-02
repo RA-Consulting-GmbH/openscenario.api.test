@@ -28,6 +28,8 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IEntitySelection;
 import net.asam.openscenario.v1_0.api.ISelectedEntities;
+import net.asam.openscenario.v1_0.api.writer.IEntitySelectionWriter;
+import net.asam.openscenario.v1_0.api.writer.ISelectedEntitiesWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,7 +47,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class EntitySelectionImpl extends BaseImpl implements IEntitySelection {
+public class EntitySelectionImpl extends BaseImpl implements IEntitySelectionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -54,12 +56,14 @@ public class EntitySelectionImpl extends BaseImpl implements IEntitySelection {
   }
 
   private String name;
-  private ISelectedEntities members;
+  private ISelectedEntitiesWriter members;
+
   /** Default constructor */
   public EntitySelectionImpl() {
     super();
     addAdapter(EntitySelectionImpl.class, this);
     addAdapter(IEntitySelection.class, this);
+    addAdapter(IEntitySelectionWriter.class, this);
   }
 
   @Override
@@ -76,22 +80,15 @@ public class EntitySelectionImpl extends BaseImpl implements IEntitySelection {
   public ISelectedEntities getMembers() {
     return this.members;
   }
-  /**
-   * Sets the value of model property name
-   *
-   * @param name from OpenSCENARIO class model specification: [Name of the entity selection. By this
-   *     name, a selection can be referenced as an entity.]
-   */
+
+  @Override
   public void setName(String name) {
     this.name = name;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__NAME);
   }
-  /**
-   * Sets the value of model property members
-   *
-   * @param members from OpenSCENARIO class model specification: [Selected entities as members of
-   *     the entity selection.]
-   */
-  public void setMembers(ISelectedEntities members) {
+
+  @Override
+  public void setMembers(ISelectedEntitiesWriter members) {
     this.members = members;
   }
 
@@ -121,8 +118,8 @@ public class EntitySelectionImpl extends BaseImpl implements IEntitySelection {
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    ISelectedEntities members = null;
-    members = getMembers();
+    ISelectedEntitiesWriter members = null;
+    members = getWriterMembers();
     if (members != null) {
       result.add((BaseImpl) members);
     }
@@ -145,12 +142,12 @@ public class EntitySelectionImpl extends BaseImpl implements IEntitySelection {
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setName(getName());
+    clonedObject.name = getName();
     // clone children
-    ISelectedEntities members = null;
-    members = getMembers();
+    ISelectedEntitiesWriter members = null;
+    members = getWriterMembers();
     if (members != null) {
-      SelectedEntitiesImpl clonedChild = ((SelectedEntitiesImpl) members).clone();
+      ISelectedEntitiesWriter clonedChild = ((SelectedEntitiesImpl) members).clone();
       clonedObject.setMembers(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -238,5 +235,27 @@ public class EntitySelectionImpl extends BaseImpl implements IEntitySelection {
   @Override
   public String getModelType() {
     return "EntitySelection";
+  }
+
+  @Override
+  public void writeParameterToName(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__NAME, parameterName, null /*no textmarker*/);
+    this.name = null;
+  }
+
+  @Override
+  public String getParameterFromName() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__NAME);
+  }
+
+  @Override
+  public boolean isNameParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__NAME);
+  }
+
+  // children
+  @Override
+  public ISelectedEntitiesWriter getWriterMembers() {
+    return this.members;
   }
 }

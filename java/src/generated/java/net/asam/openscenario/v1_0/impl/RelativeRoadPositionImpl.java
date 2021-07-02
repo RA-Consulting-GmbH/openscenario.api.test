@@ -31,6 +31,8 @@ import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IEntity;
 import net.asam.openscenario.v1_0.api.IOrientation;
 import net.asam.openscenario.v1_0.api.IRelativeRoadPosition;
+import net.asam.openscenario.v1_0.api.writer.IOrientationWriter;
+import net.asam.openscenario.v1_0.api.writer.IRelativeRoadPositionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -48,7 +50,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class RelativeRoadPositionImpl extends BaseImpl implements IRelativeRoadPosition {
+public class RelativeRoadPositionImpl extends BaseImpl implements IRelativeRoadPositionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -58,15 +60,17 @@ public class RelativeRoadPositionImpl extends BaseImpl implements IRelativeRoadP
     propertyToType.put(OscConstants.ATTRIBUTE__DT, SimpleType.DOUBLE);
   }
 
-  private NamedReferenceProxy<IEntity> entityRef;
+  private INamedReference<IEntity> entityRef;
   private Double ds;
   private Double dt;
-  private IOrientation orientation;
+  private IOrientationWriter orientation;
+
   /** Default constructor */
   public RelativeRoadPositionImpl() {
     super();
     addAdapter(RelativeRoadPositionImpl.class, this);
     addAdapter(IRelativeRoadPosition.class, this);
+    addAdapter(IRelativeRoadPositionWriter.class, this);
   }
 
   @Override
@@ -93,39 +97,27 @@ public class RelativeRoadPositionImpl extends BaseImpl implements IRelativeRoadP
   public IOrientation getOrientation() {
     return this.orientation;
   }
-  /**
-   * Sets the value of model property entityRef
-   *
-   * @param entityRef from OpenSCENARIO class model specification: [reference entity.]
-   */
-  public void setEntityRef(NamedReferenceProxy<IEntity> entityRef) {
+
+  @Override
+  public void setEntityRef(INamedReference<IEntity> entityRef) {
     this.entityRef = entityRef;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__ENTITY_REF);
   }
-  /**
-   * Sets the value of model property ds
-   *
-   * @param ds from OpenSCENARIO class model specification: [Relative ds road coordinate to s
-   *     coordinate of the reference entity.]
-   */
+
+  @Override
   public void setDs(Double ds) {
     this.ds = ds;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__DS);
   }
-  /**
-   * Sets the value of model property dt
-   *
-   * @param dt from OpenSCENARIO class model specification: [Relative dt road coordinate to t
-   *     coordinate of the reference entity.]
-   */
+
+  @Override
   public void setDt(Double dt) {
     this.dt = dt;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__DT);
   }
-  /**
-   * Sets the value of model property orientation
-   *
-   * @param orientation from OpenSCENARIO class model specification: [Orientation. The relative
-   *     reference context refers to the referenced road's s and t coordinates.]
-   */
-  public void setOrientation(IOrientation orientation) {
+
+  @Override
+  public void setOrientation(IOrientationWriter orientation) {
     this.orientation = orientation;
   }
 
@@ -167,8 +159,8 @@ public class RelativeRoadPositionImpl extends BaseImpl implements IRelativeRoadP
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IOrientation orientation = null;
-    orientation = getOrientation();
+    IOrientationWriter orientation = null;
+    orientation = getWriterOrientation();
     if (orientation != null) {
       result.add((BaseImpl) orientation);
     }
@@ -192,17 +184,17 @@ public class RelativeRoadPositionImpl extends BaseImpl implements IRelativeRoadP
     // clone attributes;
     // Proxy
     NamedReferenceProxy<IEntity> proxy = ((NamedReferenceProxy<IEntity>) getEntityRef()).clone();
-    clonedObject.setEntityRef(proxy);
+    clonedObject.entityRef = proxy;
     proxy.setParent(clonedObject);
     // Simple type
-    clonedObject.setDs(getDs());
+    clonedObject.ds = getDs();
     // Simple type
-    clonedObject.setDt(getDt());
+    clonedObject.dt = getDt();
     // clone children
-    IOrientation orientation = null;
-    orientation = getOrientation();
+    IOrientationWriter orientation = null;
+    orientation = getWriterOrientation();
     if (orientation != null) {
-      OrientationImpl clonedChild = ((OrientationImpl) orientation).clone();
+      IOrientationWriter clonedChild = ((OrientationImpl) orientation).clone();
       clonedObject.setOrientation(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -308,5 +300,60 @@ public class RelativeRoadPositionImpl extends BaseImpl implements IRelativeRoadP
   @Override
   public String getModelType() {
     return "RelativeRoadPosition";
+  }
+
+  @Override
+  public void writeParameterToEntityRef(String parameterName) {
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__ENTITY_REF, parameterName, null /*no textmarker*/);
+    this.entityRef = null;
+  }
+
+  @Override
+  public void writeParameterToDs(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__DS, parameterName, null /*no textmarker*/);
+    this.ds = null;
+  }
+
+  @Override
+  public void writeParameterToDt(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__DT, parameterName, null /*no textmarker*/);
+    this.dt = null;
+  }
+
+  @Override
+  public String getParameterFromEntityRef() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__ENTITY_REF);
+  }
+
+  @Override
+  public String getParameterFromDs() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__DS);
+  }
+
+  @Override
+  public String getParameterFromDt() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__DT);
+  }
+
+  @Override
+  public boolean isEntityRefParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__ENTITY_REF);
+  }
+
+  @Override
+  public boolean isDsParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__DS);
+  }
+
+  @Override
+  public boolean isDtParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__DT);
+  }
+
+  // children
+  @Override
+  public IOrientationWriter getWriterOrientation() {
+    return this.orientation;
   }
 }

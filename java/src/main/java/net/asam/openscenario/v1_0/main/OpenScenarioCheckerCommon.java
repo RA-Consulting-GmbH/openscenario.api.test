@@ -77,6 +77,7 @@ public class OpenScenarioCheckerCommon {
    * @return VERSION_RESULT, if command line specifies -v, SUCCESS_RESULT if -v is not specified and
    *     ERROR_RESULT in the case a internal error occured.
    */
+  @SuppressWarnings("resource")
   public static int checkCommandLineVersion(String[] args) {
     Properties properties = new Properties();
 
@@ -123,7 +124,7 @@ public class OpenScenarioCheckerCommon {
                 inputFileName, messageLogger, catalogMessageLogger, nameValuePairs);
         if (checker != null)
         {
-          checker.checkScenario(messageLogger, executeImportParsing);
+          checker.checkScenarioInFileContext(messageLogger, executeImportParsing);
         }
 
         for (FileContentMessage message :

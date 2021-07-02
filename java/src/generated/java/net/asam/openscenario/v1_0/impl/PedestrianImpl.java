@@ -19,6 +19,7 @@ package net.asam.openscenario.v1_0.impl;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.List;
 import net.asam.openscenario.api.IOpenScenarioFlexElement;
 import net.asam.openscenario.api.KeyNotSupportedException;
@@ -34,6 +35,10 @@ import net.asam.openscenario.v1_0.api.IParameterDeclaration;
 import net.asam.openscenario.v1_0.api.IPedestrian;
 import net.asam.openscenario.v1_0.api.IProperties;
 import net.asam.openscenario.v1_0.api.PedestrianCategory;
+import net.asam.openscenario.v1_0.api.writer.IBoundingBoxWriter;
+import net.asam.openscenario.v1_0.api.writer.IParameterDeclarationWriter;
+import net.asam.openscenario.v1_0.api.writer.IPedestrianWriter;
+import net.asam.openscenario.v1_0.api.writer.IPropertiesWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -51,7 +56,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class PedestrianImpl extends BaseImpl implements IPedestrian {
+public class PedestrianImpl extends BaseImpl implements IPedestrianWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -66,14 +71,16 @@ public class PedestrianImpl extends BaseImpl implements IPedestrian {
   private Double mass;
   private String name;
   private PedestrianCategory pedestrianCategory;
-  private List<IParameterDeclaration> parameterDeclarations;
-  private IBoundingBox boundingBox;
-  private IProperties properties;
+  private List<IParameterDeclarationWriter> parameterDeclarations = new ArrayList<>();
+  private IBoundingBoxWriter boundingBox;
+  private IPropertiesWriter properties;
+
   /** Default constructor */
   public PedestrianImpl() {
     super();
     addAdapter(PedestrianImpl.class, this);
     addAdapter(IPedestrian.class, this);
+    addAdapter(IPedestrianWriter.class, this);
   }
 
   @Override
@@ -102,8 +109,37 @@ public class PedestrianImpl extends BaseImpl implements IPedestrian {
   }
 
   @Override
-  public List<IParameterDeclaration> getParameterDeclarations() {
+  public List<IParameterDeclarationWriter> getWriterParameterDeclarations() {
     return this.parameterDeclarations;
+  }
+
+  @Override
+  public Iterable<IParameterDeclaration> getParameterDeclarations() {
+    return new Iterable<IParameterDeclaration>() {
+
+      @SuppressWarnings("synthetic-access")
+      @Override
+      public Iterator<IParameterDeclaration> iterator() {
+        return new ArrayList<IParameterDeclaration>(PedestrianImpl.this.parameterDeclarations)
+            .iterator();
+      }
+    };
+  }
+
+  @Override
+  public int getParameterDeclarationsSize() {
+    if (this.parameterDeclarations != null) return this.parameterDeclarations.size();
+    return 0;
+  }
+
+  @Override
+  public IParameterDeclaration getParameterDeclarationsAtIndex(int index) {
+    if (index >= 0
+        && this.parameterDeclarations != null
+        && this.parameterDeclarations.size() > index) {
+      return this.parameterDeclarations.get(index);
+    }
+    return null;
   }
 
   @Override
@@ -115,66 +151,43 @@ public class PedestrianImpl extends BaseImpl implements IPedestrian {
   public IProperties getProperties() {
     return this.properties;
   }
-  /**
-   * Sets the value of model property model
-   *
-   * @param model from OpenSCENARIO class model specification: [Definition of the model of the
-   *     pedestrian.]
-   */
+
+  @Override
   public void setModel(String model) {
     this.model = model;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__MODEL);
   }
-  /**
-   * Sets the value of model property mass
-   *
-   * @param mass from OpenSCENARIO class model specification: [The mass of a pedestrian in kg.]
-   */
+
+  @Override
   public void setMass(Double mass) {
     this.mass = mass;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__MASS);
   }
-  /**
-   * Sets the value of model property name
-   *
-   * @param name from OpenSCENARIO class model specification: [Name of the pedestrian type. Required
-   *     when used in catalog.]
-   */
+
+  @Override
   public void setName(String name) {
     this.name = name;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__NAME);
   }
-  /**
-   * Sets the value of model property pedestrianCategory
-   *
-   * @param pedestrianCategory from OpenSCENARIO class model specification: [Category type of
-   *     pedestrian.]
-   */
+
+  @Override
   public void setPedestrianCategory(PedestrianCategory pedestrianCategory) {
     this.pedestrianCategory = pedestrianCategory;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__PEDESTRIAN_CATEGORY);
   }
-  /**
-   * Sets the value of model property parameterDeclarations
-   *
-   * @param parameterDeclarations from OpenSCENARIO class model specification: [Definition of
-   *     additional parameters.]
-   */
-  public void setParameterDeclarations(List<IParameterDeclaration> parameterDeclarations) {
+
+  @Override
+  public void setParameterDeclarations(List<IParameterDeclarationWriter> parameterDeclarations) {
     this.parameterDeclarations = parameterDeclarations;
   }
-  /**
-   * Sets the value of model property boundingBox
-   *
-   * @param boundingBox from OpenSCENARIO class model specification: [Bounding box of the
-   *     pedestrian.]
-   */
-  public void setBoundingBox(IBoundingBox boundingBox) {
+
+  @Override
+  public void setBoundingBox(IBoundingBoxWriter boundingBox) {
     this.boundingBox = boundingBox;
   }
-  /**
-   * Sets the value of model property properties
-   *
-   * @param properties from OpenSCENARIO class model specification: [Properties (values/files) of
-   *     the pedestrian.]
-   */
-  public void setProperties(IProperties properties) {
+
+  @Override
+  public void setProperties(IPropertiesWriter properties) {
     this.properties = properties;
   }
 
@@ -251,20 +264,20 @@ public class PedestrianImpl extends BaseImpl implements IPedestrian {
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    List<IParameterDeclaration> parameterDeclarations = null;
-    parameterDeclarations = getParameterDeclarations();
+    List<IParameterDeclarationWriter> parameterDeclarations = null;
+    parameterDeclarations = getWriterParameterDeclarations();
     if (parameterDeclarations != null) {
-      for (IParameterDeclaration item : parameterDeclarations) {
+      for (IParameterDeclarationWriter item : parameterDeclarations) {
         result.add((BaseImpl) item);
       }
     }
-    IBoundingBox boundingBox = null;
-    boundingBox = getBoundingBox();
+    IBoundingBoxWriter boundingBox = null;
+    boundingBox = getWriterBoundingBox();
     if (boundingBox != null) {
       result.add((BaseImpl) boundingBox);
     }
-    IProperties properties = null;
-    properties = getProperties();
+    IPropertiesWriter properties = null;
+    properties = getWriterProperties();
     if (properties != null) {
       result.add((BaseImpl) properties);
     }
@@ -287,40 +300,40 @@ public class PedestrianImpl extends BaseImpl implements IPedestrian {
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setModel(getModel());
+    clonedObject.model = getModel();
     // Simple type
-    clonedObject.setMass(getMass());
+    clonedObject.mass = getMass();
     // Simple type
-    clonedObject.setName(getName());
+    clonedObject.name = getName();
     // Enumeration Type
     PedestrianCategory pedestrianCategory = getPedestrianCategory();
     if (pedestrianCategory != null) {
-      clonedObject.setPedestrianCategory(
-          PedestrianCategory.getFromLiteral(pedestrianCategory.getLiteral()));
+      clonedObject.pedestrianCategory =
+          PedestrianCategory.getFromLiteral(pedestrianCategory.getLiteral());
     }
     // clone children
-    List<IParameterDeclaration> parameterDeclarations = null;
-    parameterDeclarations = getParameterDeclarations();
+    List<IParameterDeclarationWriter> parameterDeclarations = null;
+    parameterDeclarations = getWriterParameterDeclarations();
     if (parameterDeclarations != null) {
-      List<IParameterDeclaration> clonedList = new ArrayList<>();
-      for (IParameterDeclaration item : parameterDeclarations) {
-        ParameterDeclarationImpl clonedChild = ((ParameterDeclarationImpl) item).clone();
+      List<IParameterDeclarationWriter> clonedList = new ArrayList<>();
+      for (IParameterDeclarationWriter item : parameterDeclarations) {
+        IParameterDeclarationWriter clonedChild = ((ParameterDeclarationImpl) item).clone();
         clonedList.add(clonedChild);
         clonedChild.setParent(clonedObject);
       }
       clonedObject.setParameterDeclarations(clonedList);
     }
-    IBoundingBox boundingBox = null;
-    boundingBox = getBoundingBox();
+    IBoundingBoxWriter boundingBox = null;
+    boundingBox = getWriterBoundingBox();
     if (boundingBox != null) {
-      BoundingBoxImpl clonedChild = ((BoundingBoxImpl) boundingBox).clone();
+      IBoundingBoxWriter clonedChild = ((BoundingBoxImpl) boundingBox).clone();
       clonedObject.setBoundingBox(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IProperties properties = null;
-    properties = getProperties();
+    IPropertiesWriter properties = null;
+    properties = getWriterProperties();
     if (properties != null) {
-      PropertiesImpl clonedChild = ((PropertiesImpl) properties).clone();
+      IPropertiesWriter clonedChild = ((PropertiesImpl) properties).clone();
       clonedObject.setProperties(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -433,5 +446,81 @@ public class PedestrianImpl extends BaseImpl implements IPedestrian {
   @Override
   public String getModelType() {
     return "Pedestrian";
+  }
+
+  @Override
+  public void writeParameterToModel(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__MODEL, parameterName, null /*no textmarker*/);
+    this.model = null;
+  }
+
+  @Override
+  public void writeParameterToMass(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__MASS, parameterName, null /*no textmarker*/);
+    this.mass = null;
+  }
+
+  @Override
+  public void writeParameterToName(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__NAME, parameterName, null /*no textmarker*/);
+    this.name = null;
+  }
+
+  @Override
+  public void writeParameterToPedestrianCategory(String parameterName) {
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__PEDESTRIAN_CATEGORY, parameterName, null /*no textmarker*/);
+    this.pedestrianCategory = null;
+  }
+
+  @Override
+  public String getParameterFromModel() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__MODEL);
+  }
+
+  @Override
+  public String getParameterFromMass() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__MASS);
+  }
+
+  @Override
+  public String getParameterFromName() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__NAME);
+  }
+
+  @Override
+  public String getParameterFromPedestrianCategory() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__PEDESTRIAN_CATEGORY);
+  }
+
+  @Override
+  public boolean isModelParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__MODEL);
+  }
+
+  @Override
+  public boolean isMassParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__MASS);
+  }
+
+  @Override
+  public boolean isNameParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__NAME);
+  }
+
+  @Override
+  public boolean isPedestrianCategoryParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__PEDESTRIAN_CATEGORY);
+  }
+
+  // children
+  @Override
+  public IBoundingBoxWriter getWriterBoundingBox() {
+    return this.boundingBox;
+  }
+
+  @Override
+  public IPropertiesWriter getWriterProperties() {
+    return this.properties;
   }
 }

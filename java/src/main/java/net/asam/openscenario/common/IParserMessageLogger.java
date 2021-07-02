@@ -17,43 +17,15 @@
 
 package net.asam.openscenario.common;
 
-import java.util.List;
-
 /**
- * An interface that logs a single message or a list of messages to a log target.
+ * An interface that logs parser messages in a file context.
  *
  * @author Andreas Hege - RA Consulting
  */
-public interface IParserMessageLogger {
+public interface IParserMessageLogger extends IContentMessageLogger<FileContentMessage> {
 
-  /**
-   * Logging a single message to a log target.
-   *
-   * @param message the message to log.
+  /*
+   * This is empty for compatibility reasons to checker framework and with parsing
    */
-  public void logMessage(FileContentMessage message);
-
-  /**
-   * Logging a list of messages to a log target.
-   *
-   * @param messages the list of messages.
-   */
-  public void logAllMessages(List<FileContentMessage> messages);
-
-  /**
-   * The message that have been picked up filtered by a specific error level.
-   *
-   * @param errorLevel the error level to filter the messages.
-   * @return the filtered messages
-   */
-  public List<FileContentMessage> getMessagesFilteredByErrorLevel(ErrorLevel errorLevel);
-
-  /**
-   * The message that have been picked up filtered by a specific error level.
-   *
-   * @param errorLevel the error level to filter for worse or equal.
-   * @return the filtered messages
-   */
-  public List<FileContentMessage> getMessagesFilteredByWorseOrEqualToErrorLevel(
-      ErrorLevel errorLevel);
+ 
 }

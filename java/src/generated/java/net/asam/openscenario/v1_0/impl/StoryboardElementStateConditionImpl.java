@@ -33,6 +33,7 @@ import net.asam.openscenario.v1_0.api.IStoryboardElement;
 import net.asam.openscenario.v1_0.api.IStoryboardElementStateCondition;
 import net.asam.openscenario.v1_0.api.StoryboardElementState;
 import net.asam.openscenario.v1_0.api.StoryboardElementType;
+import net.asam.openscenario.v1_0.api.writer.IStoryboardElementStateConditionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -52,7 +53,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public class StoryboardElementStateConditionImpl extends BaseImpl
-    implements IStoryboardElementStateCondition {
+    implements IStoryboardElementStateConditionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -63,13 +64,15 @@ public class StoryboardElementStateConditionImpl extends BaseImpl
   }
 
   private StoryboardElementType storyboardElementType;
-  private NamedReferenceProxy<IStoryboardElement> storyboardElementRef;
+  private INamedReference<IStoryboardElement> storyboardElementRef;
   private StoryboardElementState state;
+
   /** Default constructor */
   public StoryboardElementStateConditionImpl() {
     super();
     addAdapter(StoryboardElementStateConditionImpl.class, this);
     addAdapter(IStoryboardElementStateCondition.class, this);
+    addAdapter(IStoryboardElementStateConditionWriter.class, this);
   }
 
   @Override
@@ -91,33 +94,23 @@ public class StoryboardElementStateConditionImpl extends BaseImpl
   public StoryboardElementState getState() {
     return this.state;
   }
-  /**
-   * Sets the value of model property storyboardElementType
-   *
-   * @param storyboardElementType from OpenSCENARIO class model specification: [Type of storyboard
-   *     element instance.]
-   */
+
+  @Override
   public void setStoryboardElementType(StoryboardElementType storyboardElementType) {
     this.storyboardElementType = storyboardElementType;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__STORYBOARD_ELEMENT_TYPE);
   }
-  /**
-   * Sets the value of model property storyboardElementRef
-   *
-   * @param storyboardElementRef from OpenSCENARIO class model specification: [Name of the
-   *     referenced Storyboard instance.]
-   */
-  public void setStoryboardElementRef(
-      NamedReferenceProxy<IStoryboardElement> storyboardElementRef) {
+
+  @Override
+  public void setStoryboardElementRef(INamedReference<IStoryboardElement> storyboardElementRef) {
     this.storyboardElementRef = storyboardElementRef;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__STORYBOARD_ELEMENT_REF);
   }
-  /**
-   * Sets the value of model property state
-   *
-   * @param state from OpenSCENARIO class model specification: [The state or the transition of the
-   *     storyboard element instance for which the condition becomes true.]
-   */
+
+  @Override
   public void setState(StoryboardElementState state) {
     this.state = state;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__STATE);
   }
 
   @Override
@@ -196,18 +189,18 @@ public class StoryboardElementStateConditionImpl extends BaseImpl
     // Enumeration Type
     StoryboardElementType storyboardElementType = getStoryboardElementType();
     if (storyboardElementType != null) {
-      clonedObject.setStoryboardElementType(
-          StoryboardElementType.getFromLiteral(storyboardElementType.getLiteral()));
+      clonedObject.storyboardElementType =
+          StoryboardElementType.getFromLiteral(storyboardElementType.getLiteral());
     }
     // Proxy
     NamedReferenceProxy<IStoryboardElement> proxy =
         ((NamedReferenceProxy<IStoryboardElement>) getStoryboardElementRef()).clone();
-    clonedObject.setStoryboardElementRef(proxy);
+    clonedObject.storyboardElementRef = proxy;
     proxy.setParent(clonedObject);
     // Enumeration Type
     StoryboardElementState state = getState();
     if (state != null) {
-      clonedObject.setState(StoryboardElementState.getFromLiteral(state.getLiteral()));
+      clonedObject.state = StoryboardElementState.getFromLiteral(state.getLiteral());
     }
     // clone children
     return clonedObject;
@@ -311,4 +304,58 @@ public class StoryboardElementStateConditionImpl extends BaseImpl
   public String getModelType() {
     return "StoryboardElementStateCondition";
   }
+
+  @Override
+  public void writeParameterToStoryboardElementType(String parameterName) {
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__STORYBOARD_ELEMENT_TYPE, parameterName, null /*no textmarker*/);
+    this.storyboardElementType = null;
+  }
+
+  @Override
+  public void writeParameterToStoryboardElementRef(String parameterName) {
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__STORYBOARD_ELEMENT_REF, parameterName, null /*no textmarker*/);
+    this.storyboardElementRef = null;
+  }
+
+  @Override
+  public void writeParameterToState(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__STATE, parameterName, null /*no textmarker*/);
+    this.state = null;
+  }
+
+  @Override
+  public String getParameterFromStoryboardElementType() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__STORYBOARD_ELEMENT_TYPE);
+  }
+
+  @Override
+  public String getParameterFromStoryboardElementRef() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__STORYBOARD_ELEMENT_REF);
+  }
+
+  @Override
+  public String getParameterFromState() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__STATE);
+  }
+
+  @Override
+  public boolean isStoryboardElementTypeParameterized() {
+    return getParameterizedAttributeKeys()
+        .contains(OscConstants.ATTRIBUTE__STORYBOARD_ELEMENT_TYPE);
+  }
+
+  @Override
+  public boolean isStoryboardElementRefParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__STORYBOARD_ELEMENT_REF);
+  }
+
+  @Override
+  public boolean isStateParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__STATE);
+  }
+
+  // children
+
 }

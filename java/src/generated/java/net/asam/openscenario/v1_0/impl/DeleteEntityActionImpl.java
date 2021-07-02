@@ -26,6 +26,7 @@ import net.asam.openscenario.api.SimpleType;
 import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.IDeleteEntityAction;
+import net.asam.openscenario.v1_0.api.writer.IDeleteEntityActionWriter;
 
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -42,7 +43,7 @@ import net.asam.openscenario.v1_0.api.IDeleteEntityAction;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class DeleteEntityActionImpl extends BaseImpl implements IDeleteEntityAction {
+public class DeleteEntityActionImpl extends BaseImpl implements IDeleteEntityActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Default constructor */
@@ -50,6 +51,7 @@ public class DeleteEntityActionImpl extends BaseImpl implements IDeleteEntityAct
     super();
     addAdapter(DeleteEntityActionImpl.class, this);
     addAdapter(IDeleteEntityAction.class, this);
+    addAdapter(IDeleteEntityActionWriter.class, this);
   }
 
   @Override
@@ -170,4 +172,7 @@ public class DeleteEntityActionImpl extends BaseImpl implements IDeleteEntityAct
   public String getModelType() {
     return "DeleteEntityAction";
   }
+
+  // children
+
 }

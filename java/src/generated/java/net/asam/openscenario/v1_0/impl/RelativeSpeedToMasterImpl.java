@@ -30,6 +30,7 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IRelativeSpeedToMaster;
 import net.asam.openscenario.v1_0.api.SpeedTargetValueType;
+import net.asam.openscenario.v1_0.api.writer.IRelativeSpeedToMasterWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -48,7 +49,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class RelativeSpeedToMasterImpl extends BaseImpl implements IRelativeSpeedToMaster {
+public class RelativeSpeedToMasterImpl extends BaseImpl implements IRelativeSpeedToMasterWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -59,11 +60,13 @@ public class RelativeSpeedToMasterImpl extends BaseImpl implements IRelativeSpee
 
   private Double value;
   private SpeedTargetValueType speedTargetValueType;
+
   /** Default constructor */
   public RelativeSpeedToMasterImpl() {
     super();
     addAdapter(RelativeSpeedToMasterImpl.class, this);
     addAdapter(IRelativeSpeedToMaster.class, this);
+    addAdapter(IRelativeSpeedToMasterWriter.class, this);
   }
 
   @Override
@@ -80,23 +83,17 @@ public class RelativeSpeedToMasterImpl extends BaseImpl implements IRelativeSpee
   public SpeedTargetValueType getSpeedTargetValueType() {
     return this.speedTargetValueType;
   }
-  /**
-   * Sets the value of model property value
-   *
-   * @param value from OpenSCENARIO class model specification: [Relative speed. Unit: m/s. Range:
-   *     ]-inf..inf[.]
-   */
+
+  @Override
   public void setValue(Double value) {
     this.value = value;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__VALUE);
   }
-  /**
-   * Sets the value of model property speedTargetValueType
-   *
-   * @param speedTargetValueType from OpenSCENARIO class model specification: [The semantics of the
-   *     value (delta, offset, factor).]
-   */
+
+  @Override
   public void setSpeedTargetValueType(SpeedTargetValueType speedTargetValueType) {
     this.speedTargetValueType = speedTargetValueType;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__SPEED_TARGET_VALUE_TYPE);
   }
 
   @Override
@@ -158,12 +155,12 @@ public class RelativeSpeedToMasterImpl extends BaseImpl implements IRelativeSpee
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setValue(getValue());
+    clonedObject.value = getValue();
     // Enumeration Type
     SpeedTargetValueType speedTargetValueType = getSpeedTargetValueType();
     if (speedTargetValueType != null) {
-      clonedObject.setSpeedTargetValueType(
-          SpeedTargetValueType.getFromLiteral(speedTargetValueType.getLiteral()));
+      clonedObject.speedTargetValueType =
+          SpeedTargetValueType.getFromLiteral(speedTargetValueType.getLiteral());
     }
     // clone children
     return clonedObject;
@@ -252,4 +249,41 @@ public class RelativeSpeedToMasterImpl extends BaseImpl implements IRelativeSpee
   public String getModelType() {
     return "RelativeSpeedToMaster";
   }
+
+  @Override
+  public void writeParameterToValue(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__VALUE, parameterName, null /*no textmarker*/);
+    this.value = null;
+  }
+
+  @Override
+  public void writeParameterToSpeedTargetValueType(String parameterName) {
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__SPEED_TARGET_VALUE_TYPE, parameterName, null /*no textmarker*/);
+    this.speedTargetValueType = null;
+  }
+
+  @Override
+  public String getParameterFromValue() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__VALUE);
+  }
+
+  @Override
+  public String getParameterFromSpeedTargetValueType() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__SPEED_TARGET_VALUE_TYPE);
+  }
+
+  @Override
+  public boolean isValueParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__VALUE);
+  }
+
+  @Override
+  public boolean isSpeedTargetValueTypeParameterized() {
+    return getParameterizedAttributeKeys()
+        .contains(OscConstants.ATTRIBUTE__SPEED_TARGET_VALUE_TYPE);
+  }
+
+  // children
+
 }

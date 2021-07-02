@@ -27,6 +27,7 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IProperty;
+import net.asam.openscenario.v1_0.api.writer.IPropertyWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -44,7 +45,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class PropertyImpl extends BaseImpl implements IProperty {
+public class PropertyImpl extends BaseImpl implements IPropertyWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -55,11 +56,13 @@ public class PropertyImpl extends BaseImpl implements IProperty {
 
   private String name;
   private String value;
+
   /** Default constructor */
   public PropertyImpl() {
     super();
     addAdapter(PropertyImpl.class, this);
     addAdapter(IProperty.class, this);
+    addAdapter(IPropertyWriter.class, this);
   }
 
   @Override
@@ -76,21 +79,17 @@ public class PropertyImpl extends BaseImpl implements IProperty {
   public String getValue() {
     return this.value;
   }
-  /**
-   * Sets the value of model property name
-   *
-   * @param name from OpenSCENARIO class model specification: [Name of a user defined property.]
-   */
+
+  @Override
   public void setName(String name) {
     this.name = name;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__NAME);
   }
-  /**
-   * Sets the value of model property value
-   *
-   * @param value from OpenSCENARIO class model specification: [Value of a user defined property.]
-   */
+
+  @Override
   public void setValue(String value) {
     this.value = value;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__VALUE);
   }
 
   @Override
@@ -144,9 +143,9 @@ public class PropertyImpl extends BaseImpl implements IProperty {
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setName(getName());
+    clonedObject.name = getName();
     // Simple type
-    clonedObject.setValue(getValue());
+    clonedObject.value = getValue();
     // clone children
     return clonedObject;
   }
@@ -229,4 +228,39 @@ public class PropertyImpl extends BaseImpl implements IProperty {
   public String getModelType() {
     return "Property";
   }
+
+  @Override
+  public void writeParameterToName(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__NAME, parameterName, null /*no textmarker*/);
+    this.name = null;
+  }
+
+  @Override
+  public void writeParameterToValue(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__VALUE, parameterName, null /*no textmarker*/);
+    this.value = null;
+  }
+
+  @Override
+  public String getParameterFromName() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__NAME);
+  }
+
+  @Override
+  public String getParameterFromValue() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__VALUE);
+  }
+
+  @Override
+  public boolean isNameParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__NAME);
+  }
+
+  @Override
+  public boolean isValueParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__VALUE);
+  }
+
+  // children
+
 }

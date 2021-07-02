@@ -18,6 +18,7 @@ package net.asam.openscenario.v1_0.checker.range;
 
 import net.asam.openscenario.checker.RangeCheckerRule;
 import net.asam.openscenario.common.IParserMessageLogger;
+import net.asam.openscenario.common.ITreeMessageLogger;
 import net.asam.openscenario.v1_0.api.IStandStillCondition;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
@@ -35,18 +36,43 @@ public class StandStillConditionRangeCheckerRule extends RangeCheckerRule<IStand
   }
 
   @Override
-  public void applyRule(IParserMessageLogger messageLogger, IStandStillCondition object) {
+  public void applyRuleInFileContext(
+      IParserMessageLogger messageLogger, IStandStillCondition object) {
+    apply(messageLogger, null, object);
+  }
+
+  @Override
+  public void applyRuleInTreeContext(
+      ITreeMessageLogger messageLogger, IStandStillCondition object) {
+    apply(null, messageLogger, object);
+  }
+
+  private void apply(
+      IParserMessageLogger fileMessageLogger,
+      ITreeMessageLogger treeMessageLogger,
+      IStandStillCondition object) {
     Double duration = object.getDuration();
     if (duration != null) {
       if (!(duration >= 0)) {
-        logMessage(
-            object,
-            messageLogger,
-            OscConstants.ATTRIBUTE__DURATION,
-            object.getDuration().toString(),
-            ">=",
-            "0",
-            OscConstants.ATTRIBUTE__DURATION);
+        if (fileMessageLogger != null) {
+          logFileContentMessage(
+              object,
+              fileMessageLogger,
+              OscConstants.ATTRIBUTE__DURATION,
+              object.getDuration().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__DURATION);
+        } else {
+          logTreeContentMessage(
+              object,
+              treeMessageLogger,
+              OscConstants.ATTRIBUTE__DURATION,
+              object.getDuration().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__DURATION);
+        }
       }
     }
   }

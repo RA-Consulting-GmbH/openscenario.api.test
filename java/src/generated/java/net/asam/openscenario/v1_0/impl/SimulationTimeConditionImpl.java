@@ -30,6 +30,7 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.ISimulationTimeCondition;
 import net.asam.openscenario.v1_0.api.Rule;
+import net.asam.openscenario.v1_0.api.writer.ISimulationTimeConditionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -48,7 +49,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class SimulationTimeConditionImpl extends BaseImpl implements ISimulationTimeCondition {
+public class SimulationTimeConditionImpl extends BaseImpl
+    implements ISimulationTimeConditionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -59,11 +61,13 @@ public class SimulationTimeConditionImpl extends BaseImpl implements ISimulation
 
   private Double value;
   private Rule rule;
+
   /** Default constructor */
   public SimulationTimeConditionImpl() {
     super();
     addAdapter(SimulationTimeConditionImpl.class, this);
     addAdapter(ISimulationTimeCondition.class, this);
+    addAdapter(ISimulationTimeConditionWriter.class, this);
   }
 
   @Override
@@ -80,22 +84,17 @@ public class SimulationTimeConditionImpl extends BaseImpl implements ISimulation
   public Rule getRule() {
     return this.rule;
   }
-  /**
-   * Sets the value of model property value
-   *
-   * @param value from OpenSCENARIO class model specification: [Time value of the simulation time
-   *     condition. Unit: s.]
-   */
+
+  @Override
   public void setValue(Double value) {
     this.value = value;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__VALUE);
   }
-  /**
-   * Sets the value of model property rule
-   *
-   * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
-   */
+
+  @Override
   public void setRule(Rule rule) {
     this.rule = rule;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__RULE);
   }
 
   @Override
@@ -157,11 +156,11 @@ public class SimulationTimeConditionImpl extends BaseImpl implements ISimulation
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setValue(getValue());
+    clonedObject.value = getValue();
     // Enumeration Type
     Rule rule = getRule();
     if (rule != null) {
-      clonedObject.setRule(Rule.getFromLiteral(rule.getLiteral()));
+      clonedObject.rule = Rule.getFromLiteral(rule.getLiteral());
     }
     // clone children
     return clonedObject;
@@ -250,4 +249,39 @@ public class SimulationTimeConditionImpl extends BaseImpl implements ISimulation
   public String getModelType() {
     return "SimulationTimeCondition";
   }
+
+  @Override
+  public void writeParameterToValue(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__VALUE, parameterName, null /*no textmarker*/);
+    this.value = null;
+  }
+
+  @Override
+  public void writeParameterToRule(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__RULE, parameterName, null /*no textmarker*/);
+    this.rule = null;
+  }
+
+  @Override
+  public String getParameterFromValue() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__VALUE);
+  }
+
+  @Override
+  public String getParameterFromRule() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__RULE);
+  }
+
+  @Override
+  public boolean isValueParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__VALUE);
+  }
+
+  @Override
+  public boolean isRuleParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__RULE);
+  }
+
+  // children
+
 }

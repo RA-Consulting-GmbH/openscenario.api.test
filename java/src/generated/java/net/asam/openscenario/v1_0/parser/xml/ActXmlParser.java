@@ -26,7 +26,7 @@ import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
 import net.asam.openscenario.simple.struct.IndexedElement;
-import net.asam.openscenario.v1_0.api.IManeuverGroup;
+import net.asam.openscenario.v1_0.api.writer.IManeuverGroupWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 import net.asam.openscenario.v1_0.impl.ActImpl;
 import net.asam.openscenario.v1_0.impl.ManeuverGroupImpl;
@@ -135,7 +135,7 @@ public class ActXmlParser extends XmlComplexTypeParser<ActImpl> {
       // Setting the parent
       maneuverGroups.setParent(object);
       this.maneuverGroupXmlParser.parseElement(indexedElement, parserContext, maneuverGroups);
-      List<IManeuverGroup> maneuverGroupsList = object.getManeuverGroups();
+      List<IManeuverGroupWriter> maneuverGroupsList = object.getWriterManeuverGroups();
       if (maneuverGroupsList == null) {
         maneuverGroupsList = new ArrayList<>();
         object.setManeuverGroups(maneuverGroupsList);

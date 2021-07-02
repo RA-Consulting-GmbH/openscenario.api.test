@@ -17,6 +17,8 @@
 
 #pragma once
 #include <string>
+
+#include "ContentMessage.h"
 #include "Textmarker.h"
 #include "ErrorLevel.h"
 #include "MemLeakDetection.h"
@@ -28,12 +30,10 @@ namespace NET_ASAM_OPENSCENARIO
      * that enables the user to trace the message back to a file location.
      *
      */
-    class FileContentMessage
+    class FileContentMessage: public ContentMessage
     {
     private:
         Textmarker _textmarker;
-        std::string _message;
-        ErrorLevel _errorLevel;
 
     public:
         /**
@@ -42,8 +42,7 @@ namespace NET_ASAM_OPENSCENARIO
          * @param errorLevel the error level of the message
          * @param textmarker the text marker that enables the user to trace the message back to a file location.
          */
-        FileContentMessage(const std::string message, const ErrorLevel errorLevel, const Textmarker textmarker) :
-            _textmarker(textmarker), _message(message), _errorLevel(errorLevel) {}
+        FileContentMessage(const std::string message, const ErrorLevel errorLevel, const Textmarker textmarker) : ContentMessage(message, errorLevel), _textmarker(textmarker) {}
 
         /**
          * The text marker that enables the user to trace the message back to a file location
@@ -54,39 +53,21 @@ namespace NET_ASAM_OPENSCENARIO
             return _textmarker;
         }
 
-        /**
-         * The text of a message
-         * @return the message text
-         */
-        std::string GetMsg() const
-        {
-            return _message;
-        }
-
-        /**
-         * The error level of the message.
-         * @return the error level
-         */
-        ErrorLevel GetErrorLevel() const
-        {
-            return _errorLevel;
-        }
-
-        bool operator==(const FileContentMessage& rhs) const
+        bool operator==(FileContentMessage& rhs)
         {
             return rhs.ToString() == this->ToString();
         }
 
-        size_t HashCode() const { return std::hash<std::string>{}(this->ToString()); }
+        size_t HashCode() { return std::hash<std::string>{}(this->ToString()); }
 
-        std::string ToString() const
+        std::string ToString()
         {
-            return  "Message: '" + _message + "'" +
-                " ErrorLevel: " + ErrorLevelString::ToString(_errorLevel) +
+            return  "Message: '" + GetMsg() + "'" +
+                " ErrorLevel: " + ErrorLevelString::ToString(GetErrorLevel()) +
                 " Textmarker: '" + _textmarker.ToString() + "'";
         }
 
-        int CompareTo(const FileContentMessage& rhs) const
+        int CompareTo( FileContentMessage& rhs)
         {
             //not exactly the java equivalent 
             return rhs.ToString() == this->ToString();

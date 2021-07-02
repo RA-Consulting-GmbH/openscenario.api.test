@@ -18,6 +18,7 @@ package net.asam.openscenario.v1_0.checker.range;
 
 import net.asam.openscenario.checker.RangeCheckerRule;
 import net.asam.openscenario.common.IParserMessageLogger;
+import net.asam.openscenario.common.ITreeMessageLogger;
 import net.asam.openscenario.v1_0.api.IAxle;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
@@ -35,80 +36,156 @@ public class AxleRangeCheckerRule extends RangeCheckerRule<IAxle> {
   }
 
   @Override
-  public void applyRule(IParserMessageLogger messageLogger, IAxle object) {
+  public void applyRuleInFileContext(IParserMessageLogger messageLogger, IAxle object) {
+    apply(messageLogger, null, object);
+  }
+
+  @Override
+  public void applyRuleInTreeContext(ITreeMessageLogger messageLogger, IAxle object) {
+    apply(null, messageLogger, object);
+  }
+
+  private void apply(
+      IParserMessageLogger fileMessageLogger, ITreeMessageLogger treeMessageLogger, IAxle object) {
     Double maxSteering = object.getMaxSteering();
     if (maxSteering != null) {
       if (!(maxSteering <= java.lang.Math.PI)) {
-        logMessage(
-            object,
-            messageLogger,
-            OscConstants.ATTRIBUTE__MAX_STEERING,
-            object.getMaxSteering().toString(),
-            "<=",
-            "PI",
-            OscConstants.ATTRIBUTE__MAX_STEERING);
+        if (fileMessageLogger != null) {
+          logFileContentMessage(
+              object,
+              fileMessageLogger,
+              OscConstants.ATTRIBUTE__MAX_STEERING,
+              object.getMaxSteering().toString(),
+              "<=",
+              "PI",
+              OscConstants.ATTRIBUTE__MAX_STEERING);
+        } else {
+          logTreeContentMessage(
+              object,
+              treeMessageLogger,
+              OscConstants.ATTRIBUTE__MAX_STEERING,
+              object.getMaxSteering().toString(),
+              "<=",
+              "PI",
+              OscConstants.ATTRIBUTE__MAX_STEERING);
+        }
       }
       if (!(maxSteering >= 0)) {
-        logMessage(
-            object,
-            messageLogger,
-            OscConstants.ATTRIBUTE__MAX_STEERING,
-            object.getMaxSteering().toString(),
-            ">=",
-            "0",
-            OscConstants.ATTRIBUTE__MAX_STEERING);
+        if (fileMessageLogger != null) {
+          logFileContentMessage(
+              object,
+              fileMessageLogger,
+              OscConstants.ATTRIBUTE__MAX_STEERING,
+              object.getMaxSteering().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__MAX_STEERING);
+        } else {
+          logTreeContentMessage(
+              object,
+              treeMessageLogger,
+              OscConstants.ATTRIBUTE__MAX_STEERING,
+              object.getMaxSteering().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__MAX_STEERING);
+        }
       }
     }
     Double wheelDiameter = object.getWheelDiameter();
     if (wheelDiameter != null) {
       if (!(wheelDiameter > 0)) {
-        logMessage(
-            object,
-            messageLogger,
-            OscConstants.ATTRIBUTE__WHEEL_DIAMETER,
-            object.getWheelDiameter().toString(),
-            ">",
-            "0",
-            OscConstants.ATTRIBUTE__WHEEL_DIAMETER);
+        if (fileMessageLogger != null) {
+          logFileContentMessage(
+              object,
+              fileMessageLogger,
+              OscConstants.ATTRIBUTE__WHEEL_DIAMETER,
+              object.getWheelDiameter().toString(),
+              ">",
+              "0",
+              OscConstants.ATTRIBUTE__WHEEL_DIAMETER);
+        } else {
+          logTreeContentMessage(
+              object,
+              treeMessageLogger,
+              OscConstants.ATTRIBUTE__WHEEL_DIAMETER,
+              object.getWheelDiameter().toString(),
+              ">",
+              "0",
+              OscConstants.ATTRIBUTE__WHEEL_DIAMETER);
+        }
       }
     }
     Double trackWidth = object.getTrackWidth();
     if (trackWidth != null) {
       if (!(trackWidth >= 0)) {
-        logMessage(
-            object,
-            messageLogger,
-            OscConstants.ATTRIBUTE__TRACK_WIDTH,
-            object.getTrackWidth().toString(),
-            ">=",
-            "0",
-            OscConstants.ATTRIBUTE__TRACK_WIDTH);
+        if (fileMessageLogger != null) {
+          logFileContentMessage(
+              object,
+              fileMessageLogger,
+              OscConstants.ATTRIBUTE__TRACK_WIDTH,
+              object.getTrackWidth().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__TRACK_WIDTH);
+        } else {
+          logTreeContentMessage(
+              object,
+              treeMessageLogger,
+              OscConstants.ATTRIBUTE__TRACK_WIDTH,
+              object.getTrackWidth().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__TRACK_WIDTH);
+        }
       }
     }
     Double positionX = object.getPositionX();
     if (positionX != null) {
       if (!(positionX >= 0)) {
-        logMessage(
-            object,
-            messageLogger,
-            OscConstants.ATTRIBUTE__POSITION_X,
-            object.getPositionX().toString(),
-            ">=",
-            "0",
-            OscConstants.ATTRIBUTE__POSITION_X);
+        if (fileMessageLogger != null) {
+          logFileContentMessage(
+              object,
+              fileMessageLogger,
+              OscConstants.ATTRIBUTE__POSITION_X,
+              object.getPositionX().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__POSITION_X);
+        } else {
+          logTreeContentMessage(
+              object,
+              treeMessageLogger,
+              OscConstants.ATTRIBUTE__POSITION_X,
+              object.getPositionX().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__POSITION_X);
+        }
       }
     }
     Double positionZ = object.getPositionZ();
     if (positionZ != null) {
       if (!(positionZ >= 0)) {
-        logMessage(
-            object,
-            messageLogger,
-            OscConstants.ATTRIBUTE__POSITION_Z,
-            object.getPositionZ().toString(),
-            ">=",
-            "0",
-            OscConstants.ATTRIBUTE__POSITION_Z);
+        if (fileMessageLogger != null) {
+          logFileContentMessage(
+              object,
+              fileMessageLogger,
+              OscConstants.ATTRIBUTE__POSITION_Z,
+              object.getPositionZ().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__POSITION_Z);
+        } else {
+          logTreeContentMessage(
+              object,
+              treeMessageLogger,
+              OscConstants.ATTRIBUTE__POSITION_Z,
+              object.getPositionZ().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__POSITION_Z);
+        }
       }
     }
   }

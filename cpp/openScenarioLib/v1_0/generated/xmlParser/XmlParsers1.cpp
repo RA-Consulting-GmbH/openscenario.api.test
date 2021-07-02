@@ -239,36 +239,6 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<AccelerationConditionImpl>>> result;
 
-            class AttributeValue: public IAttributeParser<AccelerationConditionImpl>, public XmlParserBase<AccelerationConditionImpl>
-            {
-            public:
-                AttributeValue(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
-
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<AccelerationConditionImpl>& object) override
-                {
-                    Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
-                    Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    if (IsParametrized(attributeValue))
-                    {
-                        object->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, StripDollarSign(attributeValue), startMarker); 
-                    }
-                    else
-                    {
-                        // Parse value
-                        // Simple type
-                        object->SetValue(ParseDouble(attributeValue, startMarker));
-                    }
-                    object->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(startMarker));
-                    object->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(endMarker));
-                    
-                }
-
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
-            };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<AttributeValue>(_messageLogger, _filename)));
             class AttributeRule: public IAttributeParser<AccelerationConditionImpl>, public XmlParserBase<AccelerationConditionImpl>
             {
             public:
@@ -308,6 +278,36 @@ namespace NET_ASAM_OPENSCENARIO
                 }
             };
             result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__RULE, std::make_shared<AttributeRule>(_messageLogger, _filename)));
+            class AttributeValue: public IAttributeParser<AccelerationConditionImpl>, public XmlParserBase<AccelerationConditionImpl>
+            {
+            public:
+                AttributeValue(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+
+                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<AccelerationConditionImpl>& object) override
+                {
+                    Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
+                    Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
+                    if (IsParametrized(attributeValue))
+                    {
+                        object->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, StripDollarSign(attributeValue), startMarker); 
+                    }
+                    else
+                    {
+                        // Parse value
+                        // Simple type
+                        object->SetValue(ParseDouble(attributeValue, startMarker));
+                    }
+                    object->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(startMarker));
+                    object->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(endMarker));
+                    
+                }
+
+                int GetMinOccur() override
+                {
+                    return 1;
+                }
+            };
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<AttributeValue>(_messageLogger, _filename)));
             return result;
         }
 
@@ -416,7 +416,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Setting the parent
             maneuverGroups->SetParent(object);
             _maneuverGroupXmlParser->ParseElement(indexedElement, parserContext, maneuverGroups);
-            auto maneuverGroupsList = object->GetManeuverGroups();
+            auto maneuverGroupsList = object->GetWriterManeuverGroups();
             maneuverGroupsList.push_back(maneuverGroups);
             object->SetManeuverGroups(maneuverGroupsList);
         }
@@ -685,7 +685,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Setting the parent
             entityRefs->SetParent(object);
             _entityRefXmlParser->ParseElement(indexedElement, parserContext, entityRefs);
-            auto entityRefsList = object->GetEntityRefs();
+            auto entityRefsList = object->GetWriterEntityRefs();
             entityRefsList.push_back(entityRefs);
             object->SetEntityRefs(entityRefsList);
         }
@@ -773,7 +773,7 @@ namespace NET_ASAM_OPENSCENARIO
             _catalogReferenceXmlParser->ParseElement(indexedElement, parserContext, catalogReference);
 
             object->SetCatalogReference(catalogReference);
-            std::dynamic_pointer_cast<CatalogReferenceParserContext>(parserContext)->AddCatalogReference(catalogReference);
+            std::dynamic_pointer_cast<CatalogReferenceParserContext>(parserContext)->AddCatalogReference(std::dynamic_pointer_cast<ICatalogReference>(catalogReference));
         }
 
         /**
@@ -824,7 +824,7 @@ namespace NET_ASAM_OPENSCENARIO
             _catalogReferenceXmlParser->ParseElement(indexedElement, parserContext, catalogReference);
 
             object->SetCatalogReference(catalogReference);
-            std::dynamic_pointer_cast<CatalogReferenceParserContext>(parserContext)->AddCatalogReference(catalogReference);
+            std::dynamic_pointer_cast<CatalogReferenceParserContext>(parserContext)->AddCatalogReference(std::dynamic_pointer_cast<ICatalogReference>(catalogReference));
         }
 
         /**
@@ -867,66 +867,6 @@ namespace NET_ASAM_OPENSCENARIO
                 }
             };
             result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__MAX_STEERING, std::make_shared<AttributeMaxSteering>(_messageLogger, _filename)));
-            class AttributeWheelDiameter: public IAttributeParser<AxleImpl>, public XmlParserBase<AxleImpl>
-            {
-            public:
-                AttributeWheelDiameter(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
-
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<AxleImpl>& object) override
-                {
-                    Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
-                    Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    if (IsParametrized(attributeValue))
-                    {
-                        object->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__WHEEL_DIAMETER, StripDollarSign(attributeValue), startMarker); 
-                    }
-                    else
-                    {
-                        // Parse value
-                        // Simple type
-                        object->SetWheelDiameter(ParseDouble(attributeValue, startMarker));
-                    }
-                    object->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__WHEEL_DIAMETER, std::make_shared<Textmarker>(startMarker));
-                    object->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__WHEEL_DIAMETER, std::make_shared<Textmarker>(endMarker));
-                    
-                }
-
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
-            };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__WHEEL_DIAMETER, std::make_shared<AttributeWheelDiameter>(_messageLogger, _filename)));
-            class AttributeTrackWidth: public IAttributeParser<AxleImpl>, public XmlParserBase<AxleImpl>
-            {
-            public:
-                AttributeTrackWidth(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
-
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<AxleImpl>& object) override
-                {
-                    Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
-                    Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    if (IsParametrized(attributeValue))
-                    {
-                        object->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TRACK_WIDTH, StripDollarSign(attributeValue), startMarker); 
-                    }
-                    else
-                    {
-                        // Parse value
-                        // Simple type
-                        object->SetTrackWidth(ParseDouble(attributeValue, startMarker));
-                    }
-                    object->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__TRACK_WIDTH, std::make_shared<Textmarker>(startMarker));
-                    object->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__TRACK_WIDTH, std::make_shared<Textmarker>(endMarker));
-                    
-                }
-
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
-            };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__TRACK_WIDTH, std::make_shared<AttributeTrackWidth>(_messageLogger, _filename)));
             class AttributePositionX: public IAttributeParser<AxleImpl>, public XmlParserBase<AxleImpl>
             {
             public:
@@ -987,6 +927,66 @@ namespace NET_ASAM_OPENSCENARIO
                 }
             };
             result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__POSITION_Z, std::make_shared<AttributePositionZ>(_messageLogger, _filename)));
+            class AttributeTrackWidth: public IAttributeParser<AxleImpl>, public XmlParserBase<AxleImpl>
+            {
+            public:
+                AttributeTrackWidth(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+
+                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<AxleImpl>& object) override
+                {
+                    Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
+                    Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
+                    if (IsParametrized(attributeValue))
+                    {
+                        object->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TRACK_WIDTH, StripDollarSign(attributeValue), startMarker); 
+                    }
+                    else
+                    {
+                        // Parse value
+                        // Simple type
+                        object->SetTrackWidth(ParseDouble(attributeValue, startMarker));
+                    }
+                    object->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__TRACK_WIDTH, std::make_shared<Textmarker>(startMarker));
+                    object->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__TRACK_WIDTH, std::make_shared<Textmarker>(endMarker));
+                    
+                }
+
+                int GetMinOccur() override
+                {
+                    return 1;
+                }
+            };
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__TRACK_WIDTH, std::make_shared<AttributeTrackWidth>(_messageLogger, _filename)));
+            class AttributeWheelDiameter: public IAttributeParser<AxleImpl>, public XmlParserBase<AxleImpl>
+            {
+            public:
+                AttributeWheelDiameter(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+
+                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<AxleImpl>& object) override
+                {
+                    Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
+                    Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
+                    if (IsParametrized(attributeValue))
+                    {
+                        object->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__WHEEL_DIAMETER, StripDollarSign(attributeValue), startMarker); 
+                    }
+                    else
+                    {
+                        // Parse value
+                        // Simple type
+                        object->SetWheelDiameter(ParseDouble(attributeValue, startMarker));
+                    }
+                    object->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__WHEEL_DIAMETER, std::make_shared<Textmarker>(startMarker));
+                    object->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__WHEEL_DIAMETER, std::make_shared<Textmarker>(endMarker));
+                    
+                }
+
+                int GetMinOccur() override
+                {
+                    return 1;
+                }
+            };
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__WHEEL_DIAMETER, std::make_shared<AttributeWheelDiameter>(_messageLogger, _filename)));
             return result;
         }
 
@@ -1058,7 +1058,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Setting the parent
             additionalAxles->SetParent(object);
             _axleXmlParser->ParseElement(indexedElement, parserContext, additionalAxles);
-            auto additionalAxlesList = object->GetAdditionalAxles();
+            auto additionalAxlesList = object->GetWriterAdditionalAxles();
             additionalAxlesList.push_back(additionalAxles);
             object->SetAdditionalAxles(additionalAxlesList);
         }
@@ -1474,7 +1474,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Setting the parent
             vehicles->SetParent(object);
             _vehicleXmlParser->ParseElement(indexedElement, parserContext, vehicles);
-            auto vehiclesList = object->GetVehicles();
+            auto vehiclesList = object->GetWriterVehicles();
             vehiclesList.push_back(vehicles);
             object->SetVehicles(vehiclesList);
         }
@@ -1489,7 +1489,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Setting the parent
             controllers->SetParent(object);
             _controllerXmlParser->ParseElement(indexedElement, parserContext, controllers);
-            auto controllersList = object->GetControllers();
+            auto controllersList = object->GetWriterControllers();
             controllersList.push_back(controllers);
             object->SetControllers(controllersList);
         }
@@ -1504,7 +1504,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Setting the parent
             pedestrians->SetParent(object);
             _pedestrianXmlParser->ParseElement(indexedElement, parserContext, pedestrians);
-            auto pedestriansList = object->GetPedestrians();
+            auto pedestriansList = object->GetWriterPedestrians();
             pedestriansList.push_back(pedestrians);
             object->SetPedestrians(pedestriansList);
         }
@@ -1519,7 +1519,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Setting the parent
             miscObjects->SetParent(object);
             _miscObjectXmlParser->ParseElement(indexedElement, parserContext, miscObjects);
-            auto miscObjectsList = object->GetMiscObjects();
+            auto miscObjectsList = object->GetWriterMiscObjects();
             miscObjectsList.push_back(miscObjects);
             object->SetMiscObjects(miscObjectsList);
         }
@@ -1534,7 +1534,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Setting the parent
             environments->SetParent(object);
             _environmentXmlParser->ParseElement(indexedElement, parserContext, environments);
-            auto environmentsList = object->GetEnvironments();
+            auto environmentsList = object->GetWriterEnvironments();
             environmentsList.push_back(environments);
             object->SetEnvironments(environmentsList);
         }
@@ -1549,7 +1549,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Setting the parent
             maneuvers->SetParent(object);
             _maneuverXmlParser->ParseElement(indexedElement, parserContext, maneuvers);
-            auto maneuversList = object->GetManeuvers();
+            auto maneuversList = object->GetWriterManeuvers();
             maneuversList.push_back(maneuvers);
             object->SetManeuvers(maneuversList);
         }
@@ -1564,7 +1564,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Setting the parent
             trajectories->SetParent(object);
             _trajectoryXmlParser->ParseElement(indexedElement, parserContext, trajectories);
-            auto trajectoriesList = object->GetTrajectories();
+            auto trajectoriesList = object->GetWriterTrajectories();
             trajectoriesList.push_back(trajectories);
             object->SetTrajectories(trajectoriesList);
         }
@@ -1579,7 +1579,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Setting the parent
             routes->SetParent(object);
             _routeXmlParser->ParseElement(indexedElement, parserContext, routes);
-            auto routesList = object->GetRoutes();
+            auto routesList = object->GetWriterRoutes();
             routesList.push_back(routes);
             object->SetRoutes(routesList);
         }
@@ -1844,7 +1844,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Setting the parent
             parameterAssignments->SetParent(object);
             _parameterAssignmentXmlParser->ParseElement(indexedElement, parserContext, parameterAssignments);
-            auto parameterAssignmentsList = object->GetParameterAssignments();
+            auto parameterAssignmentsList = object->GetWriterParameterAssignments();
             parameterAssignmentsList.push_back(parameterAssignments);
             object->SetParameterAssignments(parameterAssignmentsList);
         }
@@ -1986,8 +1986,8 @@ namespace NET_ASAM_OPENSCENARIO
                     {
                         // Parse value
                         // Proxy
-                        NamedReferenceProxy<IEntity> proxy(attributeValue);
-                        proxy.SetParent(object);
+                        auto proxy = std::make_shared<NamedReferenceProxy<IEntity>>(attributeValue);
+                        proxy->SetParent(object);
                         object->SetEntityRef(proxy);
                     }
                     object->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, std::make_shared<Textmarker>(startMarker));
@@ -2256,66 +2256,6 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<ConditionImpl>>> result;
 
-            class AttributeName: public IAttributeParser<ConditionImpl>, public XmlParserBase<ConditionImpl>
-            {
-            public:
-                AttributeName(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
-
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<ConditionImpl>& object) override
-                {
-                    Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
-                    Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    if (IsParametrized(attributeValue))
-                    {
-                        object->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, StripDollarSign(attributeValue), startMarker); 
-                    }
-                    else
-                    {
-                        // Parse value
-                        // Simple type
-                        object->SetName(ParseString(attributeValue, startMarker));
-                    }
-                    object->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<Textmarker>(startMarker));
-                    object->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<Textmarker>(endMarker));
-                    
-                }
-
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
-            };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<AttributeName>(_messageLogger, _filename)));
-            class AttributeDelay: public IAttributeParser<ConditionImpl>, public XmlParserBase<ConditionImpl>
-            {
-            public:
-                AttributeDelay(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
-
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<ConditionImpl>& object) override
-                {
-                    Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
-                    Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    if (IsParametrized(attributeValue))
-                    {
-                        object->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DELAY, StripDollarSign(attributeValue), startMarker); 
-                    }
-                    else
-                    {
-                        // Parse value
-                        // Simple type
-                        object->SetDelay(ParseDouble(attributeValue, startMarker));
-                    }
-                    object->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__DELAY, std::make_shared<Textmarker>(startMarker));
-                    object->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__DELAY, std::make_shared<Textmarker>(endMarker));
-                    
-                }
-
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
-            };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__DELAY, std::make_shared<AttributeDelay>(_messageLogger, _filename)));
             class AttributeConditionEdge: public IAttributeParser<ConditionImpl>, public XmlParserBase<ConditionImpl>
             {
             public:
@@ -2355,6 +2295,66 @@ namespace NET_ASAM_OPENSCENARIO
                 }
             };
             result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__CONDITION_EDGE, std::make_shared<AttributeConditionEdge>(_messageLogger, _filename)));
+            class AttributeDelay: public IAttributeParser<ConditionImpl>, public XmlParserBase<ConditionImpl>
+            {
+            public:
+                AttributeDelay(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+
+                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<ConditionImpl>& object) override
+                {
+                    Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
+                    Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
+                    if (IsParametrized(attributeValue))
+                    {
+                        object->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DELAY, StripDollarSign(attributeValue), startMarker); 
+                    }
+                    else
+                    {
+                        // Parse value
+                        // Simple type
+                        object->SetDelay(ParseDouble(attributeValue, startMarker));
+                    }
+                    object->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__DELAY, std::make_shared<Textmarker>(startMarker));
+                    object->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__DELAY, std::make_shared<Textmarker>(endMarker));
+                    
+                }
+
+                int GetMinOccur() override
+                {
+                    return 1;
+                }
+            };
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__DELAY, std::make_shared<AttributeDelay>(_messageLogger, _filename)));
+            class AttributeName: public IAttributeParser<ConditionImpl>, public XmlParserBase<ConditionImpl>
+            {
+            public:
+                AttributeName(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+
+                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<ConditionImpl>& object) override
+                {
+                    Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
+                    Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
+                    if (IsParametrized(attributeValue))
+                    {
+                        object->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, StripDollarSign(attributeValue), startMarker); 
+                    }
+                    else
+                    {
+                        // Parse value
+                        // Simple type
+                        object->SetName(ParseString(attributeValue, startMarker));
+                    }
+                    object->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<Textmarker>(startMarker));
+                    object->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<Textmarker>(endMarker));
+                    
+                }
+
+                int GetMinOccur() override
+                {
+                    return 1;
+                }
+            };
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<AttributeName>(_messageLogger, _filename)));
             return result;
         }
 
@@ -2426,7 +2426,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Setting the parent
             conditions->SetParent(object);
             _conditionXmlParser->ParseElement(indexedElement, parserContext, conditions);
-            auto conditionsList = object->GetConditions();
+            auto conditionsList = object->GetWriterConditions();
             conditionsList.push_back(conditions);
             object->SetConditions(conditionsList);
         }
@@ -2588,7 +2588,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Setting the parent
             parameterDeclarations->SetParent(object);
             _parameterDeclarationXmlParser->ParseElement(indexedElement, parserContext, parameterDeclarations);
-            auto parameterDeclarationsList = object->GetParameterDeclarations();
+            auto parameterDeclarationsList = object->GetWriterParameterDeclarations();
             parameterDeclarationsList.push_back(parameterDeclarations);
             object->SetParameterDeclarations(parameterDeclarationsList);
         }
@@ -2723,7 +2723,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Setting the parent
             controllerDistributionEntries->SetParent(object);
             _controllerDistributionEntryXmlParser->ParseElement(indexedElement, parserContext, controllerDistributionEntries);
-            auto controllerDistributionEntriesList = object->GetControllerDistributionEntries();
+            auto controllerDistributionEntriesList = object->GetWriterControllerDistributionEntries();
             controllerDistributionEntriesList.push_back(controllerDistributionEntries);
             object->SetControllerDistributionEntries(controllerDistributionEntriesList);
         }
@@ -2806,7 +2806,7 @@ namespace NET_ASAM_OPENSCENARIO
             _catalogReferenceXmlParser->ParseElement(indexedElement, parserContext, catalogReference);
 
             object->SetCatalogReference(catalogReference);
-            std::dynamic_pointer_cast<CatalogReferenceParserContext>(parserContext)->AddCatalogReference(catalogReference);
+            std::dynamic_pointer_cast<CatalogReferenceParserContext>(parserContext)->AddCatalogReference(std::dynamic_pointer_cast<ICatalogReference>(catalogReference));
         }
 
         /**
@@ -2886,66 +2886,6 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<DimensionsImpl>>> result;
 
-            class AttributeWidth: public IAttributeParser<DimensionsImpl>, public XmlParserBase<DimensionsImpl>
-            {
-            public:
-                AttributeWidth(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
-
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<DimensionsImpl>& object) override
-                {
-                    Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
-                    Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    if (IsParametrized(attributeValue))
-                    {
-                        object->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__WIDTH, StripDollarSign(attributeValue), startMarker); 
-                    }
-                    else
-                    {
-                        // Parse value
-                        // Simple type
-                        object->SetWidth(ParseDouble(attributeValue, startMarker));
-                    }
-                    object->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__WIDTH, std::make_shared<Textmarker>(startMarker));
-                    object->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__WIDTH, std::make_shared<Textmarker>(endMarker));
-                    
-                }
-
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
-            };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__WIDTH, std::make_shared<AttributeWidth>(_messageLogger, _filename)));
-            class AttributeLength: public IAttributeParser<DimensionsImpl>, public XmlParserBase<DimensionsImpl>
-            {
-            public:
-                AttributeLength(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
-
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<DimensionsImpl>& object) override
-                {
-                    Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
-                    Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    if (IsParametrized(attributeValue))
-                    {
-                        object->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__LENGTH, StripDollarSign(attributeValue), startMarker); 
-                    }
-                    else
-                    {
-                        // Parse value
-                        // Simple type
-                        object->SetLength(ParseDouble(attributeValue, startMarker));
-                    }
-                    object->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__LENGTH, std::make_shared<Textmarker>(startMarker));
-                    object->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__LENGTH, std::make_shared<Textmarker>(endMarker));
-                    
-                }
-
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
-            };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__LENGTH, std::make_shared<AttributeLength>(_messageLogger, _filename)));
             class AttributeHeight: public IAttributeParser<DimensionsImpl>, public XmlParserBase<DimensionsImpl>
             {
             public:
@@ -2976,6 +2916,66 @@ namespace NET_ASAM_OPENSCENARIO
                 }
             };
             result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__HEIGHT, std::make_shared<AttributeHeight>(_messageLogger, _filename)));
+            class AttributeLength: public IAttributeParser<DimensionsImpl>, public XmlParserBase<DimensionsImpl>
+            {
+            public:
+                AttributeLength(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+
+                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<DimensionsImpl>& object) override
+                {
+                    Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
+                    Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
+                    if (IsParametrized(attributeValue))
+                    {
+                        object->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__LENGTH, StripDollarSign(attributeValue), startMarker); 
+                    }
+                    else
+                    {
+                        // Parse value
+                        // Simple type
+                        object->SetLength(ParseDouble(attributeValue, startMarker));
+                    }
+                    object->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__LENGTH, std::make_shared<Textmarker>(startMarker));
+                    object->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__LENGTH, std::make_shared<Textmarker>(endMarker));
+                    
+                }
+
+                int GetMinOccur() override
+                {
+                    return 1;
+                }
+            };
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__LENGTH, std::make_shared<AttributeLength>(_messageLogger, _filename)));
+            class AttributeWidth: public IAttributeParser<DimensionsImpl>, public XmlParserBase<DimensionsImpl>
+            {
+            public:
+                AttributeWidth(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+
+                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<DimensionsImpl>& object) override
+                {
+                    Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
+                    Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
+                    if (IsParametrized(attributeValue))
+                    {
+                        object->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__WIDTH, StripDollarSign(attributeValue), startMarker); 
+                    }
+                    else
+                    {
+                        // Parse value
+                        // Simple type
+                        object->SetWidth(ParseDouble(attributeValue, startMarker));
+                    }
+                    object->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__WIDTH, std::make_shared<Textmarker>(startMarker));
+                    object->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__WIDTH, std::make_shared<Textmarker>(endMarker));
+                    
+                }
+
+                int GetMinOccur() override
+                {
+                    return 1;
+                }
+            };
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__WIDTH, std::make_shared<AttributeWidth>(_messageLogger, _filename)));
             return result;
         }
 
@@ -3046,66 +3046,6 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<DistanceConditionImpl>>> result;
 
-            class AttributeValue: public IAttributeParser<DistanceConditionImpl>, public XmlParserBase<DistanceConditionImpl>
-            {
-            public:
-                AttributeValue(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
-
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<DistanceConditionImpl>& object) override
-                {
-                    Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
-                    Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    if (IsParametrized(attributeValue))
-                    {
-                        object->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, StripDollarSign(attributeValue), startMarker); 
-                    }
-                    else
-                    {
-                        // Parse value
-                        // Simple type
-                        object->SetValue(ParseDouble(attributeValue, startMarker));
-                    }
-                    object->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(startMarker));
-                    object->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(endMarker));
-                    
-                }
-
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
-            };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<AttributeValue>(_messageLogger, _filename)));
-            class AttributeFreespace: public IAttributeParser<DistanceConditionImpl>, public XmlParserBase<DistanceConditionImpl>
-            {
-            public:
-                AttributeFreespace(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
-
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<DistanceConditionImpl>& object) override
-                {
-                    Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
-                    Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    if (IsParametrized(attributeValue))
-                    {
-                        object->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, StripDollarSign(attributeValue), startMarker); 
-                    }
-                    else
-                    {
-                        // Parse value
-                        // Simple type
-                        object->SetFreespace(ParseBoolean(attributeValue, startMarker));
-                    }
-                    object->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, std::make_shared<Textmarker>(startMarker));
-                    object->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, std::make_shared<Textmarker>(endMarker));
-                    
-                }
-
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
-            };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, std::make_shared<AttributeFreespace>(_messageLogger, _filename)));
             class AttributeAlongRoute: public IAttributeParser<DistanceConditionImpl>, public XmlParserBase<DistanceConditionImpl>
             {
             public:
@@ -3136,6 +3076,36 @@ namespace NET_ASAM_OPENSCENARIO
                 }
             };
             result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__ALONG_ROUTE, std::make_shared<AttributeAlongRoute>(_messageLogger, _filename)));
+            class AttributeFreespace: public IAttributeParser<DistanceConditionImpl>, public XmlParserBase<DistanceConditionImpl>
+            {
+            public:
+                AttributeFreespace(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+
+                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<DistanceConditionImpl>& object) override
+                {
+                    Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
+                    Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
+                    if (IsParametrized(attributeValue))
+                    {
+                        object->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, StripDollarSign(attributeValue), startMarker); 
+                    }
+                    else
+                    {
+                        // Parse value
+                        // Simple type
+                        object->SetFreespace(ParseBoolean(attributeValue, startMarker));
+                    }
+                    object->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, std::make_shared<Textmarker>(startMarker));
+                    object->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, std::make_shared<Textmarker>(endMarker));
+                    
+                }
+
+                int GetMinOccur() override
+                {
+                    return 1;
+                }
+            };
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, std::make_shared<AttributeFreespace>(_messageLogger, _filename)));
             class AttributeRule: public IAttributeParser<DistanceConditionImpl>, public XmlParserBase<DistanceConditionImpl>
             {
             public:
@@ -3175,6 +3145,36 @@ namespace NET_ASAM_OPENSCENARIO
                 }
             };
             result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__RULE, std::make_shared<AttributeRule>(_messageLogger, _filename)));
+            class AttributeValue: public IAttributeParser<DistanceConditionImpl>, public XmlParserBase<DistanceConditionImpl>
+            {
+            public:
+                AttributeValue(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+
+                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<DistanceConditionImpl>& object) override
+                {
+                    Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
+                    Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
+                    if (IsParametrized(attributeValue))
+                    {
+                        object->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, StripDollarSign(attributeValue), startMarker); 
+                    }
+                    else
+                    {
+                        // Parse value
+                        // Simple type
+                        object->SetValue(ParseDouble(attributeValue, startMarker));
+                    }
+                    object->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(startMarker));
+                    object->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(endMarker));
+                    
+                }
+
+                int GetMinOccur() override
+                {
+                    return 1;
+                }
+            };
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<AttributeValue>(_messageLogger, _filename)));
             return result;
         }
 
@@ -3392,7 +3392,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Setting the parent
             scenarioObjects->SetParent(object);
             _scenarioObjectXmlParser->ParseElement(indexedElement, parserContext, scenarioObjects);
-            auto scenarioObjectsList = object->GetScenarioObjects();
+            auto scenarioObjectsList = object->GetWriterScenarioObjects();
             scenarioObjectsList.push_back(scenarioObjects);
             object->SetScenarioObjects(scenarioObjectsList);
         }
@@ -3407,7 +3407,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Setting the parent
             entitySelections->SetParent(object);
             _entitySelectionXmlParser->ParseElement(indexedElement, parserContext, entitySelections);
-            auto entitySelectionsList = object->GetEntitySelections();
+            auto entitySelectionsList = object->GetWriterEntitySelections();
             entitySelectionsList.push_back(entitySelections);
             object->SetEntitySelections(entitySelectionsList);
         }
@@ -3439,8 +3439,8 @@ namespace NET_ASAM_OPENSCENARIO
                     {
                         // Parse value
                         // Proxy
-                        NamedReferenceProxy<IEntity> proxy(attributeValue);
-                        proxy.SetParent(object);
+                        auto proxy = std::make_shared<NamedReferenceProxy<IEntity>>(attributeValue);
+                        proxy->SetParent(object);
                         object->SetEntityRef(proxy);
                     }
                     object->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, std::make_shared<Textmarker>(startMarker));
@@ -3739,7 +3739,7 @@ namespace NET_ASAM_OPENSCENARIO
             _catalogReferenceXmlParser->ParseElement(indexedElement, parserContext, catalogReference);
 
             object->SetCatalogReference(catalogReference);
-            std::dynamic_pointer_cast<CatalogReferenceParserContext>(parserContext)->AddCatalogReference(catalogReference);
+            std::dynamic_pointer_cast<CatalogReferenceParserContext>(parserContext)->AddCatalogReference(std::dynamic_pointer_cast<ICatalogReference>(catalogReference));
         }
         EntityObjectXmlParser::SubElementVehicleParser::SubElementVehicleParser(IParserMessageLogger& messageLogger, std::string& filename)
         {
@@ -3811,8 +3811,8 @@ namespace NET_ASAM_OPENSCENARIO
                     {
                         // Parse value
                         // Proxy
-                        NamedReferenceProxy<IEntity> proxy(attributeValue);
-                        proxy.SetParent(object);
+                        auto proxy = std::make_shared<NamedReferenceProxy<IEntity>>(attributeValue);
+                        proxy->SetParent(object);
                         object->SetEntityRef(proxy);
                     }
                     object->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, std::make_shared<Textmarker>(startMarker));
@@ -3965,7 +3965,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Setting the parent
             parameterDeclarations->SetParent(object);
             _parameterDeclarationXmlParser->ParseElement(indexedElement, parserContext, parameterDeclarations);
-            auto parameterDeclarationsList = object->GetParameterDeclarations();
+            auto parameterDeclarationsList = object->GetWriterParameterDeclarations();
             parameterDeclarationsList.push_back(parameterDeclarations);
             object->SetParameterDeclarations(parameterDeclarationsList);
         }
@@ -4060,7 +4060,7 @@ namespace NET_ASAM_OPENSCENARIO
             _catalogReferenceXmlParser->ParseElement(indexedElement, parserContext, catalogReference);
 
             object->SetCatalogReference(catalogReference);
-            std::dynamic_pointer_cast<CatalogReferenceParserContext>(parserContext)->AddCatalogReference(catalogReference);
+            std::dynamic_pointer_cast<CatalogReferenceParserContext>(parserContext)->AddCatalogReference(std::dynamic_pointer_cast<ICatalogReference>(catalogReference));
         }
 
         /**
@@ -4108,45 +4108,6 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<EventImpl>>> result;
 
-            class AttributePriority: public IAttributeParser<EventImpl>, public XmlParserBase<EventImpl>
-            {
-            public:
-                AttributePriority(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
-
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<EventImpl>& object) override
-                {
-                    Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
-                    Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    if (IsParametrized(attributeValue))
-                    {
-                        object->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__PRIORITY, StripDollarSign(attributeValue), startMarker); 
-                    }
-                    else
-                    {
-                        // Parse value
-                        // Enumeration Type
-                        const auto kResult = Priority::GetFromLiteral(attributeValue);
-                        if (kResult != Priority::UNKNOWN)
-                        {
-                            object->SetPriority(attributeValue);
-                        }
-                        else
-                        {
-                            auto msg = FileContentMessage("Value '" + attributeValue + "' is not allowed.", ERROR, startMarker);
-                            _messageLogger.LogMessage(msg);
-                        }
-                    }
-                    object->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__PRIORITY, std::make_shared<Textmarker>(startMarker));
-                    object->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__PRIORITY, std::make_shared<Textmarker>(endMarker));
-                    
-                }
-
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
-            };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__PRIORITY, std::make_shared<AttributePriority>(_messageLogger, _filename)));
             class AttributeMaximumExecutionCount: public IAttributeParser<EventImpl>, public XmlParserBase<EventImpl>
             {
             public:
@@ -4207,6 +4168,45 @@ namespace NET_ASAM_OPENSCENARIO
                 }
             };
             result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<AttributeName>(_messageLogger, _filename)));
+            class AttributePriority: public IAttributeParser<EventImpl>, public XmlParserBase<EventImpl>
+            {
+            public:
+                AttributePriority(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+
+                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<EventImpl>& object) override
+                {
+                    Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
+                    Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
+                    if (IsParametrized(attributeValue))
+                    {
+                        object->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__PRIORITY, StripDollarSign(attributeValue), startMarker); 
+                    }
+                    else
+                    {
+                        // Parse value
+                        // Enumeration Type
+                        const auto kResult = Priority::GetFromLiteral(attributeValue);
+                        if (kResult != Priority::UNKNOWN)
+                        {
+                            object->SetPriority(attributeValue);
+                        }
+                        else
+                        {
+                            auto msg = FileContentMessage("Value '" + attributeValue + "' is not allowed.", ERROR, startMarker);
+                            _messageLogger.LogMessage(msg);
+                        }
+                    }
+                    object->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__PRIORITY, std::make_shared<Textmarker>(startMarker));
+                    object->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__PRIORITY, std::make_shared<Textmarker>(endMarker));
+                    
+                }
+
+                int GetMinOccur() override
+                {
+                    return 1;
+                }
+            };
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__PRIORITY, std::make_shared<AttributePriority>(_messageLogger, _filename)));
             return result;
         }
 
@@ -4229,7 +4229,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Setting the parent
             actions->SetParent(object);
             _actionXmlParser->ParseElement(indexedElement, parserContext, actions);
-            auto actionsList = object->GetActions();
+            auto actionsList = object->GetWriterActions();
             actionsList.push_back(actions);
             object->SetActions(actionsList);
         }
@@ -4308,10 +4308,10 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<FileHeaderImpl>>> result;
 
-            class AttributeRevMajor: public IAttributeParser<FileHeaderImpl>, public XmlParserBase<FileHeaderImpl>
+            class AttributeAuthor: public IAttributeParser<FileHeaderImpl>, public XmlParserBase<FileHeaderImpl>
             {
             public:
-                AttributeRevMajor(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeAuthor(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
                 void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<FileHeaderImpl>& object) override
                 {
@@ -4319,16 +4319,16 @@ namespace NET_ASAM_OPENSCENARIO
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
                     if (IsParametrized(attributeValue))
                     {
-                        object->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__REV_MAJOR, StripDollarSign(attributeValue), startMarker); 
+                        object->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__AUTHOR, StripDollarSign(attributeValue), startMarker); 
                     }
                     else
                     {
                         // Parse value
                         // Simple type
-                        object->SetRevMajor(ParseUnsignedShort(attributeValue, startMarker));
+                        object->SetAuthor(ParseString(attributeValue, startMarker));
                     }
-                    object->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__REV_MAJOR, std::make_shared<Textmarker>(startMarker));
-                    object->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__REV_MAJOR, std::make_shared<Textmarker>(endMarker));
+                    object->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__AUTHOR, std::make_shared<Textmarker>(startMarker));
+                    object->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__AUTHOR, std::make_shared<Textmarker>(endMarker));
                     
                 }
 
@@ -4337,37 +4337,7 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__REV_MAJOR, std::make_shared<AttributeRevMajor>(_messageLogger, _filename)));
-            class AttributeRevMinor: public IAttributeParser<FileHeaderImpl>, public XmlParserBase<FileHeaderImpl>
-            {
-            public:
-                AttributeRevMinor(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
-
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<FileHeaderImpl>& object) override
-                {
-                    Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
-                    Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    if (IsParametrized(attributeValue))
-                    {
-                        object->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__REV_MINOR, StripDollarSign(attributeValue), startMarker); 
-                    }
-                    else
-                    {
-                        // Parse value
-                        // Simple type
-                        object->SetRevMinor(ParseUnsignedShort(attributeValue, startMarker));
-                    }
-                    object->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__REV_MINOR, std::make_shared<Textmarker>(startMarker));
-                    object->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__REV_MINOR, std::make_shared<Textmarker>(endMarker));
-                    
-                }
-
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
-            };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__REV_MINOR, std::make_shared<AttributeRevMinor>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__AUTHOR, std::make_shared<AttributeAuthor>(_messageLogger, _filename)));
             class AttributeDate: public IAttributeParser<FileHeaderImpl>, public XmlParserBase<FileHeaderImpl>
             {
             public:
@@ -4428,10 +4398,10 @@ namespace NET_ASAM_OPENSCENARIO
                 }
             };
             result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__DESCRIPTION, std::make_shared<AttributeDescription>(_messageLogger, _filename)));
-            class AttributeAuthor: public IAttributeParser<FileHeaderImpl>, public XmlParserBase<FileHeaderImpl>
+            class AttributeRevMajor: public IAttributeParser<FileHeaderImpl>, public XmlParserBase<FileHeaderImpl>
             {
             public:
-                AttributeAuthor(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeRevMajor(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
                 void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<FileHeaderImpl>& object) override
                 {
@@ -4439,16 +4409,16 @@ namespace NET_ASAM_OPENSCENARIO
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
                     if (IsParametrized(attributeValue))
                     {
-                        object->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__AUTHOR, StripDollarSign(attributeValue), startMarker); 
+                        object->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__REV_MAJOR, StripDollarSign(attributeValue), startMarker); 
                     }
                     else
                     {
                         // Parse value
                         // Simple type
-                        object->SetAuthor(ParseString(attributeValue, startMarker));
+                        object->SetRevMajor(ParseUnsignedShort(attributeValue, startMarker));
                     }
-                    object->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__AUTHOR, std::make_shared<Textmarker>(startMarker));
-                    object->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__AUTHOR, std::make_shared<Textmarker>(endMarker));
+                    object->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__REV_MAJOR, std::make_shared<Textmarker>(startMarker));
+                    object->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__REV_MAJOR, std::make_shared<Textmarker>(endMarker));
                     
                 }
 
@@ -4457,7 +4427,37 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__AUTHOR, std::make_shared<AttributeAuthor>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__REV_MAJOR, std::make_shared<AttributeRevMajor>(_messageLogger, _filename)));
+            class AttributeRevMinor: public IAttributeParser<FileHeaderImpl>, public XmlParserBase<FileHeaderImpl>
+            {
+            public:
+                AttributeRevMinor(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+
+                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<FileHeaderImpl>& object) override
+                {
+                    Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
+                    Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
+                    if (IsParametrized(attributeValue))
+                    {
+                        object->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__REV_MINOR, StripDollarSign(attributeValue), startMarker); 
+                    }
+                    else
+                    {
+                        // Parse value
+                        // Simple type
+                        object->SetRevMinor(ParseUnsignedShort(attributeValue, startMarker));
+                    }
+                    object->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__REV_MINOR, std::make_shared<Textmarker>(startMarker));
+                    object->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__REV_MINOR, std::make_shared<Textmarker>(endMarker));
+                    
+                }
+
+                int GetMinOccur() override
+                {
+                    return 1;
+                }
+            };
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__REV_MINOR, std::make_shared<AttributeRevMinor>(_messageLogger, _filename)));
             return result;
         }
 
@@ -4633,7 +4633,7 @@ namespace NET_ASAM_OPENSCENARIO
             _catalogReferenceXmlParser->ParseElement(indexedElement, parserContext, catalogReference);
 
             object->SetCatalogReference(catalogReference);
-            std::dynamic_pointer_cast<CatalogReferenceParserContext>(parserContext)->AddCatalogReference(catalogReference);
+            std::dynamic_pointer_cast<CatalogReferenceParserContext>(parserContext)->AddCatalogReference(std::dynamic_pointer_cast<ICatalogReference>(catalogReference));
         }
         FollowTrajectoryActionXmlParser::SubElementTimeReferenceParser::SubElementTimeReferenceParser(IParserMessageLogger& messageLogger, std::string& filename)
         {
@@ -4927,7 +4927,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Setting the parent
             globalActions->SetParent(object);
             _globalActionXmlParser->ParseElement(indexedElement, parserContext, globalActions);
-            auto globalActionsList = object->GetGlobalActions();
+            auto globalActionsList = object->GetWriterGlobalActions();
             globalActionsList.push_back(globalActions);
             object->SetGlobalActions(globalActionsList);
         }
@@ -4942,7 +4942,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Setting the parent
             userDefinedActions->SetParent(object);
             _userDefinedActionXmlParser->ParseElement(indexedElement, parserContext, userDefinedActions);
-            auto userDefinedActionsList = object->GetUserDefinedActions();
+            auto userDefinedActionsList = object->GetWriterUserDefinedActions();
             userDefinedActionsList.push_back(userDefinedActions);
             object->SetUserDefinedActions(userDefinedActionsList);
         }
@@ -4957,7 +4957,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Setting the parent
             privates->SetParent(object);
             _privateXmlParser->ParseElement(indexedElement, parserContext, privates);
-            auto privatesList = object->GetPrivates();
+            auto privatesList = object->GetWriterPrivates();
             privatesList.push_back(privates);
             object->SetPrivates(privatesList);
         }
@@ -5232,36 +5232,6 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<LaneOffsetActionDynamicsImpl>>> result;
 
-            class AttributeMaxLateralAcc: public IAttributeParser<LaneOffsetActionDynamicsImpl>, public XmlParserBase<LaneOffsetActionDynamicsImpl>
-            {
-            public:
-                AttributeMaxLateralAcc(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
-
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<LaneOffsetActionDynamicsImpl>& object) override
-                {
-                    Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
-                    Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    if (IsParametrized(attributeValue))
-                    {
-                        object->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAX_LATERAL_ACC, StripDollarSign(attributeValue), startMarker); 
-                    }
-                    else
-                    {
-                        // Parse value
-                        // Simple type
-                        object->SetMaxLateralAcc(ParseDouble(attributeValue, startMarker));
-                    }
-                    object->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__MAX_LATERAL_ACC, std::make_shared<Textmarker>(startMarker));
-                    object->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__MAX_LATERAL_ACC, std::make_shared<Textmarker>(endMarker));
-                    
-                }
-
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
-            };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__MAX_LATERAL_ACC, std::make_shared<AttributeMaxLateralAcc>(_messageLogger, _filename)));
             class AttributeDynamicsShape: public IAttributeParser<LaneOffsetActionDynamicsImpl>, public XmlParserBase<LaneOffsetActionDynamicsImpl>
             {
             public:
@@ -5301,6 +5271,36 @@ namespace NET_ASAM_OPENSCENARIO
                 }
             };
             result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__DYNAMICS_SHAPE, std::make_shared<AttributeDynamicsShape>(_messageLogger, _filename)));
+            class AttributeMaxLateralAcc: public IAttributeParser<LaneOffsetActionDynamicsImpl>, public XmlParserBase<LaneOffsetActionDynamicsImpl>
+            {
+            public:
+                AttributeMaxLateralAcc(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+
+                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<LaneOffsetActionDynamicsImpl>& object) override
+                {
+                    Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
+                    Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
+                    if (IsParametrized(attributeValue))
+                    {
+                        object->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAX_LATERAL_ACC, StripDollarSign(attributeValue), startMarker); 
+                    }
+                    else
+                    {
+                        // Parse value
+                        // Simple type
+                        object->SetMaxLateralAcc(ParseDouble(attributeValue, startMarker));
+                    }
+                    object->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__MAX_LATERAL_ACC, std::make_shared<Textmarker>(startMarker));
+                    object->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__MAX_LATERAL_ACC, std::make_shared<Textmarker>(endMarker));
+                    
+                }
+
+                int GetMinOccur() override
+                {
+                    return 0;
+                }
+            };
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__MAX_LATERAL_ACC, std::make_shared<AttributeMaxLateralAcc>(_messageLogger, _filename)));
             return result;
         }
 
@@ -5371,36 +5371,6 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<LanePositionImpl>>> result;
 
-            class AttributeRoadId: public IAttributeParser<LanePositionImpl>, public XmlParserBase<LanePositionImpl>
-            {
-            public:
-                AttributeRoadId(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
-
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<LanePositionImpl>& object) override
-                {
-                    Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
-                    Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    if (IsParametrized(attributeValue))
-                    {
-                        object->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ROAD_ID, StripDollarSign(attributeValue), startMarker); 
-                    }
-                    else
-                    {
-                        // Parse value
-                        // Simple type
-                        object->SetRoadId(ParseString(attributeValue, startMarker));
-                    }
-                    object->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__ROAD_ID, std::make_shared<Textmarker>(startMarker));
-                    object->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__ROAD_ID, std::make_shared<Textmarker>(endMarker));
-                    
-                }
-
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
-            };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__ROAD_ID, std::make_shared<AttributeRoadId>(_messageLogger, _filename)));
             class AttributeLaneId: public IAttributeParser<LanePositionImpl>, public XmlParserBase<LanePositionImpl>
             {
             public:
@@ -5461,6 +5431,36 @@ namespace NET_ASAM_OPENSCENARIO
                 }
             };
             result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__OFFSET, std::make_shared<AttributeOffset>(_messageLogger, _filename)));
+            class AttributeRoadId: public IAttributeParser<LanePositionImpl>, public XmlParserBase<LanePositionImpl>
+            {
+            public:
+                AttributeRoadId(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+
+                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<LanePositionImpl>& object) override
+                {
+                    Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
+                    Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
+                    if (IsParametrized(attributeValue))
+                    {
+                        object->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ROAD_ID, StripDollarSign(attributeValue), startMarker); 
+                    }
+                    else
+                    {
+                        // Parse value
+                        // Simple type
+                        object->SetRoadId(ParseString(attributeValue, startMarker));
+                    }
+                    object->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__ROAD_ID, std::make_shared<Textmarker>(startMarker));
+                    object->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__ROAD_ID, std::make_shared<Textmarker>(endMarker));
+                    
+                }
+
+                int GetMinOccur() override
+                {
+                    return 1;
+                }
+            };
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__ROAD_ID, std::make_shared<AttributeRoadId>(_messageLogger, _filename)));
             class AttributeS: public IAttributeParser<LanePositionImpl>, public XmlParserBase<LanePositionImpl>
             {
             public:
@@ -5591,98 +5591,6 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<LateralDistanceActionImpl>>> result;
 
-            class AttributeEntityRef: public IAttributeParser<LateralDistanceActionImpl>, public XmlParserBase<LateralDistanceActionImpl>
-            {
-            public:
-                AttributeEntityRef(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
-
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<LateralDistanceActionImpl>& object) override
-                {
-                    Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
-                    Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    if (IsParametrized(attributeValue))
-                    {
-                        object->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, StripDollarSign(attributeValue), startMarker); 
-                    }
-                    else
-                    {
-                        // Parse value
-                        // Proxy
-                        NamedReferenceProxy<IEntity> proxy(attributeValue);
-                        proxy.SetParent(object);
-                        object->SetEntityRef(proxy);
-                    }
-                    object->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, std::make_shared<Textmarker>(startMarker));
-                    object->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, std::make_shared<Textmarker>(endMarker));
-                    
-                }
-
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
-            };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, std::make_shared<AttributeEntityRef>(_messageLogger, _filename)));
-            class AttributeDistance: public IAttributeParser<LateralDistanceActionImpl>, public XmlParserBase<LateralDistanceActionImpl>
-            {
-            public:
-                AttributeDistance(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
-
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<LateralDistanceActionImpl>& object) override
-                {
-                    Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
-                    Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    if (IsParametrized(attributeValue))
-                    {
-                        object->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DISTANCE, StripDollarSign(attributeValue), startMarker); 
-                    }
-                    else
-                    {
-                        // Parse value
-                        // Simple type
-                        object->SetDistance(ParseDouble(attributeValue, startMarker));
-                    }
-                    object->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__DISTANCE, std::make_shared<Textmarker>(startMarker));
-                    object->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__DISTANCE, std::make_shared<Textmarker>(endMarker));
-                    
-                }
-
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
-            };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__DISTANCE, std::make_shared<AttributeDistance>(_messageLogger, _filename)));
-            class AttributeFreespace: public IAttributeParser<LateralDistanceActionImpl>, public XmlParserBase<LateralDistanceActionImpl>
-            {
-            public:
-                AttributeFreespace(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
-
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<LateralDistanceActionImpl>& object) override
-                {
-                    Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
-                    Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    if (IsParametrized(attributeValue))
-                    {
-                        object->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, StripDollarSign(attributeValue), startMarker); 
-                    }
-                    else
-                    {
-                        // Parse value
-                        // Simple type
-                        object->SetFreespace(ParseBoolean(attributeValue, startMarker));
-                    }
-                    object->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, std::make_shared<Textmarker>(startMarker));
-                    object->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, std::make_shared<Textmarker>(endMarker));
-                    
-                }
-
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
-            };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, std::make_shared<AttributeFreespace>(_messageLogger, _filename)));
             class AttributeContinuous: public IAttributeParser<LateralDistanceActionImpl>, public XmlParserBase<LateralDistanceActionImpl>
             {
             public:
@@ -5713,6 +5621,98 @@ namespace NET_ASAM_OPENSCENARIO
                 }
             };
             result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS, std::make_shared<AttributeContinuous>(_messageLogger, _filename)));
+            class AttributeDistance: public IAttributeParser<LateralDistanceActionImpl>, public XmlParserBase<LateralDistanceActionImpl>
+            {
+            public:
+                AttributeDistance(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+
+                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<LateralDistanceActionImpl>& object) override
+                {
+                    Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
+                    Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
+                    if (IsParametrized(attributeValue))
+                    {
+                        object->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DISTANCE, StripDollarSign(attributeValue), startMarker); 
+                    }
+                    else
+                    {
+                        // Parse value
+                        // Simple type
+                        object->SetDistance(ParseDouble(attributeValue, startMarker));
+                    }
+                    object->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__DISTANCE, std::make_shared<Textmarker>(startMarker));
+                    object->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__DISTANCE, std::make_shared<Textmarker>(endMarker));
+                    
+                }
+
+                int GetMinOccur() override
+                {
+                    return 0;
+                }
+            };
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__DISTANCE, std::make_shared<AttributeDistance>(_messageLogger, _filename)));
+            class AttributeEntityRef: public IAttributeParser<LateralDistanceActionImpl>, public XmlParserBase<LateralDistanceActionImpl>
+            {
+            public:
+                AttributeEntityRef(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+
+                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<LateralDistanceActionImpl>& object) override
+                {
+                    Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
+                    Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
+                    if (IsParametrized(attributeValue))
+                    {
+                        object->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, StripDollarSign(attributeValue), startMarker); 
+                    }
+                    else
+                    {
+                        // Parse value
+                        // Proxy
+                        auto proxy = std::make_shared<NamedReferenceProxy<IEntity>>(attributeValue);
+                        proxy->SetParent(object);
+                        object->SetEntityRef(proxy);
+                    }
+                    object->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, std::make_shared<Textmarker>(startMarker));
+                    object->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, std::make_shared<Textmarker>(endMarker));
+                    
+                }
+
+                int GetMinOccur() override
+                {
+                    return 1;
+                }
+            };
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, std::make_shared<AttributeEntityRef>(_messageLogger, _filename)));
+            class AttributeFreespace: public IAttributeParser<LateralDistanceActionImpl>, public XmlParserBase<LateralDistanceActionImpl>
+            {
+            public:
+                AttributeFreespace(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+
+                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<LateralDistanceActionImpl>& object) override
+                {
+                    Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
+                    Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
+                    if (IsParametrized(attributeValue))
+                    {
+                        object->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, StripDollarSign(attributeValue), startMarker); 
+                    }
+                    else
+                    {
+                        // Parse value
+                        // Simple type
+                        object->SetFreespace(ParseBoolean(attributeValue, startMarker));
+                    }
+                    object->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, std::make_shared<Textmarker>(startMarker));
+                    object->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, std::make_shared<Textmarker>(endMarker));
+                    
+                }
+
+                int GetMinOccur() override
+                {
+                    return 1;
+                }
+            };
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, std::make_shared<AttributeFreespace>(_messageLogger, _filename)));
             return result;
         }
 
@@ -5798,128 +5798,6 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<LongitudinalDistanceActionImpl>>> result;
 
-            class AttributeEntityRef: public IAttributeParser<LongitudinalDistanceActionImpl>, public XmlParserBase<LongitudinalDistanceActionImpl>
-            {
-            public:
-                AttributeEntityRef(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
-
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<LongitudinalDistanceActionImpl>& object) override
-                {
-                    Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
-                    Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    if (IsParametrized(attributeValue))
-                    {
-                        object->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, StripDollarSign(attributeValue), startMarker); 
-                    }
-                    else
-                    {
-                        // Parse value
-                        // Proxy
-                        NamedReferenceProxy<IEntity> proxy(attributeValue);
-                        proxy.SetParent(object);
-                        object->SetEntityRef(proxy);
-                    }
-                    object->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, std::make_shared<Textmarker>(startMarker));
-                    object->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, std::make_shared<Textmarker>(endMarker));
-                    
-                }
-
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
-            };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, std::make_shared<AttributeEntityRef>(_messageLogger, _filename)));
-            class AttributeDistance: public IAttributeParser<LongitudinalDistanceActionImpl>, public XmlParserBase<LongitudinalDistanceActionImpl>
-            {
-            public:
-                AttributeDistance(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
-
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<LongitudinalDistanceActionImpl>& object) override
-                {
-                    Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
-                    Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    if (IsParametrized(attributeValue))
-                    {
-                        object->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DISTANCE, StripDollarSign(attributeValue), startMarker); 
-                    }
-                    else
-                    {
-                        // Parse value
-                        // Simple type
-                        object->SetDistance(ParseDouble(attributeValue, startMarker));
-                    }
-                    object->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__DISTANCE, std::make_shared<Textmarker>(startMarker));
-                    object->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__DISTANCE, std::make_shared<Textmarker>(endMarker));
-                    
-                }
-
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
-            };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__DISTANCE, std::make_shared<AttributeDistance>(_messageLogger, _filename)));
-            class AttributeTimeGap: public IAttributeParser<LongitudinalDistanceActionImpl>, public XmlParserBase<LongitudinalDistanceActionImpl>
-            {
-            public:
-                AttributeTimeGap(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
-
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<LongitudinalDistanceActionImpl>& object) override
-                {
-                    Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
-                    Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    if (IsParametrized(attributeValue))
-                    {
-                        object->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TIME_GAP, StripDollarSign(attributeValue), startMarker); 
-                    }
-                    else
-                    {
-                        // Parse value
-                        // Simple type
-                        object->SetTimeGap(ParseDouble(attributeValue, startMarker));
-                    }
-                    object->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__TIME_GAP, std::make_shared<Textmarker>(startMarker));
-                    object->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__TIME_GAP, std::make_shared<Textmarker>(endMarker));
-                    
-                }
-
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
-            };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__TIME_GAP, std::make_shared<AttributeTimeGap>(_messageLogger, _filename)));
-            class AttributeFreespace: public IAttributeParser<LongitudinalDistanceActionImpl>, public XmlParserBase<LongitudinalDistanceActionImpl>
-            {
-            public:
-                AttributeFreespace(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
-
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<LongitudinalDistanceActionImpl>& object) override
-                {
-                    Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
-                    Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    if (IsParametrized(attributeValue))
-                    {
-                        object->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, StripDollarSign(attributeValue), startMarker); 
-                    }
-                    else
-                    {
-                        // Parse value
-                        // Simple type
-                        object->SetFreespace(ParseBoolean(attributeValue, startMarker));
-                    }
-                    object->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, std::make_shared<Textmarker>(startMarker));
-                    object->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, std::make_shared<Textmarker>(endMarker));
-                    
-                }
-
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
-            };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, std::make_shared<AttributeFreespace>(_messageLogger, _filename)));
             class AttributeContinuous: public IAttributeParser<LongitudinalDistanceActionImpl>, public XmlParserBase<LongitudinalDistanceActionImpl>
             {
             public:
@@ -5950,6 +5828,128 @@ namespace NET_ASAM_OPENSCENARIO
                 }
             };
             result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS, std::make_shared<AttributeContinuous>(_messageLogger, _filename)));
+            class AttributeDistance: public IAttributeParser<LongitudinalDistanceActionImpl>, public XmlParserBase<LongitudinalDistanceActionImpl>
+            {
+            public:
+                AttributeDistance(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+
+                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<LongitudinalDistanceActionImpl>& object) override
+                {
+                    Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
+                    Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
+                    if (IsParametrized(attributeValue))
+                    {
+                        object->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DISTANCE, StripDollarSign(attributeValue), startMarker); 
+                    }
+                    else
+                    {
+                        // Parse value
+                        // Simple type
+                        object->SetDistance(ParseDouble(attributeValue, startMarker));
+                    }
+                    object->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__DISTANCE, std::make_shared<Textmarker>(startMarker));
+                    object->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__DISTANCE, std::make_shared<Textmarker>(endMarker));
+                    
+                }
+
+                int GetMinOccur() override
+                {
+                    return 0;
+                }
+            };
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__DISTANCE, std::make_shared<AttributeDistance>(_messageLogger, _filename)));
+            class AttributeEntityRef: public IAttributeParser<LongitudinalDistanceActionImpl>, public XmlParserBase<LongitudinalDistanceActionImpl>
+            {
+            public:
+                AttributeEntityRef(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+
+                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<LongitudinalDistanceActionImpl>& object) override
+                {
+                    Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
+                    Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
+                    if (IsParametrized(attributeValue))
+                    {
+                        object->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, StripDollarSign(attributeValue), startMarker); 
+                    }
+                    else
+                    {
+                        // Parse value
+                        // Proxy
+                        auto proxy = std::make_shared<NamedReferenceProxy<IEntity>>(attributeValue);
+                        proxy->SetParent(object);
+                        object->SetEntityRef(proxy);
+                    }
+                    object->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, std::make_shared<Textmarker>(startMarker));
+                    object->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, std::make_shared<Textmarker>(endMarker));
+                    
+                }
+
+                int GetMinOccur() override
+                {
+                    return 1;
+                }
+            };
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, std::make_shared<AttributeEntityRef>(_messageLogger, _filename)));
+            class AttributeFreespace: public IAttributeParser<LongitudinalDistanceActionImpl>, public XmlParserBase<LongitudinalDistanceActionImpl>
+            {
+            public:
+                AttributeFreespace(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+
+                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<LongitudinalDistanceActionImpl>& object) override
+                {
+                    Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
+                    Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
+                    if (IsParametrized(attributeValue))
+                    {
+                        object->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, StripDollarSign(attributeValue), startMarker); 
+                    }
+                    else
+                    {
+                        // Parse value
+                        // Simple type
+                        object->SetFreespace(ParseBoolean(attributeValue, startMarker));
+                    }
+                    object->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, std::make_shared<Textmarker>(startMarker));
+                    object->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, std::make_shared<Textmarker>(endMarker));
+                    
+                }
+
+                int GetMinOccur() override
+                {
+                    return 1;
+                }
+            };
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, std::make_shared<AttributeFreespace>(_messageLogger, _filename)));
+            class AttributeTimeGap: public IAttributeParser<LongitudinalDistanceActionImpl>, public XmlParserBase<LongitudinalDistanceActionImpl>
+            {
+            public:
+                AttributeTimeGap(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+
+                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<LongitudinalDistanceActionImpl>& object) override
+                {
+                    Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
+                    Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
+                    if (IsParametrized(attributeValue))
+                    {
+                        object->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TIME_GAP, StripDollarSign(attributeValue), startMarker); 
+                    }
+                    else
+                    {
+                        // Parse value
+                        // Simple type
+                        object->SetTimeGap(ParseDouble(attributeValue, startMarker));
+                    }
+                    object->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__TIME_GAP, std::make_shared<Textmarker>(startMarker));
+                    object->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__TIME_GAP, std::make_shared<Textmarker>(endMarker));
+                    
+                }
+
+                int GetMinOccur() override
+                {
+                    return 0;
+                }
+            };
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__TIME_GAP, std::make_shared<AttributeTimeGap>(_messageLogger, _filename)));
             return result;
         }
 
@@ -6037,7 +6037,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Setting the parent
             parameterDeclarations->SetParent(object);
             _parameterDeclarationXmlParser->ParseElement(indexedElement, parserContext, parameterDeclarations);
-            auto parameterDeclarationsList = object->GetParameterDeclarations();
+            auto parameterDeclarationsList = object->GetWriterParameterDeclarations();
             parameterDeclarationsList.push_back(parameterDeclarations);
             object->SetParameterDeclarations(parameterDeclarationsList);
         }
@@ -6052,7 +6052,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Setting the parent
             events->SetParent(object);
             _eventXmlParser->ParseElement(indexedElement, parserContext, events);
-            auto eventsList = object->GetEvents();
+            auto eventsList = object->GetWriterEvents();
             eventsList.push_back(events);
             object->SetEvents(eventsList);
         }
@@ -6199,10 +6199,10 @@ namespace NET_ASAM_OPENSCENARIO
             // Setting the parent
             catalogReferences->SetParent(object);
             _catalogReferenceXmlParser->ParseElement(indexedElement, parserContext, catalogReferences);
-            auto catalogReferencesList = object->GetCatalogReferences();
+            auto catalogReferencesList = object->GetWriterCatalogReferences();
             catalogReferencesList.push_back(catalogReferences);
             object->SetCatalogReferences(catalogReferencesList);
-            std::dynamic_pointer_cast<CatalogReferenceParserContext>(parserContext)->AddCatalogReference(catalogReferences);
+            std::dynamic_pointer_cast<CatalogReferenceParserContext>(parserContext)->AddCatalogReference(std::dynamic_pointer_cast<ICatalogReference>(catalogReferences));
         }
         ManeuverGroupXmlParser::SubElementManeuversParser::SubElementManeuversParser(IParserMessageLogger& messageLogger, std::string& filename)
         {
@@ -6215,7 +6215,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Setting the parent
             maneuvers->SetParent(object);
             _maneuverXmlParser->ParseElement(indexedElement, parserContext, maneuvers);
-            auto maneuversList = object->GetManeuvers();
+            auto maneuversList = object->GetWriterManeuvers();
             maneuversList.push_back(maneuvers);
             object->SetManeuvers(maneuversList);
         }
@@ -6230,6 +6230,36 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<MiscObjectImpl>>> result;
 
+            class AttributeMass: public IAttributeParser<MiscObjectImpl>, public XmlParserBase<MiscObjectImpl>
+            {
+            public:
+                AttributeMass(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+
+                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<MiscObjectImpl>& object) override
+                {
+                    Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
+                    Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
+                    if (IsParametrized(attributeValue))
+                    {
+                        object->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MASS, StripDollarSign(attributeValue), startMarker); 
+                    }
+                    else
+                    {
+                        // Parse value
+                        // Simple type
+                        object->SetMass(ParseDouble(attributeValue, startMarker));
+                    }
+                    object->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__MASS, std::make_shared<Textmarker>(startMarker));
+                    object->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__MASS, std::make_shared<Textmarker>(endMarker));
+                    
+                }
+
+                int GetMinOccur() override
+                {
+                    return 1;
+                }
+            };
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__MASS, std::make_shared<AttributeMass>(_messageLogger, _filename)));
             class AttributeMiscObjectCategory: public IAttributeParser<MiscObjectImpl>, public XmlParserBase<MiscObjectImpl>
             {
             public:
@@ -6269,36 +6299,6 @@ namespace NET_ASAM_OPENSCENARIO
                 }
             };
             result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__MISC_OBJECT_CATEGORY, std::make_shared<AttributeMiscObjectCategory>(_messageLogger, _filename)));
-            class AttributeMass: public IAttributeParser<MiscObjectImpl>, public XmlParserBase<MiscObjectImpl>
-            {
-            public:
-                AttributeMass(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
-
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<MiscObjectImpl>& object) override
-                {
-                    Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
-                    Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    if (IsParametrized(attributeValue))
-                    {
-                        object->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MASS, StripDollarSign(attributeValue), startMarker); 
-                    }
-                    else
-                    {
-                        // Parse value
-                        // Simple type
-                        object->SetMass(ParseDouble(attributeValue, startMarker));
-                    }
-                    object->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__MASS, std::make_shared<Textmarker>(startMarker));
-                    object->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__MASS, std::make_shared<Textmarker>(endMarker));
-                    
-                }
-
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
-            };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__MASS, std::make_shared<AttributeMass>(_messageLogger, _filename)));
             class AttributeName: public IAttributeParser<MiscObjectImpl>, public XmlParserBase<MiscObjectImpl>
             {
             public:
@@ -6352,7 +6352,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Setting the parent
             parameterDeclarations->SetParent(object);
             _parameterDeclarationXmlParser->ParseElement(indexedElement, parserContext, parameterDeclarations);
-            auto parameterDeclarationsList = object->GetParameterDeclarations();
+            auto parameterDeclarationsList = object->GetWriterParameterDeclarations();
             parameterDeclarationsList.push_back(parameterDeclarations);
             object->SetParameterDeclarations(parameterDeclarationsList);
         }
@@ -6552,7 +6552,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Setting the parent
             controlPoints->SetParent(object);
             _controlPointXmlParser->ParseElement(indexedElement, parserContext, controlPoints);
-            auto controlPointsList = object->GetControlPoints();
+            auto controlPointsList = object->GetWriterControlPoints();
             controlPointsList.push_back(controlPoints);
             object->SetControlPoints(controlPointsList);
         }
@@ -6567,7 +6567,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Setting the parent
             knots->SetParent(object);
             _knotXmlParser->ParseElement(indexedElement, parserContext, knots);
-            auto knotsList = object->GetKnots();
+            auto knotsList = object->GetWriterKnots();
             knotsList.push_back(knots);
             object->SetKnots(knotsList);
         }
@@ -6606,7 +6606,7 @@ namespace NET_ASAM_OPENSCENARIO
             _catalogReferenceXmlParser->ParseElement(indexedElement, parserContext, catalogReference);
 
             object->SetCatalogReference(catalogReference);
-            std::dynamic_pointer_cast<CatalogReferenceParserContext>(parserContext)->AddCatalogReference(catalogReference);
+            std::dynamic_pointer_cast<CatalogReferenceParserContext>(parserContext)->AddCatalogReference(std::dynamic_pointer_cast<ICatalogReference>(catalogReference));
         }
         ObjectControllerXmlParser::SubElementControllerParser::SubElementControllerParser(IParserMessageLogger& messageLogger, std::string& filename)
         {
@@ -6777,45 +6777,6 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<OrientationImpl>>> result;
 
-            class AttributeType: public IAttributeParser<OrientationImpl>, public XmlParserBase<OrientationImpl>
-            {
-            public:
-                AttributeType(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
-
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<OrientationImpl>& object) override
-                {
-                    Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
-                    Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    if (IsParametrized(attributeValue))
-                    {
-                        object->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TYPE, StripDollarSign(attributeValue), startMarker); 
-                    }
-                    else
-                    {
-                        // Parse value
-                        // Enumeration Type
-                        const auto kResult = ReferenceContext::GetFromLiteral(attributeValue);
-                        if (kResult != ReferenceContext::UNKNOWN)
-                        {
-                            object->SetType(attributeValue);
-                        }
-                        else
-                        {
-                            auto msg = FileContentMessage("Value '" + attributeValue + "' is not allowed.", ERROR, startMarker);
-                            _messageLogger.LogMessage(msg);
-                        }
-                    }
-                    object->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__TYPE, std::make_shared<Textmarker>(startMarker));
-                    object->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__TYPE, std::make_shared<Textmarker>(endMarker));
-                    
-                }
-
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
-            };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__TYPE, std::make_shared<AttributeType>(_messageLogger, _filename)));
             class AttributeH: public IAttributeParser<OrientationImpl>, public XmlParserBase<OrientationImpl>
             {
             public:
@@ -6906,6 +6867,45 @@ namespace NET_ASAM_OPENSCENARIO
                 }
             };
             result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__R, std::make_shared<AttributeR>(_messageLogger, _filename)));
+            class AttributeType: public IAttributeParser<OrientationImpl>, public XmlParserBase<OrientationImpl>
+            {
+            public:
+                AttributeType(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+
+                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<OrientationImpl>& object) override
+                {
+                    Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
+                    Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
+                    if (IsParametrized(attributeValue))
+                    {
+                        object->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TYPE, StripDollarSign(attributeValue), startMarker); 
+                    }
+                    else
+                    {
+                        // Parse value
+                        // Enumeration Type
+                        const auto kResult = ReferenceContext::GetFromLiteral(attributeValue);
+                        if (kResult != ReferenceContext::UNKNOWN)
+                        {
+                            object->SetType(attributeValue);
+                        }
+                        else
+                        {
+                            auto msg = FileContentMessage("Value '" + attributeValue + "' is not allowed.", ERROR, startMarker);
+                            _messageLogger.LogMessage(msg);
+                        }
+                    }
+                    object->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__TYPE, std::make_shared<Textmarker>(startMarker));
+                    object->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__TYPE, std::make_shared<Textmarker>(endMarker));
+                    
+                }
+
+                int GetMinOccur() override
+                {
+                    return 0;
+                }
+            };
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__TYPE, std::make_shared<AttributeType>(_messageLogger, _filename)));
             return result;
         }
 
@@ -6926,36 +6926,6 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<OverrideBrakeActionImpl>>> result;
 
-            class AttributeValue: public IAttributeParser<OverrideBrakeActionImpl>, public XmlParserBase<OverrideBrakeActionImpl>
-            {
-            public:
-                AttributeValue(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
-
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<OverrideBrakeActionImpl>& object) override
-                {
-                    Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
-                    Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    if (IsParametrized(attributeValue))
-                    {
-                        object->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, StripDollarSign(attributeValue), startMarker); 
-                    }
-                    else
-                    {
-                        // Parse value
-                        // Simple type
-                        object->SetValue(ParseDouble(attributeValue, startMarker));
-                    }
-                    object->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(startMarker));
-                    object->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(endMarker));
-                    
-                }
-
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
-            };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<AttributeValue>(_messageLogger, _filename)));
             class AttributeActive: public IAttributeParser<OverrideBrakeActionImpl>, public XmlParserBase<OverrideBrakeActionImpl>
             {
             public:
@@ -6986,32 +6956,12 @@ namespace NET_ASAM_OPENSCENARIO
                 }
             };
             result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, std::make_shared<AttributeActive>(_messageLogger, _filename)));
-            return result;
-        }
-
-        std::vector<std::shared_ptr<IElementParser<OverrideBrakeActionImpl>>> OverrideBrakeActionXmlParser::SubElementParser::CreateParserList()
-        {
-            std::vector<std::shared_ptr<IElementParser<OverrideBrakeActionImpl>>> result;
-            return result;
-        }
-
-
-        /**
-         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
-         * Filling a OverrideClutchActionImpl instance from an xml tree.
-         * 
-         * @author RA Consulting OpenSCENARIO generation facility
-        */
-        std::map<std::string, std::shared_ptr<IAttributeParser<OverrideClutchActionImpl>>> OverrideClutchActionXmlParser::GetAttributeNameToAttributeParserMap()
-        {
-            std::map<std::string, std::shared_ptr<IAttributeParser<OverrideClutchActionImpl>>> result;
-
-            class AttributeValue: public IAttributeParser<OverrideClutchActionImpl>, public XmlParserBase<OverrideClutchActionImpl>
+            class AttributeValue: public IAttributeParser<OverrideBrakeActionImpl>, public XmlParserBase<OverrideBrakeActionImpl>
             {
             public:
                 AttributeValue(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<OverrideClutchActionImpl>& object) override
+                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<OverrideBrakeActionImpl>& object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
@@ -7036,6 +6986,26 @@ namespace NET_ASAM_OPENSCENARIO
                 }
             };
             result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<AttributeValue>(_messageLogger, _filename)));
+            return result;
+        }
+
+        std::vector<std::shared_ptr<IElementParser<OverrideBrakeActionImpl>>> OverrideBrakeActionXmlParser::SubElementParser::CreateParserList()
+        {
+            std::vector<std::shared_ptr<IElementParser<OverrideBrakeActionImpl>>> result;
+            return result;
+        }
+
+
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a OverrideClutchActionImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
+        std::map<std::string, std::shared_ptr<IAttributeParser<OverrideClutchActionImpl>>> OverrideClutchActionXmlParser::GetAttributeNameToAttributeParserMap()
+        {
+            std::map<std::string, std::shared_ptr<IAttributeParser<OverrideClutchActionImpl>>> result;
+
             class AttributeActive: public IAttributeParser<OverrideClutchActionImpl>, public XmlParserBase<OverrideClutchActionImpl>
             {
             public:
@@ -7066,6 +7036,36 @@ namespace NET_ASAM_OPENSCENARIO
                 }
             };
             result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, std::make_shared<AttributeActive>(_messageLogger, _filename)));
+            class AttributeValue: public IAttributeParser<OverrideClutchActionImpl>, public XmlParserBase<OverrideClutchActionImpl>
+            {
+            public:
+                AttributeValue(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+
+                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<OverrideClutchActionImpl>& object) override
+                {
+                    Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
+                    Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
+                    if (IsParametrized(attributeValue))
+                    {
+                        object->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, StripDollarSign(attributeValue), startMarker); 
+                    }
+                    else
+                    {
+                        // Parse value
+                        // Simple type
+                        object->SetValue(ParseDouble(attributeValue, startMarker));
+                    }
+                    object->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(startMarker));
+                    object->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(endMarker));
+                    
+                }
+
+                int GetMinOccur() override
+                {
+                    return 1;
+                }
+            };
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<AttributeValue>(_messageLogger, _filename)));
             return result;
         }
 
@@ -7196,36 +7196,6 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<OverrideGearActionImpl>>> result;
 
-            class AttributeNumber: public IAttributeParser<OverrideGearActionImpl>, public XmlParserBase<OverrideGearActionImpl>
-            {
-            public:
-                AttributeNumber(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
-
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<OverrideGearActionImpl>& object) override
-                {
-                    Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
-                    Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    if (IsParametrized(attributeValue))
-                    {
-                        object->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NUMBER, StripDollarSign(attributeValue), startMarker); 
-                    }
-                    else
-                    {
-                        // Parse value
-                        // Simple type
-                        object->SetNumber(ParseDouble(attributeValue, startMarker));
-                    }
-                    object->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__NUMBER, std::make_shared<Textmarker>(startMarker));
-                    object->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__NUMBER, std::make_shared<Textmarker>(endMarker));
-                    
-                }
-
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
-            };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__NUMBER, std::make_shared<AttributeNumber>(_messageLogger, _filename)));
             class AttributeActive: public IAttributeParser<OverrideGearActionImpl>, public XmlParserBase<OverrideGearActionImpl>
             {
             public:
@@ -7256,6 +7226,36 @@ namespace NET_ASAM_OPENSCENARIO
                 }
             };
             result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, std::make_shared<AttributeActive>(_messageLogger, _filename)));
+            class AttributeNumber: public IAttributeParser<OverrideGearActionImpl>, public XmlParserBase<OverrideGearActionImpl>
+            {
+            public:
+                AttributeNumber(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+
+                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<OverrideGearActionImpl>& object) override
+                {
+                    Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
+                    Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
+                    if (IsParametrized(attributeValue))
+                    {
+                        object->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NUMBER, StripDollarSign(attributeValue), startMarker); 
+                    }
+                    else
+                    {
+                        // Parse value
+                        // Simple type
+                        object->SetNumber(ParseDouble(attributeValue, startMarker));
+                    }
+                    object->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__NUMBER, std::make_shared<Textmarker>(startMarker));
+                    object->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__NUMBER, std::make_shared<Textmarker>(endMarker));
+                    
+                }
+
+                int GetMinOccur() override
+                {
+                    return 1;
+                }
+            };
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__NUMBER, std::make_shared<AttributeNumber>(_messageLogger, _filename)));
             return result;
         }
 
@@ -7276,36 +7276,6 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<OverrideParkingBrakeActionImpl>>> result;
 
-            class AttributeValue: public IAttributeParser<OverrideParkingBrakeActionImpl>, public XmlParserBase<OverrideParkingBrakeActionImpl>
-            {
-            public:
-                AttributeValue(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
-
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<OverrideParkingBrakeActionImpl>& object) override
-                {
-                    Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
-                    Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    if (IsParametrized(attributeValue))
-                    {
-                        object->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, StripDollarSign(attributeValue), startMarker); 
-                    }
-                    else
-                    {
-                        // Parse value
-                        // Simple type
-                        object->SetValue(ParseDouble(attributeValue, startMarker));
-                    }
-                    object->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(startMarker));
-                    object->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(endMarker));
-                    
-                }
-
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
-            };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<AttributeValue>(_messageLogger, _filename)));
             class AttributeActive: public IAttributeParser<OverrideParkingBrakeActionImpl>, public XmlParserBase<OverrideParkingBrakeActionImpl>
             {
             public:
@@ -7336,32 +7306,12 @@ namespace NET_ASAM_OPENSCENARIO
                 }
             };
             result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, std::make_shared<AttributeActive>(_messageLogger, _filename)));
-            return result;
-        }
-
-        std::vector<std::shared_ptr<IElementParser<OverrideParkingBrakeActionImpl>>> OverrideParkingBrakeActionXmlParser::SubElementParser::CreateParserList()
-        {
-            std::vector<std::shared_ptr<IElementParser<OverrideParkingBrakeActionImpl>>> result;
-            return result;
-        }
-
-
-        /**
-         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
-         * Filling a OverrideSteeringWheelActionImpl instance from an xml tree.
-         * 
-         * @author RA Consulting OpenSCENARIO generation facility
-        */
-        std::map<std::string, std::shared_ptr<IAttributeParser<OverrideSteeringWheelActionImpl>>> OverrideSteeringWheelActionXmlParser::GetAttributeNameToAttributeParserMap()
-        {
-            std::map<std::string, std::shared_ptr<IAttributeParser<OverrideSteeringWheelActionImpl>>> result;
-
-            class AttributeValue: public IAttributeParser<OverrideSteeringWheelActionImpl>, public XmlParserBase<OverrideSteeringWheelActionImpl>
+            class AttributeValue: public IAttributeParser<OverrideParkingBrakeActionImpl>, public XmlParserBase<OverrideParkingBrakeActionImpl>
             {
             public:
                 AttributeValue(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<OverrideSteeringWheelActionImpl>& object) override
+                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<OverrideParkingBrakeActionImpl>& object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
@@ -7386,6 +7336,26 @@ namespace NET_ASAM_OPENSCENARIO
                 }
             };
             result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<AttributeValue>(_messageLogger, _filename)));
+            return result;
+        }
+
+        std::vector<std::shared_ptr<IElementParser<OverrideParkingBrakeActionImpl>>> OverrideParkingBrakeActionXmlParser::SubElementParser::CreateParserList()
+        {
+            std::vector<std::shared_ptr<IElementParser<OverrideParkingBrakeActionImpl>>> result;
+            return result;
+        }
+
+
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a OverrideSteeringWheelActionImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
+        std::map<std::string, std::shared_ptr<IAttributeParser<OverrideSteeringWheelActionImpl>>> OverrideSteeringWheelActionXmlParser::GetAttributeNameToAttributeParserMap()
+        {
+            std::map<std::string, std::shared_ptr<IAttributeParser<OverrideSteeringWheelActionImpl>>> result;
+
             class AttributeActive: public IAttributeParser<OverrideSteeringWheelActionImpl>, public XmlParserBase<OverrideSteeringWheelActionImpl>
             {
             public:
@@ -7416,32 +7386,12 @@ namespace NET_ASAM_OPENSCENARIO
                 }
             };
             result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, std::make_shared<AttributeActive>(_messageLogger, _filename)));
-            return result;
-        }
-
-        std::vector<std::shared_ptr<IElementParser<OverrideSteeringWheelActionImpl>>> OverrideSteeringWheelActionXmlParser::SubElementParser::CreateParserList()
-        {
-            std::vector<std::shared_ptr<IElementParser<OverrideSteeringWheelActionImpl>>> result;
-            return result;
-        }
-
-
-        /**
-         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
-         * Filling a OverrideThrottleActionImpl instance from an xml tree.
-         * 
-         * @author RA Consulting OpenSCENARIO generation facility
-        */
-        std::map<std::string, std::shared_ptr<IAttributeParser<OverrideThrottleActionImpl>>> OverrideThrottleActionXmlParser::GetAttributeNameToAttributeParserMap()
-        {
-            std::map<std::string, std::shared_ptr<IAttributeParser<OverrideThrottleActionImpl>>> result;
-
-            class AttributeValue: public IAttributeParser<OverrideThrottleActionImpl>, public XmlParserBase<OverrideThrottleActionImpl>
+            class AttributeValue: public IAttributeParser<OverrideSteeringWheelActionImpl>, public XmlParserBase<OverrideSteeringWheelActionImpl>
             {
             public:
                 AttributeValue(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<OverrideThrottleActionImpl>& object) override
+                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<OverrideSteeringWheelActionImpl>& object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
@@ -7466,6 +7416,26 @@ namespace NET_ASAM_OPENSCENARIO
                 }
             };
             result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<AttributeValue>(_messageLogger, _filename)));
+            return result;
+        }
+
+        std::vector<std::shared_ptr<IElementParser<OverrideSteeringWheelActionImpl>>> OverrideSteeringWheelActionXmlParser::SubElementParser::CreateParserList()
+        {
+            std::vector<std::shared_ptr<IElementParser<OverrideSteeringWheelActionImpl>>> result;
+            return result;
+        }
+
+
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+         * Filling a OverrideThrottleActionImpl instance from an xml tree.
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
+        std::map<std::string, std::shared_ptr<IAttributeParser<OverrideThrottleActionImpl>>> OverrideThrottleActionXmlParser::GetAttributeNameToAttributeParserMap()
+        {
+            std::map<std::string, std::shared_ptr<IAttributeParser<OverrideThrottleActionImpl>>> result;
+
             class AttributeActive: public IAttributeParser<OverrideThrottleActionImpl>, public XmlParserBase<OverrideThrottleActionImpl>
             {
             public:
@@ -7496,6 +7466,36 @@ namespace NET_ASAM_OPENSCENARIO
                 }
             };
             result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, std::make_shared<AttributeActive>(_messageLogger, _filename)));
+            class AttributeValue: public IAttributeParser<OverrideThrottleActionImpl>, public XmlParserBase<OverrideThrottleActionImpl>
+            {
+            public:
+                AttributeValue(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+
+                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<OverrideThrottleActionImpl>& object) override
+                {
+                    Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
+                    Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
+                    if (IsParametrized(attributeValue))
+                    {
+                        object->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, StripDollarSign(attributeValue), startMarker); 
+                    }
+                    else
+                    {
+                        // Parse value
+                        // Simple type
+                        object->SetValue(ParseDouble(attributeValue, startMarker));
+                    }
+                    object->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(startMarker));
+                    object->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(endMarker));
+                    
+                }
+
+                int GetMinOccur() override
+                {
+                    return 1;
+                }
+            };
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<AttributeValue>(_messageLogger, _filename)));
             return result;
         }
 

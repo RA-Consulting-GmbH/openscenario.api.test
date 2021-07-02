@@ -18,6 +18,7 @@ package net.asam.openscenario.v1_0.checker.range;
 
 import net.asam.openscenario.checker.RangeCheckerRule;
 import net.asam.openscenario.common.IParserMessageLogger;
+import net.asam.openscenario.common.ITreeMessageLogger;
 import net.asam.openscenario.v1_0.api.IReachPositionCondition;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
@@ -36,18 +37,43 @@ public class ReachPositionConditionRangeCheckerRule
   }
 
   @Override
-  public void applyRule(IParserMessageLogger messageLogger, IReachPositionCondition object) {
+  public void applyRuleInFileContext(
+      IParserMessageLogger messageLogger, IReachPositionCondition object) {
+    apply(messageLogger, null, object);
+  }
+
+  @Override
+  public void applyRuleInTreeContext(
+      ITreeMessageLogger messageLogger, IReachPositionCondition object) {
+    apply(null, messageLogger, object);
+  }
+
+  private void apply(
+      IParserMessageLogger fileMessageLogger,
+      ITreeMessageLogger treeMessageLogger,
+      IReachPositionCondition object) {
     Double tolerance = object.getTolerance();
     if (tolerance != null) {
       if (!(tolerance >= 0)) {
-        logMessage(
-            object,
-            messageLogger,
-            OscConstants.ATTRIBUTE__TOLERANCE,
-            object.getTolerance().toString(),
-            ">=",
-            "0",
-            OscConstants.ATTRIBUTE__TOLERANCE);
+        if (fileMessageLogger != null) {
+          logFileContentMessage(
+              object,
+              fileMessageLogger,
+              OscConstants.ATTRIBUTE__TOLERANCE,
+              object.getTolerance().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__TOLERANCE);
+        } else {
+          logTreeContentMessage(
+              object,
+              treeMessageLogger,
+              OscConstants.ATTRIBUTE__TOLERANCE,
+              object.getTolerance().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__TOLERANCE);
+        }
       }
     }
   }

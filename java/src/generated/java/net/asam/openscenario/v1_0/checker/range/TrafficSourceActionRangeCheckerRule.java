@@ -18,6 +18,7 @@ package net.asam.openscenario.v1_0.checker.range;
 
 import net.asam.openscenario.checker.RangeCheckerRule;
 import net.asam.openscenario.common.IParserMessageLogger;
+import net.asam.openscenario.common.ITreeMessageLogger;
 import net.asam.openscenario.v1_0.api.ITrafficSourceAction;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
@@ -35,44 +36,91 @@ public class TrafficSourceActionRangeCheckerRule extends RangeCheckerRule<ITraff
   }
 
   @Override
-  public void applyRule(IParserMessageLogger messageLogger, ITrafficSourceAction object) {
+  public void applyRuleInFileContext(
+      IParserMessageLogger messageLogger, ITrafficSourceAction object) {
+    apply(messageLogger, null, object);
+  }
+
+  @Override
+  public void applyRuleInTreeContext(
+      ITreeMessageLogger messageLogger, ITrafficSourceAction object) {
+    apply(null, messageLogger, object);
+  }
+
+  private void apply(
+      IParserMessageLogger fileMessageLogger,
+      ITreeMessageLogger treeMessageLogger,
+      ITrafficSourceAction object) {
     Double rate = object.getRate();
     if (rate != null) {
       if (!(rate >= 0)) {
-        logMessage(
-            object,
-            messageLogger,
-            OscConstants.ATTRIBUTE__RATE,
-            object.getRate().toString(),
-            ">=",
-            "0",
-            OscConstants.ATTRIBUTE__RATE);
+        if (fileMessageLogger != null) {
+          logFileContentMessage(
+              object,
+              fileMessageLogger,
+              OscConstants.ATTRIBUTE__RATE,
+              object.getRate().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__RATE);
+        } else {
+          logTreeContentMessage(
+              object,
+              treeMessageLogger,
+              OscConstants.ATTRIBUTE__RATE,
+              object.getRate().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__RATE);
+        }
       }
     }
     Double radius = object.getRadius();
     if (radius != null) {
       if (!(radius >= 0)) {
-        logMessage(
-            object,
-            messageLogger,
-            OscConstants.ATTRIBUTE__RADIUS,
-            object.getRadius().toString(),
-            ">=",
-            "0",
-            OscConstants.ATTRIBUTE__RADIUS);
+        if (fileMessageLogger != null) {
+          logFileContentMessage(
+              object,
+              fileMessageLogger,
+              OscConstants.ATTRIBUTE__RADIUS,
+              object.getRadius().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__RADIUS);
+        } else {
+          logTreeContentMessage(
+              object,
+              treeMessageLogger,
+              OscConstants.ATTRIBUTE__RADIUS,
+              object.getRadius().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__RADIUS);
+        }
       }
     }
     Double velocity = object.getVelocity();
     if (velocity != null) {
       if (!(velocity >= 0)) {
-        logMessage(
-            object,
-            messageLogger,
-            OscConstants.ATTRIBUTE__VELOCITY,
-            object.getVelocity().toString(),
-            ">=",
-            "0",
-            OscConstants.ATTRIBUTE__VELOCITY);
+        if (fileMessageLogger != null) {
+          logFileContentMessage(
+              object,
+              fileMessageLogger,
+              OscConstants.ATTRIBUTE__VELOCITY,
+              object.getVelocity().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__VELOCITY);
+        } else {
+          logTreeContentMessage(
+              object,
+              treeMessageLogger,
+              OscConstants.ATTRIBUTE__VELOCITY,
+              object.getVelocity().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__VELOCITY);
+        }
       }
     }
   }

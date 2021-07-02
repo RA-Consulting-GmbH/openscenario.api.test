@@ -27,6 +27,8 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.ICatalog;
 import net.asam.openscenario.v1_0.api.ICatalogDefinition;
+import net.asam.openscenario.v1_0.api.writer.ICatalogDefinitionWriter;
+import net.asam.openscenario.v1_0.api.writer.ICatalogWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -44,15 +46,17 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class CatalogDefinitionImpl extends BaseImpl implements ICatalogDefinition {
+public class CatalogDefinitionImpl extends BaseImpl implements ICatalogDefinitionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private ICatalog catalog;
+  private ICatalogWriter catalog;
+
   /** Default constructor */
   public CatalogDefinitionImpl() {
     super();
     addAdapter(CatalogDefinitionImpl.class, this);
     addAdapter(ICatalogDefinition.class, this);
+    addAdapter(ICatalogDefinitionWriter.class, this);
   }
 
   @Override
@@ -64,12 +68,9 @@ public class CatalogDefinitionImpl extends BaseImpl implements ICatalogDefinitio
   public ICatalog getCatalog() {
     return this.catalog;
   }
-  /**
-   * Sets the value of model property catalog
-   *
-   * @param catalog from OpenSCENARIO class model specification: [Definition of a catalog.]
-   */
-  public void setCatalog(ICatalog catalog) {
+
+  @Override
+  public void setCatalog(ICatalogWriter catalog) {
     this.catalog = catalog;
   }
 
@@ -94,8 +95,8 @@ public class CatalogDefinitionImpl extends BaseImpl implements ICatalogDefinitio
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    ICatalog catalog = null;
-    catalog = getCatalog();
+    ICatalogWriter catalog = null;
+    catalog = getWriterCatalog();
     if (catalog != null) {
       result.add((BaseImpl) catalog);
     }
@@ -118,10 +119,10 @@ public class CatalogDefinitionImpl extends BaseImpl implements ICatalogDefinitio
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    ICatalog catalog = null;
-    catalog = getCatalog();
+    ICatalogWriter catalog = null;
+    catalog = getWriterCatalog();
     if (catalog != null) {
-      CatalogImpl clonedChild = ((CatalogImpl) catalog).clone();
+      ICatalogWriter clonedChild = ((CatalogImpl) catalog).clone();
       clonedObject.setCatalog(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -203,5 +204,11 @@ public class CatalogDefinitionImpl extends BaseImpl implements ICatalogDefinitio
   @Override
   public String getModelType() {
     return "CatalogDefinition";
+  }
+
+  // children
+  @Override
+  public ICatalogWriter getWriterCatalog() {
+    return this.catalog;
   }
 }

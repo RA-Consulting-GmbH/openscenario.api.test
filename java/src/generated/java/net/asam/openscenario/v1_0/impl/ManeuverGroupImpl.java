@@ -19,6 +19,7 @@ package net.asam.openscenario.v1_0.impl;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.List;
 import net.asam.openscenario.api.IOpenScenarioFlexElement;
 import net.asam.openscenario.api.KeyNotSupportedException;
@@ -30,6 +31,10 @@ import net.asam.openscenario.v1_0.api.IActors;
 import net.asam.openscenario.v1_0.api.ICatalogReference;
 import net.asam.openscenario.v1_0.api.IManeuver;
 import net.asam.openscenario.v1_0.api.IManeuverGroup;
+import net.asam.openscenario.v1_0.api.writer.IActorsWriter;
+import net.asam.openscenario.v1_0.api.writer.ICatalogReferenceWriter;
+import net.asam.openscenario.v1_0.api.writer.IManeuverGroupWriter;
+import net.asam.openscenario.v1_0.api.writer.IManeuverWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -47,7 +52,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ManeuverGroupImpl extends BaseImpl implements IManeuverGroup {
+public class ManeuverGroupImpl extends BaseImpl implements IManeuverGroupWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -58,14 +63,16 @@ public class ManeuverGroupImpl extends BaseImpl implements IManeuverGroup {
 
   private Long maximumExecutionCount;
   private String name;
-  private IActors actors;
-  private List<ICatalogReference> catalogReferences;
-  private List<IManeuver> maneuvers;
+  private IActorsWriter actors;
+  private List<ICatalogReferenceWriter> catalogReferences = new ArrayList<>();
+  private List<IManeuverWriter> maneuvers = new ArrayList<>();
+
   /** Default constructor */
   public ManeuverGroupImpl() {
     super();
     addAdapter(ManeuverGroupImpl.class, this);
     addAdapter(IManeuverGroup.class, this);
+    addAdapter(IManeuverGroupWriter.class, this);
   }
 
   @Override
@@ -89,54 +96,92 @@ public class ManeuverGroupImpl extends BaseImpl implements IManeuverGroup {
   }
 
   @Override
-  public List<ICatalogReference> getCatalogReferences() {
+  public List<ICatalogReferenceWriter> getWriterCatalogReferences() {
     return this.catalogReferences;
   }
 
   @Override
-  public List<IManeuver> getManeuvers() {
+  public Iterable<ICatalogReference> getCatalogReferences() {
+    return new Iterable<ICatalogReference>() {
+
+      @SuppressWarnings("synthetic-access")
+      @Override
+      public Iterator<ICatalogReference> iterator() {
+        return new ArrayList<ICatalogReference>(ManeuverGroupImpl.this.catalogReferences)
+            .iterator();
+      }
+    };
+  }
+
+  @Override
+  public int getCatalogReferencesSize() {
+    if (this.catalogReferences != null) return this.catalogReferences.size();
+    return 0;
+  }
+
+  @Override
+  public ICatalogReference getCatalogReferencesAtIndex(int index) {
+    if (index >= 0 && this.catalogReferences != null && this.catalogReferences.size() > index) {
+      return this.catalogReferences.get(index);
+    }
+    return null;
+  }
+
+  @Override
+  public List<IManeuverWriter> getWriterManeuvers() {
     return this.maneuvers;
   }
-  /**
-   * Sets the value of model property maximumExecutionCount
-   *
-   * @param maximumExecutionCount from OpenSCENARIO class model specification: [Number of allowed
-   *     executions of the maneuver group. Default value is 1. Range: [1..inf[.]
-   */
+
+  @Override
+  public Iterable<IManeuver> getManeuvers() {
+    return new Iterable<IManeuver>() {
+
+      @SuppressWarnings("synthetic-access")
+      @Override
+      public Iterator<IManeuver> iterator() {
+        return new ArrayList<IManeuver>(ManeuverGroupImpl.this.maneuvers).iterator();
+      }
+    };
+  }
+
+  @Override
+  public int getManeuversSize() {
+    if (this.maneuvers != null) return this.maneuvers.size();
+    return 0;
+  }
+
+  @Override
+  public IManeuver getManeuversAtIndex(int index) {
+    if (index >= 0 && this.maneuvers != null && this.maneuvers.size() > index) {
+      return this.maneuvers.get(index);
+    }
+    return null;
+  }
+
+  @Override
   public void setMaximumExecutionCount(Long maximumExecutionCount) {
     this.maximumExecutionCount = maximumExecutionCount;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__MAXIMUM_EXECUTION_COUNT);
   }
-  /**
-   * Sets the value of model property name
-   *
-   * @param name from OpenSCENARIO class model specification: [Name of the maneuver group.]
-   */
+
+  @Override
   public void setName(String name) {
     this.name = name;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__NAME);
   }
-  /**
-   * Sets the value of model property actors
-   *
-   * @param actors from OpenSCENARIO class model specification: [Actors of the maneuver group.]
-   */
-  public void setActors(IActors actors) {
+
+  @Override
+  public void setActors(IActorsWriter actors) {
     this.actors = actors;
   }
-  /**
-   * Sets the value of model property catalogReferences
-   *
-   * @param catalogReferences from OpenSCENARIO class model specification: [Each element of this
-   *     list of must reference a maneuver type in a catalog.]
-   */
-  public void setCatalogReferences(List<ICatalogReference> catalogReferences) {
+
+  @Override
+  public void setCatalogReferences(List<ICatalogReferenceWriter> catalogReferences) {
     this.catalogReferences = catalogReferences;
   }
-  /**
-   * Sets the value of model property maneuvers
-   *
-   * @param maneuvers from OpenSCENARIO class model specification: [Maneuver type definitions.]
-   */
-  public void setManeuvers(List<IManeuver> maneuvers) {
+
+  @Override
+  public void setManeuvers(List<IManeuverWriter> maneuvers) {
     this.maneuvers = maneuvers;
   }
 
@@ -172,22 +217,22 @@ public class ManeuverGroupImpl extends BaseImpl implements IManeuverGroup {
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IActors actors = null;
-    actors = getActors();
+    IActorsWriter actors = null;
+    actors = getWriterActors();
     if (actors != null) {
       result.add((BaseImpl) actors);
     }
-    List<ICatalogReference> catalogReferences = null;
-    catalogReferences = getCatalogReferences();
+    List<ICatalogReferenceWriter> catalogReferences = null;
+    catalogReferences = getWriterCatalogReferences();
     if (catalogReferences != null) {
-      for (ICatalogReference item : catalogReferences) {
+      for (ICatalogReferenceWriter item : catalogReferences) {
         result.add((BaseImpl) item);
       }
     }
-    List<IManeuver> maneuvers = null;
-    maneuvers = getManeuvers();
+    List<IManeuverWriter> maneuvers = null;
+    maneuvers = getWriterManeuvers();
     if (maneuvers != null) {
-      for (IManeuver item : maneuvers) {
+      for (IManeuverWriter item : maneuvers) {
         result.add((BaseImpl) item);
       }
     }
@@ -210,34 +255,34 @@ public class ManeuverGroupImpl extends BaseImpl implements IManeuverGroup {
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setMaximumExecutionCount(getMaximumExecutionCount());
+    clonedObject.maximumExecutionCount = getMaximumExecutionCount();
     // Simple type
-    clonedObject.setName(getName());
+    clonedObject.name = getName();
     // clone children
-    IActors actors = null;
-    actors = getActors();
+    IActorsWriter actors = null;
+    actors = getWriterActors();
     if (actors != null) {
-      ActorsImpl clonedChild = ((ActorsImpl) actors).clone();
+      IActorsWriter clonedChild = ((ActorsImpl) actors).clone();
       clonedObject.setActors(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    List<ICatalogReference> catalogReferences = null;
-    catalogReferences = getCatalogReferences();
+    List<ICatalogReferenceWriter> catalogReferences = null;
+    catalogReferences = getWriterCatalogReferences();
     if (catalogReferences != null) {
-      List<ICatalogReference> clonedList = new ArrayList<>();
-      for (ICatalogReference item : catalogReferences) {
-        CatalogReferenceImpl clonedChild = ((CatalogReferenceImpl) item).clone();
+      List<ICatalogReferenceWriter> clonedList = new ArrayList<>();
+      for (ICatalogReferenceWriter item : catalogReferences) {
+        ICatalogReferenceWriter clonedChild = ((CatalogReferenceImpl) item).clone();
         clonedList.add(clonedChild);
         clonedChild.setParent(clonedObject);
       }
       clonedObject.setCatalogReferences(clonedList);
     }
-    List<IManeuver> maneuvers = null;
-    maneuvers = getManeuvers();
+    List<IManeuverWriter> maneuvers = null;
+    maneuvers = getWriterManeuvers();
     if (maneuvers != null) {
-      List<IManeuver> clonedList = new ArrayList<>();
-      for (IManeuver item : maneuvers) {
-        ManeuverImpl clonedChild = ((ManeuverImpl) item).clone();
+      List<IManeuverWriter> clonedList = new ArrayList<>();
+      for (IManeuverWriter item : maneuvers) {
+        IManeuverWriter clonedChild = ((ManeuverImpl) item).clone();
         clonedList.add(clonedChild);
         clonedChild.setParent(clonedObject);
       }
@@ -343,5 +388,45 @@ public class ManeuverGroupImpl extends BaseImpl implements IManeuverGroup {
   @Override
   public String getModelType() {
     return "ManeuverGroup";
+  }
+
+  @Override
+  public void writeParameterToMaximumExecutionCount(String parameterName) {
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__MAXIMUM_EXECUTION_COUNT, parameterName, null /*no textmarker*/);
+    this.maximumExecutionCount = null;
+  }
+
+  @Override
+  public void writeParameterToName(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__NAME, parameterName, null /*no textmarker*/);
+    this.name = null;
+  }
+
+  @Override
+  public String getParameterFromMaximumExecutionCount() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__MAXIMUM_EXECUTION_COUNT);
+  }
+
+  @Override
+  public String getParameterFromName() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__NAME);
+  }
+
+  @Override
+  public boolean isMaximumExecutionCountParameterized() {
+    return getParameterizedAttributeKeys()
+        .contains(OscConstants.ATTRIBUTE__MAXIMUM_EXECUTION_COUNT);
+  }
+
+  @Override
+  public boolean isNameParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__NAME);
+  }
+
+  // children
+  @Override
+  public IActorsWriter getWriterActors() {
+    return this.actors;
   }
 }

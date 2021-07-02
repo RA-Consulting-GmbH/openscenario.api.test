@@ -18,6 +18,7 @@ package net.asam.openscenario.v1_0.checker.range;
 
 import net.asam.openscenario.checker.RangeCheckerRule;
 import net.asam.openscenario.common.IParserMessageLogger;
+import net.asam.openscenario.common.ITreeMessageLogger;
 import net.asam.openscenario.v1_0.api.IAbsoluteSpeed;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
@@ -35,18 +36,41 @@ public class AbsoluteSpeedRangeCheckerRule extends RangeCheckerRule<IAbsoluteSpe
   }
 
   @Override
-  public void applyRule(IParserMessageLogger messageLogger, IAbsoluteSpeed object) {
+  public void applyRuleInFileContext(IParserMessageLogger messageLogger, IAbsoluteSpeed object) {
+    apply(messageLogger, null, object);
+  }
+
+  @Override
+  public void applyRuleInTreeContext(ITreeMessageLogger messageLogger, IAbsoluteSpeed object) {
+    apply(null, messageLogger, object);
+  }
+
+  private void apply(
+      IParserMessageLogger fileMessageLogger,
+      ITreeMessageLogger treeMessageLogger,
+      IAbsoluteSpeed object) {
     Double value = object.getValue();
     if (value != null) {
       if (!(value >= 0)) {
-        logMessage(
-            object,
-            messageLogger,
-            OscConstants.ATTRIBUTE__VALUE,
-            object.getValue().toString(),
-            ">=",
-            "0",
-            OscConstants.ATTRIBUTE__VALUE);
+        if (fileMessageLogger != null) {
+          logFileContentMessage(
+              object,
+              fileMessageLogger,
+              OscConstants.ATTRIBUTE__VALUE,
+              object.getValue().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__VALUE);
+        } else {
+          logTreeContentMessage(
+              object,
+              treeMessageLogger,
+              OscConstants.ATTRIBUTE__VALUE,
+              object.getValue().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__VALUE);
+        }
       }
     }
   }

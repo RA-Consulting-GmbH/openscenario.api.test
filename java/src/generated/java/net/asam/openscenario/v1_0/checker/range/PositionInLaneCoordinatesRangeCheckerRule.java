@@ -18,6 +18,7 @@ package net.asam.openscenario.v1_0.checker.range;
 
 import net.asam.openscenario.checker.RangeCheckerRule;
 import net.asam.openscenario.common.IParserMessageLogger;
+import net.asam.openscenario.common.ITreeMessageLogger;
 import net.asam.openscenario.v1_0.api.IPositionInLaneCoordinates;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
@@ -37,18 +38,43 @@ public class PositionInLaneCoordinatesRangeCheckerRule
   }
 
   @Override
-  public void applyRule(IParserMessageLogger messageLogger, IPositionInLaneCoordinates object) {
+  public void applyRuleInFileContext(
+      IParserMessageLogger messageLogger, IPositionInLaneCoordinates object) {
+    apply(messageLogger, null, object);
+  }
+
+  @Override
+  public void applyRuleInTreeContext(
+      ITreeMessageLogger messageLogger, IPositionInLaneCoordinates object) {
+    apply(null, messageLogger, object);
+  }
+
+  private void apply(
+      IParserMessageLogger fileMessageLogger,
+      ITreeMessageLogger treeMessageLogger,
+      IPositionInLaneCoordinates object) {
     Double pathS = object.getPathS();
     if (pathS != null) {
       if (!(pathS >= 0)) {
-        logMessage(
-            object,
-            messageLogger,
-            OscConstants.ATTRIBUTE__PATH_S,
-            object.getPathS().toString(),
-            ">=",
-            "0",
-            OscConstants.ATTRIBUTE__PATH_S);
+        if (fileMessageLogger != null) {
+          logFileContentMessage(
+              object,
+              fileMessageLogger,
+              OscConstants.ATTRIBUTE__PATH_S,
+              object.getPathS().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__PATH_S);
+        } else {
+          logTreeContentMessage(
+              object,
+              treeMessageLogger,
+              OscConstants.ATTRIBUTE__PATH_S,
+              object.getPathS().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__PATH_S);
+        }
       }
     }
   }

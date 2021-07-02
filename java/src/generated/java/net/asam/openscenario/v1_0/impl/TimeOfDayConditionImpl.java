@@ -30,6 +30,7 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.ITimeOfDayCondition;
 import net.asam.openscenario.v1_0.api.Rule;
+import net.asam.openscenario.v1_0.api.writer.ITimeOfDayConditionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -47,7 +48,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class TimeOfDayConditionImpl extends BaseImpl implements ITimeOfDayCondition {
+public class TimeOfDayConditionImpl extends BaseImpl implements ITimeOfDayConditionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -58,11 +59,13 @@ public class TimeOfDayConditionImpl extends BaseImpl implements ITimeOfDayCondit
 
   private Rule rule;
   private java.util.Date dateTime;
+
   /** Default constructor */
   public TimeOfDayConditionImpl() {
     super();
     addAdapter(TimeOfDayConditionImpl.class, this);
     addAdapter(ITimeOfDayCondition.class, this);
+    addAdapter(ITimeOfDayConditionWriter.class, this);
   }
 
   @Override
@@ -79,21 +82,17 @@ public class TimeOfDayConditionImpl extends BaseImpl implements ITimeOfDayCondit
   public java.util.Date getDateTime() {
     return this.dateTime;
   }
-  /**
-   * Sets the value of model property rule
-   *
-   * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
-   */
+
+  @Override
   public void setRule(Rule rule) {
     this.rule = rule;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__RULE);
   }
-  /**
-   * Sets the value of model property dateTime
-   *
-   * @param dateTime from OpenSCENARIO class model specification: [Datetime value for comparison.]
-   */
+
+  @Override
   public void setDateTime(java.util.Date dateTime) {
     this.dateTime = dateTime;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__DATE_TIME);
   }
 
   @Override
@@ -157,10 +156,10 @@ public class TimeOfDayConditionImpl extends BaseImpl implements ITimeOfDayCondit
     // Enumeration Type
     Rule rule = getRule();
     if (rule != null) {
-      clonedObject.setRule(Rule.getFromLiteral(rule.getLiteral()));
+      clonedObject.rule = Rule.getFromLiteral(rule.getLiteral());
     }
     // Simple type
-    clonedObject.setDateTime(getDateTime());
+    clonedObject.dateTime = getDateTime();
     // clone children
     return clonedObject;
   }
@@ -248,4 +247,39 @@ public class TimeOfDayConditionImpl extends BaseImpl implements ITimeOfDayCondit
   public String getModelType() {
     return "TimeOfDayCondition";
   }
+
+  @Override
+  public void writeParameterToRule(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__RULE, parameterName, null /*no textmarker*/);
+    this.rule = null;
+  }
+
+  @Override
+  public void writeParameterToDateTime(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__DATE_TIME, parameterName, null /*no textmarker*/);
+    this.dateTime = null;
+  }
+
+  @Override
+  public String getParameterFromRule() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__RULE);
+  }
+
+  @Override
+  public String getParameterFromDateTime() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__DATE_TIME);
+  }
+
+  @Override
+  public boolean isRuleParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__RULE);
+  }
+
+  @Override
+  public boolean isDateTimeParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__DATE_TIME);
+  }
+
+  // children
+
 }

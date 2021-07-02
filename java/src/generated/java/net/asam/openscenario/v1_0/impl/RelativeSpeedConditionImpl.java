@@ -33,6 +33,7 @@ import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IEntity;
 import net.asam.openscenario.v1_0.api.IRelativeSpeedCondition;
 import net.asam.openscenario.v1_0.api.Rule;
+import net.asam.openscenario.v1_0.api.writer.IRelativeSpeedConditionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -51,7 +52,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class RelativeSpeedConditionImpl extends BaseImpl implements IRelativeSpeedCondition {
+public class RelativeSpeedConditionImpl extends BaseImpl implements IRelativeSpeedConditionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -61,14 +62,16 @@ public class RelativeSpeedConditionImpl extends BaseImpl implements IRelativeSpe
     propertyToType.put(OscConstants.ATTRIBUTE__RULE, SimpleType.ENUM_TYPE);
   }
 
-  private NamedReferenceProxy<IEntity> entityRef;
+  private INamedReference<IEntity> entityRef;
   private Double value;
   private Rule rule;
+
   /** Default constructor */
   public RelativeSpeedConditionImpl() {
     super();
     addAdapter(RelativeSpeedConditionImpl.class, this);
     addAdapter(IRelativeSpeedCondition.class, this);
+    addAdapter(IRelativeSpeedConditionWriter.class, this);
   }
 
   @Override
@@ -90,29 +93,23 @@ public class RelativeSpeedConditionImpl extends BaseImpl implements IRelativeSpe
   public Rule getRule() {
     return this.rule;
   }
-  /**
-   * Sets the value of model property entityRef
-   *
-   * @param entityRef from OpenSCENARIO class model specification: [Reference entity.]
-   */
-  public void setEntityRef(NamedReferenceProxy<IEntity> entityRef) {
+
+  @Override
+  public void setEntityRef(INamedReference<IEntity> entityRef) {
     this.entityRef = entityRef;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__ENTITY_REF);
   }
-  /**
-   * Sets the value of model property value
-   *
-   * @param value from OpenSCENARIO class model specification: [Relative speed value. Unit: m/s.]
-   */
+
+  @Override
   public void setValue(Double value) {
     this.value = value;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__VALUE);
   }
-  /**
-   * Sets the value of model property rule
-   *
-   * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
-   */
+
+  @Override
   public void setRule(Rule rule) {
     this.rule = rule;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__RULE);
   }
 
   @Override
@@ -181,14 +178,14 @@ public class RelativeSpeedConditionImpl extends BaseImpl implements IRelativeSpe
     // clone attributes;
     // Proxy
     NamedReferenceProxy<IEntity> proxy = ((NamedReferenceProxy<IEntity>) getEntityRef()).clone();
-    clonedObject.setEntityRef(proxy);
+    clonedObject.entityRef = proxy;
     proxy.setParent(clonedObject);
     // Simple type
-    clonedObject.setValue(getValue());
+    clonedObject.value = getValue();
     // Enumeration Type
     Rule rule = getRule();
     if (rule != null) {
-      clonedObject.setRule(Rule.getFromLiteral(rule.getLiteral()));
+      clonedObject.rule = Rule.getFromLiteral(rule.getLiteral());
     }
     // clone children
     return clonedObject;
@@ -293,4 +290,56 @@ public class RelativeSpeedConditionImpl extends BaseImpl implements IRelativeSpe
   public String getModelType() {
     return "RelativeSpeedCondition";
   }
+
+  @Override
+  public void writeParameterToEntityRef(String parameterName) {
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__ENTITY_REF, parameterName, null /*no textmarker*/);
+    this.entityRef = null;
+  }
+
+  @Override
+  public void writeParameterToValue(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__VALUE, parameterName, null /*no textmarker*/);
+    this.value = null;
+  }
+
+  @Override
+  public void writeParameterToRule(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__RULE, parameterName, null /*no textmarker*/);
+    this.rule = null;
+  }
+
+  @Override
+  public String getParameterFromEntityRef() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__ENTITY_REF);
+  }
+
+  @Override
+  public String getParameterFromValue() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__VALUE);
+  }
+
+  @Override
+  public String getParameterFromRule() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__RULE);
+  }
+
+  @Override
+  public boolean isEntityRefParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__ENTITY_REF);
+  }
+
+  @Override
+  public boolean isValueParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__VALUE);
+  }
+
+  @Override
+  public boolean isRuleParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__RULE);
+  }
+
+  // children
+
 }

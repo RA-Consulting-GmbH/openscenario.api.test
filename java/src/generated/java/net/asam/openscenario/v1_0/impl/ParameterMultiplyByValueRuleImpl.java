@@ -27,6 +27,7 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IParameterMultiplyByValueRule;
+import net.asam.openscenario.v1_0.api.writer.IParameterMultiplyByValueRuleWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -46,7 +47,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public class ParameterMultiplyByValueRuleImpl extends BaseImpl
-    implements IParameterMultiplyByValueRule {
+    implements IParameterMultiplyByValueRuleWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -55,11 +56,13 @@ public class ParameterMultiplyByValueRuleImpl extends BaseImpl
   }
 
   private Double value;
+
   /** Default constructor */
   public ParameterMultiplyByValueRuleImpl() {
     super();
     addAdapter(ParameterMultiplyByValueRuleImpl.class, this);
     addAdapter(IParameterMultiplyByValueRule.class, this);
+    addAdapter(IParameterMultiplyByValueRuleWriter.class, this);
   }
 
   @Override
@@ -71,14 +74,11 @@ public class ParameterMultiplyByValueRuleImpl extends BaseImpl
   public Double getValue() {
     return this.value;
   }
-  /**
-   * Sets the value of model property value
-   *
-   * @param value from OpenSCENARIO class model specification: [Multiply existing parameter by the
-   *     value (be aware of the parameter data type).]
-   */
+
+  @Override
   public void setValue(Double value) {
     this.value = value;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__VALUE);
   }
 
   @Override
@@ -126,7 +126,7 @@ public class ParameterMultiplyByValueRuleImpl extends BaseImpl
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setValue(getValue());
+    clonedObject.value = getValue();
     // clone children
     return clonedObject;
   }
@@ -207,4 +207,23 @@ public class ParameterMultiplyByValueRuleImpl extends BaseImpl
   public String getModelType() {
     return "ParameterMultiplyByValueRule";
   }
+
+  @Override
+  public void writeParameterToValue(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__VALUE, parameterName, null /*no textmarker*/);
+    this.value = null;
+  }
+
+  @Override
+  public String getParameterFromValue() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__VALUE);
+  }
+
+  @Override
+  public boolean isValueParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__VALUE);
+  }
+
+  // children
+
 }

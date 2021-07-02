@@ -19,16 +19,11 @@
 #include "TestBase.h"
 #include "RangeCheckerHelper.h"
 #include "ScenarioCheckerImpl.h"
+#include "TreeMessageLogger.h"
 
 class TestRangeChecker : public TestBase
 {
-private:
-    void ApplyCheckerRules(std::shared_ptr<NET_ASAM_OPENSCENARIO::v1_0::IOpenScenario> openScenario) const
-    {
-        auto scenarioChecker = std::make_shared<NET_ASAM_OPENSCENARIO::v1_0::ScenarioCheckerImpl>();
-        NET_ASAM_OPENSCENARIO::v1_0::RangeCheckerHelper::AddAllRangeCheckerRules(scenarioChecker);
-        scenarioChecker->CheckScenario(_messageLogger, openScenario);
-    }
+
 public:
 
     TestRangeChecker(std::string& executablePath) : TestBase(executablePath) {}
@@ -39,7 +34,12 @@ public:
         {
             std::string filename = _executablePath + "/" + kInputDir + "DoubleLaneChangerCheckerErrors.xosc";
             auto openScenario = std::dynamic_pointer_cast<NET_ASAM_OPENSCENARIO::v1_0::IOpenScenario>( ExecuteParsing(filename));
-            ApplyCheckerRules(openScenario);
+
+            auto scenarioChecker = std::make_shared<NET_ASAM_OPENSCENARIO::v1_0::ScenarioCheckerImpl>();
+            NET_ASAM_OPENSCENARIO::v1_0::RangeCheckerHelper::AddAllRangeCheckerRules(scenarioChecker);
+            scenarioChecker->CheckScenarioInFileContext(_messageLogger, openScenario);
+
+
             std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage> messages;
 
 
@@ -65,7 +65,21 @@ public:
                 "Range error: Rule (positionX>=0) is violated (value: -2.000000)",
                 NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(60, 91, filename)));
 
-            return Assert(AssertMessages(messages, NET_ASAM_OPENSCENARIO::ERROR, _messageLogger), ASSERT_LOCATION);
+            auto res =  Assert(AssertMessages(messages, NET_ASAM_OPENSCENARIO::ERROR, _messageLogger), ASSERT_LOCATION);
+
+            // Now apply the tree validation.
+            openScenario = std::dynamic_pointer_cast<NET_ASAM_OPENSCENARIO::v1_0::IOpenScenario>(ExecuteParsing(filename));
+
+            scenarioChecker = std::make_shared<NET_ASAM_OPENSCENARIO::v1_0::ScenarioCheckerImpl>();
+            NET_ASAM_OPENSCENARIO::v1_0::RangeCheckerHelper::AddAllRangeCheckerRules(scenarioChecker);
+
+            const auto kTreeMessageLogger = std::make_shared<NET_ASAM_OPENSCENARIO::TreeMessageLogger>(NET_ASAM_OPENSCENARIO::ErrorLevel::ERROR);
+            scenarioChecker->CheckScenarioInTreeContext(kTreeMessageLogger, openScenario);
+
+            res = res && Assert(_messageLogger->GetMessagesFilteredByWorseOrEqualToErrorLevel(NET_ASAM_OPENSCENARIO::ErrorLevel::ERROR).size() ==  
+                kTreeMessageLogger->GetMessagesFilteredByWorseOrEqualToErrorLevel(NET_ASAM_OPENSCENARIO::ErrorLevel::ERROR).size(), ASSERT_LOCATION);
+
+            return res;
 
         }
         catch (NET_ASAM_OPENSCENARIO::ScenarioLoaderException& e)

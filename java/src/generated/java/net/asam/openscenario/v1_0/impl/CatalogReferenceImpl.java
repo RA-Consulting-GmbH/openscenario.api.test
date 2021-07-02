@@ -19,6 +19,7 @@ package net.asam.openscenario.v1_0.impl;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.List;
 import net.asam.openscenario.api.IOpenScenarioFlexElement;
 import net.asam.openscenario.api.KeyNotSupportedException;
@@ -29,6 +30,8 @@ import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.ICatalogElement;
 import net.asam.openscenario.v1_0.api.ICatalogReference;
 import net.asam.openscenario.v1_0.api.IParameterAssignment;
+import net.asam.openscenario.v1_0.api.writer.ICatalogReferenceWriter;
+import net.asam.openscenario.v1_0.api.writer.IParameterAssignmentWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -46,7 +49,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class CatalogReferenceImpl extends BaseImpl implements ICatalogReference {
+public class CatalogReferenceImpl extends BaseImpl implements ICatalogReferenceWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -57,13 +60,15 @@ public class CatalogReferenceImpl extends BaseImpl implements ICatalogReference 
 
   private String catalogName;
   private String entryName;
-  private List<IParameterAssignment> parameterAssignments;
+  private List<IParameterAssignmentWriter> parameterAssignments = new ArrayList<>();
   private ICatalogElement ref;
+
   /** Default constructor */
   public CatalogReferenceImpl() {
     super();
     addAdapter(CatalogReferenceImpl.class, this);
     addAdapter(ICatalogReference.class, this);
+    addAdapter(ICatalogReferenceWriter.class, this);
   }
 
   @Override
@@ -82,46 +87,62 @@ public class CatalogReferenceImpl extends BaseImpl implements ICatalogReference 
   }
 
   @Override
-  public List<IParameterAssignment> getParameterAssignments() {
+  public List<IParameterAssignmentWriter> getWriterParameterAssignments() {
     return this.parameterAssignments;
+  }
+
+  @Override
+  public Iterable<IParameterAssignment> getParameterAssignments() {
+    return new Iterable<IParameterAssignment>() {
+
+      @SuppressWarnings("synthetic-access")
+      @Override
+      public Iterator<IParameterAssignment> iterator() {
+        return new ArrayList<IParameterAssignment>(CatalogReferenceImpl.this.parameterAssignments)
+            .iterator();
+      }
+    };
+  }
+
+  @Override
+  public int getParameterAssignmentsSize() {
+    if (this.parameterAssignments != null) return this.parameterAssignments.size();
+    return 0;
+  }
+
+  @Override
+  public IParameterAssignment getParameterAssignmentsAtIndex(int index) {
+    if (index >= 0
+        && this.parameterAssignments != null
+        && this.parameterAssignments.size() > index) {
+      return this.parameterAssignments.get(index);
+    }
+    return null;
   }
 
   @Override
   public ICatalogElement getRef() {
     return this.ref;
   }
-  /**
-   * Sets the value of model property catalogName
-   *
-   * @param catalogName from OpenSCENARIO class model specification: [Name of the catalog.]
-   */
+
+  @Override
   public void setCatalogName(String catalogName) {
     this.catalogName = catalogName;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__CATALOG_NAME);
   }
-  /**
-   * Sets the value of model property entryName
-   *
-   * @param entryName from OpenSCENARIO class model specification: [Name of catalog entry.]
-   */
+
+  @Override
   public void setEntryName(String entryName) {
     this.entryName = entryName;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__ENTRY_NAME);
   }
-  /**
-   * Sets the value of model property parameterAssignments
-   *
-   * @param parameterAssignments from OpenSCENARIO class model specification: [List of parameter
-   *     assignments for instantiation.]
-   */
-  public void setParameterAssignments(List<IParameterAssignment> parameterAssignments) {
+
+  @Override
+  public void setParameterAssignments(List<IParameterAssignmentWriter> parameterAssignments) {
     this.parameterAssignments = parameterAssignments;
   }
-  /**
-   * Sets the value of model property ref
-   *
-   * @param ref from OpenSCENARIO class model specification: [The resolved reference to a catalog
-   *     element (out of the catalogName and entryName). Transient means, that it is not , mapped to
-   *     the schema.]
-   */
+
+  @Override
   public void setRef(ICatalogElement ref) {
     this.ref = ref;
   }
@@ -158,10 +179,10 @@ public class CatalogReferenceImpl extends BaseImpl implements ICatalogReference 
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    List<IParameterAssignment> parameterAssignments = null;
-    parameterAssignments = getParameterAssignments();
+    List<IParameterAssignmentWriter> parameterAssignments = null;
+    parameterAssignments = getWriterParameterAssignments();
     if (parameterAssignments != null) {
-      for (IParameterAssignment item : parameterAssignments) {
+      for (IParameterAssignmentWriter item : parameterAssignments) {
         result.add((BaseImpl) item);
       }
     }
@@ -184,16 +205,16 @@ public class CatalogReferenceImpl extends BaseImpl implements ICatalogReference 
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setCatalogName(getCatalogName());
+    clonedObject.catalogName = getCatalogName();
     // Simple type
-    clonedObject.setEntryName(getEntryName());
+    clonedObject.entryName = getEntryName();
     // clone children
-    List<IParameterAssignment> parameterAssignments = null;
-    parameterAssignments = getParameterAssignments();
+    List<IParameterAssignmentWriter> parameterAssignments = null;
+    parameterAssignments = getWriterParameterAssignments();
     if (parameterAssignments != null) {
-      List<IParameterAssignment> clonedList = new ArrayList<>();
-      for (IParameterAssignment item : parameterAssignments) {
-        ParameterAssignmentImpl clonedChild = ((ParameterAssignmentImpl) item).clone();
+      List<IParameterAssignmentWriter> clonedList = new ArrayList<>();
+      for (IParameterAssignmentWriter item : parameterAssignments) {
+        IParameterAssignmentWriter clonedChild = ((ParameterAssignmentImpl) item).clone();
         clonedList.add(clonedChild);
         clonedChild.setParent(clonedObject);
       }
@@ -287,4 +308,41 @@ public class CatalogReferenceImpl extends BaseImpl implements ICatalogReference 
   public String getModelType() {
     return "CatalogReference";
   }
+
+  @Override
+  public void writeParameterToCatalogName(String parameterName) {
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__CATALOG_NAME, parameterName, null /*no textmarker*/);
+    this.catalogName = null;
+  }
+
+  @Override
+  public void writeParameterToEntryName(String parameterName) {
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__ENTRY_NAME, parameterName, null /*no textmarker*/);
+    this.entryName = null;
+  }
+
+  @Override
+  public String getParameterFromCatalogName() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__CATALOG_NAME);
+  }
+
+  @Override
+  public String getParameterFromEntryName() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__ENTRY_NAME);
+  }
+
+  @Override
+  public boolean isCatalogNameParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__CATALOG_NAME);
+  }
+
+  @Override
+  public boolean isEntryNameParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__ENTRY_NAME);
+  }
+
+  // children
+
 }

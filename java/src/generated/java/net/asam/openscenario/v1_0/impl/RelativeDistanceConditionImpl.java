@@ -34,6 +34,7 @@ import net.asam.openscenario.v1_0.api.IEntity;
 import net.asam.openscenario.v1_0.api.IRelativeDistanceCondition;
 import net.asam.openscenario.v1_0.api.RelativeDistanceType;
 import net.asam.openscenario.v1_0.api.Rule;
+import net.asam.openscenario.v1_0.api.writer.IRelativeDistanceConditionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -52,7 +53,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class RelativeDistanceConditionImpl extends BaseImpl implements IRelativeDistanceCondition {
+public class RelativeDistanceConditionImpl extends BaseImpl
+    implements IRelativeDistanceConditionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -64,16 +66,18 @@ public class RelativeDistanceConditionImpl extends BaseImpl implements IRelative
     propertyToType.put(OscConstants.ATTRIBUTE__RULE, SimpleType.ENUM_TYPE);
   }
 
-  private NamedReferenceProxy<IEntity> entityRef;
+  private INamedReference<IEntity> entityRef;
   private RelativeDistanceType relativeDistanceType;
   private Double value;
   private Boolean freespace;
   private Rule rule;
+
   /** Default constructor */
   public RelativeDistanceConditionImpl() {
     super();
     addAdapter(RelativeDistanceConditionImpl.class, this);
     addAdapter(IRelativeDistanceCondition.class, this);
+    addAdapter(IRelativeDistanceConditionWriter.class, this);
   }
 
   @Override
@@ -105,48 +109,35 @@ public class RelativeDistanceConditionImpl extends BaseImpl implements IRelative
   public Rule getRule() {
     return this.rule;
   }
-  /**
-   * Sets the value of model property entityRef
-   *
-   * @param entityRef from OpenSCENARIO class model specification: [Reference entity.]
-   */
-  public void setEntityRef(NamedReferenceProxy<IEntity> entityRef) {
+
+  @Override
+  public void setEntityRef(INamedReference<IEntity> entityRef) {
     this.entityRef = entityRef;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__ENTITY_REF);
   }
-  /**
-   * Sets the value of model property relativeDistanceType
-   *
-   * @param relativeDistanceType from OpenSCENARIO class model specification: [The domain the
-   *     distance is calculated in.]
-   */
+
+  @Override
   public void setRelativeDistanceType(RelativeDistanceType relativeDistanceType) {
     this.relativeDistanceType = relativeDistanceType;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__RELATIVE_DISTANCE_TYPE);
   }
-  /**
-   * Sets the value of model property value
-   *
-   * @param value from OpenSCENARIO class model specification: [The distance value. Unit: m; Range:
-   *     [0..inf[.]
-   */
+
+  @Override
   public void setValue(Double value) {
     this.value = value;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__VALUE);
   }
-  /**
-   * Sets the value of model property freespace
-   *
-   * @param freespace from OpenSCENARIO class model specification: [True: distance is measured
-   *     between closest bounding box points. False: reference point distance is used.]
-   */
+
+  @Override
   public void setFreespace(Boolean freespace) {
     this.freespace = freespace;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__FREESPACE);
   }
-  /**
-   * Sets the value of model property rule
-   *
-   * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
-   */
+
+  @Override
   public void setRule(Rule rule) {
     this.rule = rule;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__RULE);
   }
 
   @Override
@@ -235,22 +226,22 @@ public class RelativeDistanceConditionImpl extends BaseImpl implements IRelative
     // clone attributes;
     // Proxy
     NamedReferenceProxy<IEntity> proxy = ((NamedReferenceProxy<IEntity>) getEntityRef()).clone();
-    clonedObject.setEntityRef(proxy);
+    clonedObject.entityRef = proxy;
     proxy.setParent(clonedObject);
     // Enumeration Type
     RelativeDistanceType relativeDistanceType = getRelativeDistanceType();
     if (relativeDistanceType != null) {
-      clonedObject.setRelativeDistanceType(
-          RelativeDistanceType.getFromLiteral(relativeDistanceType.getLiteral()));
+      clonedObject.relativeDistanceType =
+          RelativeDistanceType.getFromLiteral(relativeDistanceType.getLiteral());
     }
     // Simple type
-    clonedObject.setValue(getValue());
+    clonedObject.value = getValue();
     // Simple type
-    clonedObject.setFreespace(getFreespace());
+    clonedObject.freespace = getFreespace();
     // Enumeration Type
     Rule rule = getRule();
     if (rule != null) {
-      clonedObject.setRule(Rule.getFromLiteral(rule.getLiteral()));
+      clonedObject.rule = Rule.getFromLiteral(rule.getLiteral());
     }
     // clone children
     return clonedObject;
@@ -364,4 +355,89 @@ public class RelativeDistanceConditionImpl extends BaseImpl implements IRelative
   public String getModelType() {
     return "RelativeDistanceCondition";
   }
+
+  @Override
+  public void writeParameterToEntityRef(String parameterName) {
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__ENTITY_REF, parameterName, null /*no textmarker*/);
+    this.entityRef = null;
+  }
+
+  @Override
+  public void writeParameterToRelativeDistanceType(String parameterName) {
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__RELATIVE_DISTANCE_TYPE, parameterName, null /*no textmarker*/);
+    this.relativeDistanceType = null;
+  }
+
+  @Override
+  public void writeParameterToValue(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__VALUE, parameterName, null /*no textmarker*/);
+    this.value = null;
+  }
+
+  @Override
+  public void writeParameterToFreespace(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__FREESPACE, parameterName, null /*no textmarker*/);
+    this.freespace = null;
+  }
+
+  @Override
+  public void writeParameterToRule(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__RULE, parameterName, null /*no textmarker*/);
+    this.rule = null;
+  }
+
+  @Override
+  public String getParameterFromEntityRef() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__ENTITY_REF);
+  }
+
+  @Override
+  public String getParameterFromRelativeDistanceType() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__RELATIVE_DISTANCE_TYPE);
+  }
+
+  @Override
+  public String getParameterFromValue() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__VALUE);
+  }
+
+  @Override
+  public String getParameterFromFreespace() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__FREESPACE);
+  }
+
+  @Override
+  public String getParameterFromRule() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__RULE);
+  }
+
+  @Override
+  public boolean isEntityRefParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__ENTITY_REF);
+  }
+
+  @Override
+  public boolean isRelativeDistanceTypeParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__RELATIVE_DISTANCE_TYPE);
+  }
+
+  @Override
+  public boolean isValueParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__VALUE);
+  }
+
+  @Override
+  public boolean isFreespaceParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__FREESPACE);
+  }
+
+  @Override
+  public boolean isRuleParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__RULE);
+  }
+
+  // children
+
 }

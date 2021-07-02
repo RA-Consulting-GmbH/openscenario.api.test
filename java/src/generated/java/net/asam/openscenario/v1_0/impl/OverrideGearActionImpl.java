@@ -27,6 +27,7 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IOverrideGearAction;
+import net.asam.openscenario.v1_0.api.writer.IOverrideGearActionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -44,7 +45,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class OverrideGearActionImpl extends BaseImpl implements IOverrideGearAction {
+public class OverrideGearActionImpl extends BaseImpl implements IOverrideGearActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -55,11 +56,13 @@ public class OverrideGearActionImpl extends BaseImpl implements IOverrideGearAct
 
   private Double number;
   private Boolean active;
+
   /** Default constructor */
   public OverrideGearActionImpl() {
     super();
     addAdapter(OverrideGearActionImpl.class, this);
     addAdapter(IOverrideGearAction.class, this);
+    addAdapter(IOverrideGearActionWriter.class, this);
   }
 
   @Override
@@ -76,22 +79,17 @@ public class OverrideGearActionImpl extends BaseImpl implements IOverrideGearAct
   public Boolean getActive() {
     return this.active;
   }
-  /**
-   * Sets the value of model property number
-   *
-   * @param number from OpenSCENARIO class model specification: [Gear number.]
-   */
+
+  @Override
   public void setNumber(Double number) {
     this.number = number;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__NUMBER);
   }
-  /**
-   * Sets the value of model property active
-   *
-   * @param active from OpenSCENARIO class model specification: [True: override; false: stop
-   *     overriding.]
-   */
+
+  @Override
   public void setActive(Boolean active) {
     this.active = active;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__ACTIVE);
   }
 
   @Override
@@ -145,9 +143,9 @@ public class OverrideGearActionImpl extends BaseImpl implements IOverrideGearAct
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setNumber(getNumber());
+    clonedObject.number = getNumber();
     // Simple type
-    clonedObject.setActive(getActive());
+    clonedObject.active = getActive();
     // clone children
     return clonedObject;
   }
@@ -234,4 +232,39 @@ public class OverrideGearActionImpl extends BaseImpl implements IOverrideGearAct
   public String getModelType() {
     return "OverrideGearAction";
   }
+
+  @Override
+  public void writeParameterToNumber(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__NUMBER, parameterName, null /*no textmarker*/);
+    this.number = null;
+  }
+
+  @Override
+  public void writeParameterToActive(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__ACTIVE, parameterName, null /*no textmarker*/);
+    this.active = null;
+  }
+
+  @Override
+  public String getParameterFromNumber() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__NUMBER);
+  }
+
+  @Override
+  public String getParameterFromActive() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__ACTIVE);
+  }
+
+  @Override
+  public boolean isNumberParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__NUMBER);
+  }
+
+  @Override
+  public boolean isActiveParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__ACTIVE);
+  }
+
+  // children
+
 }

@@ -27,6 +27,8 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.IDirectory;
 import net.asam.openscenario.v1_0.api.IRouteCatalogLocation;
+import net.asam.openscenario.v1_0.api.writer.IDirectoryWriter;
+import net.asam.openscenario.v1_0.api.writer.IRouteCatalogLocationWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -44,15 +46,17 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class RouteCatalogLocationImpl extends BaseImpl implements IRouteCatalogLocation {
+public class RouteCatalogLocationImpl extends BaseImpl implements IRouteCatalogLocationWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private IDirectory directory;
+  private IDirectoryWriter directory;
+
   /** Default constructor */
   public RouteCatalogLocationImpl() {
     super();
     addAdapter(RouteCatalogLocationImpl.class, this);
     addAdapter(IRouteCatalogLocation.class, this);
+    addAdapter(IRouteCatalogLocationWriter.class, this);
   }
 
   @Override
@@ -64,13 +68,9 @@ public class RouteCatalogLocationImpl extends BaseImpl implements IRouteCatalogL
   public IDirectory getDirectory() {
     return this.directory;
   }
-  /**
-   * Sets the value of model property directory
-   *
-   * @param directory from OpenSCENARIO class model specification: [All catalogs files in this
-   *     directory must be evaluated.]
-   */
-  public void setDirectory(IDirectory directory) {
+
+  @Override
+  public void setDirectory(IDirectoryWriter directory) {
     this.directory = directory;
   }
 
@@ -95,8 +95,8 @@ public class RouteCatalogLocationImpl extends BaseImpl implements IRouteCatalogL
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IDirectory directory = null;
-    directory = getDirectory();
+    IDirectoryWriter directory = null;
+    directory = getWriterDirectory();
     if (directory != null) {
       result.add((BaseImpl) directory);
     }
@@ -119,10 +119,10 @@ public class RouteCatalogLocationImpl extends BaseImpl implements IRouteCatalogL
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    IDirectory directory = null;
-    directory = getDirectory();
+    IDirectoryWriter directory = null;
+    directory = getWriterDirectory();
     if (directory != null) {
-      DirectoryImpl clonedChild = ((DirectoryImpl) directory).clone();
+      IDirectoryWriter clonedChild = ((DirectoryImpl) directory).clone();
       clonedObject.setDirectory(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -204,5 +204,11 @@ public class RouteCatalogLocationImpl extends BaseImpl implements IRouteCatalogL
   @Override
   public String getModelType() {
     return "RouteCatalogLocation";
+  }
+
+  // children
+  @Override
+  public IDirectoryWriter getWriterDirectory() {
+    return this.directory;
   }
 }

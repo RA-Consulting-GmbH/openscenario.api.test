@@ -19,6 +19,7 @@ package net.asam.openscenario.v1_0.impl;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.List;
 import net.asam.openscenario.api.IOpenScenarioFlexElement;
 import net.asam.openscenario.api.KeyNotSupportedException;
@@ -36,6 +37,12 @@ import net.asam.openscenario.v1_0.api.IPerformance;
 import net.asam.openscenario.v1_0.api.IProperties;
 import net.asam.openscenario.v1_0.api.IVehicle;
 import net.asam.openscenario.v1_0.api.VehicleCategory;
+import net.asam.openscenario.v1_0.api.writer.IAxlesWriter;
+import net.asam.openscenario.v1_0.api.writer.IBoundingBoxWriter;
+import net.asam.openscenario.v1_0.api.writer.IParameterDeclarationWriter;
+import net.asam.openscenario.v1_0.api.writer.IPerformanceWriter;
+import net.asam.openscenario.v1_0.api.writer.IPropertiesWriter;
+import net.asam.openscenario.v1_0.api.writer.IVehicleWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -53,7 +60,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class VehicleImpl extends BaseImpl implements IVehicle {
+public class VehicleImpl extends BaseImpl implements IVehicleWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -64,16 +71,18 @@ public class VehicleImpl extends BaseImpl implements IVehicle {
 
   private String name;
   private VehicleCategory vehicleCategory;
-  private List<IParameterDeclaration> parameterDeclarations;
-  private IBoundingBox boundingBox;
-  private IPerformance performance;
-  private IAxles axles;
-  private IProperties properties;
+  private List<IParameterDeclarationWriter> parameterDeclarations = new ArrayList<>();
+  private IBoundingBoxWriter boundingBox;
+  private IPerformanceWriter performance;
+  private IAxlesWriter axles;
+  private IPropertiesWriter properties;
+
   /** Default constructor */
   public VehicleImpl() {
     super();
     addAdapter(VehicleImpl.class, this);
     addAdapter(IVehicle.class, this);
+    addAdapter(IVehicleWriter.class, this);
   }
 
   @Override
@@ -92,8 +101,37 @@ public class VehicleImpl extends BaseImpl implements IVehicle {
   }
 
   @Override
-  public List<IParameterDeclaration> getParameterDeclarations() {
+  public List<IParameterDeclarationWriter> getWriterParameterDeclarations() {
     return this.parameterDeclarations;
+  }
+
+  @Override
+  public Iterable<IParameterDeclaration> getParameterDeclarations() {
+    return new Iterable<IParameterDeclaration>() {
+
+      @SuppressWarnings("synthetic-access")
+      @Override
+      public Iterator<IParameterDeclaration> iterator() {
+        return new ArrayList<IParameterDeclaration>(VehicleImpl.this.parameterDeclarations)
+            .iterator();
+      }
+    };
+  }
+
+  @Override
+  public int getParameterDeclarationsSize() {
+    if (this.parameterDeclarations != null) return this.parameterDeclarations.size();
+    return 0;
+  }
+
+  @Override
+  public IParameterDeclaration getParameterDeclarationsAtIndex(int index) {
+    if (index >= 0
+        && this.parameterDeclarations != null
+        && this.parameterDeclarations.size() > index) {
+      return this.parameterDeclarations.get(index);
+    }
+    return null;
   }
 
   @Override
@@ -115,66 +153,41 @@ public class VehicleImpl extends BaseImpl implements IVehicle {
   public IProperties getProperties() {
     return this.properties;
   }
-  /**
-   * Sets the value of model property name
-   *
-   * @param name from OpenSCENARIO class model specification: [Name of the vehicle type.]
-   */
+
+  @Override
   public void setName(String name) {
     this.name = name;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__NAME);
   }
-  /**
-   * Sets the value of model property vehicleCategory
-   *
-   * @param vehicleCategory from OpenSCENARIO class model specification: [Category of the vehicle
-   *     (bicycle, train,...).]
-   */
+
+  @Override
   public void setVehicleCategory(VehicleCategory vehicleCategory) {
     this.vehicleCategory = vehicleCategory;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__VEHICLE_CATEGORY);
   }
-  /**
-   * Sets the value of model property parameterDeclarations
-   *
-   * @param parameterDeclarations from OpenSCENARIO class model specification: [Definition of
-   *     additional parameters.]
-   */
-  public void setParameterDeclarations(List<IParameterDeclaration> parameterDeclarations) {
+
+  @Override
+  public void setParameterDeclarations(List<IParameterDeclarationWriter> parameterDeclarations) {
     this.parameterDeclarations = parameterDeclarations;
   }
-  /**
-   * Sets the value of model property boundingBox
-   *
-   * @param boundingBox from OpenSCENARIO class model specification: [The three dimensional bounding
-   *     box that encloses the vehicle.]
-   */
-  public void setBoundingBox(IBoundingBox boundingBox) {
+
+  @Override
+  public void setBoundingBox(IBoundingBoxWriter boundingBox) {
     this.boundingBox = boundingBox;
   }
-  /**
-   * Sets the value of model property performance
-   *
-   * @param performance from OpenSCENARIO class model specification: [Performance properties of the
-   *     vehicle.]
-   */
-  public void setPerformance(IPerformance performance) {
+
+  @Override
+  public void setPerformance(IPerformanceWriter performance) {
     this.performance = performance;
   }
-  /**
-   * Sets the value of model property axles
-   *
-   * @param axles from OpenSCENARIO class model specification: [A set of axles (front, rear,
-   *     additional) and their geometric locations.]
-   */
-  public void setAxles(IAxles axles) {
+
+  @Override
+  public void setAxles(IAxlesWriter axles) {
     this.axles = axles;
   }
-  /**
-   * Sets the value of model property properties
-   *
-   * @param properties from OpenSCENARIO class model specification: [Additional properties as name
-   *     value pairs.]
-   */
-  public void setProperties(IProperties properties) {
+
+  @Override
+  public void setProperties(IPropertiesWriter properties) {
     this.properties = properties;
   }
 
@@ -239,30 +252,30 @@ public class VehicleImpl extends BaseImpl implements IVehicle {
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    List<IParameterDeclaration> parameterDeclarations = null;
-    parameterDeclarations = getParameterDeclarations();
+    List<IParameterDeclarationWriter> parameterDeclarations = null;
+    parameterDeclarations = getWriterParameterDeclarations();
     if (parameterDeclarations != null) {
-      for (IParameterDeclaration item : parameterDeclarations) {
+      for (IParameterDeclarationWriter item : parameterDeclarations) {
         result.add((BaseImpl) item);
       }
     }
-    IBoundingBox boundingBox = null;
-    boundingBox = getBoundingBox();
+    IBoundingBoxWriter boundingBox = null;
+    boundingBox = getWriterBoundingBox();
     if (boundingBox != null) {
       result.add((BaseImpl) boundingBox);
     }
-    IPerformance performance = null;
-    performance = getPerformance();
+    IPerformanceWriter performance = null;
+    performance = getWriterPerformance();
     if (performance != null) {
       result.add((BaseImpl) performance);
     }
-    IAxles axles = null;
-    axles = getAxles();
+    IAxlesWriter axles = null;
+    axles = getWriterAxles();
     if (axles != null) {
       result.add((BaseImpl) axles);
     }
-    IProperties properties = null;
-    properties = getProperties();
+    IPropertiesWriter properties = null;
+    properties = getWriterProperties();
     if (properties != null) {
       result.add((BaseImpl) properties);
     }
@@ -285,49 +298,49 @@ public class VehicleImpl extends BaseImpl implements IVehicle {
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setName(getName());
+    clonedObject.name = getName();
     // Enumeration Type
     VehicleCategory vehicleCategory = getVehicleCategory();
     if (vehicleCategory != null) {
-      clonedObject.setVehicleCategory(VehicleCategory.getFromLiteral(vehicleCategory.getLiteral()));
+      clonedObject.vehicleCategory = VehicleCategory.getFromLiteral(vehicleCategory.getLiteral());
     }
     // clone children
-    List<IParameterDeclaration> parameterDeclarations = null;
-    parameterDeclarations = getParameterDeclarations();
+    List<IParameterDeclarationWriter> parameterDeclarations = null;
+    parameterDeclarations = getWriterParameterDeclarations();
     if (parameterDeclarations != null) {
-      List<IParameterDeclaration> clonedList = new ArrayList<>();
-      for (IParameterDeclaration item : parameterDeclarations) {
-        ParameterDeclarationImpl clonedChild = ((ParameterDeclarationImpl) item).clone();
+      List<IParameterDeclarationWriter> clonedList = new ArrayList<>();
+      for (IParameterDeclarationWriter item : parameterDeclarations) {
+        IParameterDeclarationWriter clonedChild = ((ParameterDeclarationImpl) item).clone();
         clonedList.add(clonedChild);
         clonedChild.setParent(clonedObject);
       }
       clonedObject.setParameterDeclarations(clonedList);
     }
-    IBoundingBox boundingBox = null;
-    boundingBox = getBoundingBox();
+    IBoundingBoxWriter boundingBox = null;
+    boundingBox = getWriterBoundingBox();
     if (boundingBox != null) {
-      BoundingBoxImpl clonedChild = ((BoundingBoxImpl) boundingBox).clone();
+      IBoundingBoxWriter clonedChild = ((BoundingBoxImpl) boundingBox).clone();
       clonedObject.setBoundingBox(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IPerformance performance = null;
-    performance = getPerformance();
+    IPerformanceWriter performance = null;
+    performance = getWriterPerformance();
     if (performance != null) {
-      PerformanceImpl clonedChild = ((PerformanceImpl) performance).clone();
+      IPerformanceWriter clonedChild = ((PerformanceImpl) performance).clone();
       clonedObject.setPerformance(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IAxles axles = null;
-    axles = getAxles();
+    IAxlesWriter axles = null;
+    axles = getWriterAxles();
     if (axles != null) {
-      AxlesImpl clonedChild = ((AxlesImpl) axles).clone();
+      IAxlesWriter clonedChild = ((AxlesImpl) axles).clone();
       clonedObject.setAxles(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IProperties properties = null;
-    properties = getProperties();
+    IPropertiesWriter properties = null;
+    properties = getWriterProperties();
     if (properties != null) {
-      PropertiesImpl clonedChild = ((PropertiesImpl) properties).clone();
+      IPropertiesWriter clonedChild = ((PropertiesImpl) properties).clone();
       clonedObject.setProperties(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -438,5 +451,59 @@ public class VehicleImpl extends BaseImpl implements IVehicle {
   @Override
   public String getModelType() {
     return "Vehicle";
+  }
+
+  @Override
+  public void writeParameterToName(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__NAME, parameterName, null /*no textmarker*/);
+    this.name = null;
+  }
+
+  @Override
+  public void writeParameterToVehicleCategory(String parameterName) {
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__VEHICLE_CATEGORY, parameterName, null /*no textmarker*/);
+    this.vehicleCategory = null;
+  }
+
+  @Override
+  public String getParameterFromName() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__NAME);
+  }
+
+  @Override
+  public String getParameterFromVehicleCategory() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__VEHICLE_CATEGORY);
+  }
+
+  @Override
+  public boolean isNameParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__NAME);
+  }
+
+  @Override
+  public boolean isVehicleCategoryParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__VEHICLE_CATEGORY);
+  }
+
+  // children
+  @Override
+  public IBoundingBoxWriter getWriterBoundingBox() {
+    return this.boundingBox;
+  }
+
+  @Override
+  public IPerformanceWriter getWriterPerformance() {
+    return this.performance;
+  }
+
+  @Override
+  public IAxlesWriter getWriterAxles() {
+    return this.axles;
+  }
+
+  @Override
+  public IPropertiesWriter getWriterProperties() {
+    return this.properties;
   }
 }

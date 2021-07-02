@@ -27,6 +27,8 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.IModifyRule;
 import net.asam.openscenario.v1_0.api.IParameterModifyAction;
+import net.asam.openscenario.v1_0.api.writer.IModifyRuleWriter;
+import net.asam.openscenario.v1_0.api.writer.IParameterModifyActionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,15 +47,17 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ParameterModifyActionImpl extends BaseImpl implements IParameterModifyAction {
+public class ParameterModifyActionImpl extends BaseImpl implements IParameterModifyActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private IModifyRule rule;
+  private IModifyRuleWriter rule;
+
   /** Default constructor */
   public ParameterModifyActionImpl() {
     super();
     addAdapter(ParameterModifyActionImpl.class, this);
     addAdapter(IParameterModifyAction.class, this);
+    addAdapter(IParameterModifyActionWriter.class, this);
   }
 
   @Override
@@ -65,13 +69,9 @@ public class ParameterModifyActionImpl extends BaseImpl implements IParameterMod
   public IModifyRule getRule() {
     return this.rule;
   }
-  /**
-   * Sets the value of model property rule
-   *
-   * @param rule from OpenSCENARIO class model specification: [Either adding a value to a parameter
-   *     or multiply a parameter by a value. Has to match the parameter type.]
-   */
-  public void setRule(IModifyRule rule) {
+
+  @Override
+  public void setRule(IModifyRuleWriter rule) {
     this.rule = rule;
   }
 
@@ -96,8 +96,8 @@ public class ParameterModifyActionImpl extends BaseImpl implements IParameterMod
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IModifyRule rule = null;
-    rule = getRule();
+    IModifyRuleWriter rule = null;
+    rule = getWriterRule();
     if (rule != null) {
       result.add((BaseImpl) rule);
     }
@@ -120,10 +120,10 @@ public class ParameterModifyActionImpl extends BaseImpl implements IParameterMod
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    IModifyRule rule = null;
-    rule = getRule();
+    IModifyRuleWriter rule = null;
+    rule = getWriterRule();
     if (rule != null) {
-      ModifyRuleImpl clonedChild = ((ModifyRuleImpl) rule).clone();
+      IModifyRuleWriter clonedChild = ((ModifyRuleImpl) rule).clone();
       clonedObject.setRule(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -205,5 +205,11 @@ public class ParameterModifyActionImpl extends BaseImpl implements IParameterMod
   @Override
   public String getModelType() {
     return "ParameterModifyAction";
+  }
+
+  // children
+  @Override
+  public IModifyRuleWriter getWriterRule() {
+    return this.rule;
   }
 }

@@ -28,4 +28,5 @@ import net.asam.openscenario.api.IOpenScenarioModelElement;
  */
 public interface INone extends IOpenScenarioModelElement {
   // Empty
+
 }

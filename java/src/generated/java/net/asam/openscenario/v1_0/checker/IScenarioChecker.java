@@ -18,6 +18,7 @@ package net.asam.openscenario.v1_0.checker;
 
 import net.asam.openscenario.checker.ICheckerRule;
 import net.asam.openscenario.common.IParserMessageLogger;
+import net.asam.openscenario.common.ITreeMessageLogger;
 import net.asam.openscenario.v1_0.api.IAbsoluteSpeed;
 import net.asam.openscenario.v1_0.api.IAbsoluteTargetLane;
 import net.asam.openscenario.v1_0.api.IAbsoluteTargetLaneOffset;
@@ -213,7 +214,22 @@ import net.asam.openscenario.v1_0.api.IWorldPosition;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public interface IScenarioChecker {
-  public void checkScenario(IParserMessageLogger messageLogger, IOpenScenario openScenario);
+  /**
+   * Checks the scenario in a file context
+   *
+   * @param messageLogger the logger for file context
+   * @param openScenario the root of the tree
+   */
+  public void checkScenarioInFileContext(
+      IParserMessageLogger messageLogger, IOpenScenario openScenario);
+  /**
+   * Checks the scenario in a tree context
+   *
+   * @param messageLogger the logger for tree context
+   * @param openScenario the root of the tree
+   */
+  public void checkScenarioInTreeContext(
+      ITreeMessageLogger messageLogger, IOpenScenario openScenario);
 
   public void addAbsoluteSpeedCheckerRule(ICheckerRule<IAbsoluteSpeed> checkerRule);
 

@@ -30,6 +30,7 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IOrientation;
 import net.asam.openscenario.v1_0.api.ReferenceContext;
+import net.asam.openscenario.v1_0.api.writer.IOrientationWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -47,7 +48,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class OrientationImpl extends BaseImpl implements IOrientation {
+public class OrientationImpl extends BaseImpl implements IOrientationWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -62,11 +63,13 @@ public class OrientationImpl extends BaseImpl implements IOrientation {
   private Double h;
   private Double p;
   private Double r;
+
   /** Default constructor */
   public OrientationImpl() {
     super();
     addAdapter(OrientationImpl.class, this);
     addAdapter(IOrientation.class, this);
+    addAdapter(IOrientationWriter.class, this);
   }
 
   @Override
@@ -93,37 +96,29 @@ public class OrientationImpl extends BaseImpl implements IOrientation {
   public Double getR() {
     return this.r;
   }
-  /**
-   * Sets the value of model property type
-   *
-   * @param type from OpenSCENARIO class model specification: [Relative or absolute definition.]
-   */
+
+  @Override
   public void setType(ReferenceContext type) {
     this.type = type;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__TYPE);
   }
-  /**
-   * Sets the value of model property h
-   *
-   * @param h from OpenSCENARIO class model specification: [Heading angle. Unit: rad;.]
-   */
+
+  @Override
   public void setH(Double h) {
     this.h = h;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__H);
   }
-  /**
-   * Sets the value of model property p
-   *
-   * @param p from OpenSCENARIO class model specification: [Pitch angle. Unit: rad;.]
-   */
+
+  @Override
   public void setP(Double p) {
     this.p = p;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__P);
   }
-  /**
-   * Sets the value of model property r
-   *
-   * @param r from OpenSCENARIO class model specification: [Roll angle. Unit: rad;.]
-   */
+
+  @Override
   public void setR(Double r) {
     this.r = r;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__R);
   }
 
   @Override
@@ -196,14 +191,14 @@ public class OrientationImpl extends BaseImpl implements IOrientation {
     // Enumeration Type
     ReferenceContext type = getType();
     if (type != null) {
-      clonedObject.setType(ReferenceContext.getFromLiteral(type.getLiteral()));
+      clonedObject.type = ReferenceContext.getFromLiteral(type.getLiteral());
     }
     // Simple type
-    clonedObject.setH(getH());
+    clonedObject.h = getH();
     // Simple type
-    clonedObject.setP(getP());
+    clonedObject.p = getP();
     // Simple type
-    clonedObject.setR(getR());
+    clonedObject.r = getR();
     // clone children
     return clonedObject;
   }
@@ -295,4 +290,71 @@ public class OrientationImpl extends BaseImpl implements IOrientation {
   public String getModelType() {
     return "Orientation";
   }
+
+  @Override
+  public void writeParameterToType(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__TYPE, parameterName, null /*no textmarker*/);
+    this.type = null;
+  }
+
+  @Override
+  public void writeParameterToH(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__H, parameterName, null /*no textmarker*/);
+    this.h = null;
+  }
+
+  @Override
+  public void writeParameterToP(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__P, parameterName, null /*no textmarker*/);
+    this.p = null;
+  }
+
+  @Override
+  public void writeParameterToR(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__R, parameterName, null /*no textmarker*/);
+    this.r = null;
+  }
+
+  @Override
+  public String getParameterFromType() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__TYPE);
+  }
+
+  @Override
+  public String getParameterFromH() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__H);
+  }
+
+  @Override
+  public String getParameterFromP() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__P);
+  }
+
+  @Override
+  public String getParameterFromR() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__R);
+  }
+
+  @Override
+  public boolean isTypeParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__TYPE);
+  }
+
+  @Override
+  public boolean isHParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__H);
+  }
+
+  @Override
+  public boolean isPParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__P);
+  }
+
+  @Override
+  public boolean isRParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__R);
+  }
+
+  // children
+
 }

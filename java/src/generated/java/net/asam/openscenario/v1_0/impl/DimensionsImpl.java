@@ -27,6 +27,7 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IDimensions;
+import net.asam.openscenario.v1_0.api.writer.IDimensionsWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -44,7 +45,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class DimensionsImpl extends BaseImpl implements IDimensions {
+public class DimensionsImpl extends BaseImpl implements IDimensionsWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -57,11 +58,13 @@ public class DimensionsImpl extends BaseImpl implements IDimensions {
   private Double width;
   private Double length;
   private Double height;
+
   /** Default constructor */
   public DimensionsImpl() {
     super();
     addAdapter(DimensionsImpl.class, this);
     addAdapter(IDimensions.class, this);
+    addAdapter(IDimensionsWriter.class, this);
   }
 
   @Override
@@ -83,32 +86,23 @@ public class DimensionsImpl extends BaseImpl implements IDimensions {
   public Double getHeight() {
     return this.height;
   }
-  /**
-   * Sets the value of model property width
-   *
-   * @param width from OpenSCENARIO class model specification: [Width of the entity's bounding box.
-   *     Unit: m; Range: [0..inf[.]
-   */
+
+  @Override
   public void setWidth(Double width) {
     this.width = width;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__WIDTH);
   }
-  /**
-   * Sets the value of model property length
-   *
-   * @param length from OpenSCENARIO class model specification: [Length of the entity's bounding
-   *     box. Unit: m; Range: [0..inf[.]
-   */
+
+  @Override
   public void setLength(Double length) {
     this.length = length;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__LENGTH);
   }
-  /**
-   * Sets the value of model property height
-   *
-   * @param height from OpenSCENARIO class model specification: [Height of the entity's bounding
-   *     box. Unit: m; Range: [0..inf[.]
-   */
+
+  @Override
   public void setHeight(Double height) {
     this.height = height;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__HEIGHT);
   }
 
   @Override
@@ -168,11 +162,11 @@ public class DimensionsImpl extends BaseImpl implements IDimensions {
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setWidth(getWidth());
+    clonedObject.width = getWidth();
     // Simple type
-    clonedObject.setLength(getLength());
+    clonedObject.length = getLength();
     // Simple type
-    clonedObject.setHeight(getHeight());
+    clonedObject.height = getHeight();
     // clone children
     return clonedObject;
   }
@@ -257,4 +251,55 @@ public class DimensionsImpl extends BaseImpl implements IDimensions {
   public String getModelType() {
     return "Dimensions";
   }
+
+  @Override
+  public void writeParameterToWidth(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__WIDTH, parameterName, null /*no textmarker*/);
+    this.width = null;
+  }
+
+  @Override
+  public void writeParameterToLength(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__LENGTH, parameterName, null /*no textmarker*/);
+    this.length = null;
+  }
+
+  @Override
+  public void writeParameterToHeight(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__HEIGHT, parameterName, null /*no textmarker*/);
+    this.height = null;
+  }
+
+  @Override
+  public String getParameterFromWidth() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__WIDTH);
+  }
+
+  @Override
+  public String getParameterFromLength() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__LENGTH);
+  }
+
+  @Override
+  public String getParameterFromHeight() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__HEIGHT);
+  }
+
+  @Override
+  public boolean isWidthParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__WIDTH);
+  }
+
+  @Override
+  public boolean isLengthParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__LENGTH);
+  }
+
+  @Override
+  public boolean isHeightParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__HEIGHT);
+  }
+
+  // children
+
 }

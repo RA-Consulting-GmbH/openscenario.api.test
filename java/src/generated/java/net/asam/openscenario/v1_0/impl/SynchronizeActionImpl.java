@@ -31,6 +31,9 @@ import net.asam.openscenario.v1_0.api.IEntity;
 import net.asam.openscenario.v1_0.api.IFinalSpeed;
 import net.asam.openscenario.v1_0.api.IPosition;
 import net.asam.openscenario.v1_0.api.ISynchronizeAction;
+import net.asam.openscenario.v1_0.api.writer.IFinalSpeedWriter;
+import net.asam.openscenario.v1_0.api.writer.IPositionWriter;
+import net.asam.openscenario.v1_0.api.writer.ISynchronizeActionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -48,7 +51,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class SynchronizeActionImpl extends BaseImpl implements ISynchronizeAction {
+public class SynchronizeActionImpl extends BaseImpl implements ISynchronizeActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -56,15 +59,17 @@ public class SynchronizeActionImpl extends BaseImpl implements ISynchronizeActio
     propertyToType.put(OscConstants.ATTRIBUTE__MASTER_ENTITY_REF, SimpleType.STRING);
   }
 
-  private NamedReferenceProxy<IEntity> masterEntityRef;
-  private IPosition targetPositionMaster;
-  private IPosition targetPosition;
-  private IFinalSpeed finalSpeed;
+  private INamedReference<IEntity> masterEntityRef;
+  private IPositionWriter targetPositionMaster;
+  private IPositionWriter targetPosition;
+  private IFinalSpeedWriter finalSpeed;
+
   /** Default constructor */
   public SynchronizeActionImpl() {
     super();
     addAdapter(SynchronizeActionImpl.class, this);
     addAdapter(ISynchronizeAction.class, this);
+    addAdapter(ISynchronizeActionWriter.class, this);
   }
 
   @Override
@@ -91,40 +96,25 @@ public class SynchronizeActionImpl extends BaseImpl implements ISynchronizeActio
   public IFinalSpeed getFinalSpeed() {
     return this.finalSpeed;
   }
-  /**
-   * Sets the value of model property masterEntityRef
-   *
-   * @param masterEntityRef from OpenSCENARIO class model specification: [A reference to the master
-   *     entity.]
-   */
-  public void setMasterEntityRef(NamedReferenceProxy<IEntity> masterEntityRef) {
+
+  @Override
+  public void setMasterEntityRef(INamedReference<IEntity> masterEntityRef) {
     this.masterEntityRef = masterEntityRef;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__MASTER_ENTITY_REF);
   }
-  /**
-   * Sets the value of model property targetPositionMaster
-   *
-   * @param targetPositionMaster from OpenSCENARIO class model specification: [The target position
-   *     for the master entity.]
-   */
-  public void setTargetPositionMaster(IPosition targetPositionMaster) {
+
+  @Override
+  public void setTargetPositionMaster(IPositionWriter targetPositionMaster) {
     this.targetPositionMaster = targetPositionMaster;
   }
-  /**
-   * Sets the value of model property targetPosition
-   *
-   * @param targetPosition from OpenSCENARIO class model specification: [The target position for the
-   *     entity that should be synchronized.]
-   */
-  public void setTargetPosition(IPosition targetPosition) {
+
+  @Override
+  public void setTargetPosition(IPositionWriter targetPosition) {
     this.targetPosition = targetPosition;
   }
-  /**
-   * Sets the value of model property finalSpeed
-   *
-   * @param finalSpeed from OpenSCENARIO class model specification: [The speed that the synchronized
-   *     entity should have at its target position.]
-   */
-  public void setFinalSpeed(IFinalSpeed finalSpeed) {
+
+  @Override
+  public void setFinalSpeed(IFinalSpeedWriter finalSpeed) {
     this.finalSpeed = finalSpeed;
   }
 
@@ -154,18 +144,18 @@ public class SynchronizeActionImpl extends BaseImpl implements ISynchronizeActio
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IPosition targetPositionMaster = null;
-    targetPositionMaster = getTargetPositionMaster();
+    IPositionWriter targetPositionMaster = null;
+    targetPositionMaster = getWriterTargetPositionMaster();
     if (targetPositionMaster != null) {
       result.add((BaseImpl) targetPositionMaster);
     }
-    IPosition targetPosition = null;
-    targetPosition = getTargetPosition();
+    IPositionWriter targetPosition = null;
+    targetPosition = getWriterTargetPosition();
     if (targetPosition != null) {
       result.add((BaseImpl) targetPosition);
     }
-    IFinalSpeed finalSpeed = null;
-    finalSpeed = getFinalSpeed();
+    IFinalSpeedWriter finalSpeed = null;
+    finalSpeed = getWriterFinalSpeed();
     if (finalSpeed != null) {
       result.add((BaseImpl) finalSpeed);
     }
@@ -190,27 +180,27 @@ public class SynchronizeActionImpl extends BaseImpl implements ISynchronizeActio
     // Proxy
     NamedReferenceProxy<IEntity> proxy =
         ((NamedReferenceProxy<IEntity>) getMasterEntityRef()).clone();
-    clonedObject.setMasterEntityRef(proxy);
+    clonedObject.masterEntityRef = proxy;
     proxy.setParent(clonedObject);
     // clone children
-    IPosition targetPositionMaster = null;
-    targetPositionMaster = getTargetPositionMaster();
+    IPositionWriter targetPositionMaster = null;
+    targetPositionMaster = getWriterTargetPositionMaster();
     if (targetPositionMaster != null) {
-      PositionImpl clonedChild = ((PositionImpl) targetPositionMaster).clone();
+      IPositionWriter clonedChild = ((PositionImpl) targetPositionMaster).clone();
       clonedObject.setTargetPositionMaster(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IPosition targetPosition = null;
-    targetPosition = getTargetPosition();
+    IPositionWriter targetPosition = null;
+    targetPosition = getWriterTargetPosition();
     if (targetPosition != null) {
-      PositionImpl clonedChild = ((PositionImpl) targetPosition).clone();
+      IPositionWriter clonedChild = ((PositionImpl) targetPosition).clone();
       clonedObject.setTargetPosition(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IFinalSpeed finalSpeed = null;
-    finalSpeed = getFinalSpeed();
+    IFinalSpeedWriter finalSpeed = null;
+    finalSpeed = getWriterFinalSpeed();
     if (finalSpeed != null) {
-      FinalSpeedImpl clonedChild = ((FinalSpeedImpl) finalSpeed).clone();
+      IFinalSpeedWriter clonedChild = ((FinalSpeedImpl) finalSpeed).clone();
       clonedObject.setFinalSpeed(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -316,5 +306,38 @@ public class SynchronizeActionImpl extends BaseImpl implements ISynchronizeActio
   @Override
   public String getModelType() {
     return "SynchronizeAction";
+  }
+
+  @Override
+  public void writeParameterToMasterEntityRef(String parameterName) {
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__MASTER_ENTITY_REF, parameterName, null /*no textmarker*/);
+    this.masterEntityRef = null;
+  }
+
+  @Override
+  public String getParameterFromMasterEntityRef() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__MASTER_ENTITY_REF);
+  }
+
+  @Override
+  public boolean isMasterEntityRefParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__MASTER_ENTITY_REF);
+  }
+
+  // children
+  @Override
+  public IPositionWriter getWriterTargetPositionMaster() {
+    return this.targetPositionMaster;
+  }
+
+  @Override
+  public IPositionWriter getWriterTargetPosition() {
+    return this.targetPosition;
+  }
+
+  @Override
+  public IFinalSpeedWriter getWriterFinalSpeed() {
+    return this.finalSpeed;
   }
 }

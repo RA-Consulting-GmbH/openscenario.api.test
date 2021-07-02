@@ -19,6 +19,7 @@ package net.asam.openscenario.v1_0.impl;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.List;
 import net.asam.openscenario.api.IOpenScenarioFlexElement;
 import net.asam.openscenario.api.KeyNotSupportedException;
@@ -32,6 +33,9 @@ import net.asam.openscenario.v1_0.api.IAction;
 import net.asam.openscenario.v1_0.api.IEvent;
 import net.asam.openscenario.v1_0.api.ITrigger;
 import net.asam.openscenario.v1_0.api.Priority;
+import net.asam.openscenario.v1_0.api.writer.IActionWriter;
+import net.asam.openscenario.v1_0.api.writer.IEventWriter;
+import net.asam.openscenario.v1_0.api.writer.ITriggerWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -49,7 +53,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class EventImpl extends BaseImpl implements IEvent {
+public class EventImpl extends BaseImpl implements IEventWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -62,13 +66,15 @@ public class EventImpl extends BaseImpl implements IEvent {
   private Priority priority;
   private Long maximumExecutionCount;
   private String name;
-  private List<IAction> actions;
-  private ITrigger startTrigger;
+  private List<IActionWriter> actions = new ArrayList<>();
+  private ITriggerWriter startTrigger;
+
   /** Default constructor */
   public EventImpl() {
     super();
     addAdapter(EventImpl.class, this);
     addAdapter(IEvent.class, this);
+    addAdapter(IEventWriter.class, this);
   }
 
   @Override
@@ -92,54 +98,66 @@ public class EventImpl extends BaseImpl implements IEvent {
   }
 
   @Override
-  public List<IAction> getActions() {
+  public List<IActionWriter> getWriterActions() {
     return this.actions;
+  }
+
+  @Override
+  public Iterable<IAction> getActions() {
+    return new Iterable<IAction>() {
+
+      @SuppressWarnings("synthetic-access")
+      @Override
+      public Iterator<IAction> iterator() {
+        return new ArrayList<IAction>(EventImpl.this.actions).iterator();
+      }
+    };
+  }
+
+  @Override
+  public int getActionsSize() {
+    if (this.actions != null) return this.actions.size();
+    return 0;
+  }
+
+  @Override
+  public IAction getActionsAtIndex(int index) {
+    if (index >= 0 && this.actions != null && this.actions.size() > index) {
+      return this.actions.get(index);
+    }
+    return null;
   }
 
   @Override
   public ITrigger getStartTrigger() {
     return this.startTrigger;
   }
-  /**
-   * Sets the value of model property priority
-   *
-   * @param priority from OpenSCENARIO class model specification: [Priority of each event.]
-   */
+
+  @Override
   public void setPriority(Priority priority) {
     this.priority = priority;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__PRIORITY);
   }
-  /**
-   * Sets the value of model property maximumExecutionCount
-   *
-   * @param maximumExecutionCount from OpenSCENARIO class model specification: [Maximum number of
-   *     executions. Default value is 1. Range: [1..inf[.]
-   */
+
+  @Override
   public void setMaximumExecutionCount(Long maximumExecutionCount) {
     this.maximumExecutionCount = maximumExecutionCount;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__MAXIMUM_EXECUTION_COUNT);
   }
-  /**
-   * Sets the value of model property name
-   *
-   * @param name from OpenSCENARIO class model specification: [Name of the event.]
-   */
+
+  @Override
   public void setName(String name) {
     this.name = name;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__NAME);
   }
-  /**
-   * Sets the value of model property actions
-   *
-   * @param actions from OpenSCENARIO class model specification: [List of actions in an event.]
-   */
-  public void setActions(List<IAction> actions) {
+
+  @Override
+  public void setActions(List<IActionWriter> actions) {
     this.actions = actions;
   }
-  /**
-   * Sets the value of model property startTrigger
-   *
-   * @param startTrigger from OpenSCENARIO class model specification: [Actions are executed as soon
-   *     as the start trigger fires. This point in time represents the start of the event.]
-   */
-  public void setStartTrigger(ITrigger startTrigger) {
+
+  @Override
+  public void setStartTrigger(ITriggerWriter startTrigger) {
     this.startTrigger = startTrigger;
   }
 
@@ -189,15 +207,15 @@ public class EventImpl extends BaseImpl implements IEvent {
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    List<IAction> actions = null;
-    actions = getActions();
+    List<IActionWriter> actions = null;
+    actions = getWriterActions();
     if (actions != null) {
-      for (IAction item : actions) {
+      for (IActionWriter item : actions) {
         result.add((BaseImpl) item);
       }
     }
-    ITrigger startTrigger = null;
-    startTrigger = getStartTrigger();
+    ITriggerWriter startTrigger = null;
+    startTrigger = getWriterStartTrigger();
     if (startTrigger != null) {
       result.add((BaseImpl) startTrigger);
     }
@@ -222,28 +240,28 @@ public class EventImpl extends BaseImpl implements IEvent {
     // Enumeration Type
     Priority priority = getPriority();
     if (priority != null) {
-      clonedObject.setPriority(Priority.getFromLiteral(priority.getLiteral()));
+      clonedObject.priority = Priority.getFromLiteral(priority.getLiteral());
     }
     // Simple type
-    clonedObject.setMaximumExecutionCount(getMaximumExecutionCount());
+    clonedObject.maximumExecutionCount = getMaximumExecutionCount();
     // Simple type
-    clonedObject.setName(getName());
+    clonedObject.name = getName();
     // clone children
-    List<IAction> actions = null;
-    actions = getActions();
+    List<IActionWriter> actions = null;
+    actions = getWriterActions();
     if (actions != null) {
-      List<IAction> clonedList = new ArrayList<>();
-      for (IAction item : actions) {
-        ActionImpl clonedChild = ((ActionImpl) item).clone();
+      List<IActionWriter> clonedList = new ArrayList<>();
+      for (IActionWriter item : actions) {
+        IActionWriter clonedChild = ((ActionImpl) item).clone();
         clonedList.add(clonedChild);
         clonedChild.setParent(clonedObject);
       }
       clonedObject.setActions(clonedList);
     }
-    ITrigger startTrigger = null;
-    startTrigger = getStartTrigger();
+    ITriggerWriter startTrigger = null;
+    startTrigger = getWriterStartTrigger();
     if (startTrigger != null) {
-      TriggerImpl clonedChild = ((TriggerImpl) startTrigger).clone();
+      ITriggerWriter clonedChild = ((TriggerImpl) startTrigger).clone();
       clonedObject.setStartTrigger(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -351,5 +369,61 @@ public class EventImpl extends BaseImpl implements IEvent {
   @Override
   public String getModelType() {
     return "Event";
+  }
+
+  @Override
+  public void writeParameterToPriority(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__PRIORITY, parameterName, null /*no textmarker*/);
+    this.priority = null;
+  }
+
+  @Override
+  public void writeParameterToMaximumExecutionCount(String parameterName) {
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__MAXIMUM_EXECUTION_COUNT, parameterName, null /*no textmarker*/);
+    this.maximumExecutionCount = null;
+  }
+
+  @Override
+  public void writeParameterToName(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__NAME, parameterName, null /*no textmarker*/);
+    this.name = null;
+  }
+
+  @Override
+  public String getParameterFromPriority() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__PRIORITY);
+  }
+
+  @Override
+  public String getParameterFromMaximumExecutionCount() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__MAXIMUM_EXECUTION_COUNT);
+  }
+
+  @Override
+  public String getParameterFromName() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__NAME);
+  }
+
+  @Override
+  public boolean isPriorityParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__PRIORITY);
+  }
+
+  @Override
+  public boolean isMaximumExecutionCountParameterized() {
+    return getParameterizedAttributeKeys()
+        .contains(OscConstants.ATTRIBUTE__MAXIMUM_EXECUTION_COUNT);
+  }
+
+  @Override
+  public boolean isNameParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__NAME);
+  }
+
+  // children
+  @Override
+  public ITriggerWriter getWriterStartTrigger() {
+    return this.startTrigger;
   }
 }

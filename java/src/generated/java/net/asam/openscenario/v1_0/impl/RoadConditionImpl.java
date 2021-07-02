@@ -28,6 +28,8 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IProperties;
 import net.asam.openscenario.v1_0.api.IRoadCondition;
+import net.asam.openscenario.v1_0.api.writer.IPropertiesWriter;
+import net.asam.openscenario.v1_0.api.writer.IRoadConditionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,7 +47,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class RoadConditionImpl extends BaseImpl implements IRoadCondition {
+public class RoadConditionImpl extends BaseImpl implements IRoadConditionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -54,12 +56,14 @@ public class RoadConditionImpl extends BaseImpl implements IRoadCondition {
   }
 
   private Double frictionScaleFactor;
-  private IProperties properties;
+  private IPropertiesWriter properties;
+
   /** Default constructor */
   public RoadConditionImpl() {
     super();
     addAdapter(RoadConditionImpl.class, this);
     addAdapter(IRoadCondition.class, this);
+    addAdapter(IRoadConditionWriter.class, this);
   }
 
   @Override
@@ -76,22 +80,15 @@ public class RoadConditionImpl extends BaseImpl implements IRoadCondition {
   public IProperties getProperties() {
     return this.properties;
   }
-  /**
-   * Sets the value of model property frictionScaleFactor
-   *
-   * @param frictionScaleFactor from OpenSCENARIO class model specification: [Friction scale factor.
-   *     Range: [0..inf[]
-   */
+
+  @Override
   public void setFrictionScaleFactor(Double frictionScaleFactor) {
     this.frictionScaleFactor = frictionScaleFactor;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__FRICTION_SCALE_FACTOR);
   }
-  /**
-   * Sets the value of model property properties
-   *
-   * @param properties from OpenSCENARIO class model specification: [Additional properties to
-   *     describe the road condition.]
-   */
-  public void setProperties(IProperties properties) {
+
+  @Override
+  public void setProperties(IPropertiesWriter properties) {
     this.properties = properties;
   }
 
@@ -121,8 +118,8 @@ public class RoadConditionImpl extends BaseImpl implements IRoadCondition {
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IProperties properties = null;
-    properties = getProperties();
+    IPropertiesWriter properties = null;
+    properties = getWriterProperties();
     if (properties != null) {
       result.add((BaseImpl) properties);
     }
@@ -145,12 +142,12 @@ public class RoadConditionImpl extends BaseImpl implements IRoadCondition {
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setFrictionScaleFactor(getFrictionScaleFactor());
+    clonedObject.frictionScaleFactor = getFrictionScaleFactor();
     // clone children
-    IProperties properties = null;
-    properties = getProperties();
+    IPropertiesWriter properties = null;
+    properties = getWriterProperties();
     if (properties != null) {
-      PropertiesImpl clonedChild = ((PropertiesImpl) properties).clone();
+      IPropertiesWriter clonedChild = ((PropertiesImpl) properties).clone();
       clonedObject.setProperties(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -238,5 +235,28 @@ public class RoadConditionImpl extends BaseImpl implements IRoadCondition {
   @Override
   public String getModelType() {
     return "RoadCondition";
+  }
+
+  @Override
+  public void writeParameterToFrictionScaleFactor(String parameterName) {
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__FRICTION_SCALE_FACTOR, parameterName, null /*no textmarker*/);
+    this.frictionScaleFactor = null;
+  }
+
+  @Override
+  public String getParameterFromFrictionScaleFactor() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__FRICTION_SCALE_FACTOR);
+  }
+
+  @Override
+  public boolean isFrictionScaleFactorParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__FRICTION_SCALE_FACTOR);
+  }
+
+  // children
+  @Override
+  public IPropertiesWriter getWriterProperties() {
+    return this.properties;
   }
 }

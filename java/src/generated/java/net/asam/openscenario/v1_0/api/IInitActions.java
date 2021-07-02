@@ -16,7 +16,6 @@
  */
 package net.asam.openscenario.v1_0.api;
 
-import java.util.List;
 import net.asam.openscenario.api.IOpenScenarioModelElement;
 
 /**
@@ -34,17 +33,57 @@ public interface IInitActions extends IOpenScenarioModelElement {
    *
    * @return value of model property globalActions
    */
-  public List<IGlobalAction> getGlobalActions();
+  public Iterable<IGlobalAction> getGlobalActions();
   /**
    * From OpenSCENARIO class model specification: An optional list of user defined actions.
    *
    * @return value of model property userDefinedActions
    */
-  public List<IUserDefinedAction> getUserDefinedActions();
+  public Iterable<IUserDefinedAction> getUserDefinedActions();
   /**
    * From OpenSCENARIO class model specification: An optional list of private actions.
    *
    * @return value of model property privates
    */
-  public List<IPrivate> getPrivates();
+  public Iterable<IPrivate> getPrivates();
+
+  /**
+   * Retrieves the size of the list
+   *
+   * @return the size of the list
+   */
+  public int getGlobalActionsSize();
+  /**
+   * The element at specific index
+   *
+   * @param index the index of the list
+   * @return the element at index
+   */
+  public IGlobalAction getGlobalActionsAtIndex(int index);
+  /**
+   * Retrieves the size of the list
+   *
+   * @return the size of the list
+   */
+  public int getUserDefinedActionsSize();
+  /**
+   * The element at specific index
+   *
+   * @param index the index of the list
+   * @return the element at index
+   */
+  public IUserDefinedAction getUserDefinedActionsAtIndex(int index);
+  /**
+   * Retrieves the size of the list
+   *
+   * @return the size of the list
+   */
+  public int getPrivatesSize();
+  /**
+   * The element at specific index
+   *
+   * @param index the index of the list
+   * @return the element at index
+   */
+  public IPrivate getPrivatesAtIndex(int index);
 }

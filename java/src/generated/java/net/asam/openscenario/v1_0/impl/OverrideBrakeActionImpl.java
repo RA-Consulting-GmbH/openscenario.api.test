@@ -27,6 +27,7 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IOverrideBrakeAction;
+import net.asam.openscenario.v1_0.api.writer.IOverrideBrakeActionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -44,7 +45,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class OverrideBrakeActionImpl extends BaseImpl implements IOverrideBrakeAction {
+public class OverrideBrakeActionImpl extends BaseImpl implements IOverrideBrakeActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -55,11 +56,13 @@ public class OverrideBrakeActionImpl extends BaseImpl implements IOverrideBrakeA
 
   private Double value;
   private Boolean active;
+
   /** Default constructor */
   public OverrideBrakeActionImpl() {
     super();
     addAdapter(OverrideBrakeActionImpl.class, this);
     addAdapter(IOverrideBrakeAction.class, this);
+    addAdapter(IOverrideBrakeActionWriter.class, this);
   }
 
   @Override
@@ -76,23 +79,17 @@ public class OverrideBrakeActionImpl extends BaseImpl implements IOverrideBrakeA
   public Boolean getActive() {
     return this.active;
   }
-  /**
-   * Sets the value of model property value
-   *
-   * @param value from OpenSCENARIO class model specification: [Brake pedal value. Range: [0..1]. 0
-   *     represents 0%, 1 represents 100% of pressing the brake pedal.]
-   */
+
+  @Override
   public void setValue(Double value) {
     this.value = value;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__VALUE);
   }
-  /**
-   * Sets the value of model property active
-   *
-   * @param active from OpenSCENARIO class model specification: [True: override; false: stop
-   *     overriding.]
-   */
+
+  @Override
   public void setActive(Boolean active) {
     this.active = active;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__ACTIVE);
   }
 
   @Override
@@ -146,9 +143,9 @@ public class OverrideBrakeActionImpl extends BaseImpl implements IOverrideBrakeA
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setValue(getValue());
+    clonedObject.value = getValue();
     // Simple type
-    clonedObject.setActive(getActive());
+    clonedObject.active = getActive();
     // clone children
     return clonedObject;
   }
@@ -235,4 +232,39 @@ public class OverrideBrakeActionImpl extends BaseImpl implements IOverrideBrakeA
   public String getModelType() {
     return "OverrideBrakeAction";
   }
+
+  @Override
+  public void writeParameterToValue(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__VALUE, parameterName, null /*no textmarker*/);
+    this.value = null;
+  }
+
+  @Override
+  public void writeParameterToActive(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__ACTIVE, parameterName, null /*no textmarker*/);
+    this.active = null;
+  }
+
+  @Override
+  public String getParameterFromValue() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__VALUE);
+  }
+
+  @Override
+  public String getParameterFromActive() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__ACTIVE);
+  }
+
+  @Override
+  public boolean isValueParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__VALUE);
+  }
+
+  @Override
+  public boolean isActiveParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__ACTIVE);
+  }
+
+  // children
+
 }

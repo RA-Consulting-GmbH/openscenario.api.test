@@ -82,29 +82,59 @@ public:
 
         class CheckerRule: public NET_ASAM_OPENSCENARIO::ICheckerRule<NET_ASAM_OPENSCENARIO::v1_0::IVehicle>
         {
+        private:
+            bool DoesNameMatches(std::shared_ptr<NET_ASAM_OPENSCENARIO::v1_0::IVehicle> object) const
+            {
+                const auto kName = object->GetName();
+                // name must start with a capital letter
+                return std::regex_match(kName, std::regex("^[A-Z].*"));
+            }
+
+            std::string GetMsg()
+            {
+                return "Name must start with a capital letter";
+            }
         public:
-            void ApplyRule(std::shared_ptr<NET_ASAM_OPENSCENARIO::IParserMessageLogger>& messageLogger, std::shared_ptr<NET_ASAM_OPENSCENARIO::v1_0::IVehicle> object) override
+            void ApplyRuleInFileContext(std::shared_ptr<NET_ASAM_OPENSCENARIO::IParserMessageLogger> messageLogger, std::shared_ptr<NET_ASAM_OPENSCENARIO::v1_0::IVehicle> object) override
             {
                 const auto kName = object->GetName();
 
                 // name must start with a capital letter
-                if(std::regex_match(kName, std::regex("^[A-Z].*")))
+                if(!DoesNameMatches(object))
                 {
                     // Get the textmarker at the error
                     auto locator = std::static_pointer_cast<NET_ASAM_OPENSCENARIO::ILocator>(object->GetAdapter(typeid(NET_ASAM_OPENSCENARIO::ILocator).name()));
                     const auto kTextmarker = locator->GetStartMarkerOfProperty(NET_ASAM_OPENSCENARIO::v1_0::OSC_CONSTANTS::ATTRIBUTE__NAME);
 
                     // Add a message to the logger
-                    auto msg = NET_ASAM_OPENSCENARIO::FileContentMessage("Name must start with a capital letter", NET_ASAM_OPENSCENARIO::ErrorLevel::ERROR, kTextmarker);
+                    auto msg = NET_ASAM_OPENSCENARIO::FileContentMessage(GetMsg(), NET_ASAM_OPENSCENARIO::ErrorLevel::ERROR, kTextmarker);
                     messageLogger->LogMessage(msg);
                 }
             }
+
+            void ApplyRuleInTreeContext(std::shared_ptr<NET_ASAM_OPENSCENARIO::ITreeMessageLogger> messageLogger, std::shared_ptr<NET_ASAM_OPENSCENARIO::v1_0::IVehicle> object) override
+            {
+                if (!DoesNameMatches(object)) 
+                {
+
+                    // Get the textmarker at the error
+                    auto locator = std::static_pointer_cast<NET_ASAM_OPENSCENARIO::ILocator>(object->GetAdapter(typeid(NET_ASAM_OPENSCENARIO::ILocator).name()));
+                    const auto kTextmarker = locator->GetStartMarkerOfProperty(NET_ASAM_OPENSCENARIO::v1_0::OSC_CONSTANTS::ATTRIBUTE__NAME);
+
+                    // Add a message to the logger
+                    const auto kContext = NET_ASAM_OPENSCENARIO::PropertyTreeContext::Create(object, NET_ASAM_OPENSCENARIO::v1_0::OSC_CONSTANTS::ATTRIBUTE__NAME);
+                    NET_ASAM_OPENSCENARIO::TreeContentMessage tcm(GetMsg(), NET_ASAM_OPENSCENARIO::ErrorLevel::ERROR, kContext);
+                    messageLogger->LogMessage(tcm);
+                }
+
+            }
+
         };
 
         // Add a checker rule for all vehicles: E.g. Check ^whether the name starts with a capital letter
         scenarioChecker->AddVehicleCheckerRule(std::make_shared<CheckerRule>());
         // Now start the check. It is applied to all vehicles. For any checker rule violation an entry is created.
-        scenarioChecker->CheckScenario(checkerRuleLogger, openScenario);
+        scenarioChecker->CheckScenarioInFileContext(checkerRuleLogger, openScenario);
 
         // Iterate through violations
         for ( auto && message : checkerRuleLogger->GetMessages()) 
@@ -115,4 +145,6 @@ public:
 
         return true;
     }
+
+    
 };

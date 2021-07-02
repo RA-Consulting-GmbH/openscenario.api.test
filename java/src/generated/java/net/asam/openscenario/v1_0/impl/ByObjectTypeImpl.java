@@ -29,6 +29,7 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.IByObjectType;
 import net.asam.openscenario.v1_0.api.ObjectType;
+import net.asam.openscenario.v1_0.api.writer.IByObjectTypeWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -46,7 +47,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ByObjectTypeImpl extends BaseImpl implements IByObjectType {
+public class ByObjectTypeImpl extends BaseImpl implements IByObjectTypeWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -55,11 +56,13 @@ public class ByObjectTypeImpl extends BaseImpl implements IByObjectType {
   }
 
   private ObjectType type;
+
   /** Default constructor */
   public ByObjectTypeImpl() {
     super();
     addAdapter(ByObjectTypeImpl.class, this);
     addAdapter(IByObjectType.class, this);
+    addAdapter(IByObjectTypeWriter.class, this);
   }
 
   @Override
@@ -71,13 +74,11 @@ public class ByObjectTypeImpl extends BaseImpl implements IByObjectType {
   public ObjectType getType() {
     return this.type;
   }
-  /**
-   * Sets the value of model property type
-   *
-   * @param type from OpenSCENARIO class model specification: [Defines the type.]
-   */
+
+  @Override
   public void setType(ObjectType type) {
     this.type = type;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__TYPE);
   }
 
   @Override
@@ -135,7 +136,7 @@ public class ByObjectTypeImpl extends BaseImpl implements IByObjectType {
     // Enumeration Type
     ObjectType type = getType();
     if (type != null) {
-      clonedObject.setType(ObjectType.getFromLiteral(type.getLiteral()));
+      clonedObject.type = ObjectType.getFromLiteral(type.getLiteral());
     }
     // clone children
     return clonedObject;
@@ -218,4 +219,23 @@ public class ByObjectTypeImpl extends BaseImpl implements IByObjectType {
   public String getModelType() {
     return "ByObjectType";
   }
+
+  @Override
+  public void writeParameterToType(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__TYPE, parameterName, null /*no textmarker*/);
+    this.type = null;
+  }
+
+  @Override
+  public String getParameterFromType() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__TYPE);
+  }
+
+  @Override
+  public boolean isTypeParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__TYPE);
+  }
+
+  // children
+
 }

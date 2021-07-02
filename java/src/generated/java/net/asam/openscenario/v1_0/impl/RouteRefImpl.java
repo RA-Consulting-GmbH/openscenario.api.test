@@ -28,6 +28,9 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.ICatalogReference;
 import net.asam.openscenario.v1_0.api.IRoute;
 import net.asam.openscenario.v1_0.api.IRouteRef;
+import net.asam.openscenario.v1_0.api.writer.ICatalogReferenceWriter;
+import net.asam.openscenario.v1_0.api.writer.IRouteRefWriter;
+import net.asam.openscenario.v1_0.api.writer.IRouteWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,16 +48,18 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class RouteRefImpl extends BaseImpl implements IRouteRef {
+public class RouteRefImpl extends BaseImpl implements IRouteRefWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private IRoute route;
-  private ICatalogReference catalogReference;
+  private IRouteWriter route;
+  private ICatalogReferenceWriter catalogReference;
+
   /** Default constructor */
   public RouteRefImpl() {
     super();
     addAdapter(RouteRefImpl.class, this);
     addAdapter(IRouteRef.class, this);
+    addAdapter(IRouteRefWriter.class, this);
   }
 
   @Override
@@ -71,22 +76,17 @@ public class RouteRefImpl extends BaseImpl implements IRouteRef {
   public ICatalogReference getCatalogReference() {
     return this.catalogReference;
   }
-  /**
-   * Sets the value of model property route
-   *
-   * @param route from OpenSCENARIO class model specification: [Route definition.]
-   */
-  public void setRoute(IRoute route) {
+
+  @Override
+  public void setRoute(IRouteWriter route) {
     this.route = route;
+    this.catalogReference = null;
   }
-  /**
-   * Sets the value of model property catalogReference
-   *
-   * @param catalogReference from OpenSCENARIO class model specification: [Reference to route in the
-   *     catalog.]
-   */
-  public void setCatalogReference(ICatalogReference catalogReference) {
+
+  @Override
+  public void setCatalogReference(ICatalogReferenceWriter catalogReference) {
     this.catalogReference = catalogReference;
+    this.route = null;
   }
 
   @Override
@@ -110,13 +110,13 @@ public class RouteRefImpl extends BaseImpl implements IRouteRef {
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IRoute route = null;
-    route = getRoute();
+    IRouteWriter route = null;
+    route = getWriterRoute();
     if (route != null) {
       result.add((BaseImpl) route);
     }
-    ICatalogReference catalogReference = null;
-    catalogReference = getCatalogReference();
+    ICatalogReferenceWriter catalogReference = null;
+    catalogReference = getWriterCatalogReference();
     if (catalogReference != null) {
       result.add((BaseImpl) catalogReference);
     }
@@ -139,17 +139,17 @@ public class RouteRefImpl extends BaseImpl implements IRouteRef {
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    IRoute route = null;
-    route = getRoute();
+    IRouteWriter route = null;
+    route = getWriterRoute();
     if (route != null) {
-      RouteImpl clonedChild = ((RouteImpl) route).clone();
+      IRouteWriter clonedChild = ((RouteImpl) route).clone();
       clonedObject.setRoute(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    ICatalogReference catalogReference = null;
-    catalogReference = getCatalogReference();
+    ICatalogReferenceWriter catalogReference = null;
+    catalogReference = getWriterCatalogReference();
     if (catalogReference != null) {
-      CatalogReferenceImpl clonedChild = ((CatalogReferenceImpl) catalogReference).clone();
+      ICatalogReferenceWriter clonedChild = ((CatalogReferenceImpl) catalogReference).clone();
       clonedObject.setCatalogReference(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -234,5 +234,16 @@ public class RouteRefImpl extends BaseImpl implements IRouteRef {
   @Override
   public String getModelType() {
     return "RouteRef";
+  }
+
+  // children
+  @Override
+  public IRouteWriter getWriterRoute() {
+    return this.route;
+  }
+
+  @Override
+  public ICatalogReferenceWriter getWriterCatalogReference() {
+    return this.catalogReference;
   }
 }

@@ -20,6 +20,7 @@
 #include "SimpleMessageLogger.h"
 #include "IScenarioLoaderFactory.h"
 #include "XmlScenarioLoaderFactory.h"
+#include "IOpenScenarioWriterFactory.h"
 #include "FileResourceLocator.h"
 #include "XmlScenarioImportLoaderFactory.h"
 #include "ErrorLevel.h"
@@ -27,6 +28,7 @@
 #include <fstream>
 #include <string>
 #include <iostream>
+#include "ApiClassImpl.h"
 
 #undef ERROR
 
@@ -88,17 +90,19 @@ public:
 
 protected:
 
-    bool AssertMessages(std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage>& messages, NET_ASAM_OPENSCENARIO::ErrorLevel errorLevel, std::shared_ptr<NET_ASAM_OPENSCENARIO::IParserMessageLogger> logger) const
+    bool AssertMessages(std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage>& messages, NET_ASAM_OPENSCENARIO::ErrorLevel errorLevel, std::shared_ptr<NET_ASAM_OPENSCENARIO::IParserMessageLogger> logger)
     {
-        const auto kFilterByErrorLevelMessages = FilterByErrorLevel(messages, errorLevel);
+        auto kFilterByErrorLevelMessages = FilterByErrorLevel(messages, errorLevel);
         auto filterByErrorLevelLogger = logger->GetMessagesFilteredByErrorLevel(errorLevel);
-        std::sort(filterByErrorLevelLogger.begin(), filterByErrorLevelLogger.end(), [](const NET_ASAM_OPENSCENARIO::FileContentMessage& lhs, const NET_ASAM_OPENSCENARIO::FileContentMessage& rhs) {
+        std::sort(filterByErrorLevelLogger.begin(), filterByErrorLevelLogger.end(), []( NET_ASAM_OPENSCENARIO::FileContentMessage& lhs, NET_ASAM_OPENSCENARIO::FileContentMessage& rhs) {
             return lhs.GetMsg() < rhs.GetMsg();
         });
-        return kFilterByErrorLevelMessages == filterByErrorLevelLogger && kFilterByErrorLevelMessages.size() == filterByErrorLevelLogger.size();
+        return kFilterByErrorLevelMessages.size() == filterByErrorLevelLogger.size() &&
+               std::equal(kFilterByErrorLevelMessages.begin(), kFilterByErrorLevelMessages.end(), filterByErrorLevelLogger.begin(),
+            [](NET_ASAM_OPENSCENARIO::FileContentMessage & l, NET_ASAM_OPENSCENARIO::FileContentMessage & r) {return l.ToString() == r.ToString(); });
     }
 
-    std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage> FilterByErrorLevel(std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage> messages, NET_ASAM_OPENSCENARIO::ErrorLevel& errorLevel) const
+    std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage> FilterByErrorLevel(std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage> messages, NET_ASAM_OPENSCENARIO::ErrorLevel& errorLevel)
     {
         std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage> result;
         for (auto&& message : messages) 
@@ -109,7 +113,7 @@ protected:
             }
         }
 
-        std::sort(result.begin(), result.end(), [](const NET_ASAM_OPENSCENARIO::FileContentMessage& lhs, const NET_ASAM_OPENSCENARIO::FileContentMessage& rhs) {
+        std::sort(result.begin(), result.end(), []( NET_ASAM_OPENSCENARIO::FileContentMessage& lhs, NET_ASAM_OPENSCENARIO::FileContentMessage& rhs) {
             return lhs.GetMsg() < rhs.GetMsg();
         });
         return result;

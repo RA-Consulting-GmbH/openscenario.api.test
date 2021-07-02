@@ -41,7 +41,7 @@ namespace NET_ASAM_OPENSCENARIO
          * (which is the root)
          * @return the model parent of this object
          */
-        virtual std::weak_ptr<IOpenScenarioModelElement> GetParent() { return {}; }
+        virtual std::weak_ptr<IOpenScenarioModelElement> GetParent() const { return {}; }
 
         /**
          * Return the flexible interface

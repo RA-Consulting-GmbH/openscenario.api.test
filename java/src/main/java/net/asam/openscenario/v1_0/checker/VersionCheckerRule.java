@@ -18,13 +18,20 @@
 /** */
 package net.asam.openscenario.v1_0.checker;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import net.asam.openscenario.checker.ICheckerRule;
+import net.asam.openscenario.checker.tree.PropertyTreeContext;
 import net.asam.openscenario.common.ErrorLevel;
 import net.asam.openscenario.common.FileContentMessage;
 import net.asam.openscenario.common.ILocator;
 import net.asam.openscenario.common.IParserMessageLogger;
+import net.asam.openscenario.common.ITreeMessageLogger;
 import net.asam.openscenario.common.Textmarker;
+import net.asam.openscenario.common.TreeContentMessage;
 import net.asam.openscenario.v1_0.api.IFileHeader;
+import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
  * A checker rule for checking the version of the standard within a OpenSCENARIO file.
@@ -46,13 +53,8 @@ public class VersionCheckerRule implements ICheckerRule<IFileHeader> {
   }
 
   @Override
-  public void applyRule(IParserMessageLogger messageLogger, IFileHeader object) {
-    Integer revMajor = object.getRevMajor();
-    Integer revMinor = object.getRevMinor();
-    if (revMajor == null
-        || revMinor == null
-        || revMajor.intValue() != this.majorRev
-        || revMinor.intValue() != this.minorRev) {
+  public void applyRuleInFileContext(IParserMessageLogger messageLogger, IFileHeader object) {
+    if (!isRevValid(object)) {
       ILocator locator = (ILocator) object.getAdapter(ILocator.class);
       Textmarker textmarker = null;
 
@@ -61,12 +63,46 @@ public class VersionCheckerRule implements ICheckerRule<IFileHeader> {
       }
       messageLogger.logMessage(
           new FileContentMessage(
-              "Major revision and minor revision are expected to be "
-                  + this.majorRev
-                  + " and "
-                  + this.minorRev,
+              getMessage(),
               ErrorLevel.WARNING,
               textmarker));
     }
+  }
+
+  private boolean isRevValid(IFileHeader object)
+  {
+    Integer revMajor = object.getRevMajor();
+    Integer revMinor = object.getRevMinor();
+    return (revMajor != null
+        && revMinor != null
+        && revMajor.intValue() == this.majorRev
+        && revMinor.intValue() == this.minorRev);
+  }
+  
+  @Override
+  public void applyRuleInTreeContext(ITreeMessageLogger messageLogger, IFileHeader object)
+  {
+    if (!isRevValid(object)) {
+      List<String> propertyNames = new ArrayList<>();
+      propertyNames.add(OscConstants.ATTRIBUTE__REV_MINOR);
+      propertyNames.add(OscConstants.ATTRIBUTE__REV_MAJOR);
+      messageLogger.logMessage(
+          new TreeContentMessage(
+              getMessage(),
+              ErrorLevel.WARNING,
+              new PropertyTreeContext(object, propertyNames)));
+    }
+    
+  }
+
+  /**
+   * @return
+   */
+  private String getMessage()
+  {
+    return "Major revision and minor revision are expected to be "
+        + this.majorRev
+        + " and "
+        + this.minorRev;
   }
 }

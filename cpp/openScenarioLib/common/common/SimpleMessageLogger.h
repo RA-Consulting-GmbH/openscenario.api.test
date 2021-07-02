@@ -16,10 +16,9 @@
  */
 
 #pragma once
-#include <vector>
+#include "BaseMessageLogger.h"
 #include "FileContentMessage.h"
 #include "IParserMessageLogger.h"
-#include <algorithm>
 #include "MemLeakDetection.h"
 
 namespace NET_ASAM_OPENSCENARIO
@@ -30,65 +29,38 @@ namespace NET_ASAM_OPENSCENARIO
     class SimpleMessageLogger : public IParserMessageLogger
     {
     private:
-        std::vector<FileContentMessage> _messages;
-        ErrorLevel _logLevel = INFO;
+        BaseMessageLogger<FileContentMessage> _baseMessageLogger;
 
     public:
-        SimpleMessageLogger(const ErrorLevel logLevel) : _logLevel(logLevel) {}
+        SimpleMessageLogger(const ErrorLevel logLevel):_baseMessageLogger(logLevel) {}
 
         void LogMessage(FileContentMessage& message) override
         {
-            if (message.GetErrorLevel() >= _logLevel)
-                _messages.push_back(message);
+            _baseMessageLogger.LogMessage(message);
         }
 
         void LogAllMessages(std::vector<FileContentMessage>& messages) override
         {
-            for (auto&& message : messages)
-                LogMessage(message);
+            _baseMessageLogger.LogAllMessages(messages);
         }
 
         /**
         * The message that have been picked up and >= log level.
         * @return the messages picked up
         */
-        std::vector<FileContentMessage> GetMessages() const
+        std::vector<FileContentMessage> GetMessages()
         {
-            return _messages;
+            return _baseMessageLogger.GetMessages();
         }
 
         std::vector<FileContentMessage> GetMessagesFilteredByErrorLevel(const ErrorLevel errorLevel)  override
         {
-            std::vector<FileContentMessage> result;
-            for (auto&& message : _messages)
-            {
-                if (errorLevel == message.GetErrorLevel())
-                {
-                    result.push_back(message);
-                }
-            }
-
-            std::sort(result.begin(), result.end(), [](const NET_ASAM_OPENSCENARIO::FileContentMessage& lhs, const NET_ASAM_OPENSCENARIO::FileContentMessage& rhs) {
-                return lhs.GetMsg() < rhs.GetMsg();
-            });
-            return result;
+            return _baseMessageLogger.GetMessagesFilteredByErrorLevel(errorLevel);
         }
 
         std::vector<FileContentMessage> GetMessagesFilteredByWorseOrEqualToErrorLevel(const ErrorLevel errorLevel) override
         {
-            std::vector<FileContentMessage> result;
-            for (auto&& message : _messages)
-            {
-                if (message.GetErrorLevel() >= errorLevel)
-                {
-                    result.push_back(message);
-                }
-            }
-
-            std::sort(result.begin(), result.end(), [](const NET_ASAM_OPENSCENARIO::FileContentMessage& lhs, const NET_ASAM_OPENSCENARIO::FileContentMessage& rhs) {
-                return lhs.GetMsg() < rhs.GetMsg();
-            });
-            return result;
+            return _baseMessageLogger.GetMessagesFilteredByWorseOrEqualToErrorLevel(errorLevel);
         }
     };
 }

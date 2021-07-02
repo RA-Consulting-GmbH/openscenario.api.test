@@ -18,6 +18,7 @@ package net.asam.openscenario.v1_0.checker.range;
 
 import net.asam.openscenario.checker.RangeCheckerRule;
 import net.asam.openscenario.common.IParserMessageLogger;
+import net.asam.openscenario.common.ITreeMessageLogger;
 import net.asam.openscenario.v1_0.api.IClothoid;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
@@ -35,44 +36,89 @@ public class ClothoidRangeCheckerRule extends RangeCheckerRule<IClothoid> {
   }
 
   @Override
-  public void applyRule(IParserMessageLogger messageLogger, IClothoid object) {
+  public void applyRuleInFileContext(IParserMessageLogger messageLogger, IClothoid object) {
+    apply(messageLogger, null, object);
+  }
+
+  @Override
+  public void applyRuleInTreeContext(ITreeMessageLogger messageLogger, IClothoid object) {
+    apply(null, messageLogger, object);
+  }
+
+  private void apply(
+      IParserMessageLogger fileMessageLogger,
+      ITreeMessageLogger treeMessageLogger,
+      IClothoid object) {
     Double curvatureDot = object.getCurvatureDot();
     if (curvatureDot != null) {
       if (!(curvatureDot >= 0)) {
-        logMessage(
-            object,
-            messageLogger,
-            OscConstants.ATTRIBUTE__CURVATURE_DOT,
-            object.getCurvatureDot().toString(),
-            ">=",
-            "0",
-            OscConstants.ATTRIBUTE__CURVATURE_DOT);
+        if (fileMessageLogger != null) {
+          logFileContentMessage(
+              object,
+              fileMessageLogger,
+              OscConstants.ATTRIBUTE__CURVATURE_DOT,
+              object.getCurvatureDot().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__CURVATURE_DOT);
+        } else {
+          logTreeContentMessage(
+              object,
+              treeMessageLogger,
+              OscConstants.ATTRIBUTE__CURVATURE_DOT,
+              object.getCurvatureDot().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__CURVATURE_DOT);
+        }
       }
     }
     Double startTime = object.getStartTime();
     if (startTime != null) {
       if (!(startTime >= 0)) {
-        logMessage(
-            object,
-            messageLogger,
-            OscConstants.ATTRIBUTE__START_TIME,
-            object.getStartTime().toString(),
-            ">=",
-            "0",
-            OscConstants.ATTRIBUTE__START_TIME);
+        if (fileMessageLogger != null) {
+          logFileContentMessage(
+              object,
+              fileMessageLogger,
+              OscConstants.ATTRIBUTE__START_TIME,
+              object.getStartTime().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__START_TIME);
+        } else {
+          logTreeContentMessage(
+              object,
+              treeMessageLogger,
+              OscConstants.ATTRIBUTE__START_TIME,
+              object.getStartTime().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__START_TIME);
+        }
       }
     }
     Double stopTime = object.getStopTime();
     if (stopTime != null) {
       if (!(stopTime > 0)) {
-        logMessage(
-            object,
-            messageLogger,
-            OscConstants.ATTRIBUTE__STOP_TIME,
-            object.getStopTime().toString(),
-            ">",
-            "0",
-            OscConstants.ATTRIBUTE__STOP_TIME);
+        if (fileMessageLogger != null) {
+          logFileContentMessage(
+              object,
+              fileMessageLogger,
+              OscConstants.ATTRIBUTE__STOP_TIME,
+              object.getStopTime().toString(),
+              ">",
+              "0",
+              OscConstants.ATTRIBUTE__STOP_TIME);
+        } else {
+          logTreeContentMessage(
+              object,
+              treeMessageLogger,
+              OscConstants.ATTRIBUTE__STOP_TIME,
+              object.getStopTime().toString(),
+              ">",
+              "0",
+              OscConstants.ATTRIBUTE__STOP_TIME);
+        }
       }
     }
   }

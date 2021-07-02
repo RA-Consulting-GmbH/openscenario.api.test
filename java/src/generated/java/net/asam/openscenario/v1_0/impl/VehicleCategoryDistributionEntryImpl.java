@@ -30,6 +30,7 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IVehicleCategoryDistributionEntry;
 import net.asam.openscenario.v1_0.api.VehicleCategory;
+import net.asam.openscenario.v1_0.api.writer.IVehicleCategoryDistributionEntryWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -49,7 +50,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public class VehicleCategoryDistributionEntryImpl extends BaseImpl
-    implements IVehicleCategoryDistributionEntry {
+    implements IVehicleCategoryDistributionEntryWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -60,11 +61,13 @@ public class VehicleCategoryDistributionEntryImpl extends BaseImpl
 
   private VehicleCategory category;
   private Double weight;
+
   /** Default constructor */
   public VehicleCategoryDistributionEntryImpl() {
     super();
     addAdapter(VehicleCategoryDistributionEntryImpl.class, this);
     addAdapter(IVehicleCategoryDistributionEntry.class, this);
+    addAdapter(IVehicleCategoryDistributionEntryWriter.class, this);
   }
 
   @Override
@@ -81,23 +84,17 @@ public class VehicleCategoryDistributionEntryImpl extends BaseImpl
   public Double getWeight() {
     return this.weight;
   }
-  /**
-   * Sets the value of model property category
-   *
-   * @param category from OpenSCENARIO class model specification: [The category of the vehicles that
-   *     appear in traffic.]
-   */
+
+  @Override
   public void setCategory(VehicleCategory category) {
     this.category = category;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__CATEGORY);
   }
-  /**
-   * Sets the value of model property weight
-   *
-   * @param weight from OpenSCENARIO class model specification: [The weight of a vehicle category
-   *     within a traffic distribution. Range: [0..inf[.]
-   */
+
+  @Override
   public void setWeight(Double weight) {
     this.weight = weight;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__WEIGHT);
   }
 
   @Override
@@ -161,10 +158,10 @@ public class VehicleCategoryDistributionEntryImpl extends BaseImpl
     // Enumeration Type
     VehicleCategory category = getCategory();
     if (category != null) {
-      clonedObject.setCategory(VehicleCategory.getFromLiteral(category.getLiteral()));
+      clonedObject.category = VehicleCategory.getFromLiteral(category.getLiteral());
     }
     // Simple type
-    clonedObject.setWeight(getWeight());
+    clonedObject.weight = getWeight();
     // clone children
     return clonedObject;
   }
@@ -252,4 +249,39 @@ public class VehicleCategoryDistributionEntryImpl extends BaseImpl
   public String getModelType() {
     return "VehicleCategoryDistributionEntry";
   }
+
+  @Override
+  public void writeParameterToCategory(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__CATEGORY, parameterName, null /*no textmarker*/);
+    this.category = null;
+  }
+
+  @Override
+  public void writeParameterToWeight(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__WEIGHT, parameterName, null /*no textmarker*/);
+    this.weight = null;
+  }
+
+  @Override
+  public String getParameterFromCategory() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__CATEGORY);
+  }
+
+  @Override
+  public String getParameterFromWeight() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__WEIGHT);
+  }
+
+  @Override
+  public boolean isCategoryParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__CATEGORY);
+  }
+
+  @Override
+  public boolean isWeightParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__WEIGHT);
+  }
+
+  // children
+
 }

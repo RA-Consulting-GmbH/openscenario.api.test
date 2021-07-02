@@ -27,6 +27,7 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IActivateControllerAction;
+import net.asam.openscenario.v1_0.api.writer.IActivateControllerActionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,7 +46,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ActivateControllerActionImpl extends BaseImpl implements IActivateControllerAction {
+public class ActivateControllerActionImpl extends BaseImpl
+    implements IActivateControllerActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -56,11 +58,13 @@ public class ActivateControllerActionImpl extends BaseImpl implements IActivateC
 
   private Boolean lateral;
   private Boolean longitudinal;
+
   /** Default constructor */
   public ActivateControllerActionImpl() {
     super();
     addAdapter(ActivateControllerActionImpl.class, this);
     addAdapter(IActivateControllerAction.class, this);
+    addAdapter(IActivateControllerActionWriter.class, this);
   }
 
   @Override
@@ -77,23 +81,17 @@ public class ActivateControllerActionImpl extends BaseImpl implements IActivateC
   public Boolean getLongitudinal() {
     return this.longitudinal;
   }
-  /**
-   * Sets the value of model property lateral
-   *
-   * @param lateral from OpenSCENARIO class model specification: [In lateral domain: Activate or
-   *     deactivate controller defined (e.g. automated, autonomous) behavior.]
-   */
+
+  @Override
   public void setLateral(Boolean lateral) {
     this.lateral = lateral;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__LATERAL);
   }
-  /**
-   * Sets the value of model property longitudinal
-   *
-   * @param longitudinal from OpenSCENARIO class model specification: [In longitudinal domain:
-   *     Activate or deactivate autonomous behavior.]
-   */
+
+  @Override
   public void setLongitudinal(Boolean longitudinal) {
     this.longitudinal = longitudinal;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__LONGITUDINAL);
   }
 
   @Override
@@ -147,9 +145,9 @@ public class ActivateControllerActionImpl extends BaseImpl implements IActivateC
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setLateral(getLateral());
+    clonedObject.lateral = getLateral();
     // Simple type
-    clonedObject.setLongitudinal(getLongitudinal());
+    clonedObject.longitudinal = getLongitudinal();
     // clone children
     return clonedObject;
   }
@@ -232,4 +230,40 @@ public class ActivateControllerActionImpl extends BaseImpl implements IActivateC
   public String getModelType() {
     return "ActivateControllerAction";
   }
+
+  @Override
+  public void writeParameterToLateral(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__LATERAL, parameterName, null /*no textmarker*/);
+    this.lateral = null;
+  }
+
+  @Override
+  public void writeParameterToLongitudinal(String parameterName) {
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__LONGITUDINAL, parameterName, null /*no textmarker*/);
+    this.longitudinal = null;
+  }
+
+  @Override
+  public String getParameterFromLateral() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__LATERAL);
+  }
+
+  @Override
+  public String getParameterFromLongitudinal() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__LONGITUDINAL);
+  }
+
+  @Override
+  public boolean isLateralParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__LATERAL);
+  }
+
+  @Override
+  public boolean isLongitudinalParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__LONGITUDINAL);
+  }
+
+  // children
+
 }

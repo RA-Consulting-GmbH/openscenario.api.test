@@ -27,6 +27,7 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IPerformance;
+import net.asam.openscenario.v1_0.api.writer.IPerformanceWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -44,7 +45,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class PerformanceImpl extends BaseImpl implements IPerformance {
+public class PerformanceImpl extends BaseImpl implements IPerformanceWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -57,11 +58,13 @@ public class PerformanceImpl extends BaseImpl implements IPerformance {
   private Double maxSpeed;
   private Double maxAcceleration;
   private Double maxDeceleration;
+
   /** Default constructor */
   public PerformanceImpl() {
     super();
     addAdapter(PerformanceImpl.class, this);
     addAdapter(IPerformance.class, this);
+    addAdapter(IPerformanceWriter.class, this);
   }
 
   @Override
@@ -83,32 +86,23 @@ public class PerformanceImpl extends BaseImpl implements IPerformance {
   public Double getMaxDeceleration() {
     return this.maxDeceleration;
   }
-  /**
-   * Sets the value of model property maxSpeed
-   *
-   * @param maxSpeed from OpenSCENARIO class model specification: [Maximum speed of the vehicle.
-   *     Unit: m/s.]
-   */
+
+  @Override
   public void setMaxSpeed(Double maxSpeed) {
     this.maxSpeed = maxSpeed;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__MAX_SPEED);
   }
-  /**
-   * Sets the value of model property maxAcceleration
-   *
-   * @param maxAcceleration from OpenSCENARIO class model specification: [Maximum acceleration of
-   *     the vehicle. Unit: m/s^2. Range: [0..inf[.]
-   */
+
+  @Override
   public void setMaxAcceleration(Double maxAcceleration) {
     this.maxAcceleration = maxAcceleration;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__MAX_ACCELERATION);
   }
-  /**
-   * Sets the value of model property maxDeceleration
-   *
-   * @param maxDeceleration from OpenSCENARIO class model specification: [Maximum deceleration of
-   *     the vehicle. Unit: m/s^2. Range: [0..inf[.]
-   */
+
+  @Override
   public void setMaxDeceleration(Double maxDeceleration) {
     this.maxDeceleration = maxDeceleration;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__MAX_DECELERATION);
   }
 
   @Override
@@ -168,11 +162,11 @@ public class PerformanceImpl extends BaseImpl implements IPerformance {
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setMaxSpeed(getMaxSpeed());
+    clonedObject.maxSpeed = getMaxSpeed();
     // Simple type
-    clonedObject.setMaxAcceleration(getMaxAcceleration());
+    clonedObject.maxAcceleration = getMaxAcceleration();
     // Simple type
-    clonedObject.setMaxDeceleration(getMaxDeceleration());
+    clonedObject.maxDeceleration = getMaxDeceleration();
     // clone children
     return clonedObject;
   }
@@ -257,4 +251,57 @@ public class PerformanceImpl extends BaseImpl implements IPerformance {
   public String getModelType() {
     return "Performance";
   }
+
+  @Override
+  public void writeParameterToMaxSpeed(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__MAX_SPEED, parameterName, null /*no textmarker*/);
+    this.maxSpeed = null;
+  }
+
+  @Override
+  public void writeParameterToMaxAcceleration(String parameterName) {
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__MAX_ACCELERATION, parameterName, null /*no textmarker*/);
+    this.maxAcceleration = null;
+  }
+
+  @Override
+  public void writeParameterToMaxDeceleration(String parameterName) {
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__MAX_DECELERATION, parameterName, null /*no textmarker*/);
+    this.maxDeceleration = null;
+  }
+
+  @Override
+  public String getParameterFromMaxSpeed() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__MAX_SPEED);
+  }
+
+  @Override
+  public String getParameterFromMaxAcceleration() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__MAX_ACCELERATION);
+  }
+
+  @Override
+  public String getParameterFromMaxDeceleration() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__MAX_DECELERATION);
+  }
+
+  @Override
+  public boolean isMaxSpeedParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__MAX_SPEED);
+  }
+
+  @Override
+  public boolean isMaxAccelerationParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__MAX_ACCELERATION);
+  }
+
+  @Override
+  public boolean isMaxDecelerationParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__MAX_DECELERATION);
+  }
+
+  // children
+
 }

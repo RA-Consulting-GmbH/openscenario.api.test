@@ -27,6 +27,7 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IAbsoluteTargetSpeed;
+import net.asam.openscenario.v1_0.api.writer.IAbsoluteTargetSpeedWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -44,7 +45,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class AbsoluteTargetSpeedImpl extends BaseImpl implements IAbsoluteTargetSpeed {
+public class AbsoluteTargetSpeedImpl extends BaseImpl implements IAbsoluteTargetSpeedWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -53,11 +54,13 @@ public class AbsoluteTargetSpeedImpl extends BaseImpl implements IAbsoluteTarget
   }
 
   private Double value;
+
   /** Default constructor */
   public AbsoluteTargetSpeedImpl() {
     super();
     addAdapter(AbsoluteTargetSpeedImpl.class, this);
     addAdapter(IAbsoluteTargetSpeed.class, this);
+    addAdapter(IAbsoluteTargetSpeedWriter.class, this);
   }
 
   @Override
@@ -69,14 +72,11 @@ public class AbsoluteTargetSpeedImpl extends BaseImpl implements IAbsoluteTarget
   public Double getValue() {
     return this.value;
   }
-  /**
-   * Sets the value of model property value
-   *
-   * @param value from OpenSCENARIO class model specification: [Target speed in m/s the vehicle
-   *     should change to.]
-   */
+
+  @Override
   public void setValue(Double value) {
     this.value = value;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__VALUE);
   }
 
   @Override
@@ -124,7 +124,7 @@ public class AbsoluteTargetSpeedImpl extends BaseImpl implements IAbsoluteTarget
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setValue(getValue());
+    clonedObject.value = getValue();
     // clone children
     return clonedObject;
   }
@@ -205,4 +205,23 @@ public class AbsoluteTargetSpeedImpl extends BaseImpl implements IAbsoluteTarget
   public String getModelType() {
     return "AbsoluteTargetSpeed";
   }
+
+  @Override
+  public void writeParameterToValue(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__VALUE, parameterName, null /*no textmarker*/);
+    this.value = null;
+  }
+
+  @Override
+  public String getParameterFromValue() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__VALUE);
+  }
+
+  @Override
+  public boolean isValueParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__VALUE);
+  }
+
+  // children
+
 }

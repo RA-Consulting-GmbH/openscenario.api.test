@@ -30,6 +30,7 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.ISpeedCondition;
 import net.asam.openscenario.v1_0.api.Rule;
+import net.asam.openscenario.v1_0.api.writer.ISpeedConditionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -47,7 +48,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class SpeedConditionImpl extends BaseImpl implements ISpeedCondition {
+public class SpeedConditionImpl extends BaseImpl implements ISpeedConditionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -58,11 +59,13 @@ public class SpeedConditionImpl extends BaseImpl implements ISpeedCondition {
 
   private Double value;
   private Rule rule;
+
   /** Default constructor */
   public SpeedConditionImpl() {
     super();
     addAdapter(SpeedConditionImpl.class, this);
     addAdapter(ISpeedCondition.class, this);
+    addAdapter(ISpeedConditionWriter.class, this);
   }
 
   @Override
@@ -79,22 +82,17 @@ public class SpeedConditionImpl extends BaseImpl implements ISpeedCondition {
   public Rule getRule() {
     return this.rule;
   }
-  /**
-   * Sets the value of model property value
-   *
-   * @param value from OpenSCENARIO class model specification: [Speed value of the speed condition.
-   *     Unit m/s.]
-   */
+
+  @Override
   public void setValue(Double value) {
     this.value = value;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__VALUE);
   }
-  /**
-   * Sets the value of model property rule
-   *
-   * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
-   */
+
+  @Override
   public void setRule(Rule rule) {
     this.rule = rule;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__RULE);
   }
 
   @Override
@@ -156,11 +154,11 @@ public class SpeedConditionImpl extends BaseImpl implements ISpeedCondition {
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setValue(getValue());
+    clonedObject.value = getValue();
     // Enumeration Type
     Rule rule = getRule();
     if (rule != null) {
-      clonedObject.setRule(Rule.getFromLiteral(rule.getLiteral()));
+      clonedObject.rule = Rule.getFromLiteral(rule.getLiteral());
     }
     // clone children
     return clonedObject;
@@ -249,4 +247,39 @@ public class SpeedConditionImpl extends BaseImpl implements ISpeedCondition {
   public String getModelType() {
     return "SpeedCondition";
   }
+
+  @Override
+  public void writeParameterToValue(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__VALUE, parameterName, null /*no textmarker*/);
+    this.value = null;
+  }
+
+  @Override
+  public void writeParameterToRule(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__RULE, parameterName, null /*no textmarker*/);
+    this.rule = null;
+  }
+
+  @Override
+  public String getParameterFromValue() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__VALUE);
+  }
+
+  @Override
+  public String getParameterFromRule() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__RULE);
+  }
+
+  @Override
+  public boolean isValueParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__VALUE);
+  }
+
+  @Override
+  public boolean isRuleParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__RULE);
+  }
+
+  // children
+
 }

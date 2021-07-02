@@ -17,10 +17,8 @@
 
 package net.asam.openscenario.v1_0.test;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -41,7 +39,6 @@ import net.asam.openscenario.v1_0.api.IManeuver;
 import net.asam.openscenario.v1_0.api.IOpenScenario;
 import net.asam.openscenario.v1_0.api.IOpenScenarioCategory;
 import net.asam.openscenario.v1_0.api.IPrivate;
-import net.asam.openscenario.v1_0.api.IPrivateAction;
 import net.asam.openscenario.v1_0.api.IRelativeLanePosition;
 import net.asam.openscenario.v1_0.api.IScenarioDefinition;
 import net.asam.openscenario.v1_0.api.ISpeedAction;
@@ -225,7 +222,7 @@ public class TestFlexInterface extends TestBase {
             flexElement.getReferencedElement(null, "Ego");
           });
 
-    } catch (Error | KeyNotSupportedException | ParseException e) {
+    } catch (Exception | Error  e) {
       e.printStackTrace();
       Assertions.fail();
     }
@@ -242,13 +239,12 @@ public class TestFlexInterface extends TestBase {
     Assertions.assertNotNull(init, "Unexpected null value");
     IInitActions actions = init.getActions();
     Assertions.assertNotNull(actions, "Unexpected null value");
-    List<IPrivate> privates = actions.getPrivates();
-    Assertions.assertNotNull(privates, "Unexpected null value");
-    Assertions.assertEquals(3, privates.size());
-    IPrivate privateAction = privates.get(0);
-    List<IPrivateAction> privateActions = privateAction.getPrivateActions();
-    Assertions.assertEquals(2, privateActions.size());
-    ISpeedAction speedAction = privateActions.get(0).getLongitudinalAction().getSpeedAction();
+    int privatesSize = actions.getPrivatesSize();
+    Assertions.assertEquals(3, privatesSize);
+    IPrivate privateAction = actions.getPrivatesAtIndex(0);
+    int privateActionsSize = privateAction.getPrivateActionsSize();
+    Assertions.assertEquals(2, privateActionsSize);
+    ISpeedAction speedAction = privateAction.getPrivateActionsAtIndex(0).getLongitudinalAction().getSpeedAction();
     return speedAction.getSpeedActionDynamics();
   }
 
@@ -257,23 +253,17 @@ public class TestFlexInterface extends TestBase {
     IScenarioDefinition scenarioDefinition = openScenarioCategory.getScenarioDefinition();
     IStoryboard storyboard = scenarioDefinition.getStoryboard();
     return storyboard
-        .getStories()
-        .get(0)
-        .getActs()
-        .get(0)
-        .getManeuverGroups()
-        .get(0)
-        .getManeuvers()
-        .get(0)
-        .getEvents()
-        .get(0);
+        .getStoriesAtIndex(0)
+        .getActsAtIndex(0)
+        .getManeuverGroupsAtIndex(0)
+        .getManeuversAtIndex(0)
+        .getEventsAtIndex(0);
   }
 
   private IRelativeLanePosition getRelativeLanePosition(IEvent event) {
 
     return event
-        .getActions()
-        .get(1)
+        .getActionsAtIndex(1)
         .getPrivateAction()
         .getRoutingAction()
         .getAcquirePositionAction()
@@ -285,6 +275,6 @@ public class TestFlexInterface extends TestBase {
     IOpenScenarioCategory openScenarioCategory = openScenario.getOpenScenarioCategory();
     IScenarioDefinition scenarioDefinition = openScenarioCategory.getScenarioDefinition();
     IStoryboard storyboard = scenarioDefinition.getStoryboard();
-    return storyboard.getStories().get(0).getActs().get(0).getManeuverGroups().get(0).getActors();
+    return storyboard.getStoriesAtIndex(0).getActsAtIndex(0).getManeuverGroupsAtIndex(0).getActors();
   }
 }

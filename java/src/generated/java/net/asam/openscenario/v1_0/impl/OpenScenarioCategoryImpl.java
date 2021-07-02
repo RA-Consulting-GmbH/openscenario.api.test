@@ -28,6 +28,9 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.ICatalogDefinition;
 import net.asam.openscenario.v1_0.api.IOpenScenarioCategory;
 import net.asam.openscenario.v1_0.api.IScenarioDefinition;
+import net.asam.openscenario.v1_0.api.writer.ICatalogDefinitionWriter;
+import net.asam.openscenario.v1_0.api.writer.IOpenScenarioCategoryWriter;
+import net.asam.openscenario.v1_0.api.writer.IScenarioDefinitionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,16 +48,18 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class OpenScenarioCategoryImpl extends BaseImpl implements IOpenScenarioCategory {
+public class OpenScenarioCategoryImpl extends BaseImpl implements IOpenScenarioCategoryWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private IScenarioDefinition scenarioDefinition;
-  private ICatalogDefinition catalogDefinition;
+  private IScenarioDefinitionWriter scenarioDefinition;
+  private ICatalogDefinitionWriter catalogDefinition;
+
   /** Default constructor */
   public OpenScenarioCategoryImpl() {
     super();
     addAdapter(OpenScenarioCategoryImpl.class, this);
     addAdapter(IOpenScenarioCategory.class, this);
+    addAdapter(IOpenScenarioCategoryWriter.class, this);
   }
 
   @Override
@@ -71,23 +76,17 @@ public class OpenScenarioCategoryImpl extends BaseImpl implements IOpenScenarioC
   public ICatalogDefinition getCatalogDefinition() {
     return this.catalogDefinition;
   }
-  /**
-   * Sets the value of model property scenarioDefinition
-   *
-   * @param scenarioDefinition from OpenSCENARIO class model specification: [Definition of a
-   *     scenario.]
-   */
-  public void setScenarioDefinition(IScenarioDefinition scenarioDefinition) {
+
+  @Override
+  public void setScenarioDefinition(IScenarioDefinitionWriter scenarioDefinition) {
     this.scenarioDefinition = scenarioDefinition;
+    this.catalogDefinition = null;
   }
-  /**
-   * Sets the value of model property catalogDefinition
-   *
-   * @param catalogDefinition from OpenSCENARIO class model specification: [Definition of a
-   *     catalog.]
-   */
-  public void setCatalogDefinition(ICatalogDefinition catalogDefinition) {
+
+  @Override
+  public void setCatalogDefinition(ICatalogDefinitionWriter catalogDefinition) {
     this.catalogDefinition = catalogDefinition;
+    this.scenarioDefinition = null;
   }
 
   @Override
@@ -111,13 +110,13 @@ public class OpenScenarioCategoryImpl extends BaseImpl implements IOpenScenarioC
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IScenarioDefinition scenarioDefinition = null;
-    scenarioDefinition = getScenarioDefinition();
+    IScenarioDefinitionWriter scenarioDefinition = null;
+    scenarioDefinition = getWriterScenarioDefinition();
     if (scenarioDefinition != null) {
       result.add((BaseImpl) scenarioDefinition);
     }
-    ICatalogDefinition catalogDefinition = null;
-    catalogDefinition = getCatalogDefinition();
+    ICatalogDefinitionWriter catalogDefinition = null;
+    catalogDefinition = getWriterCatalogDefinition();
     if (catalogDefinition != null) {
       result.add((BaseImpl) catalogDefinition);
     }
@@ -140,17 +139,17 @@ public class OpenScenarioCategoryImpl extends BaseImpl implements IOpenScenarioC
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    IScenarioDefinition scenarioDefinition = null;
-    scenarioDefinition = getScenarioDefinition();
+    IScenarioDefinitionWriter scenarioDefinition = null;
+    scenarioDefinition = getWriterScenarioDefinition();
     if (scenarioDefinition != null) {
-      ScenarioDefinitionImpl clonedChild = ((ScenarioDefinitionImpl) scenarioDefinition).clone();
+      IScenarioDefinitionWriter clonedChild = ((ScenarioDefinitionImpl) scenarioDefinition).clone();
       clonedObject.setScenarioDefinition(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    ICatalogDefinition catalogDefinition = null;
-    catalogDefinition = getCatalogDefinition();
+    ICatalogDefinitionWriter catalogDefinition = null;
+    catalogDefinition = getWriterCatalogDefinition();
     if (catalogDefinition != null) {
-      CatalogDefinitionImpl clonedChild = ((CatalogDefinitionImpl) catalogDefinition).clone();
+      ICatalogDefinitionWriter clonedChild = ((CatalogDefinitionImpl) catalogDefinition).clone();
       clonedObject.setCatalogDefinition(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -235,5 +234,16 @@ public class OpenScenarioCategoryImpl extends BaseImpl implements IOpenScenarioC
   @Override
   public String getModelType() {
     return "OpenScenarioCategory";
+  }
+
+  // children
+  @Override
+  public IScenarioDefinitionWriter getWriterScenarioDefinition() {
+    return this.scenarioDefinition;
+  }
+
+  @Override
+  public ICatalogDefinitionWriter getWriterCatalogDefinition() {
+    return this.catalogDefinition;
   }
 }

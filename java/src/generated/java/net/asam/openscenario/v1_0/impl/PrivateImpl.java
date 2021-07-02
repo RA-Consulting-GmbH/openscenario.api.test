@@ -19,6 +19,7 @@ package net.asam.openscenario.v1_0.impl;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.List;
 import net.asam.openscenario.api.IOpenScenarioFlexElement;
 import net.asam.openscenario.api.KeyNotSupportedException;
@@ -30,6 +31,8 @@ import net.asam.openscenario.impl.NamedReferenceProxy;
 import net.asam.openscenario.v1_0.api.IEntity;
 import net.asam.openscenario.v1_0.api.IPrivate;
 import net.asam.openscenario.v1_0.api.IPrivateAction;
+import net.asam.openscenario.v1_0.api.writer.IPrivateActionWriter;
+import net.asam.openscenario.v1_0.api.writer.IPrivateWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -47,7 +50,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class PrivateImpl extends BaseImpl implements IPrivate {
+public class PrivateImpl extends BaseImpl implements IPrivateWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -55,13 +58,15 @@ public class PrivateImpl extends BaseImpl implements IPrivate {
     propertyToType.put(OscConstants.ATTRIBUTE__ENTITY_REF, SimpleType.STRING);
   }
 
-  private NamedReferenceProxy<IEntity> entityRef;
-  private List<IPrivateAction> privateActions;
+  private INamedReference<IEntity> entityRef;
+  private List<IPrivateActionWriter> privateActions = new ArrayList<>();
+
   /** Default constructor */
   public PrivateImpl() {
     super();
     addAdapter(PrivateImpl.class, this);
     addAdapter(IPrivate.class, this);
+    addAdapter(IPrivateWriter.class, this);
   }
 
   @Override
@@ -75,24 +80,44 @@ public class PrivateImpl extends BaseImpl implements IPrivate {
   }
 
   @Override
-  public List<IPrivateAction> getPrivateActions() {
+  public List<IPrivateActionWriter> getWriterPrivateActions() {
     return this.privateActions;
   }
-  /**
-   * Sets the value of model property entityRef
-   *
-   * @param entityRef from OpenSCENARIO class model specification: []
-   */
-  public void setEntityRef(NamedReferenceProxy<IEntity> entityRef) {
-    this.entityRef = entityRef;
+
+  @Override
+  public Iterable<IPrivateAction> getPrivateActions() {
+    return new Iterable<IPrivateAction>() {
+
+      @SuppressWarnings("synthetic-access")
+      @Override
+      public Iterator<IPrivateAction> iterator() {
+        return new ArrayList<IPrivateAction>(PrivateImpl.this.privateActions).iterator();
+      }
+    };
   }
-  /**
-   * Sets the value of model property privateActions
-   *
-   * @param privateActions from OpenSCENARIO class model specification: [List of private actions to
-   *     be executed when the enclosing container gets triggered.]
-   */
-  public void setPrivateActions(List<IPrivateAction> privateActions) {
+
+  @Override
+  public int getPrivateActionsSize() {
+    if (this.privateActions != null) return this.privateActions.size();
+    return 0;
+  }
+
+  @Override
+  public IPrivateAction getPrivateActionsAtIndex(int index) {
+    if (index >= 0 && this.privateActions != null && this.privateActions.size() > index) {
+      return this.privateActions.get(index);
+    }
+    return null;
+  }
+
+  @Override
+  public void setEntityRef(INamedReference<IEntity> entityRef) {
+    this.entityRef = entityRef;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__ENTITY_REF);
+  }
+
+  @Override
+  public void setPrivateActions(List<IPrivateActionWriter> privateActions) {
     this.privateActions = privateActions;
   }
 
@@ -122,10 +147,10 @@ public class PrivateImpl extends BaseImpl implements IPrivate {
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    List<IPrivateAction> privateActions = null;
-    privateActions = getPrivateActions();
+    List<IPrivateActionWriter> privateActions = null;
+    privateActions = getWriterPrivateActions();
     if (privateActions != null) {
-      for (IPrivateAction item : privateActions) {
+      for (IPrivateActionWriter item : privateActions) {
         result.add((BaseImpl) item);
       }
     }
@@ -149,15 +174,15 @@ public class PrivateImpl extends BaseImpl implements IPrivate {
     // clone attributes;
     // Proxy
     NamedReferenceProxy<IEntity> proxy = ((NamedReferenceProxy<IEntity>) getEntityRef()).clone();
-    clonedObject.setEntityRef(proxy);
+    clonedObject.entityRef = proxy;
     proxy.setParent(clonedObject);
     // clone children
-    List<IPrivateAction> privateActions = null;
-    privateActions = getPrivateActions();
+    List<IPrivateActionWriter> privateActions = null;
+    privateActions = getWriterPrivateActions();
     if (privateActions != null) {
-      List<IPrivateAction> clonedList = new ArrayList<>();
-      for (IPrivateAction item : privateActions) {
-        PrivateActionImpl clonedChild = ((PrivateActionImpl) item).clone();
+      List<IPrivateActionWriter> clonedList = new ArrayList<>();
+      for (IPrivateActionWriter item : privateActions) {
+        IPrivateActionWriter clonedChild = ((PrivateActionImpl) item).clone();
         clonedList.add(clonedChild);
         clonedChild.setParent(clonedObject);
       }
@@ -259,4 +284,24 @@ public class PrivateImpl extends BaseImpl implements IPrivate {
   public String getModelType() {
     return "Private";
   }
+
+  @Override
+  public void writeParameterToEntityRef(String parameterName) {
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__ENTITY_REF, parameterName, null /*no textmarker*/);
+    this.entityRef = null;
+  }
+
+  @Override
+  public String getParameterFromEntityRef() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__ENTITY_REF);
+  }
+
+  @Override
+  public boolean isEntityRefParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__ENTITY_REF);
+  }
+
+  // children
+
 }

@@ -18,6 +18,7 @@ package net.asam.openscenario.v1_0.checker.range;
 
 import net.asam.openscenario.checker.RangeCheckerRule;
 import net.asam.openscenario.common.IParserMessageLogger;
+import net.asam.openscenario.common.ITreeMessageLogger;
 import net.asam.openscenario.v1_0.api.IVehicleCategoryDistributionEntry;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
@@ -37,19 +38,43 @@ public class VehicleCategoryDistributionEntryRangeCheckerRule
   }
 
   @Override
-  public void applyRule(
+  public void applyRuleInFileContext(
       IParserMessageLogger messageLogger, IVehicleCategoryDistributionEntry object) {
+    apply(messageLogger, null, object);
+  }
+
+  @Override
+  public void applyRuleInTreeContext(
+      ITreeMessageLogger messageLogger, IVehicleCategoryDistributionEntry object) {
+    apply(null, messageLogger, object);
+  }
+
+  private void apply(
+      IParserMessageLogger fileMessageLogger,
+      ITreeMessageLogger treeMessageLogger,
+      IVehicleCategoryDistributionEntry object) {
     Double weight = object.getWeight();
     if (weight != null) {
       if (!(weight >= 0)) {
-        logMessage(
-            object,
-            messageLogger,
-            OscConstants.ATTRIBUTE__WEIGHT,
-            object.getWeight().toString(),
-            ">=",
-            "0",
-            OscConstants.ATTRIBUTE__WEIGHT);
+        if (fileMessageLogger != null) {
+          logFileContentMessage(
+              object,
+              fileMessageLogger,
+              OscConstants.ATTRIBUTE__WEIGHT,
+              object.getWeight().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__WEIGHT);
+        } else {
+          logTreeContentMessage(
+              object,
+              treeMessageLogger,
+              OscConstants.ATTRIBUTE__WEIGHT,
+              object.getWeight().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__WEIGHT);
+        }
       }
     }
   }

@@ -19,6 +19,7 @@ package net.asam.openscenario.v1_0.impl;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.List;
 import net.asam.openscenario.api.IOpenScenarioFlexElement;
 import net.asam.openscenario.api.KeyNotSupportedException;
@@ -30,6 +31,9 @@ import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IAct;
 import net.asam.openscenario.v1_0.api.IParameterDeclaration;
 import net.asam.openscenario.v1_0.api.IStory;
+import net.asam.openscenario.v1_0.api.writer.IActWriter;
+import net.asam.openscenario.v1_0.api.writer.IParameterDeclarationWriter;
+import net.asam.openscenario.v1_0.api.writer.IStoryWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -47,7 +51,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class StoryImpl extends BaseImpl implements IStory {
+public class StoryImpl extends BaseImpl implements IStoryWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -56,13 +60,15 @@ public class StoryImpl extends BaseImpl implements IStory {
   }
 
   private String name;
-  private List<IParameterDeclaration> parameterDeclarations;
-  private List<IAct> acts;
+  private List<IParameterDeclarationWriter> parameterDeclarations = new ArrayList<>();
+  private List<IActWriter> acts = new ArrayList<>();
+
   /** Default constructor */
   public StoryImpl() {
     super();
     addAdapter(StoryImpl.class, this);
     addAdapter(IStory.class, this);
+    addAdapter(IStoryWriter.class, this);
   }
 
   @Override
@@ -76,38 +82,83 @@ public class StoryImpl extends BaseImpl implements IStory {
   }
 
   @Override
-  public List<IParameterDeclaration> getParameterDeclarations() {
+  public List<IParameterDeclarationWriter> getWriterParameterDeclarations() {
     return this.parameterDeclarations;
   }
 
   @Override
-  public List<IAct> getActs() {
+  public Iterable<IParameterDeclaration> getParameterDeclarations() {
+    return new Iterable<IParameterDeclaration>() {
+
+      @SuppressWarnings("synthetic-access")
+      @Override
+      public Iterator<IParameterDeclaration> iterator() {
+        return new ArrayList<IParameterDeclaration>(StoryImpl.this.parameterDeclarations)
+            .iterator();
+      }
+    };
+  }
+
+  @Override
+  public int getParameterDeclarationsSize() {
+    if (this.parameterDeclarations != null) return this.parameterDeclarations.size();
+    return 0;
+  }
+
+  @Override
+  public IParameterDeclaration getParameterDeclarationsAtIndex(int index) {
+    if (index >= 0
+        && this.parameterDeclarations != null
+        && this.parameterDeclarations.size() > index) {
+      return this.parameterDeclarations.get(index);
+    }
+    return null;
+  }
+
+  @Override
+  public List<IActWriter> getWriterActs() {
     return this.acts;
   }
-  /**
-   * Sets the value of model property name
-   *
-   * @param name from OpenSCENARIO class model specification: [Name of the story, must be unique
-   *     within an OpenSCENARIO file.]
-   */
+
+  @Override
+  public Iterable<IAct> getActs() {
+    return new Iterable<IAct>() {
+
+      @SuppressWarnings("synthetic-access")
+      @Override
+      public Iterator<IAct> iterator() {
+        return new ArrayList<IAct>(StoryImpl.this.acts).iterator();
+      }
+    };
+  }
+
+  @Override
+  public int getActsSize() {
+    if (this.acts != null) return this.acts.size();
+    return 0;
+  }
+
+  @Override
+  public IAct getActsAtIndex(int index) {
+    if (index >= 0 && this.acts != null && this.acts.size() > index) {
+      return this.acts.get(index);
+    }
+    return null;
+  }
+
+  @Override
   public void setName(String name) {
     this.name = name;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__NAME);
   }
-  /**
-   * Sets the value of model property parameterDeclarations
-   *
-   * @param parameterDeclarations from OpenSCENARIO class model specification: [Definition of
-   *     additional parameters.]
-   */
-  public void setParameterDeclarations(List<IParameterDeclaration> parameterDeclarations) {
+
+  @Override
+  public void setParameterDeclarations(List<IParameterDeclarationWriter> parameterDeclarations) {
     this.parameterDeclarations = parameterDeclarations;
   }
-  /**
-   * Sets the value of model property acts
-   *
-   * @param acts from OpenSCENARIO class model specification: [Defines the acts of the story.]
-   */
-  public void setActs(List<IAct> acts) {
+
+  @Override
+  public void setActs(List<IActWriter> acts) {
     this.acts = acts;
   }
 
@@ -158,17 +209,17 @@ public class StoryImpl extends BaseImpl implements IStory {
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    List<IParameterDeclaration> parameterDeclarations = null;
-    parameterDeclarations = getParameterDeclarations();
+    List<IParameterDeclarationWriter> parameterDeclarations = null;
+    parameterDeclarations = getWriterParameterDeclarations();
     if (parameterDeclarations != null) {
-      for (IParameterDeclaration item : parameterDeclarations) {
+      for (IParameterDeclarationWriter item : parameterDeclarations) {
         result.add((BaseImpl) item);
       }
     }
-    List<IAct> acts = null;
-    acts = getActs();
+    List<IActWriter> acts = null;
+    acts = getWriterActs();
     if (acts != null) {
-      for (IAct item : acts) {
+      for (IActWriter item : acts) {
         result.add((BaseImpl) item);
       }
     }
@@ -191,25 +242,25 @@ public class StoryImpl extends BaseImpl implements IStory {
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setName(getName());
+    clonedObject.name = getName();
     // clone children
-    List<IParameterDeclaration> parameterDeclarations = null;
-    parameterDeclarations = getParameterDeclarations();
+    List<IParameterDeclarationWriter> parameterDeclarations = null;
+    parameterDeclarations = getWriterParameterDeclarations();
     if (parameterDeclarations != null) {
-      List<IParameterDeclaration> clonedList = new ArrayList<>();
-      for (IParameterDeclaration item : parameterDeclarations) {
-        ParameterDeclarationImpl clonedChild = ((ParameterDeclarationImpl) item).clone();
+      List<IParameterDeclarationWriter> clonedList = new ArrayList<>();
+      for (IParameterDeclarationWriter item : parameterDeclarations) {
+        IParameterDeclarationWriter clonedChild = ((ParameterDeclarationImpl) item).clone();
         clonedList.add(clonedChild);
         clonedChild.setParent(clonedObject);
       }
       clonedObject.setParameterDeclarations(clonedList);
     }
-    List<IAct> acts = null;
-    acts = getActs();
+    List<IActWriter> acts = null;
+    acts = getWriterActs();
     if (acts != null) {
-      List<IAct> clonedList = new ArrayList<>();
-      for (IAct item : acts) {
-        ActImpl clonedChild = ((ActImpl) item).clone();
+      List<IActWriter> clonedList = new ArrayList<>();
+      for (IActWriter item : acts) {
+        IActWriter clonedChild = ((ActImpl) item).clone();
         clonedList.add(clonedChild);
         clonedChild.setParent(clonedObject);
       }
@@ -304,4 +355,23 @@ public class StoryImpl extends BaseImpl implements IStory {
   public String getModelType() {
     return "Story";
   }
+
+  @Override
+  public void writeParameterToName(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__NAME, parameterName, null /*no textmarker*/);
+    this.name = null;
+  }
+
+  @Override
+  public String getParameterFromName() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__NAME);
+  }
+
+  @Override
+  public boolean isNameParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__NAME);
+  }
+
+  // children
+
 }

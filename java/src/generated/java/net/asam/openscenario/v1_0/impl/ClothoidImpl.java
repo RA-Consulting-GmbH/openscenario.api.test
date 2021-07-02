@@ -28,6 +28,8 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IClothoid;
 import net.asam.openscenario.v1_0.api.IPosition;
+import net.asam.openscenario.v1_0.api.writer.IClothoidWriter;
+import net.asam.openscenario.v1_0.api.writer.IPositionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,7 +47,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ClothoidImpl extends BaseImpl implements IClothoid {
+public class ClothoidImpl extends BaseImpl implements IClothoidWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -62,12 +64,14 @@ public class ClothoidImpl extends BaseImpl implements IClothoid {
   private Double length;
   private Double startTime;
   private Double stopTime;
-  private IPosition position;
+  private IPositionWriter position;
+
   /** Default constructor */
   public ClothoidImpl() {
     super();
     addAdapter(ClothoidImpl.class, this);
     addAdapter(IClothoid.class, this);
+    addAdapter(IClothoidWriter.class, this);
   }
 
   @Override
@@ -104,55 +108,39 @@ public class ClothoidImpl extends BaseImpl implements IClothoid {
   public IPosition getPosition() {
     return this.position;
   }
-  /**
-   * Sets the value of model property curvature
-   *
-   * @param curvature from OpenSCENARIO class model specification: [Start curvature of clothoid.]
-   */
+
+  @Override
   public void setCurvature(Double curvature) {
     this.curvature = curvature;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__CURVATURE);
   }
-  /**
-   * Sets the value of model property curvatureDot
-   *
-   * @param curvatureDot from OpenSCENARIO class model specification: [Rate of change of the
-   *     curvature of the clothoid.Unit: 1/s;Range [0..inf[.]
-   */
+
+  @Override
   public void setCurvatureDot(Double curvatureDot) {
     this.curvatureDot = curvatureDot;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__CURVATURE_DOT);
   }
-  /**
-   * Sets the value of model property length
-   *
-   * @param length from OpenSCENARIO class model specification: [Length of clothoid.]
-   */
+
+  @Override
   public void setLength(Double length) {
     this.length = length;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__LENGTH);
   }
-  /**
-   * Sets the value of model property startTime
-   *
-   * @param startTime from OpenSCENARIO class model specification: [Optional time specification at
-   *     the start of the clothoid. Unit: s;Range [0..inf[.]
-   */
+
+  @Override
   public void setStartTime(Double startTime) {
     this.startTime = startTime;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__START_TIME);
   }
-  /**
-   * Sets the value of model property stopTime
-   *
-   * @param stopTime from OpenSCENARIO class model specification: [Optional time specification at
-   *     the end of the clothoid. Unit: s;Range ]0..inf[.]
-   */
+
+  @Override
   public void setStopTime(Double stopTime) {
     this.stopTime = stopTime;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__STOP_TIME);
   }
-  /**
-   * Sets the value of model property position
-   *
-   * @param position from OpenSCENARIO class model specification: [Start position of a clothoid.]
-   */
-  public void setPosition(IPosition position) {
+
+  @Override
+  public void setPosition(IPositionWriter position) {
     this.position = position;
   }
 
@@ -206,8 +194,8 @@ public class ClothoidImpl extends BaseImpl implements IClothoid {
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IPosition position = null;
-    position = getPosition();
+    IPositionWriter position = null;
+    position = getWriterPosition();
     if (position != null) {
       result.add((BaseImpl) position);
     }
@@ -230,20 +218,20 @@ public class ClothoidImpl extends BaseImpl implements IClothoid {
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setCurvature(getCurvature());
+    clonedObject.curvature = getCurvature();
     // Simple type
-    clonedObject.setCurvatureDot(getCurvatureDot());
+    clonedObject.curvatureDot = getCurvatureDot();
     // Simple type
-    clonedObject.setLength(getLength());
+    clonedObject.length = getLength();
     // Simple type
-    clonedObject.setStartTime(getStartTime());
+    clonedObject.startTime = getStartTime();
     // Simple type
-    clonedObject.setStopTime(getStopTime());
+    clonedObject.stopTime = getStopTime();
     // clone children
-    IPosition position = null;
-    position = getPosition();
+    IPositionWriter position = null;
+    position = getWriterPosition();
     if (position != null) {
-      PositionImpl clonedChild = ((PositionImpl) position).clone();
+      IPositionWriter clonedChild = ((PositionImpl) position).clone();
       clonedObject.setPosition(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -339,5 +327,93 @@ public class ClothoidImpl extends BaseImpl implements IClothoid {
   @Override
   public String getModelType() {
     return "Clothoid";
+  }
+
+  @Override
+  public void writeParameterToCurvature(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__CURVATURE, parameterName, null /*no textmarker*/);
+    this.curvature = null;
+  }
+
+  @Override
+  public void writeParameterToCurvatureDot(String parameterName) {
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__CURVATURE_DOT, parameterName, null /*no textmarker*/);
+    this.curvatureDot = null;
+  }
+
+  @Override
+  public void writeParameterToLength(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__LENGTH, parameterName, null /*no textmarker*/);
+    this.length = null;
+  }
+
+  @Override
+  public void writeParameterToStartTime(String parameterName) {
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__START_TIME, parameterName, null /*no textmarker*/);
+    this.startTime = null;
+  }
+
+  @Override
+  public void writeParameterToStopTime(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__STOP_TIME, parameterName, null /*no textmarker*/);
+    this.stopTime = null;
+  }
+
+  @Override
+  public String getParameterFromCurvature() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__CURVATURE);
+  }
+
+  @Override
+  public String getParameterFromCurvatureDot() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__CURVATURE_DOT);
+  }
+
+  @Override
+  public String getParameterFromLength() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__LENGTH);
+  }
+
+  @Override
+  public String getParameterFromStartTime() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__START_TIME);
+  }
+
+  @Override
+  public String getParameterFromStopTime() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__STOP_TIME);
+  }
+
+  @Override
+  public boolean isCurvatureParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__CURVATURE);
+  }
+
+  @Override
+  public boolean isCurvatureDotParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__CURVATURE_DOT);
+  }
+
+  @Override
+  public boolean isLengthParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__LENGTH);
+  }
+
+  @Override
+  public boolean isStartTimeParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__START_TIME);
+  }
+
+  @Override
+  public boolean isStopTimeParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__STOP_TIME);
+  }
+
+  // children
+  @Override
+  public IPositionWriter getWriterPosition() {
+    return this.position;
   }
 }

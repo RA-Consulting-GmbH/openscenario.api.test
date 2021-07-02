@@ -1,0 +1,6 @@
+The version 1.0.1 supports dark theme features. 
+Select the theme MANUALLY under:
+
+Windows->Preference->Template Editor 
+
+Select 'Dark'

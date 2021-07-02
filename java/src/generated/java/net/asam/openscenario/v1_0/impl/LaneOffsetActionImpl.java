@@ -29,6 +29,9 @@ import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.ILaneOffsetAction;
 import net.asam.openscenario.v1_0.api.ILaneOffsetActionDynamics;
 import net.asam.openscenario.v1_0.api.ILaneOffsetTarget;
+import net.asam.openscenario.v1_0.api.writer.ILaneOffsetActionDynamicsWriter;
+import net.asam.openscenario.v1_0.api.writer.ILaneOffsetActionWriter;
+import net.asam.openscenario.v1_0.api.writer.ILaneOffsetTargetWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -46,7 +49,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class LaneOffsetActionImpl extends BaseImpl implements ILaneOffsetAction {
+public class LaneOffsetActionImpl extends BaseImpl implements ILaneOffsetActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -55,13 +58,15 @@ public class LaneOffsetActionImpl extends BaseImpl implements ILaneOffsetAction 
   }
 
   private Boolean continuous;
-  private ILaneOffsetActionDynamics laneOffsetActionDynamics;
-  private ILaneOffsetTarget laneOffsetTarget;
+  private ILaneOffsetActionDynamicsWriter laneOffsetActionDynamics;
+  private ILaneOffsetTargetWriter laneOffsetTarget;
+
   /** Default constructor */
   public LaneOffsetActionImpl() {
     super();
     addAdapter(LaneOffsetActionImpl.class, this);
     addAdapter(ILaneOffsetAction.class, this);
+    addAdapter(ILaneOffsetActionWriter.class, this);
   }
 
   @Override
@@ -83,32 +88,21 @@ public class LaneOffsetActionImpl extends BaseImpl implements ILaneOffsetAction 
   public ILaneOffsetTarget getLaneOffsetTarget() {
     return this.laneOffsetTarget;
   }
-  /**
-   * Sets the value of model property continuous
-   *
-   * @param continuous from OpenSCENARIO class model specification: [If false, the action ends when
-   *     the target lane is reached. If true it does not end but has to be stopped.]
-   */
+
+  @Override
   public void setContinuous(Boolean continuous) {
     this.continuous = continuous;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__CONTINUOUS);
   }
-  /**
-   * Sets the value of model property laneOffsetActionDynamics
-   *
-   * @param laneOffsetActionDynamics from OpenSCENARIO class model specification: [Parameters
-   *     defining the dynamics of the LaneOffsetAction.]
-   */
-  public void setLaneOffsetActionDynamics(ILaneOffsetActionDynamics laneOffsetActionDynamics) {
+
+  @Override
+  public void setLaneOffsetActionDynamics(
+      ILaneOffsetActionDynamicsWriter laneOffsetActionDynamics) {
     this.laneOffsetActionDynamics = laneOffsetActionDynamics;
   }
-  /**
-   * Sets the value of model property laneOffsetTarget
-   *
-   * @param laneOffsetTarget from OpenSCENARIO class model specification: [Parameters indicating if
-   *     the lane offset is defined relative to another entity or absolute to the current lane's
-   *     center , line.]
-   */
-  public void setLaneOffsetTarget(ILaneOffsetTarget laneOffsetTarget) {
+
+  @Override
+  public void setLaneOffsetTarget(ILaneOffsetTargetWriter laneOffsetTarget) {
     this.laneOffsetTarget = laneOffsetTarget;
   }
 
@@ -138,13 +132,13 @@ public class LaneOffsetActionImpl extends BaseImpl implements ILaneOffsetAction 
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    ILaneOffsetActionDynamics laneOffsetActionDynamics = null;
-    laneOffsetActionDynamics = getLaneOffsetActionDynamics();
+    ILaneOffsetActionDynamicsWriter laneOffsetActionDynamics = null;
+    laneOffsetActionDynamics = getWriterLaneOffsetActionDynamics();
     if (laneOffsetActionDynamics != null) {
       result.add((BaseImpl) laneOffsetActionDynamics);
     }
-    ILaneOffsetTarget laneOffsetTarget = null;
-    laneOffsetTarget = getLaneOffsetTarget();
+    ILaneOffsetTargetWriter laneOffsetTarget = null;
+    laneOffsetTarget = getWriterLaneOffsetTarget();
     if (laneOffsetTarget != null) {
       result.add((BaseImpl) laneOffsetTarget);
     }
@@ -167,20 +161,20 @@ public class LaneOffsetActionImpl extends BaseImpl implements ILaneOffsetAction 
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setContinuous(getContinuous());
+    clonedObject.continuous = getContinuous();
     // clone children
-    ILaneOffsetActionDynamics laneOffsetActionDynamics = null;
-    laneOffsetActionDynamics = getLaneOffsetActionDynamics();
+    ILaneOffsetActionDynamicsWriter laneOffsetActionDynamics = null;
+    laneOffsetActionDynamics = getWriterLaneOffsetActionDynamics();
     if (laneOffsetActionDynamics != null) {
-      LaneOffsetActionDynamicsImpl clonedChild =
+      ILaneOffsetActionDynamicsWriter clonedChild =
           ((LaneOffsetActionDynamicsImpl) laneOffsetActionDynamics).clone();
       clonedObject.setLaneOffsetActionDynamics(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    ILaneOffsetTarget laneOffsetTarget = null;
-    laneOffsetTarget = getLaneOffsetTarget();
+    ILaneOffsetTargetWriter laneOffsetTarget = null;
+    laneOffsetTarget = getWriterLaneOffsetTarget();
     if (laneOffsetTarget != null) {
-      LaneOffsetTargetImpl clonedChild = ((LaneOffsetTargetImpl) laneOffsetTarget).clone();
+      ILaneOffsetTargetWriter clonedChild = ((LaneOffsetTargetImpl) laneOffsetTarget).clone();
       clonedObject.setLaneOffsetTarget(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -271,5 +265,33 @@ public class LaneOffsetActionImpl extends BaseImpl implements ILaneOffsetAction 
   @Override
   public String getModelType() {
     return "LaneOffsetAction";
+  }
+
+  @Override
+  public void writeParameterToContinuous(String parameterName) {
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__CONTINUOUS, parameterName, null /*no textmarker*/);
+    this.continuous = null;
+  }
+
+  @Override
+  public String getParameterFromContinuous() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__CONTINUOUS);
+  }
+
+  @Override
+  public boolean isContinuousParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__CONTINUOUS);
+  }
+
+  // children
+  @Override
+  public ILaneOffsetActionDynamicsWriter getWriterLaneOffsetActionDynamics() {
+    return this.laneOffsetActionDynamics;
+  }
+
+  @Override
+  public ILaneOffsetTargetWriter getWriterLaneOffsetTarget() {
+    return this.laneOffsetTarget;
   }
 }

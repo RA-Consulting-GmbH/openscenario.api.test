@@ -27,6 +27,8 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.ICustomCommandAction;
 import net.asam.openscenario.v1_0.api.IUserDefinedAction;
+import net.asam.openscenario.v1_0.api.writer.ICustomCommandActionWriter;
+import net.asam.openscenario.v1_0.api.writer.IUserDefinedActionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -44,15 +46,17 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class UserDefinedActionImpl extends BaseImpl implements IUserDefinedAction {
+public class UserDefinedActionImpl extends BaseImpl implements IUserDefinedActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private ICustomCommandAction customCommandAction;
+  private ICustomCommandActionWriter customCommandAction;
+
   /** Default constructor */
   public UserDefinedActionImpl() {
     super();
     addAdapter(UserDefinedActionImpl.class, this);
     addAdapter(IUserDefinedAction.class, this);
+    addAdapter(IUserDefinedActionWriter.class, this);
   }
 
   @Override
@@ -64,13 +68,9 @@ public class UserDefinedActionImpl extends BaseImpl implements IUserDefinedActio
   public ICustomCommandAction getCustomCommandAction() {
     return this.customCommandAction;
   }
-  /**
-   * Sets the value of model property customCommandAction
-   *
-   * @param customCommandAction from OpenSCENARIO class model specification: [The available commands
-   *     are subject of a contract between simulation environment provider and scenario author.]
-   */
-  public void setCustomCommandAction(ICustomCommandAction customCommandAction) {
+
+  @Override
+  public void setCustomCommandAction(ICustomCommandActionWriter customCommandAction) {
     this.customCommandAction = customCommandAction;
   }
 
@@ -95,8 +95,8 @@ public class UserDefinedActionImpl extends BaseImpl implements IUserDefinedActio
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    ICustomCommandAction customCommandAction = null;
-    customCommandAction = getCustomCommandAction();
+    ICustomCommandActionWriter customCommandAction = null;
+    customCommandAction = getWriterCustomCommandAction();
     if (customCommandAction != null) {
       result.add((BaseImpl) customCommandAction);
     }
@@ -119,10 +119,11 @@ public class UserDefinedActionImpl extends BaseImpl implements IUserDefinedActio
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    ICustomCommandAction customCommandAction = null;
-    customCommandAction = getCustomCommandAction();
+    ICustomCommandActionWriter customCommandAction = null;
+    customCommandAction = getWriterCustomCommandAction();
     if (customCommandAction != null) {
-      CustomCommandActionImpl clonedChild = ((CustomCommandActionImpl) customCommandAction).clone();
+      ICustomCommandActionWriter clonedChild =
+          ((CustomCommandActionImpl) customCommandAction).clone();
       clonedObject.setCustomCommandAction(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -204,5 +205,11 @@ public class UserDefinedActionImpl extends BaseImpl implements IUserDefinedActio
   @Override
   public String getModelType() {
     return "UserDefinedAction";
+  }
+
+  // children
+  @Override
+  public ICustomCommandActionWriter getWriterCustomCommandAction() {
+    return this.customCommandAction;
   }
 }

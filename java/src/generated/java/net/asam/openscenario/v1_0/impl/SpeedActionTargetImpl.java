@@ -28,6 +28,9 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.IAbsoluteTargetSpeed;
 import net.asam.openscenario.v1_0.api.IRelativeTargetSpeed;
 import net.asam.openscenario.v1_0.api.ISpeedActionTarget;
+import net.asam.openscenario.v1_0.api.writer.IAbsoluteTargetSpeedWriter;
+import net.asam.openscenario.v1_0.api.writer.IRelativeTargetSpeedWriter;
+import net.asam.openscenario.v1_0.api.writer.ISpeedActionTargetWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,16 +48,18 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class SpeedActionTargetImpl extends BaseImpl implements ISpeedActionTarget {
+public class SpeedActionTargetImpl extends BaseImpl implements ISpeedActionTargetWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private IRelativeTargetSpeed relativeTargetSpeed;
-  private IAbsoluteTargetSpeed absoluteTargetSpeed;
+  private IRelativeTargetSpeedWriter relativeTargetSpeed;
+  private IAbsoluteTargetSpeedWriter absoluteTargetSpeed;
+
   /** Default constructor */
   public SpeedActionTargetImpl() {
     super();
     addAdapter(SpeedActionTargetImpl.class, this);
     addAdapter(ISpeedActionTarget.class, this);
+    addAdapter(ISpeedActionTargetWriter.class, this);
   }
 
   @Override
@@ -71,23 +76,17 @@ public class SpeedActionTargetImpl extends BaseImpl implements ISpeedActionTarge
   public IAbsoluteTargetSpeed getAbsoluteTargetSpeed() {
     return this.absoluteTargetSpeed;
   }
-  /**
-   * Sets the value of model property relativeTargetSpeed
-   *
-   * @param relativeTargetSpeed from OpenSCENARIO class model specification: [Defines the target
-   *     speed as relative speed to a reference entity. Unit: m/s.]
-   */
-  public void setRelativeTargetSpeed(IRelativeTargetSpeed relativeTargetSpeed) {
+
+  @Override
+  public void setRelativeTargetSpeed(IRelativeTargetSpeedWriter relativeTargetSpeed) {
     this.relativeTargetSpeed = relativeTargetSpeed;
+    this.absoluteTargetSpeed = null;
   }
-  /**
-   * Sets the value of model property absoluteTargetSpeed
-   *
-   * @param absoluteTargetSpeed from OpenSCENARIO class model specification: [Defines the target
-   *     speed as absolute speed.Unit: m/s.]
-   */
-  public void setAbsoluteTargetSpeed(IAbsoluteTargetSpeed absoluteTargetSpeed) {
+
+  @Override
+  public void setAbsoluteTargetSpeed(IAbsoluteTargetSpeedWriter absoluteTargetSpeed) {
     this.absoluteTargetSpeed = absoluteTargetSpeed;
+    this.relativeTargetSpeed = null;
   }
 
   @Override
@@ -111,13 +110,13 @@ public class SpeedActionTargetImpl extends BaseImpl implements ISpeedActionTarge
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IRelativeTargetSpeed relativeTargetSpeed = null;
-    relativeTargetSpeed = getRelativeTargetSpeed();
+    IRelativeTargetSpeedWriter relativeTargetSpeed = null;
+    relativeTargetSpeed = getWriterRelativeTargetSpeed();
     if (relativeTargetSpeed != null) {
       result.add((BaseImpl) relativeTargetSpeed);
     }
-    IAbsoluteTargetSpeed absoluteTargetSpeed = null;
-    absoluteTargetSpeed = getAbsoluteTargetSpeed();
+    IAbsoluteTargetSpeedWriter absoluteTargetSpeed = null;
+    absoluteTargetSpeed = getWriterAbsoluteTargetSpeed();
     if (absoluteTargetSpeed != null) {
       result.add((BaseImpl) absoluteTargetSpeed);
     }
@@ -140,17 +139,19 @@ public class SpeedActionTargetImpl extends BaseImpl implements ISpeedActionTarge
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    IRelativeTargetSpeed relativeTargetSpeed = null;
-    relativeTargetSpeed = getRelativeTargetSpeed();
+    IRelativeTargetSpeedWriter relativeTargetSpeed = null;
+    relativeTargetSpeed = getWriterRelativeTargetSpeed();
     if (relativeTargetSpeed != null) {
-      RelativeTargetSpeedImpl clonedChild = ((RelativeTargetSpeedImpl) relativeTargetSpeed).clone();
+      IRelativeTargetSpeedWriter clonedChild =
+          ((RelativeTargetSpeedImpl) relativeTargetSpeed).clone();
       clonedObject.setRelativeTargetSpeed(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IAbsoluteTargetSpeed absoluteTargetSpeed = null;
-    absoluteTargetSpeed = getAbsoluteTargetSpeed();
+    IAbsoluteTargetSpeedWriter absoluteTargetSpeed = null;
+    absoluteTargetSpeed = getWriterAbsoluteTargetSpeed();
     if (absoluteTargetSpeed != null) {
-      AbsoluteTargetSpeedImpl clonedChild = ((AbsoluteTargetSpeedImpl) absoluteTargetSpeed).clone();
+      IAbsoluteTargetSpeedWriter clonedChild =
+          ((AbsoluteTargetSpeedImpl) absoluteTargetSpeed).clone();
       clonedObject.setAbsoluteTargetSpeed(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -235,5 +236,16 @@ public class SpeedActionTargetImpl extends BaseImpl implements ISpeedActionTarge
   @Override
   public String getModelType() {
     return "SpeedActionTarget";
+  }
+
+  // children
+  @Override
+  public IRelativeTargetSpeedWriter getWriterRelativeTargetSpeed() {
+    return this.relativeTargetSpeed;
+  }
+
+  @Override
+  public IAbsoluteTargetSpeedWriter getWriterAbsoluteTargetSpeed() {
+    return this.absoluteTargetSpeed;
   }
 }

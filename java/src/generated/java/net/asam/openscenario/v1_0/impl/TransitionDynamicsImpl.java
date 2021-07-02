@@ -31,6 +31,7 @@ import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.DynamicsDimension;
 import net.asam.openscenario.v1_0.api.DynamicsShape;
 import net.asam.openscenario.v1_0.api.ITransitionDynamics;
+import net.asam.openscenario.v1_0.api.writer.ITransitionDynamicsWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -48,7 +49,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class TransitionDynamicsImpl extends BaseImpl implements ITransitionDynamics {
+public class TransitionDynamicsImpl extends BaseImpl implements ITransitionDynamicsWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -61,11 +62,13 @@ public class TransitionDynamicsImpl extends BaseImpl implements ITransitionDynam
   private DynamicsShape dynamicsShape;
   private Double value;
   private DynamicsDimension dynamicsDimension;
+
   /** Default constructor */
   public TransitionDynamicsImpl() {
     super();
     addAdapter(TransitionDynamicsImpl.class, this);
     addAdapter(ITransitionDynamics.class, this);
+    addAdapter(ITransitionDynamicsWriter.class, this);
   }
 
   @Override
@@ -87,33 +90,23 @@ public class TransitionDynamicsImpl extends BaseImpl implements ITransitionDynam
   public DynamicsDimension getDynamicsDimension() {
     return this.dynamicsDimension;
   }
-  /**
-   * Sets the value of model property dynamicsShape
-   *
-   * @param dynamicsShape from OpenSCENARIO class model specification: [The shape of the transition
-   *     function f(x) between current and target value.]
-   */
+
+  @Override
   public void setDynamicsShape(DynamicsShape dynamicsShape) {
     this.dynamicsShape = dynamicsShape;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__DYNAMICS_SHAPE);
   }
-  /**
-   * Sets the value of model property value
-   *
-   * @param value from OpenSCENARIO class model specification: [The value for a predefined rate
-   *     (Unit: delta/s), time (Unit: s) or distance (Unit: m) to acquire the target value. , Range:
-   *     [0..inf[.]
-   */
+
+  @Override
   public void setValue(Double value) {
     this.value = value;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__VALUE);
   }
-  /**
-   * Sets the value of model property dynamicsDimension
-   *
-   * @param dynamicsDimension from OpenSCENARIO class model specification: [The semantics of the
-   *     value: 'rate', 'time' or 'distance'.]
-   */
+
+  @Override
   public void setDynamicsDimension(DynamicsDimension dynamicsDimension) {
     this.dynamicsDimension = dynamicsDimension;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__DYNAMICS_DIMENSION);
   }
 
   @Override
@@ -191,15 +184,15 @@ public class TransitionDynamicsImpl extends BaseImpl implements ITransitionDynam
     // Enumeration Type
     DynamicsShape dynamicsShape = getDynamicsShape();
     if (dynamicsShape != null) {
-      clonedObject.setDynamicsShape(DynamicsShape.getFromLiteral(dynamicsShape.getLiteral()));
+      clonedObject.dynamicsShape = DynamicsShape.getFromLiteral(dynamicsShape.getLiteral());
     }
     // Simple type
-    clonedObject.setValue(getValue());
+    clonedObject.value = getValue();
     // Enumeration Type
     DynamicsDimension dynamicsDimension = getDynamicsDimension();
     if (dynamicsDimension != null) {
-      clonedObject.setDynamicsDimension(
-          DynamicsDimension.getFromLiteral(dynamicsDimension.getLiteral()));
+      clonedObject.dynamicsDimension =
+          DynamicsDimension.getFromLiteral(dynamicsDimension.getLiteral());
     }
     // clone children
     return clonedObject;
@@ -291,4 +284,57 @@ public class TransitionDynamicsImpl extends BaseImpl implements ITransitionDynam
   public String getModelType() {
     return "TransitionDynamics";
   }
+
+  @Override
+  public void writeParameterToDynamicsShape(String parameterName) {
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__DYNAMICS_SHAPE, parameterName, null /*no textmarker*/);
+    this.dynamicsShape = null;
+  }
+
+  @Override
+  public void writeParameterToValue(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__VALUE, parameterName, null /*no textmarker*/);
+    this.value = null;
+  }
+
+  @Override
+  public void writeParameterToDynamicsDimension(String parameterName) {
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__DYNAMICS_DIMENSION, parameterName, null /*no textmarker*/);
+    this.dynamicsDimension = null;
+  }
+
+  @Override
+  public String getParameterFromDynamicsShape() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__DYNAMICS_SHAPE);
+  }
+
+  @Override
+  public String getParameterFromValue() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__VALUE);
+  }
+
+  @Override
+  public String getParameterFromDynamicsDimension() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__DYNAMICS_DIMENSION);
+  }
+
+  @Override
+  public boolean isDynamicsShapeParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__DYNAMICS_SHAPE);
+  }
+
+  @Override
+  public boolean isValueParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__VALUE);
+  }
+
+  @Override
+  public boolean isDynamicsDimensionParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__DYNAMICS_DIMENSION);
+  }
+
+  // children
+
 }

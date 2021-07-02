@@ -27,6 +27,8 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.IDirectory;
 import net.asam.openscenario.v1_0.api.IMiscObjectCatalogLocation;
+import net.asam.openscenario.v1_0.api.writer.IDirectoryWriter;
+import net.asam.openscenario.v1_0.api.writer.IMiscObjectCatalogLocationWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,15 +47,18 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class MiscObjectCatalogLocationImpl extends BaseImpl implements IMiscObjectCatalogLocation {
+public class MiscObjectCatalogLocationImpl extends BaseImpl
+    implements IMiscObjectCatalogLocationWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private IDirectory directory;
+  private IDirectoryWriter directory;
+
   /** Default constructor */
   public MiscObjectCatalogLocationImpl() {
     super();
     addAdapter(MiscObjectCatalogLocationImpl.class, this);
     addAdapter(IMiscObjectCatalogLocation.class, this);
+    addAdapter(IMiscObjectCatalogLocationWriter.class, this);
   }
 
   @Override
@@ -65,13 +70,9 @@ public class MiscObjectCatalogLocationImpl extends BaseImpl implements IMiscObje
   public IDirectory getDirectory() {
     return this.directory;
   }
-  /**
-   * Sets the value of model property directory
-   *
-   * @param directory from OpenSCENARIO class model specification: [All catalogs files in this
-   *     directory must be evaluated.]
-   */
-  public void setDirectory(IDirectory directory) {
+
+  @Override
+  public void setDirectory(IDirectoryWriter directory) {
     this.directory = directory;
   }
 
@@ -96,8 +97,8 @@ public class MiscObjectCatalogLocationImpl extends BaseImpl implements IMiscObje
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IDirectory directory = null;
-    directory = getDirectory();
+    IDirectoryWriter directory = null;
+    directory = getWriterDirectory();
     if (directory != null) {
       result.add((BaseImpl) directory);
     }
@@ -120,10 +121,10 @@ public class MiscObjectCatalogLocationImpl extends BaseImpl implements IMiscObje
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    IDirectory directory = null;
-    directory = getDirectory();
+    IDirectoryWriter directory = null;
+    directory = getWriterDirectory();
     if (directory != null) {
-      DirectoryImpl clonedChild = ((DirectoryImpl) directory).clone();
+      IDirectoryWriter clonedChild = ((DirectoryImpl) directory).clone();
       clonedObject.setDirectory(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -205,5 +206,11 @@ public class MiscObjectCatalogLocationImpl extends BaseImpl implements IMiscObje
   @Override
   public String getModelType() {
     return "MiscObjectCatalogLocation";
+  }
+
+  // children
+  @Override
+  public IDirectoryWriter getWriterDirectory() {
+    return this.directory;
   }
 }

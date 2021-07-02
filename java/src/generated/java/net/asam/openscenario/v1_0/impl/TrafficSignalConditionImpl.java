@@ -27,6 +27,7 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.ITrafficSignalCondition;
+import net.asam.openscenario.v1_0.api.writer.ITrafficSignalConditionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,7 +46,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class TrafficSignalConditionImpl extends BaseImpl implements ITrafficSignalCondition {
+public class TrafficSignalConditionImpl extends BaseImpl implements ITrafficSignalConditionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -56,11 +57,13 @@ public class TrafficSignalConditionImpl extends BaseImpl implements ITrafficSign
 
   private String name;
   private String state;
+
   /** Default constructor */
   public TrafficSignalConditionImpl() {
     super();
     addAdapter(TrafficSignalConditionImpl.class, this);
     addAdapter(ITrafficSignalCondition.class, this);
+    addAdapter(ITrafficSignalConditionWriter.class, this);
   }
 
   @Override
@@ -77,24 +80,17 @@ public class TrafficSignalConditionImpl extends BaseImpl implements ITrafficSign
   public String getState() {
     return this.state;
   }
-  /**
-   * Sets the value of model property name
-   *
-   * @param name from OpenSCENARIO class model specification: [ID of the referenced signal defined
-   *     in a road network. The signal ID must be listed in the TrafficSignal list of the ,
-   *     RoadNetwork section.]
-   */
+
+  @Override
   public void setName(String name) {
     this.name = name;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__NAME);
   }
-  /**
-   * Sets the value of model property state
-   *
-   * @param state from OpenSCENARIO class model specification: [State of the signal to be reached
-   *     for the condition to become true.]
-   */
+
+  @Override
   public void setState(String state) {
     this.state = state;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__STATE);
   }
 
   @Override
@@ -148,9 +144,9 @@ public class TrafficSignalConditionImpl extends BaseImpl implements ITrafficSign
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setName(getName());
+    clonedObject.name = getName();
     // Simple type
-    clonedObject.setState(getState());
+    clonedObject.state = getState();
     // clone children
     return clonedObject;
   }
@@ -233,4 +229,39 @@ public class TrafficSignalConditionImpl extends BaseImpl implements ITrafficSign
   public String getModelType() {
     return "TrafficSignalCondition";
   }
+
+  @Override
+  public void writeParameterToName(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__NAME, parameterName, null /*no textmarker*/);
+    this.name = null;
+  }
+
+  @Override
+  public void writeParameterToState(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__STATE, parameterName, null /*no textmarker*/);
+    this.state = null;
+  }
+
+  @Override
+  public String getParameterFromName() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__NAME);
+  }
+
+  @Override
+  public String getParameterFromState() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__STATE);
+  }
+
+  @Override
+  public boolean isNameParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__NAME);
+  }
+
+  @Override
+  public boolean isStateParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__STATE);
+  }
+
+  // children
+
 }

@@ -27,6 +27,7 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IDirectory;
+import net.asam.openscenario.v1_0.api.writer.IDirectoryWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -44,7 +45,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class DirectoryImpl extends BaseImpl implements IDirectory {
+public class DirectoryImpl extends BaseImpl implements IDirectoryWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -53,11 +54,13 @@ public class DirectoryImpl extends BaseImpl implements IDirectory {
   }
 
   private String path;
+
   /** Default constructor */
   public DirectoryImpl() {
     super();
     addAdapter(DirectoryImpl.class, this);
     addAdapter(IDirectory.class, this);
+    addAdapter(IDirectoryWriter.class, this);
   }
 
   @Override
@@ -69,14 +72,11 @@ public class DirectoryImpl extends BaseImpl implements IDirectory {
   public String getPath() {
     return this.path;
   }
-  /**
-   * Sets the value of model property path
-   *
-   * @param path from OpenSCENARIO class model specification: [File system path, e.g.
-   *     path=/home/simulation/.]
-   */
+
+  @Override
   public void setPath(String path) {
     this.path = path;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__PATH);
   }
 
   @Override
@@ -124,7 +124,7 @@ public class DirectoryImpl extends BaseImpl implements IDirectory {
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setPath(getPath());
+    clonedObject.path = getPath();
     // clone children
     return clonedObject;
   }
@@ -205,4 +205,23 @@ public class DirectoryImpl extends BaseImpl implements IDirectory {
   public String getModelType() {
     return "Directory";
   }
+
+  @Override
+  public void writeParameterToPath(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__PATH, parameterName, null /*no textmarker*/);
+    this.path = null;
+  }
+
+  @Override
+  public String getParameterFromPath() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__PATH);
+  }
+
+  @Override
+  public boolean isPathParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__PATH);
+  }
+
+  // children
+
 }

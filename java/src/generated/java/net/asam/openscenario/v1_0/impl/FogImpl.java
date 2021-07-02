@@ -28,6 +28,8 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IBoundingBox;
 import net.asam.openscenario.v1_0.api.IFog;
+import net.asam.openscenario.v1_0.api.writer.IBoundingBoxWriter;
+import net.asam.openscenario.v1_0.api.writer.IFogWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,7 +47,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class FogImpl extends BaseImpl implements IFog {
+public class FogImpl extends BaseImpl implements IFogWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -54,12 +56,14 @@ public class FogImpl extends BaseImpl implements IFog {
   }
 
   private Double visualRange;
-  private IBoundingBox boundingBox;
+  private IBoundingBoxWriter boundingBox;
+
   /** Default constructor */
   public FogImpl() {
     super();
     addAdapter(FogImpl.class, this);
     addAdapter(IFog.class, this);
+    addAdapter(IFogWriter.class, this);
   }
 
   @Override
@@ -76,21 +80,15 @@ public class FogImpl extends BaseImpl implements IFog {
   public IBoundingBox getBoundingBox() {
     return this.boundingBox;
   }
-  /**
-   * Sets the value of model property visualRange
-   *
-   * @param visualRange from OpenSCENARIO class model specification: [Unit: m; Range: [0..inf[.]
-   */
+
+  @Override
   public void setVisualRange(Double visualRange) {
     this.visualRange = visualRange;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__VISUAL_RANGE);
   }
-  /**
-   * Sets the value of model property boundingBox
-   *
-   * @param boundingBox from OpenSCENARIO class model specification: [Dimensions and center of fog
-   *     in fixed coordinates.]
-   */
-  public void setBoundingBox(IBoundingBox boundingBox) {
+
+  @Override
+  public void setBoundingBox(IBoundingBoxWriter boundingBox) {
     this.boundingBox = boundingBox;
   }
 
@@ -120,8 +118,8 @@ public class FogImpl extends BaseImpl implements IFog {
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IBoundingBox boundingBox = null;
-    boundingBox = getBoundingBox();
+    IBoundingBoxWriter boundingBox = null;
+    boundingBox = getWriterBoundingBox();
     if (boundingBox != null) {
       result.add((BaseImpl) boundingBox);
     }
@@ -144,12 +142,12 @@ public class FogImpl extends BaseImpl implements IFog {
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setVisualRange(getVisualRange());
+    clonedObject.visualRange = getVisualRange();
     // clone children
-    IBoundingBox boundingBox = null;
-    boundingBox = getBoundingBox();
+    IBoundingBoxWriter boundingBox = null;
+    boundingBox = getWriterBoundingBox();
     if (boundingBox != null) {
-      BoundingBoxImpl clonedChild = ((BoundingBoxImpl) boundingBox).clone();
+      IBoundingBoxWriter clonedChild = ((BoundingBoxImpl) boundingBox).clone();
       clonedObject.setBoundingBox(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -237,5 +235,28 @@ public class FogImpl extends BaseImpl implements IFog {
   @Override
   public String getModelType() {
     return "Fog";
+  }
+
+  @Override
+  public void writeParameterToVisualRange(String parameterName) {
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__VISUAL_RANGE, parameterName, null /*no textmarker*/);
+    this.visualRange = null;
+  }
+
+  @Override
+  public String getParameterFromVisualRange() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__VISUAL_RANGE);
+  }
+
+  @Override
+  public boolean isVisualRangeParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__VISUAL_RANGE);
+  }
+
+  // children
+  @Override
+  public IBoundingBoxWriter getWriterBoundingBox() {
+    return this.boundingBox;
   }
 }

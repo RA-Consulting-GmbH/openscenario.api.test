@@ -27,6 +27,7 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.ISun;
+import net.asam.openscenario.v1_0.api.writer.ISunWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -44,7 +45,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class SunImpl extends BaseImpl implements ISun {
+public class SunImpl extends BaseImpl implements ISunWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -57,11 +58,13 @@ public class SunImpl extends BaseImpl implements ISun {
   private Double intensity;
   private Double azimuth;
   private Double elevation;
+
   /** Default constructor */
   public SunImpl() {
     super();
     addAdapter(SunImpl.class, this);
     addAdapter(ISun.class, this);
+    addAdapter(ISunWriter.class, this);
   }
 
   @Override
@@ -83,33 +86,23 @@ public class SunImpl extends BaseImpl implements ISun {
   public Double getElevation() {
     return this.elevation;
   }
-  /**
-   * Sets the value of model property intensity
-   *
-   * @param intensity from OpenSCENARIO class model specification: [Illuminance of the sun, direct
-   *     sunlight is around 100,00 lx. Unit: lux; Range: [0..inf[.]
-   */
+
+  @Override
   public void setIntensity(Double intensity) {
     this.intensity = intensity;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__INTENSITY);
   }
-  /**
-   * Sets the value of model property azimuth
-   *
-   * @param azimuth from OpenSCENARIO class model specification: [Azimuth of the sun, counted
-   *     counterclockwise, 0=north, PI/2 = east, PI=south, 3/2 PI=west. Unit: radian; Range: ,
-   *     [0..2PI].]
-   */
+
+  @Override
   public void setAzimuth(Double azimuth) {
     this.azimuth = azimuth;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__AZIMUTH);
   }
-  /**
-   * Sets the value of model property elevation
-   *
-   * @param elevation from OpenSCENARIO class model specification: [Solar elevation angle, 0=x/y
-   *     plane, PI/2=zenith. Unit: rad; Range: [-PI..PI].]
-   */
+
+  @Override
   public void setElevation(Double elevation) {
     this.elevation = elevation;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__ELEVATION);
   }
 
   @Override
@@ -169,11 +162,11 @@ public class SunImpl extends BaseImpl implements ISun {
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setIntensity(getIntensity());
+    clonedObject.intensity = getIntensity();
     // Simple type
-    clonedObject.setAzimuth(getAzimuth());
+    clonedObject.azimuth = getAzimuth();
     // Simple type
-    clonedObject.setElevation(getElevation());
+    clonedObject.elevation = getElevation();
     // clone children
     return clonedObject;
   }
@@ -258,4 +251,55 @@ public class SunImpl extends BaseImpl implements ISun {
   public String getModelType() {
     return "Sun";
   }
+
+  @Override
+  public void writeParameterToIntensity(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__INTENSITY, parameterName, null /*no textmarker*/);
+    this.intensity = null;
+  }
+
+  @Override
+  public void writeParameterToAzimuth(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__AZIMUTH, parameterName, null /*no textmarker*/);
+    this.azimuth = null;
+  }
+
+  @Override
+  public void writeParameterToElevation(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__ELEVATION, parameterName, null /*no textmarker*/);
+    this.elevation = null;
+  }
+
+  @Override
+  public String getParameterFromIntensity() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__INTENSITY);
+  }
+
+  @Override
+  public String getParameterFromAzimuth() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__AZIMUTH);
+  }
+
+  @Override
+  public String getParameterFromElevation() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__ELEVATION);
+  }
+
+  @Override
+  public boolean isIntensityParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__INTENSITY);
+  }
+
+  @Override
+  public boolean isAzimuthParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__AZIMUTH);
+  }
+
+  @Override
+  public boolean isElevationParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__ELEVATION);
+  }
+
+  // children
+
 }

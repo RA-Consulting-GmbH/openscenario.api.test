@@ -111,7 +111,7 @@ namespace NET_ASAM_OPENSCENARIO
          * A clone method for the start marker
          * @param baseImpl the cloned object to set this object's start marker
          */
-        void CloneStartMarker(BaseImpl& baseImpl)
+        void CloneStartMarker(BaseImpl& baseImpl) const
         {
             baseImpl.SetStartMarker(_startMarker);
         }
@@ -120,7 +120,7 @@ namespace NET_ASAM_OPENSCENARIO
          * Clone method for the end marker
          * @param baseImpl the cloned object to set this object's end marker
          */
-        void CloneEndMarker(BaseImpl& baseImpl)
+        void CloneEndMarker(BaseImpl& baseImpl) const
         {
             baseImpl.SetEndMarker(_endMarker);
         }
@@ -168,6 +168,16 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
         /**
+         * Removes a parameter from a attribute.
+         *
+         * @param attributeKey the key of this attribute.
+         */
+        void RemoveAttributeParameter(const std::string attributeKey)
+        {
+            _attributeKeyToParameterName.erase(attributeKey);
+        }
+
+        /**
          * Adds the resolved attribute value to the list of resolved parameters.
          *
          * @param attributeKey attribute key of the property.
@@ -177,7 +187,7 @@ namespace NET_ASAM_OPENSCENARIO
             _resolvedAttributes.push_back(attributeKey);
         }
 
-        std::vector<std::string> GetResolvedAttributeKeys() override
+        std::vector<std::string> GetResolvedAttributeKeys() const override
         {
             return _resolvedAttributes;
         }
@@ -225,7 +235,10 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<void> GetAdapter(const std::string classifier) override
         {
-            return _adapters[classifier];
+            const auto kIt = _adapters.find(classifier);
+            if (kIt != _adapters.end())
+                return kIt->second;
+            return nullptr;
         }
 
         /**
@@ -258,7 +271,7 @@ namespace NET_ASAM_OPENSCENARIO
             _attributeKeyToEndMarker.emplace(std::make_pair(propertyKey, endMarker));
         }
 
-        std::vector<std::shared_ptr<ParameterValue>> GetParameterDefinitions() override
+        std::vector<std::shared_ptr<ParameterValue>> GetParameterDefinitions() const override
         {
             return std::vector<std::shared_ptr<ParameterValue>>{};
         }
@@ -268,7 +281,7 @@ namespace NET_ASAM_OPENSCENARIO
             return false;
         }
 
-        std::shared_ptr<Textmarker> GetTextmarker(std::string& attributeKey) override
+        std::shared_ptr<Textmarker> GetTextmarker(std::string& attributeKey) const override
         {
             const auto kIt = _attributeKeyToParameterName.find(attributeKey);
             if( kIt != _attributeKeyToParameterName.end() )
@@ -276,7 +289,7 @@ namespace NET_ASAM_OPENSCENARIO
             return nullptr;
         }
 
-        std::vector<std::string> GetParameterizedAttributeKeys() override
+        std::vector<std::string> GetParameterizedAttributeKeys() const override
         {
             std::vector<std::string> keys;
             for( auto&& element : _attributeKeyToParameterName )
@@ -286,7 +299,7 @@ namespace NET_ASAM_OPENSCENARIO
             return keys;
         }
 
-        std::string GetParameterNameFromAttribute(std::string& attributeKey) override
+        std::string GetParameterNameFromAttribute(std::string& attributeKey) const  override
         {
             const auto kIt = _attributeKeyToParameterName.find(attributeKey);
             if( kIt != _attributeKeyToParameterName.end() )
@@ -348,7 +361,7 @@ namespace NET_ASAM_OPENSCENARIO
          * All child instances of this object as a flattened list. Must be implemented in subclasses.
          * @return a list with all child instances.
          */
-        virtual  std::vector<std::shared_ptr<BaseImpl>> GetChildren()
+        virtual  std::vector<std::shared_ptr<BaseImpl>> GetChildren() const
         {
             return {};
         }
@@ -361,7 +374,7 @@ namespace NET_ASAM_OPENSCENARIO
             return nullptr;
         }
 
-        std::weak_ptr<IOpenScenarioModelElement> GetParent() override
+        std::weak_ptr<IOpenScenarioModelElement> GetParent() const override
         {
             return _parent;
         }

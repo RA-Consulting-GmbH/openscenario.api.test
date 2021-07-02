@@ -31,6 +31,8 @@ import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IEntity;
 import net.asam.openscenario.v1_0.api.IOrientation;
 import net.asam.openscenario.v1_0.api.IRelativeWorldPosition;
+import net.asam.openscenario.v1_0.api.writer.IOrientationWriter;
+import net.asam.openscenario.v1_0.api.writer.IRelativeWorldPositionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -49,7 +51,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class RelativeWorldPositionImpl extends BaseImpl implements IRelativeWorldPosition {
+public class RelativeWorldPositionImpl extends BaseImpl implements IRelativeWorldPositionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -60,16 +62,18 @@ public class RelativeWorldPositionImpl extends BaseImpl implements IRelativeWorl
     propertyToType.put(OscConstants.ATTRIBUTE__DZ, SimpleType.DOUBLE);
   }
 
-  private NamedReferenceProxy<IEntity> entityRef;
+  private INamedReference<IEntity> entityRef;
   private Double dx;
   private Double dy;
   private Double dz;
-  private IOrientation orientation;
+  private IOrientationWriter orientation;
+
   /** Default constructor */
   public RelativeWorldPositionImpl() {
     super();
     addAdapter(RelativeWorldPositionImpl.class, this);
     addAdapter(IRelativeWorldPosition.class, this);
+    addAdapter(IRelativeWorldPositionWriter.class, this);
   }
 
   @Override
@@ -101,49 +105,33 @@ public class RelativeWorldPositionImpl extends BaseImpl implements IRelativeWorl
   public IOrientation getOrientation() {
     return this.orientation;
   }
-  /**
-   * Sets the value of model property entityRef
-   *
-   * @param entityRef from OpenSCENARIO class model specification: [Reference entity from which the
-   *     relative world position is measured.]
-   */
-  public void setEntityRef(NamedReferenceProxy<IEntity> entityRef) {
+
+  @Override
+  public void setEntityRef(INamedReference<IEntity> entityRef) {
     this.entityRef = entityRef;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__ENTITY_REF);
   }
-  /**
-   * Sets the value of model property dx
-   *
-   * @param dx from OpenSCENARIO class model specification: [Relative x coordinate in the world
-   *     coordinate system.]
-   */
+
+  @Override
   public void setDx(Double dx) {
     this.dx = dx;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__DX);
   }
-  /**
-   * Sets the value of model property dy
-   *
-   * @param dy from OpenSCENARIO class model specification: [Relative y coordinate in the world
-   *     coordinate system.]
-   */
+
+  @Override
   public void setDy(Double dy) {
     this.dy = dy;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__DY);
   }
-  /**
-   * Sets the value of model property dz
-   *
-   * @param dz from OpenSCENARIO class model specification: [Relative z coordinate in the world
-   *     coordinate system.]
-   */
+
+  @Override
   public void setDz(Double dz) {
     this.dz = dz;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__DZ);
   }
-  /**
-   * Sets the value of model property orientation
-   *
-   * @param orientation from OpenSCENARIO class model specification: [Orientation. The relative
-   *     reference context refers to the reference entity's orientation.]
-   */
-  public void setOrientation(IOrientation orientation) {
+
+  @Override
+  public void setOrientation(IOrientationWriter orientation) {
     this.orientation = orientation;
   }
 
@@ -191,8 +179,8 @@ public class RelativeWorldPositionImpl extends BaseImpl implements IRelativeWorl
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IOrientation orientation = null;
-    orientation = getOrientation();
+    IOrientationWriter orientation = null;
+    orientation = getWriterOrientation();
     if (orientation != null) {
       result.add((BaseImpl) orientation);
     }
@@ -216,19 +204,19 @@ public class RelativeWorldPositionImpl extends BaseImpl implements IRelativeWorl
     // clone attributes;
     // Proxy
     NamedReferenceProxy<IEntity> proxy = ((NamedReferenceProxy<IEntity>) getEntityRef()).clone();
-    clonedObject.setEntityRef(proxy);
+    clonedObject.entityRef = proxy;
     proxy.setParent(clonedObject);
     // Simple type
-    clonedObject.setDx(getDx());
+    clonedObject.dx = getDx();
     // Simple type
-    clonedObject.setDy(getDy());
+    clonedObject.dy = getDy();
     // Simple type
-    clonedObject.setDz(getDz());
+    clonedObject.dz = getDz();
     // clone children
-    IOrientation orientation = null;
-    orientation = getOrientation();
+    IOrientationWriter orientation = null;
+    orientation = getWriterOrientation();
     if (orientation != null) {
-      OrientationImpl clonedChild = ((OrientationImpl) orientation).clone();
+      IOrientationWriter clonedChild = ((OrientationImpl) orientation).clone();
       clonedObject.setOrientation(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -336,5 +324,76 @@ public class RelativeWorldPositionImpl extends BaseImpl implements IRelativeWorl
   @Override
   public String getModelType() {
     return "RelativeWorldPosition";
+  }
+
+  @Override
+  public void writeParameterToEntityRef(String parameterName) {
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__ENTITY_REF, parameterName, null /*no textmarker*/);
+    this.entityRef = null;
+  }
+
+  @Override
+  public void writeParameterToDx(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__DX, parameterName, null /*no textmarker*/);
+    this.dx = null;
+  }
+
+  @Override
+  public void writeParameterToDy(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__DY, parameterName, null /*no textmarker*/);
+    this.dy = null;
+  }
+
+  @Override
+  public void writeParameterToDz(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__DZ, parameterName, null /*no textmarker*/);
+    this.dz = null;
+  }
+
+  @Override
+  public String getParameterFromEntityRef() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__ENTITY_REF);
+  }
+
+  @Override
+  public String getParameterFromDx() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__DX);
+  }
+
+  @Override
+  public String getParameterFromDy() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__DY);
+  }
+
+  @Override
+  public String getParameterFromDz() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__DZ);
+  }
+
+  @Override
+  public boolean isEntityRefParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__ENTITY_REF);
+  }
+
+  @Override
+  public boolean isDxParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__DX);
+  }
+
+  @Override
+  public boolean isDyParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__DY);
+  }
+
+  @Override
+  public boolean isDzParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__DZ);
+  }
+
+  // children
+  @Override
+  public IOrientationWriter getWriterOrientation() {
+    return this.orientation;
   }
 }

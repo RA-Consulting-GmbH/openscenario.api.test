@@ -19,6 +19,7 @@ package net.asam.openscenario.v1_0.impl;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.List;
 import net.asam.openscenario.api.IOpenScenarioFlexElement;
 import net.asam.openscenario.api.KeyNotSupportedException;
@@ -28,6 +29,8 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IPhase;
 import net.asam.openscenario.v1_0.api.ITrafficSignalState;
+import net.asam.openscenario.v1_0.api.writer.IPhaseWriter;
+import net.asam.openscenario.v1_0.api.writer.ITrafficSignalStateWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,7 +48,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class PhaseImpl extends BaseImpl implements IPhase {
+public class PhaseImpl extends BaseImpl implements IPhaseWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -56,12 +59,14 @@ public class PhaseImpl extends BaseImpl implements IPhase {
 
   private String name;
   private Double duration;
-  private List<ITrafficSignalState> trafficSignalStates;
+  private List<ITrafficSignalStateWriter> trafficSignalStates = new ArrayList<>();
+
   /** Default constructor */
   public PhaseImpl() {
     super();
     addAdapter(PhaseImpl.class, this);
     addAdapter(IPhase.class, this);
+    addAdapter(IPhaseWriter.class, this);
   }
 
   @Override
@@ -80,34 +85,50 @@ public class PhaseImpl extends BaseImpl implements IPhase {
   }
 
   @Override
-  public List<ITrafficSignalState> getTrafficSignalStates() {
+  public List<ITrafficSignalStateWriter> getWriterTrafficSignalStates() {
     return this.trafficSignalStates;
   }
-  /**
-   * Sets the value of model property name
-   *
-   * @param name from OpenSCENARIO class model specification: [Name of the phase.]
-   */
+
+  @Override
+  public Iterable<ITrafficSignalState> getTrafficSignalStates() {
+    return new Iterable<ITrafficSignalState>() {
+
+      @SuppressWarnings("synthetic-access")
+      @Override
+      public Iterator<ITrafficSignalState> iterator() {
+        return new ArrayList<ITrafficSignalState>(PhaseImpl.this.trafficSignalStates).iterator();
+      }
+    };
+  }
+
+  @Override
+  public int getTrafficSignalStatesSize() {
+    if (this.trafficSignalStates != null) return this.trafficSignalStates.size();
+    return 0;
+  }
+
+  @Override
+  public ITrafficSignalState getTrafficSignalStatesAtIndex(int index) {
+    if (index >= 0 && this.trafficSignalStates != null && this.trafficSignalStates.size() > index) {
+      return this.trafficSignalStates.get(index);
+    }
+    return null;
+  }
+
+  @Override
   public void setName(String name) {
     this.name = name;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__NAME);
   }
-  /**
-   * Sets the value of model property duration
-   *
-   * @param duration from OpenSCENARIO class model specification: [Duration of the phase. Unit: s;
-   *     Range: [0..inf[.]
-   */
+
+  @Override
   public void setDuration(Double duration) {
     this.duration = duration;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__DURATION);
   }
-  /**
-   * Sets the value of model property trafficSignalStates
-   *
-   * @param trafficSignalStates from OpenSCENARIO class model specification: [Each phase has
-   *     multiple TrafficSignalStates. One for each TrafficSignal that is controlled. E.g. phase1 ,
-   *     (trafficSignal1:true;false;false, trafficSignal2:false;false;true).]
-   */
-  public void setTrafficSignalStates(List<ITrafficSignalState> trafficSignalStates) {
+
+  @Override
+  public void setTrafficSignalStates(List<ITrafficSignalStateWriter> trafficSignalStates) {
     this.trafficSignalStates = trafficSignalStates;
   }
 
@@ -143,10 +164,10 @@ public class PhaseImpl extends BaseImpl implements IPhase {
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    List<ITrafficSignalState> trafficSignalStates = null;
-    trafficSignalStates = getTrafficSignalStates();
+    List<ITrafficSignalStateWriter> trafficSignalStates = null;
+    trafficSignalStates = getWriterTrafficSignalStates();
     if (trafficSignalStates != null) {
-      for (ITrafficSignalState item : trafficSignalStates) {
+      for (ITrafficSignalStateWriter item : trafficSignalStates) {
         result.add((BaseImpl) item);
       }
     }
@@ -169,16 +190,16 @@ public class PhaseImpl extends BaseImpl implements IPhase {
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setName(getName());
+    clonedObject.name = getName();
     // Simple type
-    clonedObject.setDuration(getDuration());
+    clonedObject.duration = getDuration();
     // clone children
-    List<ITrafficSignalState> trafficSignalStates = null;
-    trafficSignalStates = getTrafficSignalStates();
+    List<ITrafficSignalStateWriter> trafficSignalStates = null;
+    trafficSignalStates = getWriterTrafficSignalStates();
     if (trafficSignalStates != null) {
-      List<ITrafficSignalState> clonedList = new ArrayList<>();
-      for (ITrafficSignalState item : trafficSignalStates) {
-        TrafficSignalStateImpl clonedChild = ((TrafficSignalStateImpl) item).clone();
+      List<ITrafficSignalStateWriter> clonedList = new ArrayList<>();
+      for (ITrafficSignalStateWriter item : trafficSignalStates) {
+        ITrafficSignalStateWriter clonedChild = ((TrafficSignalStateImpl) item).clone();
         clonedList.add(clonedChild);
         clonedChild.setParent(clonedObject);
       }
@@ -276,4 +297,39 @@ public class PhaseImpl extends BaseImpl implements IPhase {
   public String getModelType() {
     return "Phase";
   }
+
+  @Override
+  public void writeParameterToName(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__NAME, parameterName, null /*no textmarker*/);
+    this.name = null;
+  }
+
+  @Override
+  public void writeParameterToDuration(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__DURATION, parameterName, null /*no textmarker*/);
+    this.duration = null;
+  }
+
+  @Override
+  public String getParameterFromName() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__NAME);
+  }
+
+  @Override
+  public String getParameterFromDuration() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__DURATION);
+  }
+
+  @Override
+  public boolean isNameParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__NAME);
+  }
+
+  @Override
+  public boolean isDurationParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__DURATION);
+  }
+
+  // children
+
 }

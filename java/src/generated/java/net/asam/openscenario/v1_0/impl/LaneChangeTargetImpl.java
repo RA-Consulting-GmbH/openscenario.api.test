@@ -28,6 +28,9 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.IAbsoluteTargetLane;
 import net.asam.openscenario.v1_0.api.ILaneChangeTarget;
 import net.asam.openscenario.v1_0.api.IRelativeTargetLane;
+import net.asam.openscenario.v1_0.api.writer.IAbsoluteTargetLaneWriter;
+import net.asam.openscenario.v1_0.api.writer.ILaneChangeTargetWriter;
+import net.asam.openscenario.v1_0.api.writer.IRelativeTargetLaneWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,16 +48,18 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class LaneChangeTargetImpl extends BaseImpl implements ILaneChangeTarget {
+public class LaneChangeTargetImpl extends BaseImpl implements ILaneChangeTargetWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private IRelativeTargetLane relativeTargetLane;
-  private IAbsoluteTargetLane absoluteTargetLane;
+  private IRelativeTargetLaneWriter relativeTargetLane;
+  private IAbsoluteTargetLaneWriter absoluteTargetLane;
+
   /** Default constructor */
   public LaneChangeTargetImpl() {
     super();
     addAdapter(LaneChangeTargetImpl.class, this);
     addAdapter(ILaneChangeTarget.class, this);
+    addAdapter(ILaneChangeTargetWriter.class, this);
   }
 
   @Override
@@ -71,23 +76,17 @@ public class LaneChangeTargetImpl extends BaseImpl implements ILaneChangeTarget 
   public IAbsoluteTargetLane getAbsoluteTargetLane() {
     return this.absoluteTargetLane;
   }
-  /**
-   * Sets the value of model property relativeTargetLane
-   *
-   * @param relativeTargetLane from OpenSCENARIO class model specification: [Lane change direction
-   *     relative to entity's lane.]
-   */
-  public void setRelativeTargetLane(IRelativeTargetLane relativeTargetLane) {
+
+  @Override
+  public void setRelativeTargetLane(IRelativeTargetLaneWriter relativeTargetLane) {
     this.relativeTargetLane = relativeTargetLane;
+    this.absoluteTargetLane = null;
   }
-  /**
-   * Sets the value of model property absoluteTargetLane
-   *
-   * @param absoluteTargetLane from OpenSCENARIO class model specification: [Lane change target lane
-   *     number.]
-   */
-  public void setAbsoluteTargetLane(IAbsoluteTargetLane absoluteTargetLane) {
+
+  @Override
+  public void setAbsoluteTargetLane(IAbsoluteTargetLaneWriter absoluteTargetLane) {
     this.absoluteTargetLane = absoluteTargetLane;
+    this.relativeTargetLane = null;
   }
 
   @Override
@@ -111,13 +110,13 @@ public class LaneChangeTargetImpl extends BaseImpl implements ILaneChangeTarget 
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IRelativeTargetLane relativeTargetLane = null;
-    relativeTargetLane = getRelativeTargetLane();
+    IRelativeTargetLaneWriter relativeTargetLane = null;
+    relativeTargetLane = getWriterRelativeTargetLane();
     if (relativeTargetLane != null) {
       result.add((BaseImpl) relativeTargetLane);
     }
-    IAbsoluteTargetLane absoluteTargetLane = null;
-    absoluteTargetLane = getAbsoluteTargetLane();
+    IAbsoluteTargetLaneWriter absoluteTargetLane = null;
+    absoluteTargetLane = getWriterAbsoluteTargetLane();
     if (absoluteTargetLane != null) {
       result.add((BaseImpl) absoluteTargetLane);
     }
@@ -140,17 +139,17 @@ public class LaneChangeTargetImpl extends BaseImpl implements ILaneChangeTarget 
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    IRelativeTargetLane relativeTargetLane = null;
-    relativeTargetLane = getRelativeTargetLane();
+    IRelativeTargetLaneWriter relativeTargetLane = null;
+    relativeTargetLane = getWriterRelativeTargetLane();
     if (relativeTargetLane != null) {
-      RelativeTargetLaneImpl clonedChild = ((RelativeTargetLaneImpl) relativeTargetLane).clone();
+      IRelativeTargetLaneWriter clonedChild = ((RelativeTargetLaneImpl) relativeTargetLane).clone();
       clonedObject.setRelativeTargetLane(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IAbsoluteTargetLane absoluteTargetLane = null;
-    absoluteTargetLane = getAbsoluteTargetLane();
+    IAbsoluteTargetLaneWriter absoluteTargetLane = null;
+    absoluteTargetLane = getWriterAbsoluteTargetLane();
     if (absoluteTargetLane != null) {
-      AbsoluteTargetLaneImpl clonedChild = ((AbsoluteTargetLaneImpl) absoluteTargetLane).clone();
+      IAbsoluteTargetLaneWriter clonedChild = ((AbsoluteTargetLaneImpl) absoluteTargetLane).clone();
       clonedObject.setAbsoluteTargetLane(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -235,5 +234,16 @@ public class LaneChangeTargetImpl extends BaseImpl implements ILaneChangeTarget 
   @Override
   public String getModelType() {
     return "LaneChangeTarget";
+  }
+
+  // children
+  @Override
+  public IRelativeTargetLaneWriter getWriterRelativeTargetLane() {
+    return this.relativeTargetLane;
+  }
+
+  @Override
+  public IAbsoluteTargetLaneWriter getWriterAbsoluteTargetLane() {
+    return this.absoluteTargetLane;
   }
 }

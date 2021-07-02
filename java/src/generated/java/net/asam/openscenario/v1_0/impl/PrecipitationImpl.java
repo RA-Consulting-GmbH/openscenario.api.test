@@ -30,6 +30,7 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IPrecipitation;
 import net.asam.openscenario.v1_0.api.PrecipitationType;
+import net.asam.openscenario.v1_0.api.writer.IPrecipitationWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -47,7 +48,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class PrecipitationImpl extends BaseImpl implements IPrecipitation {
+public class PrecipitationImpl extends BaseImpl implements IPrecipitationWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -58,11 +59,13 @@ public class PrecipitationImpl extends BaseImpl implements IPrecipitation {
 
   private PrecipitationType precipitationType;
   private Double intensity;
+
   /** Default constructor */
   public PrecipitationImpl() {
     super();
     addAdapter(PrecipitationImpl.class, this);
     addAdapter(IPrecipitation.class, this);
+    addAdapter(IPrecipitationWriter.class, this);
   }
 
   @Override
@@ -79,23 +82,17 @@ public class PrecipitationImpl extends BaseImpl implements IPrecipitation {
   public Double getIntensity() {
     return this.intensity;
   }
-  /**
-   * Sets the value of model property precipitationType
-   *
-   * @param precipitationType from OpenSCENARIO class model specification: [Type of the
-   *     precipitation.]
-   */
+
+  @Override
   public void setPrecipitationType(PrecipitationType precipitationType) {
     this.precipitationType = precipitationType;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__PRECIPITATION_TYPE);
   }
-  /**
-   * Sets the value of model property intensity
-   *
-   * @param intensity from OpenSCENARIO class model specification: [The intensity of the
-   *     precipitation. Range: [0..1].]
-   */
+
+  @Override
   public void setIntensity(Double intensity) {
     this.intensity = intensity;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__INTENSITY);
   }
 
   @Override
@@ -159,11 +156,11 @@ public class PrecipitationImpl extends BaseImpl implements IPrecipitation {
     // Enumeration Type
     PrecipitationType precipitationType = getPrecipitationType();
     if (precipitationType != null) {
-      clonedObject.setPrecipitationType(
-          PrecipitationType.getFromLiteral(precipitationType.getLiteral()));
+      clonedObject.precipitationType =
+          PrecipitationType.getFromLiteral(precipitationType.getLiteral());
     }
     // Simple type
-    clonedObject.setIntensity(getIntensity());
+    clonedObject.intensity = getIntensity();
     // clone children
     return clonedObject;
   }
@@ -251,4 +248,40 @@ public class PrecipitationImpl extends BaseImpl implements IPrecipitation {
   public String getModelType() {
     return "Precipitation";
   }
+
+  @Override
+  public void writeParameterToPrecipitationType(String parameterName) {
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__PRECIPITATION_TYPE, parameterName, null /*no textmarker*/);
+    this.precipitationType = null;
+  }
+
+  @Override
+  public void writeParameterToIntensity(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__INTENSITY, parameterName, null /*no textmarker*/);
+    this.intensity = null;
+  }
+
+  @Override
+  public String getParameterFromPrecipitationType() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__PRECIPITATION_TYPE);
+  }
+
+  @Override
+  public String getParameterFromIntensity() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__INTENSITY);
+  }
+
+  @Override
+  public boolean isPrecipitationTypeParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__PRECIPITATION_TYPE);
+  }
+
+  @Override
+  public boolean isIntensityParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__INTENSITY);
+  }
+
+  // children
+
 }

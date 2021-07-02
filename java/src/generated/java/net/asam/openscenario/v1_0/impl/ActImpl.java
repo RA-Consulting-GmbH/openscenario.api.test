@@ -19,6 +19,7 @@ package net.asam.openscenario.v1_0.impl;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.List;
 import net.asam.openscenario.api.IOpenScenarioFlexElement;
 import net.asam.openscenario.api.KeyNotSupportedException;
@@ -29,6 +30,9 @@ import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IAct;
 import net.asam.openscenario.v1_0.api.IManeuverGroup;
 import net.asam.openscenario.v1_0.api.ITrigger;
+import net.asam.openscenario.v1_0.api.writer.IActWriter;
+import net.asam.openscenario.v1_0.api.writer.IManeuverGroupWriter;
+import net.asam.openscenario.v1_0.api.writer.ITriggerWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -46,7 +50,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ActImpl extends BaseImpl implements IAct {
+public class ActImpl extends BaseImpl implements IActWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -55,14 +59,16 @@ public class ActImpl extends BaseImpl implements IAct {
   }
 
   private String name;
-  private List<IManeuverGroup> maneuverGroups;
-  private ITrigger startTrigger;
-  private ITrigger stopTrigger;
+  private List<IManeuverGroupWriter> maneuverGroups = new ArrayList<>();
+  private ITriggerWriter startTrigger;
+  private ITriggerWriter stopTrigger;
+
   /** Default constructor */
   public ActImpl() {
     super();
     addAdapter(ActImpl.class, this);
     addAdapter(IAct.class, this);
+    addAdapter(IActWriter.class, this);
   }
 
   @Override
@@ -76,8 +82,34 @@ public class ActImpl extends BaseImpl implements IAct {
   }
 
   @Override
-  public List<IManeuverGroup> getManeuverGroups() {
+  public List<IManeuverGroupWriter> getWriterManeuverGroups() {
     return this.maneuverGroups;
+  }
+
+  @Override
+  public Iterable<IManeuverGroup> getManeuverGroups() {
+    return new Iterable<IManeuverGroup>() {
+
+      @SuppressWarnings("synthetic-access")
+      @Override
+      public Iterator<IManeuverGroup> iterator() {
+        return new ArrayList<IManeuverGroup>(ActImpl.this.maneuverGroups).iterator();
+      }
+    };
+  }
+
+  @Override
+  public int getManeuverGroupsSize() {
+    if (this.maneuverGroups != null) return this.maneuverGroups.size();
+    return 0;
+  }
+
+  @Override
+  public IManeuverGroup getManeuverGroupsAtIndex(int index) {
+    if (index >= 0 && this.maneuverGroups != null && this.maneuverGroups.size() > index) {
+      return this.maneuverGroups.get(index);
+    }
+    return null;
   }
 
   @Override
@@ -89,39 +121,25 @@ public class ActImpl extends BaseImpl implements IAct {
   public ITrigger getStopTrigger() {
     return this.stopTrigger;
   }
-  /**
-   * Sets the value of model property name
-   *
-   * @param name from OpenSCENARIO class model specification: [Name of this act.]
-   */
+
+  @Override
   public void setName(String name) {
     this.name = name;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__NAME);
   }
-  /**
-   * Sets the value of model property maneuverGroups
-   *
-   * @param maneuverGroups from OpenSCENARIO class model specification: [A list of maneuver groups
-   *     representing the act.]
-   */
-  public void setManeuverGroups(List<IManeuverGroup> maneuverGroups) {
+
+  @Override
+  public void setManeuverGroups(List<IManeuverGroupWriter> maneuverGroups) {
     this.maneuverGroups = maneuverGroups;
   }
-  /**
-   * Sets the value of model property startTrigger
-   *
-   * @param startTrigger from OpenSCENARIO class model specification: [Defines a trigger to that
-   *     starts the act.]
-   */
-  public void setStartTrigger(ITrigger startTrigger) {
+
+  @Override
+  public void setStartTrigger(ITriggerWriter startTrigger) {
     this.startTrigger = startTrigger;
   }
-  /**
-   * Sets the value of model property stopTrigger
-   *
-   * @param stopTrigger from OpenSCENARIO class model specification: [Defines a trigger that stops
-   *     the act.]
-   */
-  public void setStopTrigger(ITrigger stopTrigger) {
+
+  @Override
+  public void setStopTrigger(ITriggerWriter stopTrigger) {
     this.stopTrigger = stopTrigger;
   }
 
@@ -151,20 +169,20 @@ public class ActImpl extends BaseImpl implements IAct {
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    List<IManeuverGroup> maneuverGroups = null;
-    maneuverGroups = getManeuverGroups();
+    List<IManeuverGroupWriter> maneuverGroups = null;
+    maneuverGroups = getWriterManeuverGroups();
     if (maneuverGroups != null) {
-      for (IManeuverGroup item : maneuverGroups) {
+      for (IManeuverGroupWriter item : maneuverGroups) {
         result.add((BaseImpl) item);
       }
     }
-    ITrigger startTrigger = null;
-    startTrigger = getStartTrigger();
+    ITriggerWriter startTrigger = null;
+    startTrigger = getWriterStartTrigger();
     if (startTrigger != null) {
       result.add((BaseImpl) startTrigger);
     }
-    ITrigger stopTrigger = null;
-    stopTrigger = getStopTrigger();
+    ITriggerWriter stopTrigger = null;
+    stopTrigger = getWriterStopTrigger();
     if (stopTrigger != null) {
       result.add((BaseImpl) stopTrigger);
     }
@@ -187,30 +205,30 @@ public class ActImpl extends BaseImpl implements IAct {
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setName(getName());
+    clonedObject.name = getName();
     // clone children
-    List<IManeuverGroup> maneuverGroups = null;
-    maneuverGroups = getManeuverGroups();
+    List<IManeuverGroupWriter> maneuverGroups = null;
+    maneuverGroups = getWriterManeuverGroups();
     if (maneuverGroups != null) {
-      List<IManeuverGroup> clonedList = new ArrayList<>();
-      for (IManeuverGroup item : maneuverGroups) {
-        ManeuverGroupImpl clonedChild = ((ManeuverGroupImpl) item).clone();
+      List<IManeuverGroupWriter> clonedList = new ArrayList<>();
+      for (IManeuverGroupWriter item : maneuverGroups) {
+        IManeuverGroupWriter clonedChild = ((ManeuverGroupImpl) item).clone();
         clonedList.add(clonedChild);
         clonedChild.setParent(clonedObject);
       }
       clonedObject.setManeuverGroups(clonedList);
     }
-    ITrigger startTrigger = null;
-    startTrigger = getStartTrigger();
+    ITriggerWriter startTrigger = null;
+    startTrigger = getWriterStartTrigger();
     if (startTrigger != null) {
-      TriggerImpl clonedChild = ((TriggerImpl) startTrigger).clone();
+      ITriggerWriter clonedChild = ((TriggerImpl) startTrigger).clone();
       clonedObject.setStartTrigger(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    ITrigger stopTrigger = null;
-    stopTrigger = getStopTrigger();
+    ITriggerWriter stopTrigger = null;
+    stopTrigger = getWriterStopTrigger();
     if (stopTrigger != null) {
-      TriggerImpl clonedChild = ((TriggerImpl) stopTrigger).clone();
+      ITriggerWriter clonedChild = ((TriggerImpl) stopTrigger).clone();
       clonedObject.setStopTrigger(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -308,5 +326,32 @@ public class ActImpl extends BaseImpl implements IAct {
   @Override
   public String getModelType() {
     return "Act";
+  }
+
+  @Override
+  public void writeParameterToName(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__NAME, parameterName, null /*no textmarker*/);
+    this.name = null;
+  }
+
+  @Override
+  public String getParameterFromName() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__NAME);
+  }
+
+  @Override
+  public boolean isNameParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__NAME);
+  }
+
+  // children
+  @Override
+  public ITriggerWriter getWriterStartTrigger() {
+    return this.startTrigger;
+  }
+
+  @Override
+  public ITriggerWriter getWriterStopTrigger() {
+    return this.stopTrigger;
   }
 }

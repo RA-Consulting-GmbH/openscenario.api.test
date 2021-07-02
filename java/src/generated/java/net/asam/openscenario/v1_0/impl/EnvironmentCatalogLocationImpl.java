@@ -27,6 +27,8 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.IDirectory;
 import net.asam.openscenario.v1_0.api.IEnvironmentCatalogLocation;
+import net.asam.openscenario.v1_0.api.writer.IDirectoryWriter;
+import net.asam.openscenario.v1_0.api.writer.IEnvironmentCatalogLocationWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -46,15 +48,17 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public class EnvironmentCatalogLocationImpl extends BaseImpl
-    implements IEnvironmentCatalogLocation {
+    implements IEnvironmentCatalogLocationWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private IDirectory directory;
+  private IDirectoryWriter directory;
+
   /** Default constructor */
   public EnvironmentCatalogLocationImpl() {
     super();
     addAdapter(EnvironmentCatalogLocationImpl.class, this);
     addAdapter(IEnvironmentCatalogLocation.class, this);
+    addAdapter(IEnvironmentCatalogLocationWriter.class, this);
   }
 
   @Override
@@ -66,13 +70,9 @@ public class EnvironmentCatalogLocationImpl extends BaseImpl
   public IDirectory getDirectory() {
     return this.directory;
   }
-  /**
-   * Sets the value of model property directory
-   *
-   * @param directory from OpenSCENARIO class model specification: [All catalogs files in this
-   *     directory must be evaluated.]
-   */
-  public void setDirectory(IDirectory directory) {
+
+  @Override
+  public void setDirectory(IDirectoryWriter directory) {
     this.directory = directory;
   }
 
@@ -97,8 +97,8 @@ public class EnvironmentCatalogLocationImpl extends BaseImpl
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IDirectory directory = null;
-    directory = getDirectory();
+    IDirectoryWriter directory = null;
+    directory = getWriterDirectory();
     if (directory != null) {
       result.add((BaseImpl) directory);
     }
@@ -121,10 +121,10 @@ public class EnvironmentCatalogLocationImpl extends BaseImpl
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    IDirectory directory = null;
-    directory = getDirectory();
+    IDirectoryWriter directory = null;
+    directory = getWriterDirectory();
     if (directory != null) {
-      DirectoryImpl clonedChild = ((DirectoryImpl) directory).clone();
+      IDirectoryWriter clonedChild = ((DirectoryImpl) directory).clone();
       clonedObject.setDirectory(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -206,5 +206,11 @@ public class EnvironmentCatalogLocationImpl extends BaseImpl
   @Override
   public String getModelType() {
     return "EnvironmentCatalogLocation";
+  }
+
+  // children
+  @Override
+  public IDirectoryWriter getWriterDirectory() {
+    return this.directory;
   }
 }

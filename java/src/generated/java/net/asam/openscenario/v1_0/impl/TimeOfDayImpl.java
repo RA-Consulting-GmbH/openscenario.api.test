@@ -27,6 +27,7 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.ITimeOfDay;
+import net.asam.openscenario.v1_0.api.writer.ITimeOfDayWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -44,7 +45,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class TimeOfDayImpl extends BaseImpl implements ITimeOfDay {
+public class TimeOfDayImpl extends BaseImpl implements ITimeOfDayWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -55,11 +56,13 @@ public class TimeOfDayImpl extends BaseImpl implements ITimeOfDay {
 
   private Boolean animation;
   private java.util.Date dateTime;
+
   /** Default constructor */
   public TimeOfDayImpl() {
     super();
     addAdapter(TimeOfDayImpl.class, this);
     addAdapter(ITimeOfDay.class, this);
+    addAdapter(ITimeOfDayWriter.class, this);
   }
 
   @Override
@@ -76,23 +79,17 @@ public class TimeOfDayImpl extends BaseImpl implements ITimeOfDay {
   public java.util.Date getDateTime() {
     return this.dateTime;
   }
-  /**
-   * Sets the value of model property animation
-   *
-   * @param animation from OpenSCENARIO class model specification: [If true, the timeofday is
-   *     animated with progressing simulation time, e.g. in order to animate the position of the
-   *     sun.]
-   */
+
+  @Override
   public void setAnimation(Boolean animation) {
     this.animation = animation;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__ANIMATION);
   }
-  /**
-   * Sets the value of model property dateTime
-   *
-   * @param dateTime from OpenSCENARIO class model specification: [Datetime value.]
-   */
+
+  @Override
   public void setDateTime(java.util.Date dateTime) {
     this.dateTime = dateTime;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__DATE_TIME);
   }
 
   @Override
@@ -146,9 +143,9 @@ public class TimeOfDayImpl extends BaseImpl implements ITimeOfDay {
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setAnimation(getAnimation());
+    clonedObject.animation = getAnimation();
     // Simple type
-    clonedObject.setDateTime(getDateTime());
+    clonedObject.dateTime = getDateTime();
     // clone children
     return clonedObject;
   }
@@ -235,4 +232,39 @@ public class TimeOfDayImpl extends BaseImpl implements ITimeOfDay {
   public String getModelType() {
     return "TimeOfDay";
   }
+
+  @Override
+  public void writeParameterToAnimation(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__ANIMATION, parameterName, null /*no textmarker*/);
+    this.animation = null;
+  }
+
+  @Override
+  public void writeParameterToDateTime(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__DATE_TIME, parameterName, null /*no textmarker*/);
+    this.dateTime = null;
+  }
+
+  @Override
+  public String getParameterFromAnimation() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__ANIMATION);
+  }
+
+  @Override
+  public String getParameterFromDateTime() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__DATE_TIME);
+  }
+
+  @Override
+  public boolean isAnimationParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__ANIMATION);
+  }
+
+  @Override
+  public boolean isDateTimeParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__DATE_TIME);
+  }
+
+  // children
+
 }

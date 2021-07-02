@@ -19,6 +19,7 @@ package net.asam.openscenario.v1_0.impl;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.List;
 import net.asam.openscenario.api.IOpenScenarioFlexElement;
 import net.asam.openscenario.api.KeyNotSupportedException;
@@ -32,6 +33,11 @@ import net.asam.openscenario.v1_0.api.IParameterDeclaration;
 import net.asam.openscenario.v1_0.api.IRoadCondition;
 import net.asam.openscenario.v1_0.api.ITimeOfDay;
 import net.asam.openscenario.v1_0.api.IWeather;
+import net.asam.openscenario.v1_0.api.writer.IEnvironmentWriter;
+import net.asam.openscenario.v1_0.api.writer.IParameterDeclarationWriter;
+import net.asam.openscenario.v1_0.api.writer.IRoadConditionWriter;
+import net.asam.openscenario.v1_0.api.writer.ITimeOfDayWriter;
+import net.asam.openscenario.v1_0.api.writer.IWeatherWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -49,7 +55,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class EnvironmentImpl extends BaseImpl implements IEnvironment {
+public class EnvironmentImpl extends BaseImpl implements IEnvironmentWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -58,15 +64,17 @@ public class EnvironmentImpl extends BaseImpl implements IEnvironment {
   }
 
   private String name;
-  private List<IParameterDeclaration> parameterDeclarations;
-  private ITimeOfDay timeOfDay;
-  private IWeather weather;
-  private IRoadCondition roadCondition;
+  private List<IParameterDeclarationWriter> parameterDeclarations = new ArrayList<>();
+  private ITimeOfDayWriter timeOfDay;
+  private IWeatherWriter weather;
+  private IRoadConditionWriter roadCondition;
+
   /** Default constructor */
   public EnvironmentImpl() {
     super();
     addAdapter(EnvironmentImpl.class, this);
     addAdapter(IEnvironment.class, this);
+    addAdapter(IEnvironmentWriter.class, this);
   }
 
   @Override
@@ -80,8 +88,37 @@ public class EnvironmentImpl extends BaseImpl implements IEnvironment {
   }
 
   @Override
-  public List<IParameterDeclaration> getParameterDeclarations() {
+  public List<IParameterDeclarationWriter> getWriterParameterDeclarations() {
     return this.parameterDeclarations;
+  }
+
+  @Override
+  public Iterable<IParameterDeclaration> getParameterDeclarations() {
+    return new Iterable<IParameterDeclaration>() {
+
+      @SuppressWarnings("synthetic-access")
+      @Override
+      public Iterator<IParameterDeclaration> iterator() {
+        return new ArrayList<IParameterDeclaration>(EnvironmentImpl.this.parameterDeclarations)
+            .iterator();
+      }
+    };
+  }
+
+  @Override
+  public int getParameterDeclarationsSize() {
+    if (this.parameterDeclarations != null) return this.parameterDeclarations.size();
+    return 0;
+  }
+
+  @Override
+  public IParameterDeclaration getParameterDeclarationsAtIndex(int index) {
+    if (index >= 0
+        && this.parameterDeclarations != null
+        && this.parameterDeclarations.size() > index) {
+      return this.parameterDeclarations.get(index);
+    }
+    return null;
   }
 
   @Override
@@ -98,49 +135,30 @@ public class EnvironmentImpl extends BaseImpl implements IEnvironment {
   public IRoadCondition getRoadCondition() {
     return this.roadCondition;
   }
-  /**
-   * Sets the value of model property name
-   *
-   * @param name from OpenSCENARIO class model specification: [Name of the environment. If used in
-   *     catalog name is required.]
-   */
+
+  @Override
   public void setName(String name) {
     this.name = name;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__NAME);
   }
-  /**
-   * Sets the value of model property parameterDeclarations
-   *
-   * @param parameterDeclarations from OpenSCENARIO class model specification: [Definition of
-   *     additional parameters.]
-   */
-  public void setParameterDeclarations(List<IParameterDeclaration> parameterDeclarations) {
+
+  @Override
+  public void setParameterDeclarations(List<IParameterDeclarationWriter> parameterDeclarations) {
     this.parameterDeclarations = parameterDeclarations;
   }
-  /**
-   * Sets the value of model property timeOfDay
-   *
-   * @param timeOfDay from OpenSCENARIO class model specification: [Time of the day during the
-   *     simulation.]
-   */
-  public void setTimeOfDay(ITimeOfDay timeOfDay) {
+
+  @Override
+  public void setTimeOfDay(ITimeOfDayWriter timeOfDay) {
     this.timeOfDay = timeOfDay;
   }
-  /**
-   * Sets the value of model property weather
-   *
-   * @param weather from OpenSCENARIO class model specification: [Weather conditions during the
-   *     simulation.]
-   */
-  public void setWeather(IWeather weather) {
+
+  @Override
+  public void setWeather(IWeatherWriter weather) {
     this.weather = weather;
   }
-  /**
-   * Sets the value of model property roadCondition
-   *
-   * @param roadCondition from OpenSCENARIO class model specification: [Road conditions during the
-   *     simulation.]
-   */
-  public void setRoadCondition(IRoadCondition roadCondition) {
+
+  @Override
+  public void setRoadCondition(IRoadConditionWriter roadCondition) {
     this.roadCondition = roadCondition;
   }
 
@@ -191,25 +209,25 @@ public class EnvironmentImpl extends BaseImpl implements IEnvironment {
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    List<IParameterDeclaration> parameterDeclarations = null;
-    parameterDeclarations = getParameterDeclarations();
+    List<IParameterDeclarationWriter> parameterDeclarations = null;
+    parameterDeclarations = getWriterParameterDeclarations();
     if (parameterDeclarations != null) {
-      for (IParameterDeclaration item : parameterDeclarations) {
+      for (IParameterDeclarationWriter item : parameterDeclarations) {
         result.add((BaseImpl) item);
       }
     }
-    ITimeOfDay timeOfDay = null;
-    timeOfDay = getTimeOfDay();
+    ITimeOfDayWriter timeOfDay = null;
+    timeOfDay = getWriterTimeOfDay();
     if (timeOfDay != null) {
       result.add((BaseImpl) timeOfDay);
     }
-    IWeather weather = null;
-    weather = getWeather();
+    IWeatherWriter weather = null;
+    weather = getWriterWeather();
     if (weather != null) {
       result.add((BaseImpl) weather);
     }
-    IRoadCondition roadCondition = null;
-    roadCondition = getRoadCondition();
+    IRoadConditionWriter roadCondition = null;
+    roadCondition = getWriterRoadCondition();
     if (roadCondition != null) {
       result.add((BaseImpl) roadCondition);
     }
@@ -232,37 +250,37 @@ public class EnvironmentImpl extends BaseImpl implements IEnvironment {
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setName(getName());
+    clonedObject.name = getName();
     // clone children
-    List<IParameterDeclaration> parameterDeclarations = null;
-    parameterDeclarations = getParameterDeclarations();
+    List<IParameterDeclarationWriter> parameterDeclarations = null;
+    parameterDeclarations = getWriterParameterDeclarations();
     if (parameterDeclarations != null) {
-      List<IParameterDeclaration> clonedList = new ArrayList<>();
-      for (IParameterDeclaration item : parameterDeclarations) {
-        ParameterDeclarationImpl clonedChild = ((ParameterDeclarationImpl) item).clone();
+      List<IParameterDeclarationWriter> clonedList = new ArrayList<>();
+      for (IParameterDeclarationWriter item : parameterDeclarations) {
+        IParameterDeclarationWriter clonedChild = ((ParameterDeclarationImpl) item).clone();
         clonedList.add(clonedChild);
         clonedChild.setParent(clonedObject);
       }
       clonedObject.setParameterDeclarations(clonedList);
     }
-    ITimeOfDay timeOfDay = null;
-    timeOfDay = getTimeOfDay();
+    ITimeOfDayWriter timeOfDay = null;
+    timeOfDay = getWriterTimeOfDay();
     if (timeOfDay != null) {
-      TimeOfDayImpl clonedChild = ((TimeOfDayImpl) timeOfDay).clone();
+      ITimeOfDayWriter clonedChild = ((TimeOfDayImpl) timeOfDay).clone();
       clonedObject.setTimeOfDay(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IWeather weather = null;
-    weather = getWeather();
+    IWeatherWriter weather = null;
+    weather = getWriterWeather();
     if (weather != null) {
-      WeatherImpl clonedChild = ((WeatherImpl) weather).clone();
+      IWeatherWriter clonedChild = ((WeatherImpl) weather).clone();
       clonedObject.setWeather(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IRoadCondition roadCondition = null;
-    roadCondition = getRoadCondition();
+    IRoadConditionWriter roadCondition = null;
+    roadCondition = getWriterRoadCondition();
     if (roadCondition != null) {
-      RoadConditionImpl clonedChild = ((RoadConditionImpl) roadCondition).clone();
+      IRoadConditionWriter clonedChild = ((RoadConditionImpl) roadCondition).clone();
       clonedObject.setRoadCondition(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -363,5 +381,37 @@ public class EnvironmentImpl extends BaseImpl implements IEnvironment {
   @Override
   public String getModelType() {
     return "Environment";
+  }
+
+  @Override
+  public void writeParameterToName(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__NAME, parameterName, null /*no textmarker*/);
+    this.name = null;
+  }
+
+  @Override
+  public String getParameterFromName() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__NAME);
+  }
+
+  @Override
+  public boolean isNameParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__NAME);
+  }
+
+  // children
+  @Override
+  public ITimeOfDayWriter getWriterTimeOfDay() {
+    return this.timeOfDay;
+  }
+
+  @Override
+  public IWeatherWriter getWriterWeather() {
+    return this.weather;
+  }
+
+  @Override
+  public IRoadConditionWriter getWriterRoadCondition() {
+    return this.roadCondition;
   }
 }

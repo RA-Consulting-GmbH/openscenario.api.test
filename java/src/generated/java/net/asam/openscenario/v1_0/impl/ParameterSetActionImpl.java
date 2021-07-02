@@ -27,6 +27,7 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IParameterSetAction;
+import net.asam.openscenario.v1_0.api.writer.IParameterSetActionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -44,7 +45,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ParameterSetActionImpl extends BaseImpl implements IParameterSetAction {
+public class ParameterSetActionImpl extends BaseImpl implements IParameterSetActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -53,11 +54,13 @@ public class ParameterSetActionImpl extends BaseImpl implements IParameterSetAct
   }
 
   private String value;
+
   /** Default constructor */
   public ParameterSetActionImpl() {
     super();
     addAdapter(ParameterSetActionImpl.class, this);
     addAdapter(IParameterSetAction.class, this);
+    addAdapter(IParameterSetActionWriter.class, this);
   }
 
   @Override
@@ -69,13 +72,11 @@ public class ParameterSetActionImpl extends BaseImpl implements IParameterSetAct
   public String getValue() {
     return this.value;
   }
-  /**
-   * Sets the value of model property value
-   *
-   * @param value from OpenSCENARIO class model specification: [The new value for the parameter.]
-   */
+
+  @Override
   public void setValue(String value) {
     this.value = value;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__VALUE);
   }
 
   @Override
@@ -123,7 +124,7 @@ public class ParameterSetActionImpl extends BaseImpl implements IParameterSetAct
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setValue(getValue());
+    clonedObject.value = getValue();
     // clone children
     return clonedObject;
   }
@@ -204,4 +205,23 @@ public class ParameterSetActionImpl extends BaseImpl implements IParameterSetAct
   public String getModelType() {
     return "ParameterSetAction";
   }
+
+  @Override
+  public void writeParameterToValue(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__VALUE, parameterName, null /*no textmarker*/);
+    this.value = null;
+  }
+
+  @Override
+  public String getParameterFromValue() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__VALUE);
+  }
+
+  @Override
+  public boolean isValueParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__VALUE);
+  }
+
+  // children
+
 }

@@ -18,6 +18,7 @@ package net.asam.openscenario.v1_0.checker.range;
 
 import net.asam.openscenario.checker.RangeCheckerRule;
 import net.asam.openscenario.common.IParserMessageLogger;
+import net.asam.openscenario.common.ITreeMessageLogger;
 import net.asam.openscenario.v1_0.api.IDynamicConstraints;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
@@ -35,44 +36,90 @@ public class DynamicConstraintsRangeCheckerRule extends RangeCheckerRule<IDynami
   }
 
   @Override
-  public void applyRule(IParserMessageLogger messageLogger, IDynamicConstraints object) {
+  public void applyRuleInFileContext(
+      IParserMessageLogger messageLogger, IDynamicConstraints object) {
+    apply(messageLogger, null, object);
+  }
+
+  @Override
+  public void applyRuleInTreeContext(ITreeMessageLogger messageLogger, IDynamicConstraints object) {
+    apply(null, messageLogger, object);
+  }
+
+  private void apply(
+      IParserMessageLogger fileMessageLogger,
+      ITreeMessageLogger treeMessageLogger,
+      IDynamicConstraints object) {
     Double maxAcceleration = object.getMaxAcceleration();
     if (maxAcceleration != null) {
       if (!(maxAcceleration >= 0)) {
-        logMessage(
-            object,
-            messageLogger,
-            OscConstants.ATTRIBUTE__MAX_ACCELERATION,
-            object.getMaxAcceleration().toString(),
-            ">=",
-            "0",
-            OscConstants.ATTRIBUTE__MAX_ACCELERATION);
+        if (fileMessageLogger != null) {
+          logFileContentMessage(
+              object,
+              fileMessageLogger,
+              OscConstants.ATTRIBUTE__MAX_ACCELERATION,
+              object.getMaxAcceleration().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__MAX_ACCELERATION);
+        } else {
+          logTreeContentMessage(
+              object,
+              treeMessageLogger,
+              OscConstants.ATTRIBUTE__MAX_ACCELERATION,
+              object.getMaxAcceleration().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__MAX_ACCELERATION);
+        }
       }
     }
     Double maxDeceleration = object.getMaxDeceleration();
     if (maxDeceleration != null) {
       if (!(maxDeceleration >= 0)) {
-        logMessage(
-            object,
-            messageLogger,
-            OscConstants.ATTRIBUTE__MAX_DECELERATION,
-            object.getMaxDeceleration().toString(),
-            ">=",
-            "0",
-            OscConstants.ATTRIBUTE__MAX_DECELERATION);
+        if (fileMessageLogger != null) {
+          logFileContentMessage(
+              object,
+              fileMessageLogger,
+              OscConstants.ATTRIBUTE__MAX_DECELERATION,
+              object.getMaxDeceleration().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__MAX_DECELERATION);
+        } else {
+          logTreeContentMessage(
+              object,
+              treeMessageLogger,
+              OscConstants.ATTRIBUTE__MAX_DECELERATION,
+              object.getMaxDeceleration().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__MAX_DECELERATION);
+        }
       }
     }
     Double maxSpeed = object.getMaxSpeed();
     if (maxSpeed != null) {
       if (!(maxSpeed >= 0)) {
-        logMessage(
-            object,
-            messageLogger,
-            OscConstants.ATTRIBUTE__MAX_SPEED,
-            object.getMaxSpeed().toString(),
-            ">=",
-            "0",
-            OscConstants.ATTRIBUTE__MAX_SPEED);
+        if (fileMessageLogger != null) {
+          logFileContentMessage(
+              object,
+              fileMessageLogger,
+              OscConstants.ATTRIBUTE__MAX_SPEED,
+              object.getMaxSpeed().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__MAX_SPEED);
+        } else {
+          logTreeContentMessage(
+              object,
+              treeMessageLogger,
+              OscConstants.ATTRIBUTE__MAX_SPEED,
+              object.getMaxSpeed().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__MAX_SPEED);
+        }
       }
     }
   }

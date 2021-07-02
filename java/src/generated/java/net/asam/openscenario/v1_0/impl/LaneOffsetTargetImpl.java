@@ -28,6 +28,9 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.IAbsoluteTargetLaneOffset;
 import net.asam.openscenario.v1_0.api.ILaneOffsetTarget;
 import net.asam.openscenario.v1_0.api.IRelativeTargetLaneOffset;
+import net.asam.openscenario.v1_0.api.writer.IAbsoluteTargetLaneOffsetWriter;
+import net.asam.openscenario.v1_0.api.writer.ILaneOffsetTargetWriter;
+import net.asam.openscenario.v1_0.api.writer.IRelativeTargetLaneOffsetWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,16 +48,18 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class LaneOffsetTargetImpl extends BaseImpl implements ILaneOffsetTarget {
+public class LaneOffsetTargetImpl extends BaseImpl implements ILaneOffsetTargetWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private IRelativeTargetLaneOffset relativeTargetLaneOffset;
-  private IAbsoluteTargetLaneOffset absoluteTargetLaneOffset;
+  private IRelativeTargetLaneOffsetWriter relativeTargetLaneOffset;
+  private IAbsoluteTargetLaneOffsetWriter absoluteTargetLaneOffset;
+
   /** Default constructor */
   public LaneOffsetTargetImpl() {
     super();
     addAdapter(LaneOffsetTargetImpl.class, this);
     addAdapter(ILaneOffsetTarget.class, this);
+    addAdapter(ILaneOffsetTargetWriter.class, this);
   }
 
   @Override
@@ -71,23 +76,19 @@ public class LaneOffsetTargetImpl extends BaseImpl implements ILaneOffsetTarget 
   public IAbsoluteTargetLaneOffset getAbsoluteTargetLaneOffset() {
     return this.absoluteTargetLaneOffset;
   }
-  /**
-   * Sets the value of model property relativeTargetLaneOffset
-   *
-   * @param relativeTargetLaneOffset from OpenSCENARIO class model specification: [Relative
-   *     reference to the lane position of a specific entity.]
-   */
-  public void setRelativeTargetLaneOffset(IRelativeTargetLaneOffset relativeTargetLaneOffset) {
+
+  @Override
+  public void setRelativeTargetLaneOffset(
+      IRelativeTargetLaneOffsetWriter relativeTargetLaneOffset) {
     this.relativeTargetLaneOffset = relativeTargetLaneOffset;
+    this.absoluteTargetLaneOffset = null;
   }
-  /**
-   * Sets the value of model property absoluteTargetLaneOffset
-   *
-   * @param absoluteTargetLaneOffset from OpenSCENARIO class model specification: [Absolute
-   *     reference to the current lane's center line.]
-   */
-  public void setAbsoluteTargetLaneOffset(IAbsoluteTargetLaneOffset absoluteTargetLaneOffset) {
+
+  @Override
+  public void setAbsoluteTargetLaneOffset(
+      IAbsoluteTargetLaneOffsetWriter absoluteTargetLaneOffset) {
     this.absoluteTargetLaneOffset = absoluteTargetLaneOffset;
+    this.relativeTargetLaneOffset = null;
   }
 
   @Override
@@ -111,13 +112,13 @@ public class LaneOffsetTargetImpl extends BaseImpl implements ILaneOffsetTarget 
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IRelativeTargetLaneOffset relativeTargetLaneOffset = null;
-    relativeTargetLaneOffset = getRelativeTargetLaneOffset();
+    IRelativeTargetLaneOffsetWriter relativeTargetLaneOffset = null;
+    relativeTargetLaneOffset = getWriterRelativeTargetLaneOffset();
     if (relativeTargetLaneOffset != null) {
       result.add((BaseImpl) relativeTargetLaneOffset);
     }
-    IAbsoluteTargetLaneOffset absoluteTargetLaneOffset = null;
-    absoluteTargetLaneOffset = getAbsoluteTargetLaneOffset();
+    IAbsoluteTargetLaneOffsetWriter absoluteTargetLaneOffset = null;
+    absoluteTargetLaneOffset = getWriterAbsoluteTargetLaneOffset();
     if (absoluteTargetLaneOffset != null) {
       result.add((BaseImpl) absoluteTargetLaneOffset);
     }
@@ -140,18 +141,18 @@ public class LaneOffsetTargetImpl extends BaseImpl implements ILaneOffsetTarget 
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    IRelativeTargetLaneOffset relativeTargetLaneOffset = null;
-    relativeTargetLaneOffset = getRelativeTargetLaneOffset();
+    IRelativeTargetLaneOffsetWriter relativeTargetLaneOffset = null;
+    relativeTargetLaneOffset = getWriterRelativeTargetLaneOffset();
     if (relativeTargetLaneOffset != null) {
-      RelativeTargetLaneOffsetImpl clonedChild =
+      IRelativeTargetLaneOffsetWriter clonedChild =
           ((RelativeTargetLaneOffsetImpl) relativeTargetLaneOffset).clone();
       clonedObject.setRelativeTargetLaneOffset(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IAbsoluteTargetLaneOffset absoluteTargetLaneOffset = null;
-    absoluteTargetLaneOffset = getAbsoluteTargetLaneOffset();
+    IAbsoluteTargetLaneOffsetWriter absoluteTargetLaneOffset = null;
+    absoluteTargetLaneOffset = getWriterAbsoluteTargetLaneOffset();
     if (absoluteTargetLaneOffset != null) {
-      AbsoluteTargetLaneOffsetImpl clonedChild =
+      IAbsoluteTargetLaneOffsetWriter clonedChild =
           ((AbsoluteTargetLaneOffsetImpl) absoluteTargetLaneOffset).clone();
       clonedObject.setAbsoluteTargetLaneOffset(clonedChild);
       clonedChild.setParent(clonedObject);
@@ -237,5 +238,16 @@ public class LaneOffsetTargetImpl extends BaseImpl implements ILaneOffsetTarget 
   @Override
   public String getModelType() {
     return "LaneOffsetTarget";
+  }
+
+  // children
+  @Override
+  public IRelativeTargetLaneOffsetWriter getWriterRelativeTargetLaneOffset() {
+    return this.relativeTargetLaneOffset;
+  }
+
+  @Override
+  public IAbsoluteTargetLaneOffsetWriter getWriterAbsoluteTargetLaneOffset() {
+    return this.absoluteTargetLaneOffset;
   }
 }

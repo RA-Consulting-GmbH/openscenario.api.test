@@ -43,7 +43,7 @@ namespace NET_ASAM_OPENSCENARIO
          * @return property value
          * @throws KeyNotSupportedException if key is not supported or does not fit the data type
          */
-        virtual std::string GetStringProperty(const std::string key)
+        virtual std::string GetStringProperty(const std::string key) const
         {
             return "";
         }
@@ -55,7 +55,7 @@ namespace NET_ASAM_OPENSCENARIO
          * @return property value
          * @throws KeyNotSupportedException if key is not supported or does not fit the data type
          */
-        virtual uint32_t GetUnsignedIntProperty(const std::string key)
+        virtual uint32_t GetUnsignedIntProperty(const std::string key) const
         {
             return 0;
         }
@@ -67,7 +67,7 @@ namespace NET_ASAM_OPENSCENARIO
          * @return property value
          * @throws KeyNotSupportedException if key is not supported or does not fit the data type
          */
-        virtual int GetIntProperty(const std::string key)
+        virtual int GetIntProperty(const std::string key) const
         {
             return 0;
         }
@@ -79,7 +79,7 @@ namespace NET_ASAM_OPENSCENARIO
          * @return property value
          * @throws KeyNotSupportedException if key is not supported or does not fit the data type
          */
-        virtual double GetDoubleProperty(const std::string key)
+        virtual double GetDoubleProperty(const std::string key) const
         {
             return 0;
         }
@@ -91,7 +91,7 @@ namespace NET_ASAM_OPENSCENARIO
          * @return property value
          * @throws KeyNotSupportedException if key is not supported or does not fit the data type
          */
-        virtual uint16_t GetUnsignedShortProperty(const std::string key)
+        virtual uint16_t GetUnsignedShortProperty(const std::string key) const
         {
             return 0;
         }
@@ -103,7 +103,7 @@ namespace NET_ASAM_OPENSCENARIO
          * @return property value
          * @throws KeyNotSupportedException if key is not supported or does not fit the data type
          */
-        virtual bool GetBooleanProperty(const std::string key)
+        virtual bool GetBooleanProperty(const std::string key) const
         {
             return false;
         }
@@ -115,7 +115,7 @@ namespace NET_ASAM_OPENSCENARIO
          * @return property value
          * @throws KeyNotSupportedException if key is not supported or does not fit the data type
          */
-        virtual DateTime GetDateTimeProperty(const std::string key)
+        virtual DateTime GetDateTimeProperty(const std::string key) const
         {
             return {};
         }
@@ -127,7 +127,7 @@ namespace NET_ASAM_OPENSCENARIO
          * @return the child element
          * @throws KeyNotSupportedException if key is not supported or does not fit the data type
          */
-        virtual std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(const std::string key)
+        virtual std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(const std::string key) const
         {
             return nullptr;
         }
@@ -139,7 +139,7 @@ namespace NET_ASAM_OPENSCENARIO
          * @return the enumeration literal (see xsd)
          * @throws KeyNotSupportedException if key is not supported or does not fit the data type
          */
-        virtual std::string GetEnumerationLiteral(const std::string key)
+        virtual std::string GetEnumerationLiteral(const std::string key) const
         {
             return "";
         }
@@ -151,7 +151,7 @@ namespace NET_ASAM_OPENSCENARIO
          * @return the list with child elements
          * @throws KeyNotSupportedException if key is not supported or does not fit the data type
          */
-        virtual std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(const std::string key)
+        virtual std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(const std::string key) const
         {
             return {};
         }
@@ -161,7 +161,7 @@ namespace NET_ASAM_OPENSCENARIO
          *
          * @return the list with child elements or null if root.
          */
-        virtual std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement()
+        virtual std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() const
         {
             return {};
         }
@@ -174,7 +174,7 @@ namespace NET_ASAM_OPENSCENARIO
          * @return the referenced element.
          * @throws KeyNotSupportedException if key is not supported or does not fit the data type
          */
-        virtual std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(const std::string key, const std::string name)
+        virtual std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(const std::string key, const std::string name) const
         {
             return nullptr;
         }
@@ -184,7 +184,7 @@ namespace NET_ASAM_OPENSCENARIO
          *
          * @return the type (see uml model)
          */
-        virtual std::string GetModelType()
+        virtual std::string GetModelType() const
         {
             return "";
         }

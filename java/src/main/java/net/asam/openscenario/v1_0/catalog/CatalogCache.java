@@ -130,7 +130,7 @@ public class CatalogCache {
               this.catalogElements.put(catalogName, catalogMap);
             }
 
-            List<IController> controllers = catalog.getControllers();
+            Iterable<IController> controllers = catalog.getControllers();
             if (controllers != null) {
               for (IController controller : controllers) {
 
@@ -139,14 +139,14 @@ public class CatalogCache {
               }
             }
 
-            List<IVehicle> vehicles = catalog.getVehicles();
+            Iterable<IVehicle> vehicles = catalog.getVehicles();
             if (vehicles != null) {
               for (IVehicle vehicle : vehicles) {
                 String name = vehicle.getName();
                 if (name != null && !name.isEmpty()) catalogMap.put(name, vehicle);
               }
             }
-            List<IMiscObject> miscObjects = catalog.getMiscObjects();
+            Iterable<IMiscObject> miscObjects = catalog.getMiscObjects();
             if (miscObjects != null) {
               for (IMiscObject miscObject : miscObjects) {
                 String name = miscObject.getName();
@@ -154,7 +154,7 @@ public class CatalogCache {
               }
             }
 
-            List<IRoute> routes = catalog.getRoutes();
+            Iterable<IRoute> routes = catalog.getRoutes();
             if (routes != null) {
               for (IRoute route : routes) {
                 String name = route.getName();
@@ -162,21 +162,21 @@ public class CatalogCache {
               }
             }
 
-            List<IEnvironment> environments = catalog.getEnvironments();
+            Iterable<IEnvironment> environments = catalog.getEnvironments();
             if (environments != null) {
               for (IEnvironment environment : environments) {
                 String name = environment.getName();
                 if (name != null && !name.isEmpty()) catalogMap.put(name, environment);
               }
             }
-            List<IPedestrian> pedestrians = catalog.getPedestrians();
+            Iterable<IPedestrian> pedestrians = catalog.getPedestrians();
             if (pedestrians != null) {
               for (IPedestrian pedestrian : pedestrians) {
                 String name = pedestrian.getName();
                 if (name != null && !name.isEmpty()) catalogMap.put(name, pedestrian);
               }
             }
-            List<ITrajectory> trajectories = catalog.getTrajectories();
+            Iterable<ITrajectory> trajectories = catalog.getTrajectories();
             if (trajectories != null) {
               for (ITrajectory trajectory : trajectories) {
                 String name = trajectory.getName();
@@ -184,7 +184,7 @@ public class CatalogCache {
               }
             }
 
-            List<IManeuver> maneuvers = catalog.getManeuvers();
+            Iterable<IManeuver> maneuvers = catalog.getManeuvers();
             if (maneuvers != null) {
               for (IManeuver maneuver : maneuvers) {
                 String name = maneuver.getName();

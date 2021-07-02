@@ -29,6 +29,7 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.FollowingMode;
 import net.asam.openscenario.v1_0.api.ITrajectoryFollowingMode;
+import net.asam.openscenario.v1_0.api.writer.ITrajectoryFollowingModeWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -47,7 +48,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class TrajectoryFollowingModeImpl extends BaseImpl implements ITrajectoryFollowingMode {
+public class TrajectoryFollowingModeImpl extends BaseImpl
+    implements ITrajectoryFollowingModeWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -56,11 +58,13 @@ public class TrajectoryFollowingModeImpl extends BaseImpl implements ITrajectory
   }
 
   private FollowingMode followingMode;
+
   /** Default constructor */
   public TrajectoryFollowingModeImpl() {
     super();
     addAdapter(TrajectoryFollowingModeImpl.class, this);
     addAdapter(ITrajectoryFollowingMode.class, this);
+    addAdapter(ITrajectoryFollowingModeWriter.class, this);
   }
 
   @Override
@@ -72,17 +76,11 @@ public class TrajectoryFollowingModeImpl extends BaseImpl implements ITrajectory
   public FollowingMode getFollowingMode() {
     return this.followingMode;
   }
-  /**
-   * Sets the value of model property followingMode
-   *
-   * @param followingMode from OpenSCENARIO class model specification: [Defines (lateral) trajectory
-   *     following behavior of the actor: Mode 'position' forces the actor to strictly adhere to
-   *     the, trajectory. In contrast, mode 'follow' hands over control to the actor. In this mode,
-   *     the actor tries to follow the , trajectory as best as he can. This may be restricted by
-   *     dynamics constraints and/or control loop implementation.]
-   */
+
+  @Override
   public void setFollowingMode(FollowingMode followingMode) {
     this.followingMode = followingMode;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__FOLLOWING_MODE);
   }
 
   @Override
@@ -140,7 +138,7 @@ public class TrajectoryFollowingModeImpl extends BaseImpl implements ITrajectory
     // Enumeration Type
     FollowingMode followingMode = getFollowingMode();
     if (followingMode != null) {
-      clonedObject.setFollowingMode(FollowingMode.getFromLiteral(followingMode.getLiteral()));
+      clonedObject.followingMode = FollowingMode.getFromLiteral(followingMode.getLiteral());
     }
     // clone children
     return clonedObject;
@@ -223,4 +221,24 @@ public class TrajectoryFollowingModeImpl extends BaseImpl implements ITrajectory
   public String getModelType() {
     return "TrajectoryFollowingMode";
   }
+
+  @Override
+  public void writeParameterToFollowingMode(String parameterName) {
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__FOLLOWING_MODE, parameterName, null /*no textmarker*/);
+    this.followingMode = null;
+  }
+
+  @Override
+  public String getParameterFromFollowingMode() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__FOLLOWING_MODE);
+  }
+
+  @Override
+  public boolean isFollowingModeParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__FOLLOWING_MODE);
+  }
+
+  // children
+
 }

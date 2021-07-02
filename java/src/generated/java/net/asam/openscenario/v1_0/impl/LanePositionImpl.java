@@ -28,6 +28,8 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.ILanePosition;
 import net.asam.openscenario.v1_0.api.IOrientation;
+import net.asam.openscenario.v1_0.api.writer.ILanePositionWriter;
+import net.asam.openscenario.v1_0.api.writer.IOrientationWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,7 +47,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class LanePositionImpl extends BaseImpl implements ILanePosition {
+public class LanePositionImpl extends BaseImpl implements ILanePositionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -60,12 +62,14 @@ public class LanePositionImpl extends BaseImpl implements ILanePosition {
   private String laneId;
   private Double offset;
   private Double s;
-  private IOrientation orientation;
+  private IOrientationWriter orientation;
+
   /** Default constructor */
   public LanePositionImpl() {
     super();
     addAdapter(LanePositionImpl.class, this);
     addAdapter(ILanePosition.class, this);
+    addAdapter(ILanePositionWriter.class, this);
   }
 
   @Override
@@ -97,49 +101,33 @@ public class LanePositionImpl extends BaseImpl implements ILanePosition {
   public IOrientation getOrientation() {
     return this.orientation;
   }
-  /**
-   * Sets the value of model property roadId
-   *
-   * @param roadId from OpenSCENARIO class model specification: [ID of the current road (ID of a
-   *     road in road network).]
-   */
+
+  @Override
   public void setRoadId(String roadId) {
     this.roadId = roadId;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__ROAD_ID);
   }
-  /**
-   * Sets the value of model property laneId
-   *
-   * @param laneId from OpenSCENARIO class model specification: [ID of the current lane (ID of a
-   *     lane in road network).]
-   */
+
+  @Override
   public void setLaneId(String laneId) {
     this.laneId = laneId;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__LANE_ID);
   }
-  /**
-   * Sets the value of model property offset
-   *
-   * @param offset from OpenSCENARIO class model specification: [Lateral offset to the centerline of
-   *     the current lane. Unit: m.]
-   */
+
+  @Override
   public void setOffset(Double offset) {
     this.offset = offset;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__OFFSET);
   }
-  /**
-   * Sets the value of model property s
-   *
-   * @param s from OpenSCENARIO class model specification: [The s coordinate of the current
-   *     position. Unit: m; Range: [0..inf[.]
-   */
+
+  @Override
   public void setS(Double s) {
     this.s = s;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__S);
   }
-  /**
-   * Sets the value of model property orientation
-   *
-   * @param orientation from OpenSCENARIO class model specification: [Orientation. The relative
-   *     reference context refers to the referenced road's s and t coordinates.]
-   */
-  public void setOrientation(IOrientation orientation) {
+
+  @Override
+  public void setOrientation(IOrientationWriter orientation) {
     this.orientation = orientation;
   }
 
@@ -186,8 +174,8 @@ public class LanePositionImpl extends BaseImpl implements ILanePosition {
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IOrientation orientation = null;
-    orientation = getOrientation();
+    IOrientationWriter orientation = null;
+    orientation = getWriterOrientation();
     if (orientation != null) {
       result.add((BaseImpl) orientation);
     }
@@ -210,18 +198,18 @@ public class LanePositionImpl extends BaseImpl implements ILanePosition {
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setRoadId(getRoadId());
+    clonedObject.roadId = getRoadId();
     // Simple type
-    clonedObject.setLaneId(getLaneId());
+    clonedObject.laneId = getLaneId();
     // Simple type
-    clonedObject.setOffset(getOffset());
+    clonedObject.offset = getOffset();
     // Simple type
-    clonedObject.setS(getS());
+    clonedObject.s = getS();
     // clone children
-    IOrientation orientation = null;
-    orientation = getOrientation();
+    IOrientationWriter orientation = null;
+    orientation = getWriterOrientation();
     if (orientation != null) {
-      OrientationImpl clonedChild = ((OrientationImpl) orientation).clone();
+      IOrientationWriter clonedChild = ((OrientationImpl) orientation).clone();
       clonedObject.setOrientation(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -319,5 +307,75 @@ public class LanePositionImpl extends BaseImpl implements ILanePosition {
   @Override
   public String getModelType() {
     return "LanePosition";
+  }
+
+  @Override
+  public void writeParameterToRoadId(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__ROAD_ID, parameterName, null /*no textmarker*/);
+    this.roadId = null;
+  }
+
+  @Override
+  public void writeParameterToLaneId(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__LANE_ID, parameterName, null /*no textmarker*/);
+    this.laneId = null;
+  }
+
+  @Override
+  public void writeParameterToOffset(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__OFFSET, parameterName, null /*no textmarker*/);
+    this.offset = null;
+  }
+
+  @Override
+  public void writeParameterToS(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__S, parameterName, null /*no textmarker*/);
+    this.s = null;
+  }
+
+  @Override
+  public String getParameterFromRoadId() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__ROAD_ID);
+  }
+
+  @Override
+  public String getParameterFromLaneId() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__LANE_ID);
+  }
+
+  @Override
+  public String getParameterFromOffset() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__OFFSET);
+  }
+
+  @Override
+  public String getParameterFromS() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__S);
+  }
+
+  @Override
+  public boolean isRoadIdParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__ROAD_ID);
+  }
+
+  @Override
+  public boolean isLaneIdParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__LANE_ID);
+  }
+
+  @Override
+  public boolean isOffsetParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__OFFSET);
+  }
+
+  @Override
+  public boolean isSParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__S);
+  }
+
+  // children
+  @Override
+  public IOrientationWriter getWriterOrientation() {
+    return this.orientation;
   }
 }

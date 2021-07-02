@@ -29,6 +29,10 @@ import net.asam.openscenario.v1_0.api.IAcquirePositionAction;
 import net.asam.openscenario.v1_0.api.IAssignRouteAction;
 import net.asam.openscenario.v1_0.api.IFollowTrajectoryAction;
 import net.asam.openscenario.v1_0.api.IRoutingAction;
+import net.asam.openscenario.v1_0.api.writer.IAcquirePositionActionWriter;
+import net.asam.openscenario.v1_0.api.writer.IAssignRouteActionWriter;
+import net.asam.openscenario.v1_0.api.writer.IFollowTrajectoryActionWriter;
+import net.asam.openscenario.v1_0.api.writer.IRoutingActionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -46,17 +50,19 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class RoutingActionImpl extends BaseImpl implements IRoutingAction {
+public class RoutingActionImpl extends BaseImpl implements IRoutingActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private IAssignRouteAction assignRouteAction;
-  private IFollowTrajectoryAction followTrajectoryAction;
-  private IAcquirePositionAction acquirePositionAction;
+  private IAssignRouteActionWriter assignRouteAction;
+  private IFollowTrajectoryActionWriter followTrajectoryAction;
+  private IAcquirePositionActionWriter acquirePositionAction;
+
   /** Default constructor */
   public RoutingActionImpl() {
     super();
     addAdapter(RoutingActionImpl.class, this);
     addAdapter(IRoutingAction.class, this);
+    addAdapter(IRoutingActionWriter.class, this);
   }
 
   @Override
@@ -78,33 +84,26 @@ public class RoutingActionImpl extends BaseImpl implements IRoutingAction {
   public IAcquirePositionAction getAcquirePositionAction() {
     return this.acquirePositionAction;
   }
-  /**
-   * Sets the value of model property assignRouteAction
-   *
-   * @param assignRouteAction from OpenSCENARIO class model specification: [Assigns a route to an
-   *     entity. The route is defined by at least two waypoints.]
-   */
-  public void setAssignRouteAction(IAssignRouteAction assignRouteAction) {
+
+  @Override
+  public void setAssignRouteAction(IAssignRouteActionWriter assignRouteAction) {
     this.assignRouteAction = assignRouteAction;
+    this.followTrajectoryAction = null;
+    this.acquirePositionAction = null;
   }
-  /**
-   * Sets the value of model property followTrajectoryAction
-   *
-   * @param followTrajectoryAction from OpenSCENARIO class model specification: [Controls an entity
-   *     to follow a trajectory.]
-   */
-  public void setFollowTrajectoryAction(IFollowTrajectoryAction followTrajectoryAction) {
+
+  @Override
+  public void setFollowTrajectoryAction(IFollowTrajectoryActionWriter followTrajectoryAction) {
     this.followTrajectoryAction = followTrajectoryAction;
+    this.assignRouteAction = null;
+    this.acquirePositionAction = null;
   }
-  /**
-   * Sets the value of model property acquirePositionAction
-   *
-   * @param acquirePositionAction from OpenSCENARIO class model specification: [Assigns a route to
-   *     an entity. The route assigned will be the shortest route (along roads) between the entity's
-   *     current , position and the position specified.]
-   */
-  public void setAcquirePositionAction(IAcquirePositionAction acquirePositionAction) {
+
+  @Override
+  public void setAcquirePositionAction(IAcquirePositionActionWriter acquirePositionAction) {
     this.acquirePositionAction = acquirePositionAction;
+    this.assignRouteAction = null;
+    this.followTrajectoryAction = null;
   }
 
   @Override
@@ -128,18 +127,18 @@ public class RoutingActionImpl extends BaseImpl implements IRoutingAction {
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IAssignRouteAction assignRouteAction = null;
-    assignRouteAction = getAssignRouteAction();
+    IAssignRouteActionWriter assignRouteAction = null;
+    assignRouteAction = getWriterAssignRouteAction();
     if (assignRouteAction != null) {
       result.add((BaseImpl) assignRouteAction);
     }
-    IFollowTrajectoryAction followTrajectoryAction = null;
-    followTrajectoryAction = getFollowTrajectoryAction();
+    IFollowTrajectoryActionWriter followTrajectoryAction = null;
+    followTrajectoryAction = getWriterFollowTrajectoryAction();
     if (followTrajectoryAction != null) {
       result.add((BaseImpl) followTrajectoryAction);
     }
-    IAcquirePositionAction acquirePositionAction = null;
-    acquirePositionAction = getAcquirePositionAction();
+    IAcquirePositionActionWriter acquirePositionAction = null;
+    acquirePositionAction = getWriterAcquirePositionAction();
     if (acquirePositionAction != null) {
       result.add((BaseImpl) acquirePositionAction);
     }
@@ -162,25 +161,25 @@ public class RoutingActionImpl extends BaseImpl implements IRoutingAction {
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    IAssignRouteAction assignRouteAction = null;
-    assignRouteAction = getAssignRouteAction();
+    IAssignRouteActionWriter assignRouteAction = null;
+    assignRouteAction = getWriterAssignRouteAction();
     if (assignRouteAction != null) {
-      AssignRouteActionImpl clonedChild = ((AssignRouteActionImpl) assignRouteAction).clone();
+      IAssignRouteActionWriter clonedChild = ((AssignRouteActionImpl) assignRouteAction).clone();
       clonedObject.setAssignRouteAction(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IFollowTrajectoryAction followTrajectoryAction = null;
-    followTrajectoryAction = getFollowTrajectoryAction();
+    IFollowTrajectoryActionWriter followTrajectoryAction = null;
+    followTrajectoryAction = getWriterFollowTrajectoryAction();
     if (followTrajectoryAction != null) {
-      FollowTrajectoryActionImpl clonedChild =
+      IFollowTrajectoryActionWriter clonedChild =
           ((FollowTrajectoryActionImpl) followTrajectoryAction).clone();
       clonedObject.setFollowTrajectoryAction(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IAcquirePositionAction acquirePositionAction = null;
-    acquirePositionAction = getAcquirePositionAction();
+    IAcquirePositionActionWriter acquirePositionAction = null;
+    acquirePositionAction = getWriterAcquirePositionAction();
     if (acquirePositionAction != null) {
-      AcquirePositionActionImpl clonedChild =
+      IAcquirePositionActionWriter clonedChild =
           ((AcquirePositionActionImpl) acquirePositionAction).clone();
       clonedObject.setAcquirePositionAction(clonedChild);
       clonedChild.setParent(clonedObject);
@@ -269,5 +268,21 @@ public class RoutingActionImpl extends BaseImpl implements IRoutingAction {
   @Override
   public String getModelType() {
     return "RoutingAction";
+  }
+
+  // children
+  @Override
+  public IAssignRouteActionWriter getWriterAssignRouteAction() {
+    return this.assignRouteAction;
+  }
+
+  @Override
+  public IFollowTrajectoryActionWriter getWriterFollowTrajectoryAction() {
+    return this.followTrajectoryAction;
+  }
+
+  @Override
+  public IAcquirePositionActionWriter getWriterAcquirePositionAction() {
+    return this.acquirePositionAction;
   }
 }

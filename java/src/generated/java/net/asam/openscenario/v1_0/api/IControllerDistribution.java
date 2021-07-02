@@ -16,7 +16,6 @@
  */
 package net.asam.openscenario.v1_0.api;
 
-import java.util.List;
 import net.asam.openscenario.api.IOpenScenarioModelElement;
 
 /**
@@ -34,5 +33,19 @@ public interface IControllerDistribution extends IOpenScenarioModelElement {
    *
    * @return value of model property controllerDistributionEntries
    */
-  public List<IControllerDistributionEntry> getControllerDistributionEntries();
+  public Iterable<IControllerDistributionEntry> getControllerDistributionEntries();
+
+  /**
+   * Retrieves the size of the list
+   *
+   * @return the size of the list
+   */
+  public int getControllerDistributionEntriesSize();
+  /**
+   * The element at specific index
+   *
+   * @param index the index of the list
+   * @return the element at index
+   */
+  public IControllerDistributionEntry getControllerDistributionEntriesAtIndex(int index);
 }

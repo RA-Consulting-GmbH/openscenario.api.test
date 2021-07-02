@@ -31,6 +31,8 @@ import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IDynamicConstraints;
 import net.asam.openscenario.v1_0.api.IEntity;
 import net.asam.openscenario.v1_0.api.ILateralDistanceAction;
+import net.asam.openscenario.v1_0.api.writer.IDynamicConstraintsWriter;
+import net.asam.openscenario.v1_0.api.writer.ILateralDistanceActionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -49,7 +51,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class LateralDistanceActionImpl extends BaseImpl implements ILateralDistanceAction {
+public class LateralDistanceActionImpl extends BaseImpl implements ILateralDistanceActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -60,16 +62,18 @@ public class LateralDistanceActionImpl extends BaseImpl implements ILateralDista
     propertyToType.put(OscConstants.ATTRIBUTE__CONTINUOUS, SimpleType.BOOLEAN);
   }
 
-  private NamedReferenceProxy<IEntity> entityRef;
+  private INamedReference<IEntity> entityRef;
   private Double distance;
   private Boolean freespace;
   private Boolean continuous;
-  private IDynamicConstraints dynamicConstraints;
+  private IDynamicConstraintsWriter dynamicConstraints;
+
   /** Default constructor */
   public LateralDistanceActionImpl() {
     super();
     addAdapter(LateralDistanceActionImpl.class, this);
     addAdapter(ILateralDistanceAction.class, this);
+    addAdapter(ILateralDistanceActionWriter.class, this);
   }
 
   @Override
@@ -101,51 +105,33 @@ public class LateralDistanceActionImpl extends BaseImpl implements ILateralDista
   public IDynamicConstraints getDynamicConstraints() {
     return this.dynamicConstraints;
   }
-  /**
-   * Sets the value of model property entityRef
-   *
-   * @param entityRef from OpenSCENARIO class model specification: [Name of the reference entity the
-   *     lateral distance shall be kept to.]
-   */
-  public void setEntityRef(NamedReferenceProxy<IEntity> entityRef) {
+
+  @Override
+  public void setEntityRef(INamedReference<IEntity> entityRef) {
     this.entityRef = entityRef;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__ENTITY_REF);
   }
-  /**
-   * Sets the value of model property distance
-   *
-   * @param distance from OpenSCENARIO class model specification: [Lateral distance value. Unit: m;
-   *     Range: [0..inf[.]
-   */
+
+  @Override
   public void setDistance(Double distance) {
     this.distance = distance;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__DISTANCE);
   }
-  /**
-   * Sets the value of model property freespace
-   *
-   * @param freespace from OpenSCENARIO class model specification: [True: Lateral distance is
-   *     measured using the distance between closest bounding box points. False: Reference point ,
-   *     distance is used.]
-   */
+
+  @Override
   public void setFreespace(Boolean freespace) {
     this.freespace = freespace;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__FREESPACE);
   }
-  /**
-   * Sets the value of model property continuous
-   *
-   * @param continuous from OpenSCENARIO class model specification: [If false, the action ends when
-   *     the target distance is reached. If true it does not end and can only be stopped.]
-   */
+
+  @Override
   public void setContinuous(Boolean continuous) {
     this.continuous = continuous;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__CONTINUOUS);
   }
-  /**
-   * Sets the value of model property dynamicConstraints
-   *
-   * @param dynamicConstraints from OpenSCENARIO class model specification: [Parameter that assigns
-   *     either unlimited dynamics (if omitted) or limited maxAcceleration/maxDeceleration/maxSpeed
-   *     to the, action.]
-   */
-  public void setDynamicConstraints(IDynamicConstraints dynamicConstraints) {
+
+  @Override
+  public void setDynamicConstraints(IDynamicConstraintsWriter dynamicConstraints) {
     this.dynamicConstraints = dynamicConstraints;
   }
 
@@ -193,8 +179,8 @@ public class LateralDistanceActionImpl extends BaseImpl implements ILateralDista
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IDynamicConstraints dynamicConstraints = null;
-    dynamicConstraints = getDynamicConstraints();
+    IDynamicConstraintsWriter dynamicConstraints = null;
+    dynamicConstraints = getWriterDynamicConstraints();
     if (dynamicConstraints != null) {
       result.add((BaseImpl) dynamicConstraints);
     }
@@ -218,19 +204,19 @@ public class LateralDistanceActionImpl extends BaseImpl implements ILateralDista
     // clone attributes;
     // Proxy
     NamedReferenceProxy<IEntity> proxy = ((NamedReferenceProxy<IEntity>) getEntityRef()).clone();
-    clonedObject.setEntityRef(proxy);
+    clonedObject.entityRef = proxy;
     proxy.setParent(clonedObject);
     // Simple type
-    clonedObject.setDistance(getDistance());
+    clonedObject.distance = getDistance();
     // Simple type
-    clonedObject.setFreespace(getFreespace());
+    clonedObject.freespace = getFreespace();
     // Simple type
-    clonedObject.setContinuous(getContinuous());
+    clonedObject.continuous = getContinuous();
     // clone children
-    IDynamicConstraints dynamicConstraints = null;
-    dynamicConstraints = getDynamicConstraints();
+    IDynamicConstraintsWriter dynamicConstraints = null;
+    dynamicConstraints = getWriterDynamicConstraints();
     if (dynamicConstraints != null) {
-      DynamicConstraintsImpl clonedChild = ((DynamicConstraintsImpl) dynamicConstraints).clone();
+      IDynamicConstraintsWriter clonedChild = ((DynamicConstraintsImpl) dynamicConstraints).clone();
       clonedObject.setDynamicConstraints(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -342,5 +328,77 @@ public class LateralDistanceActionImpl extends BaseImpl implements ILateralDista
   @Override
   public String getModelType() {
     return "LateralDistanceAction";
+  }
+
+  @Override
+  public void writeParameterToEntityRef(String parameterName) {
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__ENTITY_REF, parameterName, null /*no textmarker*/);
+    this.entityRef = null;
+  }
+
+  @Override
+  public void writeParameterToDistance(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__DISTANCE, parameterName, null /*no textmarker*/);
+    this.distance = null;
+  }
+
+  @Override
+  public void writeParameterToFreespace(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__FREESPACE, parameterName, null /*no textmarker*/);
+    this.freespace = null;
+  }
+
+  @Override
+  public void writeParameterToContinuous(String parameterName) {
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__CONTINUOUS, parameterName, null /*no textmarker*/);
+    this.continuous = null;
+  }
+
+  @Override
+  public String getParameterFromEntityRef() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__ENTITY_REF);
+  }
+
+  @Override
+  public String getParameterFromDistance() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__DISTANCE);
+  }
+
+  @Override
+  public String getParameterFromFreespace() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__FREESPACE);
+  }
+
+  @Override
+  public String getParameterFromContinuous() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__CONTINUOUS);
+  }
+
+  @Override
+  public boolean isEntityRefParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__ENTITY_REF);
+  }
+
+  @Override
+  public boolean isDistanceParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__DISTANCE);
+  }
+
+  @Override
+  public boolean isFreespaceParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__FREESPACE);
+  }
+
+  @Override
+  public boolean isContinuousParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__CONTINUOUS);
+  }
+
+  // children
+  @Override
+  public IDynamicConstraintsWriter getWriterDynamicConstraints() {
+    return this.dynamicConstraints;
   }
 }

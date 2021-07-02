@@ -29,6 +29,9 @@ import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.ILaneChangeAction;
 import net.asam.openscenario.v1_0.api.ILaneChangeTarget;
 import net.asam.openscenario.v1_0.api.ITransitionDynamics;
+import net.asam.openscenario.v1_0.api.writer.ILaneChangeActionWriter;
+import net.asam.openscenario.v1_0.api.writer.ILaneChangeTargetWriter;
+import net.asam.openscenario.v1_0.api.writer.ITransitionDynamicsWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -46,7 +49,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class LaneChangeActionImpl extends BaseImpl implements ILaneChangeAction {
+public class LaneChangeActionImpl extends BaseImpl implements ILaneChangeActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -55,13 +58,15 @@ public class LaneChangeActionImpl extends BaseImpl implements ILaneChangeAction 
   }
 
   private Double targetLaneOffset;
-  private ITransitionDynamics laneChangeActionDynamics;
-  private ILaneChangeTarget laneChangeTarget;
+  private ITransitionDynamicsWriter laneChangeActionDynamics;
+  private ILaneChangeTargetWriter laneChangeTarget;
+
   /** Default constructor */
   public LaneChangeActionImpl() {
     super();
     addAdapter(LaneChangeActionImpl.class, this);
     addAdapter(ILaneChangeAction.class, this);
+    addAdapter(ILaneChangeActionWriter.class, this);
   }
 
   @Override
@@ -83,31 +88,20 @@ public class LaneChangeActionImpl extends BaseImpl implements ILaneChangeAction 
   public ILaneChangeTarget getLaneChangeTarget() {
     return this.laneChangeTarget;
   }
-  /**
-   * Sets the value of model property targetLaneOffset
-   *
-   * @param targetLaneOffset from OpenSCENARIO class model specification: [Lane offset to be reached
-   *     at the target lane; the action will end there. Unit: m.]
-   */
+
+  @Override
   public void setTargetLaneOffset(Double targetLaneOffset) {
     this.targetLaneOffset = targetLaneOffset;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__TARGET_LANE_OFFSET);
   }
-  /**
-   * Sets the value of model property laneChangeActionDynamics
-   *
-   * @param laneChangeActionDynamics from OpenSCENARIO class model specification: [Shape/time of
-   *     lane change action.]
-   */
-  public void setLaneChangeActionDynamics(ITransitionDynamics laneChangeActionDynamics) {
+
+  @Override
+  public void setLaneChangeActionDynamics(ITransitionDynamicsWriter laneChangeActionDynamics) {
     this.laneChangeActionDynamics = laneChangeActionDynamics;
   }
-  /**
-   * Sets the value of model property laneChangeTarget
-   *
-   * @param laneChangeTarget from OpenSCENARIO class model specification: [Direction of lane change
-   *     action.]
-   */
-  public void setLaneChangeTarget(ILaneChangeTarget laneChangeTarget) {
+
+  @Override
+  public void setLaneChangeTarget(ILaneChangeTargetWriter laneChangeTarget) {
     this.laneChangeTarget = laneChangeTarget;
   }
 
@@ -137,13 +131,13 @@ public class LaneChangeActionImpl extends BaseImpl implements ILaneChangeAction 
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    ITransitionDynamics laneChangeActionDynamics = null;
-    laneChangeActionDynamics = getLaneChangeActionDynamics();
+    ITransitionDynamicsWriter laneChangeActionDynamics = null;
+    laneChangeActionDynamics = getWriterLaneChangeActionDynamics();
     if (laneChangeActionDynamics != null) {
       result.add((BaseImpl) laneChangeActionDynamics);
     }
-    ILaneChangeTarget laneChangeTarget = null;
-    laneChangeTarget = getLaneChangeTarget();
+    ILaneChangeTargetWriter laneChangeTarget = null;
+    laneChangeTarget = getWriterLaneChangeTarget();
     if (laneChangeTarget != null) {
       result.add((BaseImpl) laneChangeTarget);
     }
@@ -166,20 +160,20 @@ public class LaneChangeActionImpl extends BaseImpl implements ILaneChangeAction 
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setTargetLaneOffset(getTargetLaneOffset());
+    clonedObject.targetLaneOffset = getTargetLaneOffset();
     // clone children
-    ITransitionDynamics laneChangeActionDynamics = null;
-    laneChangeActionDynamics = getLaneChangeActionDynamics();
+    ITransitionDynamicsWriter laneChangeActionDynamics = null;
+    laneChangeActionDynamics = getWriterLaneChangeActionDynamics();
     if (laneChangeActionDynamics != null) {
-      TransitionDynamicsImpl clonedChild =
+      ITransitionDynamicsWriter clonedChild =
           ((TransitionDynamicsImpl) laneChangeActionDynamics).clone();
       clonedObject.setLaneChangeActionDynamics(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    ILaneChangeTarget laneChangeTarget = null;
-    laneChangeTarget = getLaneChangeTarget();
+    ILaneChangeTargetWriter laneChangeTarget = null;
+    laneChangeTarget = getWriterLaneChangeTarget();
     if (laneChangeTarget != null) {
-      LaneChangeTargetImpl clonedChild = ((LaneChangeTargetImpl) laneChangeTarget).clone();
+      ILaneChangeTargetWriter clonedChild = ((LaneChangeTargetImpl) laneChangeTarget).clone();
       clonedObject.setLaneChangeTarget(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -270,5 +264,33 @@ public class LaneChangeActionImpl extends BaseImpl implements ILaneChangeAction 
   @Override
   public String getModelType() {
     return "LaneChangeAction";
+  }
+
+  @Override
+  public void writeParameterToTargetLaneOffset(String parameterName) {
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__TARGET_LANE_OFFSET, parameterName, null /*no textmarker*/);
+    this.targetLaneOffset = null;
+  }
+
+  @Override
+  public String getParameterFromTargetLaneOffset() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__TARGET_LANE_OFFSET);
+  }
+
+  @Override
+  public boolean isTargetLaneOffsetParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__TARGET_LANE_OFFSET);
+  }
+
+  // children
+  @Override
+  public ITransitionDynamicsWriter getWriterLaneChangeActionDynamics() {
+    return this.laneChangeActionDynamics;
+  }
+
+  @Override
+  public ILaneChangeTargetWriter getWriterLaneChangeTarget() {
+    return this.laneChangeTarget;
   }
 }

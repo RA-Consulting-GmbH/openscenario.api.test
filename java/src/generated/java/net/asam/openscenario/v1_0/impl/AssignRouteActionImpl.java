@@ -28,6 +28,9 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.IAssignRouteAction;
 import net.asam.openscenario.v1_0.api.ICatalogReference;
 import net.asam.openscenario.v1_0.api.IRoute;
+import net.asam.openscenario.v1_0.api.writer.IAssignRouteActionWriter;
+import net.asam.openscenario.v1_0.api.writer.ICatalogReferenceWriter;
+import net.asam.openscenario.v1_0.api.writer.IRouteWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,16 +48,18 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class AssignRouteActionImpl extends BaseImpl implements IAssignRouteAction {
+public class AssignRouteActionImpl extends BaseImpl implements IAssignRouteActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private IRoute route;
-  private ICatalogReference catalogReference;
+  private IRouteWriter route;
+  private ICatalogReferenceWriter catalogReference;
+
   /** Default constructor */
   public AssignRouteActionImpl() {
     super();
     addAdapter(AssignRouteActionImpl.class, this);
     addAdapter(IAssignRouteAction.class, this);
+    addAdapter(IAssignRouteActionWriter.class, this);
   }
 
   @Override
@@ -71,22 +76,17 @@ public class AssignRouteActionImpl extends BaseImpl implements IAssignRouteActio
   public ICatalogReference getCatalogReference() {
     return this.catalogReference;
   }
-  /**
-   * Sets the value of model property route
-   *
-   * @param route from OpenSCENARIO class model specification: [The route definition.]
-   */
-  public void setRoute(IRoute route) {
+
+  @Override
+  public void setRoute(IRouteWriter route) {
     this.route = route;
+    this.catalogReference = null;
   }
-  /**
-   * Sets the value of model property catalogReference
-   *
-   * @param catalogReference from OpenSCENARIO class model specification: [A reference to the route
-   *     definition in a catalog. The reference must point to a route.]
-   */
-  public void setCatalogReference(ICatalogReference catalogReference) {
+
+  @Override
+  public void setCatalogReference(ICatalogReferenceWriter catalogReference) {
     this.catalogReference = catalogReference;
+    this.route = null;
   }
 
   @Override
@@ -110,13 +110,13 @@ public class AssignRouteActionImpl extends BaseImpl implements IAssignRouteActio
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IRoute route = null;
-    route = getRoute();
+    IRouteWriter route = null;
+    route = getWriterRoute();
     if (route != null) {
       result.add((BaseImpl) route);
     }
-    ICatalogReference catalogReference = null;
-    catalogReference = getCatalogReference();
+    ICatalogReferenceWriter catalogReference = null;
+    catalogReference = getWriterCatalogReference();
     if (catalogReference != null) {
       result.add((BaseImpl) catalogReference);
     }
@@ -139,17 +139,17 @@ public class AssignRouteActionImpl extends BaseImpl implements IAssignRouteActio
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    IRoute route = null;
-    route = getRoute();
+    IRouteWriter route = null;
+    route = getWriterRoute();
     if (route != null) {
-      RouteImpl clonedChild = ((RouteImpl) route).clone();
+      IRouteWriter clonedChild = ((RouteImpl) route).clone();
       clonedObject.setRoute(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    ICatalogReference catalogReference = null;
-    catalogReference = getCatalogReference();
+    ICatalogReferenceWriter catalogReference = null;
+    catalogReference = getWriterCatalogReference();
     if (catalogReference != null) {
-      CatalogReferenceImpl clonedChild = ((CatalogReferenceImpl) catalogReference).clone();
+      ICatalogReferenceWriter clonedChild = ((CatalogReferenceImpl) catalogReference).clone();
       clonedObject.setCatalogReference(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -234,5 +234,16 @@ public class AssignRouteActionImpl extends BaseImpl implements IAssignRouteActio
   @Override
   public String getModelType() {
     return "AssignRouteAction";
+  }
+
+  // children
+  @Override
+  public IRouteWriter getWriterRoute() {
+    return this.route;
+  }
+
+  @Override
+  public ICatalogReferenceWriter getWriterCatalogReference() {
+    return this.catalogReference;
   }
 }

@@ -27,6 +27,7 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IDynamicConstraints;
+import net.asam.openscenario.v1_0.api.writer.IDynamicConstraintsWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -44,7 +45,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class DynamicConstraintsImpl extends BaseImpl implements IDynamicConstraints {
+public class DynamicConstraintsImpl extends BaseImpl implements IDynamicConstraintsWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -57,11 +58,13 @@ public class DynamicConstraintsImpl extends BaseImpl implements IDynamicConstrai
   private Double maxAcceleration;
   private Double maxDeceleration;
   private Double maxSpeed;
+
   /** Default constructor */
   public DynamicConstraintsImpl() {
     super();
     addAdapter(DynamicConstraintsImpl.class, this);
     addAdapter(IDynamicConstraints.class, this);
+    addAdapter(IDynamicConstraintsWriter.class, this);
   }
 
   @Override
@@ -83,34 +86,23 @@ public class DynamicConstraintsImpl extends BaseImpl implements IDynamicConstrai
   public Double getMaxSpeed() {
     return this.maxSpeed;
   }
-  /**
-   * Sets the value of model property maxAcceleration
-   *
-   * @param maxAcceleration from OpenSCENARIO class model specification: [Maximum acceleration the
-   *     distance controller is allowed to use for keeping the distance. Unit: m/s2; Range:
-   *     [0..inf[.]
-   */
+
+  @Override
   public void setMaxAcceleration(Double maxAcceleration) {
     this.maxAcceleration = maxAcceleration;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__MAX_ACCELERATION);
   }
-  /**
-   * Sets the value of model property maxDeceleration
-   *
-   * @param maxDeceleration from OpenSCENARIO class model specification: [Maximum deceleration the
-   *     distance controller is allowed to use for keeping the distance. Unit: m/s2; Range:
-   *     [0..inf[.]
-   */
+
+  @Override
   public void setMaxDeceleration(Double maxDeceleration) {
     this.maxDeceleration = maxDeceleration;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__MAX_DECELERATION);
   }
-  /**
-   * Sets the value of model property maxSpeed
-   *
-   * @param maxSpeed from OpenSCENARIO class model specification: [Maximum speed the distance
-   *     controller is allowed to use for keeping the distance. Unit: m/s; Range: [0..inf[.]
-   */
+
+  @Override
   public void setMaxSpeed(Double maxSpeed) {
     this.maxSpeed = maxSpeed;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__MAX_SPEED);
   }
 
   @Override
@@ -170,11 +162,11 @@ public class DynamicConstraintsImpl extends BaseImpl implements IDynamicConstrai
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setMaxAcceleration(getMaxAcceleration());
+    clonedObject.maxAcceleration = getMaxAcceleration();
     // Simple type
-    clonedObject.setMaxDeceleration(getMaxDeceleration());
+    clonedObject.maxDeceleration = getMaxDeceleration();
     // Simple type
-    clonedObject.setMaxSpeed(getMaxSpeed());
+    clonedObject.maxSpeed = getMaxSpeed();
     // clone children
     return clonedObject;
   }
@@ -259,4 +251,57 @@ public class DynamicConstraintsImpl extends BaseImpl implements IDynamicConstrai
   public String getModelType() {
     return "DynamicConstraints";
   }
+
+  @Override
+  public void writeParameterToMaxAcceleration(String parameterName) {
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__MAX_ACCELERATION, parameterName, null /*no textmarker*/);
+    this.maxAcceleration = null;
+  }
+
+  @Override
+  public void writeParameterToMaxDeceleration(String parameterName) {
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__MAX_DECELERATION, parameterName, null /*no textmarker*/);
+    this.maxDeceleration = null;
+  }
+
+  @Override
+  public void writeParameterToMaxSpeed(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__MAX_SPEED, parameterName, null /*no textmarker*/);
+    this.maxSpeed = null;
+  }
+
+  @Override
+  public String getParameterFromMaxAcceleration() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__MAX_ACCELERATION);
+  }
+
+  @Override
+  public String getParameterFromMaxDeceleration() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__MAX_DECELERATION);
+  }
+
+  @Override
+  public String getParameterFromMaxSpeed() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__MAX_SPEED);
+  }
+
+  @Override
+  public boolean isMaxAccelerationParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__MAX_ACCELERATION);
+  }
+
+  @Override
+  public boolean isMaxDecelerationParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__MAX_DECELERATION);
+  }
+
+  @Override
+  public boolean isMaxSpeedParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__MAX_SPEED);
+  }
+
+  // children
+
 }

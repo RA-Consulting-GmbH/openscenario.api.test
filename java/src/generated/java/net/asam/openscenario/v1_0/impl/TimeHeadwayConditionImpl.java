@@ -33,6 +33,7 @@ import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IEntity;
 import net.asam.openscenario.v1_0.api.ITimeHeadwayCondition;
 import net.asam.openscenario.v1_0.api.Rule;
+import net.asam.openscenario.v1_0.api.writer.ITimeHeadwayConditionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -50,7 +51,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class TimeHeadwayConditionImpl extends BaseImpl implements ITimeHeadwayCondition {
+public class TimeHeadwayConditionImpl extends BaseImpl implements ITimeHeadwayConditionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -62,16 +63,18 @@ public class TimeHeadwayConditionImpl extends BaseImpl implements ITimeHeadwayCo
     propertyToType.put(OscConstants.ATTRIBUTE__RULE, SimpleType.ENUM_TYPE);
   }
 
-  private NamedReferenceProxy<IEntity> entityRef;
+  private INamedReference<IEntity> entityRef;
   private Double value;
   private Boolean freespace;
   private Boolean alongRoute;
   private Rule rule;
+
   /** Default constructor */
   public TimeHeadwayConditionImpl() {
     super();
     addAdapter(TimeHeadwayConditionImpl.class, this);
     addAdapter(ITimeHeadwayCondition.class, this);
+    addAdapter(ITimeHeadwayConditionWriter.class, this);
   }
 
   @Override
@@ -103,50 +106,35 @@ public class TimeHeadwayConditionImpl extends BaseImpl implements ITimeHeadwayCo
   public Rule getRule() {
     return this.rule;
   }
-  /**
-   * Sets the value of model property entityRef
-   *
-   * @param entityRef from OpenSCENARIO class model specification: [Reference entity to which the
-   *     time headway is computed.]
-   */
-  public void setEntityRef(NamedReferenceProxy<IEntity> entityRef) {
+
+  @Override
+  public void setEntityRef(INamedReference<IEntity> entityRef) {
     this.entityRef = entityRef;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__ENTITY_REF);
   }
-  /**
-   * Sets the value of model property value
-   *
-   * @param value from OpenSCENARIO class model specification: [The time headway value. Unit: s;
-   *     Range: [0..inf[.]
-   */
+
+  @Override
   public void setValue(Double value) {
     this.value = value;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__VALUE);
   }
-  /**
-   * Sets the value of model property freespace
-   *
-   * @param freespace from OpenSCENARIO class model specification: [True: time headway is measured
-   *     using the distance between closest bounding box points. False: reference point distance ,
-   *     is used.]
-   */
+
+  @Override
   public void setFreespace(Boolean freespace) {
     this.freespace = freespace;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__FREESPACE);
   }
-  /**
-   * Sets the value of model property alongRoute
-   *
-   * @param alongRoute from OpenSCENARIO class model specification: [True: routing is taken into
-   *     account, e.g. turns will increase distance. False: straight line distance is used.]
-   */
+
+  @Override
   public void setAlongRoute(Boolean alongRoute) {
     this.alongRoute = alongRoute;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__ALONG_ROUTE);
   }
-  /**
-   * Sets the value of model property rule
-   *
-   * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
-   */
+
+  @Override
   public void setRule(Rule rule) {
     this.rule = rule;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__RULE);
   }
 
   @Override
@@ -227,18 +215,18 @@ public class TimeHeadwayConditionImpl extends BaseImpl implements ITimeHeadwayCo
     // clone attributes;
     // Proxy
     NamedReferenceProxy<IEntity> proxy = ((NamedReferenceProxy<IEntity>) getEntityRef()).clone();
-    clonedObject.setEntityRef(proxy);
+    clonedObject.entityRef = proxy;
     proxy.setParent(clonedObject);
     // Simple type
-    clonedObject.setValue(getValue());
+    clonedObject.value = getValue();
     // Simple type
-    clonedObject.setFreespace(getFreespace());
+    clonedObject.freespace = getFreespace();
     // Simple type
-    clonedObject.setAlongRoute(getAlongRoute());
+    clonedObject.alongRoute = getAlongRoute();
     // Enumeration Type
     Rule rule = getRule();
     if (rule != null) {
-      clonedObject.setRule(Rule.getFromLiteral(rule.getLiteral()));
+      clonedObject.rule = Rule.getFromLiteral(rule.getLiteral());
     }
     // clone children
     return clonedObject;
@@ -351,4 +339,89 @@ public class TimeHeadwayConditionImpl extends BaseImpl implements ITimeHeadwayCo
   public String getModelType() {
     return "TimeHeadwayCondition";
   }
+
+  @Override
+  public void writeParameterToEntityRef(String parameterName) {
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__ENTITY_REF, parameterName, null /*no textmarker*/);
+    this.entityRef = null;
+  }
+
+  @Override
+  public void writeParameterToValue(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__VALUE, parameterName, null /*no textmarker*/);
+    this.value = null;
+  }
+
+  @Override
+  public void writeParameterToFreespace(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__FREESPACE, parameterName, null /*no textmarker*/);
+    this.freespace = null;
+  }
+
+  @Override
+  public void writeParameterToAlongRoute(String parameterName) {
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__ALONG_ROUTE, parameterName, null /*no textmarker*/);
+    this.alongRoute = null;
+  }
+
+  @Override
+  public void writeParameterToRule(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__RULE, parameterName, null /*no textmarker*/);
+    this.rule = null;
+  }
+
+  @Override
+  public String getParameterFromEntityRef() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__ENTITY_REF);
+  }
+
+  @Override
+  public String getParameterFromValue() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__VALUE);
+  }
+
+  @Override
+  public String getParameterFromFreespace() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__FREESPACE);
+  }
+
+  @Override
+  public String getParameterFromAlongRoute() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__ALONG_ROUTE);
+  }
+
+  @Override
+  public String getParameterFromRule() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__RULE);
+  }
+
+  @Override
+  public boolean isEntityRefParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__ENTITY_REF);
+  }
+
+  @Override
+  public boolean isValueParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__VALUE);
+  }
+
+  @Override
+  public boolean isFreespaceParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__FREESPACE);
+  }
+
+  @Override
+  public boolean isAlongRouteParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__ALONG_ROUTE);
+  }
+
+  @Override
+  public boolean isRuleParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__RULE);
+  }
+
+  // children
+
 }

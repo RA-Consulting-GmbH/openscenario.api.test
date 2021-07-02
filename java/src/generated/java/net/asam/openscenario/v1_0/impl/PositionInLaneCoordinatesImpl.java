@@ -27,6 +27,7 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IPositionInLaneCoordinates;
+import net.asam.openscenario.v1_0.api.writer.IPositionInLaneCoordinatesWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,7 +46,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class PositionInLaneCoordinatesImpl extends BaseImpl implements IPositionInLaneCoordinates {
+public class PositionInLaneCoordinatesImpl extends BaseImpl
+    implements IPositionInLaneCoordinatesWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -58,11 +60,13 @@ public class PositionInLaneCoordinatesImpl extends BaseImpl implements IPosition
   private Double pathS;
   private String laneId;
   private Double laneOffset;
+
   /** Default constructor */
   public PositionInLaneCoordinatesImpl() {
     super();
     addAdapter(PositionInLaneCoordinatesImpl.class, this);
     addAdapter(IPositionInLaneCoordinates.class, this);
+    addAdapter(IPositionInLaneCoordinatesWriter.class, this);
   }
 
   @Override
@@ -84,31 +88,23 @@ public class PositionInLaneCoordinatesImpl extends BaseImpl implements IPosition
   public Double getLaneOffset() {
     return this.laneOffset;
   }
-  /**
-   * Sets the value of model property pathS
-   *
-   * @param pathS from OpenSCENARIO class model specification: [s-coordinate of the actual position.
-   *     Unit: m; Range: [0..inf[.]
-   */
+
+  @Override
   public void setPathS(Double pathS) {
     this.pathS = pathS;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__PATH_S);
   }
-  /**
-   * Sets the value of model property laneId
-   *
-   * @param laneId from OpenSCENARIO class model specification: [Lane ID of the actual position.]
-   */
+
+  @Override
   public void setLaneId(String laneId) {
     this.laneId = laneId;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__LANE_ID);
   }
-  /**
-   * Sets the value of model property laneOffset
-   *
-   * @param laneOffset from OpenSCENARIO class model specification: [Lateral offset (relative to the
-   *     lane centerline) of the actual position. Unit: m.]
-   */
+
+  @Override
   public void setLaneOffset(Double laneOffset) {
     this.laneOffset = laneOffset;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__LANE_OFFSET);
   }
 
   @Override
@@ -168,11 +164,11 @@ public class PositionInLaneCoordinatesImpl extends BaseImpl implements IPosition
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setPathS(getPathS());
+    clonedObject.pathS = getPathS();
     // Simple type
-    clonedObject.setLaneId(getLaneId());
+    clonedObject.laneId = getLaneId();
     // Simple type
-    clonedObject.setLaneOffset(getLaneOffset());
+    clonedObject.laneOffset = getLaneOffset();
     // clone children
     return clonedObject;
   }
@@ -261,4 +257,56 @@ public class PositionInLaneCoordinatesImpl extends BaseImpl implements IPosition
   public String getModelType() {
     return "PositionInLaneCoordinates";
   }
+
+  @Override
+  public void writeParameterToPathS(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__PATH_S, parameterName, null /*no textmarker*/);
+    this.pathS = null;
+  }
+
+  @Override
+  public void writeParameterToLaneId(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__LANE_ID, parameterName, null /*no textmarker*/);
+    this.laneId = null;
+  }
+
+  @Override
+  public void writeParameterToLaneOffset(String parameterName) {
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__LANE_OFFSET, parameterName, null /*no textmarker*/);
+    this.laneOffset = null;
+  }
+
+  @Override
+  public String getParameterFromPathS() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__PATH_S);
+  }
+
+  @Override
+  public String getParameterFromLaneId() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__LANE_ID);
+  }
+
+  @Override
+  public String getParameterFromLaneOffset() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__LANE_OFFSET);
+  }
+
+  @Override
+  public boolean isPathSParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__PATH_S);
+  }
+
+  @Override
+  public boolean isLaneIdParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__LANE_ID);
+  }
+
+  @Override
+  public boolean isLaneOffsetParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__LANE_OFFSET);
+  }
+
+  // children
+
 }

@@ -30,6 +30,7 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.ITiming;
 import net.asam.openscenario.v1_0.api.ReferenceContext;
+import net.asam.openscenario.v1_0.api.writer.ITimingWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -47,7 +48,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class TimingImpl extends BaseImpl implements ITiming {
+public class TimingImpl extends BaseImpl implements ITimingWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -60,11 +61,13 @@ public class TimingImpl extends BaseImpl implements ITiming {
   private ReferenceContext domainAbsoluteRelative;
   private Double scale;
   private Double offset;
+
   /** Default constructor */
   public TimingImpl() {
     super();
     addAdapter(TimingImpl.class, this);
     addAdapter(ITiming.class, this);
+    addAdapter(ITimingWriter.class, this);
   }
 
   @Override
@@ -86,33 +89,23 @@ public class TimingImpl extends BaseImpl implements ITiming {
   public Double getOffset() {
     return this.offset;
   }
-  /**
-   * Sets the value of model property domainAbsoluteRelative
-   *
-   * @param domainAbsoluteRelative from OpenSCENARIO class model specification: [Definition of time
-   *     value context as either absolute or relative.]
-   */
+
+  @Override
   public void setDomainAbsoluteRelative(ReferenceContext domainAbsoluteRelative) {
     this.domainAbsoluteRelative = domainAbsoluteRelative;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__DOMAIN_ABSOLUTE_RELATIVE);
   }
-  /**
-   * Sets the value of model property scale
-   *
-   * @param scale from OpenSCENARIO class model specification: [Scaling factor for time values.
-   *     While values smaller than 1.0 represent negative scaling, values larger than 1.0 will ,
-   *     result in positive scaling. A value of 1.0 means no scaling. Range: ]0..inf[.]
-   */
+
+  @Override
   public void setScale(Double scale) {
     this.scale = scale;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__SCALE);
   }
-  /**
-   * Sets the value of model property offset
-   *
-   * @param offset from OpenSCENARIO class model specification: [Introduction of a global offset for
-   *     all time values. Unit: s; Range: ]-inf..inf[.]
-   */
+
+  @Override
   public void setOffset(Double offset) {
     this.offset = offset;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__OFFSET);
   }
 
   @Override
@@ -182,13 +175,13 @@ public class TimingImpl extends BaseImpl implements ITiming {
     // Enumeration Type
     ReferenceContext domainAbsoluteRelative = getDomainAbsoluteRelative();
     if (domainAbsoluteRelative != null) {
-      clonedObject.setDomainAbsoluteRelative(
-          ReferenceContext.getFromLiteral(domainAbsoluteRelative.getLiteral()));
+      clonedObject.domainAbsoluteRelative =
+          ReferenceContext.getFromLiteral(domainAbsoluteRelative.getLiteral());
     }
     // Simple type
-    clonedObject.setScale(getScale());
+    clonedObject.scale = getScale();
     // Simple type
-    clonedObject.setOffset(getOffset());
+    clonedObject.offset = getOffset();
     // clone children
     return clonedObject;
   }
@@ -278,4 +271,57 @@ public class TimingImpl extends BaseImpl implements ITiming {
   public String getModelType() {
     return "Timing";
   }
+
+  @Override
+  public void writeParameterToDomainAbsoluteRelative(String parameterName) {
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__DOMAIN_ABSOLUTE_RELATIVE, parameterName, null /*no textmarker*/);
+    this.domainAbsoluteRelative = null;
+  }
+
+  @Override
+  public void writeParameterToScale(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__SCALE, parameterName, null /*no textmarker*/);
+    this.scale = null;
+  }
+
+  @Override
+  public void writeParameterToOffset(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__OFFSET, parameterName, null /*no textmarker*/);
+    this.offset = null;
+  }
+
+  @Override
+  public String getParameterFromDomainAbsoluteRelative() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__DOMAIN_ABSOLUTE_RELATIVE);
+  }
+
+  @Override
+  public String getParameterFromScale() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__SCALE);
+  }
+
+  @Override
+  public String getParameterFromOffset() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__OFFSET);
+  }
+
+  @Override
+  public boolean isDomainAbsoluteRelativeParameterized() {
+    return getParameterizedAttributeKeys()
+        .contains(OscConstants.ATTRIBUTE__DOMAIN_ABSOLUTE_RELATIVE);
+  }
+
+  @Override
+  public boolean isScaleParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__SCALE);
+  }
+
+  @Override
+  public boolean isOffsetParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__OFFSET);
+  }
+
+  // children
+
 }

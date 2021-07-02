@@ -19,6 +19,7 @@ package net.asam.openscenario.v1_0.impl;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.List;
 import net.asam.openscenario.api.IOpenScenarioFlexElement;
 import net.asam.openscenario.api.KeyNotSupportedException;
@@ -27,6 +28,8 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.IControllerDistribution;
 import net.asam.openscenario.v1_0.api.IControllerDistributionEntry;
+import net.asam.openscenario.v1_0.api.writer.IControllerDistributionEntryWriter;
+import net.asam.openscenario.v1_0.api.writer.IControllerDistributionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,15 +48,18 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ControllerDistributionImpl extends BaseImpl implements IControllerDistribution {
+public class ControllerDistributionImpl extends BaseImpl implements IControllerDistributionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private List<IControllerDistributionEntry> controllerDistributionEntries;
+  private List<IControllerDistributionEntryWriter> controllerDistributionEntries =
+      new ArrayList<>();
+
   /** Default constructor */
   public ControllerDistributionImpl() {
     super();
     addAdapter(ControllerDistributionImpl.class, this);
     addAdapter(IControllerDistribution.class, this);
+    addAdapter(IControllerDistributionWriter.class, this);
   }
 
   @Override
@@ -62,17 +68,44 @@ public class ControllerDistributionImpl extends BaseImpl implements IControllerD
   }
 
   @Override
-  public List<IControllerDistributionEntry> getControllerDistributionEntries() {
+  public List<IControllerDistributionEntryWriter> getWriterControllerDistributionEntries() {
     return this.controllerDistributionEntries;
   }
-  /**
-   * Sets the value of model property controllerDistributionEntries
-   *
-   * @param controllerDistributionEntries from OpenSCENARIO class model specification: [The weights
-   *     of controllers of a specific type in a traffic.]
-   */
+
+  @Override
+  public Iterable<IControllerDistributionEntry> getControllerDistributionEntries() {
+    return new Iterable<IControllerDistributionEntry>() {
+
+      @SuppressWarnings("synthetic-access")
+      @Override
+      public Iterator<IControllerDistributionEntry> iterator() {
+        return new ArrayList<IControllerDistributionEntry>(
+                ControllerDistributionImpl.this.controllerDistributionEntries)
+            .iterator();
+      }
+    };
+  }
+
+  @Override
+  public int getControllerDistributionEntriesSize() {
+    if (this.controllerDistributionEntries != null)
+      return this.controllerDistributionEntries.size();
+    return 0;
+  }
+
+  @Override
+  public IControllerDistributionEntry getControllerDistributionEntriesAtIndex(int index) {
+    if (index >= 0
+        && this.controllerDistributionEntries != null
+        && this.controllerDistributionEntries.size() > index) {
+      return this.controllerDistributionEntries.get(index);
+    }
+    return null;
+  }
+
+  @Override
   public void setControllerDistributionEntries(
-      List<IControllerDistributionEntry> controllerDistributionEntries) {
+      List<IControllerDistributionEntryWriter> controllerDistributionEntries) {
     this.controllerDistributionEntries = controllerDistributionEntries;
   }
 
@@ -97,10 +130,10 @@ public class ControllerDistributionImpl extends BaseImpl implements IControllerD
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    List<IControllerDistributionEntry> controllerDistributionEntries = null;
-    controllerDistributionEntries = getControllerDistributionEntries();
+    List<IControllerDistributionEntryWriter> controllerDistributionEntries = null;
+    controllerDistributionEntries = getWriterControllerDistributionEntries();
     if (controllerDistributionEntries != null) {
-      for (IControllerDistributionEntry item : controllerDistributionEntries) {
+      for (IControllerDistributionEntryWriter item : controllerDistributionEntries) {
         result.add((BaseImpl) item);
       }
     }
@@ -123,12 +156,12 @@ public class ControllerDistributionImpl extends BaseImpl implements IControllerD
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    List<IControllerDistributionEntry> controllerDistributionEntries = null;
-    controllerDistributionEntries = getControllerDistributionEntries();
+    List<IControllerDistributionEntryWriter> controllerDistributionEntries = null;
+    controllerDistributionEntries = getWriterControllerDistributionEntries();
     if (controllerDistributionEntries != null) {
-      List<IControllerDistributionEntry> clonedList = new ArrayList<>();
-      for (IControllerDistributionEntry item : controllerDistributionEntries) {
-        ControllerDistributionEntryImpl clonedChild =
+      List<IControllerDistributionEntryWriter> clonedList = new ArrayList<>();
+      for (IControllerDistributionEntryWriter item : controllerDistributionEntries) {
+        IControllerDistributionEntryWriter clonedChild =
             ((ControllerDistributionEntryImpl) item).clone();
         clonedList.add(clonedChild);
         clonedChild.setParent(clonedObject);
@@ -215,4 +248,7 @@ public class ControllerDistributionImpl extends BaseImpl implements IControllerD
   public String getModelType() {
     return "ControllerDistribution";
   }
+
+  // children
+
 }

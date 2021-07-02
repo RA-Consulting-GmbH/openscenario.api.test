@@ -27,6 +27,7 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IVisibilityAction;
+import net.asam.openscenario.v1_0.api.writer.IVisibilityActionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -44,7 +45,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class VisibilityActionImpl extends BaseImpl implements IVisibilityAction {
+public class VisibilityActionImpl extends BaseImpl implements IVisibilityActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -57,11 +58,13 @@ public class VisibilityActionImpl extends BaseImpl implements IVisibilityAction 
   private Boolean graphics;
   private Boolean traffic;
   private Boolean sensors;
+
   /** Default constructor */
   public VisibilityActionImpl() {
     super();
     addAdapter(VisibilityActionImpl.class, this);
     addAdapter(IVisibilityAction.class, this);
+    addAdapter(IVisibilityActionWriter.class, this);
   }
 
   @Override
@@ -83,33 +86,23 @@ public class VisibilityActionImpl extends BaseImpl implements IVisibilityAction 
   public Boolean getSensors() {
     return this.sensors;
   }
-  /**
-   * Sets the value of model property graphics
-   *
-   * @param graphics from OpenSCENARIO class model specification: [True: actor is visible in image
-   *     generator(s). False: actor is not visible in image generator(s).]
-   */
+
+  @Override
   public void setGraphics(Boolean graphics) {
     this.graphics = graphics;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__GRAPHICS);
   }
-  /**
-   * Sets the value of model property traffic
-   *
-   * @param traffic from OpenSCENARIO class model specification: [True: actor is visible for other
-   *     traffic participants, particularly for autonomous driver models. False: actor is not ,
-   *     visible for other traffic participants.]
-   */
+
+  @Override
   public void setTraffic(Boolean traffic) {
     this.traffic = traffic;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__TRAFFIC);
   }
-  /**
-   * Sets the value of model property sensors
-   *
-   * @param sensors from OpenSCENARIO class model specification: [True: actor is visible in
-   *     sensor(s). False: actor is not visible in sensor(s).]
-   */
+
+  @Override
   public void setSensors(Boolean sensors) {
     this.sensors = sensors;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__SENSORS);
   }
 
   @Override
@@ -169,11 +162,11 @@ public class VisibilityActionImpl extends BaseImpl implements IVisibilityAction 
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setGraphics(getGraphics());
+    clonedObject.graphics = getGraphics();
     // Simple type
-    clonedObject.setTraffic(getTraffic());
+    clonedObject.traffic = getTraffic();
     // Simple type
-    clonedObject.setSensors(getSensors());
+    clonedObject.sensors = getSensors();
     // clone children
     return clonedObject;
   }
@@ -258,4 +251,55 @@ public class VisibilityActionImpl extends BaseImpl implements IVisibilityAction 
   public String getModelType() {
     return "VisibilityAction";
   }
+
+  @Override
+  public void writeParameterToGraphics(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__GRAPHICS, parameterName, null /*no textmarker*/);
+    this.graphics = null;
+  }
+
+  @Override
+  public void writeParameterToTraffic(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__TRAFFIC, parameterName, null /*no textmarker*/);
+    this.traffic = null;
+  }
+
+  @Override
+  public void writeParameterToSensors(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__SENSORS, parameterName, null /*no textmarker*/);
+    this.sensors = null;
+  }
+
+  @Override
+  public String getParameterFromGraphics() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__GRAPHICS);
+  }
+
+  @Override
+  public String getParameterFromTraffic() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__TRAFFIC);
+  }
+
+  @Override
+  public String getParameterFromSensors() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__SENSORS);
+  }
+
+  @Override
+  public boolean isGraphicsParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__GRAPHICS);
+  }
+
+  @Override
+  public boolean isTrafficParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__TRAFFIC);
+  }
+
+  @Override
+  public boolean isSensorsParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__SENSORS);
+  }
+
+  // children
+
 }

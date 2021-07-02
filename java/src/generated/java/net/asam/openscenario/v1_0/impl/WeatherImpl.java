@@ -32,6 +32,10 @@ import net.asam.openscenario.v1_0.api.IFog;
 import net.asam.openscenario.v1_0.api.IPrecipitation;
 import net.asam.openscenario.v1_0.api.ISun;
 import net.asam.openscenario.v1_0.api.IWeather;
+import net.asam.openscenario.v1_0.api.writer.IFogWriter;
+import net.asam.openscenario.v1_0.api.writer.IPrecipitationWriter;
+import net.asam.openscenario.v1_0.api.writer.ISunWriter;
+import net.asam.openscenario.v1_0.api.writer.IWeatherWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -49,7 +53,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class WeatherImpl extends BaseImpl implements IWeather {
+public class WeatherImpl extends BaseImpl implements IWeatherWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -58,14 +62,16 @@ public class WeatherImpl extends BaseImpl implements IWeather {
   }
 
   private CloudState cloudState;
-  private ISun sun;
-  private IFog fog;
-  private IPrecipitation precipitation;
+  private ISunWriter sun;
+  private IFogWriter fog;
+  private IPrecipitationWriter precipitation;
+
   /** Default constructor */
   public WeatherImpl() {
     super();
     addAdapter(WeatherImpl.class, this);
     addAdapter(IWeather.class, this);
+    addAdapter(IWeatherWriter.class, this);
   }
 
   @Override
@@ -92,40 +98,25 @@ public class WeatherImpl extends BaseImpl implements IWeather {
   public IPrecipitation getPrecipitation() {
     return this.precipitation;
   }
-  /**
-   * Sets the value of model property cloudState
-   *
-   * @param cloudState from OpenSCENARIO class model specification: [Definition of the cloud state,
-   *     i.e. cloud state and sky visualization settings.]
-   */
+
+  @Override
   public void setCloudState(CloudState cloudState) {
     this.cloudState = cloudState;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__CLOUD_STATE);
   }
-  /**
-   * Sets the value of model property sun
-   *
-   * @param sun from OpenSCENARIO class model specification: [Definition of the sun, i.e. position
-   *     and intensity.]
-   */
-  public void setSun(ISun sun) {
+
+  @Override
+  public void setSun(ISunWriter sun) {
     this.sun = sun;
   }
-  /**
-   * Sets the value of model property fog
-   *
-   * @param fog from OpenSCENARIO class model specification: [Definition of fog, i.e. visual range
-   *     and bounding box.]
-   */
-  public void setFog(IFog fog) {
+
+  @Override
+  public void setFog(IFogWriter fog) {
     this.fog = fog;
   }
-  /**
-   * Sets the value of model property precipitation
-   *
-   * @param precipitation from OpenSCENARIO class model specification: [Definition of precipitation,
-   *     i.e. type and intensity.]
-   */
-  public void setPrecipitation(IPrecipitation precipitation) {
+
+  @Override
+  public void setPrecipitation(IPrecipitationWriter precipitation) {
     this.precipitation = precipitation;
   }
 
@@ -163,18 +154,18 @@ public class WeatherImpl extends BaseImpl implements IWeather {
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    ISun sun = null;
-    sun = getSun();
+    ISunWriter sun = null;
+    sun = getWriterSun();
     if (sun != null) {
       result.add((BaseImpl) sun);
     }
-    IFog fog = null;
-    fog = getFog();
+    IFogWriter fog = null;
+    fog = getWriterFog();
     if (fog != null) {
       result.add((BaseImpl) fog);
     }
-    IPrecipitation precipitation = null;
-    precipitation = getPrecipitation();
+    IPrecipitationWriter precipitation = null;
+    precipitation = getWriterPrecipitation();
     if (precipitation != null) {
       result.add((BaseImpl) precipitation);
     }
@@ -199,27 +190,27 @@ public class WeatherImpl extends BaseImpl implements IWeather {
     // Enumeration Type
     CloudState cloudState = getCloudState();
     if (cloudState != null) {
-      clonedObject.setCloudState(CloudState.getFromLiteral(cloudState.getLiteral()));
+      clonedObject.cloudState = CloudState.getFromLiteral(cloudState.getLiteral());
     }
     // clone children
-    ISun sun = null;
-    sun = getSun();
+    ISunWriter sun = null;
+    sun = getWriterSun();
     if (sun != null) {
-      SunImpl clonedChild = ((SunImpl) sun).clone();
+      ISunWriter clonedChild = ((SunImpl) sun).clone();
       clonedObject.setSun(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IFog fog = null;
-    fog = getFog();
+    IFogWriter fog = null;
+    fog = getWriterFog();
     if (fog != null) {
-      FogImpl clonedChild = ((FogImpl) fog).clone();
+      IFogWriter clonedChild = ((FogImpl) fog).clone();
       clonedObject.setFog(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IPrecipitation precipitation = null;
-    precipitation = getPrecipitation();
+    IPrecipitationWriter precipitation = null;
+    precipitation = getWriterPrecipitation();
     if (precipitation != null) {
-      PrecipitationImpl clonedChild = ((PrecipitationImpl) precipitation).clone();
+      IPrecipitationWriter clonedChild = ((PrecipitationImpl) precipitation).clone();
       clonedObject.setPrecipitation(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -314,5 +305,38 @@ public class WeatherImpl extends BaseImpl implements IWeather {
   @Override
   public String getModelType() {
     return "Weather";
+  }
+
+  @Override
+  public void writeParameterToCloudState(String parameterName) {
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__CLOUD_STATE, parameterName, null /*no textmarker*/);
+    this.cloudState = null;
+  }
+
+  @Override
+  public String getParameterFromCloudState() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__CLOUD_STATE);
+  }
+
+  @Override
+  public boolean isCloudStateParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__CLOUD_STATE);
+  }
+
+  // children
+  @Override
+  public ISunWriter getWriterSun() {
+    return this.sun;
+  }
+
+  @Override
+  public IFogWriter getWriterFog() {
+    return this.fog;
+  }
+
+  @Override
+  public IPrecipitationWriter getWriterPrecipitation() {
+    return this.precipitation;
   }
 }

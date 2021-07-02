@@ -29,6 +29,9 @@ import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.ICatalogReference;
 import net.asam.openscenario.v1_0.api.IController;
 import net.asam.openscenario.v1_0.api.IControllerDistributionEntry;
+import net.asam.openscenario.v1_0.api.writer.ICatalogReferenceWriter;
+import net.asam.openscenario.v1_0.api.writer.IControllerDistributionEntryWriter;
+import net.asam.openscenario.v1_0.api.writer.IControllerWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -48,7 +51,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public class ControllerDistributionEntryImpl extends BaseImpl
-    implements IControllerDistributionEntry {
+    implements IControllerDistributionEntryWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -57,13 +60,15 @@ public class ControllerDistributionEntryImpl extends BaseImpl
   }
 
   private Double weight;
-  private IController controller;
-  private ICatalogReference catalogReference;
+  private IControllerWriter controller;
+  private ICatalogReferenceWriter catalogReference;
+
   /** Default constructor */
   public ControllerDistributionEntryImpl() {
     super();
     addAdapter(ControllerDistributionEntryImpl.class, this);
     addAdapter(IControllerDistributionEntry.class, this);
+    addAdapter(IControllerDistributionEntryWriter.class, this);
   }
 
   @Override
@@ -85,31 +90,23 @@ public class ControllerDistributionEntryImpl extends BaseImpl
   public ICatalogReference getCatalogReference() {
     return this.catalogReference;
   }
-  /**
-   * Sets the value of model property weight
-   *
-   * @param weight from OpenSCENARIO class model specification: [The weight of the entry. Range:
-   *     ]0..inf[.]
-   */
+
+  @Override
   public void setWeight(Double weight) {
     this.weight = weight;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__WEIGHT);
   }
-  /**
-   * Sets the value of model property controller
-   *
-   * @param controller from OpenSCENARIO class model specification: [The specified controller type.]
-   */
-  public void setController(IController controller) {
+
+  @Override
+  public void setController(IControllerWriter controller) {
     this.controller = controller;
+    this.catalogReference = null;
   }
-  /**
-   * Sets the value of model property catalogReference
-   *
-   * @param catalogReference from OpenSCENARIO class model specification: [A controller type import
-   *     from a catalog.]
-   */
-  public void setCatalogReference(ICatalogReference catalogReference) {
+
+  @Override
+  public void setCatalogReference(ICatalogReferenceWriter catalogReference) {
     this.catalogReference = catalogReference;
+    this.controller = null;
   }
 
   @Override
@@ -138,13 +135,13 @@ public class ControllerDistributionEntryImpl extends BaseImpl
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IController controller = null;
-    controller = getController();
+    IControllerWriter controller = null;
+    controller = getWriterController();
     if (controller != null) {
       result.add((BaseImpl) controller);
     }
-    ICatalogReference catalogReference = null;
-    catalogReference = getCatalogReference();
+    ICatalogReferenceWriter catalogReference = null;
+    catalogReference = getWriterCatalogReference();
     if (catalogReference != null) {
       result.add((BaseImpl) catalogReference);
     }
@@ -167,19 +164,19 @@ public class ControllerDistributionEntryImpl extends BaseImpl
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setWeight(getWeight());
+    clonedObject.weight = getWeight();
     // clone children
-    IController controller = null;
-    controller = getController();
+    IControllerWriter controller = null;
+    controller = getWriterController();
     if (controller != null) {
-      ControllerImpl clonedChild = ((ControllerImpl) controller).clone();
+      IControllerWriter clonedChild = ((ControllerImpl) controller).clone();
       clonedObject.setController(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    ICatalogReference catalogReference = null;
-    catalogReference = getCatalogReference();
+    ICatalogReferenceWriter catalogReference = null;
+    catalogReference = getWriterCatalogReference();
     if (catalogReference != null) {
-      CatalogReferenceImpl clonedChild = ((CatalogReferenceImpl) catalogReference).clone();
+      ICatalogReferenceWriter clonedChild = ((CatalogReferenceImpl) catalogReference).clone();
       clonedObject.setCatalogReference(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -270,5 +267,32 @@ public class ControllerDistributionEntryImpl extends BaseImpl
   @Override
   public String getModelType() {
     return "ControllerDistributionEntry";
+  }
+
+  @Override
+  public void writeParameterToWeight(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__WEIGHT, parameterName, null /*no textmarker*/);
+    this.weight = null;
+  }
+
+  @Override
+  public String getParameterFromWeight() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__WEIGHT);
+  }
+
+  @Override
+  public boolean isWeightParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__WEIGHT);
+  }
+
+  // children
+  @Override
+  public IControllerWriter getWriterController() {
+    return this.controller;
+  }
+
+  @Override
+  public ICatalogReferenceWriter getWriterCatalogReference() {
+    return this.catalogReference;
   }
 }

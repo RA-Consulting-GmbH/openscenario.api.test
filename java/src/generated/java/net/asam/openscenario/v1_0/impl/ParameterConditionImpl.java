@@ -33,6 +33,7 @@ import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IParameterCondition;
 import net.asam.openscenario.v1_0.api.IParameterDeclaration;
 import net.asam.openscenario.v1_0.api.Rule;
+import net.asam.openscenario.v1_0.api.writer.IParameterConditionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -50,7 +51,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ParameterConditionImpl extends BaseImpl implements IParameterCondition {
+public class ParameterConditionImpl extends BaseImpl implements IParameterConditionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -60,14 +61,16 @@ public class ParameterConditionImpl extends BaseImpl implements IParameterCondit
     propertyToType.put(OscConstants.ATTRIBUTE__RULE, SimpleType.ENUM_TYPE);
   }
 
-  private NamedReferenceProxy<IParameterDeclaration> parameterRef;
+  private INamedReference<IParameterDeclaration> parameterRef;
   private String value;
   private Rule rule;
+
   /** Default constructor */
   public ParameterConditionImpl() {
     super();
     addAdapter(ParameterConditionImpl.class, this);
     addAdapter(IParameterCondition.class, this);
+    addAdapter(IParameterConditionWriter.class, this);
   }
 
   @Override
@@ -89,30 +92,23 @@ public class ParameterConditionImpl extends BaseImpl implements IParameterCondit
   public Rule getRule() {
     return this.rule;
   }
-  /**
-   * Sets the value of model property parameterRef
-   *
-   * @param parameterRef from OpenSCENARIO class model specification: [Name of the parameter that
-   *     must be defined.]
-   */
-  public void setParameterRef(NamedReferenceProxy<IParameterDeclaration> parameterRef) {
+
+  @Override
+  public void setParameterRef(INamedReference<IParameterDeclaration> parameterRef) {
     this.parameterRef = parameterRef;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__PARAMETER_REF);
   }
-  /**
-   * Sets the value of model property value
-   *
-   * @param value from OpenSCENARIO class model specification: [Value of the parameter.]
-   */
+
+  @Override
   public void setValue(String value) {
     this.value = value;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__VALUE);
   }
-  /**
-   * Sets the value of model property rule
-   *
-   * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
-   */
+
+  @Override
   public void setRule(Rule rule) {
     this.rule = rule;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__RULE);
   }
 
   @Override
@@ -183,14 +179,14 @@ public class ParameterConditionImpl extends BaseImpl implements IParameterCondit
     // Proxy
     NamedReferenceProxy<IParameterDeclaration> proxy =
         ((NamedReferenceProxy<IParameterDeclaration>) getParameterRef()).clone();
-    clonedObject.setParameterRef(proxy);
+    clonedObject.parameterRef = proxy;
     proxy.setParent(clonedObject);
     // Simple type
-    clonedObject.setValue(getValue());
+    clonedObject.value = getValue();
     // Enumeration Type
     Rule rule = getRule();
     if (rule != null) {
-      clonedObject.setRule(Rule.getFromLiteral(rule.getLiteral()));
+      clonedObject.rule = Rule.getFromLiteral(rule.getLiteral());
     }
     // clone children
     return clonedObject;
@@ -293,4 +289,56 @@ public class ParameterConditionImpl extends BaseImpl implements IParameterCondit
   public String getModelType() {
     return "ParameterCondition";
   }
+
+  @Override
+  public void writeParameterToParameterRef(String parameterName) {
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__PARAMETER_REF, parameterName, null /*no textmarker*/);
+    this.parameterRef = null;
+  }
+
+  @Override
+  public void writeParameterToValue(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__VALUE, parameterName, null /*no textmarker*/);
+    this.value = null;
+  }
+
+  @Override
+  public void writeParameterToRule(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__RULE, parameterName, null /*no textmarker*/);
+    this.rule = null;
+  }
+
+  @Override
+  public String getParameterFromParameterRef() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__PARAMETER_REF);
+  }
+
+  @Override
+  public String getParameterFromValue() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__VALUE);
+  }
+
+  @Override
+  public String getParameterFromRule() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__RULE);
+  }
+
+  @Override
+  public boolean isParameterRefParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__PARAMETER_REF);
+  }
+
+  @Override
+  public boolean isValueParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__VALUE);
+  }
+
+  @Override
+  public boolean isRuleParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__RULE);
+  }
+
+  // children
+
 }

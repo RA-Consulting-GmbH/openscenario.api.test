@@ -30,6 +30,11 @@ import net.asam.openscenario.v1_0.api.IEntityObject;
 import net.asam.openscenario.v1_0.api.IMiscObject;
 import net.asam.openscenario.v1_0.api.IPedestrian;
 import net.asam.openscenario.v1_0.api.IVehicle;
+import net.asam.openscenario.v1_0.api.writer.ICatalogReferenceWriter;
+import net.asam.openscenario.v1_0.api.writer.IEntityObjectWriter;
+import net.asam.openscenario.v1_0.api.writer.IMiscObjectWriter;
+import net.asam.openscenario.v1_0.api.writer.IPedestrianWriter;
+import net.asam.openscenario.v1_0.api.writer.IVehicleWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -47,18 +52,20 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class EntityObjectImpl extends BaseImpl implements IEntityObject {
+public class EntityObjectImpl extends BaseImpl implements IEntityObjectWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private ICatalogReference catalogReference;
-  private IVehicle vehicle;
-  private IPedestrian pedestrian;
-  private IMiscObject miscObject;
+  private ICatalogReferenceWriter catalogReference;
+  private IVehicleWriter vehicle;
+  private IPedestrianWriter pedestrian;
+  private IMiscObjectWriter miscObject;
+
   /** Default constructor */
   public EntityObjectImpl() {
     super();
     addAdapter(EntityObjectImpl.class, this);
     addAdapter(IEntityObject.class, this);
+    addAdapter(IEntityObjectWriter.class, this);
   }
 
   @Override
@@ -85,38 +92,37 @@ public class EntityObjectImpl extends BaseImpl implements IEntityObject {
   public IMiscObject getMiscObject() {
     return this.miscObject;
   }
-  /**
-   * Sets the value of model property catalogReference
-   *
-   * @param catalogReference from OpenSCENARIO class model specification: [Reference to a catalog
-   *     entry of type MiscObject, Vehicle or Pedestrian.]
-   */
-  public void setCatalogReference(ICatalogReference catalogReference) {
+
+  @Override
+  public void setCatalogReference(ICatalogReferenceWriter catalogReference) {
     this.catalogReference = catalogReference;
+    this.vehicle = null;
+    this.pedestrian = null;
+    this.miscObject = null;
   }
-  /**
-   * Sets the value of model property vehicle
-   *
-   * @param vehicle from OpenSCENARIO class model specification: [Vehicle definition.]
-   */
-  public void setVehicle(IVehicle vehicle) {
+
+  @Override
+  public void setVehicle(IVehicleWriter vehicle) {
     this.vehicle = vehicle;
+    this.catalogReference = null;
+    this.pedestrian = null;
+    this.miscObject = null;
   }
-  /**
-   * Sets the value of model property pedestrian
-   *
-   * @param pedestrian from OpenSCENARIO class model specification: [Pedestrian definition.]
-   */
-  public void setPedestrian(IPedestrian pedestrian) {
+
+  @Override
+  public void setPedestrian(IPedestrianWriter pedestrian) {
     this.pedestrian = pedestrian;
+    this.catalogReference = null;
+    this.vehicle = null;
+    this.miscObject = null;
   }
-  /**
-   * Sets the value of model property miscObject
-   *
-   * @param miscObject from OpenSCENARIO class model specification: [Definition of a MiscObject.]
-   */
-  public void setMiscObject(IMiscObject miscObject) {
+
+  @Override
+  public void setMiscObject(IMiscObjectWriter miscObject) {
     this.miscObject = miscObject;
+    this.catalogReference = null;
+    this.vehicle = null;
+    this.pedestrian = null;
   }
 
   @Override
@@ -140,23 +146,23 @@ public class EntityObjectImpl extends BaseImpl implements IEntityObject {
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    ICatalogReference catalogReference = null;
-    catalogReference = getCatalogReference();
+    ICatalogReferenceWriter catalogReference = null;
+    catalogReference = getWriterCatalogReference();
     if (catalogReference != null) {
       result.add((BaseImpl) catalogReference);
     }
-    IVehicle vehicle = null;
-    vehicle = getVehicle();
+    IVehicleWriter vehicle = null;
+    vehicle = getWriterVehicle();
     if (vehicle != null) {
       result.add((BaseImpl) vehicle);
     }
-    IPedestrian pedestrian = null;
-    pedestrian = getPedestrian();
+    IPedestrianWriter pedestrian = null;
+    pedestrian = getWriterPedestrian();
     if (pedestrian != null) {
       result.add((BaseImpl) pedestrian);
     }
-    IMiscObject miscObject = null;
-    miscObject = getMiscObject();
+    IMiscObjectWriter miscObject = null;
+    miscObject = getWriterMiscObject();
     if (miscObject != null) {
       result.add((BaseImpl) miscObject);
     }
@@ -179,31 +185,31 @@ public class EntityObjectImpl extends BaseImpl implements IEntityObject {
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    ICatalogReference catalogReference = null;
-    catalogReference = getCatalogReference();
+    ICatalogReferenceWriter catalogReference = null;
+    catalogReference = getWriterCatalogReference();
     if (catalogReference != null) {
-      CatalogReferenceImpl clonedChild = ((CatalogReferenceImpl) catalogReference).clone();
+      ICatalogReferenceWriter clonedChild = ((CatalogReferenceImpl) catalogReference).clone();
       clonedObject.setCatalogReference(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IVehicle vehicle = null;
-    vehicle = getVehicle();
+    IVehicleWriter vehicle = null;
+    vehicle = getWriterVehicle();
     if (vehicle != null) {
-      VehicleImpl clonedChild = ((VehicleImpl) vehicle).clone();
+      IVehicleWriter clonedChild = ((VehicleImpl) vehicle).clone();
       clonedObject.setVehicle(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IPedestrian pedestrian = null;
-    pedestrian = getPedestrian();
+    IPedestrianWriter pedestrian = null;
+    pedestrian = getWriterPedestrian();
     if (pedestrian != null) {
-      PedestrianImpl clonedChild = ((PedestrianImpl) pedestrian).clone();
+      IPedestrianWriter clonedChild = ((PedestrianImpl) pedestrian).clone();
       clonedObject.setPedestrian(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IMiscObject miscObject = null;
-    miscObject = getMiscObject();
+    IMiscObjectWriter miscObject = null;
+    miscObject = getWriterMiscObject();
     if (miscObject != null) {
-      MiscObjectImpl clonedChild = ((MiscObjectImpl) miscObject).clone();
+      IMiscObjectWriter clonedChild = ((MiscObjectImpl) miscObject).clone();
       clonedObject.setMiscObject(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -294,5 +300,26 @@ public class EntityObjectImpl extends BaseImpl implements IEntityObject {
   @Override
   public String getModelType() {
     return "EntityObject";
+  }
+
+  // children
+  @Override
+  public ICatalogReferenceWriter getWriterCatalogReference() {
+    return this.catalogReference;
+  }
+
+  @Override
+  public IVehicleWriter getWriterVehicle() {
+    return this.vehicle;
+  }
+
+  @Override
+  public IPedestrianWriter getWriterPedestrian() {
+    return this.pedestrian;
+  }
+
+  @Override
+  public IMiscObjectWriter getWriterMiscObject() {
+    return this.miscObject;
   }
 }

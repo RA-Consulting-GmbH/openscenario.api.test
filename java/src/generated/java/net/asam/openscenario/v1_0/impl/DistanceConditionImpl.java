@@ -31,6 +31,8 @@ import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IDistanceCondition;
 import net.asam.openscenario.v1_0.api.IPosition;
 import net.asam.openscenario.v1_0.api.Rule;
+import net.asam.openscenario.v1_0.api.writer.IDistanceConditionWriter;
+import net.asam.openscenario.v1_0.api.writer.IPositionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -48,7 +50,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class DistanceConditionImpl extends BaseImpl implements IDistanceCondition {
+public class DistanceConditionImpl extends BaseImpl implements IDistanceConditionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -63,12 +65,14 @@ public class DistanceConditionImpl extends BaseImpl implements IDistanceConditio
   private Boolean freespace;
   private Boolean alongRoute;
   private Rule rule;
-  private IPosition position;
+  private IPositionWriter position;
+
   /** Default constructor */
   public DistanceConditionImpl() {
     super();
     addAdapter(DistanceConditionImpl.class, this);
     addAdapter(IDistanceCondition.class, this);
+    addAdapter(IDistanceConditionWriter.class, this);
   }
 
   @Override
@@ -100,48 +104,33 @@ public class DistanceConditionImpl extends BaseImpl implements IDistanceConditio
   public IPosition getPosition() {
     return this.position;
   }
-  /**
-   * Sets the value of model property value
-   *
-   * @param value from OpenSCENARIO class model specification: [The distance value. Unit: s; Range:
-   *     [0..inf[.]
-   */
+
+  @Override
   public void setValue(Double value) {
     this.value = value;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__VALUE);
   }
-  /**
-   * Sets the value of model property freespace
-   *
-   * @param freespace from OpenSCENARIO class model specification: [True: distance is measured
-   *     between closest bounding box points. False: reference point distance is used.]
-   */
+
+  @Override
   public void setFreespace(Boolean freespace) {
     this.freespace = freespace;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__FREESPACE);
   }
-  /**
-   * Sets the value of model property alongRoute
-   *
-   * @param alongRoute from OpenSCENARIO class model specification: [True: routing is taken into
-   *     account, e.g. turns will increase distance. False: straight line distance is used.]
-   */
+
+  @Override
   public void setAlongRoute(Boolean alongRoute) {
     this.alongRoute = alongRoute;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__ALONG_ROUTE);
   }
-  /**
-   * Sets the value of model property rule
-   *
-   * @param rule from OpenSCENARIO class model specification: [The operator (less, greater, equal).]
-   */
+
+  @Override
   public void setRule(Rule rule) {
     this.rule = rule;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__RULE);
   }
-  /**
-   * Sets the value of model property position
-   *
-   * @param position from OpenSCENARIO class model specification: [The given position the distance
-   *     is related to.]
-   */
-  public void setPosition(IPosition position) {
+
+  @Override
+  public void setPosition(IPositionWriter position) {
     this.position = position;
   }
 
@@ -197,8 +186,8 @@ public class DistanceConditionImpl extends BaseImpl implements IDistanceConditio
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IPosition position = null;
-    position = getPosition();
+    IPositionWriter position = null;
+    position = getWriterPosition();
     if (position != null) {
       result.add((BaseImpl) position);
     }
@@ -221,21 +210,21 @@ public class DistanceConditionImpl extends BaseImpl implements IDistanceConditio
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setValue(getValue());
+    clonedObject.value = getValue();
     // Simple type
-    clonedObject.setFreespace(getFreespace());
+    clonedObject.freespace = getFreespace();
     // Simple type
-    clonedObject.setAlongRoute(getAlongRoute());
+    clonedObject.alongRoute = getAlongRoute();
     // Enumeration Type
     Rule rule = getRule();
     if (rule != null) {
-      clonedObject.setRule(Rule.getFromLiteral(rule.getLiteral()));
+      clonedObject.rule = Rule.getFromLiteral(rule.getLiteral());
     }
     // clone children
-    IPosition position = null;
-    position = getPosition();
+    IPositionWriter position = null;
+    position = getWriterPosition();
     if (position != null) {
-      PositionImpl clonedChild = ((PositionImpl) position).clone();
+      IPositionWriter clonedChild = ((PositionImpl) position).clone();
       clonedObject.setPosition(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -338,5 +327,76 @@ public class DistanceConditionImpl extends BaseImpl implements IDistanceConditio
   @Override
   public String getModelType() {
     return "DistanceCondition";
+  }
+
+  @Override
+  public void writeParameterToValue(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__VALUE, parameterName, null /*no textmarker*/);
+    this.value = null;
+  }
+
+  @Override
+  public void writeParameterToFreespace(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__FREESPACE, parameterName, null /*no textmarker*/);
+    this.freespace = null;
+  }
+
+  @Override
+  public void writeParameterToAlongRoute(String parameterName) {
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__ALONG_ROUTE, parameterName, null /*no textmarker*/);
+    this.alongRoute = null;
+  }
+
+  @Override
+  public void writeParameterToRule(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__RULE, parameterName, null /*no textmarker*/);
+    this.rule = null;
+  }
+
+  @Override
+  public String getParameterFromValue() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__VALUE);
+  }
+
+  @Override
+  public String getParameterFromFreespace() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__FREESPACE);
+  }
+
+  @Override
+  public String getParameterFromAlongRoute() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__ALONG_ROUTE);
+  }
+
+  @Override
+  public String getParameterFromRule() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__RULE);
+  }
+
+  @Override
+  public boolean isValueParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__VALUE);
+  }
+
+  @Override
+  public boolean isFreespaceParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__FREESPACE);
+  }
+
+  @Override
+  public boolean isAlongRouteParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__ALONG_ROUTE);
+  }
+
+  @Override
+  public boolean isRuleParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__RULE);
+  }
+
+  // children
+  @Override
+  public IPositionWriter getWriterPosition() {
+    return this.position;
   }
 }

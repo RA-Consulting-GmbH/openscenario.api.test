@@ -31,6 +31,8 @@ import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IEntity;
 import net.asam.openscenario.v1_0.api.IOrientation;
 import net.asam.openscenario.v1_0.api.IRelativeLanePosition;
+import net.asam.openscenario.v1_0.api.writer.IOrientationWriter;
+import net.asam.openscenario.v1_0.api.writer.IRelativeLanePositionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -48,7 +50,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class RelativeLanePositionImpl extends BaseImpl implements IRelativeLanePosition {
+public class RelativeLanePositionImpl extends BaseImpl implements IRelativeLanePositionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -59,16 +61,18 @@ public class RelativeLanePositionImpl extends BaseImpl implements IRelativeLaneP
     propertyToType.put(OscConstants.ATTRIBUTE__OFFSET, SimpleType.DOUBLE);
   }
 
-  private NamedReferenceProxy<IEntity> entityRef;
+  private INamedReference<IEntity> entityRef;
   private Integer dLane;
   private Double ds;
   private Double offset;
-  private IOrientation orientation;
+  private IOrientationWriter orientation;
+
   /** Default constructor */
   public RelativeLanePositionImpl() {
     super();
     addAdapter(RelativeLanePositionImpl.class, this);
     addAdapter(IRelativeLanePosition.class, this);
+    addAdapter(IRelativeLanePositionWriter.class, this);
   }
 
   @Override
@@ -100,48 +104,33 @@ public class RelativeLanePositionImpl extends BaseImpl implements IRelativeLaneP
   public IOrientation getOrientation() {
     return this.orientation;
   }
-  /**
-   * Sets the value of model property entityRef
-   *
-   * @param entityRef from OpenSCENARIO class model specification: [Reference entity.]
-   */
-  public void setEntityRef(NamedReferenceProxy<IEntity> entityRef) {
+
+  @Override
+  public void setEntityRef(INamedReference<IEntity> entityRef) {
     this.entityRef = entityRef;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__ENTITY_REF);
   }
-  /**
-   * Sets the value of model property dLane
-   *
-   * @param dLane from OpenSCENARIO class model specification: [Relative dlane to the lane of the
-   *     reference entity.]
-   */
+
+  @Override
   public void setDLane(Integer dLane) {
     this.dLane = dLane;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__D_LANE);
   }
-  /**
-   * Sets the value of model property ds
-   *
-   * @param ds from OpenSCENARIO class model specification: [Relative ds to the s of reference
-   *     entity.]
-   */
+
+  @Override
   public void setDs(Double ds) {
     this.ds = ds;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__DS);
   }
-  /**
-   * Sets the value of model property offset
-   *
-   * @param offset from OpenSCENARIO class model specification: [Lateral offset to the taqrget lane.
-   *     Unit: m; Range: ]-inf..inf[]
-   */
+
+  @Override
   public void setOffset(Double offset) {
     this.offset = offset;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__OFFSET);
   }
-  /**
-   * Sets the value of model property orientation
-   *
-   * @param orientation from OpenSCENARIO class model specification: [Orientation. The relative
-   *     reference context refers to the referenced lane's s and t coordinates.]
-   */
-  public void setOrientation(IOrientation orientation) {
+
+  @Override
+  public void setOrientation(IOrientationWriter orientation) {
     this.orientation = orientation;
   }
 
@@ -189,8 +178,8 @@ public class RelativeLanePositionImpl extends BaseImpl implements IRelativeLaneP
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IOrientation orientation = null;
-    orientation = getOrientation();
+    IOrientationWriter orientation = null;
+    orientation = getWriterOrientation();
     if (orientation != null) {
       result.add((BaseImpl) orientation);
     }
@@ -214,19 +203,19 @@ public class RelativeLanePositionImpl extends BaseImpl implements IRelativeLaneP
     // clone attributes;
     // Proxy
     NamedReferenceProxy<IEntity> proxy = ((NamedReferenceProxy<IEntity>) getEntityRef()).clone();
-    clonedObject.setEntityRef(proxy);
+    clonedObject.entityRef = proxy;
     proxy.setParent(clonedObject);
     // Simple type
-    clonedObject.setDLane(getDLane());
+    clonedObject.dLane = getDLane();
     // Simple type
-    clonedObject.setDs(getDs());
+    clonedObject.ds = getDs();
     // Simple type
-    clonedObject.setOffset(getOffset());
+    clonedObject.offset = getOffset();
     // clone children
-    IOrientation orientation = null;
-    orientation = getOrientation();
+    IOrientationWriter orientation = null;
+    orientation = getWriterOrientation();
     if (orientation != null) {
-      OrientationImpl clonedChild = ((OrientationImpl) orientation).clone();
+      IOrientationWriter clonedChild = ((OrientationImpl) orientation).clone();
       clonedObject.setOrientation(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -338,5 +327,76 @@ public class RelativeLanePositionImpl extends BaseImpl implements IRelativeLaneP
   @Override
   public String getModelType() {
     return "RelativeLanePosition";
+  }
+
+  @Override
+  public void writeParameterToEntityRef(String parameterName) {
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__ENTITY_REF, parameterName, null /*no textmarker*/);
+    this.entityRef = null;
+  }
+
+  @Override
+  public void writeParameterToDLane(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__D_LANE, parameterName, null /*no textmarker*/);
+    this.dLane = null;
+  }
+
+  @Override
+  public void writeParameterToDs(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__DS, parameterName, null /*no textmarker*/);
+    this.ds = null;
+  }
+
+  @Override
+  public void writeParameterToOffset(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__OFFSET, parameterName, null /*no textmarker*/);
+    this.offset = null;
+  }
+
+  @Override
+  public String getParameterFromEntityRef() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__ENTITY_REF);
+  }
+
+  @Override
+  public String getParameterFromDLane() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__D_LANE);
+  }
+
+  @Override
+  public String getParameterFromDs() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__DS);
+  }
+
+  @Override
+  public String getParameterFromOffset() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__OFFSET);
+  }
+
+  @Override
+  public boolean isEntityRefParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__ENTITY_REF);
+  }
+
+  @Override
+  public boolean isDLaneParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__D_LANE);
+  }
+
+  @Override
+  public boolean isDsParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__DS);
+  }
+
+  @Override
+  public boolean isOffsetParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__OFFSET);
+  }
+
+  // children
+  @Override
+  public IOrientationWriter getWriterOrientation() {
+    return this.orientation;
   }
 }

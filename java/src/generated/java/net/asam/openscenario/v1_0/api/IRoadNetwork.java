@@ -16,7 +16,6 @@
  */
 package net.asam.openscenario.v1_0.api;
 
-import java.util.List;
 import net.asam.openscenario.api.IOpenScenarioModelElement;
 
 /**
@@ -51,5 +50,19 @@ public interface IRoadNetwork extends IOpenScenarioModelElement {
    *
    * @return value of model property trafficSignals
    */
-  public List<ITrafficSignalController> getTrafficSignals();
+  public Iterable<ITrafficSignalController> getTrafficSignals();
+
+  /**
+   * Retrieves the size of the list
+   *
+   * @return the size of the list
+   */
+  public int getTrafficSignalsSize();
+  /**
+   * The element at specific index
+   *
+   * @param index the index of the list
+   * @return the element at index
+   */
+  public ITrafficSignalController getTrafficSignalsAtIndex(int index);
 }

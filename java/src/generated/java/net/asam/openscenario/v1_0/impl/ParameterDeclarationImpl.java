@@ -30,6 +30,7 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IParameterDeclaration;
 import net.asam.openscenario.v1_0.api.ParameterType;
+import net.asam.openscenario.v1_0.api.writer.IParameterDeclarationWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -47,7 +48,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ParameterDeclarationImpl extends BaseImpl implements IParameterDeclaration {
+public class ParameterDeclarationImpl extends BaseImpl implements IParameterDeclarationWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -59,11 +60,13 @@ public class ParameterDeclarationImpl extends BaseImpl implements IParameterDecl
   private String name;
   private ParameterType parameterType;
   private String value;
+
   /** Default constructor */
   public ParameterDeclarationImpl() {
     super();
     addAdapter(ParameterDeclarationImpl.class, this);
     addAdapter(IParameterDeclaration.class, this);
+    addAdapter(IParameterDeclarationWriter.class, this);
   }
 
   @Override
@@ -85,30 +88,22 @@ public class ParameterDeclarationImpl extends BaseImpl implements IParameterDecl
   public String getValue() {
     return this.value;
   }
-  /**
-   * Sets the value of model property name
-   *
-   * @param name from OpenSCENARIO class model specification: [Name of the parameter.]
-   */
+
+  @Override
   public void setName(String name) {
     this.name = name;
   }
-  /**
-   * Sets the value of model property parameterType
-   *
-   * @param parameterType from OpenSCENARIO class model specification: [Type of the parameter.]
-   */
+
+  @Override
   public void setParameterType(ParameterType parameterType) {
     this.parameterType = parameterType;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__PARAMETER_TYPE);
   }
-  /**
-   * Sets the value of model property value
-   *
-   * @param value from OpenSCENARIO class model specification: [Value of the parameter as its
-   *     default value.]
-   */
+
+  @Override
   public void setValue(String value) {
     this.value = value;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__VALUE);
   }
 
   @Override
@@ -170,14 +165,14 @@ public class ParameterDeclarationImpl extends BaseImpl implements IParameterDecl
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setName(getName());
+    clonedObject.name = getName();
     // Enumeration Type
     ParameterType parameterType = getParameterType();
     if (parameterType != null) {
-      clonedObject.setParameterType(ParameterType.getFromLiteral(parameterType.getLiteral()));
+      clonedObject.parameterType = ParameterType.getFromLiteral(parameterType.getLiteral());
     }
     // Simple type
-    clonedObject.setValue(getValue());
+    clonedObject.value = getValue();
     // clone children
     return clonedObject;
   }
@@ -267,4 +262,40 @@ public class ParameterDeclarationImpl extends BaseImpl implements IParameterDecl
   public String getModelType() {
     return "ParameterDeclaration";
   }
+
+  @Override
+  public void writeParameterToParameterType(String parameterName) {
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__PARAMETER_TYPE, parameterName, null /*no textmarker*/);
+    this.parameterType = null;
+  }
+
+  @Override
+  public void writeParameterToValue(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__VALUE, parameterName, null /*no textmarker*/);
+    this.value = null;
+  }
+
+  @Override
+  public String getParameterFromParameterType() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__PARAMETER_TYPE);
+  }
+
+  @Override
+  public String getParameterFromValue() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__VALUE);
+  }
+
+  @Override
+  public boolean isParameterTypeParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__PARAMETER_TYPE);
+  }
+
+  @Override
+  public boolean isValueParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__VALUE);
+  }
+
+  // children
+
 }

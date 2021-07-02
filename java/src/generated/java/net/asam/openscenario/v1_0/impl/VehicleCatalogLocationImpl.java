@@ -27,6 +27,8 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.IDirectory;
 import net.asam.openscenario.v1_0.api.IVehicleCatalogLocation;
+import net.asam.openscenario.v1_0.api.writer.IDirectoryWriter;
+import net.asam.openscenario.v1_0.api.writer.IVehicleCatalogLocationWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,15 +47,17 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class VehicleCatalogLocationImpl extends BaseImpl implements IVehicleCatalogLocation {
+public class VehicleCatalogLocationImpl extends BaseImpl implements IVehicleCatalogLocationWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private IDirectory directory;
+  private IDirectoryWriter directory;
+
   /** Default constructor */
   public VehicleCatalogLocationImpl() {
     super();
     addAdapter(VehicleCatalogLocationImpl.class, this);
     addAdapter(IVehicleCatalogLocation.class, this);
+    addAdapter(IVehicleCatalogLocationWriter.class, this);
   }
 
   @Override
@@ -65,13 +69,9 @@ public class VehicleCatalogLocationImpl extends BaseImpl implements IVehicleCata
   public IDirectory getDirectory() {
     return this.directory;
   }
-  /**
-   * Sets the value of model property directory
-   *
-   * @param directory from OpenSCENARIO class model specification: [All catalogs files in this
-   *     directory must be evaluated.]
-   */
-  public void setDirectory(IDirectory directory) {
+
+  @Override
+  public void setDirectory(IDirectoryWriter directory) {
     this.directory = directory;
   }
 
@@ -96,8 +96,8 @@ public class VehicleCatalogLocationImpl extends BaseImpl implements IVehicleCata
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IDirectory directory = null;
-    directory = getDirectory();
+    IDirectoryWriter directory = null;
+    directory = getWriterDirectory();
     if (directory != null) {
       result.add((BaseImpl) directory);
     }
@@ -120,10 +120,10 @@ public class VehicleCatalogLocationImpl extends BaseImpl implements IVehicleCata
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    IDirectory directory = null;
-    directory = getDirectory();
+    IDirectoryWriter directory = null;
+    directory = getWriterDirectory();
     if (directory != null) {
-      DirectoryImpl clonedChild = ((DirectoryImpl) directory).clone();
+      IDirectoryWriter clonedChild = ((DirectoryImpl) directory).clone();
       clonedObject.setDirectory(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -205,5 +205,11 @@ public class VehicleCatalogLocationImpl extends BaseImpl implements IVehicleCata
   @Override
   public String getModelType() {
     return "VehicleCatalogLocation";
+  }
+
+  // children
+  @Override
+  public IDirectoryWriter getWriterDirectory() {
+    return this.directory;
   }
 }

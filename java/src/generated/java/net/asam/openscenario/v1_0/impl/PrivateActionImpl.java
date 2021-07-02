@@ -34,6 +34,15 @@ import net.asam.openscenario.v1_0.api.IRoutingAction;
 import net.asam.openscenario.v1_0.api.ISynchronizeAction;
 import net.asam.openscenario.v1_0.api.ITeleportAction;
 import net.asam.openscenario.v1_0.api.IVisibilityAction;
+import net.asam.openscenario.v1_0.api.writer.IActivateControllerActionWriter;
+import net.asam.openscenario.v1_0.api.writer.IControllerActionWriter;
+import net.asam.openscenario.v1_0.api.writer.ILateralActionWriter;
+import net.asam.openscenario.v1_0.api.writer.ILongitudinalActionWriter;
+import net.asam.openscenario.v1_0.api.writer.IPrivateActionWriter;
+import net.asam.openscenario.v1_0.api.writer.IRoutingActionWriter;
+import net.asam.openscenario.v1_0.api.writer.ISynchronizeActionWriter;
+import net.asam.openscenario.v1_0.api.writer.ITeleportActionWriter;
+import net.asam.openscenario.v1_0.api.writer.IVisibilityActionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -51,22 +60,24 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class PrivateActionImpl extends BaseImpl implements IPrivateAction {
+public class PrivateActionImpl extends BaseImpl implements IPrivateActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private ILongitudinalAction longitudinalAction;
-  private ILateralAction lateralAction;
-  private IVisibilityAction visibilityAction;
-  private ISynchronizeAction synchronizeAction;
-  private IActivateControllerAction activateControllerAction;
-  private IControllerAction controllerAction;
-  private ITeleportAction teleportAction;
-  private IRoutingAction routingAction;
+  private ILongitudinalActionWriter longitudinalAction;
+  private ILateralActionWriter lateralAction;
+  private IVisibilityActionWriter visibilityAction;
+  private ISynchronizeActionWriter synchronizeAction;
+  private IActivateControllerActionWriter activateControllerAction;
+  private IControllerActionWriter controllerAction;
+  private ITeleportActionWriter teleportAction;
+  private IRoutingActionWriter routingAction;
+
   /** Default constructor */
   public PrivateActionImpl() {
     super();
     addAdapter(PrivateActionImpl.class, this);
     addAdapter(IPrivateAction.class, this);
+    addAdapter(IPrivateActionWriter.class, this);
   }
 
   @Override
@@ -113,81 +124,102 @@ public class PrivateActionImpl extends BaseImpl implements IPrivateAction {
   public IRoutingAction getRoutingAction() {
     return this.routingAction;
   }
-  /**
-   * Sets the value of model property longitudinalAction
-   *
-   * @param longitudinalAction from OpenSCENARIO class model specification: [Applies longitudinal
-   *     control behavior on the reference entity/entities. Either a SpeedAction or a ,
-   *     LongitudinalDistanceAction.]
-   */
-  public void setLongitudinalAction(ILongitudinalAction longitudinalAction) {
+
+  @Override
+  public void setLongitudinalAction(ILongitudinalActionWriter longitudinalAction) {
     this.longitudinalAction = longitudinalAction;
+    this.lateralAction = null;
+    this.visibilityAction = null;
+    this.synchronizeAction = null;
+    this.activateControllerAction = null;
+    this.controllerAction = null;
+    this.teleportAction = null;
+    this.routingAction = null;
   }
-  /**
-   * Sets the value of model property lateralAction
-   *
-   * @param lateralAction from OpenSCENARIO class model specification: [Applies lateral control
-   *     behavior on the reference entity/entities. Either a LaneChangeAction, LaneOffsetAction or a
-   *     , LateralDistanceAction.]
-   */
-  public void setLateralAction(ILateralAction lateralAction) {
+
+  @Override
+  public void setLateralAction(ILateralActionWriter lateralAction) {
     this.lateralAction = lateralAction;
+    this.longitudinalAction = null;
+    this.visibilityAction = null;
+    this.synchronizeAction = null;
+    this.activateControllerAction = null;
+    this.controllerAction = null;
+    this.teleportAction = null;
+    this.routingAction = null;
   }
-  /**
-   * Sets the value of model property visibilityAction
-   *
-   * @param visibilityAction from OpenSCENARIO class model specification: [Sets visibility
-   *     attributes on the reference entity/entities.]
-   */
-  public void setVisibilityAction(IVisibilityAction visibilityAction) {
+
+  @Override
+  public void setVisibilityAction(IVisibilityActionWriter visibilityAction) {
     this.visibilityAction = visibilityAction;
+    this.longitudinalAction = null;
+    this.lateralAction = null;
+    this.synchronizeAction = null;
+    this.activateControllerAction = null;
+    this.controllerAction = null;
+    this.teleportAction = null;
+    this.routingAction = null;
   }
-  /**
-   * Sets the value of model property synchronizeAction
-   *
-   * @param synchronizeAction from OpenSCENARIO class model specification: [Synchronizes the
-   *     reference entity/entities with a master entity. A target position is provided for the
-   *     entity and for , the master entity to be reached at the same time.]
-   */
-  public void setSynchronizeAction(ISynchronizeAction synchronizeAction) {
+
+  @Override
+  public void setSynchronizeAction(ISynchronizeActionWriter synchronizeAction) {
     this.synchronizeAction = synchronizeAction;
+    this.longitudinalAction = null;
+    this.lateralAction = null;
+    this.visibilityAction = null;
+    this.activateControllerAction = null;
+    this.controllerAction = null;
+    this.teleportAction = null;
+    this.routingAction = null;
   }
-  /**
-   * Sets the value of model property activateControllerAction
-   *
-   * @param activateControllerAction from OpenSCENARIO class model specification: [Activates/
-   *     deactivates a controller on the reference entity/entities.]
-   */
-  public void setActivateControllerAction(IActivateControllerAction activateControllerAction) {
+
+  @Override
+  public void setActivateControllerAction(
+      IActivateControllerActionWriter activateControllerAction) {
     this.activateControllerAction = activateControllerAction;
+    this.longitudinalAction = null;
+    this.lateralAction = null;
+    this.visibilityAction = null;
+    this.synchronizeAction = null;
+    this.controllerAction = null;
+    this.teleportAction = null;
+    this.routingAction = null;
   }
-  /**
-   * Sets the value of model property controllerAction
-   *
-   * @param controllerAction from OpenSCENARIO class model specification: [Assigns a controller to
-   *     the reference entity/entities.]
-   */
-  public void setControllerAction(IControllerAction controllerAction) {
+
+  @Override
+  public void setControllerAction(IControllerActionWriter controllerAction) {
     this.controllerAction = controllerAction;
+    this.longitudinalAction = null;
+    this.lateralAction = null;
+    this.visibilityAction = null;
+    this.synchronizeAction = null;
+    this.activateControllerAction = null;
+    this.teleportAction = null;
+    this.routingAction = null;
   }
-  /**
-   * Sets the value of model property teleportAction
-   *
-   * @param teleportAction from OpenSCENARIO class model specification: [Assigns a position to the
-   *     reference entity/entities.]
-   */
-  public void setTeleportAction(ITeleportAction teleportAction) {
+
+  @Override
+  public void setTeleportAction(ITeleportActionWriter teleportAction) {
     this.teleportAction = teleportAction;
+    this.longitudinalAction = null;
+    this.lateralAction = null;
+    this.visibilityAction = null;
+    this.synchronizeAction = null;
+    this.activateControllerAction = null;
+    this.controllerAction = null;
+    this.routingAction = null;
   }
-  /**
-   * Sets the value of model property routingAction
-   *
-   * @param routingAction from OpenSCENARIO class model specification: [Applies an
-   *     AssignRouteAction, a FollowTrajectoryAction or an AcquirePositionAction to the reference
-   *     entity/entities.]
-   */
-  public void setRoutingAction(IRoutingAction routingAction) {
+
+  @Override
+  public void setRoutingAction(IRoutingActionWriter routingAction) {
     this.routingAction = routingAction;
+    this.longitudinalAction = null;
+    this.lateralAction = null;
+    this.visibilityAction = null;
+    this.synchronizeAction = null;
+    this.activateControllerAction = null;
+    this.controllerAction = null;
+    this.teleportAction = null;
   }
 
   @Override
@@ -211,43 +243,43 @@ public class PrivateActionImpl extends BaseImpl implements IPrivateAction {
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    ILongitudinalAction longitudinalAction = null;
-    longitudinalAction = getLongitudinalAction();
+    ILongitudinalActionWriter longitudinalAction = null;
+    longitudinalAction = getWriterLongitudinalAction();
     if (longitudinalAction != null) {
       result.add((BaseImpl) longitudinalAction);
     }
-    ILateralAction lateralAction = null;
-    lateralAction = getLateralAction();
+    ILateralActionWriter lateralAction = null;
+    lateralAction = getWriterLateralAction();
     if (lateralAction != null) {
       result.add((BaseImpl) lateralAction);
     }
-    IVisibilityAction visibilityAction = null;
-    visibilityAction = getVisibilityAction();
+    IVisibilityActionWriter visibilityAction = null;
+    visibilityAction = getWriterVisibilityAction();
     if (visibilityAction != null) {
       result.add((BaseImpl) visibilityAction);
     }
-    ISynchronizeAction synchronizeAction = null;
-    synchronizeAction = getSynchronizeAction();
+    ISynchronizeActionWriter synchronizeAction = null;
+    synchronizeAction = getWriterSynchronizeAction();
     if (synchronizeAction != null) {
       result.add((BaseImpl) synchronizeAction);
     }
-    IActivateControllerAction activateControllerAction = null;
-    activateControllerAction = getActivateControllerAction();
+    IActivateControllerActionWriter activateControllerAction = null;
+    activateControllerAction = getWriterActivateControllerAction();
     if (activateControllerAction != null) {
       result.add((BaseImpl) activateControllerAction);
     }
-    IControllerAction controllerAction = null;
-    controllerAction = getControllerAction();
+    IControllerActionWriter controllerAction = null;
+    controllerAction = getWriterControllerAction();
     if (controllerAction != null) {
       result.add((BaseImpl) controllerAction);
     }
-    ITeleportAction teleportAction = null;
-    teleportAction = getTeleportAction();
+    ITeleportActionWriter teleportAction = null;
+    teleportAction = getWriterTeleportAction();
     if (teleportAction != null) {
       result.add((BaseImpl) teleportAction);
     }
-    IRoutingAction routingAction = null;
-    routingAction = getRoutingAction();
+    IRoutingActionWriter routingAction = null;
+    routingAction = getWriterRoutingAction();
     if (routingAction != null) {
       result.add((BaseImpl) routingAction);
     }
@@ -270,60 +302,60 @@ public class PrivateActionImpl extends BaseImpl implements IPrivateAction {
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    ILongitudinalAction longitudinalAction = null;
-    longitudinalAction = getLongitudinalAction();
+    ILongitudinalActionWriter longitudinalAction = null;
+    longitudinalAction = getWriterLongitudinalAction();
     if (longitudinalAction != null) {
-      LongitudinalActionImpl clonedChild = ((LongitudinalActionImpl) longitudinalAction).clone();
+      ILongitudinalActionWriter clonedChild = ((LongitudinalActionImpl) longitudinalAction).clone();
       clonedObject.setLongitudinalAction(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    ILateralAction lateralAction = null;
-    lateralAction = getLateralAction();
+    ILateralActionWriter lateralAction = null;
+    lateralAction = getWriterLateralAction();
     if (lateralAction != null) {
-      LateralActionImpl clonedChild = ((LateralActionImpl) lateralAction).clone();
+      ILateralActionWriter clonedChild = ((LateralActionImpl) lateralAction).clone();
       clonedObject.setLateralAction(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IVisibilityAction visibilityAction = null;
-    visibilityAction = getVisibilityAction();
+    IVisibilityActionWriter visibilityAction = null;
+    visibilityAction = getWriterVisibilityAction();
     if (visibilityAction != null) {
-      VisibilityActionImpl clonedChild = ((VisibilityActionImpl) visibilityAction).clone();
+      IVisibilityActionWriter clonedChild = ((VisibilityActionImpl) visibilityAction).clone();
       clonedObject.setVisibilityAction(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    ISynchronizeAction synchronizeAction = null;
-    synchronizeAction = getSynchronizeAction();
+    ISynchronizeActionWriter synchronizeAction = null;
+    synchronizeAction = getWriterSynchronizeAction();
     if (synchronizeAction != null) {
-      SynchronizeActionImpl clonedChild = ((SynchronizeActionImpl) synchronizeAction).clone();
+      ISynchronizeActionWriter clonedChild = ((SynchronizeActionImpl) synchronizeAction).clone();
       clonedObject.setSynchronizeAction(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IActivateControllerAction activateControllerAction = null;
-    activateControllerAction = getActivateControllerAction();
+    IActivateControllerActionWriter activateControllerAction = null;
+    activateControllerAction = getWriterActivateControllerAction();
     if (activateControllerAction != null) {
-      ActivateControllerActionImpl clonedChild =
+      IActivateControllerActionWriter clonedChild =
           ((ActivateControllerActionImpl) activateControllerAction).clone();
       clonedObject.setActivateControllerAction(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IControllerAction controllerAction = null;
-    controllerAction = getControllerAction();
+    IControllerActionWriter controllerAction = null;
+    controllerAction = getWriterControllerAction();
     if (controllerAction != null) {
-      ControllerActionImpl clonedChild = ((ControllerActionImpl) controllerAction).clone();
+      IControllerActionWriter clonedChild = ((ControllerActionImpl) controllerAction).clone();
       clonedObject.setControllerAction(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    ITeleportAction teleportAction = null;
-    teleportAction = getTeleportAction();
+    ITeleportActionWriter teleportAction = null;
+    teleportAction = getWriterTeleportAction();
     if (teleportAction != null) {
-      TeleportActionImpl clonedChild = ((TeleportActionImpl) teleportAction).clone();
+      ITeleportActionWriter clonedChild = ((TeleportActionImpl) teleportAction).clone();
       clonedObject.setTeleportAction(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IRoutingAction routingAction = null;
-    routingAction = getRoutingAction();
+    IRoutingActionWriter routingAction = null;
+    routingAction = getWriterRoutingAction();
     if (routingAction != null) {
-      RoutingActionImpl clonedChild = ((RoutingActionImpl) routingAction).clone();
+      IRoutingActionWriter clonedChild = ((RoutingActionImpl) routingAction).clone();
       clonedObject.setRoutingAction(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -426,5 +458,46 @@ public class PrivateActionImpl extends BaseImpl implements IPrivateAction {
   @Override
   public String getModelType() {
     return "PrivateAction";
+  }
+
+  // children
+  @Override
+  public ILongitudinalActionWriter getWriterLongitudinalAction() {
+    return this.longitudinalAction;
+  }
+
+  @Override
+  public ILateralActionWriter getWriterLateralAction() {
+    return this.lateralAction;
+  }
+
+  @Override
+  public IVisibilityActionWriter getWriterVisibilityAction() {
+    return this.visibilityAction;
+  }
+
+  @Override
+  public ISynchronizeActionWriter getWriterSynchronizeAction() {
+    return this.synchronizeAction;
+  }
+
+  @Override
+  public IActivateControllerActionWriter getWriterActivateControllerAction() {
+    return this.activateControllerAction;
+  }
+
+  @Override
+  public IControllerActionWriter getWriterControllerAction() {
+    return this.controllerAction;
+  }
+
+  @Override
+  public ITeleportActionWriter getWriterTeleportAction() {
+    return this.teleportAction;
+  }
+
+  @Override
+  public IRoutingActionWriter getWriterRoutingAction() {
+    return this.routingAction;
   }
 }

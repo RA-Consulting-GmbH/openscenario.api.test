@@ -25,7 +25,7 @@ import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
 import net.asam.openscenario.simple.struct.IndexedElement;
-import net.asam.openscenario.v1_0.api.IVertex;
+import net.asam.openscenario.v1_0.api.writer.IVertexWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 import net.asam.openscenario.v1_0.impl.PolylineImpl;
 import net.asam.openscenario.v1_0.impl.VertexImpl;
@@ -97,7 +97,7 @@ public class PolylineXmlParser extends XmlComplexTypeParser<PolylineImpl> {
       // Setting the parent
       vertices.setParent(object);
       this.vertexXmlParser.parseElement(indexedElement, parserContext, vertices);
-      List<IVertex> verticesList = object.getVertices();
+      List<IVertexWriter> verticesList = object.getWriterVertices();
       if (verticesList == null) {
         verticesList = new ArrayList<>();
         object.setVertices(verticesList);

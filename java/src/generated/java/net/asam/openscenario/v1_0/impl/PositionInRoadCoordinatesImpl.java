@@ -27,6 +27,7 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IPositionInRoadCoordinates;
+import net.asam.openscenario.v1_0.api.writer.IPositionInRoadCoordinatesWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,7 +46,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class PositionInRoadCoordinatesImpl extends BaseImpl implements IPositionInRoadCoordinates {
+public class PositionInRoadCoordinatesImpl extends BaseImpl
+    implements IPositionInRoadCoordinatesWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -56,11 +58,13 @@ public class PositionInRoadCoordinatesImpl extends BaseImpl implements IPosition
 
   private Double pathS;
   private Double t;
+
   /** Default constructor */
   public PositionInRoadCoordinatesImpl() {
     super();
     addAdapter(PositionInRoadCoordinatesImpl.class, this);
     addAdapter(IPositionInRoadCoordinates.class, this);
+    addAdapter(IPositionInRoadCoordinatesWriter.class, this);
   }
 
   @Override
@@ -77,23 +81,17 @@ public class PositionInRoadCoordinatesImpl extends BaseImpl implements IPosition
   public Double getT() {
     return this.t;
   }
-  /**
-   * Sets the value of model property pathS
-   *
-   * @param pathS from OpenSCENARIO class model specification: [Position in s coordinates along the
-   *     reference line of the road.]
-   */
+
+  @Override
   public void setPathS(Double pathS) {
     this.pathS = pathS;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__PATH_S);
   }
-  /**
-   * Sets the value of model property t
-   *
-   * @param t from OpenSCENARIO class model specification: [Position in t coordinates orthogonal to
-   *     the reference line of the road.]
-   */
+
+  @Override
   public void setT(Double t) {
     this.t = t;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__T);
   }
 
   @Override
@@ -146,9 +144,9 @@ public class PositionInRoadCoordinatesImpl extends BaseImpl implements IPosition
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setPathS(getPathS());
+    clonedObject.pathS = getPathS();
     // Simple type
-    clonedObject.setT(getT());
+    clonedObject.t = getT();
     // clone children
     return clonedObject;
   }
@@ -231,4 +229,39 @@ public class PositionInRoadCoordinatesImpl extends BaseImpl implements IPosition
   public String getModelType() {
     return "PositionInRoadCoordinates";
   }
+
+  @Override
+  public void writeParameterToPathS(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__PATH_S, parameterName, null /*no textmarker*/);
+    this.pathS = null;
+  }
+
+  @Override
+  public void writeParameterToT(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__T, parameterName, null /*no textmarker*/);
+    this.t = null;
+  }
+
+  @Override
+  public String getParameterFromPathS() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__PATH_S);
+  }
+
+  @Override
+  public String getParameterFromT() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__T);
+  }
+
+  @Override
+  public boolean isPathSParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__PATH_S);
+  }
+
+  @Override
+  public boolean isTParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__T);
+  }
+
+  // children
+
 }

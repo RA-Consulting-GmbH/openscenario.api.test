@@ -18,6 +18,7 @@ package net.asam.openscenario.v1_0.checker.range;
 
 import net.asam.openscenario.checker.RangeCheckerRule;
 import net.asam.openscenario.common.IParserMessageLogger;
+import net.asam.openscenario.common.ITreeMessageLogger;
 import net.asam.openscenario.v1_0.api.IFog;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
@@ -35,18 +36,39 @@ public class FogRangeCheckerRule extends RangeCheckerRule<IFog> {
   }
 
   @Override
-  public void applyRule(IParserMessageLogger messageLogger, IFog object) {
+  public void applyRuleInFileContext(IParserMessageLogger messageLogger, IFog object) {
+    apply(messageLogger, null, object);
+  }
+
+  @Override
+  public void applyRuleInTreeContext(ITreeMessageLogger messageLogger, IFog object) {
+    apply(null, messageLogger, object);
+  }
+
+  private void apply(
+      IParserMessageLogger fileMessageLogger, ITreeMessageLogger treeMessageLogger, IFog object) {
     Double visualRange = object.getVisualRange();
     if (visualRange != null) {
       if (!(visualRange >= 0)) {
-        logMessage(
-            object,
-            messageLogger,
-            OscConstants.ATTRIBUTE__VISUAL_RANGE,
-            object.getVisualRange().toString(),
-            ">=",
-            "0",
-            OscConstants.ATTRIBUTE__VISUAL_RANGE);
+        if (fileMessageLogger != null) {
+          logFileContentMessage(
+              object,
+              fileMessageLogger,
+              OscConstants.ATTRIBUTE__VISUAL_RANGE,
+              object.getVisualRange().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__VISUAL_RANGE);
+        } else {
+          logTreeContentMessage(
+              object,
+              treeMessageLogger,
+              OscConstants.ATTRIBUTE__VISUAL_RANGE,
+              object.getVisualRange().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__VISUAL_RANGE);
+        }
       }
     }
   }

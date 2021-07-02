@@ -30,6 +30,7 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.DynamicsShape;
 import net.asam.openscenario.v1_0.api.ILaneOffsetActionDynamics;
+import net.asam.openscenario.v1_0.api.writer.ILaneOffsetActionDynamicsWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -48,7 +49,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class LaneOffsetActionDynamicsImpl extends BaseImpl implements ILaneOffsetActionDynamics {
+public class LaneOffsetActionDynamicsImpl extends BaseImpl
+    implements ILaneOffsetActionDynamicsWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -59,11 +61,13 @@ public class LaneOffsetActionDynamicsImpl extends BaseImpl implements ILaneOffse
 
   private Double maxLateralAcc;
   private DynamicsShape dynamicsShape;
+
   /** Default constructor */
   public LaneOffsetActionDynamicsImpl() {
     super();
     addAdapter(LaneOffsetActionDynamicsImpl.class, this);
     addAdapter(ILaneOffsetActionDynamics.class, this);
+    addAdapter(ILaneOffsetActionDynamicsWriter.class, this);
   }
 
   @Override
@@ -80,23 +84,17 @@ public class LaneOffsetActionDynamicsImpl extends BaseImpl implements ILaneOffse
   public DynamicsShape getDynamicsShape() {
     return this.dynamicsShape;
   }
-  /**
-   * Sets the value of model property maxLateralAcc
-   *
-   * @param maxLateralAcc from OpenSCENARIO class model specification: [Maximum lateral acceleration
-   *     used to initially reach and afterwards keep the lane offset. Unit: m/s2; Range: [0..inf[.]
-   */
+
+  @Override
   public void setMaxLateralAcc(Double maxLateralAcc) {
     this.maxLateralAcc = maxLateralAcc;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__MAX_LATERAL_ACC);
   }
-  /**
-   * Sets the value of model property dynamicsShape
-   *
-   * @param dynamicsShape from OpenSCENARIO class model specification: [Geometrical shape of the
-   *     LaneOffsetAction's dynamics.]
-   */
+
+  @Override
   public void setDynamicsShape(DynamicsShape dynamicsShape) {
     this.dynamicsShape = dynamicsShape;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__DYNAMICS_SHAPE);
   }
 
   @Override
@@ -158,11 +156,11 @@ public class LaneOffsetActionDynamicsImpl extends BaseImpl implements ILaneOffse
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setMaxLateralAcc(getMaxLateralAcc());
+    clonedObject.maxLateralAcc = getMaxLateralAcc();
     // Enumeration Type
     DynamicsShape dynamicsShape = getDynamicsShape();
     if (dynamicsShape != null) {
-      clonedObject.setDynamicsShape(DynamicsShape.getFromLiteral(dynamicsShape.getLiteral()));
+      clonedObject.dynamicsShape = DynamicsShape.getFromLiteral(dynamicsShape.getLiteral());
     }
     // clone children
     return clonedObject;
@@ -251,4 +249,41 @@ public class LaneOffsetActionDynamicsImpl extends BaseImpl implements ILaneOffse
   public String getModelType() {
     return "LaneOffsetActionDynamics";
   }
+
+  @Override
+  public void writeParameterToMaxLateralAcc(String parameterName) {
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__MAX_LATERAL_ACC, parameterName, null /*no textmarker*/);
+    this.maxLateralAcc = null;
+  }
+
+  @Override
+  public void writeParameterToDynamicsShape(String parameterName) {
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__DYNAMICS_SHAPE, parameterName, null /*no textmarker*/);
+    this.dynamicsShape = null;
+  }
+
+  @Override
+  public String getParameterFromMaxLateralAcc() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__MAX_LATERAL_ACC);
+  }
+
+  @Override
+  public String getParameterFromDynamicsShape() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__DYNAMICS_SHAPE);
+  }
+
+  @Override
+  public boolean isMaxLateralAccParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__MAX_LATERAL_ACC);
+  }
+
+  @Override
+  public boolean isDynamicsShapeParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__DYNAMICS_SHAPE);
+  }
+
+  // children
+
 }

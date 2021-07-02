@@ -1,0 +1,177 @@
+:imagesdir: images
+image:image1.png[image,width=370,height=370]
+
+RA Consulting GmbH, https://www-rac.de[www-rac.de]
+
+
+= RA Generator for OpenSCENARIO
+
+:toc:
+:sectnums:
+[cols=",,,",]
+|====================================================
+|Version |Date |Author |Changes
+|1.0 |12/16/2020 |Andreas Hege |Initial Documentation
+| | | |
+|====================================================
+
+Table : Change log
+
+
+== Introduction
+
+This documentation describes installation and usage of the RA Consulting Code Generator utilized for the OpenSCENARIO project. All rights reserved by RA Consulting.
+
+=== Overview
+
+The RA Consulting code generator utilizes models to generate source code. Models are usually complex UML models, but also textual models and other proprietary models may be used to produce source code.
+
+The generator uses templates to produce textual output. The results of a generator run is usually executable, compilable or interpretable source code for documentation or software development.
+
+== Installation
+
+The generator uses groovy and is developed and executed on the java platform. It is executable with https://openjdk.java.net/install/[Oracle java11 OpenJDK].
+
+It is recommended to gain some knowledge in these technologies:
+
+* The Java platform
+* The groovy programming language.
+* Maven build system
+* Eclipse IDE.
+
+=== Prerequisites
+
+Make sure that you have installed OpenJDK 11 when running the generator. For compilation Java8 is sufficient.
+
+Download the OpenJDK 11 https://openjdk.java.net/install/[here] and install it on your PC.
+
+=== Apache Maven installation
+
+It is recommended to install Apache Maven. See here for https://maven.apache.org/install.html[instructions].
+
+=== Eclipse Installation
+
+Though eclipse it is not necessary to build and to run the generator, it is recommended to install eclipse. The IDE supports template editing and integrates well when generating code for java projects.
+
+Installing eclipse includes three steps
+
+* Install the latest “Eclipse IDE for Java Developers”
+* Install latest groovy form the Eclipse Marketplace
+* Install template editor plugin.
+
+==== Install the latest “Eclipse IDE for Java Developers”
+
+Follow the instructions https://www.eclipse.org/downloads/packages/installer[here]. You might install everything with the default options (No eclipse projects included, default bootstrap). The only thing you might want to edit is the JRE.
+
+==== Install Groovy
+
+* Open Eclipse. _Choose Help->Eclipse Marketplace_.
+* Search for groovy
+* Choose “Groovy Development Tools (...)” and press _Install_
+* Add “Groovy-Eclipse M2E integration” and press _Confirm_ +
+image:image2.png[image,width=520,height=350]
+* Restart Eclipse
+
+==== Install Template Editor Plugin
+If you install a new version of the plugin, it is safe to uninstall the current plugin first. See here <<Uninstall Template Editor Plugin>>.
+
+
+* Open Eclipse. _Choose Help->Install New Software_. Choose _Add..._ + 
+image:image3.png[image,width=604,height=490]
+* Choose _Archive..._ and add _de.rac.groovy.extension.feature.1_0_0.zip_ from your local hard drive. +
+image:image4.png[image,width=475,height=181]
+* Deselect _Group items by category_ and select _RAC template editor feature_. Then choose _Next_ +
+image:image5.png[image,width=604,height=490]
+* Select _Install anyway_ (if you trust RA Consulting) +
+image:image6.png[image,width=534,height=148]
+* Restart Eclipse as suggested.
+
+==== Uninstall Template Editor Plugin
+* Open Eclipse. _Choose Help->About Eclipse IDE_. Choose _Installation Details_ + 
+image:uninstallPlugin1.png[image,width=604]
+* Choose _Installed Software_ tab and select 'RAC template ediotor feature' +
+image:uninstallPlugin2.png[image,width=604]
+* Choose _Uninstall_, follow the uninstall process.
+
+==== Setting code style
+The template plugin allows you to set the code style appearance. 
+
+* Open Eclipse. _Windows->Preference->Template Editor_.  + 
+image:templateEditorPreferences1.png[image,width=604]
+* Select a style (Classic, Highlighted or Dark) from the combo box and choose _Apply_ or _Apply and Close_.
+
+== Adding Projects to Eclipse
+Checkout the source code together with the OpenSCENARIO API
+
+=== Adding the generator project
+So, let’s add the OpenSCENARIO generator to Eclipse.
+
+* Open Eclipse with a new Workspace (e.g. c:\temp\test-workspace)
+* Import the project in Eclipse with _File->Import->Maven->Existing Maven Projects_ into Workspace. +
+image:image7.png[image,width=511,height=543]
+* Browse into the workspace folder and choose the suggested project +
+image:image8.png[image,width=604,height=466]
+* Try to build the project in Eclipse. Select pom.xml in the project, right click and choose _Run As->Maven install_.
+* Alternatively with command line: Change into the project directory (de.rac.openscenario.generator-1.1.0) and execute _mvn install_
+* Everything should work so far.
+
+== Generating code
+
+Now, as everything is installed and the project is added, let’s get familiar with running the generator.
+
+=== The executable generator classes
+
+There are two generator classes that are executable. One for each supported platform:
+
+* de.rac.openscenario.generator.cpp.GeneratorCpp.groovy
+* de.rac.openscenario.generator.java.GeneratorJava.groovy
+
+Start each of them by right-click on the class and choose _Run As.->Java Application_
+
+It will give you the following output:
+
+Argument must be <outputDir>
+
+We have to hand over the putput dir to the generator:
+
+* *Output Directory*: The directory for the generated code
+
+The input comes as a part of the project and contains the following files:
+
+==== Input directory
+
+The input directory is included in the project (src/main/resources/input:
+
+* *OpenSCENARIO_Ea_1.0.0.xmi*: The UML snapshot model from OpenSCENARIO 1.0.0 as an Enterprise Architect XMI 2.1 export.
+* *RangeCheckerRules.json*: A structured file that describes the range constraints in a formal way.
+
+==== Output directory
+
+Be aware that everything in the output directory is deleted prior to a generator run. The content in the output directory should be completely reproducible by the generator.
+
+==== Setting the arguments in eclipse
+
+To set input parameters in eclipse choose _Run->Run Configurations_ from the main menu.
+
+image:image9.png[image,width=604,height=487]
+
+* Choose _GeneratorCpp_ in the left window under _Java Applications_. Go to tab _(x)= Arguments._ Be aware that you first have to run the _GeneratorCpp_ to create a run configuration (with _Run As.->Java Application)_ before it appears in the list.
+* Now add the output dir (e.g. c:\temp\GenOut) +
+image:image10.png[image,width=604,height=487]
+* Press _Run_. Your Generator should produce code.
+* Your run configuration has been saved. You can run it either _via Run->Run Configuration_ in the main menu or by selecting it in the list of the _Run_ button in the toolbar. +
+ +
+image:image11.png[image,width=604,height=177]
+
+=== Running the generator from command line
+
+To run the generator from the command line we first have to package the results in a self-contained jar with any dependencies.
+
+* Select the pom.xml right click and choose _Run As->Maven install_ (if not done before)
+* Now, in the _target_ folder of the project a self-contained jar is created. de.rac.openscenario.generator-1.1.0-jar-with-dependencies.jar
+* With your command interpreter: change into the _target_ directory
+* Add the self-contained package to the classpath. +
+`set CLASSPATH=de.rac.openscenario.generator-1.1.0-jar-with-dependencies.jar` 
+* Run the main class with java and the command line arguments +
+`java de.rac.openscenario.generator.cpp.GeneratorCpp C:\temp\GenOut` +
+image:image12.png[image,width=604,height=316]

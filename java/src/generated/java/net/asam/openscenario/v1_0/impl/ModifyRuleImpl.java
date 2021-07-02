@@ -28,6 +28,9 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.IModifyRule;
 import net.asam.openscenario.v1_0.api.IParameterAddValueRule;
 import net.asam.openscenario.v1_0.api.IParameterMultiplyByValueRule;
+import net.asam.openscenario.v1_0.api.writer.IModifyRuleWriter;
+import net.asam.openscenario.v1_0.api.writer.IParameterAddValueRuleWriter;
+import net.asam.openscenario.v1_0.api.writer.IParameterMultiplyByValueRuleWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,16 +48,18 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ModifyRuleImpl extends BaseImpl implements IModifyRule {
+public class ModifyRuleImpl extends BaseImpl implements IModifyRuleWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private IParameterAddValueRule addValue;
-  private IParameterMultiplyByValueRule multiplyByValue;
+  private IParameterAddValueRuleWriter addValue;
+  private IParameterMultiplyByValueRuleWriter multiplyByValue;
+
   /** Default constructor */
   public ModifyRuleImpl() {
     super();
     addAdapter(ModifyRuleImpl.class, this);
     addAdapter(IModifyRule.class, this);
+    addAdapter(IModifyRuleWriter.class, this);
   }
 
   @Override
@@ -71,22 +76,17 @@ public class ModifyRuleImpl extends BaseImpl implements IModifyRule {
   public IParameterMultiplyByValueRule getMultiplyByValue() {
     return this.multiplyByValue;
   }
-  /**
-   * Sets the value of model property addValue
-   *
-   * @param addValue from OpenSCENARIO class model specification: [Adding a value to a parameter.]
-   */
-  public void setAddValue(IParameterAddValueRule addValue) {
+
+  @Override
+  public void setAddValue(IParameterAddValueRuleWriter addValue) {
     this.addValue = addValue;
+    this.multiplyByValue = null;
   }
-  /**
-   * Sets the value of model property multiplyByValue
-   *
-   * @param multiplyByValue from OpenSCENARIO class model specification: [Multiply a parameter by a
-   *     value.]
-   */
-  public void setMultiplyByValue(IParameterMultiplyByValueRule multiplyByValue) {
+
+  @Override
+  public void setMultiplyByValue(IParameterMultiplyByValueRuleWriter multiplyByValue) {
     this.multiplyByValue = multiplyByValue;
+    this.addValue = null;
   }
 
   @Override
@@ -110,13 +110,13 @@ public class ModifyRuleImpl extends BaseImpl implements IModifyRule {
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IParameterAddValueRule addValue = null;
-    addValue = getAddValue();
+    IParameterAddValueRuleWriter addValue = null;
+    addValue = getWriterAddValue();
     if (addValue != null) {
       result.add((BaseImpl) addValue);
     }
-    IParameterMultiplyByValueRule multiplyByValue = null;
-    multiplyByValue = getMultiplyByValue();
+    IParameterMultiplyByValueRuleWriter multiplyByValue = null;
+    multiplyByValue = getWriterMultiplyByValue();
     if (multiplyByValue != null) {
       result.add((BaseImpl) multiplyByValue);
     }
@@ -139,17 +139,17 @@ public class ModifyRuleImpl extends BaseImpl implements IModifyRule {
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    IParameterAddValueRule addValue = null;
-    addValue = getAddValue();
+    IParameterAddValueRuleWriter addValue = null;
+    addValue = getWriterAddValue();
     if (addValue != null) {
-      ParameterAddValueRuleImpl clonedChild = ((ParameterAddValueRuleImpl) addValue).clone();
+      IParameterAddValueRuleWriter clonedChild = ((ParameterAddValueRuleImpl) addValue).clone();
       clonedObject.setAddValue(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IParameterMultiplyByValueRule multiplyByValue = null;
-    multiplyByValue = getMultiplyByValue();
+    IParameterMultiplyByValueRuleWriter multiplyByValue = null;
+    multiplyByValue = getWriterMultiplyByValue();
     if (multiplyByValue != null) {
-      ParameterMultiplyByValueRuleImpl clonedChild =
+      IParameterMultiplyByValueRuleWriter clonedChild =
           ((ParameterMultiplyByValueRuleImpl) multiplyByValue).clone();
       clonedObject.setMultiplyByValue(clonedChild);
       clonedChild.setParent(clonedObject);
@@ -235,5 +235,16 @@ public class ModifyRuleImpl extends BaseImpl implements IModifyRule {
   @Override
   public String getModelType() {
     return "ModifyRule";
+  }
+
+  // children
+  @Override
+  public IParameterAddValueRuleWriter getWriterAddValue() {
+    return this.addValue;
+  }
+
+  @Override
+  public IParameterMultiplyByValueRuleWriter getWriterMultiplyByValue() {
+    return this.multiplyByValue;
   }
 }

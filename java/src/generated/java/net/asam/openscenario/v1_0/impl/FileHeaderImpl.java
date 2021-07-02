@@ -27,6 +27,7 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IFileHeader;
+import net.asam.openscenario.v1_0.api.writer.IFileHeaderWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -44,7 +45,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class FileHeaderImpl extends BaseImpl implements IFileHeader {
+public class FileHeaderImpl extends BaseImpl implements IFileHeaderWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -61,11 +62,13 @@ public class FileHeaderImpl extends BaseImpl implements IFileHeader {
   private java.util.Date date;
   private String description;
   private String author;
+
   /** Default constructor */
   public FileHeaderImpl() {
     super();
     addAdapter(FileHeaderImpl.class, this);
     addAdapter(IFileHeader.class, this);
+    addAdapter(IFileHeaderWriter.class, this);
   }
 
   @Override
@@ -97,49 +100,35 @@ public class FileHeaderImpl extends BaseImpl implements IFileHeader {
   public String getAuthor() {
     return this.author;
   }
-  /**
-   * Sets the value of model property revMajor
-   *
-   * @param revMajor from OpenSCENARIO class model specification: [Major OpenSCENARIO revision, this
-   *     file conforms to Range: [0..inf[.]
-   */
+
+  @Override
   public void setRevMajor(Integer revMajor) {
     this.revMajor = revMajor;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__REV_MAJOR);
   }
-  /**
-   * Sets the value of model property revMinor
-   *
-   * @param revMinor from OpenSCENARIO class model specification: [Minor OpenSCENARIO revision, this
-   *     file conforms to Range: [0..inf[.]
-   */
+
+  @Override
   public void setRevMinor(Integer revMinor) {
     this.revMinor = revMinor;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__REV_MINOR);
   }
-  /**
-   * Sets the value of model property date
-   *
-   * @param date from OpenSCENARIO class model specification: [User specific date and time
-   *     recommended: YYYY-MM-DDThh:mm:ss.]
-   */
+
+  @Override
   public void setDate(java.util.Date date) {
     this.date = date;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__DATE);
   }
-  /**
-   * Sets the value of model property description
-   *
-   * @param description from OpenSCENARIO class model specification: [User specific description.]
-   */
+
+  @Override
   public void setDescription(String description) {
     this.description = description;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__DESCRIPTION);
   }
-  /**
-   * Sets the value of model property author
-   *
-   * @param author from OpenSCENARIO class model specification: [Author of the scenario or the
-   *     catalog.]
-   */
+
+  @Override
   public void setAuthor(String author) {
     this.author = author;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__AUTHOR);
   }
 
   @Override
@@ -213,15 +202,15 @@ public class FileHeaderImpl extends BaseImpl implements IFileHeader {
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setRevMajor(getRevMajor());
+    clonedObject.revMajor = getRevMajor();
     // Simple type
-    clonedObject.setRevMinor(getRevMinor());
+    clonedObject.revMinor = getRevMinor();
     // Simple type
-    clonedObject.setDate(getDate());
+    clonedObject.date = getDate();
     // Simple type
-    clonedObject.setDescription(getDescription());
+    clonedObject.description = getDescription();
     // Simple type
-    clonedObject.setAuthor(getAuthor());
+    clonedObject.author = getAuthor();
     // clone children
     return clonedObject;
   }
@@ -318,4 +307,88 @@ public class FileHeaderImpl extends BaseImpl implements IFileHeader {
   public String getModelType() {
     return "FileHeader";
   }
+
+  @Override
+  public void writeParameterToRevMajor(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__REV_MAJOR, parameterName, null /*no textmarker*/);
+    this.revMajor = null;
+  }
+
+  @Override
+  public void writeParameterToRevMinor(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__REV_MINOR, parameterName, null /*no textmarker*/);
+    this.revMinor = null;
+  }
+
+  @Override
+  public void writeParameterToDate(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__DATE, parameterName, null /*no textmarker*/);
+    this.date = null;
+  }
+
+  @Override
+  public void writeParameterToDescription(String parameterName) {
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__DESCRIPTION, parameterName, null /*no textmarker*/);
+    this.description = null;
+  }
+
+  @Override
+  public void writeParameterToAuthor(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__AUTHOR, parameterName, null /*no textmarker*/);
+    this.author = null;
+  }
+
+  @Override
+  public String getParameterFromRevMajor() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__REV_MAJOR);
+  }
+
+  @Override
+  public String getParameterFromRevMinor() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__REV_MINOR);
+  }
+
+  @Override
+  public String getParameterFromDate() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__DATE);
+  }
+
+  @Override
+  public String getParameterFromDescription() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__DESCRIPTION);
+  }
+
+  @Override
+  public String getParameterFromAuthor() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__AUTHOR);
+  }
+
+  @Override
+  public boolean isRevMajorParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__REV_MAJOR);
+  }
+
+  @Override
+  public boolean isRevMinorParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__REV_MINOR);
+  }
+
+  @Override
+  public boolean isDateParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__DATE);
+  }
+
+  @Override
+  public boolean isDescriptionParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__DESCRIPTION);
+  }
+
+  @Override
+  public boolean isAuthorParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__AUTHOR);
+  }
+
+  // children
+
 }

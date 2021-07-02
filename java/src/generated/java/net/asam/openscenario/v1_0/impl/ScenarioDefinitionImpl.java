@@ -19,6 +19,7 @@ package net.asam.openscenario.v1_0.impl;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.List;
 import net.asam.openscenario.api.IOpenScenarioFlexElement;
 import net.asam.openscenario.api.KeyNotSupportedException;
@@ -32,6 +33,12 @@ import net.asam.openscenario.v1_0.api.IParameterDeclaration;
 import net.asam.openscenario.v1_0.api.IRoadNetwork;
 import net.asam.openscenario.v1_0.api.IScenarioDefinition;
 import net.asam.openscenario.v1_0.api.IStoryboard;
+import net.asam.openscenario.v1_0.api.writer.ICatalogLocationsWriter;
+import net.asam.openscenario.v1_0.api.writer.IEntitiesWriter;
+import net.asam.openscenario.v1_0.api.writer.IParameterDeclarationWriter;
+import net.asam.openscenario.v1_0.api.writer.IRoadNetworkWriter;
+import net.asam.openscenario.v1_0.api.writer.IScenarioDefinitionWriter;
+import net.asam.openscenario.v1_0.api.writer.IStoryboardWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -49,19 +56,21 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ScenarioDefinitionImpl extends BaseImpl implements IScenarioDefinition {
+public class ScenarioDefinitionImpl extends BaseImpl implements IScenarioDefinitionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private List<IParameterDeclaration> parameterDeclarations;
-  private ICatalogLocations catalogLocations;
-  private IRoadNetwork roadNetwork;
-  private IEntities entities;
-  private IStoryboard storyboard;
+  private List<IParameterDeclarationWriter> parameterDeclarations = new ArrayList<>();
+  private ICatalogLocationsWriter catalogLocations;
+  private IRoadNetworkWriter roadNetwork;
+  private IEntitiesWriter entities;
+  private IStoryboardWriter storyboard;
+
   /** Default constructor */
   public ScenarioDefinitionImpl() {
     super();
     addAdapter(ScenarioDefinitionImpl.class, this);
     addAdapter(IScenarioDefinition.class, this);
+    addAdapter(IScenarioDefinitionWriter.class, this);
   }
 
   @Override
@@ -70,8 +79,38 @@ public class ScenarioDefinitionImpl extends BaseImpl implements IScenarioDefinit
   }
 
   @Override
-  public List<IParameterDeclaration> getParameterDeclarations() {
+  public List<IParameterDeclarationWriter> getWriterParameterDeclarations() {
     return this.parameterDeclarations;
+  }
+
+  @Override
+  public Iterable<IParameterDeclaration> getParameterDeclarations() {
+    return new Iterable<IParameterDeclaration>() {
+
+      @SuppressWarnings("synthetic-access")
+      @Override
+      public Iterator<IParameterDeclaration> iterator() {
+        return new ArrayList<IParameterDeclaration>(
+                ScenarioDefinitionImpl.this.parameterDeclarations)
+            .iterator();
+      }
+    };
+  }
+
+  @Override
+  public int getParameterDeclarationsSize() {
+    if (this.parameterDeclarations != null) return this.parameterDeclarations.size();
+    return 0;
+  }
+
+  @Override
+  public IParameterDeclaration getParameterDeclarationsAtIndex(int index) {
+    if (index >= 0
+        && this.parameterDeclarations != null
+        && this.parameterDeclarations.size() > index) {
+      return this.parameterDeclarations.get(index);
+    }
+    return null;
   }
 
   @Override
@@ -93,52 +132,29 @@ public class ScenarioDefinitionImpl extends BaseImpl implements IScenarioDefinit
   public IStoryboard getStoryboard() {
     return this.storyboard;
   }
-  /**
-   * Sets the value of model property parameterDeclarations
-   *
-   * @param parameterDeclarations from OpenSCENARIO class model specification: [Global Parameter
-   *     declaration. Some parameter represent placeholders to be resolved when the scenario file is
-   *     loaded. , Some parameters represent runtime values that can be controlled with
-   *     ParameterActions and ParameterConditions during , simulation time.]
-   */
-  public void setParameterDeclarations(List<IParameterDeclaration> parameterDeclarations) {
+
+  @Override
+  public void setParameterDeclarations(List<IParameterDeclarationWriter> parameterDeclarations) {
     this.parameterDeclarations = parameterDeclarations;
   }
-  /**
-   * Sets the value of model property catalogLocations
-   *
-   * @param catalogLocations from OpenSCENARIO class model specification: [A list of locations to
-   *     look up catalog files. Each catalog element type has its own list.]
-   */
-  public void setCatalogLocations(ICatalogLocations catalogLocations) {
+
+  @Override
+  public void setCatalogLocations(ICatalogLocationsWriter catalogLocations) {
     this.catalogLocations = catalogLocations;
   }
-  /**
-   * Sets the value of model property roadNetwork
-   *
-   * @param roadNetwork from OpenSCENARIO class model specification: [Reference to the road
-   *     network.]
-   */
-  public void setRoadNetwork(IRoadNetwork roadNetwork) {
+
+  @Override
+  public void setRoadNetwork(IRoadNetworkWriter roadNetwork) {
     this.roadNetwork = roadNetwork;
   }
-  /**
-   * Sets the value of model property entities
-   *
-   * @param entities from OpenSCENARIO class model specification: [Container for entity selections
-   *     and scenario object definitions. Instances of ScenarioObject, of EntitySelection and of ,
-   *     SpawnedObject considered instances of Entity.]
-   */
-  public void setEntities(IEntities entities) {
+
+  @Override
+  public void setEntities(IEntitiesWriter entities) {
     this.entities = entities;
   }
-  /**
-   * Sets the value of model property storyboard
-   *
-   * @param storyboard from OpenSCENARIO class model specification: [Container for the dynamic
-   *     content of the scenario.]
-   */
-  public void setStoryboard(IStoryboard storyboard) {
+
+  @Override
+  public void setStoryboard(IStoryboardWriter storyboard) {
     this.storyboard = storyboard;
   }
 
@@ -184,30 +200,30 @@ public class ScenarioDefinitionImpl extends BaseImpl implements IScenarioDefinit
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    List<IParameterDeclaration> parameterDeclarations = null;
-    parameterDeclarations = getParameterDeclarations();
+    List<IParameterDeclarationWriter> parameterDeclarations = null;
+    parameterDeclarations = getWriterParameterDeclarations();
     if (parameterDeclarations != null) {
-      for (IParameterDeclaration item : parameterDeclarations) {
+      for (IParameterDeclarationWriter item : parameterDeclarations) {
         result.add((BaseImpl) item);
       }
     }
-    ICatalogLocations catalogLocations = null;
-    catalogLocations = getCatalogLocations();
+    ICatalogLocationsWriter catalogLocations = null;
+    catalogLocations = getWriterCatalogLocations();
     if (catalogLocations != null) {
       result.add((BaseImpl) catalogLocations);
     }
-    IRoadNetwork roadNetwork = null;
-    roadNetwork = getRoadNetwork();
+    IRoadNetworkWriter roadNetwork = null;
+    roadNetwork = getWriterRoadNetwork();
     if (roadNetwork != null) {
       result.add((BaseImpl) roadNetwork);
     }
-    IEntities entities = null;
-    entities = getEntities();
+    IEntitiesWriter entities = null;
+    entities = getWriterEntities();
     if (entities != null) {
       result.add((BaseImpl) entities);
     }
-    IStoryboard storyboard = null;
-    storyboard = getStoryboard();
+    IStoryboardWriter storyboard = null;
+    storyboard = getWriterStoryboard();
     if (storyboard != null) {
       result.add((BaseImpl) storyboard);
     }
@@ -230,42 +246,42 @@ public class ScenarioDefinitionImpl extends BaseImpl implements IScenarioDefinit
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    List<IParameterDeclaration> parameterDeclarations = null;
-    parameterDeclarations = getParameterDeclarations();
+    List<IParameterDeclarationWriter> parameterDeclarations = null;
+    parameterDeclarations = getWriterParameterDeclarations();
     if (parameterDeclarations != null) {
-      List<IParameterDeclaration> clonedList = new ArrayList<>();
-      for (IParameterDeclaration item : parameterDeclarations) {
-        ParameterDeclarationImpl clonedChild = ((ParameterDeclarationImpl) item).clone();
+      List<IParameterDeclarationWriter> clonedList = new ArrayList<>();
+      for (IParameterDeclarationWriter item : parameterDeclarations) {
+        IParameterDeclarationWriter clonedChild = ((ParameterDeclarationImpl) item).clone();
         clonedList.add(clonedChild);
         clonedChild.setParent(clonedObject);
       }
       clonedObject.setParameterDeclarations(clonedList);
     }
-    ICatalogLocations catalogLocations = null;
-    catalogLocations = getCatalogLocations();
+    ICatalogLocationsWriter catalogLocations = null;
+    catalogLocations = getWriterCatalogLocations();
     if (catalogLocations != null) {
-      CatalogLocationsImpl clonedChild = ((CatalogLocationsImpl) catalogLocations).clone();
+      ICatalogLocationsWriter clonedChild = ((CatalogLocationsImpl) catalogLocations).clone();
       clonedObject.setCatalogLocations(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IRoadNetwork roadNetwork = null;
-    roadNetwork = getRoadNetwork();
+    IRoadNetworkWriter roadNetwork = null;
+    roadNetwork = getWriterRoadNetwork();
     if (roadNetwork != null) {
-      RoadNetworkImpl clonedChild = ((RoadNetworkImpl) roadNetwork).clone();
+      IRoadNetworkWriter clonedChild = ((RoadNetworkImpl) roadNetwork).clone();
       clonedObject.setRoadNetwork(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IEntities entities = null;
-    entities = getEntities();
+    IEntitiesWriter entities = null;
+    entities = getWriterEntities();
     if (entities != null) {
-      EntitiesImpl clonedChild = ((EntitiesImpl) entities).clone();
+      IEntitiesWriter clonedChild = ((EntitiesImpl) entities).clone();
       clonedObject.setEntities(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IStoryboard storyboard = null;
-    storyboard = getStoryboard();
+    IStoryboardWriter storyboard = null;
+    storyboard = getWriterStoryboard();
     if (storyboard != null) {
-      StoryboardImpl clonedChild = ((StoryboardImpl) storyboard).clone();
+      IStoryboardWriter clonedChild = ((StoryboardImpl) storyboard).clone();
       clonedObject.setStoryboard(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -363,5 +379,26 @@ public class ScenarioDefinitionImpl extends BaseImpl implements IScenarioDefinit
   @Override
   public String getModelType() {
     return "ScenarioDefinition";
+  }
+
+  // children
+  @Override
+  public ICatalogLocationsWriter getWriterCatalogLocations() {
+    return this.catalogLocations;
+  }
+
+  @Override
+  public IRoadNetworkWriter getWriterRoadNetwork() {
+    return this.roadNetwork;
+  }
+
+  @Override
+  public IEntitiesWriter getWriterEntities() {
+    return this.entities;
+  }
+
+  @Override
+  public IStoryboardWriter getWriterStoryboard() {
+    return this.storyboard;
   }
 }

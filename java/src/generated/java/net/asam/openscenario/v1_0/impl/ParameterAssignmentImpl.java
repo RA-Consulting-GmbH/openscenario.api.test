@@ -30,6 +30,7 @@ import net.asam.openscenario.impl.NamedReferenceProxy;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IParameterAssignment;
 import net.asam.openscenario.v1_0.api.IParameterDeclaration;
+import net.asam.openscenario.v1_0.api.writer.IParameterAssignmentWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -47,7 +48,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ParameterAssignmentImpl extends BaseImpl implements IParameterAssignment {
+public class ParameterAssignmentImpl extends BaseImpl implements IParameterAssignmentWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -55,13 +56,15 @@ public class ParameterAssignmentImpl extends BaseImpl implements IParameterAssig
     propertyToType.put(OscConstants.ATTRIBUTE__VALUE, SimpleType.STRING);
   }
 
-  private NamedReferenceProxy<IParameterDeclaration> parameterRef;
+  private INamedReference<IParameterDeclaration> parameterRef;
   private String value;
+
   /** Default constructor */
   public ParameterAssignmentImpl() {
     super();
     addAdapter(ParameterAssignmentImpl.class, this);
     addAdapter(IParameterAssignment.class, this);
+    addAdapter(IParameterAssignmentWriter.class, this);
   }
 
   @Override
@@ -78,23 +81,16 @@ public class ParameterAssignmentImpl extends BaseImpl implements IParameterAssig
   public String getValue() {
     return this.value;
   }
-  /**
-   * Sets the value of model property parameterRef
-   *
-   * @param parameterRef from OpenSCENARIO class model specification: [Name of the parameter that
-   *     must be declared in the catalog.]
-   */
-  public void setParameterRef(NamedReferenceProxy<IParameterDeclaration> parameterRef) {
+
+  @Override
+  public void setParameterRef(INamedReference<IParameterDeclaration> parameterRef) {
     this.parameterRef = parameterRef;
   }
-  /**
-   * Sets the value of model property value
-   *
-   * @param value from OpenSCENARIO class model specification: [Value of the parameter that is
-   *     handed over to the parametrizable type.]
-   */
+
+  @Override
   public void setValue(String value) {
     this.value = value;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__VALUE);
   }
 
   @Override
@@ -144,10 +140,10 @@ public class ParameterAssignmentImpl extends BaseImpl implements IParameterAssig
     // Proxy
     NamedReferenceProxy<IParameterDeclaration> proxy =
         ((NamedReferenceProxy<IParameterDeclaration>) getParameterRef()).clone();
-    clonedObject.setParameterRef(proxy);
+    clonedObject.parameterRef = proxy;
     proxy.setParent(clonedObject);
     // Simple type
-    clonedObject.setValue(getValue());
+    clonedObject.value = getValue();
     // clone children
     return clonedObject;
   }
@@ -242,4 +238,23 @@ public class ParameterAssignmentImpl extends BaseImpl implements IParameterAssig
   public String getModelType() {
     return "ParameterAssignment";
   }
+
+  @Override
+  public void writeParameterToValue(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__VALUE, parameterName, null /*no textmarker*/);
+    this.value = null;
+  }
+
+  @Override
+  public String getParameterFromValue() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__VALUE);
+  }
+
+  @Override
+  public boolean isValueParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__VALUE);
+  }
+
+  // children
+
 }

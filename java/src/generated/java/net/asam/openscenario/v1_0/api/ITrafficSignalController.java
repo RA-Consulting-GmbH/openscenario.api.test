@@ -16,7 +16,6 @@
  */
 package net.asam.openscenario.v1_0.api;
 
-import java.util.List;
 import net.asam.openscenario.api.IOpenScenarioModelElement;
 
 /**
@@ -57,5 +56,19 @@ public interface ITrafficSignalController extends IOpenScenarioModelElement {
    *
    * @return value of model property phases
    */
-  public List<IPhase> getPhases();
+  public Iterable<IPhase> getPhases();
+
+  /**
+   * Retrieves the size of the list
+   *
+   * @return the size of the list
+   */
+  public int getPhasesSize();
+  /**
+   * The element at specific index
+   *
+   * @param index the index of the list
+   * @return the element at index
+   */
+  public IPhase getPhasesAtIndex(int index);
 }

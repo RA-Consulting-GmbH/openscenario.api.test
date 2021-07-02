@@ -18,6 +18,7 @@ package net.asam.openscenario.v1_0.checker.range;
 
 import net.asam.openscenario.checker.RangeCheckerRule;
 import net.asam.openscenario.common.IParserMessageLogger;
+import net.asam.openscenario.common.ITreeMessageLogger;
 import net.asam.openscenario.v1_0.api.IEvent;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
@@ -35,18 +36,39 @@ public class EventRangeCheckerRule extends RangeCheckerRule<IEvent> {
   }
 
   @Override
-  public void applyRule(IParserMessageLogger messageLogger, IEvent object) {
+  public void applyRuleInFileContext(IParserMessageLogger messageLogger, IEvent object) {
+    apply(messageLogger, null, object);
+  }
+
+  @Override
+  public void applyRuleInTreeContext(ITreeMessageLogger messageLogger, IEvent object) {
+    apply(null, messageLogger, object);
+  }
+
+  private void apply(
+      IParserMessageLogger fileMessageLogger, ITreeMessageLogger treeMessageLogger, IEvent object) {
     Long maximumExecutionCount = object.getMaximumExecutionCount();
     if (maximumExecutionCount != null) {
       if (!(maximumExecutionCount >= 1)) {
-        logMessage(
-            object,
-            messageLogger,
-            OscConstants.ATTRIBUTE__MAXIMUM_EXECUTION_COUNT,
-            object.getMaximumExecutionCount().toString(),
-            ">=",
-            "1",
-            OscConstants.ATTRIBUTE__MAXIMUM_EXECUTION_COUNT);
+        if (fileMessageLogger != null) {
+          logFileContentMessage(
+              object,
+              fileMessageLogger,
+              OscConstants.ATTRIBUTE__MAXIMUM_EXECUTION_COUNT,
+              object.getMaximumExecutionCount().toString(),
+              ">=",
+              "1",
+              OscConstants.ATTRIBUTE__MAXIMUM_EXECUTION_COUNT);
+        } else {
+          logTreeContentMessage(
+              object,
+              treeMessageLogger,
+              OscConstants.ATTRIBUTE__MAXIMUM_EXECUTION_COUNT,
+              object.getMaximumExecutionCount().toString(),
+              ">=",
+              "1",
+              OscConstants.ATTRIBUTE__MAXIMUM_EXECUTION_COUNT);
+        }
       }
     }
   }

@@ -29,6 +29,10 @@ import net.asam.openscenario.v1_0.api.ITrafficAction;
 import net.asam.openscenario.v1_0.api.ITrafficSinkAction;
 import net.asam.openscenario.v1_0.api.ITrafficSourceAction;
 import net.asam.openscenario.v1_0.api.ITrafficSwarmAction;
+import net.asam.openscenario.v1_0.api.writer.ITrafficActionWriter;
+import net.asam.openscenario.v1_0.api.writer.ITrafficSinkActionWriter;
+import net.asam.openscenario.v1_0.api.writer.ITrafficSourceActionWriter;
+import net.asam.openscenario.v1_0.api.writer.ITrafficSwarmActionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -46,17 +50,19 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class TrafficActionImpl extends BaseImpl implements ITrafficAction {
+public class TrafficActionImpl extends BaseImpl implements ITrafficActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private ITrafficSourceAction trafficSourceAction;
-  private ITrafficSinkAction trafficSinkAction;
-  private ITrafficSwarmAction trafficSwarmAction;
+  private ITrafficSourceActionWriter trafficSourceAction;
+  private ITrafficSinkActionWriter trafficSinkAction;
+  private ITrafficSwarmActionWriter trafficSwarmAction;
+
   /** Default constructor */
   public TrafficActionImpl() {
     super();
     addAdapter(TrafficActionImpl.class, this);
     addAdapter(ITrafficAction.class, this);
+    addAdapter(ITrafficActionWriter.class, this);
   }
 
   @Override
@@ -78,32 +84,26 @@ public class TrafficActionImpl extends BaseImpl implements ITrafficAction {
   public ITrafficSwarmAction getTrafficSwarmAction() {
     return this.trafficSwarmAction;
   }
-  /**
-   * Sets the value of model property trafficSourceAction
-   *
-   * @param trafficSourceAction from OpenSCENARIO class model specification: [Defines a source of
-   *     traffic at a specific position.]
-   */
-  public void setTrafficSourceAction(ITrafficSourceAction trafficSourceAction) {
+
+  @Override
+  public void setTrafficSourceAction(ITrafficSourceActionWriter trafficSourceAction) {
     this.trafficSourceAction = trafficSourceAction;
+    this.trafficSinkAction = null;
+    this.trafficSwarmAction = null;
   }
-  /**
-   * Sets the value of model property trafficSinkAction
-   *
-   * @param trafficSinkAction from OpenSCENARIO class model specification: [Defines a sink of
-   *     traffic at a specific position.]
-   */
-  public void setTrafficSinkAction(ITrafficSinkAction trafficSinkAction) {
+
+  @Override
+  public void setTrafficSinkAction(ITrafficSinkActionWriter trafficSinkAction) {
     this.trafficSinkAction = trafficSinkAction;
+    this.trafficSourceAction = null;
+    this.trafficSwarmAction = null;
   }
-  /**
-   * Sets the value of model property trafficSwarmAction
-   *
-   * @param trafficSwarmAction from OpenSCENARIO class model specification: [Defines swarm traffic
-   *     around a given central entity.]
-   */
-  public void setTrafficSwarmAction(ITrafficSwarmAction trafficSwarmAction) {
+
+  @Override
+  public void setTrafficSwarmAction(ITrafficSwarmActionWriter trafficSwarmAction) {
     this.trafficSwarmAction = trafficSwarmAction;
+    this.trafficSourceAction = null;
+    this.trafficSinkAction = null;
   }
 
   @Override
@@ -127,18 +127,18 @@ public class TrafficActionImpl extends BaseImpl implements ITrafficAction {
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    ITrafficSourceAction trafficSourceAction = null;
-    trafficSourceAction = getTrafficSourceAction();
+    ITrafficSourceActionWriter trafficSourceAction = null;
+    trafficSourceAction = getWriterTrafficSourceAction();
     if (trafficSourceAction != null) {
       result.add((BaseImpl) trafficSourceAction);
     }
-    ITrafficSinkAction trafficSinkAction = null;
-    trafficSinkAction = getTrafficSinkAction();
+    ITrafficSinkActionWriter trafficSinkAction = null;
+    trafficSinkAction = getWriterTrafficSinkAction();
     if (trafficSinkAction != null) {
       result.add((BaseImpl) trafficSinkAction);
     }
-    ITrafficSwarmAction trafficSwarmAction = null;
-    trafficSwarmAction = getTrafficSwarmAction();
+    ITrafficSwarmActionWriter trafficSwarmAction = null;
+    trafficSwarmAction = getWriterTrafficSwarmAction();
     if (trafficSwarmAction != null) {
       result.add((BaseImpl) trafficSwarmAction);
     }
@@ -161,24 +161,25 @@ public class TrafficActionImpl extends BaseImpl implements ITrafficAction {
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    ITrafficSourceAction trafficSourceAction = null;
-    trafficSourceAction = getTrafficSourceAction();
+    ITrafficSourceActionWriter trafficSourceAction = null;
+    trafficSourceAction = getWriterTrafficSourceAction();
     if (trafficSourceAction != null) {
-      TrafficSourceActionImpl clonedChild = ((TrafficSourceActionImpl) trafficSourceAction).clone();
+      ITrafficSourceActionWriter clonedChild =
+          ((TrafficSourceActionImpl) trafficSourceAction).clone();
       clonedObject.setTrafficSourceAction(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    ITrafficSinkAction trafficSinkAction = null;
-    trafficSinkAction = getTrafficSinkAction();
+    ITrafficSinkActionWriter trafficSinkAction = null;
+    trafficSinkAction = getWriterTrafficSinkAction();
     if (trafficSinkAction != null) {
-      TrafficSinkActionImpl clonedChild = ((TrafficSinkActionImpl) trafficSinkAction).clone();
+      ITrafficSinkActionWriter clonedChild = ((TrafficSinkActionImpl) trafficSinkAction).clone();
       clonedObject.setTrafficSinkAction(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    ITrafficSwarmAction trafficSwarmAction = null;
-    trafficSwarmAction = getTrafficSwarmAction();
+    ITrafficSwarmActionWriter trafficSwarmAction = null;
+    trafficSwarmAction = getWriterTrafficSwarmAction();
     if (trafficSwarmAction != null) {
-      TrafficSwarmActionImpl clonedChild = ((TrafficSwarmActionImpl) trafficSwarmAction).clone();
+      ITrafficSwarmActionWriter clonedChild = ((TrafficSwarmActionImpl) trafficSwarmAction).clone();
       clonedObject.setTrafficSwarmAction(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -266,5 +267,21 @@ public class TrafficActionImpl extends BaseImpl implements ITrafficAction {
   @Override
   public String getModelType() {
     return "TrafficAction";
+  }
+
+  // children
+  @Override
+  public ITrafficSourceActionWriter getWriterTrafficSourceAction() {
+    return this.trafficSourceAction;
+  }
+
+  @Override
+  public ITrafficSinkActionWriter getWriterTrafficSinkAction() {
+    return this.trafficSinkAction;
+  }
+
+  @Override
+  public ITrafficSwarmActionWriter getWriterTrafficSwarmAction() {
+    return this.trafficSwarmAction;
   }
 }

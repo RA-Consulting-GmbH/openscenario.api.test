@@ -27,6 +27,7 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.ICustomCommandAction;
+import net.asam.openscenario.v1_0.api.writer.ICustomCommandActionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -44,7 +45,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class CustomCommandActionImpl extends BaseImpl implements ICustomCommandAction {
+public class CustomCommandActionImpl extends BaseImpl implements ICustomCommandActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -55,11 +56,13 @@ public class CustomCommandActionImpl extends BaseImpl implements ICustomCommandA
 
   private String type;
   private String content;
+
   /** Default constructor */
   public CustomCommandActionImpl() {
     super();
     addAdapter(CustomCommandActionImpl.class, this);
     addAdapter(ICustomCommandAction.class, this);
+    addAdapter(ICustomCommandActionWriter.class, this);
   }
 
   @Override
@@ -76,23 +79,17 @@ public class CustomCommandActionImpl extends BaseImpl implements ICustomCommandA
   public String getContent() {
     return this.content;
   }
-  /**
-   * Sets the value of model property type
-   *
-   * @param type from OpenSCENARIO class model specification: [Type that is defined as a contract
-   *     between the simulation environment provider and the author of a scenario.]
-   */
+
+  @Override
   public void setType(String type) {
     this.type = type;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__TYPE);
   }
-  /**
-   * Sets the value of model property content
-   *
-   * @param content from OpenSCENARIO class model specification: [The command that is defined as a
-   *     contract between the simulation environment provider and the author of a scenario.]
-   */
+
+  @Override
   public void setContent(String content) {
     this.content = content;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__CONTENT);
   }
 
   @Override
@@ -146,7 +143,7 @@ public class CustomCommandActionImpl extends BaseImpl implements ICustomCommandA
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setType(getType());
+    clonedObject.type = getType();
     // clone children
     return clonedObject;
   }
@@ -229,4 +226,39 @@ public class CustomCommandActionImpl extends BaseImpl implements ICustomCommandA
   public String getModelType() {
     return "CustomCommandAction";
   }
+
+  @Override
+  public void writeParameterToType(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__TYPE, parameterName, null /*no textmarker*/);
+    this.type = null;
+  }
+
+  @Override
+  public void writeParameterToContent(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__CONTENT, parameterName, null /*no textmarker*/);
+    this.content = null;
+  }
+
+  @Override
+  public String getParameterFromType() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__TYPE);
+  }
+
+  @Override
+  public String getParameterFromContent() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__CONTENT);
+  }
+
+  @Override
+  public boolean isTypeParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__TYPE);
+  }
+
+  @Override
+  public boolean isContentParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__CONTENT);
+  }
+
+  // children
+
 }

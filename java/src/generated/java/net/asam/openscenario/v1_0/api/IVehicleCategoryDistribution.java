@@ -16,7 +16,6 @@
  */
 package net.asam.openscenario.v1_0.api;
 
-import java.util.List;
 import net.asam.openscenario.api.IOpenScenarioModelElement;
 
 /**
@@ -35,5 +34,19 @@ public interface IVehicleCategoryDistribution extends IOpenScenarioModelElement 
    *
    * @return value of model property vehicleCategoryDistributionEntries
    */
-  public List<IVehicleCategoryDistributionEntry> getVehicleCategoryDistributionEntries();
+  public Iterable<IVehicleCategoryDistributionEntry> getVehicleCategoryDistributionEntries();
+
+  /**
+   * Retrieves the size of the list
+   *
+   * @return the size of the list
+   */
+  public int getVehicleCategoryDistributionEntriesSize();
+  /**
+   * The element at specific index
+   *
+   * @param index the index of the list
+   * @return the element at index
+   */
+  public IVehicleCategoryDistributionEntry getVehicleCategoryDistributionEntriesAtIndex(int index);
 }

@@ -29,6 +29,7 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.impl.NamedReferenceProxy;
 import net.asam.openscenario.v1_0.api.IEntity;
 import net.asam.openscenario.v1_0.api.IPositionOfCurrentEntity;
+import net.asam.openscenario.v1_0.api.writer.IPositionOfCurrentEntityWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -47,7 +48,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class PositionOfCurrentEntityImpl extends BaseImpl implements IPositionOfCurrentEntity {
+public class PositionOfCurrentEntityImpl extends BaseImpl
+    implements IPositionOfCurrentEntityWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -55,12 +57,14 @@ public class PositionOfCurrentEntityImpl extends BaseImpl implements IPositionOf
     propertyToType.put(OscConstants.ATTRIBUTE__ENTITY_REF, SimpleType.STRING);
   }
 
-  private NamedReferenceProxy<IEntity> entityRef;
+  private INamedReference<IEntity> entityRef;
+
   /** Default constructor */
   public PositionOfCurrentEntityImpl() {
     super();
     addAdapter(PositionOfCurrentEntityImpl.class, this);
     addAdapter(IPositionOfCurrentEntity.class, this);
+    addAdapter(IPositionOfCurrentEntityWriter.class, this);
   }
 
   @Override
@@ -72,13 +76,11 @@ public class PositionOfCurrentEntityImpl extends BaseImpl implements IPositionOf
   public INamedReference<IEntity> getEntityRef() {
     return this.entityRef;
   }
-  /**
-   * Sets the value of model property entityRef
-   *
-   * @param entityRef from OpenSCENARIO class model specification: [Reference to an entity.]
-   */
-  public void setEntityRef(NamedReferenceProxy<IEntity> entityRef) {
+
+  @Override
+  public void setEntityRef(INamedReference<IEntity> entityRef) {
     this.entityRef = entityRef;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__ENTITY_REF);
   }
 
   @Override
@@ -127,7 +129,7 @@ public class PositionOfCurrentEntityImpl extends BaseImpl implements IPositionOf
     // clone attributes;
     // Proxy
     NamedReferenceProxy<IEntity> proxy = ((NamedReferenceProxy<IEntity>) getEntityRef()).clone();
-    clonedObject.setEntityRef(proxy);
+    clonedObject.entityRef = proxy;
     proxy.setParent(clonedObject);
     // clone children
     return clonedObject;
@@ -219,4 +221,24 @@ public class PositionOfCurrentEntityImpl extends BaseImpl implements IPositionOf
   public String getModelType() {
     return "PositionOfCurrentEntity";
   }
+
+  @Override
+  public void writeParameterToEntityRef(String parameterName) {
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__ENTITY_REF, parameterName, null /*no textmarker*/);
+    this.entityRef = null;
+  }
+
+  @Override
+  public String getParameterFromEntityRef() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__ENTITY_REF);
+  }
+
+  @Override
+  public boolean isEntityRefParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__ENTITY_REF);
+  }
+
+  // children
+
 }

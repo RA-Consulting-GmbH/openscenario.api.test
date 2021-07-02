@@ -27,6 +27,7 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.ICenter;
+import net.asam.openscenario.v1_0.api.writer.ICenterWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -44,7 +45,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class CenterImpl extends BaseImpl implements ICenter {
+public class CenterImpl extends BaseImpl implements ICenterWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -57,11 +58,13 @@ public class CenterImpl extends BaseImpl implements ICenter {
   private Double x;
   private Double y;
   private Double z;
+
   /** Default constructor */
   public CenterImpl() {
     super();
     addAdapter(CenterImpl.class, this);
     addAdapter(ICenter.class, this);
+    addAdapter(ICenterWriter.class, this);
   }
 
   @Override
@@ -83,29 +86,23 @@ public class CenterImpl extends BaseImpl implements ICenter {
   public Double getZ() {
     return this.z;
   }
-  /**
-   * Sets the value of model property x
-   *
-   * @param x from OpenSCENARIO class model specification: [Center offset in x direction.]
-   */
+
+  @Override
   public void setX(Double x) {
     this.x = x;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__X);
   }
-  /**
-   * Sets the value of model property y
-   *
-   * @param y from OpenSCENARIO class model specification: [Center offset in y direction.]
-   */
+
+  @Override
   public void setY(Double y) {
     this.y = y;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__Y);
   }
-  /**
-   * Sets the value of model property z
-   *
-   * @param z from OpenSCENARIO class model specification: [Center offset in z direction.]
-   */
+
+  @Override
   public void setZ(Double z) {
     this.z = z;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__Z);
   }
 
   @Override
@@ -162,11 +159,11 @@ public class CenterImpl extends BaseImpl implements ICenter {
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setX(getX());
+    clonedObject.x = getX();
     // Simple type
-    clonedObject.setY(getY());
+    clonedObject.y = getY();
     // Simple type
-    clonedObject.setZ(getZ());
+    clonedObject.z = getZ();
     // clone children
     return clonedObject;
   }
@@ -251,4 +248,55 @@ public class CenterImpl extends BaseImpl implements ICenter {
   public String getModelType() {
     return "Center";
   }
+
+  @Override
+  public void writeParameterToX(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__X, parameterName, null /*no textmarker*/);
+    this.x = null;
+  }
+
+  @Override
+  public void writeParameterToY(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__Y, parameterName, null /*no textmarker*/);
+    this.y = null;
+  }
+
+  @Override
+  public void writeParameterToZ(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__Z, parameterName, null /*no textmarker*/);
+    this.z = null;
+  }
+
+  @Override
+  public String getParameterFromX() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__X);
+  }
+
+  @Override
+  public String getParameterFromY() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__Y);
+  }
+
+  @Override
+  public String getParameterFromZ() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__Z);
+  }
+
+  @Override
+  public boolean isXParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__X);
+  }
+
+  @Override
+  public boolean isYParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__Y);
+  }
+
+  @Override
+  public boolean isZParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__Z);
+  }
+
+  // children
+
 }

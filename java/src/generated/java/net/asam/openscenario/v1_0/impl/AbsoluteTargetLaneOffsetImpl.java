@@ -27,6 +27,7 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IAbsoluteTargetLaneOffset;
+import net.asam.openscenario.v1_0.api.writer.IAbsoluteTargetLaneOffsetWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,7 +46,8 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class AbsoluteTargetLaneOffsetImpl extends BaseImpl implements IAbsoluteTargetLaneOffset {
+public class AbsoluteTargetLaneOffsetImpl extends BaseImpl
+    implements IAbsoluteTargetLaneOffsetWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -54,11 +56,13 @@ public class AbsoluteTargetLaneOffsetImpl extends BaseImpl implements IAbsoluteT
   }
 
   private Double value;
+
   /** Default constructor */
   public AbsoluteTargetLaneOffsetImpl() {
     super();
     addAdapter(AbsoluteTargetLaneOffsetImpl.class, this);
     addAdapter(IAbsoluteTargetLaneOffset.class, this);
+    addAdapter(IAbsoluteTargetLaneOffsetWriter.class, this);
   }
 
   @Override
@@ -70,14 +74,11 @@ public class AbsoluteTargetLaneOffsetImpl extends BaseImpl implements IAbsoluteT
   public Double getValue() {
     return this.value;
   }
-  /**
-   * Sets the value of model property value
-   *
-   * @param value from OpenSCENARIO class model specification: [Signed number in meters the vehicle
-   *     should respect as an offset from the center of the current lane.]
-   */
+
+  @Override
   public void setValue(Double value) {
     this.value = value;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__VALUE);
   }
 
   @Override
@@ -125,7 +126,7 @@ public class AbsoluteTargetLaneOffsetImpl extends BaseImpl implements IAbsoluteT
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setValue(getValue());
+    clonedObject.value = getValue();
     // clone children
     return clonedObject;
   }
@@ -206,4 +207,23 @@ public class AbsoluteTargetLaneOffsetImpl extends BaseImpl implements IAbsoluteT
   public String getModelType() {
     return "AbsoluteTargetLaneOffset";
   }
+
+  @Override
+  public void writeParameterToValue(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__VALUE, parameterName, null /*no textmarker*/);
+    this.value = null;
+  }
+
+  @Override
+  public String getParameterFromValue() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__VALUE);
+  }
+
+  @Override
+  public boolean isValueParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__VALUE);
+  }
+
+  // children
+
 }

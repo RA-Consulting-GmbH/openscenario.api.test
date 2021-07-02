@@ -19,6 +19,7 @@ package net.asam.openscenario.v1_0.impl;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.List;
 import net.asam.openscenario.api.IOpenScenarioFlexElement;
 import net.asam.openscenario.api.KeyNotSupportedException;
@@ -28,6 +29,9 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.IByType;
 import net.asam.openscenario.v1_0.api.IEntityRef;
 import net.asam.openscenario.v1_0.api.ISelectedEntities;
+import net.asam.openscenario.v1_0.api.writer.IByTypeWriter;
+import net.asam.openscenario.v1_0.api.writer.IEntityRefWriter;
+import net.asam.openscenario.v1_0.api.writer.ISelectedEntitiesWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,16 +49,18 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class SelectedEntitiesImpl extends BaseImpl implements ISelectedEntities {
+public class SelectedEntitiesImpl extends BaseImpl implements ISelectedEntitiesWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private List<IEntityRef> entityRef;
-  private List<IByType> byType;
+  private List<IEntityRefWriter> entityRef = new ArrayList<>();
+  private List<IByTypeWriter> byType = new ArrayList<>();
+
   /** Default constructor */
   public SelectedEntitiesImpl() {
     super();
     addAdapter(SelectedEntitiesImpl.class, this);
     addAdapter(ISelectedEntities.class, this);
+    addAdapter(ISelectedEntitiesWriter.class, this);
   }
 
   @Override
@@ -63,31 +69,77 @@ public class SelectedEntitiesImpl extends BaseImpl implements ISelectedEntities 
   }
 
   @Override
-  public List<IEntityRef> getEntityRef() {
+  public List<IEntityRefWriter> getWriterEntityRef() {
     return this.entityRef;
   }
 
   @Override
-  public List<IByType> getByType() {
+  public Iterable<IEntityRef> getEntityRef() {
+    return new Iterable<IEntityRef>() {
+
+      @SuppressWarnings("synthetic-access")
+      @Override
+      public Iterator<IEntityRef> iterator() {
+        return new ArrayList<IEntityRef>(SelectedEntitiesImpl.this.entityRef).iterator();
+      }
+    };
+  }
+
+  @Override
+  public int getEntityRefSize() {
+    if (this.entityRef != null) return this.entityRef.size();
+    return 0;
+  }
+
+  @Override
+  public IEntityRef getEntityRefAtIndex(int index) {
+    if (index >= 0 && this.entityRef != null && this.entityRef.size() > index) {
+      return this.entityRef.get(index);
+    }
+    return null;
+  }
+
+  @Override
+  public List<IByTypeWriter> getWriterByType() {
     return this.byType;
   }
-  /**
-   * Sets the value of model property entityRef
-   *
-   * @param entityRef from OpenSCENARIO class model specification: [References to the selected
-   *     entities.]
-   */
-  public void setEntityRef(List<IEntityRef> entityRef) {
-    this.entityRef = entityRef;
+
+  @Override
+  public Iterable<IByType> getByType() {
+    return new Iterable<IByType>() {
+
+      @SuppressWarnings("synthetic-access")
+      @Override
+      public Iterator<IByType> iterator() {
+        return new ArrayList<IByType>(SelectedEntitiesImpl.this.byType).iterator();
+      }
+    };
   }
-  /**
-   * Sets the value of model property byType
-   *
-   * @param byType from OpenSCENARIO class model specification: [Defines the type to determine that
-   *     all entities of a specific type are members.]
-   */
-  public void setByType(List<IByType> byType) {
+
+  @Override
+  public int getByTypeSize() {
+    if (this.byType != null) return this.byType.size();
+    return 0;
+  }
+
+  @Override
+  public IByType getByTypeAtIndex(int index) {
+    if (index >= 0 && this.byType != null && this.byType.size() > index) {
+      return this.byType.get(index);
+    }
+    return null;
+  }
+
+  @Override
+  public void setEntityRef(List<IEntityRefWriter> entityRef) {
+    this.entityRef = entityRef;
+    this.byType = new ArrayList<>();
+  }
+
+  @Override
+  public void setByType(List<IByTypeWriter> byType) {
     this.byType = byType;
+    this.entityRef = new ArrayList<>();
   }
 
   @Override
@@ -111,17 +163,17 @@ public class SelectedEntitiesImpl extends BaseImpl implements ISelectedEntities 
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    List<IEntityRef> entityRef = null;
-    entityRef = getEntityRef();
+    List<IEntityRefWriter> entityRef = null;
+    entityRef = getWriterEntityRef();
     if (entityRef != null) {
-      for (IEntityRef item : entityRef) {
+      for (IEntityRefWriter item : entityRef) {
         result.add((BaseImpl) item);
       }
     }
-    List<IByType> byType = null;
-    byType = getByType();
+    List<IByTypeWriter> byType = null;
+    byType = getWriterByType();
     if (byType != null) {
-      for (IByType item : byType) {
+      for (IByTypeWriter item : byType) {
         result.add((BaseImpl) item);
       }
     }
@@ -144,23 +196,23 @@ public class SelectedEntitiesImpl extends BaseImpl implements ISelectedEntities 
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    List<IEntityRef> entityRef = null;
-    entityRef = getEntityRef();
+    List<IEntityRefWriter> entityRef = null;
+    entityRef = getWriterEntityRef();
     if (entityRef != null) {
-      List<IEntityRef> clonedList = new ArrayList<>();
-      for (IEntityRef item : entityRef) {
-        EntityRefImpl clonedChild = ((EntityRefImpl) item).clone();
+      List<IEntityRefWriter> clonedList = new ArrayList<>();
+      for (IEntityRefWriter item : entityRef) {
+        IEntityRefWriter clonedChild = ((EntityRefImpl) item).clone();
         clonedList.add(clonedChild);
         clonedChild.setParent(clonedObject);
       }
       clonedObject.setEntityRef(clonedList);
     }
-    List<IByType> byType = null;
-    byType = getByType();
+    List<IByTypeWriter> byType = null;
+    byType = getWriterByType();
     if (byType != null) {
-      List<IByType> clonedList = new ArrayList<>();
-      for (IByType item : byType) {
-        ByTypeImpl clonedChild = ((ByTypeImpl) item).clone();
+      List<IByTypeWriter> clonedList = new ArrayList<>();
+      for (IByTypeWriter item : byType) {
+        IByTypeWriter clonedChild = ((ByTypeImpl) item).clone();
         clonedList.add(clonedChild);
         clonedChild.setParent(clonedObject);
       }
@@ -249,4 +301,7 @@ public class SelectedEntitiesImpl extends BaseImpl implements ISelectedEntities 
   public String getModelType() {
     return "SelectedEntities";
   }
+
+  // children
+
 }

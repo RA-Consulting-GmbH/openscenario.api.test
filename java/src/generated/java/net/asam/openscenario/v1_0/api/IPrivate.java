@@ -16,7 +16,6 @@
  */
 package net.asam.openscenario.v1_0.api;
 
-import java.util.List;
 import net.asam.openscenario.api.IOpenScenarioModelElement;
 import net.asam.openscenario.common.INamedReference;
 
@@ -41,5 +40,19 @@ public interface IPrivate extends IOpenScenarioModelElement {
    *
    * @return value of model property privateActions
    */
-  public List<IPrivateAction> getPrivateActions();
+  public Iterable<IPrivateAction> getPrivateActions();
+
+  /**
+   * Retrieves the size of the list
+   *
+   * @return the size of the list
+   */
+  public int getPrivateActionsSize();
+  /**
+   * The element at specific index
+   *
+   * @param index the index of the list
+   * @return the element at index
+   */
+  public IPrivateAction getPrivateActionsAtIndex(int index);
 }

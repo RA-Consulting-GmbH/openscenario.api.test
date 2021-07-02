@@ -29,6 +29,9 @@ import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IControllerDistribution;
 import net.asam.openscenario.v1_0.api.ITrafficDefinition;
 import net.asam.openscenario.v1_0.api.IVehicleCategoryDistribution;
+import net.asam.openscenario.v1_0.api.writer.IControllerDistributionWriter;
+import net.asam.openscenario.v1_0.api.writer.ITrafficDefinitionWriter;
+import net.asam.openscenario.v1_0.api.writer.IVehicleCategoryDistributionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -46,7 +49,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class TrafficDefinitionImpl extends BaseImpl implements ITrafficDefinition {
+public class TrafficDefinitionImpl extends BaseImpl implements ITrafficDefinitionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -55,13 +58,15 @@ public class TrafficDefinitionImpl extends BaseImpl implements ITrafficDefinitio
   }
 
   private String name;
-  private IVehicleCategoryDistribution vehicleCategoryDistribution;
-  private IControllerDistribution controllerDistribution;
+  private IVehicleCategoryDistributionWriter vehicleCategoryDistribution;
+  private IControllerDistributionWriter controllerDistribution;
+
   /** Default constructor */
   public TrafficDefinitionImpl() {
     super();
     addAdapter(TrafficDefinitionImpl.class, this);
     addAdapter(ITrafficDefinition.class, this);
+    addAdapter(ITrafficDefinitionWriter.class, this);
   }
 
   @Override
@@ -83,31 +88,21 @@ public class TrafficDefinitionImpl extends BaseImpl implements ITrafficDefinitio
   public IControllerDistribution getControllerDistribution() {
     return this.controllerDistribution;
   }
-  /**
-   * Sets the value of model property name
-   *
-   * @param name from OpenSCENARIO class model specification: [Name of the traffic definition.]
-   */
+
+  @Override
   public void setName(String name) {
     this.name = name;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__NAME);
   }
-  /**
-   * Sets the value of model property vehicleCategoryDistribution
-   *
-   * @param vehicleCategoryDistribution from OpenSCENARIO class model specification: [Distribution
-   *     of vehicle categories within the traffic.]
-   */
+
+  @Override
   public void setVehicleCategoryDistribution(
-      IVehicleCategoryDistribution vehicleCategoryDistribution) {
+      IVehicleCategoryDistributionWriter vehicleCategoryDistribution) {
     this.vehicleCategoryDistribution = vehicleCategoryDistribution;
   }
-  /**
-   * Sets the value of model property controllerDistribution
-   *
-   * @param controllerDistribution from OpenSCENARIO class model specification: [Distribution of
-   *     controllers within this traffic.]
-   */
-  public void setControllerDistribution(IControllerDistribution controllerDistribution) {
+
+  @Override
+  public void setControllerDistribution(IControllerDistributionWriter controllerDistribution) {
     this.controllerDistribution = controllerDistribution;
   }
 
@@ -137,13 +132,13 @@ public class TrafficDefinitionImpl extends BaseImpl implements ITrafficDefinitio
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IVehicleCategoryDistribution vehicleCategoryDistribution = null;
-    vehicleCategoryDistribution = getVehicleCategoryDistribution();
+    IVehicleCategoryDistributionWriter vehicleCategoryDistribution = null;
+    vehicleCategoryDistribution = getWriterVehicleCategoryDistribution();
     if (vehicleCategoryDistribution != null) {
       result.add((BaseImpl) vehicleCategoryDistribution);
     }
-    IControllerDistribution controllerDistribution = null;
-    controllerDistribution = getControllerDistribution();
+    IControllerDistributionWriter controllerDistribution = null;
+    controllerDistribution = getWriterControllerDistribution();
     if (controllerDistribution != null) {
       result.add((BaseImpl) controllerDistribution);
     }
@@ -166,20 +161,20 @@ public class TrafficDefinitionImpl extends BaseImpl implements ITrafficDefinitio
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setName(getName());
+    clonedObject.name = getName();
     // clone children
-    IVehicleCategoryDistribution vehicleCategoryDistribution = null;
-    vehicleCategoryDistribution = getVehicleCategoryDistribution();
+    IVehicleCategoryDistributionWriter vehicleCategoryDistribution = null;
+    vehicleCategoryDistribution = getWriterVehicleCategoryDistribution();
     if (vehicleCategoryDistribution != null) {
-      VehicleCategoryDistributionImpl clonedChild =
+      IVehicleCategoryDistributionWriter clonedChild =
           ((VehicleCategoryDistributionImpl) vehicleCategoryDistribution).clone();
       clonedObject.setVehicleCategoryDistribution(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IControllerDistribution controllerDistribution = null;
-    controllerDistribution = getControllerDistribution();
+    IControllerDistributionWriter controllerDistribution = null;
+    controllerDistribution = getWriterControllerDistribution();
     if (controllerDistribution != null) {
-      ControllerDistributionImpl clonedChild =
+      IControllerDistributionWriter clonedChild =
           ((ControllerDistributionImpl) controllerDistribution).clone();
       clonedObject.setControllerDistribution(clonedChild);
       clonedChild.setParent(clonedObject);
@@ -271,5 +266,32 @@ public class TrafficDefinitionImpl extends BaseImpl implements ITrafficDefinitio
   @Override
   public String getModelType() {
     return "TrafficDefinition";
+  }
+
+  @Override
+  public void writeParameterToName(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__NAME, parameterName, null /*no textmarker*/);
+    this.name = null;
+  }
+
+  @Override
+  public String getParameterFromName() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__NAME);
+  }
+
+  @Override
+  public boolean isNameParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__NAME);
+  }
+
+  // children
+  @Override
+  public IVehicleCategoryDistributionWriter getWriterVehicleCategoryDistribution() {
+    return this.vehicleCategoryDistribution;
+  }
+
+  @Override
+  public IControllerDistributionWriter getWriterControllerDistribution() {
+    return this.controllerDistribution;
   }
 }

@@ -46,6 +46,8 @@ include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/v1_0/s
 
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/common/api )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/common/checker )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/common/export )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/common/checker/tree )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/common/common )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/common/impl )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/common/loader )
@@ -55,12 +57,14 @@ include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/common
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/common/xmlIndexer )
 
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/v1_0/generated/api )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/v1_0/generated/api/writer )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/v1_0/generated/common )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/v1_0/generated/checker )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/v1_0/generated/checker/impl )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/v1_0/generated/checker/range )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/v1_0/generated/catalog)
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/v1_0/generated/impl )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../../openScenarioLib/v1_0/generated/export/xml )
 
 
 ################################################################
@@ -79,6 +83,7 @@ set( HEADERS
   "src/TestBase.h"
   "src/TestFiles.h"
   "src/TestReader.h"
+  "src/TestWriterApi.h"
   "src/TestImports.h"
   "src/TestSimpleDemos.h"
   "src/TestRangeChecker.h"
@@ -114,5 +119,6 @@ target_link_libraries( ${PROJECT_NAME} OpenScenarioLib.v1_0 )
 ################################################################
 # Visual Studio solution settings
 if( MSVC )
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /bigobj")
   set_target_properties( ${PROJECT_NAME} PROPERTIES FOLDER Apps )
 endif()

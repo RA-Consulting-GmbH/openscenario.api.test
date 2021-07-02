@@ -28,6 +28,9 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.ICatalogReference;
 import net.asam.openscenario.v1_0.api.IController;
 import net.asam.openscenario.v1_0.api.IObjectController;
+import net.asam.openscenario.v1_0.api.writer.ICatalogReferenceWriter;
+import net.asam.openscenario.v1_0.api.writer.IControllerWriter;
+import net.asam.openscenario.v1_0.api.writer.IObjectControllerWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,16 +48,18 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ObjectControllerImpl extends BaseImpl implements IObjectController {
+public class ObjectControllerImpl extends BaseImpl implements IObjectControllerWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private ICatalogReference catalogReference;
-  private IController controller;
+  private ICatalogReferenceWriter catalogReference;
+  private IControllerWriter controller;
+
   /** Default constructor */
   public ObjectControllerImpl() {
     super();
     addAdapter(ObjectControllerImpl.class, this);
     addAdapter(IObjectController.class, this);
+    addAdapter(IObjectControllerWriter.class, this);
   }
 
   @Override
@@ -71,22 +76,17 @@ public class ObjectControllerImpl extends BaseImpl implements IObjectController 
   public IController getController() {
     return this.controller;
   }
-  /**
-   * Sets the value of model property catalogReference
-   *
-   * @param catalogReference from OpenSCENARIO class model specification: [Catalog reference to a
-   *     controller.]
-   */
-  public void setCatalogReference(ICatalogReference catalogReference) {
+
+  @Override
+  public void setCatalogReference(ICatalogReferenceWriter catalogReference) {
     this.catalogReference = catalogReference;
+    this.controller = null;
   }
-  /**
-   * Sets the value of model property controller
-   *
-   * @param controller from OpenSCENARIO class model specification: [Controller type definition.]
-   */
-  public void setController(IController controller) {
+
+  @Override
+  public void setController(IControllerWriter controller) {
     this.controller = controller;
+    this.catalogReference = null;
   }
 
   @Override
@@ -110,13 +110,13 @@ public class ObjectControllerImpl extends BaseImpl implements IObjectController 
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    ICatalogReference catalogReference = null;
-    catalogReference = getCatalogReference();
+    ICatalogReferenceWriter catalogReference = null;
+    catalogReference = getWriterCatalogReference();
     if (catalogReference != null) {
       result.add((BaseImpl) catalogReference);
     }
-    IController controller = null;
-    controller = getController();
+    IControllerWriter controller = null;
+    controller = getWriterController();
     if (controller != null) {
       result.add((BaseImpl) controller);
     }
@@ -139,17 +139,17 @@ public class ObjectControllerImpl extends BaseImpl implements IObjectController 
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    ICatalogReference catalogReference = null;
-    catalogReference = getCatalogReference();
+    ICatalogReferenceWriter catalogReference = null;
+    catalogReference = getWriterCatalogReference();
     if (catalogReference != null) {
-      CatalogReferenceImpl clonedChild = ((CatalogReferenceImpl) catalogReference).clone();
+      ICatalogReferenceWriter clonedChild = ((CatalogReferenceImpl) catalogReference).clone();
       clonedObject.setCatalogReference(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IController controller = null;
-    controller = getController();
+    IControllerWriter controller = null;
+    controller = getWriterController();
     if (controller != null) {
-      ControllerImpl clonedChild = ((ControllerImpl) controller).clone();
+      IControllerWriter clonedChild = ((ControllerImpl) controller).clone();
       clonedObject.setController(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -234,5 +234,16 @@ public class ObjectControllerImpl extends BaseImpl implements IObjectController 
   @Override
   public String getModelType() {
     return "ObjectController";
+  }
+
+  // children
+  @Override
+  public ICatalogReferenceWriter getWriterCatalogReference() {
+    return this.catalogReference;
+  }
+
+  @Override
+  public IControllerWriter getWriterController() {
+    return this.controller;
   }
 }

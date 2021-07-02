@@ -34,6 +34,15 @@ import net.asam.openscenario.v1_0.api.IPedestrianCatalogLocation;
 import net.asam.openscenario.v1_0.api.IRouteCatalogLocation;
 import net.asam.openscenario.v1_0.api.ITrajectoryCatalogLocation;
 import net.asam.openscenario.v1_0.api.IVehicleCatalogLocation;
+import net.asam.openscenario.v1_0.api.writer.ICatalogLocationsWriter;
+import net.asam.openscenario.v1_0.api.writer.IControllerCatalogLocationWriter;
+import net.asam.openscenario.v1_0.api.writer.IEnvironmentCatalogLocationWriter;
+import net.asam.openscenario.v1_0.api.writer.IManeuverCatalogLocationWriter;
+import net.asam.openscenario.v1_0.api.writer.IMiscObjectCatalogLocationWriter;
+import net.asam.openscenario.v1_0.api.writer.IPedestrianCatalogLocationWriter;
+import net.asam.openscenario.v1_0.api.writer.IRouteCatalogLocationWriter;
+import net.asam.openscenario.v1_0.api.writer.ITrajectoryCatalogLocationWriter;
+import net.asam.openscenario.v1_0.api.writer.IVehicleCatalogLocationWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -51,22 +60,24 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class CatalogLocationsImpl extends BaseImpl implements ICatalogLocations {
+public class CatalogLocationsImpl extends BaseImpl implements ICatalogLocationsWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private IVehicleCatalogLocation vehicleCatalog;
-  private IControllerCatalogLocation controllerCatalog;
-  private IPedestrianCatalogLocation pedestrianCatalog;
-  private IMiscObjectCatalogLocation miscObjectCatalog;
-  private IEnvironmentCatalogLocation environmentCatalog;
-  private IManeuverCatalogLocation maneuverCatalog;
-  private ITrajectoryCatalogLocation trajectoryCatalog;
-  private IRouteCatalogLocation routeCatalog;
+  private IVehicleCatalogLocationWriter vehicleCatalog;
+  private IControllerCatalogLocationWriter controllerCatalog;
+  private IPedestrianCatalogLocationWriter pedestrianCatalog;
+  private IMiscObjectCatalogLocationWriter miscObjectCatalog;
+  private IEnvironmentCatalogLocationWriter environmentCatalog;
+  private IManeuverCatalogLocationWriter maneuverCatalog;
+  private ITrajectoryCatalogLocationWriter trajectoryCatalog;
+  private IRouteCatalogLocationWriter routeCatalog;
+
   /** Default constructor */
   public CatalogLocationsImpl() {
     super();
     addAdapter(CatalogLocationsImpl.class, this);
     addAdapter(ICatalogLocations.class, this);
+    addAdapter(ICatalogLocationsWriter.class, this);
   }
 
   @Override
@@ -113,76 +124,44 @@ public class CatalogLocationsImpl extends BaseImpl implements ICatalogLocations 
   public IRouteCatalogLocation getRouteCatalog() {
     return this.routeCatalog;
   }
-  /**
-   * Sets the value of model property vehicleCatalog
-   *
-   * @param vehicleCatalog from OpenSCENARIO class model specification: [This catalog location is
-   *     the first choice to resolve CatalogReferences on vehicle types.]
-   */
-  public void setVehicleCatalog(IVehicleCatalogLocation vehicleCatalog) {
+
+  @Override
+  public void setVehicleCatalog(IVehicleCatalogLocationWriter vehicleCatalog) {
     this.vehicleCatalog = vehicleCatalog;
   }
-  /**
-   * Sets the value of model property controllerCatalog
-   *
-   * @param controllerCatalog from OpenSCENARIO class model specification: [This catalog location is
-   *     the first choice to resolve CatalogReferences on controller types.]
-   */
-  public void setControllerCatalog(IControllerCatalogLocation controllerCatalog) {
+
+  @Override
+  public void setControllerCatalog(IControllerCatalogLocationWriter controllerCatalog) {
     this.controllerCatalog = controllerCatalog;
   }
-  /**
-   * Sets the value of model property pedestrianCatalog
-   *
-   * @param pedestrianCatalog from OpenSCENARIO class model specification: [This catalog location is
-   *     the first choice to resolve CatalogReferences on pedestrian types.]
-   */
-  public void setPedestrianCatalog(IPedestrianCatalogLocation pedestrianCatalog) {
+
+  @Override
+  public void setPedestrianCatalog(IPedestrianCatalogLocationWriter pedestrianCatalog) {
     this.pedestrianCatalog = pedestrianCatalog;
   }
-  /**
-   * Sets the value of model property miscObjectCatalog
-   *
-   * @param miscObjectCatalog from OpenSCENARIO class model specification: [This catalog location is
-   *     the first choice to resolve CatalogReferences on miscellaneous object types.]
-   */
-  public void setMiscObjectCatalog(IMiscObjectCatalogLocation miscObjectCatalog) {
+
+  @Override
+  public void setMiscObjectCatalog(IMiscObjectCatalogLocationWriter miscObjectCatalog) {
     this.miscObjectCatalog = miscObjectCatalog;
   }
-  /**
-   * Sets the value of model property environmentCatalog
-   *
-   * @param environmentCatalog from OpenSCENARIO class model specification: [This catalog location
-   *     is the first choice to resolve CatalogReferences on environment types.]
-   */
-  public void setEnvironmentCatalog(IEnvironmentCatalogLocation environmentCatalog) {
+
+  @Override
+  public void setEnvironmentCatalog(IEnvironmentCatalogLocationWriter environmentCatalog) {
     this.environmentCatalog = environmentCatalog;
   }
-  /**
-   * Sets the value of model property maneuverCatalog
-   *
-   * @param maneuverCatalog from OpenSCENARIO class model specification: [This catalog location is
-   *     the first choice to resolve CatalogReferences on maneuver types.]
-   */
-  public void setManeuverCatalog(IManeuverCatalogLocation maneuverCatalog) {
+
+  @Override
+  public void setManeuverCatalog(IManeuverCatalogLocationWriter maneuverCatalog) {
     this.maneuverCatalog = maneuverCatalog;
   }
-  /**
-   * Sets the value of model property trajectoryCatalog
-   *
-   * @param trajectoryCatalog from OpenSCENARIO class model specification: [This catalog location is
-   *     the first choice to resolve CatalogReferences on trajectory types.]
-   */
-  public void setTrajectoryCatalog(ITrajectoryCatalogLocation trajectoryCatalog) {
+
+  @Override
+  public void setTrajectoryCatalog(ITrajectoryCatalogLocationWriter trajectoryCatalog) {
     this.trajectoryCatalog = trajectoryCatalog;
   }
-  /**
-   * Sets the value of model property routeCatalog
-   *
-   * @param routeCatalog from OpenSCENARIO class model specification: [This catalog location is the
-   *     first choice to resolve CatalogReferences on route types.]
-   */
-  public void setRouteCatalog(IRouteCatalogLocation routeCatalog) {
+
+  @Override
+  public void setRouteCatalog(IRouteCatalogLocationWriter routeCatalog) {
     this.routeCatalog = routeCatalog;
   }
 
@@ -207,43 +186,43 @@ public class CatalogLocationsImpl extends BaseImpl implements ICatalogLocations 
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IVehicleCatalogLocation vehicleCatalog = null;
-    vehicleCatalog = getVehicleCatalog();
+    IVehicleCatalogLocationWriter vehicleCatalog = null;
+    vehicleCatalog = getWriterVehicleCatalog();
     if (vehicleCatalog != null) {
       result.add((BaseImpl) vehicleCatalog);
     }
-    IControllerCatalogLocation controllerCatalog = null;
-    controllerCatalog = getControllerCatalog();
+    IControllerCatalogLocationWriter controllerCatalog = null;
+    controllerCatalog = getWriterControllerCatalog();
     if (controllerCatalog != null) {
       result.add((BaseImpl) controllerCatalog);
     }
-    IPedestrianCatalogLocation pedestrianCatalog = null;
-    pedestrianCatalog = getPedestrianCatalog();
+    IPedestrianCatalogLocationWriter pedestrianCatalog = null;
+    pedestrianCatalog = getWriterPedestrianCatalog();
     if (pedestrianCatalog != null) {
       result.add((BaseImpl) pedestrianCatalog);
     }
-    IMiscObjectCatalogLocation miscObjectCatalog = null;
-    miscObjectCatalog = getMiscObjectCatalog();
+    IMiscObjectCatalogLocationWriter miscObjectCatalog = null;
+    miscObjectCatalog = getWriterMiscObjectCatalog();
     if (miscObjectCatalog != null) {
       result.add((BaseImpl) miscObjectCatalog);
     }
-    IEnvironmentCatalogLocation environmentCatalog = null;
-    environmentCatalog = getEnvironmentCatalog();
+    IEnvironmentCatalogLocationWriter environmentCatalog = null;
+    environmentCatalog = getWriterEnvironmentCatalog();
     if (environmentCatalog != null) {
       result.add((BaseImpl) environmentCatalog);
     }
-    IManeuverCatalogLocation maneuverCatalog = null;
-    maneuverCatalog = getManeuverCatalog();
+    IManeuverCatalogLocationWriter maneuverCatalog = null;
+    maneuverCatalog = getWriterManeuverCatalog();
     if (maneuverCatalog != null) {
       result.add((BaseImpl) maneuverCatalog);
     }
-    ITrajectoryCatalogLocation trajectoryCatalog = null;
-    trajectoryCatalog = getTrajectoryCatalog();
+    ITrajectoryCatalogLocationWriter trajectoryCatalog = null;
+    trajectoryCatalog = getWriterTrajectoryCatalog();
     if (trajectoryCatalog != null) {
       result.add((BaseImpl) trajectoryCatalog);
     }
-    IRouteCatalogLocation routeCatalog = null;
-    routeCatalog = getRouteCatalog();
+    IRouteCatalogLocationWriter routeCatalog = null;
+    routeCatalog = getWriterRouteCatalog();
     if (routeCatalog != null) {
       result.add((BaseImpl) routeCatalog);
     }
@@ -266,66 +245,66 @@ public class CatalogLocationsImpl extends BaseImpl implements ICatalogLocations 
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    IVehicleCatalogLocation vehicleCatalog = null;
-    vehicleCatalog = getVehicleCatalog();
+    IVehicleCatalogLocationWriter vehicleCatalog = null;
+    vehicleCatalog = getWriterVehicleCatalog();
     if (vehicleCatalog != null) {
-      VehicleCatalogLocationImpl clonedChild =
+      IVehicleCatalogLocationWriter clonedChild =
           ((VehicleCatalogLocationImpl) vehicleCatalog).clone();
       clonedObject.setVehicleCatalog(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IControllerCatalogLocation controllerCatalog = null;
-    controllerCatalog = getControllerCatalog();
+    IControllerCatalogLocationWriter controllerCatalog = null;
+    controllerCatalog = getWriterControllerCatalog();
     if (controllerCatalog != null) {
-      ControllerCatalogLocationImpl clonedChild =
+      IControllerCatalogLocationWriter clonedChild =
           ((ControllerCatalogLocationImpl) controllerCatalog).clone();
       clonedObject.setControllerCatalog(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IPedestrianCatalogLocation pedestrianCatalog = null;
-    pedestrianCatalog = getPedestrianCatalog();
+    IPedestrianCatalogLocationWriter pedestrianCatalog = null;
+    pedestrianCatalog = getWriterPedestrianCatalog();
     if (pedestrianCatalog != null) {
-      PedestrianCatalogLocationImpl clonedChild =
+      IPedestrianCatalogLocationWriter clonedChild =
           ((PedestrianCatalogLocationImpl) pedestrianCatalog).clone();
       clonedObject.setPedestrianCatalog(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IMiscObjectCatalogLocation miscObjectCatalog = null;
-    miscObjectCatalog = getMiscObjectCatalog();
+    IMiscObjectCatalogLocationWriter miscObjectCatalog = null;
+    miscObjectCatalog = getWriterMiscObjectCatalog();
     if (miscObjectCatalog != null) {
-      MiscObjectCatalogLocationImpl clonedChild =
+      IMiscObjectCatalogLocationWriter clonedChild =
           ((MiscObjectCatalogLocationImpl) miscObjectCatalog).clone();
       clonedObject.setMiscObjectCatalog(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IEnvironmentCatalogLocation environmentCatalog = null;
-    environmentCatalog = getEnvironmentCatalog();
+    IEnvironmentCatalogLocationWriter environmentCatalog = null;
+    environmentCatalog = getWriterEnvironmentCatalog();
     if (environmentCatalog != null) {
-      EnvironmentCatalogLocationImpl clonedChild =
+      IEnvironmentCatalogLocationWriter clonedChild =
           ((EnvironmentCatalogLocationImpl) environmentCatalog).clone();
       clonedObject.setEnvironmentCatalog(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IManeuverCatalogLocation maneuverCatalog = null;
-    maneuverCatalog = getManeuverCatalog();
+    IManeuverCatalogLocationWriter maneuverCatalog = null;
+    maneuverCatalog = getWriterManeuverCatalog();
     if (maneuverCatalog != null) {
-      ManeuverCatalogLocationImpl clonedChild =
+      IManeuverCatalogLocationWriter clonedChild =
           ((ManeuverCatalogLocationImpl) maneuverCatalog).clone();
       clonedObject.setManeuverCatalog(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    ITrajectoryCatalogLocation trajectoryCatalog = null;
-    trajectoryCatalog = getTrajectoryCatalog();
+    ITrajectoryCatalogLocationWriter trajectoryCatalog = null;
+    trajectoryCatalog = getWriterTrajectoryCatalog();
     if (trajectoryCatalog != null) {
-      TrajectoryCatalogLocationImpl clonedChild =
+      ITrajectoryCatalogLocationWriter clonedChild =
           ((TrajectoryCatalogLocationImpl) trajectoryCatalog).clone();
       clonedObject.setTrajectoryCatalog(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IRouteCatalogLocation routeCatalog = null;
-    routeCatalog = getRouteCatalog();
+    IRouteCatalogLocationWriter routeCatalog = null;
+    routeCatalog = getWriterRouteCatalog();
     if (routeCatalog != null) {
-      RouteCatalogLocationImpl clonedChild = ((RouteCatalogLocationImpl) routeCatalog).clone();
+      IRouteCatalogLocationWriter clonedChild = ((RouteCatalogLocationImpl) routeCatalog).clone();
       clonedObject.setRouteCatalog(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -428,5 +407,46 @@ public class CatalogLocationsImpl extends BaseImpl implements ICatalogLocations 
   @Override
   public String getModelType() {
     return "CatalogLocations";
+  }
+
+  // children
+  @Override
+  public IVehicleCatalogLocationWriter getWriterVehicleCatalog() {
+    return this.vehicleCatalog;
+  }
+
+  @Override
+  public IControllerCatalogLocationWriter getWriterControllerCatalog() {
+    return this.controllerCatalog;
+  }
+
+  @Override
+  public IPedestrianCatalogLocationWriter getWriterPedestrianCatalog() {
+    return this.pedestrianCatalog;
+  }
+
+  @Override
+  public IMiscObjectCatalogLocationWriter getWriterMiscObjectCatalog() {
+    return this.miscObjectCatalog;
+  }
+
+  @Override
+  public IEnvironmentCatalogLocationWriter getWriterEnvironmentCatalog() {
+    return this.environmentCatalog;
+  }
+
+  @Override
+  public IManeuverCatalogLocationWriter getWriterManeuverCatalog() {
+    return this.maneuverCatalog;
+  }
+
+  @Override
+  public ITrajectoryCatalogLocationWriter getWriterTrajectoryCatalog() {
+    return this.trajectoryCatalog;
+  }
+
+  @Override
+  public IRouteCatalogLocationWriter getWriterRouteCatalog() {
+    return this.routeCatalog;
   }
 }

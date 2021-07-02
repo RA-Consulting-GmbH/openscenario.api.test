@@ -27,6 +27,7 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IFile;
+import net.asam.openscenario.v1_0.api.writer.IFileWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -44,7 +45,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class FileImpl extends BaseImpl implements IFile {
+public class FileImpl extends BaseImpl implements IFileWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -53,11 +54,13 @@ public class FileImpl extends BaseImpl implements IFile {
   }
 
   private String filepath;
+
   /** Default constructor */
   public FileImpl() {
     super();
     addAdapter(FileImpl.class, this);
     addAdapter(IFile.class, this);
+    addAdapter(IFileWriter.class, this);
   }
 
   @Override
@@ -69,14 +72,11 @@ public class FileImpl extends BaseImpl implements IFile {
   public String getFilepath() {
     return this.filepath;
   }
-  /**
-   * Sets the value of model property filepath
-   *
-   * @param filepath from OpenSCENARIO class model specification: [Filepath e.g.
-   *     filepath=/home/simulator/customDriverSpecification.xml.]
-   */
+
+  @Override
   public void setFilepath(String filepath) {
     this.filepath = filepath;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__FILEPATH);
   }
 
   @Override
@@ -124,7 +124,7 @@ public class FileImpl extends BaseImpl implements IFile {
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setFilepath(getFilepath());
+    clonedObject.filepath = getFilepath();
     // clone children
     return clonedObject;
   }
@@ -205,4 +205,23 @@ public class FileImpl extends BaseImpl implements IFile {
   public String getModelType() {
     return "File";
   }
+
+  @Override
+  public void writeParameterToFilepath(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__FILEPATH, parameterName, null /*no textmarker*/);
+    this.filepath = null;
+  }
+
+  @Override
+  public String getParameterFromFilepath() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__FILEPATH);
+  }
+
+  @Override
+  public boolean isFilepathParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__FILEPATH);
+  }
+
+  // children
+
 }

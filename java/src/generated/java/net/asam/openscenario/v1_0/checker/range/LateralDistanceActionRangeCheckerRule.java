@@ -18,6 +18,7 @@ package net.asam.openscenario.v1_0.checker.range;
 
 import net.asam.openscenario.checker.RangeCheckerRule;
 import net.asam.openscenario.common.IParserMessageLogger;
+import net.asam.openscenario.common.ITreeMessageLogger;
 import net.asam.openscenario.v1_0.api.ILateralDistanceAction;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
@@ -36,18 +37,43 @@ public class LateralDistanceActionRangeCheckerRule
   }
 
   @Override
-  public void applyRule(IParserMessageLogger messageLogger, ILateralDistanceAction object) {
+  public void applyRuleInFileContext(
+      IParserMessageLogger messageLogger, ILateralDistanceAction object) {
+    apply(messageLogger, null, object);
+  }
+
+  @Override
+  public void applyRuleInTreeContext(
+      ITreeMessageLogger messageLogger, ILateralDistanceAction object) {
+    apply(null, messageLogger, object);
+  }
+
+  private void apply(
+      IParserMessageLogger fileMessageLogger,
+      ITreeMessageLogger treeMessageLogger,
+      ILateralDistanceAction object) {
     Double distance = object.getDistance();
     if (distance != null) {
       if (!(distance >= 0)) {
-        logMessage(
-            object,
-            messageLogger,
-            OscConstants.ATTRIBUTE__DISTANCE,
-            object.getDistance().toString(),
-            ">=",
-            "0",
-            OscConstants.ATTRIBUTE__DISTANCE);
+        if (fileMessageLogger != null) {
+          logFileContentMessage(
+              object,
+              fileMessageLogger,
+              OscConstants.ATTRIBUTE__DISTANCE,
+              object.getDistance().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__DISTANCE);
+        } else {
+          logTreeContentMessage(
+              object,
+              treeMessageLogger,
+              OscConstants.ATTRIBUTE__DISTANCE,
+              object.getDistance().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__DISTANCE);
+        }
       }
     }
   }

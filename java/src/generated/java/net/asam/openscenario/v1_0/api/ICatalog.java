@@ -16,7 +16,6 @@
  */
 package net.asam.openscenario.v1_0.api;
 
-import java.util.List;
 import net.asam.openscenario.api.IOpenScenarioModelElement;
 
 /**
@@ -41,54 +40,159 @@ public interface ICatalog extends IOpenScenarioModelElement {
    *
    * @return value of model property vehicles
    */
-  public List<IVehicle> getVehicles();
+  public Iterable<IVehicle> getVehicles();
   /**
    * From OpenSCENARIO class model specification: A list of controller types that can be reused in a
    * scenario.
    *
    * @return value of model property controllers
    */
-  public List<IController> getControllers();
+  public Iterable<IController> getControllers();
   /**
    * From OpenSCENARIO class model specification: A list of pedestrian types that can be reused in a
    * scenario.
    *
    * @return value of model property pedestrians
    */
-  public List<IPedestrian> getPedestrians();
+  public Iterable<IPedestrian> getPedestrians();
   /**
    * From OpenSCENARIO class model specification: A list of miscellaneous object type that that can
    * be reused in a scenario.
    *
    * @return value of model property miscObjects
    */
-  public List<IMiscObject> getMiscObjects();
+  public Iterable<IMiscObject> getMiscObjects();
   /**
    * From OpenSCENARIO class model specification: A list of environment types that can be reused in
    * a scenario.
    *
    * @return value of model property environments
    */
-  public List<IEnvironment> getEnvironments();
+  public Iterable<IEnvironment> getEnvironments();
   /**
    * From OpenSCENARIO class model specification: A list of maneuver types that can be reused in a
    * scenario.
    *
    * @return value of model property maneuvers
    */
-  public List<IManeuver> getManeuvers();
+  public Iterable<IManeuver> getManeuvers();
   /**
    * From OpenSCENARIO class model specification: A list of trajectory types that can be reused in a
    * scenario.
    *
    * @return value of model property trajectories
    */
-  public List<ITrajectory> getTrajectories();
+  public Iterable<ITrajectory> getTrajectories();
   /**
    * From OpenSCENARIO class model specification: A list of route types that can be reused in a
    * scenario.
    *
    * @return value of model property routes
    */
-  public List<IRoute> getRoutes();
+  public Iterable<IRoute> getRoutes();
+
+  /**
+   * Retrieves the size of the list
+   *
+   * @return the size of the list
+   */
+  public int getVehiclesSize();
+  /**
+   * The element at specific index
+   *
+   * @param index the index of the list
+   * @return the element at index
+   */
+  public IVehicle getVehiclesAtIndex(int index);
+  /**
+   * Retrieves the size of the list
+   *
+   * @return the size of the list
+   */
+  public int getControllersSize();
+  /**
+   * The element at specific index
+   *
+   * @param index the index of the list
+   * @return the element at index
+   */
+  public IController getControllersAtIndex(int index);
+  /**
+   * Retrieves the size of the list
+   *
+   * @return the size of the list
+   */
+  public int getPedestriansSize();
+  /**
+   * The element at specific index
+   *
+   * @param index the index of the list
+   * @return the element at index
+   */
+  public IPedestrian getPedestriansAtIndex(int index);
+  /**
+   * Retrieves the size of the list
+   *
+   * @return the size of the list
+   */
+  public int getMiscObjectsSize();
+  /**
+   * The element at specific index
+   *
+   * @param index the index of the list
+   * @return the element at index
+   */
+  public IMiscObject getMiscObjectsAtIndex(int index);
+  /**
+   * Retrieves the size of the list
+   *
+   * @return the size of the list
+   */
+  public int getEnvironmentsSize();
+  /**
+   * The element at specific index
+   *
+   * @param index the index of the list
+   * @return the element at index
+   */
+  public IEnvironment getEnvironmentsAtIndex(int index);
+  /**
+   * Retrieves the size of the list
+   *
+   * @return the size of the list
+   */
+  public int getManeuversSize();
+  /**
+   * The element at specific index
+   *
+   * @param index the index of the list
+   * @return the element at index
+   */
+  public IManeuver getManeuversAtIndex(int index);
+  /**
+   * Retrieves the size of the list
+   *
+   * @return the size of the list
+   */
+  public int getTrajectoriesSize();
+  /**
+   * The element at specific index
+   *
+   * @param index the index of the list
+   * @return the element at index
+   */
+  public ITrajectory getTrajectoriesAtIndex(int index);
+  /**
+   * Retrieves the size of the list
+   *
+   * @return the size of the list
+   */
+  public int getRoutesSize();
+  /**
+   * The element at specific index
+   *
+   * @param index the index of the list
+   * @return the element at index
+   */
+  public IRoute getRoutesAtIndex(int index);
 }

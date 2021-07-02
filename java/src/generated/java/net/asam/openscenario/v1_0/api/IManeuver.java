@@ -16,8 +16,6 @@
  */
 package net.asam.openscenario.v1_0.api;
 
-import java.util.List;
-
 /**
  * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
  *
@@ -38,11 +36,38 @@ public interface IManeuver extends IStoryboardElement, ICatalogElement {
    *
    * @return value of model property parameterDeclarations
    */
-  public List<IParameterDeclaration> getParameterDeclarations();
+  public Iterable<IParameterDeclaration> getParameterDeclarations();
   /**
    * From OpenSCENARIO class model specification: List of events that are comprised by the maneuver.
    *
    * @return value of model property events
    */
-  public List<IEvent> getEvents();
+  public Iterable<IEvent> getEvents();
+
+  /**
+   * Retrieves the size of the list
+   *
+   * @return the size of the list
+   */
+  public int getParameterDeclarationsSize();
+  /**
+   * The element at specific index
+   *
+   * @param index the index of the list
+   * @return the element at index
+   */
+  public IParameterDeclaration getParameterDeclarationsAtIndex(int index);
+  /**
+   * Retrieves the size of the list
+   *
+   * @return the size of the list
+   */
+  public int getEventsSize();
+  /**
+   * The element at specific index
+   *
+   * @param index the index of the list
+   * @return the element at index
+   */
+  public IEvent getEventsAtIndex(int index);
 }

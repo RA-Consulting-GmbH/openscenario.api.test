@@ -28,6 +28,9 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.IByObjectType;
 import net.asam.openscenario.v1_0.api.ICollisionCondition;
 import net.asam.openscenario.v1_0.api.IEntityRef;
+import net.asam.openscenario.v1_0.api.writer.IByObjectTypeWriter;
+import net.asam.openscenario.v1_0.api.writer.ICollisionConditionWriter;
+import net.asam.openscenario.v1_0.api.writer.IEntityRefWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,16 +48,18 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class CollisionConditionImpl extends BaseImpl implements ICollisionCondition {
+public class CollisionConditionImpl extends BaseImpl implements ICollisionConditionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private IEntityRef entityRef;
-  private IByObjectType byType;
+  private IEntityRefWriter entityRef;
+  private IByObjectTypeWriter byType;
+
   /** Default constructor */
   public CollisionConditionImpl() {
     super();
     addAdapter(CollisionConditionImpl.class, this);
     addAdapter(ICollisionCondition.class, this);
+    addAdapter(ICollisionConditionWriter.class, this);
   }
 
   @Override
@@ -71,22 +76,17 @@ public class CollisionConditionImpl extends BaseImpl implements ICollisionCondit
   public IByObjectType getByType() {
     return this.byType;
   }
-  /**
-   * Sets the value of model property entityRef
-   *
-   * @param entityRef from OpenSCENARIO class model specification: [Name of a specific entity.]
-   */
-  public void setEntityRef(IEntityRef entityRef) {
+
+  @Override
+  public void setEntityRef(IEntityRefWriter entityRef) {
     this.entityRef = entityRef;
+    this.byType = null;
   }
-  /**
-   * Sets the value of model property byType
-   *
-   * @param byType from OpenSCENARIO class model specification: [Entities of this type can trigger
-   *     the condition when collide.]
-   */
-  public void setByType(IByObjectType byType) {
+
+  @Override
+  public void setByType(IByObjectTypeWriter byType) {
     this.byType = byType;
+    this.entityRef = null;
   }
 
   @Override
@@ -110,13 +110,13 @@ public class CollisionConditionImpl extends BaseImpl implements ICollisionCondit
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IEntityRef entityRef = null;
-    entityRef = getEntityRef();
+    IEntityRefWriter entityRef = null;
+    entityRef = getWriterEntityRef();
     if (entityRef != null) {
       result.add((BaseImpl) entityRef);
     }
-    IByObjectType byType = null;
-    byType = getByType();
+    IByObjectTypeWriter byType = null;
+    byType = getWriterByType();
     if (byType != null) {
       result.add((BaseImpl) byType);
     }
@@ -139,17 +139,17 @@ public class CollisionConditionImpl extends BaseImpl implements ICollisionCondit
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    IEntityRef entityRef = null;
-    entityRef = getEntityRef();
+    IEntityRefWriter entityRef = null;
+    entityRef = getWriterEntityRef();
     if (entityRef != null) {
-      EntityRefImpl clonedChild = ((EntityRefImpl) entityRef).clone();
+      IEntityRefWriter clonedChild = ((EntityRefImpl) entityRef).clone();
       clonedObject.setEntityRef(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IByObjectType byType = null;
-    byType = getByType();
+    IByObjectTypeWriter byType = null;
+    byType = getWriterByType();
     if (byType != null) {
-      ByObjectTypeImpl clonedChild = ((ByObjectTypeImpl) byType).clone();
+      IByObjectTypeWriter clonedChild = ((ByObjectTypeImpl) byType).clone();
       clonedObject.setByType(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -234,5 +234,16 @@ public class CollisionConditionImpl extends BaseImpl implements ICollisionCondit
   @Override
   public String getModelType() {
     return "CollisionCondition";
+  }
+
+  // children
+  @Override
+  public IEntityRefWriter getWriterEntityRef() {
+    return this.entityRef;
+  }
+
+  @Override
+  public IByObjectTypeWriter getWriterByType() {
+    return this.byType;
   }
 }

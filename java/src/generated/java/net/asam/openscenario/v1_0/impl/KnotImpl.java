@@ -27,6 +27,7 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IKnot;
+import net.asam.openscenario.v1_0.api.writer.IKnotWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -44,7 +45,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class KnotImpl extends BaseImpl implements IKnot {
+public class KnotImpl extends BaseImpl implements IKnotWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -53,11 +54,13 @@ public class KnotImpl extends BaseImpl implements IKnot {
   }
 
   private Double value;
+
   /** Default constructor */
   public KnotImpl() {
     super();
     addAdapter(KnotImpl.class, this);
     addAdapter(IKnot.class, this);
+    addAdapter(IKnotWriter.class, this);
   }
 
   @Override
@@ -69,14 +72,11 @@ public class KnotImpl extends BaseImpl implements IKnot {
   public Double getValue() {
     return this.value;
   }
-  /**
-   * Sets the value of model property value
-   *
-   * @param value from OpenSCENARIO class model specification: [Knot vector value. Range
-   *     ]-inf..inf[.]
-   */
+
+  @Override
   public void setValue(Double value) {
     this.value = value;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__VALUE);
   }
 
   @Override
@@ -124,7 +124,7 @@ public class KnotImpl extends BaseImpl implements IKnot {
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setValue(getValue());
+    clonedObject.value = getValue();
     // clone children
     return clonedObject;
   }
@@ -205,4 +205,23 @@ public class KnotImpl extends BaseImpl implements IKnot {
   public String getModelType() {
     return "Knot";
   }
+
+  @Override
+  public void writeParameterToValue(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__VALUE, parameterName, null /*no textmarker*/);
+    this.value = null;
+  }
+
+  @Override
+  public String getParameterFromValue() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__VALUE);
+  }
+
+  @Override
+  public boolean isValueParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__VALUE);
+  }
+
+  // children
+
 }

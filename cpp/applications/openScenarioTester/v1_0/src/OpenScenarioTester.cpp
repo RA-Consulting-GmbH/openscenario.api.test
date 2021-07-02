@@ -24,6 +24,7 @@
 #include "TestVersionChecker.h"
 #include "TestFlexInterface.h"
 #include "TestInjectedParameters.h"
+#include "TestWriterApi.h"
 
 int main(int argc, char** argv)
 {
@@ -55,6 +56,7 @@ int main(int argc, char** argv)
     TestVersionChecker testVersionChecker(executablePath);
     TestFlexInterface testFlexInterface(executablePath);
     TestInjectedParameters testInjectedParameters(executablePath);
+    TestWriterApi testWriterApi(executablePath);
 
     auto res = testExamples.TestExample();
 
@@ -65,7 +67,7 @@ int main(int argc, char** argv)
     res = res && testFiles.TestBomFile();
     res = res && testFiles.TestParamsFailure();
     res = res && testFiles.TestParamsConversionInfo();
-    res = res && testFiles.TestParamsConvertion();
+    res = res && testFiles.TestParamsConversion();
     res = res && testFiles.TestUnvalidXml();
     res = res && testFiles.TestUnknownElement();
     res = res && testFiles.TestWrongAttributes();
@@ -74,6 +76,7 @@ int main(int argc, char** argv)
     res = res && testFiles.TestFileNotFound();
 
     res = res && testImports.TestImportSuccess();
+    
     res = res && testImports.TestImportWithParametersSuccess();
 
     res = res && testReader.TestImportSuccess();
@@ -103,6 +106,10 @@ int main(int argc, char** argv)
     res = res && testInjectedParameters.TestWrongFormats();
     res = res && testInjectedParameters.TestNotDefined();
     res = res && testInjectedParameters.TestNotDefinedWithNoGlobalParameters();
+
+    res = res && testWriterApi.TestSimpleSuccess();
+    res = res && testWriterApi.TestParamsSuccess();
+    res = res && testWriterApi.TestBomFile();
 
     if (res)
         return 0;

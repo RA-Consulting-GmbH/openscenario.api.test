@@ -26,8 +26,8 @@ import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
 import net.asam.openscenario.simple.struct.IndexedElement;
-import net.asam.openscenario.v1_0.api.IControlPoint;
-import net.asam.openscenario.v1_0.api.IKnot;
+import net.asam.openscenario.v1_0.api.writer.IControlPointWriter;
+import net.asam.openscenario.v1_0.api.writer.IKnotWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 import net.asam.openscenario.v1_0.impl.ControlPointImpl;
 import net.asam.openscenario.v1_0.impl.KnotImpl;
@@ -139,7 +139,7 @@ public class NurbsXmlParser extends XmlComplexTypeParser<NurbsImpl> {
       // Setting the parent
       controlPoints.setParent(object);
       this.controlPointXmlParser.parseElement(indexedElement, parserContext, controlPoints);
-      List<IControlPoint> controlPointsList = object.getControlPoints();
+      List<IControlPointWriter> controlPointsList = object.getWriterControlPoints();
       if (controlPointsList == null) {
         controlPointsList = new ArrayList<>();
         object.setControlPoints(controlPointsList);
@@ -187,7 +187,7 @@ public class NurbsXmlParser extends XmlComplexTypeParser<NurbsImpl> {
       // Setting the parent
       knots.setParent(object);
       this.knotXmlParser.parseElement(indexedElement, parserContext, knots);
-      List<IKnot> knotsList = object.getKnots();
+      List<IKnotWriter> knotsList = object.getWriterKnots();
       if (knotsList == null) {
         knotsList = new ArrayList<>();
         object.setKnots(knotsList);

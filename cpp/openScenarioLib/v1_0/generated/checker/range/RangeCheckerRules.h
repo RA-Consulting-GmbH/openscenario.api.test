@@ -22,6 +22,7 @@
 #include "RangeCheckerRule.h"
 #include "MemLeakDetection.h"
 #include "ExportDefinitions.h"
+#include "ITreeMessageLogger.h"
 
 namespace NET_ASAM_OPENSCENARIO
 {
@@ -35,9 +36,12 @@ namespace NET_ASAM_OPENSCENARIO
         */
         class AbsoluteSpeedRangeCheckerRule: public RangeCheckerRule<IAbsoluteSpeed>
         {
+        private:
+            void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<IAbsoluteSpeed> object) const;
         public:
             AbsoluteSpeedRangeCheckerRule() = default;
-            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IAbsoluteSpeed> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IAbsoluteSpeed> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IAbsoluteSpeed> object) override;
         };
 
         /**
@@ -48,9 +52,12 @@ namespace NET_ASAM_OPENSCENARIO
         */
         class AxleRangeCheckerRule: public RangeCheckerRule<IAxle>
         {
+        private:
+            void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<IAxle> object) const;
         public:
             AxleRangeCheckerRule() = default;
-            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IAxle> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IAxle> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IAxle> object) override;
         };
 
         /**
@@ -61,9 +68,12 @@ namespace NET_ASAM_OPENSCENARIO
         */
         class ClothoidRangeCheckerRule: public RangeCheckerRule<IClothoid>
         {
+        private:
+            void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<IClothoid> object) const;
         public:
             ClothoidRangeCheckerRule() = default;
-            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IClothoid> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IClothoid> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IClothoid> object) override;
         };
 
         /**
@@ -74,9 +84,12 @@ namespace NET_ASAM_OPENSCENARIO
         */
         class ConditionRangeCheckerRule: public RangeCheckerRule<ICondition>
         {
+        private:
+            void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<ICondition> object) const;
         public:
             ConditionRangeCheckerRule() = default;
-            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ICondition> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ICondition> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ICondition> object) override;
         };
 
         /**
@@ -87,9 +100,12 @@ namespace NET_ASAM_OPENSCENARIO
         */
         class ControlPointRangeCheckerRule: public RangeCheckerRule<IControlPoint>
         {
+        private:
+            void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<IControlPoint> object) const;
         public:
             ControlPointRangeCheckerRule() = default;
-            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IControlPoint> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IControlPoint> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IControlPoint> object) override;
         };
 
         /**
@@ -100,9 +116,12 @@ namespace NET_ASAM_OPENSCENARIO
         */
         class ControllerDistributionEntryRangeCheckerRule: public RangeCheckerRule<IControllerDistributionEntry>
         {
+        private:
+            void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<IControllerDistributionEntry> object) const;
         public:
             ControllerDistributionEntryRangeCheckerRule() = default;
-            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IControllerDistributionEntry> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IControllerDistributionEntry> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IControllerDistributionEntry> object) override;
         };
 
         /**
@@ -113,9 +132,12 @@ namespace NET_ASAM_OPENSCENARIO
         */
         class DimensionsRangeCheckerRule: public RangeCheckerRule<IDimensions>
         {
+        private:
+            void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<IDimensions> object) const;
         public:
             DimensionsRangeCheckerRule() = default;
-            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IDimensions> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IDimensions> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IDimensions> object) override;
         };
 
         /**
@@ -126,9 +148,12 @@ namespace NET_ASAM_OPENSCENARIO
         */
         class DistanceConditionRangeCheckerRule: public RangeCheckerRule<IDistanceCondition>
         {
+        private:
+            void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<IDistanceCondition> object) const;
         public:
             DistanceConditionRangeCheckerRule() = default;
-            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IDistanceCondition> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IDistanceCondition> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IDistanceCondition> object) override;
         };
 
         /**
@@ -139,9 +164,12 @@ namespace NET_ASAM_OPENSCENARIO
         */
         class DynamicConstraintsRangeCheckerRule: public RangeCheckerRule<IDynamicConstraints>
         {
+        private:
+            void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<IDynamicConstraints> object) const;
         public:
             DynamicConstraintsRangeCheckerRule() = default;
-            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IDynamicConstraints> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IDynamicConstraints> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IDynamicConstraints> object) override;
         };
 
         /**
@@ -152,9 +180,12 @@ namespace NET_ASAM_OPENSCENARIO
         */
         class EndOfRoadConditionRangeCheckerRule: public RangeCheckerRule<IEndOfRoadCondition>
         {
+        private:
+            void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<IEndOfRoadCondition> object) const;
         public:
             EndOfRoadConditionRangeCheckerRule() = default;
-            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IEndOfRoadCondition> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IEndOfRoadCondition> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IEndOfRoadCondition> object) override;
         };
 
         /**
@@ -165,9 +196,12 @@ namespace NET_ASAM_OPENSCENARIO
         */
         class EventRangeCheckerRule: public RangeCheckerRule<IEvent>
         {
+        private:
+            void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<IEvent> object) const;
         public:
             EventRangeCheckerRule() = default;
-            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IEvent> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IEvent> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IEvent> object) override;
         };
 
         /**
@@ -178,9 +212,12 @@ namespace NET_ASAM_OPENSCENARIO
         */
         class FogRangeCheckerRule: public RangeCheckerRule<IFog>
         {
+        private:
+            void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<IFog> object) const;
         public:
             FogRangeCheckerRule() = default;
-            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IFog> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IFog> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IFog> object) override;
         };
 
         /**
@@ -191,9 +228,12 @@ namespace NET_ASAM_OPENSCENARIO
         */
         class LaneOffsetActionDynamicsRangeCheckerRule: public RangeCheckerRule<ILaneOffsetActionDynamics>
         {
+        private:
+            void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<ILaneOffsetActionDynamics> object) const;
         public:
             LaneOffsetActionDynamicsRangeCheckerRule() = default;
-            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ILaneOffsetActionDynamics> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ILaneOffsetActionDynamics> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ILaneOffsetActionDynamics> object) override;
         };
 
         /**
@@ -204,9 +244,12 @@ namespace NET_ASAM_OPENSCENARIO
         */
         class LanePositionRangeCheckerRule: public RangeCheckerRule<ILanePosition>
         {
+        private:
+            void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<ILanePosition> object) const;
         public:
             LanePositionRangeCheckerRule() = default;
-            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ILanePosition> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ILanePosition> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ILanePosition> object) override;
         };
 
         /**
@@ -217,9 +260,12 @@ namespace NET_ASAM_OPENSCENARIO
         */
         class LateralDistanceActionRangeCheckerRule: public RangeCheckerRule<ILateralDistanceAction>
         {
+        private:
+            void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<ILateralDistanceAction> object) const;
         public:
             LateralDistanceActionRangeCheckerRule() = default;
-            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ILateralDistanceAction> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ILateralDistanceAction> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ILateralDistanceAction> object) override;
         };
 
         /**
@@ -230,9 +276,12 @@ namespace NET_ASAM_OPENSCENARIO
         */
         class LongitudinalDistanceActionRangeCheckerRule: public RangeCheckerRule<ILongitudinalDistanceAction>
         {
+        private:
+            void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<ILongitudinalDistanceAction> object) const;
         public:
             LongitudinalDistanceActionRangeCheckerRule() = default;
-            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ILongitudinalDistanceAction> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ILongitudinalDistanceAction> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ILongitudinalDistanceAction> object) override;
         };
 
         /**
@@ -243,9 +292,12 @@ namespace NET_ASAM_OPENSCENARIO
         */
         class ManeuverGroupRangeCheckerRule: public RangeCheckerRule<IManeuverGroup>
         {
+        private:
+            void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<IManeuverGroup> object) const;
         public:
             ManeuverGroupRangeCheckerRule() = default;
-            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IManeuverGroup> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IManeuverGroup> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IManeuverGroup> object) override;
         };
 
         /**
@@ -256,9 +308,12 @@ namespace NET_ASAM_OPENSCENARIO
         */
         class MiscObjectRangeCheckerRule: public RangeCheckerRule<IMiscObject>
         {
+        private:
+            void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<IMiscObject> object) const;
         public:
             MiscObjectRangeCheckerRule() = default;
-            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IMiscObject> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IMiscObject> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IMiscObject> object) override;
         };
 
         /**
@@ -269,9 +324,12 @@ namespace NET_ASAM_OPENSCENARIO
         */
         class NurbsRangeCheckerRule: public RangeCheckerRule<INurbs>
         {
+        private:
+            void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<INurbs> object) const;
         public:
             NurbsRangeCheckerRule() = default;
-            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<INurbs> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<INurbs> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<INurbs> object) override;
         };
 
         /**
@@ -282,9 +340,12 @@ namespace NET_ASAM_OPENSCENARIO
         */
         class OffroadConditionRangeCheckerRule: public RangeCheckerRule<IOffroadCondition>
         {
+        private:
+            void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<IOffroadCondition> object) const;
         public:
             OffroadConditionRangeCheckerRule() = default;
-            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IOffroadCondition> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOffroadCondition> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOffroadCondition> object) override;
         };
 
         /**
@@ -295,9 +356,12 @@ namespace NET_ASAM_OPENSCENARIO
         */
         class OverrideBrakeActionRangeCheckerRule: public RangeCheckerRule<IOverrideBrakeAction>
         {
+        private:
+            void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<IOverrideBrakeAction> object) const;
         public:
             OverrideBrakeActionRangeCheckerRule() = default;
-            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IOverrideBrakeAction> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOverrideBrakeAction> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOverrideBrakeAction> object) override;
         };
 
         /**
@@ -308,9 +372,12 @@ namespace NET_ASAM_OPENSCENARIO
         */
         class OverrideClutchActionRangeCheckerRule: public RangeCheckerRule<IOverrideClutchAction>
         {
+        private:
+            void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<IOverrideClutchAction> object) const;
         public:
             OverrideClutchActionRangeCheckerRule() = default;
-            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IOverrideClutchAction> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOverrideClutchAction> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOverrideClutchAction> object) override;
         };
 
         /**
@@ -321,9 +388,12 @@ namespace NET_ASAM_OPENSCENARIO
         */
         class OverrideParkingBrakeActionRangeCheckerRule: public RangeCheckerRule<IOverrideParkingBrakeAction>
         {
+        private:
+            void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<IOverrideParkingBrakeAction> object) const;
         public:
             OverrideParkingBrakeActionRangeCheckerRule() = default;
-            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IOverrideParkingBrakeAction> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOverrideParkingBrakeAction> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOverrideParkingBrakeAction> object) override;
         };
 
         /**
@@ -334,9 +404,12 @@ namespace NET_ASAM_OPENSCENARIO
         */
         class OverrideThrottleActionRangeCheckerRule: public RangeCheckerRule<IOverrideThrottleAction>
         {
+        private:
+            void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<IOverrideThrottleAction> object) const;
         public:
             OverrideThrottleActionRangeCheckerRule() = default;
-            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IOverrideThrottleAction> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOverrideThrottleAction> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOverrideThrottleAction> object) override;
         };
 
         /**
@@ -347,9 +420,12 @@ namespace NET_ASAM_OPENSCENARIO
         */
         class PerformanceRangeCheckerRule: public RangeCheckerRule<IPerformance>
         {
+        private:
+            void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<IPerformance> object) const;
         public:
             PerformanceRangeCheckerRule() = default;
-            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IPerformance> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IPerformance> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IPerformance> object) override;
         };
 
         /**
@@ -360,9 +436,12 @@ namespace NET_ASAM_OPENSCENARIO
         */
         class PhaseRangeCheckerRule: public RangeCheckerRule<IPhase>
         {
+        private:
+            void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<IPhase> object) const;
         public:
             PhaseRangeCheckerRule() = default;
-            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IPhase> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IPhase> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IPhase> object) override;
         };
 
         /**
@@ -373,9 +452,12 @@ namespace NET_ASAM_OPENSCENARIO
         */
         class PositionInLaneCoordinatesRangeCheckerRule: public RangeCheckerRule<IPositionInLaneCoordinates>
         {
+        private:
+            void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<IPositionInLaneCoordinates> object) const;
         public:
             PositionInLaneCoordinatesRangeCheckerRule() = default;
-            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IPositionInLaneCoordinates> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IPositionInLaneCoordinates> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IPositionInLaneCoordinates> object) override;
         };
 
         /**
@@ -386,9 +468,12 @@ namespace NET_ASAM_OPENSCENARIO
         */
         class PrecipitationRangeCheckerRule: public RangeCheckerRule<IPrecipitation>
         {
+        private:
+            void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<IPrecipitation> object) const;
         public:
             PrecipitationRangeCheckerRule() = default;
-            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IPrecipitation> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IPrecipitation> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IPrecipitation> object) override;
         };
 
         /**
@@ -399,9 +484,12 @@ namespace NET_ASAM_OPENSCENARIO
         */
         class ReachPositionConditionRangeCheckerRule: public RangeCheckerRule<IReachPositionCondition>
         {
+        private:
+            void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<IReachPositionCondition> object) const;
         public:
             ReachPositionConditionRangeCheckerRule() = default;
-            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IReachPositionCondition> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IReachPositionCondition> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IReachPositionCondition> object) override;
         };
 
         /**
@@ -412,9 +500,12 @@ namespace NET_ASAM_OPENSCENARIO
         */
         class RelativeDistanceConditionRangeCheckerRule: public RangeCheckerRule<IRelativeDistanceCondition>
         {
+        private:
+            void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<IRelativeDistanceCondition> object) const;
         public:
             RelativeDistanceConditionRangeCheckerRule() = default;
-            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IRelativeDistanceCondition> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IRelativeDistanceCondition> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IRelativeDistanceCondition> object) override;
         };
 
         /**
@@ -425,9 +516,12 @@ namespace NET_ASAM_OPENSCENARIO
         */
         class RoadConditionRangeCheckerRule: public RangeCheckerRule<IRoadCondition>
         {
+        private:
+            void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<IRoadCondition> object) const;
         public:
             RoadConditionRangeCheckerRule() = default;
-            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IRoadCondition> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IRoadCondition> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IRoadCondition> object) override;
         };
 
         /**
@@ -438,9 +532,12 @@ namespace NET_ASAM_OPENSCENARIO
         */
         class StandStillConditionRangeCheckerRule: public RangeCheckerRule<IStandStillCondition>
         {
+        private:
+            void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<IStandStillCondition> object) const;
         public:
             StandStillConditionRangeCheckerRule() = default;
-            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IStandStillCondition> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IStandStillCondition> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IStandStillCondition> object) override;
         };
 
         /**
@@ -451,9 +548,12 @@ namespace NET_ASAM_OPENSCENARIO
         */
         class SunRangeCheckerRule: public RangeCheckerRule<ISun>
         {
+        private:
+            void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<ISun> object) const;
         public:
             SunRangeCheckerRule() = default;
-            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ISun> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ISun> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ISun> object) override;
         };
 
         /**
@@ -464,9 +564,12 @@ namespace NET_ASAM_OPENSCENARIO
         */
         class TimeHeadwayConditionRangeCheckerRule: public RangeCheckerRule<ITimeHeadwayCondition>
         {
+        private:
+            void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<ITimeHeadwayCondition> object) const;
         public:
             TimeHeadwayConditionRangeCheckerRule() = default;
-            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ITimeHeadwayCondition> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITimeHeadwayCondition> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITimeHeadwayCondition> object) override;
         };
 
         /**
@@ -477,9 +580,12 @@ namespace NET_ASAM_OPENSCENARIO
         */
         class TimeToCollisionConditionRangeCheckerRule: public RangeCheckerRule<ITimeToCollisionCondition>
         {
+        private:
+            void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<ITimeToCollisionCondition> object) const;
         public:
             TimeToCollisionConditionRangeCheckerRule() = default;
-            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ITimeToCollisionCondition> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITimeToCollisionCondition> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITimeToCollisionCondition> object) override;
         };
 
         /**
@@ -490,9 +596,12 @@ namespace NET_ASAM_OPENSCENARIO
         */
         class TimingRangeCheckerRule: public RangeCheckerRule<ITiming>
         {
+        private:
+            void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<ITiming> object) const;
         public:
             TimingRangeCheckerRule() = default;
-            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ITiming> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITiming> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITiming> object) override;
         };
 
         /**
@@ -503,9 +612,12 @@ namespace NET_ASAM_OPENSCENARIO
         */
         class TrafficSignalControllerRangeCheckerRule: public RangeCheckerRule<ITrafficSignalController>
         {
+        private:
+            void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<ITrafficSignalController> object) const;
         public:
             TrafficSignalControllerRangeCheckerRule() = default;
-            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ITrafficSignalController> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITrafficSignalController> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITrafficSignalController> object) override;
         };
 
         /**
@@ -516,9 +628,12 @@ namespace NET_ASAM_OPENSCENARIO
         */
         class TrafficSinkActionRangeCheckerRule: public RangeCheckerRule<ITrafficSinkAction>
         {
+        private:
+            void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<ITrafficSinkAction> object) const;
         public:
             TrafficSinkActionRangeCheckerRule() = default;
-            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ITrafficSinkAction> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITrafficSinkAction> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITrafficSinkAction> object) override;
         };
 
         /**
@@ -529,9 +644,12 @@ namespace NET_ASAM_OPENSCENARIO
         */
         class TrafficSourceActionRangeCheckerRule: public RangeCheckerRule<ITrafficSourceAction>
         {
+        private:
+            void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<ITrafficSourceAction> object) const;
         public:
             TrafficSourceActionRangeCheckerRule() = default;
-            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ITrafficSourceAction> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITrafficSourceAction> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITrafficSourceAction> object) override;
         };
 
         /**
@@ -542,9 +660,12 @@ namespace NET_ASAM_OPENSCENARIO
         */
         class TrafficSwarmActionRangeCheckerRule: public RangeCheckerRule<ITrafficSwarmAction>
         {
+        private:
+            void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<ITrafficSwarmAction> object) const;
         public:
             TrafficSwarmActionRangeCheckerRule() = default;
-            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ITrafficSwarmAction> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITrafficSwarmAction> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITrafficSwarmAction> object) override;
         };
 
         /**
@@ -555,9 +676,12 @@ namespace NET_ASAM_OPENSCENARIO
         */
         class TransitionDynamicsRangeCheckerRule: public RangeCheckerRule<ITransitionDynamics>
         {
+        private:
+            void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<ITransitionDynamics> object) const;
         public:
             TransitionDynamicsRangeCheckerRule() = default;
-            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ITransitionDynamics> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITransitionDynamics> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITransitionDynamics> object) override;
         };
 
         /**
@@ -568,9 +692,12 @@ namespace NET_ASAM_OPENSCENARIO
         */
         class TraveledDistanceConditionRangeCheckerRule: public RangeCheckerRule<ITraveledDistanceCondition>
         {
+        private:
+            void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<ITraveledDistanceCondition> object) const;
         public:
             TraveledDistanceConditionRangeCheckerRule() = default;
-            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<ITraveledDistanceCondition> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITraveledDistanceCondition> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITraveledDistanceCondition> object) override;
         };
 
         /**
@@ -581,9 +708,12 @@ namespace NET_ASAM_OPENSCENARIO
         */
         class VehicleCategoryDistributionEntryRangeCheckerRule: public RangeCheckerRule<IVehicleCategoryDistributionEntry>
         {
+        private:
+            void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<IVehicleCategoryDistributionEntry> object) const;
         public:
             VehicleCategoryDistributionEntryRangeCheckerRule() = default;
-            OPENSCENARIOLIB_EXP void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IVehicleCategoryDistributionEntry> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IVehicleCategoryDistributionEntry> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IVehicleCategoryDistributionEntry> object) override;
         };
 
     }

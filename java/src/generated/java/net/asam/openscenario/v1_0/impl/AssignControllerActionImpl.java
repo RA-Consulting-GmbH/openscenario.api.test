@@ -28,6 +28,9 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.IAssignControllerAction;
 import net.asam.openscenario.v1_0.api.ICatalogReference;
 import net.asam.openscenario.v1_0.api.IController;
+import net.asam.openscenario.v1_0.api.writer.IAssignControllerActionWriter;
+import net.asam.openscenario.v1_0.api.writer.ICatalogReferenceWriter;
+import net.asam.openscenario.v1_0.api.writer.IControllerWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -46,16 +49,18 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class AssignControllerActionImpl extends BaseImpl implements IAssignControllerAction {
+public class AssignControllerActionImpl extends BaseImpl implements IAssignControllerActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private IController controller;
-  private ICatalogReference catalogReference;
+  private IControllerWriter controller;
+  private ICatalogReferenceWriter catalogReference;
+
   /** Default constructor */
   public AssignControllerActionImpl() {
     super();
     addAdapter(AssignControllerActionImpl.class, this);
     addAdapter(IAssignControllerAction.class, this);
+    addAdapter(IAssignControllerActionWriter.class, this);
   }
 
   @Override
@@ -72,24 +77,17 @@ public class AssignControllerActionImpl extends BaseImpl implements IAssignContr
   public ICatalogReference getCatalogReference() {
     return this.catalogReference;
   }
-  /**
-   * Sets the value of model property controller
-   *
-   * @param controller from OpenSCENARIO class model specification: [Assigns a controller to a given
-   *     entity.]
-   */
-  public void setController(IController controller) {
+
+  @Override
+  public void setController(IControllerWriter controller) {
     this.controller = controller;
+    this.catalogReference = null;
   }
-  /**
-   * Sets the value of model property catalogReference
-   *
-   * @param catalogReference from OpenSCENARIO class model specification: [Uses a CatalogReference
-   *     to assign a controller to a given entity. CatalogReference must point to a Controller
-   *     type.]
-   */
-  public void setCatalogReference(ICatalogReference catalogReference) {
+
+  @Override
+  public void setCatalogReference(ICatalogReferenceWriter catalogReference) {
     this.catalogReference = catalogReference;
+    this.controller = null;
   }
 
   @Override
@@ -113,13 +111,13 @@ public class AssignControllerActionImpl extends BaseImpl implements IAssignContr
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IController controller = null;
-    controller = getController();
+    IControllerWriter controller = null;
+    controller = getWriterController();
     if (controller != null) {
       result.add((BaseImpl) controller);
     }
-    ICatalogReference catalogReference = null;
-    catalogReference = getCatalogReference();
+    ICatalogReferenceWriter catalogReference = null;
+    catalogReference = getWriterCatalogReference();
     if (catalogReference != null) {
       result.add((BaseImpl) catalogReference);
     }
@@ -142,17 +140,17 @@ public class AssignControllerActionImpl extends BaseImpl implements IAssignContr
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    IController controller = null;
-    controller = getController();
+    IControllerWriter controller = null;
+    controller = getWriterController();
     if (controller != null) {
-      ControllerImpl clonedChild = ((ControllerImpl) controller).clone();
+      IControllerWriter clonedChild = ((ControllerImpl) controller).clone();
       clonedObject.setController(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    ICatalogReference catalogReference = null;
-    catalogReference = getCatalogReference();
+    ICatalogReferenceWriter catalogReference = null;
+    catalogReference = getWriterCatalogReference();
     if (catalogReference != null) {
-      CatalogReferenceImpl clonedChild = ((CatalogReferenceImpl) catalogReference).clone();
+      ICatalogReferenceWriter clonedChild = ((CatalogReferenceImpl) catalogReference).clone();
       clonedObject.setCatalogReference(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -237,5 +235,16 @@ public class AssignControllerActionImpl extends BaseImpl implements IAssignContr
   @Override
   public String getModelType() {
     return "AssignControllerAction";
+  }
+
+  // children
+  @Override
+  public IControllerWriter getWriterController() {
+    return this.controller;
+  }
+
+  @Override
+  public ICatalogReferenceWriter getWriterCatalogReference() {
+    return this.catalogReference;
   }
 }

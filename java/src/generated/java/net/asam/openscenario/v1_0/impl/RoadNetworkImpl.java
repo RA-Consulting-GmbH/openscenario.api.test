@@ -19,6 +19,7 @@ package net.asam.openscenario.v1_0.impl;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.List;
 import net.asam.openscenario.api.IOpenScenarioFlexElement;
 import net.asam.openscenario.api.KeyNotSupportedException;
@@ -28,6 +29,9 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.IFile;
 import net.asam.openscenario.v1_0.api.IRoadNetwork;
 import net.asam.openscenario.v1_0.api.ITrafficSignalController;
+import net.asam.openscenario.v1_0.api.writer.IFileWriter;
+import net.asam.openscenario.v1_0.api.writer.IRoadNetworkWriter;
+import net.asam.openscenario.v1_0.api.writer.ITrafficSignalControllerWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,17 +49,19 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class RoadNetworkImpl extends BaseImpl implements IRoadNetwork {
+public class RoadNetworkImpl extends BaseImpl implements IRoadNetworkWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private IFile logicFile;
-  private IFile sceneGraphFile;
-  private List<ITrafficSignalController> trafficSignals;
+  private IFileWriter logicFile;
+  private IFileWriter sceneGraphFile;
+  private List<ITrafficSignalControllerWriter> trafficSignals = new ArrayList<>();
+
   /** Default constructor */
   public RoadNetworkImpl() {
     super();
     addAdapter(RoadNetworkImpl.class, this);
     addAdapter(IRoadNetwork.class, this);
+    addAdapter(IRoadNetworkWriter.class, this);
   }
 
   @Override
@@ -74,35 +80,49 @@ public class RoadNetworkImpl extends BaseImpl implements IRoadNetwork {
   }
 
   @Override
-  public List<ITrafficSignalController> getTrafficSignals() {
+  public List<ITrafficSignalControllerWriter> getWriterTrafficSignals() {
     return this.trafficSignals;
   }
-  /**
-   * Sets the value of model property logicFile
-   *
-   * @param logicFile from OpenSCENARIO class model specification: [File path of the road network
-   *     file (e.g. an ASAM OpenDRIVE file).]
-   */
-  public void setLogicFile(IFile logicFile) {
+
+  @Override
+  public Iterable<ITrafficSignalController> getTrafficSignals() {
+    return new Iterable<ITrafficSignalController>() {
+
+      @SuppressWarnings("synthetic-access")
+      @Override
+      public Iterator<ITrafficSignalController> iterator() {
+        return new ArrayList<ITrafficSignalController>(RoadNetworkImpl.this.trafficSignals)
+            .iterator();
+      }
+    };
+  }
+
+  @Override
+  public int getTrafficSignalsSize() {
+    if (this.trafficSignals != null) return this.trafficSignals.size();
+    return 0;
+  }
+
+  @Override
+  public ITrafficSignalController getTrafficSignalsAtIndex(int index) {
+    if (index >= 0 && this.trafficSignals != null && this.trafficSignals.size() > index) {
+      return this.trafficSignals.get(index);
+    }
+    return null;
+  }
+
+  @Override
+  public void setLogicFile(IFileWriter logicFile) {
     this.logicFile = logicFile;
   }
-  /**
-   * Sets the value of model property sceneGraphFile
-   *
-   * @param sceneGraphFile from OpenSCENARIO class model specification: [File path of a 3D model
-   *     representing the virtual environment. This may be used for visual representation
-   *     (rendering).]
-   */
-  public void setSceneGraphFile(IFile sceneGraphFile) {
+
+  @Override
+  public void setSceneGraphFile(IFileWriter sceneGraphFile) {
     this.sceneGraphFile = sceneGraphFile;
   }
-  /**
-   * Sets the value of model property trafficSignals
-   *
-   * @param trafficSignals from OpenSCENARIO class model specification: [Name references and
-   *     description of dynamic behavior for traffic signals defined in the road network file.]
-   */
-  public void setTrafficSignals(List<ITrafficSignalController> trafficSignals) {
+
+  @Override
+  public void setTrafficSignals(List<ITrafficSignalControllerWriter> trafficSignals) {
     this.trafficSignals = trafficSignals;
   }
 
@@ -127,20 +147,20 @@ public class RoadNetworkImpl extends BaseImpl implements IRoadNetwork {
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IFile logicFile = null;
-    logicFile = getLogicFile();
+    IFileWriter logicFile = null;
+    logicFile = getWriterLogicFile();
     if (logicFile != null) {
       result.add((BaseImpl) logicFile);
     }
-    IFile sceneGraphFile = null;
-    sceneGraphFile = getSceneGraphFile();
+    IFileWriter sceneGraphFile = null;
+    sceneGraphFile = getWriterSceneGraphFile();
     if (sceneGraphFile != null) {
       result.add((BaseImpl) sceneGraphFile);
     }
-    List<ITrafficSignalController> trafficSignals = null;
-    trafficSignals = getTrafficSignals();
+    List<ITrafficSignalControllerWriter> trafficSignals = null;
+    trafficSignals = getWriterTrafficSignals();
     if (trafficSignals != null) {
-      for (ITrafficSignalController item : trafficSignals) {
+      for (ITrafficSignalControllerWriter item : trafficSignals) {
         result.add((BaseImpl) item);
       }
     }
@@ -163,26 +183,26 @@ public class RoadNetworkImpl extends BaseImpl implements IRoadNetwork {
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    IFile logicFile = null;
-    logicFile = getLogicFile();
+    IFileWriter logicFile = null;
+    logicFile = getWriterLogicFile();
     if (logicFile != null) {
-      FileImpl clonedChild = ((FileImpl) logicFile).clone();
+      IFileWriter clonedChild = ((FileImpl) logicFile).clone();
       clonedObject.setLogicFile(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IFile sceneGraphFile = null;
-    sceneGraphFile = getSceneGraphFile();
+    IFileWriter sceneGraphFile = null;
+    sceneGraphFile = getWriterSceneGraphFile();
     if (sceneGraphFile != null) {
-      FileImpl clonedChild = ((FileImpl) sceneGraphFile).clone();
+      IFileWriter clonedChild = ((FileImpl) sceneGraphFile).clone();
       clonedObject.setSceneGraphFile(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    List<ITrafficSignalController> trafficSignals = null;
-    trafficSignals = getTrafficSignals();
+    List<ITrafficSignalControllerWriter> trafficSignals = null;
+    trafficSignals = getWriterTrafficSignals();
     if (trafficSignals != null) {
-      List<ITrafficSignalController> clonedList = new ArrayList<>();
-      for (ITrafficSignalController item : trafficSignals) {
-        TrafficSignalControllerImpl clonedChild = ((TrafficSignalControllerImpl) item).clone();
+      List<ITrafficSignalControllerWriter> clonedList = new ArrayList<>();
+      for (ITrafficSignalControllerWriter item : trafficSignals) {
+        ITrafficSignalControllerWriter clonedChild = ((TrafficSignalControllerImpl) item).clone();
         clonedList.add(clonedChild);
         clonedChild.setParent(clonedObject);
       }
@@ -276,5 +296,16 @@ public class RoadNetworkImpl extends BaseImpl implements IRoadNetwork {
   @Override
   public String getModelType() {
     return "RoadNetwork";
+  }
+
+  // children
+  @Override
+  public IFileWriter getWriterLogicFile() {
+    return this.logicFile;
+  }
+
+  @Override
+  public IFileWriter getWriterSceneGraphFile() {
+    return this.sceneGraphFile;
   }
 }

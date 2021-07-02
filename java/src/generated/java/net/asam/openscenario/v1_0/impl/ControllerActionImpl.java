@@ -28,6 +28,9 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.IAssignControllerAction;
 import net.asam.openscenario.v1_0.api.IControllerAction;
 import net.asam.openscenario.v1_0.api.IOverrideControllerValueAction;
+import net.asam.openscenario.v1_0.api.writer.IAssignControllerActionWriter;
+import net.asam.openscenario.v1_0.api.writer.IControllerActionWriter;
+import net.asam.openscenario.v1_0.api.writer.IOverrideControllerValueActionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -45,16 +48,18 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class ControllerActionImpl extends BaseImpl implements IControllerAction {
+public class ControllerActionImpl extends BaseImpl implements IControllerActionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private IAssignControllerAction assignControllerAction;
-  private IOverrideControllerValueAction overrideControllerValueAction;
+  private IAssignControllerActionWriter assignControllerAction;
+  private IOverrideControllerValueActionWriter overrideControllerValueAction;
+
   /** Default constructor */
   public ControllerActionImpl() {
     super();
     addAdapter(ControllerActionImpl.class, this);
     addAdapter(IControllerAction.class, this);
+    addAdapter(IControllerActionWriter.class, this);
   }
 
   @Override
@@ -71,23 +76,15 @@ public class ControllerActionImpl extends BaseImpl implements IControllerAction 
   public IOverrideControllerValueAction getOverrideControllerValueAction() {
     return this.overrideControllerValueAction;
   }
-  /**
-   * Sets the value of model property assignControllerAction
-   *
-   * @param assignControllerAction from OpenSCENARIO class model specification: [Assign a controller
-   *     to an entity.]
-   */
-  public void setAssignControllerAction(IAssignControllerAction assignControllerAction) {
+
+  @Override
+  public void setAssignControllerAction(IAssignControllerActionWriter assignControllerAction) {
     this.assignControllerAction = assignControllerAction;
   }
-  /**
-   * Sets the value of model property overrideControllerValueAction
-   *
-   * @param overrideControllerValueAction from OpenSCENARIO class model specification: [Values for
-   *     throttle, brake, clutch, parking brake, steering wheel or gear.]
-   */
+
+  @Override
   public void setOverrideControllerValueAction(
-      IOverrideControllerValueAction overrideControllerValueAction) {
+      IOverrideControllerValueActionWriter overrideControllerValueAction) {
     this.overrideControllerValueAction = overrideControllerValueAction;
   }
 
@@ -112,13 +109,13 @@ public class ControllerActionImpl extends BaseImpl implements IControllerAction 
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IAssignControllerAction assignControllerAction = null;
-    assignControllerAction = getAssignControllerAction();
+    IAssignControllerActionWriter assignControllerAction = null;
+    assignControllerAction = getWriterAssignControllerAction();
     if (assignControllerAction != null) {
       result.add((BaseImpl) assignControllerAction);
     }
-    IOverrideControllerValueAction overrideControllerValueAction = null;
-    overrideControllerValueAction = getOverrideControllerValueAction();
+    IOverrideControllerValueActionWriter overrideControllerValueAction = null;
+    overrideControllerValueAction = getWriterOverrideControllerValueAction();
     if (overrideControllerValueAction != null) {
       result.add((BaseImpl) overrideControllerValueAction);
     }
@@ -141,18 +138,18 @@ public class ControllerActionImpl extends BaseImpl implements IControllerAction 
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    IAssignControllerAction assignControllerAction = null;
-    assignControllerAction = getAssignControllerAction();
+    IAssignControllerActionWriter assignControllerAction = null;
+    assignControllerAction = getWriterAssignControllerAction();
     if (assignControllerAction != null) {
-      AssignControllerActionImpl clonedChild =
+      IAssignControllerActionWriter clonedChild =
           ((AssignControllerActionImpl) assignControllerAction).clone();
       clonedObject.setAssignControllerAction(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IOverrideControllerValueAction overrideControllerValueAction = null;
-    overrideControllerValueAction = getOverrideControllerValueAction();
+    IOverrideControllerValueActionWriter overrideControllerValueAction = null;
+    overrideControllerValueAction = getWriterOverrideControllerValueAction();
     if (overrideControllerValueAction != null) {
-      OverrideControllerValueActionImpl clonedChild =
+      IOverrideControllerValueActionWriter clonedChild =
           ((OverrideControllerValueActionImpl) overrideControllerValueAction).clone();
       clonedObject.setOverrideControllerValueAction(clonedChild);
       clonedChild.setParent(clonedObject);
@@ -238,5 +235,16 @@ public class ControllerActionImpl extends BaseImpl implements IControllerAction 
   @Override
   public String getModelType() {
     return "ControllerAction";
+  }
+
+  // children
+  @Override
+  public IAssignControllerActionWriter getWriterAssignControllerAction() {
+    return this.assignControllerAction;
+  }
+
+  @Override
+  public IOverrideControllerValueActionWriter getWriterOverrideControllerValueAction() {
+    return this.overrideControllerValueAction;
   }
 }

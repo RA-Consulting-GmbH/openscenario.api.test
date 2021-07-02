@@ -27,6 +27,7 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IAbsoluteTargetLane;
+import net.asam.openscenario.v1_0.api.writer.IAbsoluteTargetLaneWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -44,7 +45,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class AbsoluteTargetLaneImpl extends BaseImpl implements IAbsoluteTargetLane {
+public class AbsoluteTargetLaneImpl extends BaseImpl implements IAbsoluteTargetLaneWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -53,11 +54,13 @@ public class AbsoluteTargetLaneImpl extends BaseImpl implements IAbsoluteTargetL
   }
 
   private String value;
+
   /** Default constructor */
   public AbsoluteTargetLaneImpl() {
     super();
     addAdapter(AbsoluteTargetLaneImpl.class, this);
     addAdapter(IAbsoluteTargetLane.class, this);
+    addAdapter(IAbsoluteTargetLaneWriter.class, this);
   }
 
   @Override
@@ -69,14 +72,11 @@ public class AbsoluteTargetLaneImpl extends BaseImpl implements IAbsoluteTargetL
   public String getValue() {
     return this.value;
   }
-  /**
-   * Sets the value of model property value
-   *
-   * @param value from OpenSCENARIO class model specification: [Number (ID) of the target lane the
-   *     entity will change to.]
-   */
+
+  @Override
   public void setValue(String value) {
     this.value = value;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__VALUE);
   }
 
   @Override
@@ -124,7 +124,7 @@ public class AbsoluteTargetLaneImpl extends BaseImpl implements IAbsoluteTargetL
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setValue(getValue());
+    clonedObject.value = getValue();
     // clone children
     return clonedObject;
   }
@@ -205,4 +205,23 @@ public class AbsoluteTargetLaneImpl extends BaseImpl implements IAbsoluteTargetL
   public String getModelType() {
     return "AbsoluteTargetLane";
   }
+
+  @Override
+  public void writeParameterToValue(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__VALUE, parameterName, null /*no textmarker*/);
+    this.value = null;
+  }
+
+  @Override
+  public String getParameterFromValue() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__VALUE);
+  }
+
+  @Override
+  public boolean isValueParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__VALUE);
+  }
+
+  // children
+
 }

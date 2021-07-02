@@ -27,6 +27,7 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IWorldPosition;
+import net.asam.openscenario.v1_0.api.writer.IWorldPositionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -44,7 +45,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class WorldPositionImpl extends BaseImpl implements IWorldPosition {
+public class WorldPositionImpl extends BaseImpl implements IWorldPositionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -63,11 +64,13 @@ public class WorldPositionImpl extends BaseImpl implements IWorldPosition {
   private Double h;
   private Double p;
   private Double r;
+
   /** Default constructor */
   public WorldPositionImpl() {
     super();
     addAdapter(WorldPositionImpl.class, this);
     addAdapter(IWorldPosition.class, this);
+    addAdapter(IWorldPositionWriter.class, this);
   }
 
   @Override
@@ -104,56 +107,41 @@ public class WorldPositionImpl extends BaseImpl implements IWorldPosition {
   public Double getR() {
     return this.r;
   }
-  /**
-   * Sets the value of model property x
-   *
-   * @param x from OpenSCENARIO class model specification: [The x coordinate value.]
-   */
+
+  @Override
   public void setX(Double x) {
     this.x = x;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__X);
   }
-  /**
-   * Sets the value of model property y
-   *
-   * @param y from OpenSCENARIO class model specification: [The y coordinate value.]
-   */
+
+  @Override
   public void setY(Double y) {
     this.y = y;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__Y);
   }
-  /**
-   * Sets the value of model property z
-   *
-   * @param z from OpenSCENARIO class model specification: [The z coordinate value.]
-   */
+
+  @Override
   public void setZ(Double z) {
     this.z = z;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__Z);
   }
-  /**
-   * Sets the value of model property h
-   *
-   * @param h from OpenSCENARIO class model specification: [The heading angle of the object,
-   *     defining a mathematically positive rotation about the z-axis (see ISO 8855:2011).]
-   */
+
+  @Override
   public void setH(Double h) {
     this.h = h;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__H);
   }
-  /**
-   * Sets the value of model property p
-   *
-   * @param p from OpenSCENARIO class model specification: [The pitch angle of the object, defining
-   *     a mathematically positive rotation about the y-axis (see ISO 8855:2011).]
-   */
+
+  @Override
   public void setP(Double p) {
     this.p = p;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__P);
   }
-  /**
-   * Sets the value of model property r
-   *
-   * @param r from OpenSCENARIO class model specification: [The roll angle of the object, defining a
-   *     mathematically positive rotation about the x-axis (see ISO 8855:2011).]
-   */
+
+  @Override
   public void setR(Double r) {
     this.r = r;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__R);
   }
 
   @Override
@@ -225,17 +213,17 @@ public class WorldPositionImpl extends BaseImpl implements IWorldPosition {
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setX(getX());
+    clonedObject.x = getX();
     // Simple type
-    clonedObject.setY(getY());
+    clonedObject.y = getY();
     // Simple type
-    clonedObject.setZ(getZ());
+    clonedObject.z = getZ();
     // Simple type
-    clonedObject.setH(getH());
+    clonedObject.h = getH();
     // Simple type
-    clonedObject.setP(getP());
+    clonedObject.p = getP();
     // Simple type
-    clonedObject.setR(getR());
+    clonedObject.r = getR();
     // clone children
     return clonedObject;
   }
@@ -326,4 +314,103 @@ public class WorldPositionImpl extends BaseImpl implements IWorldPosition {
   public String getModelType() {
     return "WorldPosition";
   }
+
+  @Override
+  public void writeParameterToX(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__X, parameterName, null /*no textmarker*/);
+    this.x = null;
+  }
+
+  @Override
+  public void writeParameterToY(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__Y, parameterName, null /*no textmarker*/);
+    this.y = null;
+  }
+
+  @Override
+  public void writeParameterToZ(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__Z, parameterName, null /*no textmarker*/);
+    this.z = null;
+  }
+
+  @Override
+  public void writeParameterToH(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__H, parameterName, null /*no textmarker*/);
+    this.h = null;
+  }
+
+  @Override
+  public void writeParameterToP(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__P, parameterName, null /*no textmarker*/);
+    this.p = null;
+  }
+
+  @Override
+  public void writeParameterToR(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__R, parameterName, null /*no textmarker*/);
+    this.r = null;
+  }
+
+  @Override
+  public String getParameterFromX() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__X);
+  }
+
+  @Override
+  public String getParameterFromY() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__Y);
+  }
+
+  @Override
+  public String getParameterFromZ() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__Z);
+  }
+
+  @Override
+  public String getParameterFromH() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__H);
+  }
+
+  @Override
+  public String getParameterFromP() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__P);
+  }
+
+  @Override
+  public String getParameterFromR() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__R);
+  }
+
+  @Override
+  public boolean isXParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__X);
+  }
+
+  @Override
+  public boolean isYParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__Y);
+  }
+
+  @Override
+  public boolean isZParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__Z);
+  }
+
+  @Override
+  public boolean isHParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__H);
+  }
+
+  @Override
+  public boolean isPParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__P);
+  }
+
+  @Override
+  public boolean isRParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__R);
+  }
+
+  // children
+
 }

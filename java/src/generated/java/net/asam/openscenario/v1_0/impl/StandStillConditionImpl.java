@@ -27,6 +27,7 @@ import net.asam.openscenario.common.IParserMessageLogger;
 import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IStandStillCondition;
+import net.asam.openscenario.v1_0.api.writer.IStandStillConditionWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -44,7 +45,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class StandStillConditionImpl extends BaseImpl implements IStandStillCondition {
+public class StandStillConditionImpl extends BaseImpl implements IStandStillConditionWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -53,11 +54,13 @@ public class StandStillConditionImpl extends BaseImpl implements IStandStillCond
   }
 
   private Double duration;
+
   /** Default constructor */
   public StandStillConditionImpl() {
     super();
     addAdapter(StandStillConditionImpl.class, this);
     addAdapter(IStandStillCondition.class, this);
+    addAdapter(IStandStillConditionWriter.class, this);
   }
 
   @Override
@@ -69,14 +72,11 @@ public class StandStillConditionImpl extends BaseImpl implements IStandStillCond
   public Double getDuration() {
     return this.duration;
   }
-  /**
-   * Sets the value of model property duration
-   *
-   * @param duration from OpenSCENARIO class model specification: [Duration time of still standing
-   *     to let the logical expression become true. Unit: s. Range [0..inf[.]
-   */
+
+  @Override
   public void setDuration(Double duration) {
     this.duration = duration;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__DURATION);
   }
 
   @Override
@@ -124,7 +124,7 @@ public class StandStillConditionImpl extends BaseImpl implements IStandStillCond
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // Simple type
-    clonedObject.setDuration(getDuration());
+    clonedObject.duration = getDuration();
     // clone children
     return clonedObject;
   }
@@ -205,4 +205,23 @@ public class StandStillConditionImpl extends BaseImpl implements IStandStillCond
   public String getModelType() {
     return "StandStillCondition";
   }
+
+  @Override
+  public void writeParameterToDuration(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__DURATION, parameterName, null /*no textmarker*/);
+    this.duration = null;
+  }
+
+  @Override
+  public String getParameterFromDuration() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__DURATION);
+  }
+
+  @Override
+  public boolean isDurationParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__DURATION);
+  }
+
+  // children
+
 }

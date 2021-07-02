@@ -25,7 +25,7 @@ import net.asam.openscenario.parser.ParserContext;
 import net.asam.openscenario.parser.modelgroup.XmlSequenceParser;
 import net.asam.openscenario.parser.type.XmlComplexTypeParser;
 import net.asam.openscenario.simple.struct.IndexedElement;
-import net.asam.openscenario.v1_0.api.IAxle;
+import net.asam.openscenario.v1_0.api.writer.IAxleWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 import net.asam.openscenario.v1_0.impl.AxleImpl;
 import net.asam.openscenario.v1_0.impl.AxlesImpl;
@@ -186,7 +186,7 @@ public class AxlesXmlParser extends XmlComplexTypeParser<AxlesImpl> {
       // Setting the parent
       additionalAxles.setParent(object);
       this.axleXmlParser.parseElement(indexedElement, parserContext, additionalAxles);
-      List<IAxle> additionalAxlesList = object.getAdditionalAxles();
+      List<IAxleWriter> additionalAxlesList = object.getWriterAdditionalAxles();
       if (additionalAxlesList == null) {
         additionalAxlesList = new ArrayList<>();
         object.setAdditionalAxles(additionalAxlesList);

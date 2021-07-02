@@ -33,6 +33,7 @@ import net.asam.openscenario.parser.ParserHelper;
 import net.asam.openscenario.v1_0.api.IEntity;
 import net.asam.openscenario.v1_0.api.IRelativeTargetSpeed;
 import net.asam.openscenario.v1_0.api.SpeedTargetValueType;
+import net.asam.openscenario.v1_0.api.writer.IRelativeTargetSpeedWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -50,7 +51,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class RelativeTargetSpeedImpl extends BaseImpl implements IRelativeTargetSpeed {
+public class RelativeTargetSpeedImpl extends BaseImpl implements IRelativeTargetSpeedWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -61,15 +62,17 @@ public class RelativeTargetSpeedImpl extends BaseImpl implements IRelativeTarget
     propertyToType.put(OscConstants.ATTRIBUTE__CONTINUOUS, SimpleType.BOOLEAN);
   }
 
-  private NamedReferenceProxy<IEntity> entityRef;
+  private INamedReference<IEntity> entityRef;
   private Double value;
   private SpeedTargetValueType speedTargetValueType;
   private Boolean continuous;
+
   /** Default constructor */
   public RelativeTargetSpeedImpl() {
     super();
     addAdapter(RelativeTargetSpeedImpl.class, this);
     addAdapter(IRelativeTargetSpeed.class, this);
+    addAdapter(IRelativeTargetSpeedWriter.class, this);
   }
 
   @Override
@@ -96,45 +99,29 @@ public class RelativeTargetSpeedImpl extends BaseImpl implements IRelativeTarget
   public Boolean getContinuous() {
     return this.continuous;
   }
-  /**
-   * Sets the value of model property entityRef
-   *
-   * @param entityRef from OpenSCENARIO class model specification: [Reference entity.]
-   */
-  public void setEntityRef(NamedReferenceProxy<IEntity> entityRef) {
+
+  @Override
+  public void setEntityRef(INamedReference<IEntity> entityRef) {
     this.entityRef = entityRef;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__ENTITY_REF);
   }
-  /**
-   * Sets the value of model property value
-   *
-   * @param value from OpenSCENARIO class model specification: [Value of the relative speed. This
-   *     value is either given as a delta or as a factor. E.g. value=10 together with ,
-   *     valueType=delta means the entity/entities are supposed to drive 10m/s faster than the
-   *     target reference entity. E.g. , value=1.1 together with valueType=factor means that the
-   *     entity/entities are supposed to drive 10% faster than the target, reference entity. Unit:
-   *     m/s or 1.]
-   */
+
+  @Override
   public void setValue(Double value) {
     this.value = value;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__VALUE);
   }
-  /**
-   * Sets the value of model property speedTargetValueType
-   *
-   * @param speedTargetValueType from OpenSCENARIO class model specification: [The value is either a
-   *     delta (Unit m/s) or a factor (no Unit).]
-   */
+
+  @Override
   public void setSpeedTargetValueType(SpeedTargetValueType speedTargetValueType) {
     this.speedTargetValueType = speedTargetValueType;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__SPEED_TARGET_VALUE_TYPE);
   }
-  /**
-   * Sets the value of model property continuous
-   *
-   * @param continuous from OpenSCENARIO class model specification: [By setting continuous to true a
-   *     controller comes into place and tries to maintain a continuous relative speed. This may ,
-   *     not be used together with Dynamics.time or Dynamics.distance.]
-   */
+
+  @Override
   public void setContinuous(Boolean continuous) {
     this.continuous = continuous;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__CONTINUOUS);
   }
 
   @Override
@@ -209,18 +196,18 @@ public class RelativeTargetSpeedImpl extends BaseImpl implements IRelativeTarget
     // clone attributes;
     // Proxy
     NamedReferenceProxy<IEntity> proxy = ((NamedReferenceProxy<IEntity>) getEntityRef()).clone();
-    clonedObject.setEntityRef(proxy);
+    clonedObject.entityRef = proxy;
     proxy.setParent(clonedObject);
     // Simple type
-    clonedObject.setValue(getValue());
+    clonedObject.value = getValue();
     // Enumeration Type
     SpeedTargetValueType speedTargetValueType = getSpeedTargetValueType();
     if (speedTargetValueType != null) {
-      clonedObject.setSpeedTargetValueType(
-          SpeedTargetValueType.getFromLiteral(speedTargetValueType.getLiteral()));
+      clonedObject.speedTargetValueType =
+          SpeedTargetValueType.getFromLiteral(speedTargetValueType.getLiteral());
     }
     // Simple type
-    clonedObject.setContinuous(getContinuous());
+    clonedObject.continuous = getContinuous();
     // clone children
     return clonedObject;
   }
@@ -330,4 +317,75 @@ public class RelativeTargetSpeedImpl extends BaseImpl implements IRelativeTarget
   public String getModelType() {
     return "RelativeTargetSpeed";
   }
+
+  @Override
+  public void writeParameterToEntityRef(String parameterName) {
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__ENTITY_REF, parameterName, null /*no textmarker*/);
+    this.entityRef = null;
+  }
+
+  @Override
+  public void writeParameterToValue(String parameterName) {
+    setAttributeParameter(OscConstants.ATTRIBUTE__VALUE, parameterName, null /*no textmarker*/);
+    this.value = null;
+  }
+
+  @Override
+  public void writeParameterToSpeedTargetValueType(String parameterName) {
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__SPEED_TARGET_VALUE_TYPE, parameterName, null /*no textmarker*/);
+    this.speedTargetValueType = null;
+  }
+
+  @Override
+  public void writeParameterToContinuous(String parameterName) {
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__CONTINUOUS, parameterName, null /*no textmarker*/);
+    this.continuous = null;
+  }
+
+  @Override
+  public String getParameterFromEntityRef() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__ENTITY_REF);
+  }
+
+  @Override
+  public String getParameterFromValue() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__VALUE);
+  }
+
+  @Override
+  public String getParameterFromSpeedTargetValueType() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__SPEED_TARGET_VALUE_TYPE);
+  }
+
+  @Override
+  public String getParameterFromContinuous() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__CONTINUOUS);
+  }
+
+  @Override
+  public boolean isEntityRefParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__ENTITY_REF);
+  }
+
+  @Override
+  public boolean isValueParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__VALUE);
+  }
+
+  @Override
+  public boolean isSpeedTargetValueTypeParameterized() {
+    return getParameterizedAttributeKeys()
+        .contains(OscConstants.ATTRIBUTE__SPEED_TARGET_VALUE_TYPE);
+  }
+
+  @Override
+  public boolean isContinuousParameterized() {
+    return getParameterizedAttributeKeys().contains(OscConstants.ATTRIBUTE__CONTINUOUS);
+  }
+
+  // children
+
 }

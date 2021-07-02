@@ -16,7 +16,6 @@
  */
 package net.asam.openscenario.v1_0.api;
 
-import java.util.List;
 import net.asam.openscenario.api.IOpenScenarioModelElement;
 
 /**
@@ -35,7 +34,7 @@ public interface IProperties extends IOpenScenarioModelElement {
    *
    * @return value of model property properties
    */
-  public List<IProperty> getProperties();
+  public Iterable<IProperty> getProperties();
   /**
    * From OpenSCENARIO class model specification: A list of arbitrary files attached to an object
    * that owns the properties. The semantic and the file formats are subject of a contract between
@@ -43,5 +42,32 @@ public interface IProperties extends IOpenScenarioModelElement {
    *
    * @return value of model property files
    */
-  public List<IFile> getFiles();
+  public Iterable<IFile> getFiles();
+
+  /**
+   * Retrieves the size of the list
+   *
+   * @return the size of the list
+   */
+  public int getPropertiesSize();
+  /**
+   * The element at specific index
+   *
+   * @param index the index of the list
+   * @return the element at index
+   */
+  public IProperty getPropertiesAtIndex(int index);
+  /**
+   * Retrieves the size of the list
+   *
+   * @return the size of the list
+   */
+  public int getFilesSize();
+  /**
+   * The element at specific index
+   *
+   * @param index the index of the list
+   * @return the element at index
+   */
+  public IFile getFilesAtIndex(int index);
 }

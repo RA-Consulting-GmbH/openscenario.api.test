@@ -28,6 +28,9 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.IEntityRef;
 import net.asam.openscenario.v1_0.api.IPosition;
 import net.asam.openscenario.v1_0.api.ITimeToCollisionConditionTarget;
+import net.asam.openscenario.v1_0.api.writer.IEntityRefWriter;
+import net.asam.openscenario.v1_0.api.writer.IPositionWriter;
+import net.asam.openscenario.v1_0.api.writer.ITimeToCollisionConditionTargetWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -47,16 +50,18 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  * @author RA Consulting OpenSCENARIO generation facility
  */
 public class TimeToCollisionConditionTargetImpl extends BaseImpl
-    implements ITimeToCollisionConditionTarget {
+    implements ITimeToCollisionConditionTargetWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
-  private IPosition position;
-  private IEntityRef entityRef;
+  private IPositionWriter position;
+  private IEntityRefWriter entityRef;
+
   /** Default constructor */
   public TimeToCollisionConditionTargetImpl() {
     super();
     addAdapter(TimeToCollisionConditionTargetImpl.class, this);
     addAdapter(ITimeToCollisionConditionTarget.class, this);
+    addAdapter(ITimeToCollisionConditionTargetWriter.class, this);
   }
 
   @Override
@@ -73,21 +78,17 @@ public class TimeToCollisionConditionTargetImpl extends BaseImpl
   public IEntityRef getEntityRef() {
     return this.entityRef;
   }
-  /**
-   * Sets the value of model property position
-   *
-   * @param position from OpenSCENARIO class model specification: [Position.]
-   */
-  public void setPosition(IPosition position) {
+
+  @Override
+  public void setPosition(IPositionWriter position) {
     this.position = position;
+    this.entityRef = null;
   }
-  /**
-   * Sets the value of model property entityRef
-   *
-   * @param entityRef from OpenSCENARIO class model specification: [Reference entity.]
-   */
-  public void setEntityRef(IEntityRef entityRef) {
+
+  @Override
+  public void setEntityRef(IEntityRefWriter entityRef) {
     this.entityRef = entityRef;
+    this.position = null;
   }
 
   @Override
@@ -111,13 +112,13 @@ public class TimeToCollisionConditionTargetImpl extends BaseImpl
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    IPosition position = null;
-    position = getPosition();
+    IPositionWriter position = null;
+    position = getWriterPosition();
     if (position != null) {
       result.add((BaseImpl) position);
     }
-    IEntityRef entityRef = null;
-    entityRef = getEntityRef();
+    IEntityRefWriter entityRef = null;
+    entityRef = getWriterEntityRef();
     if (entityRef != null) {
       result.add((BaseImpl) entityRef);
     }
@@ -140,17 +141,17 @@ public class TimeToCollisionConditionTargetImpl extends BaseImpl
     cloneAttributeKeyToParameterNameMap(clonedObject);
     // clone attributes;
     // clone children
-    IPosition position = null;
-    position = getPosition();
+    IPositionWriter position = null;
+    position = getWriterPosition();
     if (position != null) {
-      PositionImpl clonedChild = ((PositionImpl) position).clone();
+      IPositionWriter clonedChild = ((PositionImpl) position).clone();
       clonedObject.setPosition(clonedChild);
       clonedChild.setParent(clonedObject);
     }
-    IEntityRef entityRef = null;
-    entityRef = getEntityRef();
+    IEntityRefWriter entityRef = null;
+    entityRef = getWriterEntityRef();
     if (entityRef != null) {
-      EntityRefImpl clonedChild = ((EntityRefImpl) entityRef).clone();
+      IEntityRefWriter clonedChild = ((EntityRefImpl) entityRef).clone();
       clonedObject.setEntityRef(clonedChild);
       clonedChild.setParent(clonedObject);
     }
@@ -235,5 +236,16 @@ public class TimeToCollisionConditionTargetImpl extends BaseImpl
   @Override
   public String getModelType() {
     return "TimeToCollisionConditionTarget";
+  }
+
+  // children
+  @Override
+  public IPositionWriter getWriterPosition() {
+    return this.position;
+  }
+
+  @Override
+  public IEntityRefWriter getWriterEntityRef() {
+    return this.entityRef;
   }
 }

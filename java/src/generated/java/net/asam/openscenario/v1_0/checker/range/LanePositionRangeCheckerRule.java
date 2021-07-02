@@ -18,6 +18,7 @@ package net.asam.openscenario.v1_0.checker.range;
 
 import net.asam.openscenario.checker.RangeCheckerRule;
 import net.asam.openscenario.common.IParserMessageLogger;
+import net.asam.openscenario.common.ITreeMessageLogger;
 import net.asam.openscenario.v1_0.api.ILanePosition;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
@@ -35,18 +36,41 @@ public class LanePositionRangeCheckerRule extends RangeCheckerRule<ILanePosition
   }
 
   @Override
-  public void applyRule(IParserMessageLogger messageLogger, ILanePosition object) {
+  public void applyRuleInFileContext(IParserMessageLogger messageLogger, ILanePosition object) {
+    apply(messageLogger, null, object);
+  }
+
+  @Override
+  public void applyRuleInTreeContext(ITreeMessageLogger messageLogger, ILanePosition object) {
+    apply(null, messageLogger, object);
+  }
+
+  private void apply(
+      IParserMessageLogger fileMessageLogger,
+      ITreeMessageLogger treeMessageLogger,
+      ILanePosition object) {
     Double s = object.getS();
     if (s != null) {
       if (!(s >= 0)) {
-        logMessage(
-            object,
-            messageLogger,
-            OscConstants.ATTRIBUTE__S,
-            object.getS().toString(),
-            ">=",
-            "0",
-            OscConstants.ATTRIBUTE__S);
+        if (fileMessageLogger != null) {
+          logFileContentMessage(
+              object,
+              fileMessageLogger,
+              OscConstants.ATTRIBUTE__S,
+              object.getS().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__S);
+        } else {
+          logTreeContentMessage(
+              object,
+              treeMessageLogger,
+              OscConstants.ATTRIBUTE__S,
+              object.getS().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__S);
+        }
       }
     }
   }

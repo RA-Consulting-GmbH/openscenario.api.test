@@ -19,6 +19,7 @@ package net.asam.openscenario.v1_0.impl;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.List;
 import net.asam.openscenario.api.IOpenScenarioFlexElement;
 import net.asam.openscenario.api.KeyNotSupportedException;
@@ -30,6 +31,8 @@ import net.asam.openscenario.impl.BaseImpl;
 import net.asam.openscenario.v1_0.api.IEntityRef;
 import net.asam.openscenario.v1_0.api.ITriggeringEntities;
 import net.asam.openscenario.v1_0.api.TriggeringEntitiesRule;
+import net.asam.openscenario.v1_0.api.writer.IEntityRefWriter;
+import net.asam.openscenario.v1_0.api.writer.ITriggeringEntitiesWriter;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
 /**
@@ -47,7 +50,7 @@ import net.asam.openscenario.v1_0.common.OscConstants;
  *
  * @author RA Consulting OpenSCENARIO generation facility
  */
-public class TriggeringEntitiesImpl extends BaseImpl implements ITriggeringEntities {
+public class TriggeringEntitiesImpl extends BaseImpl implements ITriggeringEntitiesWriter {
   protected static Hashtable<String, SimpleType> propertyToType = new Hashtable<>();
 
   /** Filling the property to type map */
@@ -56,12 +59,14 @@ public class TriggeringEntitiesImpl extends BaseImpl implements ITriggeringEntit
   }
 
   private TriggeringEntitiesRule triggeringEntitiesRule;
-  private List<IEntityRef> entityRefs;
+  private List<IEntityRefWriter> entityRefs = new ArrayList<>();
+
   /** Default constructor */
   public TriggeringEntitiesImpl() {
     super();
     addAdapter(TriggeringEntitiesImpl.class, this);
     addAdapter(ITriggeringEntities.class, this);
+    addAdapter(ITriggeringEntitiesWriter.class, this);
   }
 
   @Override
@@ -75,24 +80,44 @@ public class TriggeringEntitiesImpl extends BaseImpl implements ITriggeringEntit
   }
 
   @Override
-  public List<IEntityRef> getEntityRefs() {
+  public List<IEntityRefWriter> getWriterEntityRefs() {
     return this.entityRefs;
   }
-  /**
-   * Sets the value of model property triggeringEntitiesRule
-   *
-   * @param triggeringEntitiesRule from OpenSCENARIO class model specification: [All or any.]
-   */
+
+  @Override
+  public Iterable<IEntityRef> getEntityRefs() {
+    return new Iterable<IEntityRef>() {
+
+      @SuppressWarnings("synthetic-access")
+      @Override
+      public Iterator<IEntityRef> iterator() {
+        return new ArrayList<IEntityRef>(TriggeringEntitiesImpl.this.entityRefs).iterator();
+      }
+    };
+  }
+
+  @Override
+  public int getEntityRefsSize() {
+    if (this.entityRefs != null) return this.entityRefs.size();
+    return 0;
+  }
+
+  @Override
+  public IEntityRef getEntityRefsAtIndex(int index) {
+    if (index >= 0 && this.entityRefs != null && this.entityRefs.size() > index) {
+      return this.entityRefs.get(index);
+    }
+    return null;
+  }
+
+  @Override
   public void setTriggeringEntitiesRule(TriggeringEntitiesRule triggeringEntitiesRule) {
     this.triggeringEntitiesRule = triggeringEntitiesRule;
+    // removeAttributeParameter(OscConstants.ATTRIBUTE__TRIGGERING_ENTITIES_RULE);
   }
-  /**
-   * Sets the value of model property entityRefs
-   *
-   * @param entityRefs from OpenSCENARIO class model specification: [List of referenced entities
-   *     that trigger the condition.]
-   */
-  public void setEntityRefs(List<IEntityRef> entityRefs) {
+
+  @Override
+  public void setEntityRefs(List<IEntityRefWriter> entityRefs) {
     this.entityRefs = entityRefs;
   }
 
@@ -130,10 +155,10 @@ public class TriggeringEntitiesImpl extends BaseImpl implements ITriggeringEntit
   public List<BaseImpl> getChildren() {
     List<BaseImpl> result = new ArrayList<>();
 
-    List<IEntityRef> entityRefs = null;
-    entityRefs = getEntityRefs();
+    List<IEntityRefWriter> entityRefs = null;
+    entityRefs = getWriterEntityRefs();
     if (entityRefs != null) {
-      for (IEntityRef item : entityRefs) {
+      for (IEntityRefWriter item : entityRefs) {
         result.add((BaseImpl) item);
       }
     }
@@ -158,16 +183,16 @@ public class TriggeringEntitiesImpl extends BaseImpl implements ITriggeringEntit
     // Enumeration Type
     TriggeringEntitiesRule triggeringEntitiesRule = getTriggeringEntitiesRule();
     if (triggeringEntitiesRule != null) {
-      clonedObject.setTriggeringEntitiesRule(
-          TriggeringEntitiesRule.getFromLiteral(triggeringEntitiesRule.getLiteral()));
+      clonedObject.triggeringEntitiesRule =
+          TriggeringEntitiesRule.getFromLiteral(triggeringEntitiesRule.getLiteral());
     }
     // clone children
-    List<IEntityRef> entityRefs = null;
-    entityRefs = getEntityRefs();
+    List<IEntityRefWriter> entityRefs = null;
+    entityRefs = getWriterEntityRefs();
     if (entityRefs != null) {
-      List<IEntityRef> clonedList = new ArrayList<>();
-      for (IEntityRef item : entityRefs) {
-        EntityRefImpl clonedChild = ((EntityRefImpl) item).clone();
+      List<IEntityRefWriter> clonedList = new ArrayList<>();
+      for (IEntityRefWriter item : entityRefs) {
+        IEntityRefWriter clonedChild = ((EntityRefImpl) item).clone();
         clonedList.add(clonedChild);
         clonedChild.setParent(clonedObject);
       }
@@ -260,4 +285,25 @@ public class TriggeringEntitiesImpl extends BaseImpl implements ITriggeringEntit
   public String getModelType() {
     return "TriggeringEntities";
   }
+
+  @Override
+  public void writeParameterToTriggeringEntitiesRule(String parameterName) {
+    setAttributeParameter(
+        OscConstants.ATTRIBUTE__TRIGGERING_ENTITIES_RULE, parameterName, null /*no textmarker*/);
+    this.triggeringEntitiesRule = null;
+  }
+
+  @Override
+  public String getParameterFromTriggeringEntitiesRule() {
+    return getParameterNameFromAttribute(OscConstants.ATTRIBUTE__TRIGGERING_ENTITIES_RULE);
+  }
+
+  @Override
+  public boolean isTriggeringEntitiesRuleParameterized() {
+    return getParameterizedAttributeKeys()
+        .contains(OscConstants.ATTRIBUTE__TRIGGERING_ENTITIES_RULE);
+  }
+
+  // children
+
 }

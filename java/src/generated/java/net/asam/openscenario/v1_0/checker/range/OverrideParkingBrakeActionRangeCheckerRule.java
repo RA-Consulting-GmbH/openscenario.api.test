@@ -18,6 +18,7 @@ package net.asam.openscenario.v1_0.checker.range;
 
 import net.asam.openscenario.checker.RangeCheckerRule;
 import net.asam.openscenario.common.IParserMessageLogger;
+import net.asam.openscenario.common.ITreeMessageLogger;
 import net.asam.openscenario.v1_0.api.IOverrideParkingBrakeAction;
 import net.asam.openscenario.v1_0.common.OscConstants;
 
@@ -37,28 +38,64 @@ public class OverrideParkingBrakeActionRangeCheckerRule
   }
 
   @Override
-  public void applyRule(IParserMessageLogger messageLogger, IOverrideParkingBrakeAction object) {
+  public void applyRuleInFileContext(
+      IParserMessageLogger messageLogger, IOverrideParkingBrakeAction object) {
+    apply(messageLogger, null, object);
+  }
+
+  @Override
+  public void applyRuleInTreeContext(
+      ITreeMessageLogger messageLogger, IOverrideParkingBrakeAction object) {
+    apply(null, messageLogger, object);
+  }
+
+  private void apply(
+      IParserMessageLogger fileMessageLogger,
+      ITreeMessageLogger treeMessageLogger,
+      IOverrideParkingBrakeAction object) {
     Double value = object.getValue();
     if (value != null) {
       if (!(value <= 1)) {
-        logMessage(
-            object,
-            messageLogger,
-            OscConstants.ATTRIBUTE__VALUE,
-            object.getValue().toString(),
-            "<=",
-            "1",
-            OscConstants.ATTRIBUTE__VALUE);
+        if (fileMessageLogger != null) {
+          logFileContentMessage(
+              object,
+              fileMessageLogger,
+              OscConstants.ATTRIBUTE__VALUE,
+              object.getValue().toString(),
+              "<=",
+              "1",
+              OscConstants.ATTRIBUTE__VALUE);
+        } else {
+          logTreeContentMessage(
+              object,
+              treeMessageLogger,
+              OscConstants.ATTRIBUTE__VALUE,
+              object.getValue().toString(),
+              "<=",
+              "1",
+              OscConstants.ATTRIBUTE__VALUE);
+        }
       }
       if (!(value >= 0)) {
-        logMessage(
-            object,
-            messageLogger,
-            OscConstants.ATTRIBUTE__VALUE,
-            object.getValue().toString(),
-            ">=",
-            "0",
-            OscConstants.ATTRIBUTE__VALUE);
+        if (fileMessageLogger != null) {
+          logFileContentMessage(
+              object,
+              fileMessageLogger,
+              OscConstants.ATTRIBUTE__VALUE,
+              object.getValue().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__VALUE);
+        } else {
+          logTreeContentMessage(
+              object,
+              treeMessageLogger,
+              OscConstants.ATTRIBUTE__VALUE,
+              object.getValue().toString(),
+              ">=",
+              "0",
+              OscConstants.ATTRIBUTE__VALUE);
+        }
       }
     }
   }
