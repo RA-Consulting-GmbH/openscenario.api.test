@@ -91,8 +91,6 @@ Placing this script into a file called ``.git/hooks/commit-msg`` and making it e
 Formatting issues
 -----------------
 
-For java code, the usage of the `google formatter <https://github.com/google/google-java-format>`_ is mandatory.
-
 For C++ code, the usage of `this <https://github.com/RA-Consulting-GmbH/openscenario.api.test/blob/master/doc/CppCodeStyle.clang-format>`_ .clang-format file is mandatory.
 
 
@@ -120,8 +118,6 @@ If practicable issues should be closed by a referenced pull request or commit (`
 First steps
 -----------
 
-First, make up your mind to which programming platform (Java, C++) you want to contribute to.
-
 See the `README.md <https://github.com/ahege/openscenario.api.test/blob/master/README.md>`_ page for building instructions.
 
 Also, make sure that you are proficient enough in OpenSCENARIO. The `User Guide <https://www.asam.net/index.php?eID=dumpFile&t=f&f=3496&token=df4fdaf41a8463e585495001cc3db3298b57d426>`_ is a great place to start learning. Download the  `full release <https://www.asam.net/standards/detail/openscenario/#>`_ and go through the examples.
@@ -133,7 +129,7 @@ Become a github guru :).
 Where to start
 --------------
 
-While you familiarize yourself with the basics as suggested above, you can have a look at the javadoc of the API (see `README.md <https://github.com/ra-consulting-gmbh/openscenario.api.test/blob/master/README.md>`_ for instructions how to build javadocs for the project). It will give you an overview of the API classes, their main components and their meaning.
+While you familiarize yourself with the basics as suggested above, you can have a look at the cppdoc of the API. It will give you an overview of the API classes, their main components and their meaning.
 
 Our git workflow
 ----------------
@@ -180,7 +176,7 @@ maintain a streamlined Git history. Pull requests without a Sign-Off message (se
 - Create a branch with a meaningful name: ``prefix/name``, ``feature/new-environmental-conditions``
 - prefixes: feature, experimental, bug, etc.
 - Add your suggestions to the code. Do not use: ``*git add -A *git commit -A``
-- The code should compile and pass all `unit tests <https://github.com/ra-consulting-gmbh/openscenario.api.test/tree/master/java/src/test>`_  for a pull-request!
+- The code should compile and pass all unit tests for a pull-request!
 - Try to make small changes for easier discussions
 - The person willing to merge needs to adjust the version according to :ref:`versioning` before hitting merge
 

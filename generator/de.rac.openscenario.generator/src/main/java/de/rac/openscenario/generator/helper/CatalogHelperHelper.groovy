@@ -16,7 +16,7 @@
  */
 package de.rac.openscenario.generator.helper
 
-import de.rac.openscenario.generator.java.JavaDocHelper
+import de.rac.openscenario.generator.cpp.CppDocHelper
 
 public class CatalogHelperHelper {
 
@@ -25,7 +25,7 @@ public class CatalogHelperHelper {
 		def lines = [];
 		lines.add("<p>");
 		lines.add("A helper class for the catalog elements. This class provides conversion methods for all subclasses of ICatalogElement and a method for providing the name")
-		return JavaDocHelper.makeGeneratedClassComment(lines, version, indent)
+		return CppDocHelper.makeGeneratedClassComment(lines, version, indent)
 	}
 
 	

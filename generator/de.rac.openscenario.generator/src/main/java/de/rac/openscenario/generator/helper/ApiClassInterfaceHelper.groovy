@@ -16,7 +16,7 @@
  */
 package de.rac.openscenario.generator.helper
 
-import de.rac.openscenario.generator.java.JavaDocHelper
+import de.rac.openscenario.generator.cpp.CppDocHelper
 import de.rac.openscenario.uml.framework.UmlClass
 import de.rac.openscenario.uml.framework.UmlProperty
 
@@ -26,20 +26,20 @@ public class ApiClassInterfaceHelper {
 	{
 		def lines = [];
 		lines.add("From OpenSCENARIO class model specification:")
-		lines.addAll(JavaDocHelper.formatString(property.annotation));
+		lines.addAll(CppDocHelper.formatString(property.annotation));
 		lines.addAll("");
 		lines.addAll("@return value of model property ${property.name.toMemberName()}");
-		return JavaDocHelper.makeComment(lines, "\t")
+		return CppDocHelper.makeComment(lines, "\t")
 	}
 	
     public makeGetterCppDoc(UmlClass umlClass, property, indent = "")
     {
         def lines = [];
         lines.add("From OpenSCENARIO class model specification:")
-        lines.addAll(JavaDocHelper.formatString(property.annotation));
+        lines.addAll(CppDocHelper.formatString(property.annotation));
         lines.addAll("");
         lines.addAll("@return value of model property ${property.name.toMemberName()}");
-        return JavaDocHelper.makeComment(lines, indent)
+        return CppDocHelper.makeComment(lines, indent)
     }
 	
 	public String makeClassJavaDoc(UmlClass umlClass,  version, indent = "")
@@ -47,23 +47,11 @@ public class ApiClassInterfaceHelper {
 		def lines = [];
 		lines.add("<p>");
 		lines.add("From OpenSCENARIO class model specification:")
-		lines.addAll(JavaDocHelper.formatString(umlClass.annotation));
-		return JavaDocHelper.makeGeneratedClassComment(lines, version, indent)
+		lines.addAll(CppDocHelper.formatString(umlClass.annotation));
+		return CppDocHelper.makeGeneratedClassComment(lines, version, indent)
 		
 	}
 	
-	public String getExtendsExpression(UmlClass umlClass)
-	{
-		List interfaceRealizationList = umlClass.implementedInterfaces.collect{interfaceRealization-> return "I" +interfaceRealization.name.toClassName()};
-		String result = "extends IOpenScenarioModelElement";
-		
-		if (interfaceRealizationList && !interfaceRealizationList.isEmpty()){
-			return "extends " + String.join(",", interfaceRealizationList);
-		}else
-		{
-			return result;
-		}
-	}
 
     public String getExtendsExpressionCpp(UmlClass umlClass)
     {
@@ -77,14 +65,5 @@ public class ApiClassInterfaceHelper {
         }
     }
 
-  	public String getListImport(UmlClass umlClass)
-	{
-		List properties = umlClass.umlProperties;
-		if (properties.find(){ UmlProperty property -> property.upper == -1})
-		{
-				return "import java.lang.Iterable;"
-		}
-		return "";
-	}
   	
 }

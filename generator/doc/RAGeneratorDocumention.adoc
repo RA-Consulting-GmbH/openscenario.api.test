@@ -11,7 +11,8 @@ RA Consulting GmbH, https://www-rac.de[www-rac.de]
 [cols=",,,",]
 |====================================================
 |Version |Date |Author |Changes
-|1.0 |12/16/2020 |Andreas Hege |Initial Documentation
+|1.0.0 |12/16/2020 |Andreas Hege |Initial Documentation
+|1.2.0 |07/05/2021 |Andreas Hege |Eliminated Java
 | | | |
 |====================================================
 

@@ -16,7 +16,7 @@
  */
 package de.rac.openscenario.generator.helper
 
-import de.rac.openscenario.generator.java.JavaDocHelper
+import de.rac.openscenario.generator.cpp.CppDocHelper
 
 public class ScenarioCheckerInterfaceHelper {
 
@@ -25,7 +25,7 @@ public class ScenarioCheckerInterfaceHelper {
 	{
 		def lines = [];
 		lines.add("Provides a method for every type of the osc model to add checker rules.")
-		return JavaDocHelper.makeGeneratedClassComment(lines, version, indent)
+		return CppDocHelper.makeGeneratedClassComment(lines, version, indent)
 	}
 
 	

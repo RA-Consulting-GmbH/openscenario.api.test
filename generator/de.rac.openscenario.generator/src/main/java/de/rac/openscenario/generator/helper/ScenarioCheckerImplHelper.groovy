@@ -16,7 +16,7 @@
  */
 package de.rac.openscenario.generator.helper
 
-import de.rac.openscenario.generator.java.JavaDocHelper
+import de.rac.openscenario.generator.cpp.CppDocHelper
 
 public class ScenarioCheckerImplHelper {
 
@@ -25,7 +25,7 @@ public class ScenarioCheckerImplHelper {
 	{
 		def lines = [];
 		lines.add("A range checker rule class for the type ")
-		return JavaDocHelper.makeGeneratedClassComment(lines, version, indent)
+		return CppDocHelper.makeGeneratedClassComment(lines, version, indent)
 	}
 
 	

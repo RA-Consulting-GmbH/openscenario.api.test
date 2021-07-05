@@ -16,7 +16,7 @@
  */
 package de.rac.openscenario.generator.helper
 
-import de.rac.openscenario.generator.java.JavaDocHelper
+import de.rac.openscenario.generator.cpp.CppDocHelper
 
 public class UnionCheckerRuleHelper {
 
@@ -26,7 +26,7 @@ public class UnionCheckerRuleHelper {
 		def lines = [];
 		lines.add("A union checker rule class for the type I${element.name.toClassName()} according to OpenSCENARIO standard")
         lines.add("all xor elements are checked")
-        return JavaDocHelper.makeGeneratedClassComment(lines, version, indent)
+        return CppDocHelper.makeGeneratedClassComment(lines, version, indent)
 	}
 
 	

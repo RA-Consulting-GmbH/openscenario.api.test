@@ -16,7 +16,7 @@
  */
 package de.rac.openscenario.generator.helper
 
-import de.rac.openscenario.generator.java.JavaDocHelper
+import de.rac.openscenario.generator.cpp.CppDocHelper
 
 public class ApiClassWriterFactoryImplHelper {
 
@@ -24,7 +24,7 @@ public class ApiClassWriterFactoryImplHelper {
 	public  String makeClassJavaDoc( version, index = "") {
 		def lines = [];
 		lines.add("An interface with a factory method for each OpenSCENARIO class")
-		return JavaDocHelper.makeGeneratedClassComment(lines, version, index)
+		return CppDocHelper.makeGeneratedClassComment(lines, version, index)
 	}
 
 	

@@ -16,7 +16,7 @@
  */
 package de.rac.openscenario.generator.helper
 
-import de.rac.openscenario.generator.java.JavaDocHelper
+import de.rac.openscenario.generator.cpp.CppDocHelper
 
 public class CardinalityCheckerRuleHelper {
 
@@ -26,7 +26,7 @@ public class CardinalityCheckerRuleHelper {
 		def lines = [];
 		lines.add("A cardinality checker rule class for the type I${element.name.toClassName()} according to OpenSCENARIO standard")
         lines.add("all properties and children are checked if they are not optinal")
-        return JavaDocHelper.makeGeneratedClassComment(lines, version, indent)
+        return CppDocHelper.makeGeneratedClassComment(lines, version, indent)
 	}
 
 	

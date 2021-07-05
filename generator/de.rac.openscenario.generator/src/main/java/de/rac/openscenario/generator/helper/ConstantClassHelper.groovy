@@ -16,7 +16,7 @@
  */
 package de.rac.openscenario.generator.helper
 
-import de.rac.openscenario.generator.java.JavaDocHelper
+import de.rac.openscenario.generator.cpp.CppDocHelper
 
 public class ConstantClassHelper {
 
@@ -25,7 +25,7 @@ public class ConstantClassHelper {
 		def lines = [];
 		lines.add("<p>");
 		lines.add("This class contains constants for any literal from the OSC XSD schema (element names and attribute names)")
-		return JavaDocHelper.makeGeneratedClassComment(lines, version)
+		return CppDocHelper.makeGeneratedClassComment(lines, version)
 	}
 
 	

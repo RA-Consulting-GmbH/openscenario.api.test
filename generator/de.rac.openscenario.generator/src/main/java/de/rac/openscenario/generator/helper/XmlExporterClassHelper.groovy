@@ -16,7 +16,7 @@
  */
 package de.rac.openscenario.generator.helper
 
-import de.rac.openscenario.generator.java.JavaDocHelper
+import de.rac.openscenario.generator.cpp.CppDocHelper
 
 public class XmlExporterClassHelper {
 
@@ -26,7 +26,7 @@ public class XmlExporterClassHelper {
 	{
 		def lines = [];
 		lines.add(indent + "Exporting an XML document form a scenario tree.")
-		return JavaDocHelper.makeGeneratedClassComment(lines, version, indent)
+		return CppDocHelper.makeGeneratedClassComment(lines, version, indent)
 		
 	}
 	

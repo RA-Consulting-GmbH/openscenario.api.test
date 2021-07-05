@@ -16,7 +16,7 @@
  */
 package de.rac.openscenario.generator.helper
 
-import de.rac.openscenario.generator.java.JavaDocHelper
+import de.rac.openscenario.generator.cpp.CppDocHelper
 import de.rac.openscenario.uml.framework.UmlInterface
 
 public class ApiInterfaceHelper {
@@ -26,8 +26,8 @@ public class ApiInterfaceHelper {
 		def lines = [];
 		lines.add("<p>");
 		lines.add("From OpenSCENARIO class model specification:")
-		lines.addAll(JavaDocHelper.formatString(umlInterface.annotation));
-		return JavaDocHelper.makeGeneratedClassComment(lines, version, indent)
+		lines.addAll(CppDocHelper.formatString(umlInterface.annotation));
+		return CppDocHelper.makeGeneratedClassComment(lines, version, indent)
 	}
 
 	

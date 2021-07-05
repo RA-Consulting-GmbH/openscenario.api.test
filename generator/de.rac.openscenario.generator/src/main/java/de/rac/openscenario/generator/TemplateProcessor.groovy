@@ -23,12 +23,12 @@ import de.rac.generator.basic.CommonTemplateProcessor
 class TemplateProcessor {
   
     public static final String CPP = "cpp";
-    public static final String JAVA = "java";
+
     private String type;
     
     TemplateProcessor(String type)
     {
-      assert(type.equals(CPP) || type.equals(JAVA))
+      assert(type.equals(CPP))
       this.type = type;
     }
 

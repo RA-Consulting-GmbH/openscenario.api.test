@@ -15,57 +15,39 @@
  * limitations under the License.
  */package de.rac.openscenario.generator.helper
 
-import de.rac.openscenario.generator.java.JavaDocHelper
+import de.rac.openscenario.generator.cpp.CppDocHelper
 import de.rac.openscenario.uml.framework.UmlClass
 import de.rac.openscenario.uml.framework.UmlProperty
 
 public class ImplClassHelper {
 
-	public makeGetterJavaDoc(UmlClass umlClass, property)
-	{
-		def lines = [];
-		lines.add("From OpenSCENARIO class model specification:")
-		lines.addAll(JavaDocHelper.formatString(property.annotation));
-		lines.addAll("");
-		lines.addAll("@return value of model property ${property.name.toMemberName()}");
-		return JavaDocHelper.makeComment(lines, "\t")
-	}
   
     public makeGetterCppDoc(UmlClass umlClass, property,  indent= "")
     {
         def lines = [];
         lines.add("From OpenSCENARIO class model specification:")
-        lines.addAll(JavaDocHelper.formatString(property.annotation));
+        lines.addAll(CppDocHelper.formatString(property.annotation));
         lines.addAll("");
         lines.addAll("@return value of model property ${property.name.toMemberName()}");
-        return JavaDocHelper.makeComment(lines, indent)
+        return CppDocHelper.makeComment(lines, indent)
     }
-
-	public makeSetterJavaDoc(UmlClass umlClass, property)
-	{
-		def lines = [];
-		lines.add("Sets the value of model property ${property.name.toMemberName()}")
-		lines.addAll("@param ${property.name.toMemberName()}${property.isXmlElementProperty()?"Writer":""} from OpenSCENARIO class model specification: "+ JavaDocHelper.formatString(property.annotation));
-		lines.addAll("");
-		return JavaDocHelper.makeComment(lines, "\t")
-	}
   
     public makeSetterListJavaDoc(UmlClass umlClass, property)
     {
         def lines = [];
         lines.add("Sets the value of model property ${property.name.toMemberName()}")
-        lines.addAll("@param ${property.name.toMemberName()}${property.isTransient()?"":"Writers"} from OpenSCENARIO class model specification: "+ JavaDocHelper.formatString(property.annotation));
+        lines.addAll("@param ${property.name.toMemberName()}${property.isTransient()?"":"Writers"} from OpenSCENARIO class model specification: "+ CppDocHelper.formatString(property.annotation));
         lines.addAll("");
-        return JavaDocHelper.makeComment(lines, "\t")
+        return CppDocHelper.makeComment(lines, "\t")
     }
   
     public makeSetterCppDoc(UmlClass umlClass, property,  indent)
     {
         def lines = [];
         lines.add("Sets the value of model property ${property.name.toMemberName()}")
-        lines.addAll("@param ${property.name.toMemberName()} from OpenSCENARIO class model specification: "+ JavaDocHelper.formatString(property.annotation));
+        lines.addAll("@param ${property.name.toMemberName()} from OpenSCENARIO class model specification: "+ CppDocHelper.formatString(property.annotation));
         lines.addAll("");
-        return JavaDocHelper.makeComment(lines, indent)
+        return CppDocHelper.makeComment(lines, indent)
     }
 	
 	
@@ -81,31 +63,10 @@ public class ImplClassHelper {
 		lines.add("<li> clone function to make a deep copy")
 		lines.add("<li> overrides from BaseImpl")
 		lines.add("</ul>")
-		return JavaDocHelper.makeGeneratedClassComment(lines, version, indent)
+		return CppDocHelper.makeGeneratedClassComment(lines, version, indent)
 		
 	}
 	
-	public String getExtendsExpression(UmlClass umlClass)
-	{
-		List interfaceRealizationList = umlClass.getInterfaceRealization().collect{interfaceRealization-> return "I" +interfaceRealization.name.toClassName()};
-		if (interfaceRealizationList && !interfaceRealizationList.isEmpty()){
-			return "extends " +  String.join(",", interfaceRealizationList);
-		}else
-		{
-			return "";
-		}
-	}
-
-	public java.util.HashSet getTypeImport(UmlClass umlClass, packageName)
-	{
-		List properties = umlClass.umlProperties;
-		def result =  properties.collect(){ property -> return property.type.isPrimitiveType()?null:packageName + "." + property.type.toJavaName() + ";\n"}
-		properties = umlClass.getXmlElementProperties();
-        result.addAll(properties.collect(){ property -> return property.type.isPrimitiveType()?null:packageName + ".writer." + property.type.toJavaName() + "Writer;\n"});
-        Set<String> resultSet= new HashSet<String>(result.findAll(){item -> item != null});
-		return resultSet;
-		
-	}
 
     public java.util.HashSet getTypeImportCpp(UmlClass umlClass, packageName)
     {

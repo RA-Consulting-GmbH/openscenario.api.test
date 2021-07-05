@@ -16,7 +16,7 @@
  */
 package de.rac.openscenario.generator.helper
 
-import de.rac.openscenario.generator.java.JavaDocHelper
+import de.rac.openscenario.generator.cpp.CppDocHelper
 
 public class ApiWriterInterfaceHelper {
 
@@ -26,8 +26,8 @@ public class ApiWriterInterfaceHelper {
         lines.add("<p>");
         lines.add("A Writer for the type '${element.name.toClassName()}' ");
         lines.add("From OpenSCENARIO class model specification:")
-        lines.addAll(JavaDocHelper.formatString(element.annotation));
-        return JavaDocHelper.makeGeneratedClassComment(lines, version, indent)
+        lines.addAll(CppDocHelper.formatString(element.annotation));
+        return CppDocHelper.makeGeneratedClassComment(lines, version, indent)
     }
 
   	

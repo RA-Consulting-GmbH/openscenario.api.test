@@ -16,7 +16,7 @@
  */
 package de.rac.openscenario.generator.helper
 
-import de.rac.openscenario.generator.java.JavaDocHelper
+import de.rac.openscenario.generator.cpp.CppDocHelper
 import de.rac.openscenario.uml.framework.UmlEnumeration
 import de.rac.openscenario.uml.framework.UmlEnumerationLiteral
 
@@ -29,7 +29,7 @@ public class ApiEnumerationHelper {
 		def lines = [];
 		lines.add("<p>");
 		lines.add("From OpenSCENARIO class model specification:")
-		lines.addAll(JavaDocHelper.formatString(umlEnumeration.annotation));
+		lines.addAll(CppDocHelper.formatString(umlEnumeration.annotation));
 		lines.add("")
 		lines.add("Values from OpenSCENARIO class model specification:")
 		lines.add("<ul>")
@@ -37,14 +37,7 @@ public class ApiEnumerationHelper {
 			lines.add("<li>" +property.annotation);
 		}
 		lines.add("</ul>")		
-		return JavaDocHelper.makeGeneratedClassComment(lines, version, indent)
-	}
-
-	public  List getEnumElements(UmlEnumeration umlEnumeration) {
-		def result =  umlEnumeration.enumerationValues.collect{property-> property.literal.toUpperNameFromMemberName() + "(\"" + property.literal+ "\"),"};
-		String lastResult = result[result.size()-1];
-		result[result.size()-1] = lastResult.substring(0, lastResult.length() -1) + ";";
-		return result;
+		return CppDocHelper.makeGeneratedClassComment(lines, version, indent)
 	}
   
     public  List getEnumElementsCpp(UmlEnumeration umlEnumeration) {
