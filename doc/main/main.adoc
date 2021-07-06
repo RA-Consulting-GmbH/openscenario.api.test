@@ -294,7 +294,7 @@ link:{levelToBaseDir}/java/src/test/java/net/asam/openscenario/v1_0/test/TestInj
 
 == Getting started on C++
 A great source of how to start using the API are the test sources
-link:{levelToBaseDir}/cpp/applications/openScenarioTester/V_1_0/src[test sources].
+link:{levelToBaseDir}/cpp/applications/openScenarioTester/v1_0/src[test sources].
 
 Generally there are two major use cases for using the library. 
 
@@ -387,11 +387,10 @@ Validation failed with 1 errors and 0 warnings.
 
 
 ==== Injecting parameters
-~~~~~~~~~~~~~~~~~~~~
 
 It is possible to inject parameters into the ASAM OpenSCENARIO checker.
 Use `-p` to specify a filename for the parameters. See
-link:{levelToDocDir}/examples/injectedParamsExample[doc/examples/injectedParamsExample]
+link:{levelToDocDir}/examples/injectedParamsExample[injectedParamsExample]
 
 [source,bash]
 ----
@@ -591,9 +590,9 @@ Please be aware of the following restrictions
 * If conversion fails, an error is issued. 
 * Only scenario definitions declare global parameters. It is not useful to declare them for catalogs.
 
-Please see link:{levelToBaseDir}/cpp/applications/openScenarioTester/v_1_0/src/TestInjectedParameters.h[TestInjectedParameters.h] for detailed tests on error handling.
+Please see link:{levelToBaseDir}/cpp/applications/openScenarioTester/v1_0/src/TestInjectedParameters.h[TestInjectedParameters.h] for detailed tests on error handling.
 
-== General archtiectural aspects
+== General architectural aspects
 This article is about some fundamental aspects in the API's artchitecture. It may help to understand the intention behind the design decisions and also gives you a entry point in coding and integration
 issues.
 
