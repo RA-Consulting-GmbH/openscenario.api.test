@@ -3,7 +3,7 @@
 ## Abstract
 * Extensive library for reading and checking scenarios.
 * Fully compliant to [OpenSCENARIO 1.0.](https://www.asam.net/standards/detail/openscenario/)
-* Includes an executable checker (See [Getting Started](https://github.com/ra-consulting-gmbh/openscenario.api.test/wiki/Getting-started)).
+* Includes an executable checker (See [Getting Started](./doc/main.adoc#getting-started-on-c)).
 * Implementation platform is C++
 
 ## Features
