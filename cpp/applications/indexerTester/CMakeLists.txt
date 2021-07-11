@@ -11,6 +11,11 @@ else( WIN32 )
   add_definitions( -Wall -fPIC -Wno-unused-variable )
 endif( WIN32 )
 
+################################################################
+# Update rc file
+RAC_GET_PRODUCT_INFO("${CMAKE_CURRENT_SOURCE_DIR}/productInfo.txt")
+configure_file("${CMAKE_SOURCE_DIR}/common/rc.template" "${CMAKE_CURRENT_SOURCE_DIR}/rc/${PROJECT_NAME}.rc")
+
 
 ################################################################
 # Set compile output folder
@@ -53,6 +58,16 @@ set( HEADERS
 )
 
 ################################################################
+# Resource files
+if( MSVC )
+  set( RESOURCE_FILES
+    "rc/${PROJECT_NAME}.rc"
+    "rc/resource.h"
+  )
+  set( VS_RESOURCE_FILE ${CMAKE_CURRENT_SOURCE_DIR}/rc/${PROJECT_NAME}.rc )
+endif()
+
+################################################################
 # Create groups for VS
 if( MSVC )
   # Groups for source files
@@ -61,11 +76,13 @@ if( MSVC )
   # Groups for header files
   source_group( Headers FILES ${HEADERS} )
 
+  # Groups for resource files
+  source_group( Resources FILES ${RESOURCE_FILES} )
 endif()
 
 ################################################################
 # Generate executable
-add_executable( ${PROJECT_NAME} ${SOURCES} ${HEADERS} )
+add_executable( ${PROJECT_NAME} ${SOURCES} ${HEADERS} ${RESOURCE_FILES} )
 
 if( BUILD_STATIC_LIBS STREQUAL "ON" )
   target_link_libraries( ${PROJECT_NAME} antlr4_static )

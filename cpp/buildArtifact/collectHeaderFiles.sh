@@ -3,8 +3,8 @@
 # get script folder
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 # cd to project root
-cd ${SCRIPT_DIR}/../../
-# set openSCENARIO API folder, e.g. openScenario.v1_0.API
+cd ${SCRIPT_DIR}/../
+# set openSCENARIO API folder, e.g. openScenario.API
 # check for parameter
 if [[ $1 == "" ]] ; then
     echo "Parameter missing."
@@ -35,9 +35,9 @@ echo OpenScenarioTester.cpp >> ${FIND_HEADERS_SH}
 chmod a+x ${FIND_HEADERS_SH}
 
 # go to the openScenarioTester folder where its main file OpenScenarioTester.cpp is located
-cd ${SCRIPT_DIR}/../../applications/openScenarioTester/v1_0/src/
+cd ${SCRIPT_DIR}/../applications/openScenarioTester/v1_0/src/
 # prepare the openScenario source for install folder; ok it is a bit clumsy but it works as expected
-echo "rm -rf ${SCRIPT_DIR}/../../applications/openScenarioTester/v1_0/src/${OPEN_SCEANARIO_API}"
+echo "rm -rf ${SCRIPT_DIR}/../applications/openScenarioTester/v1_0/src/${OPEN_SCEANARIO_API}"
 rm -rf ${OPEN_SCEANARIO_API}
 mkdir -p ${OPEN_SCEANARIO_API}/include/a/b/c/d
 # and now let the compiler collect all necessary dependent header files
@@ -49,11 +49,11 @@ for i in `./${FIND_HEADERS_SH_FILE}` ; do
     fi ;
 done
 # clean up
-echo "rm -rf ${SCRIPT_DIR}/../../applications/openScenarioTester/v1_0/src/${OPEN_SCEANARIO_API}/include/a"
+echo "rm -rf ${SCRIPT_DIR}/../applications/openScenarioTester/v1_0/src/${OPEN_SCEANARIO_API}/include/a"
 rm -rf ${OPEN_SCEANARIO_API}/include/a
 
 # move to SCRIPT_DIR but before delete old one
 echo "rm -rf ${SCRIPT_DIR}/${OPEN_SCEANARIO_API}"
-echo "mv ${SCRIPT_DIR}/../../applications/openScenarioTester/v1_0/src/${OPEN_SCEANARIO_API} ${SCRIPT_DIR}"
+echo "mv ${SCRIPT_DIR}/../applications/openScenarioTester/v1_0/src/${OPEN_SCEANARIO_API} ${SCRIPT_DIR}"
 rm -rf ${SCRIPT_DIR}/${OPEN_SCEANARIO_API}
-mv ${SCRIPT_DIR}/../../applications/openScenarioTester/v1_0/src/${OPEN_SCEANARIO_API} ${SCRIPT_DIR}
+mv ${SCRIPT_DIR}/../applications/openScenarioTester/v1_0/src/${OPEN_SCEANARIO_API} ${SCRIPT_DIR}

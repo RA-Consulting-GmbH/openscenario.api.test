@@ -15,7 +15,7 @@ cd ${SCRIPT_DIR}/${OPEN_SCEANARIO_API}
 # CMakeLists.txt prefix
 echo "################################################################
 cmake_minimum_required( VERSION 3.8.2 )
-project( OpenScenario.v1_0.TestProject )
+project( OpenScenario.TestProject )
 message(\"\${PROJECT_NAME}\")
 
 
@@ -138,10 +138,10 @@ endif()
 
 unset( XOSC_LIB CACHE )
 unset( ANTLR4_LIB CACHE )
-find_library( XOSC_LIB name \"\${LIB_PREFIX}OpenScenarioLib.v1_0\${LIB_SUFFIX}\" HINTS \"\${PROJECT_SOURCE_DIR}/lib\" )
+find_library( XOSC_LIB name \"\${LIB_PREFIX}OpenScenarioLib\${LIB_SUFFIX}\" HINTS \"\${PROJECT_SOURCE_DIR}/lib\" )
 find_library( ANTLR4_LIB name \"\${LIB_PREFIX}antlr4-runtime\${LIB_SUFFIX}\" HINTS \"\${PROJECT_SOURCE_DIR}/lib\" )
-#add_library(\"\${LIB_PREFIX}OpenScenarioLib.v1_0\${LIB_SUFFIX}\" STATIC IMPORTED)
-#set_property(TARGET \"\${LIB_PREFIX}OpenScenarioLib.v1_0\${LIB_SUFFIX}\" PROPERTY IMPORTED_LOCATION \${XOSC_LIB})
+#add_library(\"\${LIB_PREFIX}OpenScenarioLib\${LIB_SUFFIX}\" STATIC IMPORTED)
+#set_property(TARGET \"\${LIB_PREFIX}OpenScenarioLib\${LIB_SUFFIX}\" PROPERTY IMPORTED_LOCATION \${XOSC_LIB})
 target_link_libraries( \${PROJECT_NAME} \${XOSC_LIB} \${ANTLR4_LIB} )
 
 

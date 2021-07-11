@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by OpenScenarioLib.v1_0.rc
+// Used by OpenScenarioLib.rc
 //
  
 // Next default values for new objects

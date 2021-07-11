@@ -1,0 +1,466 @@
+{
+    "version": 2,
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 20,
+        "patch": 0
+    },
+    "configurePresets": [
+        {
+            "description": "Base preset for x64 architecture on Windows",
+            "name": "x64Arch",
+            "architecture": "x64",
+            "environment": {
+                "PR_ENV_ARCH": "x64"
+            },
+            "hidden": true
+        },
+        {
+            "description": "Base preset for x86 architecture on Windows",
+            "name": "Win32Arch",
+            "architecture": "Win32",
+            "environment": {
+                "PR_ENV_ARCH": "Win32"
+            },
+            "hidden": true
+        },
+        {
+            "description": "Base preset for shared lib binding",
+            "name": "shared",
+            "cacheVariables": {
+                "BUILD_STATIC_LIBS": {
+                    "type": "BOOL",
+                    "value": "OFF"
+                }
+            },
+            "environment": {
+                "PR_ENV_BINDING": "Shared"
+            },
+            "hidden": true
+        },
+        {
+            "description": "Base preset for static lib binding",
+            "name": "static",
+            "cacheVariables": {
+                "BUILD_STATIC_LIBS": {
+                    "type": "BOOL",
+                    "value": "ON"
+                }
+            },
+            "environment": {
+                "PR_ENV_BINDING": "Static"
+            },
+            "hidden": true
+        },
+        {
+            "description": "Base binaryDir for VS",
+            "name": "binaryDirVS",
+            "binaryDir": "${sourceDir}/build/cgMulti$env{PR_ENV_VS_VERSION}$env{PR_ENV_ARCH}$env{PR_ENV_BINDING}",
+            "cacheVariables": {
+                "MASTER_PROJECT": {
+                    "type": "STRING",
+                    "value": "TRUE"
+                }
+            },
+            "hidden": true
+        },
+        {
+            "description": "Base preset for VS2022",
+            "name": "VS2022",
+            "generator": "Visual Studio 17 2022",
+            "environment": {
+                "PR_ENV_VS_VERSION": "VS2022"
+            },
+            "inherits": [
+                "binaryDirVS"
+            ],
+            "hidden": true
+        },
+        {
+            "description": "Base preset for VS2019",
+            "name": "VS2019",
+            "generator": "Visual Studio 16 2019",
+            "environment": {
+                "PR_ENV_VS_VERSION": "VS2019"
+            },
+            "inherits": [
+                "binaryDirVS"
+            ],
+            "hidden": true
+        },
+        {
+            "description": "Base preset for VS2017",
+            "name": "VS2017",
+            "generator": "Visual Studio 15 2017",
+            "environment": {
+                "PR_ENV_VS_VERSION": "VS2017"
+            },
+            "inherits": [
+                "binaryDirVS"
+            ],
+            "hidden": true
+        },
+        {
+            "description": "Base preset for VS2015",
+            "name": "VS2015",
+            "generator": "Visual Studio 14 2015",
+            "environment": {
+                "PR_ENV_VS_VERSION": "VS2015"
+            },
+            "inherits": [
+                "binaryDirVS"
+            ],
+            "hidden": true
+        },
+        {
+            "name": "VS2022-x64-static",
+            "displayName": "VS2022 x64 static",
+            "description": "Build using VS2022 x64 generator",
+            "inherits": [
+                "VS2022",
+                "x64Arch",
+                "static"
+            ],
+            "debug": {
+                "output": true,
+                "find": true
+            }
+        },
+        {
+            "name": "VS2022-x64-shared",
+            "displayName": "VS2022 x64 shared",
+            "description": "Build using VS2022 x64 generator",
+            "inherits": [
+                "VS2022",
+                "x64Arch",
+                "shared"
+            ]
+        },
+        {
+            "name": "VS2022-Win32-static",
+            "displayName": "VS2022 Win32 static",
+            "description": "Build using VS2022 Win32 generator",
+            "inherits": [
+                "VS2022",
+                "Win32Arch",
+                "static"
+            ]
+        },
+        {
+            "name": "VS2022-Win32-shared",
+            "displayName": "VS2022 Win32 shared",
+            "description": "Build using VS2022 Win32 generator",
+            "inherits": [
+                "VS2022",
+                "Win32Arch",
+                "shared"
+            ]
+        },
+        {
+            "name": "VS2019-x64-static",
+            "displayName": "VS2019 x64 static",
+            "description": "Build using VS2019 x64 generator",
+            "inherits": [
+                "VS2019",
+                "x64Arch",
+                "static"
+            ],
+            "debug": {
+                "output": true,
+                "find": true
+            }
+        },
+        {
+            "name": "VS2019-x64-shared",
+            "displayName": "VS2019 x64 shared",
+            "description": "Build using VS2019 x64 generator",
+            "inherits": [
+                "VS2019",
+                "x64Arch",
+                "shared"
+            ]
+        },
+        {
+            "name": "VS2019-Win32-static",
+            "displayName": "VS2019 Win32 static",
+            "description": "Build using VS2019 Win32 generator",
+            "inherits": [
+                "VS2019",
+                "Win32Arch",
+                "static"
+            ]
+        },
+        {
+            "name": "VS2019-Win32-shared",
+            "displayName": "VS2019 Win32 shared",
+            "description": "Build using VS2019 Win32 generator",
+            "inherits": [
+                "VS2019",
+                "Win32Arch",
+                "shared"
+            ]
+        },
+        {
+            "name": "VS2017-x64-static",
+            "displayName": "VS2017 x64 static",
+            "description": "Build using VS2017 x64 generator",
+            "inherits": [
+                "VS2017",
+                "x64Arch",
+                "static"
+            ]
+        },
+        {
+            "name": "VS2017-x64-shared",
+            "displayName": "VS2017 x64 shared",
+            "description": "Build using VS2017 x64 generator",
+            "inherits": [
+                "VS2017",
+                "x64Arch",
+                "shared"
+            ]
+        },
+        {
+            "name": "VS2017-Win32-static",
+            "displayName": "VS2017 Win32 static",
+            "description": "Build using VS2017 Win32 generator",
+            "inherits": [
+                "VS2017",
+                "Win32Arch",
+                "static"
+            ]
+        },
+        {
+            "name": "VS2017-Win32-shared",
+            "displayName": "VS2017 Win32 shared",
+            "description": "Build using VS2017 Win32 generator",
+            "inherits": [
+                "VS2017",
+                "Win32Arch",
+                "shared"
+            ]
+        },
+        {
+            "name": "VS2015-x64-static",
+            "displayName": "VS2015 x64 static",
+            "description": "Build using VS2015 x64 generator",
+            "inherits": [
+                "VS2015",
+                "x64Arch",
+                "static"
+            ]
+        },
+        {
+            "name": "VS2015-x64-shared",
+            "displayName": "VS2015 x64 shared",
+            "description": "Build using VS2015 x64 generator",
+            "inherits": [
+                "VS2015",
+                "x64Arch",
+                "shared"
+            ]
+        },
+        {
+            "name": "VS2015-Win32-static",
+            "displayName": "VS2015 Win32 static",
+            "description": "Build using VS2015 Win32 generator",
+            "inherits": [
+                "VS2015",
+                "Win32Arch",
+                "static"
+            ]
+        },
+        {
+            "name": "VS2015-Win32-shared",
+            "displayName": "VS2015 Win32 shared",
+            "description": "Build using VS2015 Win32 generator",
+            "inherits": [
+                "VS2015",
+                "Win32Arch",
+                "shared"
+            ]
+        },
+        {
+            "name": "Unix-Makefiles",
+            "description": "Base preset for Unix Makefiles",
+            "generator": "Unix Makefiles",
+            "binaryDir": "${sourceDir}/build/cg$env{PR_ENV_BUILD_TYPE}Make$env{PR_ENV_BINDING}",
+            "cacheVariables": {
+                "BUILD_STATIC_LIBS": {
+                    "type": "BOOL",
+                    "value": "$env{PR_ENV_CM_BINDING}"
+                },
+                "MASTER_PROJECT": {
+                    "type": "STRING",
+                    "value": "TRUE"
+                }
+            },
+            "hidden": true
+        },
+        {
+            "name": "Build type debug",
+            "description": "Unix build type debug",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug"
+            },
+            "hidden": true
+        },
+        {
+            "name": "Build type release",
+            "description": "Unix build type release",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            },
+            "hidden": true
+        },
+        {
+            "name": "Build type relWithDebInfo",
+            "description": "Unix build type relWithDebInfo",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "RelWithDebInfo"
+            },
+            "hidden": true
+        },
+        {
+            "name": "Linux-shared",
+            "environment": {
+                "PR_ENV_BINDING": "Shared",
+                "PR_ENV_CM_BINDING": "OFF"
+            },
+            "inherits": [
+                "Unix-Makefiles"
+            ],
+            "hidden": true
+        },
+        {
+            "name": "Linux-static",
+            "environment": {
+                "PR_ENV_BINDING": "Static",
+                "PR_ENV_CM_BINDING": "ON"
+            },
+            "inherits": [
+                "Unix-Makefiles"
+            ],
+            "hidden": true
+        },
+        {
+            "name": "Linux-shared-debug",
+            "displayName": "Linux shared debug",
+            "description": "Build using Unix Makefiles",
+            "environment": {
+                "PR_ENV_BUILD_TYPE": "Debug"
+            },
+            "inherits": [
+                "Linux-shared",
+                "Build type debug"
+            ]
+        },
+        {
+            "name": "Linux-static-debug",
+            "displayName": "Linux static debug",
+            "description": "Build using Unix Makefiles",
+            "environment": {
+                "PR_ENV_BUILD_TYPE": "Debug"
+            },
+            "inherits": [
+                "Linux-static",
+                "Build type debug"
+            ]
+        },
+        {
+            "name": "Linux-shared-release",
+            "displayName": "Linux shared release",
+            "description": "Build using Unix Makefiles",
+            "environment": {
+                "PR_ENV_BUILD_TYPE": "Release"
+            },
+            "inherits": [
+                "Linux-shared",
+                "Build type release"
+            ]
+        },
+        {
+            "name": "Linux-static-release",
+            "displayName": "Linux static release",
+            "description": "Build using Unix Makefiles",
+            "environment": {
+                "PR_ENV_BUILD_TYPE": "Release"
+            },
+            "inherits": [
+                "Linux-static",
+                "Build type release"
+            ]
+        },
+        {
+            "name": "Linux-shared-relWithDebInfo",
+            "displayName": "Linux shared relWithDebInfo",
+            "description": "Build using Unix Makefiles",
+            "environment": {
+                "PR_ENV_BUILD_TYPE": "RelWithDebInfo"
+            },
+            "inherits": [
+                "Linux-shared",
+                "Build type relWithDebInfo"
+            ]
+        },
+        {
+            "name": "Linux-static-relWithDebInfo",
+            "displayName": "Linux static relWithDebInfo",
+            "description": "Build using Unix Makefiles",
+            "environment": {
+                "PR_ENV_BUILD_TYPE": "RelWithDebInfo"
+            },
+            "inherits": [
+                "Linux-static",
+                "Build type relWithDebInfo"
+            ]
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "Build-Linux-shared-release",
+            "description": "Build shared release using Unix Makefiles",
+            "displayName": "Build Linux shared release",
+            "configurePreset": "Linux-shared-release"
+        },
+        {
+            "name": "Build-Linux-shared-debug",
+            "description": "Build shared debug using Unix Makefiles",
+            "displayName": "Build Linux shared debug",
+            "configurePreset": "Linux-shared-debug"
+        },
+        {
+            "name": "Build-Linux-shared-relWithDebInfo",
+            "description": "Build shared relWithDebInfo using Unix Makefiles",
+            "displayName": "Build Linux shared relWithDebInfo",
+            "configurePreset": "Linux-shared-relWithDebInfo"
+        },
+        {
+            "name": "Build-Linux-static-release",
+            "description": "Build static release using Unix Makefiles",
+            "displayName": "Build Linux static release",
+            "configurePreset": "Linux-static-release"
+        },
+        {
+            "name": "Build-Linux-static-debug",
+            "description": "Build static debug using Unix Makefiles",
+            "displayName": "Build Linux static debug",
+            "configurePreset": "Linux-static-debug"
+        },
+        {
+            "name": "Build-Linux-static-relWithDebInfo",
+            "description": "Build static relWithDebInfo using Unix Makefiles",
+            "displayName": "Build Linux static relWithDebInfo",
+            "configurePreset": "Linux-static-relWithDebInfo"
+        }
+    ],
+    "testPresets": [
+        {
+            "name": "Test Linux shared release",
+            "configuration": "Linux-shared-release",
+            "description": "",
+            "displayName": "",
+            "configurePreset": "Linux-shared-release"
+        }
+    ]
+}

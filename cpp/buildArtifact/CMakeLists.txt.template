@@ -1,6 +1,6 @@
 ################################################################
 cmake_minimum_required( VERSION 3.8.2 )
-project( OpenScenarioTester.v1_0 )
+project( OpenScenarioTester )
 message("${PROJECT_NAME}")
 
 ################################################################
@@ -97,7 +97,7 @@ endif()
 # Generate executable
 add_executable( ${PROJECT_NAME} ${SOURCES} ${HEADERS} ${HEADERS_HELPER})
 
-target_link_libraries( ${PROJECT_NAME} OpenScenarioLib.v1_0 )
+target_link_libraries( ${PROJECT_NAME} OpenScenarioLib )
 
 
 ################################################################

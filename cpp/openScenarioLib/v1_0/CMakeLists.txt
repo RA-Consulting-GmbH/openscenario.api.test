@@ -1,6 +1,6 @@
 ################################################################
 cmake_minimum_required( VERSION 3.8.2 )
-project( OpenScenarioLib.v1_0 )
+project( OpenScenarioLib )
 message("${PROJECT_NAME}")
 
 ################################################################

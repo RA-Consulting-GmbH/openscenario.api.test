@@ -70,5 +70,5 @@ add_subdirectory( applications/indexerTester ${PROJECT_BINARY_DIR}/applications/
 ################################################################
 # Visual Studio Startup Project and debug cmd line args
 if( MSVC )
-  set_property( DIRECTORY PROPERTY VS_STARTUP_PROJECT "OpenScenarioReader.v1_0" )
+  set_property( DIRECTORY PROPERTY VS_STARTUP_PROJECT "OpenScenarioReader" )
 endif()
