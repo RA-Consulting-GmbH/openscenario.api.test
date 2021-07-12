@@ -36,7 +36,9 @@ int main(int argc, char** argv)
     char basePath[_MAX_PATH] = "";
     _fullpath(basePath, argv[0], sizeof(basePath));
     std::string executablePath(basePath);
-    executablePath = executablePath.substr(0, executablePath.size() - 28);
+    auto endPos = executablePath.find_last_of('\\') != std::string::npos ? executablePath.find_last_of('\\') : executablePath.size();
+    executablePath = executablePath.substr(0, endPos);
+//    executablePath = executablePath.substr(0, executablePath.size() - 28);
 #elif defined __linux__
     char basePath[PATH_MAX] = "";
     realpath(argv[0], basePath);
