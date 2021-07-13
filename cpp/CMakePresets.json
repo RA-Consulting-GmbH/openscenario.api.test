@@ -28,9 +28,9 @@
             "description": "Base preset for shared lib binding",
             "name": "shared",
             "cacheVariables": {
-                "BUILD_STATIC_LIBS": {
+                "BUILD_SHARED_LIBS": {
                     "type": "BOOL",
-                    "value": "OFF"
+                    "value": "ON"
                 }
             },
             "environment": {
@@ -42,9 +42,9 @@
             "description": "Base preset for static lib binding",
             "name": "static",
             "cacheVariables": {
-                "BUILD_STATIC_LIBS": {
+                "BUILD_SHARED_LIBS": {
                     "type": "BOOL",
-                    "value": "ON"
+                    "value": "OFF"
                 }
             },
             "environment": {
@@ -286,7 +286,7 @@
             "generator": "Unix Makefiles",
             "binaryDir": "${sourceDir}/build/cg$env{PR_ENV_BUILD_TYPE}Make$env{PR_ENV_BINDING}",
             "cacheVariables": {
-                "BUILD_STATIC_LIBS": {
+                "BUILD_SHARED_LIBS": {
                     "type": "BOOL",
                     "value": "$env{PR_ENV_CM_BINDING}"
                 },
@@ -325,7 +325,7 @@
             "name": "Linux-shared",
             "environment": {
                 "PR_ENV_BINDING": "Shared",
-                "PR_ENV_CM_BINDING": "OFF"
+                "PR_ENV_CM_BINDING": "ON"
             },
             "inherits": [
                 "Unix-Makefiles"
@@ -336,7 +336,7 @@
             "name": "Linux-static",
             "environment": {
                 "PR_ENV_BINDING": "Static",
-                "PR_ENV_CM_BINDING": "ON"
+                "PR_ENV_CM_BINDING": "OFF"
             },
             "inherits": [
                 "Unix-Makefiles"

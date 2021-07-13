@@ -13,7 +13,16 @@ include( CMakeHelpers )
 
 ################################################################
 # Build as static or shared lib, Debug or Release, for Linux or Windows
-option( BUILD_STATIC_LIBS "Build the library as STATIC" OFF )
+option( BUILD_SHARED_LIBS "Build shared libraries" OFF )
+if( ${BUILD_SHARED_LIBS} )
+    set(osc_extra_static_compile_flags "")
+else()
+    if( MSVC )
+        set(osc_extra_static_compile_flags "/DANTLR4CPP_STATIC")
+    elseif( UNIX )
+        set(osc_extra_static_compile_flags "-DANTLR4CPP_STATIC")
+    endif()
+endif()
 if( UNIX )
     if(NOT CMAKE_BUILD_TYPE)
         set(CMAKE_BUILD_TYPE "Debug" CACHE STRING "Debug, Release" FORCE)

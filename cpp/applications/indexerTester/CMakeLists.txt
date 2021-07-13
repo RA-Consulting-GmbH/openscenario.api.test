@@ -84,16 +84,25 @@ endif()
 # Generate executable
 add_executable( ${PROJECT_NAME} ${SOURCES} ${HEADERS} ${RESOURCE_FILES} )
 
-if( BUILD_STATIC_LIBS STREQUAL "ON" )
-  target_link_libraries( ${PROJECT_NAME} antlr4_static )
-else()
+if(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
+  if( ${BUILD_SHARED_LIBS} )
+      target_compile_options(${PROJECT_NAME} PRIVATE "/MD$<$<CONFIG:Debug>:d>")
+  else()
+      target_compile_options(${PROJECT_NAME} PRIVATE "/MT$<$<CONFIG:Debug>:d>")
+
+  endif()
+endif()
+
+if( ${BUILD_SHARED_LIBS} )
   target_link_libraries( ${PROJECT_NAME} antlr4_shared )
+else()
+  target_link_libraries( ${PROJECT_NAME} antlr4_static )
 endif()
 
 
 ################################################################
 # Visual Studio solution settings
 if( MSVC )
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /wd4251")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /wd4251 ${osc_extra_static_compile_flags}")
   set_target_properties( ${PROJECT_NAME} PROPERTIES FOLDER Apps )
 endif()

@@ -49,7 +49,7 @@ macro (RAC_SET_BUILD_PARAM)
             message( WARNING "Unknown build target: ${BUILD_TARGET_PARAM}" )
         endif()
         add_definitions( -Wall -fPIC -Wno-attributes -Wno-unknown-pragmas -Wunused-result -Wno-psabi )
-        message( STATUS "Platform: ${PLATFORM_PARAM}; Static lib: ${BUILD_STATIC_LIBS}" )
+        message( STATUS "Platform: ${PLATFORM_PARAM}; Shared lib: ${BUILD_SHARED_LIBS}" )
     endif()
 
     # Check processor bus width on Windows
@@ -67,9 +67,9 @@ endmacro (RAC_SET_BUILD_PARAM)
 # Set folders
 macro (RAC_SET_FOLDERS)
     # Reflect static / shared build in ouput folder
-    set( LIB_BINDING_TYPE "shared"  )
-    if( ${BUILD_STATIC_LIBS} STREQUAL "ON" )
-        set( LIB_BINDING_TYPE "static" )
+    set( LIB_BINDING_TYPE "static" )
+    if( ${BUILD_SHARED_LIBS} )
+        set( LIB_BINDING_TYPE "shared" )
     endif()
     # On Windows CMAKE_BUILD_TYPE is empty, but the build type is added automatically as defined in the MSBuild-call (Release/Debug)
     set( CMAKE_BINARY_DIR ${CMAKE_SOURCE_DIR}/build/output/${PLATFORM_PARAM}_${LIB_BINDING_TYPE}/${CMAKE_BUILD_TYPE} )

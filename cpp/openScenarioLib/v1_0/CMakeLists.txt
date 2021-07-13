@@ -14,15 +14,13 @@ endif( WIN32 )
 ################################################################
 # Preprocessor settings
 # Shared or static lib?
-if( ${BUILD_STATIC_LIBS} STREQUAL "ON" )
-  set( LIB_TYPE "STATIC" )
-#  if( LINUX )
-#    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fvisibility=default -fno-visibility-inlines-hidden")
-#  endif( LINUX )
-else()
+if( ${BUILD_SHARED_LIBS} )
   add_definitions( -DEXPORT_OPENSCENARIOLIB )
   set( LIB_TYPE "SHARED" )
+else()
+  set( LIB_TYPE "STATIC" )
 endif()
+
 
 ################################################################
 # Update rc file
@@ -394,10 +392,11 @@ if( MSVC )
   source_group( Headers\\Generated\\Export\\Xml FILES ${HEADERS_GENERATED_EXPORT_XML} )
 endif()
 
+message(STATUS "lib binding: ${LIB_TYPE}" )
 
 ################################################################
 # Generate the library
-add_library ( ${PROJECT_NAME} ${LIB_TYPE}
+add_library ( ${PROJECT_NAME} # ${LIB_TYPE}
 
               ${SOURCES} 
 
@@ -418,10 +417,18 @@ add_library ( ${PROJECT_NAME} ${LIB_TYPE}
 
               ${RESOURCE_FILES} )
 
-if( BUILD_STATIC_LIBS STREQUAL "ON" )
-  target_link_libraries( ${PROJECT_NAME} antlr4_static )
-else()
+if(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
+  if( ${BUILD_SHARED_LIBS} )
+      target_compile_options(${PROJECT_NAME} PRIVATE "/MD$<$<CONFIG:Debug>:d>")
+  else()
+      target_compile_options(${PROJECT_NAME} PRIVATE "/MT$<$<CONFIG:Debug>:d>")
+  endif()
+endif()
+
+if( ${BUILD_SHARED_LIBS} )
   target_link_libraries( ${PROJECT_NAME} antlr4_shared )
+else()
+  target_link_libraries( ${PROJECT_NAME} antlr4_static )
 endif()
 
 ################################################################
@@ -434,6 +441,6 @@ endif()
  ################################################################
 # Visual Studio solution folders
 if( MSVC )
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /bigobj /wd4251")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /bigobj /wd4251 ${osc_extra_static_compile_flags}")
   set_target_properties( ${PROJECT_NAME} PROPERTIES FOLDER Core )
 endif()
