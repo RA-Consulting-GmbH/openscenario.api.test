@@ -18,7 +18,10 @@ jobs:
       run: cmake -S ./cpp --preset="Linux-shared-debug"
       
     - name: build solution Debug
-      run: make
+      shell: bash
+      run: |
+        cd cpp/build/cgDebugMakeShared
+        make
     
     - name: test Debug
       shell: bash
@@ -45,7 +48,10 @@ jobs:
       run: cmake -S ./cpp --preset="Linux-shared-release"
       
     - name: build solution Release
-      run: make
+      shell: bash
+      run: |
+        cd cpp/build/cgReleaseMakeShared
+        make
     
     - name: test Release
       shell: bash
@@ -72,7 +78,10 @@ jobs:
       run: cmake -S ./cpp --preset="Linux-static-debug"
       
     - name: build solution Debug
-      run: make
+      shell: bash
+      run: |
+        cd cpp/build/cgDebugMakeStatic
+        make
     
     - name: test Debug
       shell: bash
@@ -171,7 +180,7 @@ jobs:
       run: cmake -S ./cpp --preset="VS2019-x64-shared"
       
     - name: build solution Release
-      run: C:/"Program Files (x86)"/"Microsoft Visual Studio"/2019/Enterprise/MSBuild/Current/Bin/MSBuild.exe OpenScenario-Cpp.sln /t:Build /p:Configuration=Release /p:Platform=x64
+      run: C:/"Program Files (x86)"/"Microsoft Visual Studio"/2019/Enterprise/MSBuild/Current/Bin/MSBuild.exe cpp/build/cgMultiVS2019x64Shared/OpenScenario-Cpp.sln /t:Build /p:Configuration=Release /p:Platform=x64
 
     - name: test Release
       shell: bash
@@ -188,7 +197,7 @@ jobs:
       run: cmake -S ./cpp --preset="VS2019-Win32-static"
       
     - name: build solution Debug
-      run: C:/"Program Files (x86)"/"Microsoft Visual Studio"/2019/Enterprise/MSBuild/Current/Bin/MSBuild.exe OpenScenario-Cpp.sln /t:Build /p:Configuration=Debug /p:Platform=Win32
+      run: C:/"Program Files (x86)"/"Microsoft Visual Studio"/2019/Enterprise/MSBuild/Current/Bin/MSBuild.exe cpp/build/cgMultiVS2019Win32Static/OpenScenario-Cpp.sln /t:Build /p:Configuration=Debug /p:Platform=Win32
     
     - name: test Debug
       shell: bash
