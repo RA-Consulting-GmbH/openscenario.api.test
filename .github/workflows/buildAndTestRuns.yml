@@ -92,84 +92,87 @@ jobs:
         ./OpenScenarioTester && (exit 0) || (exit -1) 
 
 
-#  LinuxStaticReleaseBuild:
-#    runs-on: ubuntu-latest
-#    
-#    steps:
-#    - uses: actions/checkout@v2
-#
-#    - name: update system
-#      run:  sudo apt-get update
-#
-#    - name: install uuid-dev package
-#      run:  sudo apt-get install uuid-dev
-#    
-#    - name: cmake generate solution Release
-#      run: cmake -S ./cpp --preset="Linux-static-release"
-#      
-#    - name: build solution Release
-#      run: make
-#    
-#    - name: test Release
-#      shell: bash
-#      run: |
-#        cd cpp/build/output/Linux_static/Release
-#        chmod +x *
-#        export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:.
-#        ./OpenScenarioTester && (exit 0) || (exit -1) 
-#
-#
-#  Win32SharedDebugBuild:
-#    runs-on: windows-latest
-#    
-#    steps:
-#    - uses: actions/checkout@v2
-#    
-#    - name: cmake generate solution Debug
-#      run: cmake -S ./cpp --preset="VS2019-Win32-shared"
-#      
-#    - name: build solution Debug
-#      run: C:/"Program Files (x86)"/"Microsoft Visual Studio"/2019/Enterprise/MSBuild/Current/Bin/MSBuild.exe OpenScenario-Cpp.sln /t:Build /p:Configuration=Debug /p:Platform=Win32
-#    
-#    - name: test Debug
-#      shell: bash
-#      run: ./cpp/build/output/Win32_shared/Debug/OpenScenarioTester.exe && (exit 0) || (exit -1) 
-#
-#
-#  Win32SharedReleaseBuild:
-#    runs-on: windows-latest
-#    
-#    steps:
-#    - uses: actions/checkout@v2
-#    
-#    - name: cmake generate solution Release
-#      run: cmake -S ./cpp --preset="VS2019-Win32-shared"
-#      
-#    - name: build solution Release
-#      run: C:/"Program Files (x86)"/"Microsoft Visual Studio"/2019/Enterprise/MSBuild/Current/Bin/MSBuild.exe OpenScenario-Cpp.sln /t:Build /p:Configuration=Release /p:Platform=Win32
-#
-#    - name: test Release
-#      shell: bash
-#      run: ./cpp/build/output/Win32_shared/Release/OpenScenarioTester.exe && (exit 0) || (exit -1) 
-#
-#
-#  Win64SharedDebugBuild:
-#    runs-on: windows-latest
-#    
-#    steps:
-#    - uses: actions/checkout@v2
-#    
-#    - name: cmake generate solution Debug
-#      run: cmake -S ./cpp --preset="VS2019-x64-shared"
-#      
-#    - name: build solution Debug
-#      run: C:/"Program Files (x86)"/"Microsoft Visual Studio"/2019/Enterprise/MSBuild/Current/Bin/MSBuild.exe OpenScenario-Cpp.sln /t:Build /p:Configuration=Debug /p:Platform=x64
-#    
-#    - name: test Debug
-#      shell: bash
-#      run: ./cpp/build/output/x64_shared/Debug/OpenScenarioTester.exe && (exit 0) || (exit -1) 
-#
-#
+  LinuxStaticReleaseBuild:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: update system
+      run:  sudo apt-get update
+
+    - name: install uuid-dev package
+      run:  sudo apt-get install uuid-dev
+    
+    - name: cmake generate solution Release
+      run: cmake -S ./cpp --preset="Linux-static-release"
+      
+    - name: build solution Release
+      shell: bash
+      run: |
+        cd cpp/build/cgReleaseMakeStatic
+        make
+    
+    - name: test Release
+      shell: bash
+      run: |
+        cd cpp/build/output/Linux_static/Release
+        chmod +x *
+        export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:.
+        ./OpenScenarioTester && (exit 0) || (exit -1) 
+
+
+  Win32SharedDebugBuild:
+    runs-on: windows-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: cmake generate solution Debug
+      run: cmake -S ./cpp --preset="VS2019-Win32-shared"
+      
+    - name: build solution Debug
+      run: C:/"Program Files (x86)"/"Microsoft Visual Studio"/2019/Enterprise/MSBuild/Current/Bin/MSBuild.exe cpp/build/cgMultiVS2019Win32Shared/OpenScenario-Cpp.sln /t:Build /p:Configuration=Debug /p:Platform=Win32
+    
+    - name: test Debug
+      shell: bash
+      run: ./cpp/build/output/Win32_shared/Debug/OpenScenarioTester.exe && (exit 0) || (exit -1) 
+
+
+  Win32SharedReleaseBuild:
+    runs-on: windows-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: cmake generate solution Release
+      run: cmake -S ./cpp --preset="VS2019-Win32-shared"
+      
+    - name: build solution Release
+      run: C:/"Program Files (x86)"/"Microsoft Visual Studio"/2019/Enterprise/MSBuild/Current/Bin/MSBuild.exe cpp/build/cgMultiVS2019Win32Shared/OpenScenario-Cpp.sln /t:Build /p:Configuration=Release /p:Platform=Win32
+
+    - name: test Release
+      shell: bash
+      run: ./cpp/build/output/Win32_shared/Release/OpenScenarioTester.exe && (exit 0) || (exit -1) 
+
+
+  Win64SharedDebugBuild:
+    runs-on: windows-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: cmake generate solution Debug
+      run: cmake -S ./cpp --preset="VS2019-x64-shared"
+      
+    - name: build solution Debug
+      run: C:/"Program Files (x86)"/"Microsoft Visual Studio"/2019/Enterprise/MSBuild/Current/Bin/MSBuild.exe cpp/build/cgMultiVS2019x64Shared/OpenScenario-Cpp.sln /t:Build /p:Configuration=Debug /p:Platform=x64
+    
+    - name: test Debug
+      shell: bash
+      run: ./cpp/build/output/x64_shared/Debug/OpenScenarioTester.exe && (exit 0) || (exit -1) 
+
+
   Win64SharedReleaseBuild:
     runs-on: windows-latest
     
@@ -202,55 +205,54 @@ jobs:
     - name: test Debug
       shell: bash
       run: ./cpp/build/output/Win32_static/Debug/OpenScenarioTester.exe && (exit 0) || (exit -1) 
-#
-#
-#  Win32StaticReleaseBuild:
-#    runs-on: windows-latest
-#    
-#    steps:
-#    - uses: actions/checkout@v2
-#    
-#    - name: cmake generate solution Release
-#      run: cmake -S ./cpp --preset="VS2019-Win32-static"
-#      
-#    - name: build solution Release
-#      run: C:/"Program Files (x86)"/"Microsoft Visual Studio"/2019/Enterprise/MSBuild/Current/Bin/MSBuild.exe OpenScenario-Cpp.sln /t:Build /p:Configuration=Release /p:Platform=Win32
-#
-#    - name: test Release
-#      shell: bash
-#      run: ./cpp/build/output/Win32_static/Release/OpenScenarioTester.exe && (exit 0) || (exit -1) 
-#
-#
-#  Win64StaticDebugBuild:
-#    runs-on: windows-latest
-#    
-#    steps:
-#    - uses: actions/checkout@v2
-#    
-#    - name: cmake generate solution Debug
-#      run: cmake -S ./cpp --preset="VS2019-x64-static"
-#      
-#    - name: build solution Debug
-#      run: C:/"Program Files (x86)"/"Microsoft Visual Studio"/2019/Enterprise/MSBuild/Current/Bin/MSBuild.exe OpenScenario-Cpp.sln /t:Build /p:Configuration=Debug /p:Platform=x64
-#    
-#    - name: test Debug
-#      shell: bash
-#      run: ./cpp/build/output/x64_static/Debug/OpenScenarioTester.exe && (exit 0) || (exit -1) 
-#
-#
-#  Win64StaticReleaseBuild:
-#    runs-on: windows-latest
-#    
-#    steps:
-#    - uses: actions/checkout@v2
-#    
-#    - name: cmake generate solution Release
-#      run: cmake -S ./cpp --preset="VS2019-x64-static"
-#      
-#    - name: build solution Release
-#      run: C:/"Program Files (x86)"/"Microsoft Visual Studio"/2019/Enterprise/MSBuild/Current/Bin/MSBuild.exe OpenScenario-Cpp.sln /t:Build /p:Configuration=Release /p:Platform=x64
-#
-#    - name: test Release
-#      shell: bash
-#      run: ./cpp/build/output/x64_static/Release/OpenScenarioTester.exe && (exit 0) || (exit -1) 
-#
+
+
+  Win32StaticReleaseBuild:
+    runs-on: windows-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: cmake generate solution Release
+      run: cmake -S ./cpp --preset="VS2019-Win32-static"
+      
+    - name: build solution Release
+      run: C:/"Program Files (x86)"/"Microsoft Visual Studio"/2019/Enterprise/MSBuild/Current/Bin/MSBuild.exe cpp/build/cgMultiVS2019Win32Static/OpenScenario-Cpp.sln /t:Build /p:Configuration=Release /p:Platform=Win32
+
+    - name: test Release
+      shell: bash
+      run: ./cpp/build/output/Win32_static/Release/OpenScenarioTester.exe && (exit 0) || (exit -1) 
+
+
+  Win64StaticDebugBuild:
+    runs-on: windows-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: cmake generate solution Debug
+      run: cmake -S ./cpp --preset="VS2019-x64-static"
+      
+    - name: build solution Debug
+      run: C:/"Program Files (x86)"/"Microsoft Visual Studio"/2019/Enterprise/MSBuild/Current/Bin/MSBuild.exe cpp/build/cgMultiVS2019x64Static/OpenScenario-Cpp.sln /t:Build /p:Configuration=Debug /p:Platform=x64
+    
+    - name: test Debug
+      shell: bash
+      run: ./cpp/build/output/x64_static/Debug/OpenScenarioTester.exe && (exit 0) || (exit -1) 
+
+
+  Win64StaticReleaseBuild:
+    runs-on: windows-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: cmake generate solution Release
+      run: cmake -S ./cpp --preset="VS2019-x64-static"
+      
+    - name: build solution Release
+      run: C:/"Program Files (x86)"/"Microsoft Visual Studio"/2019/Enterprise/MSBuild/Current/Bin/MSBuild.exe cpp/build/cgMultiVS2019x64Static/OpenScenario-Cpp.sln /t:Build /p:Configuration=Release /p:Platform=x64
+
+    - name: test Release
+      shell: bash
+      run: ./cpp/build/output/x64_static/Release/OpenScenarioTester.exe && (exit 0) || (exit -1) 
