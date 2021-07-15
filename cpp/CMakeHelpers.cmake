@@ -48,7 +48,7 @@ macro (RAC_SET_BUILD_PARAM)
         else()
             message( WARNING "Unknown build target: ${BUILD_TARGET_PARAM}" )
         endif()
-        add_definitions( -Wall -fPIC -Wno-attributes -Wno-unknown-pragmas -Wunused-result -Wno-psabi )
+        add_definitions( -Wall -fPIC -Wno-attributes -Wno-unknown-pragmas -Wno-unused-result -Wno-psabi )
         message( STATUS "Platform: ${PLATFORM_PARAM}; Shared lib: ${BUILD_SHARED_LIBS}" )
     endif()
 

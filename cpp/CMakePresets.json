@@ -286,10 +286,6 @@
             "generator": "Unix Makefiles",
             "binaryDir": "${sourceDir}/build/cg$env{PR_ENV_BUILD_TYPE}Make$env{PR_ENV_BINDING}",
             "cacheVariables": {
-                "BUILD_SHARED_LIBS": {
-                    "type": "BOOL",
-                    "value": "$env{PR_ENV_CM_BINDING}"
-                },
                 "MASTER_PROJECT": {
                     "type": "STRING",
                     "value": "TRUE"
@@ -298,34 +294,48 @@
             "hidden": true
         },
         {
-            "name": "Build type debug",
+            "name": "Build-type-debug",
             "description": "Unix build type debug",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug"
             },
-            "hidden": true
-        },
-        {
-            "name": "Build type release",
-            "description": "Unix build type release",
-            "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Release"
+            "environment": {
+                "PR_ENV_BUILD_TYPE": "Debug"
             },
             "hidden": true
         },
         {
-            "name": "Build type relWithDebInfo",
+            "name": "Build-type-release",
+            "description": "Unix build type release",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            },
+            "environment": {
+                "PR_ENV_BUILD_TYPE": "Release"
+            },
+            "hidden": true
+        },
+        {
+            "name": "Build-type-relWithDebInfo",
             "description": "Unix build type relWithDebInfo",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "RelWithDebInfo"
+            },
+            "environment": {
+                "PR_ENV_BUILD_TYPE": "RelWithDebInfo"
             },
             "hidden": true
         },
         {
             "name": "Linux-shared",
+            "cacheVariables": {
+                "BUILD_SHARED_LIBS": {
+                    "type": "BOOL",
+                    "value": "ON"
+                }
+            },
             "environment": {
-                "PR_ENV_BINDING": "Shared",
-                "PR_ENV_CM_BINDING": "ON"
+                "PR_ENV_BINDING": "Shared"
             },
             "inherits": [
                 "Unix-Makefiles"
@@ -334,9 +344,14 @@
         },
         {
             "name": "Linux-static",
+            "cacheVariables": {
+                "BUILD_SHARED_LIBS": {
+                    "type": "BOOL",
+                    "value": "OFF"
+                }
+            },
             "environment": {
-                "PR_ENV_BINDING": "Static",
-                "PR_ENV_CM_BINDING": "OFF"
+                "PR_ENV_BINDING": "Static"
             },
             "inherits": [
                 "Unix-Makefiles"
@@ -347,61 +362,47 @@
             "name": "Linux-shared-debug",
             "displayName": "Linux shared debug",
             "description": "Build using Unix Makefiles",
-            "environment": {
-                "PR_ENV_BUILD_TYPE": "Debug"
-            },
             "inherits": [
                 "Linux-shared",
-                "Build type debug"
+                "Build-type-debug"
             ]
         },
         {
             "name": "Linux-static-debug",
             "displayName": "Linux static debug",
             "description": "Build using Unix Makefiles",
-            "environment": {
-                "PR_ENV_BUILD_TYPE": "Debug"
-            },
             "inherits": [
                 "Linux-static",
-                "Build type debug"
+                "Build-type-debug"
             ]
         },
         {
             "name": "Linux-shared-release",
             "displayName": "Linux shared release",
             "description": "Build using Unix Makefiles",
-            "environment": {
-                "PR_ENV_BUILD_TYPE": "Release"
-            },
             "inherits": [
                 "Linux-shared",
-                "Build type release"
+                "Build-type-release"
             ]
         },
         {
             "name": "Linux-static-release",
             "displayName": "Linux static release",
             "description": "Build using Unix Makefiles",
-            "environment": {
-                "PR_ENV_BUILD_TYPE": "Release"
-            },
             "inherits": [
                 "Linux-static",
-                "Build type release"
+                "Build-type-release"
             ]
         },
         {
             "name": "Linux-shared-relWithDebInfo",
             "displayName": "Linux shared relWithDebInfo",
             "description": "Build using Unix Makefiles",
-            "environment": {
-                "PR_ENV_BUILD_TYPE": "RelWithDebInfo"
-            },
             "inherits": [
                 "Linux-shared",
-                "Build type relWithDebInfo"
-            ]
+                "Build-type-relWithDebInfo"
+            ],
+            "hidden": true
         },
         {
             "name": "Linux-static-relWithDebInfo",
@@ -412,8 +413,9 @@
             },
             "inherits": [
                 "Linux-static",
-                "Build type relWithDebInfo"
-            ]
+                "Build-type-relWithDebInfo"
+            ],
+            "hidden": true
         }
     ],
     "buildPresets": [
