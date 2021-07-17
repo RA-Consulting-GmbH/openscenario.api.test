@@ -435,7 +435,8 @@
             "name": "Build-Linux-shared-relWithDebInfo",
             "description": "Build shared relWithDebInfo using Unix Makefiles",
             "displayName": "Build Linux shared relWithDebInfo",
-            "configurePreset": "Linux-shared-relWithDebInfo"
+            "configurePreset": "Linux-shared-relWithDebInfo",
+            "hidden": true
         },
         {
             "name": "Build-Linux-static-release",
@@ -453,7 +454,104 @@
             "name": "Build-Linux-static-relWithDebInfo",
             "description": "Build static relWithDebInfo using Unix Makefiles",
             "displayName": "Build Linux static relWithDebInfo",
-            "configurePreset": "Linux-static-relWithDebInfo"
+            "configurePreset": "Linux-static-relWithDebInfo",
+            "hidden": true
+        },
+        {
+            "name": "Build-VS2022-x64-shared",
+            "description": "Build shared 64 bit version using Visual Studio 2022",
+            "displayName": "Build VS2022 x64 shared",
+            "configurePreset": "VS2022-x64-shared"
+        },
+        {
+            "name": "Build-VS2022-x64-static",
+            "description": "Build static 64 bit version using Visual Studio 2022",
+            "displayName": "Build VS2022 x64 static",
+            "configurePreset": "VS2022-x64-static"
+        },
+        {
+            "name": "Build-VS2022-Win32-shared",
+            "description": "Build shared 32 bit version using Visual Studio 2022",
+            "displayName": "Build VS2022 Win32 shared",
+            "configurePreset": "VS2022-Win32-shared"
+        },
+        {
+            "name": "Build-VS2022-Win32-static",
+            "description": "Build static 32 bit version using Visual Studio 2022",
+            "displayName": "Build VS2022 Win32 static",
+            "configurePreset": "VS2022-Win32-static"
+        },
+        {
+            "name": "Build-VS2019-x64-shared",
+            "description": "Build shared 64 bit version using Visual Studio 2022",
+            "displayName": "Build VS2019 x64 shared",
+            "configurePreset": "VS2019-x64-shared"
+        },
+        {
+            "name": "Build-VS2019-x64-static",
+            "description": "Build static 64 bit version using Visual Studio 2022",
+            "displayName": "Build VS2019 x64 static",
+            "configurePreset": "VS2019-x64-static"
+        },
+        {
+            "name": "Build-VS2019-Win32-shared",
+            "description": "Build shared 32 bit version using Visual Studio 2022",
+            "displayName": "Build VS2019 Win32 shared",
+            "configurePreset": "VS2019-Win32-shared"
+        },
+        {
+            "name": "Build-VS2019-Win32-static",
+            "description": "Build static 32 bit version using Visual Studio 2022",
+            "displayName": "Build VS2019 Win32 static",
+            "configurePreset": "VS2019-Win32-static"
+        },
+        {
+            "name": "Build-VS2017-x64-shared",
+            "description": "Build shared 64 bit version using Visual Studio 2022",
+            "displayName": "Build VS2017 x64 shared",
+            "configurePreset": "VS2017-x64-shared"
+        },
+        {
+            "name": "Build-VS2017-x64-static",
+            "description": "Build static 64 bit version using Visual Studio 2022",
+            "displayName": "Build VS2017 x64 static",
+            "configurePreset": "VS2017-x64-static"
+        },
+        {
+            "name": "Build-VS2017-Win32-shared",
+            "description": "Build shared 32 bit version using Visual Studio 2022",
+            "displayName": "Build VS2017 Win32 shared",
+            "configurePreset": "VS2017-Win32-shared"
+        },
+        {
+            "name": "Build-VS2017-Win32-static",
+            "description": "Build static 32 bit version using Visual Studio 2022",
+            "displayName": "Build VS2017 Win32 static",
+            "configurePreset": "VS2017-Win32-static"
+        },
+        {
+            "name": "Build-VS2015-x64-shared",
+            "description": "Build shared 64 bit version using Visual Studio 2022",
+            "displayName": "Build VS2015 x64 shared",
+            "configurePreset": "VS2015-x64-shared"
+        },
+        {
+            "name": "Build-VS2015-x64-static",
+            "description": "Build static 64 bit version using Visual Studio 2022",
+            "displayName": "Build VS2015 x64 static",
+            "configurePreset": "VS2015-x64-static"
+        },
+        {
+            "name": "Build-VS2015-Win32-shared",
+            "description": "Build shared 32 bit version using Visual Studio 2022",
+            "displayName": "Build VS2015 Win32 shared",
+            "configurePreset": "VS2015-Win32-shared"
+        },
+        {
+            "name": "Build-VS2015-Win32-static",
+            "description": "Build static 32 bit version using Visual Studio 2022",
+            "displayName": "Build VS2015 Win32 static",
+            "configurePreset": "VS2015-Win32-static"
         }
     ],
     "testPresets": [
@@ -462,7 +560,8 @@
             "configuration": "Linux-shared-release",
             "description": "",
             "displayName": "",
-            "configurePreset": "Linux-shared-release"
+            "configurePreset": "Linux-shared-release",
+			"hidden": true
         }
     ]
 }

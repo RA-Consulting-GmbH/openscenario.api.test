@@ -1093,7 +1093,7 @@ In the next step we will generate the project files so we can finally compile ou
 ==== Re-generating the project files
 Currently we are in the state of having a configured project but we are still missing the updated Makefiles according to our changes in order to compile our project.
 
-If the configuration step was successful a new menu entry at the bottom of the terminal windows--right after `[c] Configure`--should appear: `[g] Generate`.
+If the configuration step was successful a new menu entry at the bottom of the terminal windows--right after `[c] Configure`-should appear: `[g] Generate`.
 
 image:images/oscCCMakeTermLin1b.png[cmake_gui,width=720,float="center",align="center"]
 
