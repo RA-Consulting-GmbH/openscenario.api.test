@@ -483,73 +483,73 @@
         },
         {
             "name": "Build-VS2019-x64-shared",
-            "description": "Build shared 64 bit version using Visual Studio 2022",
+            "description": "Build shared 64 bit version using Visual Studio 2019",
             "displayName": "Build VS2019 x64 shared",
             "configurePreset": "VS2019-x64-shared"
         },
         {
             "name": "Build-VS2019-x64-static",
-            "description": "Build static 64 bit version using Visual Studio 2022",
+            "description": "Build static 64 bit version using Visual Studio 2019",
             "displayName": "Build VS2019 x64 static",
             "configurePreset": "VS2019-x64-static"
         },
         {
             "name": "Build-VS2019-Win32-shared",
-            "description": "Build shared 32 bit version using Visual Studio 2022",
+            "description": "Build shared 32 bit version using Visual Studio 2019",
             "displayName": "Build VS2019 Win32 shared",
             "configurePreset": "VS2019-Win32-shared"
         },
         {
             "name": "Build-VS2019-Win32-static",
-            "description": "Build static 32 bit version using Visual Studio 2022",
+            "description": "Build static 32 bit version using Visual Studio 2019",
             "displayName": "Build VS2019 Win32 static",
             "configurePreset": "VS2019-Win32-static"
         },
         {
             "name": "Build-VS2017-x64-shared",
-            "description": "Build shared 64 bit version using Visual Studio 2022",
+            "description": "Build shared 64 bit version using Visual Studio 2017",
             "displayName": "Build VS2017 x64 shared",
             "configurePreset": "VS2017-x64-shared"
         },
         {
             "name": "Build-VS2017-x64-static",
-            "description": "Build static 64 bit version using Visual Studio 2022",
+            "description": "Build static 64 bit version using Visual Studio 2017",
             "displayName": "Build VS2017 x64 static",
             "configurePreset": "VS2017-x64-static"
         },
         {
             "name": "Build-VS2017-Win32-shared",
-            "description": "Build shared 32 bit version using Visual Studio 2022",
+            "description": "Build shared 32 bit version using Visual Studio 2017",
             "displayName": "Build VS2017 Win32 shared",
             "configurePreset": "VS2017-Win32-shared"
         },
         {
             "name": "Build-VS2017-Win32-static",
-            "description": "Build static 32 bit version using Visual Studio 2022",
+            "description": "Build static 32 bit version using Visual Studio 2017",
             "displayName": "Build VS2017 Win32 static",
             "configurePreset": "VS2017-Win32-static"
         },
         {
             "name": "Build-VS2015-x64-shared",
-            "description": "Build shared 64 bit version using Visual Studio 2022",
+            "description": "Build shared 64 bit version using Visual Studio 2015",
             "displayName": "Build VS2015 x64 shared",
             "configurePreset": "VS2015-x64-shared"
         },
         {
             "name": "Build-VS2015-x64-static",
-            "description": "Build static 64 bit version using Visual Studio 2022",
+            "description": "Build static 64 bit version using Visual Studio 2015",
             "displayName": "Build VS2015 x64 static",
             "configurePreset": "VS2015-x64-static"
         },
         {
             "name": "Build-VS2015-Win32-shared",
-            "description": "Build shared 32 bit version using Visual Studio 2022",
+            "description": "Build shared 32 bit version using Visual Studio 2015",
             "displayName": "Build VS2015 Win32 shared",
             "configurePreset": "VS2015-Win32-shared"
         },
         {
             "name": "Build-VS2015-Win32-static",
-            "description": "Build static 32 bit version using Visual Studio 2022",
+            "description": "Build static 32 bit version using Visual Studio 2015",
             "displayName": "Build VS2015 Win32 static",
             "configurePreset": "VS2015-Win32-static"
         }
