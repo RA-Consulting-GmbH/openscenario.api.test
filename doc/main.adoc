@@ -308,7 +308,7 @@ Please be aware of the following restrictions
 Please see link:{levelToBaseDir}/cpp/applications/openScenarioTester/v1_0/src/TestInjectedParameters.h[TestInjectedParameters.h] for detailed tests on error handling.
 
 == General architectural aspects
-This article is about some fundamental aspects in the API's artchitecture. It may help to understand the intention behind the design decisions and also gives you a entry point in coding and integration
+This article is about some fundamental aspects in the API's architecture. It may help to understand the intention behind the design decisions and also gives you a entry point in coding and integration
 issues.
 
 === Generative approach
@@ -369,7 +369,7 @@ All generated files are located in the `generated` folder. These files must not 
 
 === Generative approach and product dimensions
 
-Product dimensions can lead to a high amount of work for creating and maintaining product lines. For example a dimension could be the _programming platform_. In order to provide a product for different programming platforms, there might be a need for a single source of code and additional adapters to other platforms. Java and C\++ might be coupled through JNI etc. Practically, this is often very painful. Java is not the #1 platform on desktop UI systems whereas C++ is often not allowed to run on backend servers. Using integrated java code in a C\++ environment or using C++ in a java environment often feels unhandy and end up in the worst from both world: Our code is dependent on a java VM as well as on the binary platform. One solution is to maintain a common architecture with a single model and generators that take minimal amount to deploy the architecture to the different platforms. This is exactly where a generative approach has its strengh and an efficient workflow is able to produce and to maintain source code. Other product dimensions are _versions_ (1.0, 1.1, 2.0 etc.), operating systems (Linux, Mac, Windows), deployment platforms (Server, desktop, embedded) etc. In these multidimensional space (e.g. providing a native lib for mac and version 1.0) a generative approach is one way to manage dependencies and minimize the amount of work.
+Product dimensions can lead to a high amount of work for creating and maintaining product lines. For example a dimension could be the _programming platform_. In order to provide a product for different programming platforms, there might be a need for a single source of code and additional adapters to other platforms. Java and C\++ might be coupled through JNI etc. Practically, this is often very painful. Java is not the #1 platform on desktop UI systems whereas C++ is often not allowed to run on backend servers. Using integrated java code in a C\++ environment or using C++ in a java environment often feels unhandy and end up in the worst from both world: Our code is dependent on a java VM as well as on the binary platform. One solution is to maintain a common architecture with a single model and generators that take minimal amount to deploy the architecture to the different platforms. This is exactly where a generative approach has its strength and an efficient workflow is able to produce and to maintain source code. Other product dimensions are _versions_ (1.0, 1.1, 2.0 etc.), operating systems (Linux, Mac, Windows), deployment platforms (Server, desktop, embedded) etc. In these multidimensional space (e.g. providing a native lib for mac and version 1.0) a generative approach is one way to manage dependencies and minimize the amount of work.
 
 Remarks: The API currently supports C\++ only. The java product line has been given up in favor of developing a C++ product. The java product line is frozen in the 1.0 version of the library.
 
@@ -383,7 +383,7 @@ As described above, if code is generated consistently with the UML model, we hav
 
 === Version management and namespaces
 
-As said `versioning` is a dimension in our software product line and we better have strategies to support different versions of the standard with our software. Since we cannot rely on downward compatibility, there are different aspects when providing compatibility to multiple versions. E.g. to declare artifacts as _deprecated_ or we transparently map new versions to older versions. The OpenSCENARIO API relies heavily on namespaces for different versions. They provide maximum separation among the different version of the standard. In many cases data structures change. For example an `EntityAction` in version 1.0 might have some other semantic as `EntityAction` in version 2.0 (as said: we cannot foresee it). The OpenSCENARIO API's policy is that the complete set of artefacts (interfaces, classes, enumerations) are created for every single version. This means, that there is a `NET_ASAM_OPENSCENARIO::v1_0::IEntityAction` and another interface `NET_ASAM_OPENSCENARIO::v2_0::IEntityAction`. So, every version specific set of classes, enumeration and interfaces provided by the API is self-containted and completely independent from other versions. This has benefits and drawbacks. A benefit, as said, is that the different versions are greatly decoupled. Old versions are very stable and do not change over time. E.g. once released, `NET_ASAM_OPENSCENARIO::v1_0::IEntityAction` will not change. This means the domain knowledge, models and the API itself are snapshots of a released standard. As the domain knowledge evolves, this explicitly results in a new version of the standard, a new version of the model, and a new version of the API.
+As said `versioning` is a dimension in our software product line and we better have strategies to support different versions of the standard with our software. Since we cannot rely on downward compatibility, there are different aspects when providing compatibility to multiple versions. E.g. to declare artifacts as _deprecated_ or we transparently map new versions to older versions. The OpenSCENARIO API relies heavily on namespaces for different versions. They provide maximum separation among the different version of the standard. In many cases data structures change. For example an `EntityAction` in version 1.0 might have some other semantic as `EntityAction` in version 2.0 (as said: we cannot foresee it). The OpenSCENARIO API's policy is that the complete set of artefacts (interfaces, classes, enumerations) are created for every single version. This means, that there is a `NET_ASAM_OPENSCENARIO::v1_0::IEntityAction` and another interface `NET_ASAM_OPENSCENARIO::v2_0::IEntityAction`. So, every version specific set of classes, enumeration and interfaces provided by the API is self-contained and completely independent from other versions. This has benefits and drawbacks. A benefit, as said, is that the different versions are greatly decoupled. Old versions are very stable and do not change over time. E.g. once released, `NET_ASAM_OPENSCENARIO::v1_0::IEntityAction` will not change. This means the domain knowledge, models and the API itself are snapshots of a released standard. As the domain knowledge evolves, this explicitly results in a new version of the standard, a new version of the model, and a new version of the API.
 
 
 === Drawback of separating versions
@@ -412,7 +412,7 @@ IOpenScenarioFlexElement flexElement=
 
 So, these two methods deliver the exact same object instance when applied to the same parent object. The main and important difference is that the second example could also return a `NET_ASAM_OPENSCENARIO::v1_2::IFileHeader` in the future, if `OscConstants.ELEMENT__FILE_HEADER` is still supported for version 1.2.
 
-The next lines of code are still valid when the uml class `FileHeader` does not change from version 1.0 to version 1.2.
+The next lines of code are still valid when the UML class `FileHeader` does not change from version 1.0 to version 1.2.
 
 [source,cpp]
 ----
@@ -426,7 +426,7 @@ std::string description = flexElement.GetStringProperty(OscConstants.ATTRIBUTE__
 ----
 
 === Alternatives for version management
-Consider to use the https://en.wikipedia.org/wiki/Adapter_pattern[Adapter-pattern] before you integrate the API in your source code. As an alternative, contibute a set of adapters to the project in the future and make the adopters available for all OpenSCENARIO programmers.
+Consider to use the https://en.wikipedia.org/wiki/Adapter_pattern[Adapter-pattern] before you integrate the API in your source code. As an alternative, contribute a set of adapters to the project in the future and make the adopters available for all OpenSCENARIO programmers.
 
 == Tutorial on checker rules
 This tutorial assists when implementing our own checker rules and apply
@@ -472,7 +472,7 @@ Our first example will show, how to ensure that the major revision is always 1 a
 
 The first step is to define a class `VersionCheckerRule` that implements the `ICheckerRule` with the generic type `IFileHeader`. `IFileHeader` is the model type where to access the `majorRev` and the `minorRev`property.
 
-As we want to use this class for any combination of expected major revisions and minor revisions, we hand over the expectes major revison and the expected minor revision to the constructor and store them in the instance.
+As we want to use this class for any combination of expected major revisions and minor revisions, we hand over the expected major revision and the expected minor revision to the constructor and store them in the instance.
 
 [source,cpp]
 ----
@@ -643,7 +643,7 @@ We do not need to traverse through the tree and search for instances. The scenar
 
 ==== Example: ensure "Ego" is defined in the scenario.
 
-This example shows how to ensure that a scenario object with the name "Ego" is defined. Otherwise an error is issued. There is definitly a little bit more work to do here, but it should be straight forward after completing the example above. Obviously `IEntities` (with its instances of `IScenarioObject`) is the right type to check.
+This example shows how to ensure that a scenario object with the name "Ego" is defined. Otherwise an error is issued. There is definitely a little bit more work to do here, but it should be straight forward after completing the example above. Obviously `IEntities` (with its instances of `IScenarioObject`) is the right type to check.
 
 [source,cpp]
 ----
@@ -706,9 +706,9 @@ scenarioChecker.AddEntitiesCheckerRule(std::make_shared<EgoCheckerRule>());
 
 === Further checker rules
 
-As we've seen in the examples, many useful checkings may apply to an OpenSCENARIO model instance. Unfortunately, OpenSCENARIO defines relatively few constraints in the model or in the user guide (repectively there is no explicit checker rule concept but a lot of implicit constraints in the user guide). Nevertheless, some checkings are essential and the checker rule API is the tool to ensure these rules.
+As we've seen in the examples, many useful checkings may apply to an OpenSCENARIO model instance. Unfortunately, OpenSCENARIO defines relatively few constraints in the model or in the user guide (respectively there is no explicit checker rule concept but a lot of implicit constraints in the user guide). Nevertheless, some checkings are essential and the checker rule API is the tool to ensure these rules.
 
-Some examples: - Ensure a naming convention for the object names (e.g. ensure camel-case notation) - Ensure unique naming in a list of objects (e.g. unique names for scenario objects, so "ego" cannot be defined twice. Unique names of evens in a maneuver, etc.) - Other constraints that are not exlicitly defined in the standard but reduce ambiguity. 
+Some examples: - Ensure a naming convention for the object names (e.g. ensure camel-case notation) - Ensure unique naming in a list of objects (e.g. unique names for scenario objects, so "ego" cannot be defined twice. Unique names of evens in a maneuver, etc.) - Other constraints that are not explicitly defined in the standard but reduce ambiguity. 
 
 === Range checker rules - Built-in validation for ranges 
 Defining a primitive datatype like `unsigned int` or `double` does already represent an important constraint when a property of a class is defined. Many properties have further range constraints that are documented in the annotations of the properties e.g. the property `delay` in the model class `Condition` must be zero or greater than zero. The annotation says about the property `delay` that is of type `double`: 'Time elapsed after the edge condition is verified, until the condition returns true to the scenario. Unit: s; Range: [0..inf[.' The OpenSCENARIO API defines all the range properties as built-in checker rules that can be applied by any user of the library.
@@ -719,27 +719,27 @@ Please see these corresponding classes if you are interested in the details:
 * TestRangeChecker
 
 
-== Konwn issues
+== Known issues
 A provided list with the known issues and possible enhancements. 
 
 * *I18n* Currently, the messages that are issued are hardcoded on the
-basis of the english language. A i18n concept could outsource the
+basis of the English language. A i18n concept could outsource the
 messages to provide support for different languages. 
 * *Resolving object references* Though the framework is ready for that, the objects
 referenced from other objects are not resolved yet. This has two
 reasons. The first one is simply the time to invest. For any of the
-types a seperate resolution strategy must be implemented. Second, the
+types a separate resolution strategy must be implemented. Second, the
 general resolving strategy is still a little bit unclear. See '3.1.2
 Naming' in the 'OpenSCENARIO User-Guide 1.0'. With unresolved
 references, the method `GetTargetObject` of the interface
-`INamedReference` will always return `null`. Of cource, you can still
+`INamedReference` will always return `null`. Of course, you can still
 use the name that represents the reference when calling `GetNameRef`. 
 * *Supporting more programming platforms* As writing this, the C++ has
 just been added. We think it is good idea to add further platforms like
 Python. 
 * *Reading from zipped files* Though the standard does not
-explicitely mention this, we think it is a great idea to pack the
-scenario file and its dependendent catalogs in a self-contained
+explicitly mention this, we think it is a great idea to pack the
+scenario file and its dependent catalogs in a self-contained
 zip-archive. The API allows great support for that by providing the
 `IResourceLocator` interface.
 
@@ -747,7 +747,7 @@ zip-archive. The API allows great support for that by providing the
 [[BuildingTheBinaries]]
 == Building the binaries
 The OpenSCENARIO C\++ project uses `cmake` as configuration tool to support a huge variety of build environments such as Visual Studio and Unix Makefiles.
-`cmake` itself is a commandline tool but it also offers a more comfortable graphical frontend named `cmake-gui`.
+`cmake` itself is a command line tool but it also offers a more comfortable graphical frontend named `cmake-gui`.
 For systems with terminal / console access only, cmake provides a ncurses terminal frontend called `ccmake`.
 In this document we focus on building the OpenSCENARIO binaries from its C++ source code using `cmake`, `cmake-gui`, and `ccmake`.
 A great starting point for more information on `cmake` is the http://https://cmake.org/overview/[cmake website].
@@ -838,9 +838,68 @@ The image below shows a Linux terminal with an example output generated by make 
 
 image:images/oscMakeLin.png[cmake_gui,width=720,float="center",align="center"]
 
+=== Testing the binaries
+Now it is time to test the binaries built so far.
+In this step of the process we want to ensure that binaries built are working as expected.
+We show how to check the binaries on Windows as well as on Linux.
+
+==== Testing on Windows
+Lets first start with Windows.
+Here we have two possibilities to start the test for checking the binaries: via Visual Studio or via command line.
+
+===== Via Visual Studio
+Here we have a already preselected the startup project "OpenScenarioTester".
+Just launch the startup project via pressing <ctrl> + <F5> or via Visual Studio's menu "Debug" -> "Start Without Debugging".
+In both cases a console window with the following output should appear:
+
+[source,cmd]
+----
+Major Revision :0
+Minor Revision :9
+XML_ERROR_PARSING
+XML_ERROR_MISMATCHED_ELEMENT
+Ego has 2 axles (front, rear)
+----
+
+===== Windows command line
+When testing via command line open a Windows command line prompt (cmd).
+Then navigate to the output folder, e.g. if you have selected the preset "VS2019 x64 shared" then the output folder is
+`openscenario.api.test\cpp\build\x64_shared\[Debug|Release]`.
+Just change directory to that folder and start the test:
+
+[source,cmd]
+----
+>cd /d <full path to your osc folder>\openscenario.api.test\cpp\build\x64_shared\[Debug|Release]
+>OpenScenarioTester.exe
+
+Major Revision :0
+Minor Revision :9
+XML_ERROR_PARSING
+XML_ERROR_MISMATCHED_ELEMENT
+Ego has 2 axles (front, rear)
+>
+----
+
+==== Testing on Linux
+On Linux we already on console and can change directory directly.
+E.g. you have selected the preset "Linux shared release" then your output folder is `openscenario.api.test/cpp/build/output/Linux_shared/Release`.
+As you should be already in `openscenario.api.test/cpp` just do the following:
+
+[source,bash]
+----
+$ cd build/output/Linux_shared/Release
+$ ./OpenScenarioTest
+
+Major Revision :0
+Minor Revision :9
+XML_ERROR_PARSING
+XML_ERROR_MISMATCHED_ELEMENT
+Ego has 2 axles (front, rear)
+----
+
 === Building on console / terminal
 You can also easily build OpenSCENARIO on systems with console access only.
-But before we dive into that we will have a short excursion to cmake's `presets` as we will need them on the commandline.
+But before we dive into that we will have a short excursion to cmake's `presets` as we will need them on the command line.
 
 ==== Presets in cmake
 As you might have noticed we used `presets` already in cmake-gui for configuration, like the two we have seen so far: "VS2019 x64 shared" for Windows and "Linux shared release" for Linux.
@@ -849,7 +908,7 @@ They are build up in a hierarchical structure and define a couple of configurati
 All these presets are accessible via console.
 Presets are available for different steps of the build process.
 Currently we support configure and build presets for Linux and Windows.
-To know which presets are available for your current system cmake provides you with cmake commandline options.
+To know which presets are available for your current system cmake provides you with cmake command line options.
 We will query the configuration and build presets for both Windows and Linux.
 The both commands needed are as follows:
 
@@ -1104,7 +1163,7 @@ According to our example you may go now to the folder `cpp/build/cgDebugMakeStat
 [NOTE]
 You cannot use the build preset as you modified the settings and when using the presets your settings will be overwritten.
 
-==== Commandline steps condensed
+==== command line steps condensed
 The necessary steps to setup the OpenSCENARIO build environment for console / terminal are shown in short form as follows:
 
 [source,bash]

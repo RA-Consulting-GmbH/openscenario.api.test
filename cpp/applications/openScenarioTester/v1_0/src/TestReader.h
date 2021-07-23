@@ -20,6 +20,9 @@
 #ifdef __linux__
 #include <sys/wait.h>
 #endif
+#ifdef __APPLE__
+#include <sys/wait.h>
+#endif
 
 class TestReader : public TestBase
 {
@@ -40,6 +43,9 @@ private:
 #ifdef WIN32
         return system(command.c_str());
 #elif defined __linux__
+        auto ret = system(command.c_str());
+        return WEXITSTATUS(ret);
+#elif defined __APPLE__
         auto ret = system(command.c_str());
         return WEXITSTATUS(ret);
 #else

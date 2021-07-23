@@ -45,6 +45,12 @@ int main(int argc, char** argv)
     std::string executablePath(basePath);
     auto endPos = executablePath.find_last_of('/') != std::string::npos ? executablePath.find_last_of('/') : executablePath.size();
     executablePath = executablePath.substr(0, endPos);
+#elif defined __APPLE__
+    char basePath[PATH_MAX] = "";
+    realpath(argv[0], basePath);
+    std::string executablePath(basePath);
+    auto endPos = executablePath.find_last_of('/') != std::string::npos ? executablePath.find_last_of('/') : executablePath.size();
+    executablePath = executablePath.substr(0, endPos);
 #else
 #error "Operating system not supported."
 #endif

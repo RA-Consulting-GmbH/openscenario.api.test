@@ -10,6 +10,8 @@
 # endif
 #elif defined(__unix__) && defined(__linux__)
 # define OPENSCENARIOLIB_EXP
+#elif defined(__APPLE__)
+# define OPENSCENARIOLIB_EXP
 #else
 # error "OPENSCENARIOLIB: Unknown OS"
 #endif // _WINDOWS

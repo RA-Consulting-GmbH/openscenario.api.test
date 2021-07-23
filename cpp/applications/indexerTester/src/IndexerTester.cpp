@@ -38,8 +38,10 @@ void TestBooks()
      std::string filePath = "../../../../../applications/openScenarioReader/res/indexer/books.xml";
 #elif defined(__unix__) && defined(__linux__)
      std::string filePath = "../../../../applications/openScenarioReader/res/indexer/books.xml";
+#elif defined(__APPLE__)
+    std::string filePath = "../../../../applications/openScenarioReader/res/indexer/books.xml";
 #else
-# error "CAN: Unknown OS"
+# error "IndexerTester: Unknown OS"
 #endif
 
         std::ifstream infile(filePath, std::ios::binary);
