@@ -383,13 +383,16 @@ if( MSVC )
   source_group( Headers\\Generated\\Api\\Writer FILES ${HEADERS_GENERATED_API_WRITER} )
   source_group( Headers\\Generated\\Common FILES ${HEADERS_GENERATED_COMMON} )
   source_group( Headers\\Generated\\Checker FILES ${HEADERS_GENERATED_CHECKER} )
-   source_group( Headers\\Generated\\Checker\\Model FILES ${HEADERS_GENERATED_CHECKER_MODEL} )
+  source_group( Headers\\Generated\\Checker\\Model FILES ${HEADERS_GENERATED_CHECKER_MODEL} )
   source_group( Headers\\Generated\\Checker\\Impl FILES ${HEADERS_GENERATED_CHECKER_IMPL} )
   source_group( Headers\\Generated\\Checker\\Range FILES ${HEADERS_GENERATED_CHECKER_RANGE} )
   source_group( Headers\\Generated\\Catalog FILES ${HEADERS_GENERATED_CATALOG} )
   source_group( Headers\\Generated\\Impl FILES ${HEADERS_GENERATED_IMPL} )
   source_group( Headers\\Generated\\XmlParser FILES ${HEADERS_GENERATED_XMLPARSER} )
   source_group( Headers\\Generated\\Export\\Xml FILES ${HEADERS_GENERATED_EXPORT_XML} )
+
+  # Groups for resources files
+  source_group( Resources FILES ${RESOURCE_FILES} )
 endif()
 
 message(STATUS "lib binding: ${LIB_TYPE}" )

@@ -87,14 +87,23 @@ endmacro (RAC_SET_FOLDERS)
 function (RAC_GET_VERSION versionfilepath)
     file(READ ${versionfilepath} version_h)
 
-    string(REGEX MATCH "MAJORVERSION[ \t]*([0-9]*)" _ ${version_h})
+    string(REGEX MATCH " MAJORVERSION[ \t]*([0-9]*)" _ ${version_h})
     set(VERSION_MAJOR ${CMAKE_MATCH_1} PARENT_SCOPE)
 
-    string(REGEX MATCH "MINORVERSION[ \t]*([0-9]*)" _ ${version_h})
+    string(REGEX MATCH " MINORVERSION[ \t]*([0-9]*)" _ ${version_h})
     set(VERSION_MINOR ${CMAKE_MATCH_1} PARENT_SCOPE)
 
-    string(REGEX MATCH "PATCHNUMBER[ \t]*([0-9]*)" _ ${version_h})
+    string(REGEX MATCH " PATCHNUMBER[ \t]*([0-9]*)" _ ${version_h})
     set(PATCHNUMBER ${CMAKE_MATCH_1} PARENT_SCOPE)
+    
+    string(REGEX MATCH "OSC_MAJORVERSION[ \t]*([0-9]*)" _ ${version_h})
+    set(OSC_VERSION_MAJOR ${CMAKE_MATCH_1} PARENT_SCOPE)
+
+    string(REGEX MATCH "OSC_MINORVERSION[ \t]*([0-9]*)" _ ${version_h})
+    set(OSC_VERSION_MINOR ${CMAKE_MATCH_1} PARENT_SCOPE)
+
+    string(REGEX MATCH "OSC_PATCHNUMBER[ \t]*([0-9]*)" _ ${version_h})
+    set(OSC_PATCHNUMBER ${CMAKE_MATCH_1} PARENT_SCOPE)
     
 #    string(TIMESTAMP VERSION_TIME "%H:%M:%S" UTC)
 #    set(VERSION_TIME ${VERSION_TIME} PARENT_SCOPE)

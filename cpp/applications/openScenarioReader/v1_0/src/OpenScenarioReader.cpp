@@ -29,7 +29,7 @@
 #include "XmlScenarioImportLoaderFactory.h"
 #include "ScenarioLoaderException.h"
 #include "FileResourceLocator.h"
-#include "Version.h"
+#include "../common/version.h"
 
 #undef ERROR
 
