@@ -15,7 +15,7 @@
  * limitations under the License.
  */
  
-#include "ScenarioCheckerImpl.h"
+#include "ScenarioCheckerImplV1_0.h"
 
 namespace NET_ASAM_OPENSCENARIO
 {

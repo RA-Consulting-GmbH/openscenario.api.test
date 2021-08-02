@@ -23,10 +23,10 @@
 #include <vector>
 #include "INamedReference.h"
 #include "IOpenScenarioModelElement.h"
-#include "Enumerations.h"
-#include "OscInterfaces.h"
-#include "ApiClassInterfaces.h"
-#include "ApiWriterInterfaces.h"
+#include "EnumerationsV1_0.h"
+#include "OscInterfacesV1_0.h"
+#include "ApiClassInterfacesV1_0.h"
+#include "ApiWriterInterfacesV1_0.h"
 #include "IOpenScenarioElementWriter.h"
 #include "MemLeakDetection.h"
 

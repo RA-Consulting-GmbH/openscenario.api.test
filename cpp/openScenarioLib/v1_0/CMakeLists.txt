@@ -87,28 +87,28 @@ set( SOURCES
 
 set( SOURCES_GENERATED_API
   ${SOURCES_GENERATED_API}
-  "generated/api/Enumerations.cpp"
+  "generated/api/EnumerationsV1_0.cpp"
 )
 
 set( SOURCES_GENERATED_CHECKER_IMPL
   ${SOURCES_GENERATED_CHECKER_IMPL}
-  "generated/checker/impl/ScenarioCheckerImpl.cpp"
+  "generated/checker/impl/ScenarioCheckerImplV1_0.cpp"
 )
 
 set( SOURCES_GENERATED_CHECKER_RANGE
   ${SOURCES_GENERATED_CHECKER_RANGE}
-  "generated/checker/range/RangeCheckerRules.cpp"
+  "generated/checker/range/RangeCheckerRulesV1_0.cpp"
 )
 
 set( SOURCES_GENERATED_IMPL
   ${SOURCES_GENERATED_IMPL}
-  "generated/impl/ApiClassImpl.cpp"
+  "generated/impl/ApiClassImplV1_0.cpp"
 )
 
 set( SOURCES_GENERATED_XMLPARSER
   ${SOURCES_GENERATED_XMLPARSER}
-  "generated/xmlParser/XmlParsers1.cpp"
-  "generated/xmlParser/XmlParsers2.cpp"
+  "generated/xmlParser/XmlParsers1V1_0.cpp"
+  "generated/xmlParser/XmlParsers2V1_0.cpp"
   "generated/xmlParser/XMLParser.cpp"
   "generated/xmlParser/XMLLexer.cpp"
 )
@@ -272,66 +272,66 @@ set( HEADERS_CHECKER
 
 set( HEADERS_GENERATED_API
   ${HEADERS_GENERATED_API}
-  "generated/api/Enumerations.h"
-  "generated/api/ApiClassInterfaces.h"
-  "generated/api/OscInterfaces.h"
+  "generated/api/EnumerationsV1_0.h"
+  "generated/api/ApiClassInterfacesV1_0.h"
+  "generated/api/OscInterfacesV1_0.h"
 )
 
 set( HEADERS_GENERATED_API_WRITER
   ${HEADERS_GENERATED_API_WRITER}
-  "generated/api/writer/ApiClassWriterInterfaces.h"
-  "generated/api/writer/ApiWriterInterfaces.h"
-  "generated/api/writer/IOpenScenarioWriterFactory.h"
+  "generated/api/writer/ApiClassWriterInterfacesV1_0.h"
+  "generated/api/writer/ApiWriterInterfacesV1_0.h"
+  "generated/api/writer/IOpenScenarioWriterFactoryV1_0.h"
 )
 
 set( HEADERS_GENERATED_COMMON
   ${HEADERS_GENERATED_COMMON}
-  "generated/common/OscConstants.h"
+  "generated/common/OscConstantsV1_0.h"
 )
 
 set( HEADERS_GENERATED_CHECKER
   ${HEADERS_GENERATED_CHECKER}
-  "generated/checker/IScenarioChecker.h"
+  "generated/checker/IScenarioCheckerV1_0.h"
 )
 
 set( HEADERS_GENERATED_CHECKER_MODEL
   ${HEADERS_GENERATED_CHECKER_MODEL}
-  "generated/checker/model/CardinalityCheckerRules.h"
-  "generated/checker/model/UnionCheckerRules.h"
+  "generated/checker/model/CardinalityCheckerRulesV1_0.h"
+  "generated/checker/model/UnionCheckerRulesV1_0.h"
 )
 
 set( HEADERS_GENERATED_CHECKER_IMPL
   ${HEADERS_GENERATED_CHECKER_IMPL}
-  "generated/checker/impl/ScenarioCheckerImpl.h"
+  "generated/checker/impl/ScenarioCheckerImplV1_0.h"
 )
 
 set( HEADERS_GENERATED_CHECKER_RANGE
   ${HEADERS_GENERATED_CHECKER_RANGE}
-  "generated/checker/range/RangeCheckerRules.h"
-  "generated/checker/range/RangeCheckerHelper.h"
+  "generated/checker/range/RangeCheckerRulesV1_0.h"
+  "generated/checker/range/RangeCheckerHelperV1_0.h"
 )
 
 set( HEADERS_GENERATED_CATALOG
   ${HEADERS_GENERATED_CATALOG}
-  "generated/catalog/CatalogHelper.h"
+  "generated/catalog/CatalogHelperV1_0.h"
 )
 
 set( HEADERS_GENERATED_IMPL
   ${HEADERS_GENERATED_IMPL}
-  "generated/impl/ApiClassImpl.h"
-  "generated/impl/OpenScenarioWriterFactoryImpl.h"
+  "generated/impl/ApiClassImplV1_0.h"
+  "generated/impl/OpenScenarioWriterFactoryImplV1_0.h"
 )
 
 set( HEADERS_GENERATED_XMLPARSER
   ${HEADERS_GENERATED_XMLPARSER}
-  "generated/xmlParser/XmlParsers.h"
+  "generated/xmlParser/XmlParsersV1_0.h"
   "generated/xmlParser/XMLParser.h"
   "generated/xmlParser/XMLLexer.h"
 )
 
 set( HEADERS_GENERATED_EXPORT_XML
   ${HEADERS_GENERATED_EXPORT_XML}
-  "generated/export/xml/OpenScenarioXmlExporter.h"
+  "generated/export/xml/OpenScenarioXmlExporterV1_0.h"
 )
 
 # Resource files

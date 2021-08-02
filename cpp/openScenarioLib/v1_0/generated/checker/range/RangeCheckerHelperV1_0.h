@@ -17,8 +17,8 @@
  
 #pragma once
 
-#include "IScenarioChecker.h"
-#include "RangeCheckerRules.h"
+#include "IScenarioCheckerV1_0.h"
+#include "RangeCheckerRulesV1_0.h"
 #include "MemLeakDetection.h"
 
 namespace NET_ASAM_OPENSCENARIO

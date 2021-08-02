@@ -22,7 +22,7 @@
 #include "FileContentMessage.h"
 #include "ILocator.h"
 #include "IParserMessageLogger.h"
-#include "ApiClassInterfaces.h"
+#include "ApiClassInterfacesV1_0.h"
 
 
 class EgoCheckerRule: public NET_ASAM_OPENSCENARIO::ICheckerRule<NET_ASAM_OPENSCENARIO::v1_0::IEntities> 

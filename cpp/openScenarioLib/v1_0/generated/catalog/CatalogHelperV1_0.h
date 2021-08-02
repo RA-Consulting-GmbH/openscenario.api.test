@@ -16,7 +16,7 @@
  */
  
 #pragma once
-#include "ApiClassInterfaces.h"
+#include "ApiClassInterfacesV1_0.h"
 #include "MemLeakDetection.h"
 
 namespace NET_ASAM_OPENSCENARIO

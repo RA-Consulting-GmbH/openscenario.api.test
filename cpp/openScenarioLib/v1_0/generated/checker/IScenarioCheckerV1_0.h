@@ -17,7 +17,7 @@
  
 #pragma once
 #include "IParserMessageLogger.h"
-#include "ApiClassInterfaces.h"
+#include "ApiClassInterfacesV1_0.h"
 #include "ICheckerRule.h"
 #include "MemLeakDetection.h"
 #include "ITreeMessageLogger.h"

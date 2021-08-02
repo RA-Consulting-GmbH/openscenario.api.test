@@ -16,8 +16,8 @@
  */
  
 #define _USE_MATH_DEFINES
-#include "RangeCheckerRules.h"
-#include "OscConstants.h"
+#include "RangeCheckerRulesV1_0.h"
+#include "OscConstantsV1_0.h"
 #include <math.h>
 
 namespace NET_ASAM_OPENSCENARIO

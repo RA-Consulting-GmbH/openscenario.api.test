@@ -19,12 +19,12 @@
 #include <vector>
 #include <set>
 #include <map>
-#include "OscInterfaces.h"
+#include "OscInterfacesV1_0.h"
 #include "ErrorLevel.h"
 #include "FileContentMessage.h"
 #include "IParserMessageLogger.h"
 #include "BaseImpl.h"
-#include "ApiClassImpl.h"
+#include "ApiClassImplV1_0.h"
 #include "SimpleType.h"
 #include "MemLeakDetection.h"
 

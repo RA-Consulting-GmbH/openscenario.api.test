@@ -17,7 +17,7 @@
 
 #pragma once
 #include "TestBase.h"
-#include "CatalogHelper.h"
+#include "CatalogHelperV1_0.h"
 
 
 class TestImports : public TestBase

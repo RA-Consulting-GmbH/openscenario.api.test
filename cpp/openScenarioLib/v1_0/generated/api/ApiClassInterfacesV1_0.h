@@ -20,8 +20,8 @@
 #include <string>
 #include <vector>
 #include "INamedReference.h"
-#include "Enumerations.h"
-#include "OscInterfaces.h"
+#include "EnumerationsV1_0.h"
+#include "OscInterfacesV1_0.h"
 #include "MemLeakDetection.h"
 
 namespace NET_ASAM_OPENSCENARIO

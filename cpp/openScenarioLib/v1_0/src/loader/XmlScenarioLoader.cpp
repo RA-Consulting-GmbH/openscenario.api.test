@@ -20,8 +20,8 @@
 #include <ANTLRInputStream.h>
 #include "XMLLexer.h"
 #include <XMLParserListener.h>
-#include "ScenarioCheckerImpl.h"
-#include "XmlParsers.h"
+#include "ScenarioCheckerImplV1_0.h"
+#include "XmlParsersV1_0.h"
 #include "CatalogReferenceParserContext.h"
 
 

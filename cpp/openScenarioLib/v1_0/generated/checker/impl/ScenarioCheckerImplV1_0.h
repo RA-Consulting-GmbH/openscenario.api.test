@@ -21,8 +21,8 @@
 #include <vector>
 #include "IParserMessageLogger.h"
 #include "ICheckerRule.h"
-#include "IScenarioChecker.h"
-#include "ApiClassInterfaces.h"
+#include "IScenarioCheckerV1_0.h"
+#include "ApiClassInterfacesV1_0.h"
 #include "MemLeakDetection.h"
 #include <memory>
 #include "ExportDefinitions.h"

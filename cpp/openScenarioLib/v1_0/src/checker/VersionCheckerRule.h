@@ -27,9 +27,9 @@
 #include "ITreeMessageLogger.h"
 #include "TreeContentMessage.h"
 #include "Textmarker.h"
-#include "ApiClassImpl.h"
+#include "ApiClassImplV1_0.h"
 #include "MemLeakDetection.h"
-#include "OscConstants.h"
+#include "OscConstantsV1_0.h"
 
 /**
  * A checker rule for checking the version of the standard within a OpenSCENARIO file.

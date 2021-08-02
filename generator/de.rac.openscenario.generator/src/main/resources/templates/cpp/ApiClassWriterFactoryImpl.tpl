@@ -19,8 +19,8 @@
 <%=JavaLicenseHelper.getApache2License()%>
 
 #pragma once
-#include "ApiClassImpl.h"
-#include "IOpenScenarioWriterFactory.h"
+#include "ApiClassImplV1_0.h"
+#include "IOpenScenarioWriterFactoryV1_0.h"
 #include "MemLeakDetection.h"
 
 namespace NET_ASAM_OPENSCENARIO

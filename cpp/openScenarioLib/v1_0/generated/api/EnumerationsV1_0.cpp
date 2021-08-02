@@ -15,7 +15,7 @@
  * limitations under the License.
  */
  
-#include "Enumerations.h"
+#include "EnumerationsV1_0.h"
 
 namespace NET_ASAM_OPENSCENARIO
 {

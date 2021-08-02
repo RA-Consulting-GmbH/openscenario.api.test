@@ -103,7 +103,7 @@ public class GeneratorCpp {
         System.out.println("-- Class Interface");
         binding["helper"] = new ApiClassInterfaceHelper();
         template = templateProcessor.getTemplate('ApiClassInterface');
-        processor("api", "ApiClassInterfaces.h")
+        processor("api", "ApiClassInterfacesV1_0.h")
         {
             return templateApplication(template, null);
         }
@@ -111,13 +111,13 @@ public class GeneratorCpp {
         System.out.println("-- Enumerations");
         binding["helper"] = new ApiEnumerationHelper();
         template = templateProcessor.getTemplate('ApiEnumeration');
-        processor("api", "Enumerations.h")
+        processor("api", "EnumerationsV1_0.h")
         {
             return templateApplication(template, null);
         }
 
         template = templateProcessor.getTemplate('ApiEnumerationSourceFile');
-        processor("api", "Enumerations.cpp")
+        processor("api", "EnumerationsV1_0.cpp")
         {
             return templateApplication(template, null);
         }
@@ -125,7 +125,7 @@ public class GeneratorCpp {
         System.out.println("-- Osc Interfaces");
         binding["helper"] = new ApiInterfaceHelper();
         template = templateProcessor.getTemplate('ApiInterface');
-        processor("api", "OscInterfaces.h")
+        processor("api", "OscInterfacesV1_0.h")
         {
             return templateApplication(template, null);
         }
@@ -133,11 +133,11 @@ public class GeneratorCpp {
         System.out.println("-- Impl Classes");
         binding["helper"] = new ImplClassHelper();
         template = templateProcessor.getTemplate('ImplClass');
-        processor("impl", "ApiClassImpl.h"){
+        processor("impl", "ApiClassImplV1_0.h"){
             return templateApplication(template, null);
         }
         template = templateProcessor.getTemplate('ImplClassSource');
-        processor("impl", "ApiClassImpl.cpp"){
+        processor("impl", "ApiClassImplV1_0.cpp"){
             return templateApplication(template, null);
         }
 
@@ -146,46 +146,46 @@ public class GeneratorCpp {
         def all = umlModel.getClasses();
         def sublist = all.collate( all.size().intdiv(2) +1 );
         template = templateProcessor.getTemplate('XmlParserClass');
-        processor("xmlParser", "XmlParsers.h"){
+        processor("xmlParser", "XmlParsersV1_0.h"){
             return templateApplication(template, umlModel.getClasses());
         }
         template = templateProcessor.getTemplate('XmlParserClassSource');
-        processor("xmlParser", "XmlParsers1.cpp"){
+        processor("xmlParser", "XmlParsers1V1_0.cpp"){
             return templateApplication(template, sublist[0]);
         }
-        processor("xmlParser", "XmlParsers2.cpp"){
+        processor("xmlParser", "XmlParsers2V1_0.cpp"){
             return templateApplication(template, sublist[1]);
         }
 
         System.out.println("-- Constant Class");
         binding["helper"] = new ConstantClassHelper();
         template = templateProcessor.getTemplate('ConstantClass');
-        processor("common", "OscConstants.h"){
+        processor("common", "OscConstantsV1_0.h"){
             return templateApplication(template, getConstants(umlModel.getClasses()));
         }
 
         System.out.println("-- CheckerInterfaceTemplate");
         binding["helper"] = new ScenarioCheckerInterfaceHelper();
         template = templateProcessor.getTemplate('ScenarioCheckerInterface');
-        processor("checker", "IScenarioChecker.h"){
+        processor("checker", "IScenarioCheckerV1_0.h"){
             return templateApplication(template, umlModel.getClasses());
         }
 
         System.out.println("-- CheckerImplTemplate");
         binding["helper"] = new ScenarioCheckerImplHelper();
         template = templateProcessor.getTemplate('ScenarioCheckerImpl');
-        processor("checker/impl", "ScenarioCheckerImpl.h"){
+        processor("checker/impl", "ScenarioCheckerImplV1_0.h"){
             return templateApplication(template, umlModel.getClasses());
         }
         template = templateProcessor.getTemplate('ScenarioCheckerImplSource');
-        processor("checker/impl", "ScenarioCheckerImpl.cpp"){
+        processor("checker/impl", "ScenarioCheckerImplV1_0.cpp"){
             return templateApplication(template, umlModel.getClasses());
         }
 
         System.out.println("-- RangeCheckerHelper Class");
         binding["helper"] = new RangeCheckerHelper();
         template = templateProcessor.getTemplate('RangeCheckerHelper');
-        processor("checker/range", "RangeCheckerHelper.h"){
+        processor("checker/range", "RangeCheckerHelperV1_0.h"){
             return templateApplication(template,umlModel.getClasses().findAll(){element->rangeCheckerRules[element.name.toClassName()] != null});
         }
 
@@ -193,39 +193,39 @@ public class GeneratorCpp {
         binding["rangeCheckerRules"] = rangeCheckerRules;
         binding["helper"] = new RangeCheckerRuleHelper();
         template = templateProcessor.getTemplate('RangeCheckerRule');
-        processor("checker/range", "RangeCheckerRules.h"){
+        processor("checker/range", "RangeCheckerRulesV1_0.h"){
             return templateApplication(template, null);
         }
         template = templateProcessor.getTemplate('RangeCheckerRuleSource');
-        processor("checker/range", "RangeCheckerRules.cpp"){
+        processor("checker/range", "RangeCheckerRulesV1_0.cpp"){
             return templateApplication(template, null);
         }
 
         System.out.println("-- CatalogHelper");
         binding["helper"] = new CatalogHelperHelper();
         template = templateProcessor.getTemplate('CatalogHelper');
-        processor("catalog", "CatalogHelper.h"){
+        processor("catalog", "CatalogHelperV1_0.h"){
             return templateApplication(template, umlModel.getCatalogElementClasses());
         }
 
         System.out.println("-- Union Checker Rule");
         binding["helper"] = new UnionCheckerRuleHelper()
         template = templateProcessor.getTemplate('UnionCheckerRule');
-        processor("checker/model", "UnionCheckerRules.h"){
+        processor("checker/model", "UnionCheckerRulesV1_0.h"){
           return templateApplication(template, umlModel.getClasses().findAll(){ UmlClass umlClass ->umlClass.appliedStereotypes.find(){Stereotype s -> s.name == "union"}});
         }
 
         System.out.println("-- Cardinality Checker Rule");
         binding["helper"] = new CardinalityCheckerRuleHelper()
         template = templateProcessor.getTemplate('CardinalityCheckerRule');
-        processor("checker/model", "CardinalityCheckerRules.h"){
+        processor("checker/model", "CardinalityCheckerRulesV1_0.h"){
           return templateApplication(template, umlModel.getClasses().findAll(){  UmlClass umlClass-> !umlClass.umlProperties.findAll(){UmlProperty p -> !p.isOptional() && !p.isOptionalUnboundList()}.isEmpty()});
         }
 
         System.out.println("-- OSC Writer Interface");
         binding["helper"] = new ApiClassWriterInterfaceHelper();
         template = templateProcessor.getTemplate('ApiWriterInterface');
-        processor("api/writer", "ApiWriterInterfaces.h")
+        processor("api/writer", "ApiWriterInterfacesV1_0.h")
         {
             return templateApplication(template, null);
         }
@@ -233,7 +233,7 @@ public class GeneratorCpp {
         System.out.println("-- Writer Interface");
         binding["helper"] = new ApiClassWriterInterfaceHelper();
         template = templateProcessor.getTemplate('ApiClassWriterInterface');
-        processor("api/writer", "ApiClassWriterInterfaces.h")
+        processor("api/writer", "ApiClassWriterInterfacesV1_0.h")
         {
             return templateApplication(template, null);
         }
@@ -241,7 +241,7 @@ public class GeneratorCpp {
         System.out.println("-- Writer Factory Interface");
         binding["helper"] = new ApiClassWriterFactoryInterfaceHelper();
         template = templateProcessor.getTemplate('ApiClassWriterFactoryInterface');
-        processor("api/writer", "IOpenScenarioWriterFactory.h")
+        processor("api/writer", "IOpenScenarioWriterFactoryV1_0.h")
         {
             return templateApplication(template, umlModel.getClasses());
         }
@@ -249,7 +249,7 @@ public class GeneratorCpp {
         System.out.println("-- Writer Factory Impl");
         binding["helper"] = new ApiClassWriterFactoryImplHelper();
         template = templateProcessor.getTemplate('ApiClassWriterFactoryImpl');
-        processor("impl", "OpenScenarioWriterFactoryImpl.h")
+        processor("impl", "OpenScenarioWriterFactoryImplV1_0.h")
         {
             return templateApplication(template, umlModel.getClasses());
         }
@@ -257,7 +257,7 @@ public class GeneratorCpp {
         System.out.println("-- Xml Exporter");
         binding["helper"] = new XmlExporterClassHelper();
         template = templateProcessor.getTemplate('XmlExporterClass');
-        processor("export/xml", "OpenScenarioXmlExporter.h")
+        processor("export/xml", "OpenScenarioXmlExporterV1_0.h")
         {
             return templateApplication(template, umlModel);
         }

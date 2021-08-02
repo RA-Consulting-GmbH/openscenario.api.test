@@ -15,7 +15,7 @@
  * limitations under the License.
  */
  
-#include "XmlParsers.h"
+#include "XmlParsersV1_0.h"
 #include "NamedReferenceProxy.h"
 #include "FileContentMessage.h"
 #include "Position.h"

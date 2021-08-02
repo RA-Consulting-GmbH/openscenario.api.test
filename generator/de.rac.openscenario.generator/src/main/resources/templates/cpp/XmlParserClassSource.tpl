@@ -18,7 +18,7 @@
 -%>
 <%=JavaLicenseHelper.getApache2License()%>
  
-#include "XmlParsers.h"
+#include "XmlParsersV1_0.h"
 #include "NamedReferenceProxy.h"
 #include "FileContentMessage.h"
 #include "Position.h"

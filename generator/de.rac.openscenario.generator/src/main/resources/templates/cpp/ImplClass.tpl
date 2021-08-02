@@ -20,8 +20,8 @@
  
 #pragma once
 
-#include "ApiClassInterfaces.h"
-#include "ApiClassWriterInterfaces.h"
+#include "ApiClassInterfacesV1_0.h"
+#include "ApiClassWriterInterfacesV1_0.h"
 #include "BaseImpl.h"
 #include "IParserMessageLogger.h"
 #include "ParserHelper.h"
@@ -29,7 +29,7 @@
 #include "INamedReference.h"
 #include "MemLeakDetection.h"
 #include "KeyNotSupportedException.h"
-#include "OscConstants.h"
+#include "OscConstantsV1_0.h"
 #include "ExportDefinitions.h"
 
 // helper.getTypeImportCpp(element,packageName).each{importedType->%>import =importedType%>

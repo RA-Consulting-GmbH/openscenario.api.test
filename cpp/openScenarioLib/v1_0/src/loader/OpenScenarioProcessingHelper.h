@@ -16,10 +16,10 @@
  */
 
 #pragma once
-#include "OscInterfaces.h"
-#include "ApiClassInterfaces.h"
+#include "OscInterfacesV1_0.h"
+#include "ApiClassInterfacesV1_0.h"
 #include "IParserMessageLogger.h"
-#include "ApiClassImpl.h"
+#include "ApiClassImplV1_0.h"
 #include "ParameterResolver.h"
 #include <map>
 #include "MemLeakDetection.h"

@@ -19,7 +19,7 @@
 #undef ERROR
 #include <vector>
 #include <map>
-#include "ApiClassInterfaces.h"
+#include "ApiClassInterfacesV1_0.h"
 #include "IParserMessageLogger.h"
 #include "BaseImpl.h"
 #include "IResourceLocator.h"

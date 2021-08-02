@@ -19,7 +19,7 @@
 <%=JavaLicenseHelper.getApache2License()%>
 #pragma once
 #include <memory>
-#include "ApiClassWriterInterfaces.h"
+#include "ApiClassWriterInterfacesV1_0.h"
 #include "MemLeakDetection.h"
 
 namespace NET_ASAM_OPENSCENARIO

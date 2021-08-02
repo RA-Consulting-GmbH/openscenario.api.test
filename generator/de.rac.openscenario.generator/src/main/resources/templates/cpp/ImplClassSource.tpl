@@ -18,8 +18,8 @@
 -%>
 <%=JavaLicenseHelper.getApache2License()%>
  
-#include "ApiClassImpl.h"
-#include "OscConstants.h"
+#include "ApiClassImplV1_0.h"
+#include "OscConstantsV1_0.h"
 #include "FileContentMessage.h"
 #include "IOpenScenarioModelElement.h"
 #include "ErrorLevel.h"

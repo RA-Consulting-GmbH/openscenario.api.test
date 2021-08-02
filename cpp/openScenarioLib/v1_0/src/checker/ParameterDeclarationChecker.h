@@ -24,7 +24,7 @@
 #include "ILocator.h"
 #include "IParserMessageLogger.h"
 #include "ParserHelper.h"
-#include "ApiClassImpl.h"
+#include "ApiClassImplV1_0.h"
 #include "PropertyTreeContext.h"
 #include "ITreeMessageLogger.h"
 #include  "TreeContentMessage.h"
