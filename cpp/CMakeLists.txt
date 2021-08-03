@@ -76,8 +76,8 @@ add_subdirectory( externalLibs/ANTLR4-Cpp-src ${PROJECT_BINARY_DIR}/externalLibs
 add_subdirectory( openScenarioLib ${PROJECT_BINARY_DIR}/openScenarioLib )
 
 # Applications
-add_subdirectory( applications/openScenarioReader/v1_0 ${PROJECT_BINARY_DIR}/applications/openScenarioReader/v1_0 )
-add_subdirectory( applications/openScenarioTester/v1_0 ${PROJECT_BINARY_DIR}/applications/openScenarioTester/v1_0)
+add_subdirectory( applications/openScenarioReader ${PROJECT_BINARY_DIR}/applications/openScenarioReader )
+add_subdirectory( applications/openScenarioTester ${PROJECT_BINARY_DIR}/applications/openScenarioTester)
 add_subdirectory( applications/indexerTester ${PROJECT_BINARY_DIR}/applications/indexerTester)
 
 ################################################################

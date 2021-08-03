@@ -9,7 +9,7 @@
 
 == Getting started on C++
 A great source of how to start using the API are the test sources
-link:{levelToBaseDir}/cpp/applications/openScenarioTester/v1_0/src[test sources].
+link:{levelToBaseDir}/cpp/applications/openScenarioTester/src[test sources].
 
 Generally there are two major use cases for using the library. 
 
@@ -305,7 +305,7 @@ Please be aware of the following restrictions
 * If conversion fails, an error is issued. 
 * Only scenario definitions declare global parameters. It is not useful to declare them for catalogs.
 
-Please see link:{levelToBaseDir}/cpp/applications/openScenarioTester/v1_0/src/TestInjectedParameters.h[TestInjectedParameters.h] for detailed tests on error handling.
+Please see link:{levelToBaseDir}/cpp/applications/openScenarioTester/src/TestInjectedParameters.h[TestInjectedParameters.h] for detailed tests on error handling.
 
 == General architectural aspects
 This article is about some fundamental aspects in the API's architecture. It may help to understand the intention behind the design decisions and also gives you a entry point in coding and integration
@@ -1086,19 +1086,19 @@ After successful compilation you should see an output similar to this (shortened
 
 [source,bash]
 ----
-[ 97%] Building CXX object openScenarioLib/v1_0/CMakeFiles/OpenScenarioLib.dir/generated/xmlParser/XmlParsers1.cpp.o
-[ 97%] Building CXX object openScenarioLib/v1_0/CMakeFiles/OpenScenarioLib.dir/generated/xmlParser/XmlParsers2.cpp.o
-[ 98%] Building CXX object openScenarioLib/v1_0/CMakeFiles/OpenScenarioLib.dir/generated/xmlParser/XMLParser.cpp.o
+[ 97%] Building CXX object openScenarioLib/CMakeFiles/OpenScenarioLib.dir/generated/xmlParser/XmlParsers1.cpp.o
+[ 97%] Building CXX object openScenarioLib/CMakeFiles/OpenScenarioLib.dir/generated/xmlParser/XmlParsers2.cpp.o
+[ 98%] Building CXX object openScenarioLib/CMakeFiles/OpenScenarioLib.dir/generated/xmlParser/XMLParser.cpp.o
 [ 98%] Linking CXX executable ../../../output/Linux_static/Debug/IndexerTester
-[ 98%] Building CXX object openScenarioLib/v1_0/CMakeFiles/OpenScenarioLib.dir/generated/xmlParser/XMLLexer.cpp.o
-[ 98%] Building CXX object openScenarioLib/v1_0/CMakeFiles/OpenScenarioLib.dir/src/loader/XmlScenarioLoader.cpp.o
+[ 98%] Building CXX object openScenarioLib/CMakeFiles/OpenScenarioLib.dir/generated/xmlParser/XMLLexer.cpp.o
+[ 98%] Building CXX object openScenarioLib/CMakeFiles/OpenScenarioLib.dir/src/loader/XmlScenarioLoader.cpp.o
 [ 98%] Built target IndexerTester
 [ 99%] Linking CXX static library ../../../output/Linux_static/Debug/libOpenScenarioLib.a
 [ 99%] Built target OpenScenarioLib
-[100%] Building CXX object applications/openScenarioReader/v1_0/CMakeFiles/OpenScenarioReader.dir/src/OpenScenarioReader.cpp.o
-[100%] Building CXX object applications/openScenarioTester/v1_0/CMakeFiles/OpenScenarioTester.dir/src/OpenScenarioTester.cpp.o
-[100%] Building CXX object applications/openScenarioReader/v1_0/CMakeFiles/OpenScenarioReader.dir/__/__/__/externalLibs/TinyXML2/tinyxml2.cpp.o
-[100%] Building CXX object applications/openScenarioTester/v1_0/CMakeFiles/OpenScenarioTester.dir/__/__/__/externalLibs/TinyXML2/tinyxml2.cpp.o
+[100%] Building CXX object applications/openScenarioReader/CMakeFiles/OpenScenarioReader.dir/src/OpenScenarioReader.cpp.o
+[100%] Building CXX object applications/openScenarioTester/CMakeFiles/OpenScenarioTester.dir/src/OpenScenarioTester.cpp.o
+[100%] Building CXX object applications/openScenarioReader/CMakeFiles/OpenScenarioReader.dir/__/__/__/externalLibs/TinyXML2/tinyxml2.cpp.o
+[100%] Building CXX object applications/openScenarioTester/CMakeFiles/OpenScenarioTester.dir/__/__/__/externalLibs/TinyXML2/tinyxml2.cpp.o
 [100%] Linking CXX executable ../../../../output/Linux_static/Debug/OpenScenarioReader
 [100%] Linking CXX executable ../../../../output/Linux_static/Debug/OpenScenarioTester
 [100%] Built target OpenScenarioReader
