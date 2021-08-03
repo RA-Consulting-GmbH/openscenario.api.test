@@ -17,7 +17,7 @@
 
 #pragma once
 #include "TestBase.h"
-#include "OpenScenarioXmlExporter.h"
+#include "OpenScenarioXmlExporterV1_0.h"
 
 class TestWriterApi : public TestBase
 {

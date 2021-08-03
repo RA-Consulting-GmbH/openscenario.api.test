@@ -23,13 +23,13 @@
 #include <map>
 #include "XmlExportHelper.h"
 #include "IParserMessageLogger.h"
-#include "OscConstants.h"
+#include "OscConstantsV1_0.h"
 #include "IndexedElement.h"
 #include "INamedReference.h"
 #include "ParserContext.h"
-#include "ApiClassImpl.h"
-#include "ApiClassInterfaces.h"
-#include "ApiClassWriterInterfaces.h"
+#include "ApiClassImplV1_0.h"
+#include "ApiClassInterfacesV1_0.h"
+#include "ApiClassWriterInterfacesV1_0.h"
 #include "MemLeakDetection.h"
 
 

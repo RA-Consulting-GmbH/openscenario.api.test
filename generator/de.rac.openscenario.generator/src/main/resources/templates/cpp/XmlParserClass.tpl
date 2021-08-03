@@ -21,11 +21,11 @@
 #pragma once
 
 #include "IParserMessageLogger.h"
-#include "OscConstants.h"
+#include "OscConstantsV1_0.h"
 #include "IndexedElement.h"
 #include "ParserContext.h"
 #include <vector>
-#include "ApiClassImpl.h"
+#include "ApiClassImplV1_0.h"
 #include "XmlAllParser.h"
 #include "XmlChoiceParser.h"
 #include "XmlSequenceParser.h"

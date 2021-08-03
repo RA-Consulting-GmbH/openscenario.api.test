@@ -17,8 +17,8 @@
 
 #pragma once
 #include "TestBase.h"
-#include "RangeCheckerHelper.h"
-#include "ScenarioCheckerImpl.h"
+#include "RangeCheckerHelperV1_0.h"
+#include "ScenarioCheckerImplV1_0.h"
 #include "TreeMessageLogger.h"
 
 class TestRangeChecker : public TestBase

@@ -20,7 +20,7 @@
 #include "SimpleMessageLogger.h"
 #include "IScenarioLoaderFactory.h"
 #include "XmlScenarioLoaderFactory.h"
-#include "IOpenScenarioWriterFactory.h"
+#include "IOpenScenarioWriterFactoryV1_0.h"
 #include "FileResourceLocator.h"
 #include "XmlScenarioImportLoaderFactory.h"
 #include "ErrorLevel.h"
@@ -28,7 +28,7 @@
 #include <fstream>
 #include <string>
 #include <iostream>
-#include "ApiClassImpl.h"
+#include "ApiClassImplV1_0.h"
 
 #undef ERROR
 

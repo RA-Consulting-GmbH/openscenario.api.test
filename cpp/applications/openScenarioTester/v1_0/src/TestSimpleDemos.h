@@ -18,10 +18,10 @@
 #pragma once
 #include "TestBase.h"
 #include "SimpleMessageLogger.h"
-#include "CatalogHelper.h"
+#include "CatalogHelperV1_0.h"
 #include "VersionCheckerRule.h"
 #include "EgoCheckerRule.h"
-#include "ScenarioCheckerImpl.h"
+#include "ScenarioCheckerImplV1_0.h"
 
 class TestSimpleDemos : public TestBase
 {
