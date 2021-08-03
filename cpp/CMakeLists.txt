@@ -10,6 +10,27 @@ message("${PROJECT_NAME}")
 list( APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}" )
 include( CMakeHelpers )
 
+################################################################
+# Add antlr features
+
+list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/buildAntlr4)
+
+# compiler must be 11 or 14
+set(CMAKE_CXX_STANDARD 11)
+
+# using /MD flag for antlr4_runtime (for Visual C++ compilers only)
+set(ANTLR4_TAG 4.8)
+set(ANTLR4_WITH_STATIC_CRT ON)
+set(ANTLR4_ZIP_REPOSITORY ${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/antlr/antlr4-${ANTLR4_TAG}.zip)
+set(ANTLR_EXECUTABLE ${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/antlr/antlr-${ANTLR4_TAG}-complete.jar)
+
+# add external build for antlrcpp
+include(ExternalAntlr4Cpp)
+# add antrl4cpp artifacts to project environment
+
+# add macros to generate ANTLR Cpp code from grammar
+find_package(ANTLR REQUIRED)
+
 
 ################################################################
 # Build as static or shared lib, Debug or Release, for Linux or Windows
@@ -69,9 +90,6 @@ unset(CMAKE_BUILD_TYPE CACHE)
 RAC_SET_FOLDERS()
 message ("Building all into: ${CMAKE_BINARY_DIR}")
 
-# Dependencies
-add_subdirectory( externalLibs/ANTLR4-Cpp-src ${PROJECT_BINARY_DIR}/externalLibs/ANTLR4-Cpp-src)
-
 # CoreLibraries
 add_subdirectory( openScenarioLib ${PROJECT_BINARY_DIR}/openScenarioLib )
 
@@ -79,6 +97,7 @@ add_subdirectory( openScenarioLib ${PROJECT_BINARY_DIR}/openScenarioLib )
 add_subdirectory( applications/openScenarioReader ${PROJECT_BINARY_DIR}/applications/openScenarioReader )
 add_subdirectory( applications/openScenarioTester ${PROJECT_BINARY_DIR}/applications/openScenarioTester)
 add_subdirectory( applications/indexerTester ${PROJECT_BINARY_DIR}/applications/indexerTester)
+
 
 ################################################################
 # Visual Studio Startup Project and debug cmd line args

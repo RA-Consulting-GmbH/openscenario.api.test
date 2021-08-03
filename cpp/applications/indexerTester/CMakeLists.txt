@@ -20,25 +20,19 @@ configure_file("${CMAKE_SOURCE_DIR}/common/rc.template" "${CMAKE_CURRENT_SOURCE_
 ################################################################
 # Set compile output folder
 RAC_SET_FOLDERS()
-message ("Building all into: ${CMAKE_BINARY_DIR}")
 
 
 ################################################################
 # Include folders
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/xmlIndexer )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/antlr/xmlParser )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/antlr/xmlParser)
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../externalLibs/TinyXML2 )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../common )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../externalLibs/Filesystem)
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../externalLibs/ANTLR4-Cpp-src/runtime/src )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../externalLibs/ANTLR4-Cpp-src/runtime/src/atn )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../externalLibs/ANTLR4-Cpp-src/runtime/src/dfa )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../externalLibs/ANTLR4-Cpp-src/runtime/src/misc )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../externalLibs/ANTLR4-Cpp-src/runtime/src/support )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../externalLibs/ANTLR4-Cpp-src/runtime/src/tree )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../externalLibs/ANTLR4-Cpp-src/runtime/src/tree/pattern )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../externalLibs/ANTLR4-Cpp-src/runtime/src/tree/xpath )
+include_directories(${ANTLR4_INCLUDE_DIRS})
+
+
 
 
 ################################################################
@@ -47,8 +41,10 @@ set( SOURCES
   ${SOURCES}
   "src/IndexerTester.cpp"
    "../../externalLibs/TinyXML2/tinyxml2.cpp"
-   "../../openScenarioLib/generated/antlr/xmlParser/XMLLexer.cpp"
-   "../../openScenarioLib/generated/antlr/xmlParser/XMLParser.cpp"
+   ../../openScenarioLib/generated/antlr/xmlParser/XMLLexer.cpp
+   ../../openScenarioLib/generated/antlr/xmlParser/XMLParser.cpp
+   ../../openScenarioLib/generated/antlr/xmlParser/XMLParserBaseListener.cpp
+   ../../openScenarioLib/generated/antlr/xmlParser/XMLParserListener.cpp
 )
 
 ################################################################
@@ -82,7 +78,11 @@ endif()
 
 ################################################################
 # Generate executable
-add_executable( ${PROJECT_NAME} ${SOURCES} ${HEADERS} ${RESOURCE_FILES} )
+add_executable( ${PROJECT_NAME} 
+			  ${SOURCES} 			  
+			  ${ANTLR_XMLLexer_CXX_OUTPUTS}
+              ${ANTLR_XMLParser_CXX_OUTPUTS}
+			  ${HEADERS} ${RESOURCE_FILES} )
 
 if(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
   if( ${BUILD_SHARED_LIBS} )

@@ -3,6 +3,18 @@ cmake_minimum_required( VERSION 3.8.2 )
 project( OpenScenarioLib )
 message("${PROJECT_NAME}")
 
+
+set(ANTLR_XMLLexer_OUTPUT_DIR ./generated/xmlParser)
+set(ANTLR_XMLParser_OUTPUT_DIR ./generated/xmlParser)
+
+include_directories(${ANTLR4_INCLUDE_DIRS})
+
+antlr_target(XMLLexer ${CMAKE_CURRENT_SOURCE_DIR}/src/antlr/XMLLexer.g4 LEXER)
+antlr_target(XMLParser ${CMAKE_CURRENT_SOURCE_DIR}/src/antlr/XMLParser.g4 PARSER
+			 LISTENER 
+             DEPENDS_ANTLR XMLLexer
+             COMPILE_FLAGS -lib ${ANTLR_XMLLexer_OUTPUT_DIR})
+
 ################################################################
 # Preprocessor settings
 if( WIN32 )
@@ -47,20 +59,13 @@ include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_0/catalog)
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_0/impl )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_0/xmlParser )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_0/export/xml )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/antlr/xmlParser )
+include_directories(${ANTLR_XMLLexer_OUTPUT_DIR})
+include_directories(${ANTLR_XMLParser_OUTPUT_DIR})
 
 #external files
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../externalLibs/Filesystem)
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../common )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../externalLibs/TinyXML2 )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../externalLibs/ANTLR4-Cpp-src/runtime/src )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../externalLibs/ANTLR4-Cpp-src/runtime/src/atn )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../externalLibs/ANTLR4-Cpp-src/runtime/src/dfa )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../externalLibs/ANTLR4-Cpp-src/runtime/src/misc )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../externalLibs/ANTLR4-Cpp-src/runtime/src/support )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../externalLibs/ANTLR4-Cpp-src/runtime/src/tree )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../externalLibs/ANTLR4-Cpp-src/runtime/src/tree/pattern )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../externalLibs/ANTLR4-Cpp-src/runtime/src/tree/xpath )
 
 #version independent
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/api )
@@ -110,8 +115,6 @@ set( SOURCES_GENERATED_XMLPARSER
   ${SOURCES_GENERATED_XMLPARSER}
   "generated/v1_0/xmlParser/XmlParsers1V1_0.cpp"
   "generated/v1_0/xmlParser/XmlParsers2V1_0.cpp"
-  "generated/antlr/xmlParser/XMLParser.cpp"
-  "generated/antlr/xmlParser/XMLLexer.cpp"
 )
 
 set( SOURCES_LOADER
@@ -406,6 +409,8 @@ add_library ( ${PROJECT_NAME} # ${LIB_TYPE}
 
               ${SOURCES_GENERATED_API} ${SOURCES_GENERATED_CHECKER_IMPL} ${SOURCES_GENERATED_CHECKER_RANGE} 
               ${SOURCES_GENERATED_IMPL} ${SOURCES_GENERATED_XMLPARSER} ${SOURCES_LOADER} 
+			  ${ANTLR_XMLLexer_CXX_OUTPUTS}
+              ${ANTLR_XMLParser_CXX_OUTPUTS}
 
               ${HEADERS}
 
