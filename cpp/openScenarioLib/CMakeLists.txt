@@ -47,6 +47,7 @@ include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_0/catalog)
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_0/impl )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_0/xmlParser )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_0/export/xml )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/antlr/xmlParser )
 
 #external files
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../externalLibs/Filesystem)
@@ -109,8 +110,8 @@ set( SOURCES_GENERATED_XMLPARSER
   ${SOURCES_GENERATED_XMLPARSER}
   "generated/v1_0/xmlParser/XmlParsers1V1_0.cpp"
   "generated/v1_0/xmlParser/XmlParsers2V1_0.cpp"
-  "generated/v1_0/xmlParser/XMLParser.cpp"
-  "generated/v1_0/xmlParser/XMLLexer.cpp"
+  "generated/antlr/xmlParser/XMLParser.cpp"
+  "generated/antlr/xmlParser/XMLLexer.cpp"
 )
 
 set( SOURCES_LOADER
@@ -325,8 +326,8 @@ set( HEADERS_GENERATED_IMPL
 set( HEADERS_GENERATED_XMLPARSER
   ${HEADERS_GENERATED_XMLPARSER}
   "generated/v1_0/xmlParser/XmlParsersV1_0.h"
-  "generated/v1_0/xmlParser/XMLParser.h"
-  "generated/v1_0/xmlParser/XMLLexer.h"
+  "generated/antlr/xmlParser/XMLParser.h"
+  "generated/antlr/xmlParser/XMLLexer.h"
 )
 
 set( HEADERS_GENERATED_EXPORT_XML

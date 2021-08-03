@@ -27,7 +27,7 @@ message ("Building all into: ${CMAKE_BINARY_DIR}")
 # Include folders
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/xmlIndexer )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_0/xmlParser )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/antlr/xmlParser )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../externalLibs/TinyXML2 )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../common )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../externalLibs/Filesystem)
@@ -47,8 +47,8 @@ set( SOURCES
   ${SOURCES}
   "src/IndexerTester.cpp"
    "../../externalLibs/TinyXML2/tinyxml2.cpp"
-   "../../openScenarioLib/generated/v1_0/xmlParser/XMLLexer.cpp"
-   "../../openScenarioLib/generated/v1_0/xmlParser/XMLParser.cpp"
+   "../../openScenarioLib/generated/antlr/xmlParser/XMLLexer.cpp"
+   "../../openScenarioLib/generated/antlr/xmlParser/XMLParser.cpp"
 )
 
 ################################################################
