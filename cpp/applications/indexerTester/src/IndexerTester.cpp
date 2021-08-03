@@ -19,7 +19,7 @@
 #include "MemLeakDetection.h"
 #include "PositionIndex.h"
 #include "XMLLexer.h"
-#include "../../../openScenarioLib/common/loader/ResourceNotFoundException.h"
+#include "../../../openScenarioLib/src/loader/ResourceNotFoundException.h"
 #include "XMLParser.h"
 
 void Dump(PositionIndex& positionIndex, int& index)

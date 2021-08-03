@@ -73,7 +73,7 @@ message ("Building all into: ${CMAKE_BINARY_DIR}")
 add_subdirectory( externalLibs/ANTLR4-Cpp-src ${PROJECT_BINARY_DIR}/externalLibs/ANTLR4-Cpp-src)
 
 # CoreLibraries
-add_subdirectory( openScenarioLib/v1_0 ${PROJECT_BINARY_DIR}/openScenarioLib/v1_0 )
+add_subdirectory( openScenarioLib ${PROJECT_BINARY_DIR}/openScenarioLib )
 
 # Applications
 add_subdirectory( applications/openScenarioReader/v1_0 ${PROJECT_BINARY_DIR}/applications/openScenarioReader/v1_0 )
