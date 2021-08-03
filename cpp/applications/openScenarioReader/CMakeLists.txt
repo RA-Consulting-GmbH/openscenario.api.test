@@ -64,7 +64,7 @@ include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_0/impl )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_0/xmlParser )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_0/export/xml )
-
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/antlr/xmlParser )
 
 ################################################################
 # Source files
