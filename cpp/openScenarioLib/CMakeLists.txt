@@ -3,6 +3,9 @@ cmake_minimum_required( VERSION 3.8.2 )
 project( OpenScenarioLib )
 message("${PROJECT_NAME}")
 
+################################################################
+# Set compile output folder
+RAC_SET_FOLDERS()
 
 set(ANTLR_XMLLexer_OUTPUT_DIR ./generated/xmlParser)
 set(ANTLR_XMLParser_OUTPUT_DIR ./generated/xmlParser)
@@ -14,7 +17,6 @@ antlr_target(XMLParser ${CMAKE_CURRENT_SOURCE_DIR}/src/antlr/XMLParser.g4 PARSER
 			 LISTENER 
              DEPENDS_ANTLR XMLLexer
              COMPILE_FLAGS -lib ${ANTLR_XMLLexer_OUTPUT_DIR})
-
 ################################################################
 # Preprocessor settings
 if( WIN32 )
@@ -425,10 +427,15 @@ add_library ( ${PROJECT_NAME} # ${LIB_TYPE}
               ${HEADERS_GENERATED_IMPL} ${HEADERS_GENERATED_XMLPARSER}  ${HEADERS_GENERATED_EXPORT_XML}
 
               ${RESOURCE_FILES} )
+			  
 
 if(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
   if( ${BUILD_SHARED_LIBS} )
       target_compile_options(${PROJECT_NAME} PRIVATE "/MD$<$<CONFIG:Debug>:d>")
+	  get_target_property(ANTLR_DLL_OUTPUT antlr4_shared IMPORTED_LOCATION)
+	  add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+		COMMAND ${CMAKE_COMMAND} -E copy ${ANTLR_DLL_OUTPUT} ${CMAKE_BINARY_DIR}/$(Configuration)
+)
   else()
       target_compile_options(${PROJECT_NAME} PRIVATE "/MT$<$<CONFIG:Debug>:d>")
   endif()
