@@ -1,4 +1,0 @@
-XMLLexer.cpp
-XMLParser.cpp
-XMLParserBaseListener.cpp
-XMLParserListener.cpp

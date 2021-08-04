@@ -15,6 +15,11 @@ include( CMakeHelpers )
 
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/buildAntlr4)
 
+if (${BUILD_STATIC_LIBS})
+	# required if linking to static library
+	add_definitions(-DANTLR4CPP_STATIC)
+endif()
+
 # compiler must be 11 or 14
 set(CMAKE_CXX_STANDARD 11)
 

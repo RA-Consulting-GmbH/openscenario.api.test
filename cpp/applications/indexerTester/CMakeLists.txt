@@ -21,6 +21,14 @@ configure_file("${CMAKE_SOURCE_DIR}/common/rc.template" "${CMAKE_CURRENT_SOURCE_
 # Set compile output folder
 RAC_SET_FOLDERS()
 
+include_directories(${ANTLR4_INCLUDE_DIRS})
+
+antlr_target(XMLLexer ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/antlr/XMLLexer.g4 LEXER)
+antlr_target(XMLParser ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/antlr/XMLParser.g4 PARSER
+			 LISTENER 
+             DEPENDS_ANTLR XMLLexer
+             COMPILE_FLAGS -lib ${ANTLR_XMLLexer_OUTPUT_DIR})
+
 
 ################################################################
 # Include folders
@@ -31,6 +39,8 @@ include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../externalLibs/TinyXML2 )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../common )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../externalLibs/Filesystem)
 include_directories(${ANTLR4_INCLUDE_DIRS})
+include_directories(${ANTLR_XMLLexer_OUTPUT_DIR})
+include_directories(${ANTLR_XMLParser_OUTPUT_DIR})
 
 
 
@@ -40,11 +50,6 @@ include_directories(${ANTLR4_INCLUDE_DIRS})
 set( SOURCES
   ${SOURCES}
   "src/IndexerTester.cpp"
-   "../../externalLibs/TinyXML2/tinyxml2.cpp"
-   ../../openScenarioLib/generated/antlr/xmlParser/XMLLexer.cpp
-   ../../openScenarioLib/generated/antlr/xmlParser/XMLParser.cpp
-   ../../openScenarioLib/generated/antlr/xmlParser/XMLParserBaseListener.cpp
-   ../../openScenarioLib/generated/antlr/xmlParser/XMLParserListener.cpp
 )
 
 ################################################################
