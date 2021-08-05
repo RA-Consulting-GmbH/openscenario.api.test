@@ -21,7 +21,7 @@
 
 
 #ifdef WIN32
-#   define DOT_SLASH
+#   define DOT_SLASH ""
 #elif defined (__linux__) || defined (__APPLE__)
 #   include <sys/wait.h>
 #   define DOT_SLASH "./"
