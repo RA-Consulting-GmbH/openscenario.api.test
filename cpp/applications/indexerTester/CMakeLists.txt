@@ -79,6 +79,8 @@ if( MSVC )
 
   # Groups for resource files
   source_group( Resources FILES ${RESOURCE_FILES} )
+  
+  source_group( Antlr FILES ${ANTLR_XMLLexer_CXX_OUTPUTS} ${ANTLR_XMLParser_CXX_OUTPUTS})
 endif()
 
 ################################################################

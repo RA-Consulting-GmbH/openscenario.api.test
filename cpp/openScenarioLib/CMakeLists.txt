@@ -392,6 +392,7 @@ if( MSVC )
   source_group( Headers\\Generated\\Impl FILES ${HEADERS_GENERATED_IMPL} )
   source_group( Headers\\Generated\\XmlParser FILES ${HEADERS_GENERATED_XMLPARSER} )
   source_group( Headers\\Generated\\Export\\Xml FILES ${HEADERS_GENERATED_EXPORT_XML} )
+  source_group( Antlr FILES ${ANTLR_XMLLexer_CXX_OUTPUTS} ${ANTLR_XMLParser_CXX_OUTPUTS})
 
   # Groups for resources files
   source_group( Resources FILES ${RESOURCE_FILES} )
