@@ -1,0 +1,202 @@
+<OpenSCENARIO>
+    <FileHeader author="Andreas Biehn" date="2017-02-24T10:00:00" description="Sample Scenario - Double Lane Changer" revMajor="0" revMinor="9"/>
+    <ParameterDeclaration>
+        <ParameterDeclarations name="test" parameterType="double" value="0"/>
+        <ParameterDeclarations name="test2" parameterType="double" value="1.0"/>
+        <ParameterDeclarations name="timeParam" parameterType="string" value="time"/>
+        <ParameterDeclarations name="doubleVal" parameterType="double" value="20"/>
+    </ParameterDeclaration>
+    <CatalogLocations>
+        <VehicleCatalog>
+            <Directory path="Catalogs/VehicleCatalogs"/>
+        </VehicleCatalog>
+        <ControllerCatalog>
+            <Directory path="Catalogs/DriverCatalogs"/>
+        </ControllerCatalog>
+        <PedestrianCatalog>
+            <Directory path="Catalogs/ObserverCatalogs"/>
+        </PedestrianCatalog>
+        <MiscObjectCatalog>
+            <Directory path="Catalogs/MiscObjectCatalogs"/>
+        </MiscObjectCatalog>
+        <EnvironmentCatalog>
+            <Directory path="Catalogs/EnvironmentCatalogs"/>
+        </EnvironmentCatalog>
+        <ManeuverCatalog>
+            <Directory path="Catalogs/ManeuverCatalogs"/>
+        </ManeuverCatalog>
+        <TrajectoryCatalog>
+            <Directory path="Catalogs/TrajectoryCatalog"/>
+        </TrajectoryCatalog>
+        <RouteCatalog>
+            <Directory path="Catalogs/RoutingCatalog"/>
+        </RouteCatalog>
+    </CatalogLocations>
+    <RoadNetwork>
+        <LogicFile filepath="Databases/PEGASUS/PEGASUS_A01.xodr"/>
+        <SceneGraphFile filepath="Databases/PEGASUS/PEGASUS_A01.opt.osgb"/>
+    </RoadNetwork>
+    <Entities>
+        <ScenarioObject name="Ego">
+            <CatalogReference catalogName="VechicleCatalog" entryName="AudiA3_blue_147kW"/>
+            <ObjectController>
+                <CatalogReference catalogName="DriverCatalog" entryName="DefaultDriver"/>
+            </ObjectController>
+        </ScenarioObject>
+        <ScenarioObject name="A1">
+            <CatalogReference catalogName="VechicleCatalog" entryName="AudiA4_red_147kW"/>
+            <ObjectController>
+                <CatalogReference catalogName="DriverCatalog" entryName="DefaultDriver"/>
+            </ObjectController>
+        </ScenarioObject>
+        <ScenarioObject name="A2">
+            <CatalogReference catalogName="VechicleCatalog" entryName="AudiA4_red_147kW"/>
+            <ObjectController>
+                <CatalogReference catalogName="DriverCatalog" entryName="DefaultDriver"/>
+            </ObjectController>
+        </ScenarioObject>
+    </Entities>
+    <Storyboard>
+        <Init>
+            <Actions>
+                <Private entityRef="Ego">
+                    <PrivateAction>
+                        <LongitudinalAction>
+                            <SpeedAction>
+                                <SpeedActionDynamics dynamicsDimension="time" dynamicsShape="step" value="2.000000"/>
+                                <SpeedActionTarget>
+                                    <AbsoluteTargetSpeed value="test"/>
+                                </SpeedActionTarget>
+                            </SpeedAction>
+                        </LongitudinalAction>
+                    </PrivateAction>
+                    <PrivateAction>
+                        <TeleportAction>
+                            <Position>
+                                <WorldPosition h="1.570796" x="test2" y="343.304779"/>
+                            </Position>
+                        </TeleportAction>
+                    </PrivateAction>
+                </Private>
+                <Private entityRef="A1">
+                    <PrivateAction>
+                        <LongitudinalAction>
+                            <SpeedAction>
+                                <SpeedActionDynamics dynamicsDimension="timeParam" dynamicsShape="step" value="2.000000"/>
+                                <SpeedActionTarget>
+                                    <AbsoluteTargetSpeed value="47.222222"/>
+                                </SpeedActionTarget>
+                            </SpeedAction>
+                        </LongitudinalAction>
+                    </PrivateAction>
+                    <PrivateAction>
+                        <TeleportAction>
+                            <Position>
+                                <WorldPosition h="1.570796" x="166.825714" y="330.068115"/>
+                            </Position>
+                        </TeleportAction>
+                    </PrivateAction>
+                </Private>
+                <Private entityRef="A2">
+                    <PrivateAction>
+                        <LongitudinalAction>
+                            <SpeedAction>
+                                <SpeedActionDynamics dynamicsDimension="time" dynamicsShape="step" value="2.000000"/>
+                                <SpeedActionTarget>
+                                    <AbsoluteTargetSpeed value="36.111111"/>
+                                </SpeedActionTarget>
+                            </SpeedAction>
+                        </LongitudinalAction>
+                    </PrivateAction>
+                    <PrivateAction>
+                        <TeleportAction>
+                            <Position>
+                                <WorldPosition h="1.570796" x="170.240398" y="343.304779"/>
+                            </Position>
+                        </TeleportAction>
+                    </PrivateAction>
+                </Private>
+            </Actions>
+        </Init>
+        <Story name="MyStory">
+            <ParameterDeclaration>
+                <ParameterDeclarations name="owner" parameterType="string" value="A1"/>
+                <ParameterDeclarations name="doubleVal" parameterType="double" value="21"/>
+            </ParameterDeclaration>
+            <Act name="owner">
+                <ManeuverGroup maximumExecutionCount="1" name="MySequence">
+                    <Actors selectTriggeringEntities="false">
+                        <EntityRef entityRef="A1"/>
+                    </Actors>
+                    <Maneuver name="MyDoubleLaneChangeManeuver">
+                        <Event name="MyLaneChangeRightEvent" priority="overwrite">
+                            <Action name="MyLaneChangeRightAction">
+                                <PrivateAction>
+                                    <LateralAction>
+                                        <LaneChangeAction>
+                                            <LaneChangeActionDynamics dynamicsDimension="time" dynamicsShape="sinusoidal" value="2.000000"/>
+                                            <LaneChangeTarget>
+                                                <RelativeTargetLane entityRef="A1" value="-1"/>
+                                            </LaneChangeTarget>
+                                        </LaneChangeAction>
+                                    </LateralAction>
+                                </PrivateAction>
+                            </Action>
+                            <StartTrigger>
+                                <ConditionGroup>
+                                    <Condition conditionEdge="rising" delay="doubleVal" name="MyStartCondition1">
+                                        <ByEntityCondition>
+                                            <TriggeringEntities triggeringEntitiesRule="any">
+                                                <EntityRef entityRef="A1"/>
+                                            </TriggeringEntities>
+                                            <EntityCondition>
+                                                <DistanceCondition alongRoute="false" freespace="false" rule="greaterThan" value="5.000000">
+                                                    <Position>
+                                                        <RelativeObjectPosition dx="0.000000" dy="0.000000" entityRef="Ego"/>
+                                                    </Position>
+                                                </DistanceCondition>
+                                            </EntityCondition>
+                                        </ByEntityCondition>
+                                    </Condition>
+                                </ConditionGroup>
+                            </StartTrigger>
+                        </Event>
+                        <Event name="MyLaneChangeLeftEvent" priority="overwrite">
+                            <Action name="MyLaneChangeLeftAction">
+                                <PrivateAction>
+                                    <LateralAction>
+                                        <LaneChangeAction>
+                                            <LaneChangeActionDynamics dynamicsDimension="time" dynamicsShape="sinusoidal" value="2.000000"/>
+                                            <LaneChangeTarget>
+                                                <RelativeTargetLane entityRef="A1" value="1"/>
+                                            </LaneChangeTarget>
+                                        </LaneChangeAction>
+                                    </LateralAction>
+                                </PrivateAction>
+                            </Action>
+                            <StartTrigger>
+                                <ConditionGroup>
+                                    <Condition conditionEdge="rising" delay="0.000000" name="MyStartCondition2">
+                                        <ByValueCondition>
+                                            <StoryboardElementStateCondition state="completeState" storyboardElementRef="MyLaneChangeRightAction" storyboardElementType="action"/>
+                                        </ByValueCondition>
+                                    </Condition>
+                                </ConditionGroup>
+                            </StartTrigger>
+                        </Event>
+                    </Maneuver>
+                </ManeuverGroup>
+                <StartTrigger>
+                    <ConditionGroup>
+                        <Condition conditionEdge="rising" delay="0.000000" name="">
+                            <ByValueCondition>
+                                <SimulationTimeCondition rule="equalTo" value="0.000000"/>
+                            </ByValueCondition>
+                        </Condition>
+                    </ConditionGroup>
+                </StartTrigger>
+            </Act>
+        </Story>
+        <StopTrigger/>
+    </Storyboard>
+</OpenSCENARIO>

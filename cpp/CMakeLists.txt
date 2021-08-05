@@ -9,15 +9,25 @@ message("${PROJECT_NAME}")
 # Add a module path for cmake modules
 list( APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}" )
 include( CMakeHelpers )
+################################################################
+# Set common, C++, and build params
+RAC_SET_COMMON_PARAM()
+RAC_SET_CPP_PARAM()
+RAC_SET_BUILD_PARAM()
 
 ################################################################
 # Add antlr features
 
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/buildAntlr4)
+option( BUILD_SHARED_LIBS "Build shared libraries" ON )
 
-if (${BUILD_STATIC_LIBS})
+
+if (${BUILD_SHARED_LIBS})
+	set(ANTLR4_WITH_STATIC_CRT OFF)
+else()
 	# required if linking to static library
 	add_definitions(-DANTLR4CPP_STATIC)
+	set(ANTLR4_WITH_STATIC_CRT ON)
 endif()
 
 # compiler must be 11 or 14
@@ -25,7 +35,6 @@ set(CMAKE_CXX_STANDARD 11)
 
 # using /MD flag for antlr4_runtime (for Visual C++ compilers only)
 set(ANTLR4_TAG 4.8)
-set(ANTLR4_WITH_STATIC_CRT ON)
 set(ANTLR4_ZIP_REPOSITORY ${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/antlr/antlr4-${ANTLR4_TAG}.zip)
 set(ANTLR_EXECUTABLE ${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/antlr/antlr-${ANTLR4_TAG}-complete.jar)
 
@@ -39,7 +48,6 @@ find_package(ANTLR REQUIRED)
 
 ################################################################
 # Build as static or shared lib, Debug or Release, for Linux or Windows
-option( BUILD_SHARED_LIBS "Build shared libraries" OFF )
 if( ${BUILD_SHARED_LIBS} )
     set(osc_extra_static_compile_flags "")
 else()
@@ -60,14 +68,6 @@ if(NOT PLATFORM_PARAM)
 endif(NOT PLATFORM_PARAM)
 
 set(ENV{CMAKE_BUILD_PARALLEL_LEVEL} 4)
-
-
-################################################################
-# Set common, C++, and build params
-RAC_SET_COMMON_PARAM()
-RAC_SET_CPP_PARAM()
-RAC_SET_BUILD_PARAM()
-
 
 ################################################################
 # Get company info
@@ -94,7 +94,7 @@ message("Subprojects:")
 unset(CMAKE_BUILD_TYPE CACHE)
 RAC_SET_FOLDERS()
 message ("Building all into: ${CMAKE_BINARY_DIR}")
-
+	
 # CoreLibraries
 add_subdirectory( openScenarioLib ${PROJECT_BINARY_DIR}/openScenarioLib )
 

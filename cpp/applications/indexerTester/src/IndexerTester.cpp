@@ -21,7 +21,7 @@
 #include "XMLLexer.h"
 #include "../../../openScenarioLib/src/loader/ResourceNotFoundException.h"
 #include "XMLParser.h"
-
+#include <direct.h>
 void Dump(PositionIndex& positionIndex, int& index)
 {
     const auto kElementNode = positionIndex.GetElementNode(index);
@@ -34,20 +34,12 @@ void TestBooks()
 {
     try 
     {
-#ifdef _WINDOWS
-     std::string filePath = "../../../../../applications/openScenarioReader/res/indexer/books.xml";
-#elif defined(__unix__) && defined(__linux__)
-     std::string filePath = "../../../../applications/openScenarioReader/res/indexer/books.xml";
-#elif defined(__APPLE__)
-    std::string filePath = "../../../../applications/openScenarioReader/res/indexer/books.xml";
-#else
-# error "IndexerTester: Unknown OS"
-#endif
-
+		std::string filePath = "TestResources/IndexerTester/books.xml";
+		std::string currentPath = std::string(_getcwd(NULL, 0));
         std::ifstream infile(filePath, std::ios::binary);
         if (infile.bad() || infile.fail())
         {
-            auto msg = "File " + filePath + " not found";
+            auto msg = "File " + filePath + " not found. Current Path: '" + currentPath + "'";
             throw ResourceNotFoundException(msg);
         }
 

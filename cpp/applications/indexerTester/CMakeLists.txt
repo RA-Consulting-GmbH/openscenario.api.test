@@ -88,6 +88,14 @@ add_executable( ${PROJECT_NAME}
 			  ${ANTLR_XMLLexer_CXX_OUTPUTS}
               ${ANTLR_XMLParser_CXX_OUTPUTS}
 			  ${HEADERS} ${RESOURCE_FILES} )
+			  
+################################################################
+# Copy the resources for testing
+add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+		COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_BINARY_DIR}/$(Configuration)/TestResources/${PROJECT_NAME}
+		COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_CURRENT_SOURCE_DIR}/res ${CMAKE_BINARY_DIR}/$(Configuration)/TestResources/${PROJECT_NAME}
+		)
+		
 
 if(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
   if( ${BUILD_SHARED_LIBS} )
@@ -110,4 +118,7 @@ endif()
 if( MSVC )
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /wd4251 ${osc_extra_static_compile_flags}")
   set_target_properties( ${PROJECT_NAME} PROPERTIES FOLDER Apps )
+    set_target_properties(
+    ${PROJECT_NAME} PROPERTIES
+    VS_DEBUGGER_WORKING_DIRECTORY "${CMAKE_BINARY_DIR}/$(Configuration)")
 endif()

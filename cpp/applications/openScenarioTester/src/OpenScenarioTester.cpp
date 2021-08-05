@@ -32,39 +32,18 @@ int main(int argc, char** argv)
     _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 #endif
 
-#ifdef WIN32
-    char basePath[_MAX_PATH] = "";
-    _fullpath(basePath, argv[0], sizeof(basePath));
-    std::string executablePath(basePath);
-    auto endPos = executablePath.find_last_of('\\') != std::string::npos ? executablePath.find_last_of('\\') : executablePath.size();
-    executablePath = executablePath.substr(0, endPos);
-//    executablePath = executablePath.substr(0, executablePath.size() - 28);
-#elif defined __linux__
-    char basePath[PATH_MAX] = "";
-    realpath(argv[0], basePath);
-    std::string executablePath(basePath);
-    auto endPos = executablePath.find_last_of('/') != std::string::npos ? executablePath.find_last_of('/') : executablePath.size();
-    executablePath = executablePath.substr(0, endPos);
-#elif defined __APPLE__
-    char basePath[PATH_MAX] = "";
-    realpath(argv[0], basePath);
-    std::string executablePath(basePath);
-    auto endPos = executablePath.find_last_of('/') != std::string::npos ? executablePath.find_last_of('/') : executablePath.size();
-    executablePath = executablePath.substr(0, endPos);
-#else
-#error "Operating system not supported."
-#endif
-
-    TestExamples testExamples(executablePath);
-    TestRangeChecker testRangeChecker(executablePath);
-    TestFiles testFiles(executablePath);
-    TestImports testImports(executablePath);
-    TestReader testReader(executablePath);
-    TestSimpleDemos testSimpleDemos(executablePath);
-    TestVersionChecker testVersionChecker(executablePath);
-    TestFlexInterface testFlexInterface(executablePath);
-    TestInjectedParameters testInjectedParameters(executablePath);
-    TestWriterApi testWriterApi(executablePath);
+	std::string basePath = ".";
+	
+    TestExamples testExamples(basePath);
+    TestRangeChecker testRangeChecker(basePath);
+    TestFiles testFiles(basePath);
+    TestImports testImports(basePath);
+    TestReader testReader(basePath);
+    TestSimpleDemos testSimpleDemos(basePath);
+    TestVersionChecker testVersionChecker(basePath);
+    TestFlexInterface testFlexInterface(basePath);
+    TestInjectedParameters testInjectedParameters(basePath);
+    TestWriterApi testWriterApi(basePath);
 
     auto res = testExamples.TestExample();
 
