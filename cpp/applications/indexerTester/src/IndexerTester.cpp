@@ -24,7 +24,7 @@
 #   define GETCWD getcwd
 #   define OS_PATH_MAX PATH_MAX
 #else
-#   error "Unknown OS"
+#   error "Operating system not supported."
 #endif
 
 #include <iostream>
