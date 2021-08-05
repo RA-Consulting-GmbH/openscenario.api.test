@@ -19,7 +19,7 @@
 #   include <direct.h>
 #   define GETCWD _getcwd
 #   define OS_PATH_MAX _MAX_PATH
-#elif defined __linux___ || defined APPLE
+#elif defined (__linux__) || defined (__APPLE__)
 #   include <unistd.h>
 #   define GETCWD getcwd
 #   define OS_PATH_MAX PATH_MAX
