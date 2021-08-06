@@ -15,14 +15,14 @@
  * limitations under the License.
  */
 
-#include "XmlScenarioLoader.h"
+#include "XmlScenarioLoaderV1_0.h"
 #include "ResourceNotFoundException.h"
 #include <ANTLRInputStream.h>
 #include "XMLLexer.h"
 #include <XMLParserListener.h>
 #include "ScenarioCheckerImplV1_0.h"
 #include "XmlParsersV1_0.h"
-#include "CatalogReferenceParserContext.h"
+#include "CatalogReferenceParserContextV1_0.h"
 
 
 namespace NET_ASAM_OPENSCENARIO

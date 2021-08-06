@@ -19,7 +19,7 @@
 #include <iostream>
 #include <fstream>
 #include "ApiClassInterfacesV1_0.h"
-#include "ICatalogReferenceProvider.h"
+#include "ICatalogReferenceProviderV1_0.h"
 #include "IScenarioCheckerV1_0.h"
 #include "ErrorLevel.h"
 #include "FileContentMessage.h"
@@ -30,13 +30,13 @@
 #include "IndexedElement.h"
 #include "XmlToSimpleNodeConverter.h"
 #include "PositionIndex.h"
-#include "OpenScenarioProcessingHelper.h"
+#include "OpenScenarioProcessingHelperV1_0.h"
 #include "ScenarioCheckerImplV1_0.h"
 #include "IScenarioLoader.h"
 #include "IResourceLocator.h"
 #include "MemLeakDetection.h"
 #include "ExportDefinitions.h"
-#include "ParameterDeclarationChecker.h"
+#include "ParameterDeclarationCheckerV1_0.h"
 
 
 namespace NET_ASAM_OPENSCENARIO

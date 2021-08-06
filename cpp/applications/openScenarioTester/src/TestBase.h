@@ -19,10 +19,10 @@
 //#include "MessageLogger.h"
 #include "SimpleMessageLogger.h"
 #include "IScenarioLoaderFactory.h"
-#include "XmlScenarioLoaderFactory.h"
+#include "XmlScenarioLoaderFactoryV1_0.h"
 #include "IOpenScenarioWriterFactoryV1_0.h"
 #include "FileResourceLocator.h"
-#include "XmlScenarioImportLoaderFactory.h"
+#include "XmlScenarioImportLoaderFactoryV1_0.h"
 #include "ErrorLevel.h"
 #include <algorithm>
 #include <fstream>

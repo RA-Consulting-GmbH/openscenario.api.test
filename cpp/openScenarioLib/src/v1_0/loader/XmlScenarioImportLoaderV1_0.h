@@ -19,8 +19,8 @@
 #include <vector>
 #include <map>
 #include "ApiClassInterfacesV1_0.h"
-#include "CatalogCache.h"
-#include "ICatalogReferenceProvider.h"
+#include "CatalogCacheV1_0.h"
+#include "ICatalogReferenceProviderV1_0.h"
 #include "ErrorLevel.h"
 #include "FileContentMessage.h"
 #include "ILocator.h"
@@ -28,9 +28,9 @@
 #include "OscConstantsV1_0.h"
 #include "Textmarker.h"
 #include "ApiClassImplV1_0.h"
-#include "XmlScenarioLoader.h"
-#include "XmlScenarioLoaderFactory.h"
-#include "OpenScenarioProcessingHelper.h"
+#include "XmlScenarioLoaderV1_0.h"
+#include "XmlScenarioLoaderFactoryV1_0.h"
+#include "OpenScenarioProcessingHelperV1_0.h"
 #include "MemLeakDetection.h"
 
 #undef ERROR

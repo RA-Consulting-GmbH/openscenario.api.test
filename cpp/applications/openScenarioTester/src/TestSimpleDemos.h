@@ -19,7 +19,7 @@
 #include "TestBase.h"
 #include "SimpleMessageLogger.h"
 #include "CatalogHelperV1_0.h"
-#include "VersionCheckerRule.h"
+#include "VersionCheckerRuleV1_0.h"
 #include "EgoCheckerRule.h"
 #include "ScenarioCheckerImplV1_0.h"
 

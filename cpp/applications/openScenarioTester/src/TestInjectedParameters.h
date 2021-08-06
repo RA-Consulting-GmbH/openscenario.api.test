@@ -17,7 +17,7 @@
 
 #pragma once
 #include "TestBase.h"
-#include "XmlScenarioLoaderFactory.h"
+#include "XmlScenarioLoaderFactoryV1_0.h"
 
 class TestInjectedParameters : public TestBase
 {

@@ -20,7 +20,7 @@
 #include "ApiClassInterfacesV1_0.h"
 #include "IParserMessageLogger.h"
 #include "ApiClassImplV1_0.h"
-#include "ParameterResolver.h"
+#include "ParameterResolverV1_0.h"
 #include <map>
 #include "MemLeakDetection.h"
 

@@ -18,8 +18,8 @@
 #pragma once
 
 #include "IParserMessageLogger.h"
-#include "XmlScenarioLoader.h"
-#include "XmlScenarioImportLoader.h"
+#include "XmlScenarioLoaderV1_0.h"
+#include "XmlScenarioImportLoaderV1_0.h"
 #include "MemLeakDetection.h"
 
 namespace NET_ASAM_OPENSCENARIO
