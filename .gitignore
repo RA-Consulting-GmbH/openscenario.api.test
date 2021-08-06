@@ -1,5 +1,6 @@
 /.vs
 /.vscode
+/cpp/.vscode
 /cpp/build
 /cpp/buildArtifact/openSCENARIO*
 /cpp/CMakeLists.txt.user

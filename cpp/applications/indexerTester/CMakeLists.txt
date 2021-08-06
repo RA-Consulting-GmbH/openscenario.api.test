@@ -20,25 +20,29 @@ configure_file("${CMAKE_SOURCE_DIR}/common/rc.template" "${CMAKE_CURRENT_SOURCE_
 ################################################################
 # Set compile output folder
 RAC_SET_FOLDERS()
-message ("Building all into: ${CMAKE_BINARY_DIR}")
+
+include_directories(${ANTLR4_INCLUDE_DIRS})
+
+antlr_target(XMLLexer ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/antlr/XMLLexer.g4 LEXER)
+antlr_target(XMLParser ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/antlr/XMLParser.g4 PARSER
+			 LISTENER 
+             DEPENDS_ANTLR XMLLexer
+             COMPILE_FLAGS -lib ${ANTLR_XMLLexer_OUTPUT_DIR})
 
 
 ################################################################
 # Include folders
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/xmlIndexer )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/antlr/xmlParser )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/antlr/xmlParser)
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../externalLibs/TinyXML2 )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../common )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../externalLibs/Filesystem)
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../externalLibs/ANTLR4-Cpp-src/runtime/src )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../externalLibs/ANTLR4-Cpp-src/runtime/src/atn )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../externalLibs/ANTLR4-Cpp-src/runtime/src/dfa )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../externalLibs/ANTLR4-Cpp-src/runtime/src/misc )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../externalLibs/ANTLR4-Cpp-src/runtime/src/support )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../externalLibs/ANTLR4-Cpp-src/runtime/src/tree )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../externalLibs/ANTLR4-Cpp-src/runtime/src/tree/pattern )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../externalLibs/ANTLR4-Cpp-src/runtime/src/tree/xpath )
+include_directories(${ANTLR4_INCLUDE_DIRS})
+include_directories(${ANTLR_XMLLexer_OUTPUT_DIR})
+include_directories(${ANTLR_XMLParser_OUTPUT_DIR})
+
+
 
 
 ################################################################
@@ -46,9 +50,6 @@ include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../externalLibs/ANTLR4-Cpp-s
 set( SOURCES
   ${SOURCES}
   "src/IndexerTester.cpp"
-   "../../externalLibs/TinyXML2/tinyxml2.cpp"
-   "../../openScenarioLib/generated/antlr/xmlParser/XMLLexer.cpp"
-   "../../openScenarioLib/generated/antlr/xmlParser/XMLParser.cpp"
 )
 
 ################################################################
@@ -78,11 +79,25 @@ if( MSVC )
 
   # Groups for resource files
   source_group( Resources FILES ${RESOURCE_FILES} )
+  
+  source_group( Antlr FILES ${ANTLR_XMLLexer_CXX_OUTPUTS} ${ANTLR_XMLParser_CXX_OUTPUTS})
 endif()
 
 ################################################################
 # Generate executable
-add_executable( ${PROJECT_NAME} ${SOURCES} ${HEADERS} ${RESOURCE_FILES} )
+add_executable( ${PROJECT_NAME} 
+			  ${SOURCES} 			  
+			  ${ANTLR_XMLLexer_CXX_OUTPUTS}
+              ${ANTLR_XMLParser_CXX_OUTPUTS}
+			  ${HEADERS} ${RESOURCE_FILES} )
+			  
+################################################################
+# Copy the resources for testing
+add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+		COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_BINARY_DIR}/$(Configuration)/TestResources/${PROJECT_NAME}
+		COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_CURRENT_SOURCE_DIR}/res ${CMAKE_BINARY_DIR}/$(Configuration)/TestResources/${PROJECT_NAME}
+		)
+		
 
 if(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
   if( ${BUILD_SHARED_LIBS} )
@@ -105,4 +120,7 @@ endif()
 if( MSVC )
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /wd4251 ${osc_extra_static_compile_flags}")
   set_target_properties( ${PROJECT_NAME} PROPERTIES FOLDER Apps )
+    set_target_properties(
+    ${PROJECT_NAME} PROPERTIES
+    VS_DEBUGGER_WORKING_DIRECTORY "${CMAKE_BINARY_DIR}/$(Configuration)")
 endif()

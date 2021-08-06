@@ -13,5 +13,5 @@
 #elif defined(__APPLE__)
 # define OPENSCENARIOLIB_EXP
 #else
-# error "OPENSCENARIOLIB: Unknown OS"
+# error "OPENSCENARIOLIB: Operating system not supported."
 #endif // _WINDOWS

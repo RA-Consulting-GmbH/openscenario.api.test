@@ -40,7 +40,7 @@ class TestBase
 protected:
     std::shared_ptr<NET_ASAM_OPENSCENARIO::SimpleMessageLogger> _messageLogger = std::make_shared<NET_ASAM_OPENSCENARIO::SimpleMessageLogger>(NET_ASAM_OPENSCENARIO::ErrorLevel::INFO);
 
-    const std::string kInputDir = "../../../../applications/openScenarioReader/res/";
+    const std::string kInputDir = "TestResources/OpenScenarioTester/";
 
     std::string _executablePath;
 
