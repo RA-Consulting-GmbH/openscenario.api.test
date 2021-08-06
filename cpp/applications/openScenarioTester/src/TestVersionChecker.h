@@ -19,7 +19,7 @@
 #include "TestBase.h"
 #include "RangeCheckerHelperV1_0.h"
 #include "ScenarioCheckerImplV1_0.h"
-#include "VersionCheckerRule.h"
+#include "VersionCheckerRuleV1_0.h"
 #include "TreeMessageLogger.h"
 
 class TestVersionChecker : public TestBase

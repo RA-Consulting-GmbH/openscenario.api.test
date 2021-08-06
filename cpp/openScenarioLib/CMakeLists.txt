@@ -119,7 +119,7 @@ set( SOURCES_GENERATED_XMLPARSER
 
 set( SOURCES_LOADER
   ${SOURCES_LOADER}
-  "src/v1_0/loader/XmlScenarioLoader.cpp"
+  "src/v1_0/loader/XmlScenarioLoaderV1_0.cpp"
   )
 
 ################################################################
@@ -245,33 +245,33 @@ set( HEADERS_COMMON_LOADER
 
 set( HEADERS_CATALOG
   ${HEADERS_CATALOG}
-  "src/v1_0/catalog/ICatalogReferenceProvider.h"
-  "src/v1_0/catalog/CatalogCache.h"
+  "src/v1_0/catalog/ICatalogReferenceProviderV1_0.h"
+  "src/v1_0/catalog/CatalogCacheV1_0.h"
 )
 
 set( HEADERS_LOADER
   ${HEADERS_LOADER}
-  "src/v1_0/loader/OpenScenarioProcessingHelper.h"
-  "src/v1_0/loader/XmlScenarioImportLoader.h"
-  "src/v1_0/loader/XmlScenarioLoaderFactory.h"
-  "src/v1_0/loader/XmlScenarioLoader.h"
-  "src/v1_0/loader/XmlScenarioImportLoaderFactory.h"
+  "src/v1_0/loader/OpenScenarioProcessingHelperV1_0.h"
+  "src/v1_0/loader/XmlScenarioImportLoaderV1_0.h"
+  "src/v1_0/loader/XmlScenarioLoaderFactoryV1_0.h"
+  "src/v1_0/loader/XmlScenarioLoaderV1_0.h"
+  "src/v1_0/loader/XmlScenarioImportLoaderFactoryV1_0.h"
 )
 
 set( HEADERS_PARAMETER
   ${HEADERS_PARAMETER}
-  "src/v1_0/parameter/ParameterResolver.h"
+  "src/v1_0/parameter/ParameterResolverV1_0.h"
 )
 
 set( HEADERS_PARSER
   ${HEADERS_PARSER}
-  "src/v1_0/parser/CatalogReferenceParserContext.h"
+  "src/v1_0/parser/CatalogReferenceParserContextV1_0.h"
 )
 
 set( HEADERS_CHECKER
   ${HEADERS_CHECKER}
-  "src/v1_0/checker/VersionCheckerRule.h"
-  "src/v1_0/checker/ParameterDeclarationChecker.h"
+  "src/v1_0/checker/VersionCheckerRuleV1_0.h"
+  "src/v1_0/checker/ParameterDeclarationCheckerV1_0.h"
 )
 
 set( HEADERS_GENERATED_API

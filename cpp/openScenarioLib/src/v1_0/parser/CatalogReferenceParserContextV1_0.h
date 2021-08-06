@@ -17,7 +17,7 @@
 
 #pragma once
 #include "ParserContext.h"
-#include "ICatalogReferenceProvider.h"
+#include "ICatalogReferenceProviderV1_0.h"
 #include <vector>
 #include "MemLeakDetection.h"
 

@@ -17,7 +17,7 @@
 
 #pragma once
 #include "IScenarioLoaderFactory.h"
-#include "XmlScenarioLoader.h"
+#include "XmlScenarioLoaderV1_0.h"
 #include "MemLeakDetection.h"
 
 namespace NET_ASAM_OPENSCENARIO

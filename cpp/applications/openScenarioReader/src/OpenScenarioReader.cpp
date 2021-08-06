@@ -26,7 +26,7 @@
 #include "SimpleMessageLogger.h"
 #include "Textmarker.h"
 #include "ApiClassImplV1_0.h"
-#include "XmlScenarioImportLoaderFactory.h"
+#include "XmlScenarioImportLoaderFactoryV1_0.h"
 #include "ScenarioLoaderException.h"
 #include "FileResourceLocator.h"
 #include "../common/version.h"

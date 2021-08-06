@@ -186,7 +186,7 @@ public:
             (void) ExecuteParsing(kFilename);
             std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage> messages;
             messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
-                "XML-Dokumentstrukturen mï¿½ssen innerhalb derselben Entity beginnen und enden.",
+                "XML-Dokumentstrukturen mÃ¯Â¿Â½ssen innerhalb derselben Entity beginnen und enden.",
                 NET_ASAM_OPENSCENARIO::FATAL, NET_ASAM_OPENSCENARIO::Textmarker(30, 3, kFilename)));
             return Assert(AssertMessages(messages, NET_ASAM_OPENSCENARIO::FATAL, _messageLogger), ASSERT_LOCATION);
         }
