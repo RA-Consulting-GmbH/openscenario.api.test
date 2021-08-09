@@ -1,6 +1,14 @@
 name: OpenScenarioCpp
-on: [push, pull_request]
-
+on: 
+    push:
+        branches:
+        - master
+        
+    pull_request:
+        branches:
+        - master
+        - dev
+        
 jobs:
   LinuxSharedDebugBuild:
     runs-on: ubuntu-latest
