@@ -26,10 +26,10 @@ import groovy.json.JsonSlurper
  *
  */
 public class GeneratorHelper {
-  static final String rangeCheckerRulesFile = "input/RangeCheckerRules.json"
+
   
    
-  public static Map getRangeCheckerRules()
+  public static Map getRangeCheckerRules(String rangeCheckerRulesFile)
   {
 	def classLoader = GeneratorHelper.getClassLoader()
 	InputStream stream = classLoader.getResourceAsStream(rangeCheckerRulesFile)
