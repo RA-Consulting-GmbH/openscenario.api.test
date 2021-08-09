@@ -25,16 +25,19 @@ class TemplateProcessor {
     public static final String CPP = "cpp";
 
     private String type;
-    
-    TemplateProcessor(String type)
+	private String version;
+	
+    TemplateProcessor(String type, String version)
     {
       assert(type.equals(CPP))
+      assert(version.equals("v1_0") || version.equals("v1_1"))
       this.type = type;
+	  this.version = version;
     }
 
 	def Template getTemplate(String templateName) {
 		def classLoader = TemplateProcessor.getClassLoader()
-		InputStream stream = classLoader.getResourceAsStream("templates/${type}/${templateName}.tpl")
+		InputStream stream = classLoader.getResourceAsStream("templates/${type}/${version}/${templateName}.tpl")
 		return CommonTemplateProcessor.getTplTemplate(stream, "\n");
 	}
 }

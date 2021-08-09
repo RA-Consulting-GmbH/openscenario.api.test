@@ -40,6 +40,12 @@ include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/v1_0/
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/v1_0/parameter )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/v1_0/parser )
 
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/v1_1/checker )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/v1_1/catalog )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/v1_1/loader )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/v1_1/parameter )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/v1_1/parser )
+
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/api )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/checker )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/export )
@@ -66,6 +72,17 @@ include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_0/export/xml )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/antlr/xmlParser )
 
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_1/api )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_1/api/writer )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_1/common )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_1/checker )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_1/checker/impl )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_1/checker/range )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_1/catalog)
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_1/impl )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_1/xmlParser )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_1/export/xml )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/antlr/xmlParser )
 ################################################################
 # Source files
 set( SOURCES

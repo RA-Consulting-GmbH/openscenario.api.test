@@ -47,6 +47,12 @@ include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/v1_0/loader )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/v1_0/parameter )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/v1_0/parser )
 
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/v1_1/catalog )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/v1_1/checker )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/v1_1/loader )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/v1_1/parameter )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/v1_1/parser )
+
 #generated
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_0/api )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_0/api/writer )
@@ -59,6 +65,18 @@ include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_0/catalog)
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_0/impl )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_0/xmlParser )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_0/export/xml )
+
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_1/api )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_1/api/writer )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_1/common )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_1/checker )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_1/checker/model )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_1/checker/impl )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_1/checker/range )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_1/catalog)
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_1/impl )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_1/xmlParser )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_1/export/xml )
 include_directories(${ANTLR_XMLLexer_OUTPUT_DIR})
 include_directories(${ANTLR_XMLParser_OUTPUT_DIR})
 
@@ -91,35 +109,67 @@ set( SOURCES
     "../externalLibs/TinyXML2/tinyxml2.cpp"
 )
 
-set( SOURCES_GENERATED_API
-  ${SOURCES_GENERATED_API}
+set( SOURCES_GENERATED_1_0_API
+  ${SOURCES_GENERATED_1_0_API}
   "generated/v1_0/api/EnumerationsV1_0.cpp"
 )
 
-set( SOURCES_GENERATED_CHECKER_IMPL
-  ${SOURCES_GENERATED_CHECKER_IMPL}
+set( SOURCES_GENERATED_1_0_CHECKER_IMPL
+  ${SOURCES_GENERATED_1_0_CHECKER_IMPL}
   "generated/v1_0/checker/impl/ScenarioCheckerImplV1_0.cpp"
 )
 
-set( SOURCES_GENERATED_CHECKER_RANGE
-  ${SOURCES_GENERATED_CHECKER_RANGE}
+set( SOURCES_GENERATED_1_0_CHECKER_RANGE
+  ${SOURCES_GENERATED_1_0_CHECKER_RANGE}
   "generated/v1_0/checker/range/RangeCheckerRulesV1_0.cpp"
 )
 
-set( SOURCES_GENERATED_IMPL
-  ${SOURCES_GENERATED_IMPL}
+set( SOURCES_GENERATED_1_0_IMPL
+  ${SOURCES_GENERATED_1_0_IMPL}
   "generated/v1_0/impl/ApiClassImplV1_0.cpp"
 )
 
-set( SOURCES_GENERATED_XMLPARSER
-  ${SOURCES_GENERATED_XMLPARSER}
+set( SOURCES_GENERATED_1_0_XMLPARSER
+  ${SOURCES_GENERATED_1_0_XMLPARSER}
   "generated/v1_0/xmlParser/XmlParsers1V1_0.cpp"
   "generated/v1_0/xmlParser/XmlParsers2V1_0.cpp"
 )
 
-set( SOURCES_LOADER
-  ${SOURCES_LOADER}
+set( SOURCES_LOADER_1_0
+  ${SOURCES_LOADER_1_0}
   "src/v1_0/loader/XmlScenarioLoaderV1_0.cpp"
+  )
+
+## V1.1
+set( SOURCES_GENERATED_1_1_API
+  ${SOURCES_GENERATED_1_1_API}
+  "generated/v1_1/api/EnumerationsV1_1.cpp"
+)
+
+set( SOURCES_GENERATED_1_1_CHECKER_IMPL
+  ${SOURCES_GENERATED_1_1_CHECKER_IMPL}
+  "generated/v1_1/checker/impl/ScenarioCheckerImplV1_1.cpp"
+)
+
+set( SOURCES_GENERATED_1_1_CHECKER_RANGE
+  ${SOURCES_GENERATED_1_1_CHECKER_RANGE}
+  "generated/v1_1/checker/range/RangeCheckerRulesV1_1.cpp"
+)
+
+set( SOURCES_GENERATED_1_1_IMPL
+  ${SOURCES_GENERATED_1_1_IMPL}
+  "generated/v1_1/impl/ApiClassImplV1_1.cpp"
+)
+
+set( SOURCES_GENERATED_1_1_XMLPARSER
+  ${SOURCES_GENERATED_1_1_XMLPARSER}
+  "generated/v1_1/xmlParser/XmlParsers1V1_1.cpp"
+  "generated/v1_1/xmlParser/XmlParsers2V1_1.cpp"
+)
+
+set( SOURCES_LOADER_1_1
+  ${SOURCES_LOADER_1_1}
+  "src/v1_1/loader/XmlScenarioLoaderV1_1.cpp"
   )
 
 ################################################################
@@ -249,8 +299,8 @@ set( HEADERS_CATALOG
   "src/v1_0/catalog/CatalogCacheV1_0.h"
 )
 
-set( HEADERS_LOADER
-  ${HEADERS_LOADER}
+set( HEADERS_LOADER_1_0
+  ${HEADERS_LOADER_1_0}
   "src/v1_0/loader/OpenScenarioProcessingHelperV1_0.h"
   "src/v1_0/loader/XmlScenarioImportLoaderV1_0.h"
   "src/v1_0/loader/XmlScenarioLoaderFactoryV1_0.h"
@@ -258,82 +308,170 @@ set( HEADERS_LOADER
   "src/v1_0/loader/XmlScenarioImportLoaderFactoryV1_0.h"
 )
 
-set( HEADERS_PARAMETER
-  ${HEADERS_PARAMETER}
+set( HEADERS_PARAMETER_1_0
+  ${HEADERS_PARAMETER_1_0}
   "src/v1_0/parameter/ParameterResolverV1_0.h"
 )
 
-set( HEADERS_PARSER
-  ${HEADERS_PARSER}
+set( HEADERS_PARSER_1_0
+  ${HEADERS_PARSER_1_0}
   "src/v1_0/parser/CatalogReferenceParserContextV1_0.h"
 )
 
-set( HEADERS_CHECKER
-  ${HEADERS_CHECKER}
+set( HEADERS_CHECKER_1_0
+  ${HEADERS_CHECKER_1_0}
   "src/v1_0/checker/VersionCheckerRuleV1_0.h"
   "src/v1_0/checker/ParameterDeclarationCheckerV1_0.h"
 )
 
-set( HEADERS_GENERATED_API
-  ${HEADERS_GENERATED_API}
+set( HEADERS_GENERATED_1_0_API
+  ${HEADERS_GENERATED_1_0_API}
   "generated/v1_0/api/EnumerationsV1_0.h"
   "generated/v1_0/api/ApiClassInterfacesV1_0.h"
   "generated/v1_0/api/OscInterfacesV1_0.h"
 )
 
-set( HEADERS_GENERATED_API_WRITER
-  ${HEADERS_GENERATED_API_WRITER}
+set( HEADERS_GENERATED_1_0_API_WRITER
+  ${HEADERS_GENERATED_1_0_API_WRITER}
   "generated/v1_0/api/writer/ApiClassWriterInterfacesV1_0.h"
   "generated/v1_0/api/writer/ApiWriterInterfacesV1_0.h"
   "generated/v1_0/api/writer/IOpenScenarioWriterFactoryV1_0.h"
 )
 
-set( HEADERS_GENERATED_COMMON
-  ${HEADERS_GENERATED_COMMON}
+set( HEADERS_GENERATED_1_0_COMMON
+  ${HEADERS_GENERATED_1_0_COMMON}
   "generated/v1_0/common/OscConstantsV1_0.h"
 )
 
-set( HEADERS_GENERATED_CHECKER
-  ${HEADERS_GENERATED_CHECKER}
+set( HEADERS_GENERATED_1_0_CHECKER
+  ${HEADERS_GENERATED_1_0_CHECKER}
   "generated/v1_0/checker/IScenarioCheckerV1_0.h"
 )
 
-set( HEADERS_GENERATED_CHECKER_MODEL
-  ${HEADERS_GENERATED_CHECKER_MODEL}
+set( HEADERS_GENERATED_1_0_CHECKER_MODEL
+  ${HEADERS_GENERATED_1_0_CHECKER_MODEL}
   "generated/v1_0/checker/model/CardinalityCheckerRulesV1_0.h"
   "generated/v1_0/checker/model/UnionCheckerRulesV1_0.h"
 )
 
-set( HEADERS_GENERATED_CHECKER_IMPL
-  ${HEADERS_GENERATED_CHECKER_IMPL}
+set( HEADERS_GENERATED_1_0_CHECKER_IMPL
+  ${HEADERS_GENERATED_1_0_CHECKER_IMPL}
   "generated/v1_0/checker/impl/ScenarioCheckerImplV1_0.h"
 )
 
-set( HEADERS_GENERATED_CHECKER_RANGE
-  ${HEADERS_GENERATED_CHECKER_RANGE}
+set( HEADERS_GENERATED_1_0_CHECKER_RANGE
+  ${HEADERS_GENERATED_1_0_CHECKER_RANGE}
   "generated/v1_0/checker/range/RangeCheckerRulesV1_0.h"
   "generated/v1_0/checker/range/RangeCheckerHelperV1_0.h"
 )
 
-set( HEADERS_GENERATED_CATALOG
-  ${HEADERS_GENERATED_CATALOG}
+set( HEADERS_GENERATED_1_0_CATALOG
+  ${HEADERS_GENERATED_1_0_CATALOG}
   "generated/v1_0/catalog/CatalogHelperV1_0.h"
 )
 
-set( HEADERS_GENERATED_IMPL
-  ${HEADERS_GENERATED_IMPL}
+set( HEADERS_GENERATED_1_0_IMPL
+  ${HEADERS_GENERATED_1_0_IMPL}
   "generated/v1_0/impl/ApiClassImplV1_0.h"
   "generated/v1_0/impl/OpenScenarioWriterFactoryImplV1_0.h"
 )
 
-set( HEADERS_GENERATED_XMLPARSER
-  ${HEADERS_GENERATED_XMLPARSER}
+set( HEADERS_GENERATED_1_0_XMLPARSER
+  ${HEADERS_GENERATED_1_0_XMLPARSER}
   "generated/v1_0/xmlParser/XmlParsersV1_0.h"
 )
 
-set( HEADERS_GENERATED_EXPORT_XML
-  ${HEADERS_GENERATED_EXPORT_XML}
+set( HEADERS_GENERATED_1_0_EXPORT_XML
+  ${HEADERS_GENERATED_1_0_EXPORT_XML}
   "generated/v1_0/export/xml/OpenScenarioXmlExporterV1_0.h"
+)
+
+## V1.1
+set( HEADERS_LOADER_1_1
+  ${HEADERS_LOADER_1_1}
+  "src/v1_1/loader/OpenScenarioProcessingHelperV1_1.h"
+  "src/v1_1/loader/XmlScenarioImportLoaderV1_1.h"
+  "src/v1_1/loader/XmlScenarioLoaderFactoryV1_1.h"
+  "src/v1_1/loader/XmlScenarioLoaderV1_1.h"
+  "src/v1_1/loader/XmlScenarioImportLoaderFactoryV1_1.h"
+)
+
+set( HEADERS_PARAMETER_1_1
+  ${HEADERS_PARAMETER_1_1}
+  "src/v1_1/parameter/ParameterResolverV1_1.h"
+)
+
+set( HEADERS_PARSER_1_1
+  ${HEADERS_PARSER_1_1}
+  "src/v1_1/parser/CatalogReferenceParserContextV1_1.h"
+)
+
+set( HEADERS_CHECKER_1_1
+  ${HEADERS_CHECKER_1_1}
+  "src/v1_1/checker/VersionCheckerRuleV1_1.h"
+  "src/v1_1/checker/ParameterDeclarationCheckerV1_1.h"
+)
+
+set( HEADERS_GENERATED_1_1_API
+  ${HEADERS_GENERATED_1_1_API}
+  "generated/v1_1/api/EnumerationsV1_1.h"
+  "generated/v1_1/api/ApiClassInterfacesV1_1.h"
+  "generated/v1_1/api/OscInterfacesV1_1.h"
+)
+
+set( HEADERS_GENERATED_1_1_API_WRITER
+  ${HEADERS_GENERATED_1_1_API_WRITER}
+  "generated/v1_1/api/writer/ApiClassWriterInterfacesV1_1.h"
+  "generated/v1_1/api/writer/ApiWriterInterfacesV1_1.h"
+  "generated/v1_1/api/writer/IOpenScenarioWriterFactoryV1_1.h"
+)
+
+set( HEADERS_GENERATED_1_1_COMMON
+  ${HEADERS_GENERATED_1_1_COMMON}
+  "generated/v1_1/common/OscConstantsV1_1.h"
+)
+
+set( HEADERS_GENERATED_1_1_CHECKER
+  ${HEADERS_GENERATED_1_1_CHECKER}
+  "generated/v1_1/checker/IScenarioCheckerV1_1.h"
+)
+
+set( HEADERS_GENERATED_1_1_CHECKER_MODEL
+  ${HEADERS_GENERATED_1_1_CHECKER_MODEL}
+  "generated/v1_1/checker/model/CardinalityCheckerRulesV1_1.h"
+  "generated/v1_1/checker/model/UnionCheckerRulesV1_1.h"
+)
+
+set( HEADERS_GENERATED_1_1_CHECKER_IMPL
+  ${HEADERS_GENERATED_1_1_CHECKER_IMPL}
+  "generated/v1_1/checker/impl/ScenarioCheckerImplV1_1.h"
+)
+
+set( HEADERS_GENERATED_1_1_CHECKER_RANGE
+  ${HEADERS_GENERATED_1_1_CHECKER_RANGE}
+  "generated/v1_1/checker/range/RangeCheckerRulesV1_1.h"
+  "generated/v1_1/checker/range/RangeCheckerHelperV1_1.h"
+)
+
+set( HEADERS_GENERATED_1_1_CATALOG
+  ${HEADERS_GENERATED_1_1_CATALOG}
+  "generated/v1_1/catalog/CatalogHelperV1_1.h"
+)
+
+set( HEADERS_GENERATED_1_1_IMPL
+  ${HEADERS_GENERATED_1_1_IMPL}
+  "generated/v1_1/impl/ApiClassImplV1_1.h"
+  "generated/v1_1/impl/OpenScenarioWriterFactoryImplV1_1.h"
+)
+
+set( HEADERS_GENERATED_1_1_XMLPARSER
+  ${HEADERS_GENERATED_1_1_XMLPARSER}
+  "generated/v1_1/xmlParser/XmlParsersV1_1.h"
+)
+
+set( HEADERS_GENERATED_1_1_EXPORT_XML
+  ${HEADERS_GENERATED_1_1_EXPORT_XML}
+  "generated/v1_1/export/xml/OpenScenarioXmlExporterV1_1.h"
 )
 
 # Resource files
@@ -350,12 +488,20 @@ endif()
 if( MSVC )
   # Groups for source files
   source_group( Sources FILES ${SOURCES} )
-  source_group( Sources\\Generated\\Api FILES ${SOURCES_GENERATED_API} )
-  source_group( Sources\\Generated\\Checker\\Impl FILES ${SOURCES_GENERATED_CHECKER_IMPL} )
-  source_group( Sources\\Generated\\Checker\\Range FILES ${SOURCES_GENERATED_CHECKER_RANGE} )
-  source_group( Sources\\Generated\\Impl FILES ${SOURCES_GENERATED_IMPL} )
-  source_group( Sources\\Generated\\XmlParser FILES ${SOURCES_GENERATED_XMLPARSER} )
-  source_group( Sources\\Loader FILES ${SOURCES_LOADER} )
+  source_group( Sources\\v1_0\\Generated\\Api FILES ${SOURCES_GENERATED_1_0_API} )
+  source_group( Sources\\v1_0\\Generated\\Checker\\Impl FILES ${SOURCES_GENERATED_1_0_CHECKER_IMPL} )
+  source_group( Sources\\v1_0\\Generated\\Checker\\Range FILES ${SOURCES_GENERATED_1_0_CHECKER_RANGE} )
+  source_group( Sources\\v1_0\\Generated\\Impl FILES ${SOURCES_GENERATED_1_0_IMPL} )
+  source_group( Sources\\v1_0\\Generated\\XmlParser FILES ${SOURCES_GENERATED_1_0_XMLPARSER} )
+  source_group( Sources\\v1_0\\Loader FILES ${SOURCES_LOADER_1_0} )
+
+  source_group( Sources FILES ${SOURCES} )
+  source_group( Sources\\v1_1\\Generated\\Api FILES ${SOURCES_GENERATED_1_1_API} )
+  source_group( Sources\\v1_1\\Generated\\Checker\\Impl FILES ${SOURCES_GENERATED_1_1_CHECKER_IMPL} )
+  source_group( Sources\\v1_1\\Generated\\Checker\\Range FILES ${SOURCES_GENERATED_1_1_CHECKER_RANGE} )
+  source_group( Sources\\v1_1\\Generated\\Impl FILES ${SOURCES_GENERATED_1_1_IMPL} )
+  source_group( Sources\\v1_1\\Generated\\XmlParser FILES ${SOURCES_GENERATED_1_1_XMLPARSER} )
+  source_group( Sources\\v1_1\\Loader FILES ${SOURCES_LOADER_1_1} )
 
   # Groups for header files
   source_group( Headers FILES ${HEADERS} )
@@ -375,23 +521,42 @@ if( MSVC )
   source_group( Headers\\Common\\Simple\\Struct FILES ${HEADERS_COMMON_SIMPLE_STRUCT})
   source_group( Headers\\Common\\Loaders FILES ${HEADERS_COMMON_LOADER})
 
-  source_group( Headers\\Catalog FILES ${HEADERS_CATALOG})
-  source_group( Headers\\Loaders FILES ${HEADERS_LOADER})
-  source_group( Headers\\Parameter FILES ${HEADERS_PARAMETER})
-  source_group( Headers\\Parser FILES ${HEADERS_PARSER})
-  source_group( Headers\\Checker FILES ${HEADERS_CHECKER})
+  source_group( Headers\\v1_0\\Catalog FILES ${HEADERS_CATALOG})
+  source_group( Headers\\v1_0\\Loaders FILES ${HEADERS_LOADER_1_0})
+  source_group( Headers\\v1_0\\Parameter FILES ${HEADERS_PARAMETER_1_0})
+  source_group( Headers\\v1_0\\Parser FILES ${HEADERS_PARSER_1_0})
+  source_group( Headers\\v1_0\\Checker FILES ${HEADERS_CHECKER_1_0})
 
-  source_group( Headers\\Generated\\Api FILES ${HEADERS_GENERATED_API} )
-  source_group( Headers\\Generated\\Api\\Writer FILES ${HEADERS_GENERATED_API_WRITER} )
-  source_group( Headers\\Generated\\Common FILES ${HEADERS_GENERATED_COMMON} )
-  source_group( Headers\\Generated\\Checker FILES ${HEADERS_GENERATED_CHECKER} )
-  source_group( Headers\\Generated\\Checker\\Model FILES ${HEADERS_GENERATED_CHECKER_MODEL} )
-  source_group( Headers\\Generated\\Checker\\Impl FILES ${HEADERS_GENERATED_CHECKER_IMPL} )
-  source_group( Headers\\Generated\\Checker\\Range FILES ${HEADERS_GENERATED_CHECKER_RANGE} )
-  source_group( Headers\\Generated\\Catalog FILES ${HEADERS_GENERATED_CATALOG} )
-  source_group( Headers\\Generated\\Impl FILES ${HEADERS_GENERATED_IMPL} )
-  source_group( Headers\\Generated\\XmlParser FILES ${HEADERS_GENERATED_XMLPARSER} )
-  source_group( Headers\\Generated\\Export\\Xml FILES ${HEADERS_GENERATED_EXPORT_XML} )
+  source_group( Headers\\v1_1\\Catalog FILES ${HEADERS_CATALOG})
+  source_group( Headers\\v1_1\\Loaders FILES ${HEADERS_LOADER_1_1})
+  source_group( Headers\\v1_1\\Parameter FILES ${HEADERS_PARAMETER_1_1})
+  source_group( Headers\\v1_1\\Parser FILES ${HEADERS_PARSER_1_1})
+  source_group( Headers\\v1_1\\Checker FILES ${HEADERS_CHECKER_1_1})
+  
+  source_group( Headers\\v1_0\\Generated\\Api FILES ${HEADERS_GENERATED_1_0_API} )
+  source_group( Headers\\v1_0\\Generated\\Api\\Writer FILES ${HEADERS_GENERATED_1_0_API_WRITER} )
+  source_group( Headers\\v1_0\\Generated\\Common FILES ${HEADERS_GENERATED_1_0_COMMON} )
+  source_group( Headers\\v1_0\\Generated\\Checker FILES ${HEADERS_GENERATED_1_0_CHECKER} )
+  source_group( Headers\\v1_0\\Generated\\Checker\\Model FILES ${HEADERS_GENERATED_1_0_CHECKER_MODEL} )
+  source_group( Headers\\v1_0\\Generated\\Checker\\Impl FILES ${HEADERS_GENERATED_1_0_CHECKER_IMPL} )
+  source_group( Headers\\v1_0\\Generated\\Checker\\Range FILES ${HEADERS_GENERATED_1_0_CHECKER_RANGE} )
+  source_group( Headers\\v1_0\\Generated\\Catalog FILES ${HEADERS_GENERATED_1_0_CATALOG} )
+  source_group( Headers\\v1_0\\Generated\\Impl FILES ${HEADERS_GENERATED_1_0_IMPL} )
+  source_group( Headers\\v1_0\\Generated\\XmlParser FILES ${HEADERS_GENERATED_1_0_XMLPARSER} )
+  source_group( Headers\\v1_0\\Generated\\Export\\Xml FILES ${HEADERS_GENERATED_1_0_EXPORT_XML} )
+  
+  source_group( Headers\\v1_1\\Generated\\Api FILES ${HEADERS_GENERATED_1_1_API} )
+  source_group( Headers\\v1_1\\Generated\\Api\\Writer FILES ${HEADERS_GENERATED_1_1_API_WRITER} )
+  source_group( Headers\\v1_1\\Generated\\Common FILES ${HEADERS_GENERATED_1_1_COMMON} )
+  source_group( Headers\\v1_1\\Generated\\Checker FILES ${HEADERS_GENERATED_1_1_CHECKER} )
+  source_group( Headers\\v1_1\\Generated\\Checker\\Model FILES ${HEADERS_GENERATED_1_1_CHECKER_MODEL} )
+  source_group( Headers\\v1_1\\Generated\\Checker\\Impl FILES ${HEADERS_GENERATED_1_1_CHECKER_IMPL} )
+  source_group( Headers\\v1_1\\Generated\\Checker\\Range FILES ${HEADERS_GENERATED_1_1_CHECKER_RANGE} )
+  source_group( Headers\\v1_1\\Generated\\Catalog FILES ${HEADERS_GENERATED_1_1_CATALOG} )
+  source_group( Headers\\v1_1\\Generated\\Impl FILES ${HEADERS_GENERATED_1_1_IMPL} )
+  source_group( Headers\\v1_1\\Generated\\XmlParser FILES ${HEADERS_GENERATED_1_1_XMLPARSER} )
+  source_group( Headers\\v1_1\\Generated\\Export\\Xml FILES ${HEADERS_GENERATED_1_1_EXPORT_XML} )
+
   source_group( Antlr FILES ${ANTLR_XMLLexer_CXX_OUTPUTS} ${ANTLR_XMLParser_CXX_OUTPUTS})
 
   # Groups for resources files
@@ -406,8 +571,12 @@ add_library ( ${PROJECT_NAME} # ${LIB_TYPE}
 
               ${SOURCES} 
 
-              ${SOURCES_GENERATED_API} ${SOURCES_GENERATED_CHECKER_IMPL} ${SOURCES_GENERATED_CHECKER_RANGE} 
-              ${SOURCES_GENERATED_IMPL} ${SOURCES_GENERATED_XMLPARSER} ${SOURCES_LOADER} 
+              ${SOURCES_GENERATED_1_0_API} ${SOURCES_GENERATED_1_0_CHECKER_IMPL} ${SOURCES_GENERATED_1_0_CHECKER_RANGE} 
+              ${SOURCES_GENERATED_1_0_IMPL} ${SOURCES_GENERATED_1_0_XMLPARSER} ${SOURCES_LOADER_1_0} 
+
+              ${SOURCES_GENERATED_1_1_API} ${SOURCES_GENERATED_1_1_CHECKER_IMPL} ${SOURCES_GENERATED_1_1_CHECKER_RANGE} 
+              ${SOURCES_GENERATED_1_1_IMPL} ${SOURCES_GENERATED_1_1_XMLPARSER} ${SOURCES_LOADER_1_1} 
+
 			  ${ANTLR_XMLLexer_CXX_OUTPUTS}
               ${ANTLR_XMLParser_CXX_OUTPUTS}
 
@@ -417,12 +586,18 @@ add_library ( ${PROJECT_NAME} # ${LIB_TYPE}
               ${HEADERS_COMMON_CHECKER} ${HEADERS_COMMON_IMPL} ${HEADERS_COMMON_PARAMETER} ${HEADERS_COMMON_PARSER} ${HEADERS_COMMON_PARSER_MODEL_GROUP} 
               ${HEADERS_COMMON_PARSER_TYPE} ${HEADERS_COMMON_XMLINDEXER} ${HEADERS_COMMON_SIMPLE_STRUCT} ${HEADERS_COMMON_LOADER}
 
-              ${HEADERS_PARAMETER} ${HEADERS_PARSER} ${HEADERS_CATALOG} ${HEADERS_LOADER} ${HEADERS_CHECKER} 
+              ${HEADERS_PARAMETER_1_0} ${HEADERS_PARSER_1_0} ${HEADERS_CATALOG} ${HEADERS_LOADER_1_0} ${HEADERS_CHECKER_1_0} 
 
-              ${HEADERS_GENERATED_API} ${HEADERS_GENERATED_API_WRITER} ${HEADERS_GENERATED_COMMON} ${HEADERS_GENERATED_CHECKER} 
-              ${HEADERS_GENERATED_CHECKER_MODEL} ${HEADERS_GENERATED_CHECKER_IMPL} ${HEADERS_GENERATED_CHECKER_RANGE} ${HEADERS_GENERATED_CATALOG} 
-              ${HEADERS_GENERATED_IMPL} ${HEADERS_GENERATED_XMLPARSER}  ${HEADERS_GENERATED_EXPORT_XML}
+              ${HEADERS_PARAMETER_1_1} ${HEADERS_PARSER_1_1} ${HEADERS_CATALOG} ${HEADERS_LOADER_1_1} ${HEADERS_CHECKER_1_1} 
 
+              ${HEADERS_GENERATED_1_0_API} ${HEADERS_GENERATED_1_0_API_WRITER} ${HEADERS_GENERATED_1_0_COMMON} ${HEADERS_GENERATED_1_0_CHECKER} 
+              ${HEADERS_GENERATED_1_0_CHECKER_MODEL} ${HEADERS_GENERATED_1_0_CHECKER_IMPL} ${HEADERS_GENERATED_1_0_CHECKER_RANGE} ${HEADERS_GENERATED_1_0_CATALOG} 
+              ${HEADERS_GENERATED_1_0_IMPL} ${HEADERS_GENERATED_1_0_XMLPARSER}  ${HEADERS_GENERATED_1_0_EXPORT_XML}
+
+			  ${HEADERS_GENERATED_1_1_API} ${HEADERS_GENERATED_1_1_API_WRITER} ${HEADERS_GENERATED_1_1_COMMON} ${HEADERS_GENERATED_1_1_CHECKER} 
+              ${HEADERS_GENERATED_1_1_CHECKER_MODEL} ${HEADERS_GENERATED_1_1_CHECKER_IMPL} ${HEADERS_GENERATED_1_1_CHECKER_RANGE} ${HEADERS_GENERATED_1_1_CATALOG} 
+              ${HEADERS_GENERATED_1_1_IMPL} ${HEADERS_GENERATED_1_1_XMLPARSER}  ${HEADERS_GENERATED_1_1_EXPORT_XML}
+			  
               ${RESOURCE_FILES} )
 			  
 
