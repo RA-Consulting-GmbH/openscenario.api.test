@@ -53,60 +53,62 @@ bool TestV1_1(std::string basePath )
 	NET_ASAM_OPENSCENARIO::v1_1::TestInjectedParameters testInjectedParameters(basePath);
 	NET_ASAM_OPENSCENARIO::v1_1::TestWriterApi testWriterApi(basePath);
 
-	auto res = testExamples.TestExample();
+	auto result = true;
+	
+	result = testExamples.TestExample() && result;
 
-	res = res && testRangeChecker.TestParamsFailure();
+	result = testRangeChecker.TestParamsFailure() && result;
 
-	res = res && testFiles.TestSimpleSuccess();
-	res = res && testFiles.TestParamsSuccess();
-	res = res && testFiles.TestBomFile();
-	res = res && testFiles.TestParamsFailure();
-	res = res && testFiles.TestParamsConversionInfo();
-	res = res && testFiles.TestParamsConversion();
-	res = res && testFiles.TestUnvalidXml();
-	res = res && testFiles.TestUnknownElement();
-	res = res && testFiles.TestWrongAttributes();
-	res = res && testFiles.TestWrongEndElement();
-	res = res && testFiles.TestCustomCommandAction();
-	res = res && testFiles.TestFileNotFound();
+	result = testFiles.TestSimpleSuccess() && result;
+	result = testFiles.TestParamsSuccess() && result;
+	result = testFiles.TestBomFile() && result;
+	result = testFiles.TestParamsFailure() && result;
+	result = testFiles.TestParamsConversionInfo() && result;
+	result = testFiles.TestParamsConversion() && result;
+	result = testFiles.TestUnvalidXml() && result;
+	result = testFiles.TestUnknownElement() && result;
+	result = testFiles.TestWrongAttributes() && result;
+	result = testFiles.TestWrongEndElement() && result;
+	result = testFiles.TestCustomCommandAction() && result;
+	result = testFiles.TestFileNotFound() && result;
 
-	res = res && testImports.TestImportSuccess();
+	result = testImports.TestImportSuccess() && result;
 
-	res = res && testImports.TestImportWithParametersSuccess();
+	result = testImports.TestImportWithParametersSuccess() && result;
 
-	res = res && testReader.TestImportSuccess();
-	res = res && testReader.TestDirectorySuccess();
-	res = res && testReader.TestDirectoryPartlySuccess();
-	res = res && testReader.TestFileNotFound();
-	res = res && testReader.TestDirectoryNotFound();
-	res = res && testReader.TestWithErrors();
-	res = res && testReader.TestWrongCommandLine();
-	res = res && testReader.TestWithParamFile();
-	res = res && testReader.TestWithParamFileSyntaxError();
-	res = res && testReader.TestWithParamFileSyntaxError2();
-	res = res && testReader.TestWithParamFileNotFound();
+	result = testReader.TestImportSuccess() && result;
+	result = testReader.TestDirectorySuccess() && result;
+	result = testReader.TestDirectoryPartlySuccess() && result;
+	result = testReader.TestFileNotFound() && result;
+	result = testReader.TestDirectoryNotFound() && result;
+	result = testReader.TestWithErrors() && result;
+	result = testReader.TestWrongCommandLine() && result;
+	result = testReader.TestWithParamFile() && result;
+	result = testReader.TestWithParamFileSyntaxError() && result;
+	result = testReader.TestWithParamFileSyntaxError2() && result;
+	result = testReader.TestWithParamFileNotFound() && result;
 
-	res = res && testSimpleDemos.TestSimpleDemo();
-	res = res && testSimpleDemos.TestImportDemo();
-	res = res && testSimpleDemos.TestCheckerRuleDemo();
-	res = res && testSimpleDemos.TestCheckerRuleEgoDemo();
+	result = testSimpleDemos.TestSimpleDemo() && result;
+	result = testSimpleDemos.TestImportDemo() && result;
+	result = testSimpleDemos.TestCheckerRuleDemo() && result;
+	result = testSimpleDemos.TestCheckerRuleEgoDemo() && result;
 
-	res = res && testVersionChecker.TestSuccess();
+	result = testVersionChecker.TestSuccess() && result;
 
-	res = res && testFlexInterface.TestExample();
+	result = testFlexInterface.TestExample() && result;
 
-	res = res && testInjectedParameters.TestNullInjectedParameters();
-	res = res && testInjectedParameters.TestEmptyInjectedParameters();
-	res = res && testInjectedParameters.TestInjectionsForSuccess();
-	res = res && testInjectedParameters.TestWrongFormats();
-	res = res && testInjectedParameters.TestNotDefined();
-	res = res && testInjectedParameters.TestNotDefinedWithNoGlobalParameters();
+	result = testInjectedParameters.TestNullInjectedParameters() && result;
+	result = testInjectedParameters.TestEmptyInjectedParameters() && result;
+	result = testInjectedParameters.TestInjectionsForSuccess() && result;
+	result = testInjectedParameters.TestWrongFormats() && result;
+	result = testInjectedParameters.TestNotDefined() && result;
+	result = testInjectedParameters.TestNotDefinedWithNoGlobalParameters() && result;
 
-	res = res && testWriterApi.TestSimpleSuccess();
-	res = res && testWriterApi.TestParamsSuccess();
-	res = res && testWriterApi.TestBomFile();
+	result = testWriterApi.TestSimpleSuccess() && result;
+	result = testWriterApi.TestParamsSuccess() && result;
+	result = testWriterApi.TestBomFile() && result;
 
-	return res;
+	return result;
 }
 
 
@@ -123,60 +125,62 @@ bool TestV1_0(std::string basePath)
 	NET_ASAM_OPENSCENARIO::v1_0::TestInjectedParameters testInjectedParameters(basePath);
 	NET_ASAM_OPENSCENARIO::v1_0::TestWriterApi testWriterApi(basePath);
 
-	auto res = testExamples.TestExample();
+	bool result = true;
+	
+	result = testExamples.TestExample() && result;
 
-	res = res && testRangeChecker.TestParamsFailure();
+	result = testRangeChecker.TestParamsFailure() && result;
 
-	res = res && testFiles.TestSimpleSuccess();
-	res = res && testFiles.TestParamsSuccess();
-	res = res && testFiles.TestBomFile();
-	res = res && testFiles.TestParamsFailure();
-	res = res && testFiles.TestParamsConversionInfo();
-	res = res && testFiles.TestParamsConversion();
-	res = res && testFiles.TestUnvalidXml();
-	res = res && testFiles.TestUnknownElement();
-	res = res && testFiles.TestWrongAttributes();
-	res = res && testFiles.TestWrongEndElement();
-	res = res && testFiles.TestCustomCommandAction();
-	res = res && testFiles.TestFileNotFound();
+	result = testFiles.TestSimpleSuccess() && result;
+	result = testFiles.TestParamsSuccess() && result;
+	result = testFiles.TestBomFile() && result;
+	result = testFiles.TestParamsFailure() && result;
+	result = testFiles.TestParamsConversionInfo() && result;
+	result = testFiles.TestParamsConversion() && result;
+	result = testFiles.TestUnvalidXml() && result;
+	result = testFiles.TestUnknownElement() && result;
+	result = testFiles.TestWrongAttributes() && result;
+	result = testFiles.TestWrongEndElement() && result;
+	result = testFiles.TestCustomCommandAction() && result;
+	result = testFiles.TestFileNotFound() && result;
 
-	res = res && testImports.TestImportSuccess();
+	result = testImports.TestImportSuccess() && result;
 
-	res = res && testImports.TestImportWithParametersSuccess();
+	result = testImports.TestImportWithParametersSuccess() && result;
 
-	res = res && testReader.TestImportSuccess();
-	res = res && testReader.TestDirectorySuccess();
-	res = res && testReader.TestDirectoryPartlySuccess();
-	res = res && testReader.TestFileNotFound();
-	res = res && testReader.TestDirectoryNotFound();
-	res = res && testReader.TestWithErrors();
-	res = res && testReader.TestWrongCommandLine();
-	res = res && testReader.TestWithParamFile();
-	res = res && testReader.TestWithParamFileSyntaxError();
-	res = res && testReader.TestWithParamFileSyntaxError2();
-	res = res && testReader.TestWithParamFileNotFound();
+	result = testReader.TestImportSuccess() && result;
+	result = testReader.TestDirectorySuccess() && result;
+	result = testReader.TestDirectoryPartlySuccess() && result;
+	result = testReader.TestFileNotFound() && result;
+	result = testReader.TestDirectoryNotFound() && result;
+	result = testReader.TestWithErrors() && result;
+	result = testReader.TestWrongCommandLine() && result;
+	result = testReader.TestWithParamFile() && result;
+	result = testReader.TestWithParamFileSyntaxError() && result;
+	result = testReader.TestWithParamFileSyntaxError2() && result;
+	result = testReader.TestWithParamFileNotFound() && result;
 
-	res = res && testSimpleDemos.TestSimpleDemo();
-	res = res && testSimpleDemos.TestImportDemo();
-	res = res && testSimpleDemos.TestCheckerRuleDemo();
-	res = res && testSimpleDemos.TestCheckerRuleEgoDemo();
+	result = testSimpleDemos.TestSimpleDemo() && result;
+	result = testSimpleDemos.TestImportDemo() && result;
+	result = testSimpleDemos.TestCheckerRuleDemo() && result;
+	result = testSimpleDemos.TestCheckerRuleEgoDemo() && result;
 
-	res = res && testVersionChecker.TestSuccess();
+	result = testVersionChecker.TestSuccess() && result;
 
-	res = res && testFlexInterface.TestExample();
+	result = testFlexInterface.TestExample() && result;
 
-	res = res && testInjectedParameters.TestNullInjectedParameters();
-	res = res && testInjectedParameters.TestEmptyInjectedParameters();
-	res = res && testInjectedParameters.TestInjectionsForSuccess();
-	res = res && testInjectedParameters.TestWrongFormats();
-	res = res && testInjectedParameters.TestNotDefined();
-	res = res && testInjectedParameters.TestNotDefinedWithNoGlobalParameters();
+	result = testInjectedParameters.TestNullInjectedParameters() && result;
+	result = testInjectedParameters.TestEmptyInjectedParameters() && result;
+	result = testInjectedParameters.TestInjectionsForSuccess() && result;
+	result = testInjectedParameters.TestWrongFormats() && result;
+	result = testInjectedParameters.TestNotDefined() && result;
+	result = testInjectedParameters.TestNotDefinedWithNoGlobalParameters() && result;
 
-	res = res && testWriterApi.TestSimpleSuccess();
-	res = res && testWriterApi.TestParamsSuccess();
-	res = res && testWriterApi.TestBomFile();
+	result = testWriterApi.TestSimpleSuccess() && result;
+	result = testWriterApi.TestParamsSuccess() && result;
+	result = testWriterApi.TestBomFile() && result;
 
-	return res;
+	return result;
 }
 
 int main(int argc, char** argv)
@@ -189,10 +193,10 @@ int main(int argc, char** argv)
 
 	
 
-	auto res = TestV1_0(basePath);
-	res = res && TestV1_1(basePath);
+	auto result = TestV1_0(basePath);
+	result = TestV1_1(basePath) && result;
 
-	 if (res)
+	 if (result)
         return 0;
 
     return -1;
