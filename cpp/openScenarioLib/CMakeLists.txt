@@ -15,6 +15,8 @@ antlr_target(XMLParser ${CMAKE_CURRENT_SOURCE_DIR}/src/antlr/XMLParser.g4 PARSER
 			 LISTENER 
              DEPENDS_ANTLR XMLLexer
              COMPILE_FLAGS -lib ${ANTLR_XMLLexer_OUTPUT_DIR})
+			 
+			 
 ################################################################
 # Preprocessor settings
 if( WIN32 )
@@ -32,6 +34,7 @@ if( ${BUILD_SHARED_LIBS} )
 else()
   set( LIB_TYPE "STATIC" )
 endif()
+
 
 
 ################################################################
@@ -101,7 +104,8 @@ include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/parser/type )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/simple/struct )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/xmlIndexer )
 
-
+#expressionsLib
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../expressionsLib/inc)
 ################################################################
 # Source files
 set( SOURCES
@@ -170,6 +174,14 @@ set( SOURCES_GENERATED_1_1_XMLPARSER
 set( SOURCES_LOADER_1_1
   ${SOURCES_LOADER_1_1}
   "src/v1_1/loader/XmlScenarioLoaderV1_1.cpp"
+  )
+  
+set( HEADERS_EXPRESSIONS_LIB
+  ${HEADERS_EXPRESSIONS_LIB}
+  "../expressionsLib/inc/OscExprEvaluator.h"
+  "../expressionsLib/inc/ExprType.h"
+  "../expressionsLib/inc/ExprValue.h"
+  "../expressionsLib/inc/OscExprEvaluatorFactory.h"
   )
 
 ################################################################
@@ -506,6 +518,7 @@ if( MSVC )
   # Groups for header files
   source_group( Headers FILES ${HEADERS} )
 
+  source_group( Headers\\ExpressionsLib FILES ${HEADERS_EXPRESSIONS_LIB} )
   source_group( Headers\\Common\\Api FILES ${HEADERS_COMMON_API} )
   source_group( Headers\\Common\\Common FILES ${HEADERS_COMMON_COMMON})
   source_group( Headers\\Common\\Export FILES ${HEADERS_COMMON_EXPORT})
@@ -584,7 +597,7 @@ add_library ( ${PROJECT_NAME} # ${LIB_TYPE}
 
               ${HEADERS_COMMON_API} ${HEADERS_COMMON_COMMON}  ${HEADERS_COMMON_EXPORT} ${HEADERS_COMMON_CHECKER_TREE} ${HEADERS_COMMON_CHECKER_MODEL} 
               ${HEADERS_COMMON_CHECKER} ${HEADERS_COMMON_IMPL} ${HEADERS_COMMON_PARAMETER} ${HEADERS_COMMON_PARSER} ${HEADERS_COMMON_PARSER_MODEL_GROUP} 
-              ${HEADERS_COMMON_PARSER_TYPE} ${HEADERS_COMMON_XMLINDEXER} ${HEADERS_COMMON_SIMPLE_STRUCT} ${HEADERS_COMMON_LOADER}
+              ${HEADERS_COMMON_PARSER_TYPE} ${HEADERS_COMMON_XMLINDEXER} ${HEADERS_COMMON_SIMPLE_STRUCT} ${HEADERS_COMMON_LOADER} 
 
               ${HEADERS_PARAMETER_1_0} ${HEADERS_PARSER_1_0} ${HEADERS_CATALOG} ${HEADERS_LOADER_1_0} ${HEADERS_CHECKER_1_0} 
 
@@ -598,7 +611,10 @@ add_library ( ${PROJECT_NAME} # ${LIB_TYPE}
               ${HEADERS_GENERATED_1_1_CHECKER_MODEL} ${HEADERS_GENERATED_1_1_CHECKER_IMPL} ${HEADERS_GENERATED_1_1_CHECKER_RANGE} ${HEADERS_GENERATED_1_1_CATALOG} 
               ${HEADERS_GENERATED_1_1_IMPL} ${HEADERS_GENERATED_1_1_XMLPARSER}  ${HEADERS_GENERATED_1_1_EXPORT_XML}
 			  
-              ${RESOURCE_FILES} )
+			  ${HEADERS_EXPRESSIONS_LIB}
+			  
+              ${RESOURCE_FILES} 
+			  )
 			  
 
 if(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
@@ -614,9 +630,13 @@ if(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
 endif()
 
 if( ${BUILD_SHARED_LIBS} )
-  target_link_libraries( ${PROJECT_NAME} antlr4_shared )
+  target_link_libraries( ${PROJECT_NAME} 
+	PUBLIC ExpressionsLib
+	antlr4_shared)
 else()
-  target_link_libraries( ${PROJECT_NAME} antlr4_static )
+  target_link_libraries( ${PROJECT_NAME} 
+	PUBLIC ExpressionsLib
+	antlr4_static)
 endif()
 
 ################################################################

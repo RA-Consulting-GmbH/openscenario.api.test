@@ -97,11 +97,13 @@ message ("Building all into: ${CMAKE_BINARY_DIR}")
 	
 # CoreLibraries
 add_subdirectory( openScenarioLib ${PROJECT_BINARY_DIR}/openScenarioLib )
+add_subdirectory( expressionsLib ${PROJECT_BINARY_DIR}/expressionsLib )
 
 # Applications
 add_subdirectory( applications/openScenarioReader ${PROJECT_BINARY_DIR}/applications/openScenarioReader )
 add_subdirectory( applications/openScenarioTester ${PROJECT_BINARY_DIR}/applications/openScenarioTester)
 add_subdirectory( applications/indexerTester ${PROJECT_BINARY_DIR}/applications/indexerTester)
+add_subdirectory( applications/expressionsTester ${PROJECT_BINARY_DIR}/applications/expressionsTester)
 
 
 ################################################################
