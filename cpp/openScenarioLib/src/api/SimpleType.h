@@ -16,7 +16,6 @@
  */
 
 #pragma once
-#include <exception>
 #include <string>
 #include "MemLeakDetection.h"
 
@@ -51,31 +50,8 @@ namespace NET_ASAM_OPENSCENARIO
 
     class SimpleTypeString
     {
-    public:
-        static std::string ToString(const SimpleType type)
-        {
-            switch (type)
-            {
-                case INT:
-                    return "int";
-                case DOUBLE:
-                    return "double";
-                case STRING:
-                    return "string";
-                case UNSIGNED_INT:
-                    return "unsignedInt";
-                case UNSIGNED_SHORT:
-                    return "unsignedShort";
-                case BOOLEAN:
-                    return "boolean";
-                case DATE_TIME:
-                    return "dateTime";
-                case ENUM_TYPE:
-                    return "enumeration";
-                default:
-                    return "unknown";
-            }
-        }
+		public:
+			static std::string ToString(const SimpleType type);
     };
 
 }

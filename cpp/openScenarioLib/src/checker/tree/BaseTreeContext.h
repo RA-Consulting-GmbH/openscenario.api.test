@@ -17,7 +17,6 @@
 
 #pragma once
 
-#include "IOpenScenarioModelElement.h"
 #include "ITreeContext.h"
 #include "MemLeakDetection.h"
 #include <memory>
@@ -34,14 +33,11 @@ namespace NET_ASAM_OPENSCENARIO
         /**
          * @param treeObjectContext a context to locate a object in the tree
          */
-        BaseTreeContext(const std::shared_ptr<IOpenScenarioModelElement>& treeObjectContext): _treeObjectContext(treeObjectContext) {}
+		BaseTreeContext(const std::shared_ptr<IOpenScenarioModelElement>& treeObjectContext);
 
-        std::shared_ptr<IOpenScenarioModelElement> GetTreeObjectContext() override
-        {
-            return _treeObjectContext;
-        }
+		std::shared_ptr<IOpenScenarioModelElement> GetTreeObjectContext() override;
 
-        virtual  ~BaseTreeContext() = default;
+        virtual  ~BaseTreeContext();
 
     };
 }

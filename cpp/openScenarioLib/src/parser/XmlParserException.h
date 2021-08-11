@@ -36,10 +36,9 @@ namespace NET_ASAM_OPENSCENARIO
          * Constructor
          * @param message text message
          */
-        XmlParserException(std::string& message):_msg(message) {}
+		XmlParserException(std::string& message);
 
-        const char* what() const throw() override
-        { return _msg.c_str(); }
+		const char* what() const throw() override;
 
     };
 

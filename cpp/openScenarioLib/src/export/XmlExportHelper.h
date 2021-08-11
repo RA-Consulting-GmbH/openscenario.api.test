@@ -35,70 +35,48 @@ namespace NET_ASAM_OPENSCENARIO
          * @param value the double value
          * @return the xml string
          */
-        static std::string ToXmlStringFromDouble(const double value)
-        {
-            return std::to_string(value);
-        }
+		static std::string ToXmlStringFromDouble(const double value);
 
         /**
          * Retrieve the xml string from a string value
          * @param value the string value
          * @return the xml string
          */
-        static std::string ToXmlStringFromString(const std::string value)
-        {
-            return value;
-        }
+		static std::string ToXmlStringFromString(const std::string value);
 
         /**
          * Retrieve the xml string from a unsigned int value
          * @param value the unsigned int value
          * @return the xml string
          */
-        static std::string ToXmlStringFromUnsignedInt(const long value)
-        {
-            return std::to_string(value);
-        }
+		static std::string ToXmlStringFromUnsignedInt(const long value);
 
         /**
          * Retrieve the xml string from a unsigned short value
          * @param value the unsigned short value
          * @return the xml string
          */
-        static std::string ToXmlStringFromUnsignedShort(const int value)
-        {
-            return std::to_string(value);
-        }
+		static std::string ToXmlStringFromUnsignedShort(const int value);
 
         /**
          * Retrieve the xml string from a integer value
          * @param value the integer value
          * @return the xml string
          */
-        static std::string ToXmlStringFromInt(const int value)
-        {
-            return std::to_string(value);
-        }
+		static std::string ToXmlStringFromInt(const int value);
 
         /**
          * Retrieve the xml string from a date value
          * @param value the date value
          * @return the xml string
          */
-        static std::string ToXmlStringFromDateTime(const DateTime value)
-        {
-            //Is not exactly the same as Java implementation.
-            return DateTimeParser::ToString(value);
-        }
+		static std::string ToXmlStringFromDateTime(const DateTime value);
 
         /**
          * Retrieve the xml string from a boolean value
          * @param value the boolean value
          * @return the xml string
          */
-        static std::string ToXmlStringFromBoolean(const bool value)
-        {
-            return value? "true": "false";
-        }
+		static std::string ToXmlStringFromBoolean(const bool value);
     };
 }

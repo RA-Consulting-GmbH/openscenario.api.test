@@ -139,10 +139,7 @@ set( SOURCES_GENERATED_1_0_XMLPARSER
   "generated/v1_0/xmlParser/XmlParsers2V1_0.cpp"
 )
 
-set( SOURCES_LOADER_1_0
-  ${SOURCES_LOADER_1_0}
-  "src/v1_0/loader/XmlScenarioLoaderV1_0.cpp"
-  )
+
 
 ## V1.1
 set( SOURCES_GENERATED_1_1_API
@@ -171,10 +168,6 @@ set( SOURCES_GENERATED_1_1_XMLPARSER
   "generated/v1_1/xmlParser/XmlParsers2V1_1.cpp"
 )
 
-set( SOURCES_LOADER_1_1
-  ${SOURCES_LOADER_1_1}
-  "src/v1_1/loader/XmlScenarioLoaderV1_1.cpp"
-  )
   
 set( HEADERS_EXPRESSIONS_LIB
   ${HEADERS_EXPRESSIONS_LIB}
@@ -486,6 +479,117 @@ set( HEADERS_GENERATED_1_1_EXPORT_XML
   "generated/v1_1/export/xml/OpenScenarioXmlExporterV1_1.h"
 )
 
+
+#SOURCES
+set( SOURCES_API
+	"src/api/KeyNotSupportedException.cpp"
+	"src/api/SimpleType.cpp"
+)
+
+set( SOURCES_CHECKER_TREE
+	"src/checker/tree/BaseTreeContext.cpp"
+	"src/checker/tree/ContentMessage.cpp"
+	"src/checker/tree/PropertyTreeContext.cpp"
+)
+
+set( SOURCES_COMMON
+	"src/common/ContentMessage.cpp"
+	"src/common/DateTime.cpp"
+	"src/common/ErrorLevel.cpp"
+	"src/common/ExportDefinitions.cpp"
+	"src/common/FileContentMessage.cpp"
+	"src/common/SimpleMessageLogger.cpp"
+	"src/common/Textmarker.cpp"
+	"src/common/TreeContentMessage.cpp"
+	"src/common/TreeMessageLogger.cpp"
+)
+
+set( SOURCES_EXPORT
+	"src/export/XmlExportHelper.cpp"
+)
+
+set( SOURCES_IMPL
+	"src/impl/BaseImpl.cpp"
+)
+
+set( SOURCES_LOADER
+	"src/loader/FileResourceLocator.cpp"
+	"src/loader/ResourceNotFoundException.cpp"
+	"src/loader/ScenarioLoaderException.cpp"
+)
+
+set( SOURCES_PARAMETER
+	"src/parameter/ParameterValue.cpp"
+)
+
+set( SOURCES_PARSER
+	"src/parser/ParserContext.cpp"
+	"src/parser/ParserHelper.cpp"
+	"src/parser/XmlParserException.cpp"
+)
+
+set( SOURCES_SIMPLE_STRUCT
+	"src/simple/struct/IndexedElement.cpp"
+	"src/simple/struct/XmlToSimpleNodeConverter.cpp"
+)
+
+set( SOURCES_V1_0_CATALOG
+	"src/v1_0/catalog/CatalogCacheV1_0.cpp"
+)
+
+set( SOURCES_V1_0_CHECKER
+	"src/v1_0/checker/ParameterDeclarationCheckerV1_0.cpp"
+	"src/v1_0/checker/VersionCheckerRuleV1_0.cpp"
+)
+
+set( SOURCES_V1_0_LOADER
+	"src/v1_0/loader/OpenScenarioProcessingHelperV1_0.cpp"
+	"src/v1_0/loader/XmlScenarioImportLoaderFactoryV1_0.cpp"
+	"src/v1_0/loader/XmlScenarioImportLoaderV1_0.cpp"
+	"src/v1_0/loader/XmlScenarioLoaderFactoryV1_0.cpp"
+	"src/v1_0/loader/XmlScenarioLoaderV1_0.cpp"
+)
+
+set( SOURCES_V1_0_PARAMETER
+	"src/v1_0/parameter/ParameterResolverV1_0.cpp"
+)
+
+set( SOURCES_V1_0_PARSER
+	"src/v1_0/parser/CatalogReferenceParserContextV1_0.cpp"
+)
+
+set( SOURCES_V1_1_CATALOG
+	"src/v1_1/catalog/CatalogCacheV1_1.cpp"
+)
+
+set( SOURCES_V1_1_CHECKER
+	"src/v1_1/checker/ParameterDeclarationCheckerV1_1.cpp"
+	"src/v1_1/checker/VersionCheckerRuleV1_1.cpp"
+)
+
+set( SOURCES_V1_1_LOADER
+	"src/v1_1/loader/OpenScenarioProcessingHelperV1_1.cpp"
+	"src/v1_1/loader/XmlScenarioImportLoaderFactoryV1_1.cpp"
+	"src/v1_1/loader/XmlScenarioImportLoaderV1_1.cpp"
+	"src/v1_1/loader/XmlScenarioLoaderFactoryV1_1.cpp"
+	"src/v1_1/loader/XmlScenarioLoaderV1_1.cpp"
+)
+
+set( SOURCES_V1_1_PARAMETER
+	"src/v1_1/parameter/ParameterResolverV1_1.cpp"
+)
+
+set( SOURCES_V1_1_PARSER
+	"src/v1_1/parser/CatalogReferenceParserContextV1_1.cpp"
+)
+
+set( SOURCES_XMLINDEXER
+	"src/xmlIndexer/AttributeNode.cpp"
+	"src/xmlIndexer/ElementNode.cpp"
+	"src/xmlIndexer/Position.cpp"
+	"src/xmlIndexer/PositionIndex.cpp"
+	"src/xmlIndexer/PositionNode.cpp"
+)
 # Resource files
 if( MSVC )
   set( RESOURCE_FILES
@@ -505,7 +609,7 @@ if( MSVC )
   source_group( Sources\\v1_0\\Generated\\Checker\\Range FILES ${SOURCES_GENERATED_1_0_CHECKER_RANGE} )
   source_group( Sources\\v1_0\\Generated\\Impl FILES ${SOURCES_GENERATED_1_0_IMPL} )
   source_group( Sources\\v1_0\\Generated\\XmlParser FILES ${SOURCES_GENERATED_1_0_XMLPARSER} )
-  source_group( Sources\\v1_0\\Loader FILES ${SOURCES_LOADER_1_0} )
+
 
   source_group( Sources FILES ${SOURCES} )
   source_group( Sources\\v1_1\\Generated\\Api FILES ${SOURCES_GENERATED_1_1_API} )
@@ -513,8 +617,28 @@ if( MSVC )
   source_group( Sources\\v1_1\\Generated\\Checker\\Range FILES ${SOURCES_GENERATED_1_1_CHECKER_RANGE} )
   source_group( Sources\\v1_1\\Generated\\Impl FILES ${SOURCES_GENERATED_1_1_IMPL} )
   source_group( Sources\\v1_1\\Generated\\XmlParser FILES ${SOURCES_GENERATED_1_1_XMLPARSER} )
-  source_group( Sources\\v1_1\\Loader FILES ${SOURCES_LOADER_1_1} )
 
+  source_group( Sources\\Api FILES ${SOURCES_API})
+  source_group( Sources\\Checker\\Tree FILES ${SOURCES_CHECKER_TREE})
+  source_group( Sources\\Common FILES ${SOURCES_COMMON})
+  source_group( Sources\\Export FILES ${SOURCES_EXPORT})
+  source_group( Sources\\Impl FILES ${SOURCES_IMPL})
+  source_group( Sources\\Loader FILES ${SOURCES_LOADER})
+  source_group( Sources\\Parameter FILES ${SOURCES_PARAMETER})
+  source_group( Sources\\Parser FILES ${SOURCES_PARSER})
+  source_group( Sources\\Simple\\Struct FILES ${SOURCES_SIMPLE_STRUCT})
+  source_group( Sources\\V1_0\\Catalog FILES ${SOURCES_V1_0_CATALOG})
+  source_group( Sources\\V1_0\\Checker FILES ${SOURCES_V1_0_CHECKER})
+  source_group( Sources\\V1_0\\Loader FILES ${SOURCES_V1_0_LOADER})
+  source_group( Sources\\V1_0\\Parameter FILES ${SOURCES_V1_0_PARAMETER})
+  source_group( Sources\\V1_0\\Parser FILES ${SOURCES_V1_0_PARSER})
+  source_group( Sources\\V1_1\\Catalog FILES ${SOURCES_V1_1_CATALOG})
+  source_group( Sources\\V1_1\\Checker FILES ${SOURCES_V1_1_CHECKER})
+  source_group( Sources\\V1_1\\Loader FILES ${SOURCES_V1_1_LOADER})
+  source_group( Sources\\V1_1\\Parameter FILES ${SOURCES_V1_1_PARAMETER})
+  source_group( Sources\\V1_1\\Parser FILES ${SOURCES_V1_1_PARSER})
+  source_group( Sources\\XmlIndexer FILES ${SOURCES_XMLINDEXER})
+  
   # Groups for header files
   source_group( Headers FILES ${HEADERS} )
 
@@ -585,10 +709,16 @@ add_library ( ${PROJECT_NAME} # ${LIB_TYPE}
               ${SOURCES} 
 
               ${SOURCES_GENERATED_1_0_API} ${SOURCES_GENERATED_1_0_CHECKER_IMPL} ${SOURCES_GENERATED_1_0_CHECKER_RANGE} 
-              ${SOURCES_GENERATED_1_0_IMPL} ${SOURCES_GENERATED_1_0_XMLPARSER} ${SOURCES_LOADER_1_0} 
+              ${SOURCES_GENERATED_1_0_IMPL} ${SOURCES_GENERATED_1_0_XMLPARSER}  
 
               ${SOURCES_GENERATED_1_1_API} ${SOURCES_GENERATED_1_1_CHECKER_IMPL} ${SOURCES_GENERATED_1_1_CHECKER_RANGE} 
-              ${SOURCES_GENERATED_1_1_IMPL} ${SOURCES_GENERATED_1_1_XMLPARSER} ${SOURCES_LOADER_1_1} 
+              ${SOURCES_GENERATED_1_1_IMPL} ${SOURCES_GENERATED_1_1_XMLPARSER} 
+			  
+			  ${SOURCES_API} ${SOURCES_CHECKER_TREE} ${SOURCES_COMMON} ${SOURCES_EXPORT} ${SOURCES_IMPL} ${SOURCES_LOADER} ${SOURCES_PARAMETER} 
+			  ${SOURCES_PARSER} ${SOURCES_SIMPLE_STRUCT} ${SOURCES_V1_0_CATALOG} ${SOURCES_V1_0_CHECKER} ${SOURCES_V1_0_LOADER} ${SOURCES_V1_0_PARAMETER} 
+			  ${SOURCES_V1_0_PARSER} ${SOURCES_V1_1_CATALOG} ${SOURCES_V1_1_CHECKER} ${SOURCES_V1_1_LOADER} ${SOURCES_V1_1_PARAMETER} ${SOURCES_V1_1_PARSER} 
+			  ${SOURCES_XMLINDEXER} 
+
 
 			  ${ANTLR_XMLLexer_CXX_OUTPUTS}
               ${ANTLR_XMLParser_CXX_OUTPUTS}

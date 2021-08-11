@@ -41,7 +41,7 @@ namespace NET_ASAM_OPENSCENARIO
 
     public:
 
-        IndexedElement(): _elementNode(nullptr), _element(nullptr), _parent() {}
+		IndexedElement();
 
         /**
          * Constructor
@@ -49,122 +49,78 @@ namespace NET_ASAM_OPENSCENARIO
          * @param elementNode the ElementNode from the ANTLR parser
          * @param parent parent element from the ANTLR parser
         */
-        IndexedElement(tinyxml2::XMLElement* element, const std::shared_ptr<ElementNode> elementNode, const std::weak_ptr<IndexedElement> parent) :
-                      _elementNode(elementNode), _element(element), _parent(parent) {}
+		IndexedElement(tinyxml2::XMLElement* element, const std::shared_ptr<ElementNode> elementNode, const std::weak_ptr<IndexedElement> parent);
         
         /**
          * Sets the characters (for simpleContent types)
          * @param characters the cahracters
          */
-        void SetCharacters(std::string& characters) 
-        {
-            _characters = characters;
-        }
+		void SetCharacters(std::string& characters);
 
         /**
          * The parent of this element (from ANTLR element)
          * @return the parent
          */
-        std::weak_ptr<IndexedElement> GetParent() const
-        {
-            return _parent;
-        }
+		std::weak_ptr<IndexedElement> GetParent() const;
 
         /**
          * Adding sub elements (for complex types and groups)
          * @param element
          */
-        void AddSubElement(std::shared_ptr<IndexedElement>& element)
-        {
-            _subElements.push_back(element);
-        }
+		void AddSubElement(std::shared_ptr<IndexedElement>& element);
 
         /**
          * The ordered list of sub elements of the element as they occur in the xml.
          * @return the sub elements
          */
-        std::vector<std::shared_ptr<IndexedElement>> GetSubElements() const
-        {
-            return _subElements;
-        }
+		std::vector<std::shared_ptr<IndexedElement>> GetSubElements() const;
 
         /**
          * The characters (for simpleContent types)
          * @return the characters
          */
-        std::string GetCharacters() const
-        {
-            return _characters;
-        };
+		std::string GetCharacters() const;
 
         /**
          * The start position in the file
          * @return the position
          */
-        Position GetStartElementLocation() const
-        {
-            return _elementNode->GetStartPosition();
-        }
+		Position GetStartElementLocation() const;
 
         /**
          * The end position in the file
          * @return the position
          */
-        Position GetEndElementLocation() const
-        {
-            return _elementNode->GetEndPosition();
-        }
+		Position GetEndElementLocation() const;
 
         /**
         * The dom element
         * @return dom element
         */
-        tinyxml2::XMLElement* GetElement() const
-        {
-            return _element;
-        }
+		tinyxml2::XMLElement* GetElement() const;
 
         /**
          * The start position of an attribute in this element
          * @param attributeName name of the requested attribute
          * @return the position
          */
-        Position GetAttributeStartPosition(std::string& attributeName) const
-        {
-            const auto kAttributeNode = _elementNode->GetAttributeNode(attributeName);
-            if (kAttributeNode)
-                return kAttributeNode->GetStartPosition();
-            return { -1, -1 };
-        }
+		Position GetAttributeStartPosition(std::string& attributeName) const;
 
         /**
          * The end position of an attribute in this element
          * @param attributeName name of the requested attribute
          * @return the position
          */
-        Position GetAttributeEndPosition(std::string& attributeName) const
-        {
-            const auto kAttributeNode = _elementNode->GetAttributeNode(attributeName);
-            if (kAttributeNode)
-                return kAttributeNode->GetEndPosition();
-            return {-1,-1};
-        }
+		Position GetAttributeEndPosition(std::string& attributeName) const;
         /**
          * Is this node a mixed node
          * @return true if mixed node
          */
-        bool IsMixedNode() const
-        {
-            return _isMixedNode;
-        }
-
+		bool IsMixedNode() const;
         /**
          * Set whether this node is a mixed node
          * @param isMixedNode true if mixed node
          */
-        void SetMixedNode(const bool isMixedNode) 
-        {
-            _isMixedNode = isMixedNode;
-        }
+		void SetMixedNode(const bool isMixedNode);
     };
 }

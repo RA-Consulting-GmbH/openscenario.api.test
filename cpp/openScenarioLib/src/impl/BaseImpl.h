@@ -52,7 +52,7 @@ namespace NET_ASAM_OPENSCENARIO
             Textmarker textMarker;
             std::string parameterName;
 
-            ParameterizedAttribute(const std::string parameterName, Textmarker& textMarker) : textMarker(textMarker), parameterName(parameterName) {}
+			ParameterizedAttribute(const std::string parameterName, Textmarker& textMarker);
         };
 
         class BaseImplIlocator : public ILocator
@@ -63,33 +63,16 @@ namespace NET_ASAM_OPENSCENARIO
             Textmarker& _endMarker;
 
         public:
-            BaseImplIlocator(std::map<std::string, std::shared_ptr<Textmarker>>& attributeKeyToStartMarker, std::map<std::string, std::shared_ptr<Textmarker>>& attributeKeyToEndMarker,
-                             Textmarker& startMarker, Textmarker& endMarker): _attributeKeyToStartMarker(attributeKeyToStartMarker),
-                                                                              _attributeKeyToEndMarker(attributeKeyToEndMarker), _startMarker(startMarker), _endMarker(endMarker)
-            {
-            }
+			BaseImplIlocator(std::map<std::string, std::shared_ptr<Textmarker>>& attributeKeyToStartMarker, std::map<std::string, std::shared_ptr<Textmarker>>& attributeKeyToEndMarker,
+				Textmarker& startMarker, Textmarker& endMarker);
 
-            Textmarker GetStartMarkerOfProperty(const std::string& propertyKey) override
-            {
-                if (_attributeKeyToStartMarker[propertyKey] != nullptr)
-                    return *_attributeKeyToStartMarker[propertyKey];
-                return Textmarker(-1,-1,"");
-            }
+			Textmarker GetStartMarkerOfProperty(const std::string& propertyKey) override;
 
-            Textmarker GetStartMarker() override
-            {
-                return _startMarker;
-            }
+			Textmarker GetStartMarker() override;
 
-            Textmarker GetEndMarkerOfProperty(std::string& propertyKey) override
-            {
-                return *_attributeKeyToEndMarker[propertyKey];
-            }
+			Textmarker GetEndMarkerOfProperty(std::string& propertyKey) override;
 
-            Textmarker GetEndMarker() override
-            {
-                return _endMarker;
-            }
+			Textmarker GetEndMarker() override;
         };
 
         std::map<std::string, std::shared_ptr<ParameterizedAttribute>> _attributeKeyToParameterName{};
@@ -105,56 +88,37 @@ namespace NET_ASAM_OPENSCENARIO
         std::map<std::string, SimpleType> _propertyToType;
 
     public:
-        virtual ~BaseImpl() = default;
+        virtual ~BaseImpl();
 
         /**
          * A clone method for the start marker
          * @param baseImpl the cloned object to set this object's start marker
          */
-        void CloneStartMarker(BaseImpl& baseImpl) const
-        {
-            baseImpl.SetStartMarker(_startMarker);
-        }
+		void CloneStartMarker(BaseImpl& baseImpl) const;
 
         /**
          * Clone method for the end marker
          * @param baseImpl the cloned object to set this object's end marker
          */
-        void CloneEndMarker(BaseImpl& baseImpl) const
-        {
-            baseImpl.SetEndMarker(_endMarker);
-        }
+		void CloneEndMarker(BaseImpl& baseImpl) const;
 
         /**
          * Clone method for the properties start markers
          * @param baseImpl the cloned object to set this object's property start markers
          */
-        void CloneAttributeKeyToStartMarker(BaseImpl& baseImpl) const
-        {
-            baseImpl._attributeKeyToStartMarker = _attributeKeyToStartMarker;
-        }
+		void CloneAttributeKeyToStartMarker(BaseImpl& baseImpl) const;
 
         /**
          * Clone method for the properties end markers
          * @param baseImpl the cloned object to set this object's property end markers
          */
-        void CloneAttributeKeyToEndMarker(BaseImpl& baseImpl) const
-        {
-            baseImpl._attributeKeyToEndMarker = _attributeKeyToEndMarker;
-        }
+		void CloneAttributeKeyToEndMarker(BaseImpl& baseImpl) const;
 
         /**
          * Clones the attributeKeyToParameterName property of this class into the cloned object.
          * @param baseImpl  the cloned object to copy this object's attributeKeyToParameterName into.
          */
-        void CloneAttributeKeyToParameterNameMap(BaseImpl& baseImpl)
-        {
-            for (auto&& pair : _attributeKeyToParameterName)
-            {
-                auto parameterizedAttribute = pair.second;
-                baseImpl._attributeKeyToParameterName.emplace(pair.first, std::make_shared<ParameterizedAttribute>(parameterizedAttribute->parameterName, parameterizedAttribute->textMarker));
-            }
-        }
+		void CloneAttributeKeyToParameterNameMap(BaseImpl& baseImpl);
 
         /**
          * Sets an attribute that is represented by a parameter instead of a real value.
@@ -162,150 +126,75 @@ namespace NET_ASAM_OPENSCENARIO
          * @param parameterName the name of the parameter.
          * @param textMarker The text marker for this object.
          */
-        void SetAttributeParameter(const std::string attributeKey, const std::string parameterName, Textmarker& textMarker)
-        {
-            _attributeKeyToParameterName.emplace(attributeKey, std::make_shared<ParameterizedAttribute>(parameterName, textMarker));
-        }
+		void SetAttributeParameter(const std::string attributeKey, const std::string parameterName, Textmarker& textMarker);
 
         /**
          * Removes a parameter from a attribute.
          *
          * @param attributeKey the key of this attribute.
          */
-        void RemoveAttributeParameter(const std::string attributeKey)
-        {
-            _attributeKeyToParameterName.erase(attributeKey);
-        }
+		void RemoveAttributeParameter(const std::string attributeKey);
 
         /**
          * Adds the resolved attribute value to the list of resolved parameters.
          *
          * @param attributeKey attribute key of the property.
          */
-        void AddResolvedParameter(std::string& attributeKey) 
-        {
-            _resolvedAttributes.push_back(attributeKey);
-        }
+		void AddResolvedParameter(std::string& attributeKey);
 
-        std::vector<std::string> GetResolvedAttributeKeys() const override
-        {
-            return _resolvedAttributes;
-        }
+		std::vector<std::string> GetResolvedAttributeKeys() const override;
 
         /**
          * Gets the java class for a parameter type (for resolving the parameter).
          * @param typeName the model type name.
          * @return the corresponding cpp class or null if no type is found.
          */
-        static SimpleType GetParameterType(std::string& typeName)
-        {
-            if (typeName == "string")
-                return SimpleType::STRING;
-            if (typeName == "unsignedInt")
-                return SimpleType::UNSIGNED_INT;
-            if (typeName == "integer")
-                return SimpleType::INT;
-            if (typeName == "unsignedShort")
-                return SimpleType::UNSIGNED_SHORT;
-            if (typeName == "dateTime")
-                return SimpleType::DATE_TIME;
-            if (typeName == "boolean")
-                return SimpleType::BOOLEAN;
-            if (typeName == "double")
-                return SimpleType::DOUBLE;
-            return SimpleType::UNKNOWN;
-        }
-
+		static SimpleType GetParameterType(std::string& typeName);
         /**
          * Resolve a parameter internally
          * @param logger to log messages during the resolving process (e.g. format errors)
          * @param attributeKey the key of the property the value should be assigned to
          * @param value the string representation of the value that should be assigned to the property
          */
-        virtual void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& value) {}
-
+		virtual void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& value);
+    	
         /**
          * Constructor
          */
-        BaseImpl(): _startMarker(0, 0, ""), _endMarker(0, 0, "")
-        {
-            _adapters.emplace(std::make_pair(typeid(ILocator).name(), std::make_shared<BaseImplIlocator>(_attributeKeyToStartMarker,
-                                                                                                         _attributeKeyToEndMarker, _startMarker, _endMarker)));
-        }
+		BaseImpl();
 
-        std::shared_ptr<void> GetAdapter(const std::string classifier) override
-        {
-            const auto kIt = _adapters.find(classifier);
-            if (kIt != _adapters.end())
-                return kIt->second;
-            return nullptr;
-        }
+		std::shared_ptr<void> GetAdapter(const std::string classifier) override;
 
         /**
          * Adds an adapter object to the instance
          * @param classifier The adapter class
          * @param object the adapter object
          */
-        void AddAdapter(std::string classifier, std::shared_ptr<void> object)
-        {
-            _adapters.emplace(std::make_pair(classifier, object));
-        }
+		void AddAdapter(std::string classifier, std::shared_ptr<void> object);
 
         /**
          * Puts a start marker for a specific property
          * @param propertyKey the key of the property
          * @param startMarker the start marker
          */
-        void PutPropertyStartMarker(std::string propertyKey, std::shared_ptr<Textmarker> startMarker)
-        {
-            _attributeKeyToStartMarker.emplace(std::make_pair(propertyKey, startMarker));
-        }
+		void PutPropertyStartMarker(std::string propertyKey, std::shared_ptr<Textmarker> startMarker);
 
         /**
          * Puts an end marker for a specific property
          * @param propertyKey the key of the property
          * @param endMarker the end marker
          */
-        void PutPropertyEndMarker(std::string propertyKey, std::shared_ptr<Textmarker> endMarker)
-        {
-            _attributeKeyToEndMarker.emplace(std::make_pair(propertyKey, endMarker));
-        }
+		void PutPropertyEndMarker(std::string propertyKey, std::shared_ptr<Textmarker> endMarker);
 
-        std::vector<std::shared_ptr<ParameterValue>> GetParameterDefinitions() const override
-        {
-            return std::vector<std::shared_ptr<ParameterValue>>{};
-        }
+		std::vector<std::shared_ptr<ParameterValue>> GetParameterDefinitions() const override;
 
-        bool HasParameterDefinitions() override
-        {
-            return false;
-        }
+		bool HasParameterDefinitions() override;
 
-        std::shared_ptr<Textmarker> GetTextmarker(std::string& attributeKey) const override
-        {
-            const auto kIt = _attributeKeyToParameterName.find(attributeKey);
-            if( kIt != _attributeKeyToParameterName.end() )
-                return std::make_shared<Textmarker>(kIt->second->textMarker);
-            return nullptr;
-        }
+		std::shared_ptr<Textmarker> GetTextmarker(std::string& attributeKey) const override;
 
-        std::vector<std::string> GetParameterizedAttributeKeys() const override
-        {
-            std::vector<std::string> keys;
-            for( auto&& element : _attributeKeyToParameterName )
-            {
-                keys.push_back(element.first);
-            }
-            return keys;
-        }
+		std::vector<std::string> GetParameterizedAttributeKeys() const override;
 
-        std::string GetParameterNameFromAttribute(std::string& attributeKey) const  override
-        {
-            const auto kIt = _attributeKeyToParameterName.find(attributeKey);
-            if( kIt != _attributeKeyToParameterName.end() )
-                return kIt->second->parameterName;
-            return "";
-        }
+		std::string GetParameterNameFromAttribute(std::string& attributeKey) const  override;
 
         /**
          * Resolve a parameter. Checks the target class and calls resolveParameterInternal.
@@ -313,79 +202,49 @@ namespace NET_ASAM_OPENSCENARIO
          * @param attributeKey the key of the property the value should be assigned to
          * @param value the string representation of the value that should be assigned to the property
          */
-        void ResolveParameter(std::shared_ptr<IParserMessageLogger>& logger, std::string& attributeKey, std::string& value) override
-        {
-            // make sure it is a parameterized attribute
-            const auto kTargetClass = GetTypeFromAttributeName(attributeKey);
-            assert(kTargetClass != SimpleType::UNKNOWN);
-            ResolveParameterInternal(*logger.get(), attributeKey, value);
-        }
+		void ResolveParameter(std::shared_ptr<IParserMessageLogger>& logger, std::string& attributeKey, std::string& value) override;
 
         /**
          * The start marker of the this object in a file.
          * @return start marker or null if not set
          */
-        Textmarker GetStartMarker() const
-        {
-            return _startMarker;
-        }
+		Textmarker GetStartMarker();
 
         /**
          * Assigns the start marker
          * @param startMarker the start marker
          */
-        void SetStartMarker(Textmarker startMarker)
-        {
-            _startMarker = startMarker;
-        }
+		void SetStartMarker(Textmarker startMarker);
 
         /**
          * The end marker of the this object in a file.
          * @return end marker or null if not set
          */
-        Textmarker GetEndMarker() const
-        {
-            return _endMarker;
-        }
+		Textmarker GetEndMarker() const;
 
         /**
          * Assigns the end marker
          * @param endMarker the end marker
          */
-        void SetEndMarker(Textmarker endMarker)
-        {
-            _endMarker = endMarker;
-        }
+		void SetEndMarker(Textmarker endMarker);
 
         /**
          * All child instances of this object as a flattened list. Must be implemented in subclasses.
          * @return a list with all child instances.
          */
-        virtual  std::vector<std::shared_ptr<BaseImpl>> GetChildren() const
-        {
-            return {};
-        }
+		virtual  std::vector<std::shared_ptr<BaseImpl>> GetChildren() const;
 
         /**
          * Indicating that all subclasses must implement the the Clonable interface.
          */
-        virtual std::shared_ptr<BaseImpl> Clone()
-        {
-            return nullptr;
-        }
+		virtual std::shared_ptr<BaseImpl> Clone();
 
-        std::weak_ptr<IOpenScenarioModelElement> GetParent() const override
-        {
-            return _parent;
-        }
+		std::weak_ptr<IOpenScenarioModelElement> GetParent() const override;
 
         /**
          * Setting the object's parent
          * @param parent the parent of the object in the model tree.
          */
-        void SetParent(const std::weak_ptr<IOpenScenarioModelElement> parent)
-        {
-            _parent = parent;
-        }
+		void SetParent(const std::weak_ptr<IOpenScenarioModelElement> parent);
     };
 }

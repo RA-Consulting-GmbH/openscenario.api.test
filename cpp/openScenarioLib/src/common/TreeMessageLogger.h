@@ -39,36 +39,20 @@ namespace NET_ASAM_OPENSCENARIO
          * @param logLevel the log level treshhold. Messages with this log level
          * and worse log levels are logged
          */
-         TreeMessageLogger(const ErrorLevel logLevel): _baseMessageLogger(logLevel) {}
+		TreeMessageLogger(const ErrorLevel logLevel);
 
-         void LogMessage(TreeContentMessage& message) override
-         {
-             _baseMessageLogger.LogMessage(message);
-         }
+		void LogMessage(TreeContentMessage& message) override;
 
-         void LogAllMessages(std::vector<TreeContentMessage>& messages) override
-         {
-             _baseMessageLogger.LogAllMessages(messages);
-         }
+		void LogAllMessages(std::vector<TreeContentMessage>& messages) override;
 
          /**
          * The message that have been picked up and >= log level.
          * @return the messages picked up
          */
-         std::vector<TreeContentMessage> GetMessages()
-         {
-             return _baseMessageLogger.GetMessages();
-         }
+         std::vector<TreeContentMessage> GetMessages();
 
-         std::vector<TreeContentMessage> GetMessagesFilteredByErrorLevel(const ErrorLevel errorLevel)  override
-         {
-             return _baseMessageLogger.GetMessagesFilteredByErrorLevel(errorLevel);
-         }
+		 std::vector<TreeContentMessage> GetMessagesFilteredByErrorLevel(const ErrorLevel errorLevel)  override;
 
-         std::vector<TreeContentMessage> GetMessagesFilteredByWorseOrEqualToErrorLevel(const ErrorLevel errorLevel) override
-         {
-             return _baseMessageLogger.GetMessagesFilteredByWorseOrEqualToErrorLevel(errorLevel);
-         }
-
+		 std::vector<TreeContentMessage> GetMessagesFilteredByWorseOrEqualToErrorLevel(const ErrorLevel errorLevel) override;
     };
 }

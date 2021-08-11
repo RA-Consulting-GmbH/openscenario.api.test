@@ -42,15 +42,9 @@ namespace NET_ASAM_OPENSCENARIO
              * catalog references.
              * @param catalogReference a catalog reference to be added.
              */
-            void AddCatalogReference(const std::shared_ptr<ICatalogReference> catalogReference)
-            {
-                _catalogReferences.push_back(catalogReference);
-            }
+			void AddCatalogReference(const std::shared_ptr<ICatalogReference> catalogReference);
 
-            std::vector<std::shared_ptr<ICatalogReference>> GetCatalogReferences() override
-            {
-                return _catalogReferences;
-            }
+			std::vector<std::shared_ptr<ICatalogReference>> GetCatalogReferences() override;
 
         };
     }
