@@ -17,7 +17,8 @@
 
 #pragma once
 #include "TestBaseV1_0.h"
-#include "OpenScenarioXmlExporterV1_0.h"
+#include <string>
+
 namespace NET_ASAM_OPENSCENARIO
 {
     namespace v1_0
@@ -27,104 +28,11 @@ namespace NET_ASAM_OPENSCENARIO
 
 		public:
 
-			TestWriterApi(std::string& executablePath): TestBase(executablePath) {}
+			TestWriterApi(std::string& executablePath);
 
-			bool TestSimpleSuccess()
-			{
-
-				try
-				{
-					//Load a simple scenario file
-					ClearMessageLogger();
-					const std::string kFilename = _executablePath + "/" + kInputDir + "DoubleLaneChanger.xosc";
-					auto openScenarioImpl = std::dynamic_pointer_cast<IOpenScenarioWriter>(ExecuteParsing(kFilename));
-
-					auto res =  Assert(_messageLogger->GetMessagesFilteredByWorseOrEqualToErrorLevel(NET_ASAM_OPENSCENARIO::ERROR).empty(), ASSERT_LOCATION);
-
-					//Write out the scenario object
-					auto exporter = OpenScenarioXmlExporter();
-					auto xmlDoc = exporter.CreateXmlDocument(openScenarioImpl);
-					const std::string kOutputFilename = _executablePath + "/" + kInputDir + "writerApiExports/DoubleLaneChangerGenerated.xosc";
-					xmlDoc->SaveFile(kOutputFilename.c_str());
-					res =  res && Assert(_messageLogger->GetMessagesFilteredByWorseOrEqualToErrorLevel(NET_ASAM_OPENSCENARIO::ERROR).empty(), ASSERT_LOCATION);
-
-					//ReLoad the generated file and check
-					openScenarioImpl = std::dynamic_pointer_cast<IOpenScenarioWriter>(ExecuteParsing(kFilename));
-					res = res && Assert(_messageLogger->GetMessagesFilteredByWorseOrEqualToErrorLevel(NET_ASAM_OPENSCENARIO::ERROR).empty(), ASSERT_LOCATION);
-
-					return res;
-				}
-				catch (NET_ASAM_OPENSCENARIO::ScenarioLoaderException& e)
-				{
-					std::cout << e.what() << std::endl;
-					return Assert(false, ASSERT_LOCATION);
-				}
-			}
-
-
-			bool TestParamsSuccess()
-			{
-
-				try
-				{
-					//Load a simple scenario file
-					ClearMessageLogger();
-					const std::string kFilename = _executablePath + "/" + kInputDir + "DoubleLaneChangerParams.xosc";
-					auto openScenarioImpl = std::dynamic_pointer_cast<IOpenScenarioWriter>(ExecuteParsing(kFilename));
-
-					auto res = Assert(_messageLogger->GetMessagesFilteredByWorseOrEqualToErrorLevel(NET_ASAM_OPENSCENARIO::ERROR).empty(), ASSERT_LOCATION);
-
-					//Write out the scenario object
-					auto exporter = OpenScenarioXmlExporter();
-					auto xmlDoc = exporter.CreateXmlDocument(openScenarioImpl);
-					const std::string kOutputFilename = _executablePath + "/" + kInputDir + "writerApiExports/DoubleLaneChangerParamsGenerated.xosc";
-					xmlDoc->SaveFile(kOutputFilename.c_str());
-					res = res && Assert(_messageLogger->GetMessagesFilteredByWorseOrEqualToErrorLevel(NET_ASAM_OPENSCENARIO::ERROR).empty(), ASSERT_LOCATION);
-
-					//ReLoad the generated file and check
-					openScenarioImpl = std::dynamic_pointer_cast<IOpenScenarioWriter>(ExecuteParsing(kFilename));
-					res = res && Assert(_messageLogger->GetMessagesFilteredByWorseOrEqualToErrorLevel(NET_ASAM_OPENSCENARIO::ERROR).empty(), ASSERT_LOCATION);
-
-					return res;
-				}
-				catch (NET_ASAM_OPENSCENARIO::ScenarioLoaderException& e)
-				{
-					std::cout << e.what() << std::endl;
-					return Assert(false, ASSERT_LOCATION);
-				}
-			}
-
-			bool TestBomFile()
-			{
-
-				try
-				{
-					//Load a simple scenario file
-					ClearMessageLogger();
-					const std::string kFilename = _executablePath + "/" + kInputDir + "DoubleLaneChanger-utf8-BOM.xosc";
-					auto openScenarioImpl = std::dynamic_pointer_cast<IOpenScenarioWriter>(ExecuteParsing(kFilename));
-
-					auto res = Assert(_messageLogger->GetMessagesFilteredByWorseOrEqualToErrorLevel(NET_ASAM_OPENSCENARIO::ERROR).empty(), ASSERT_LOCATION);
-
-					//Write out the scenario object
-					auto exporter = OpenScenarioXmlExporter();
-					auto xmlDoc = exporter.CreateXmlDocument(openScenarioImpl);
-					const std::string kOutputFilename = _executablePath + "/" + kInputDir + "writerApiExports/DoubleLaneChanger-utf8-BOMGenerated.xosc";
-					xmlDoc->SaveFile(kOutputFilename.c_str());
-					res = res && Assert(_messageLogger->GetMessagesFilteredByWorseOrEqualToErrorLevel(NET_ASAM_OPENSCENARIO::ERROR).empty(), ASSERT_LOCATION);
-
-					//ReLoad the generated file and check
-					openScenarioImpl = std::dynamic_pointer_cast<IOpenScenarioWriter>(ExecuteParsing(kFilename));
-					res = res && Assert(_messageLogger->GetMessagesFilteredByWorseOrEqualToErrorLevel(NET_ASAM_OPENSCENARIO::ERROR).empty(), ASSERT_LOCATION);
-
-					return res;
-				}
-				catch (NET_ASAM_OPENSCENARIO::ScenarioLoaderException& e)
-				{
-					std::cout << e.what() << std::endl;
-					return Assert(false, ASSERT_LOCATION);
-				}
-			}
+			bool TestSimpleSuccess();
+			bool TestParamsSuccess();
+			bool TestBomFile();
 		};
 	}
 }

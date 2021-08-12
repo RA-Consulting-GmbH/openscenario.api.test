@@ -23,7 +23,7 @@
 #include "ILocator.h"
 #include "IParserMessageLogger.h"
 #include "ApiClassInterfacesV1_0.h"
-#undef ERROR
+
 namespace NET_ASAM_OPENSCENARIO
 {
     namespace v1_0

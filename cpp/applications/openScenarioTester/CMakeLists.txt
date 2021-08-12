@@ -226,6 +226,39 @@ set( SOURCES_XMLINDEXER
 	"${OPEN_SCENARIO_LIB_SRC_DIR}/xmlIndexer/PositionIndex.cpp"
 	"${OPEN_SCENARIO_LIB_SRC_DIR}/xmlIndexer/PositionNode.cpp"
 )
+
+# Test Sources
+set( SOURCES
+	${SOURCES}
+	"src/OpenScenarioTester.cpp"
+	"src/TestBaseV1_0.cpp"
+	"src/TestBaseV1_1.cpp"
+	"src/TestExamplesV1_0.cpp"
+	"src/TestExamplesV1_1.cpp"
+	"src/TestFilesV1_0.cpp"
+	"src/TestFilesV1_1.cpp"
+	"src/TestFlexInterfaceV1_0.cpp"
+	"src/TestFlexInterfaceV1_1.cpp"
+	"src/TestImportsV1_0.cpp"
+	"src/TestImportsV1_1.cpp"
+	"src/TestInjectedParametersV1_0.cpp"
+	"src/TestInjectedParametersV1_1.cpp"
+	"src/TestRangeCheckerV1_0.cpp"
+	"src/TestRangeCheckerV1_1.cpp"
+	"src/TestReaderV1_0.cpp"
+	"src/TestReaderV1_1.cpp"
+	"src/TestSimpleDemosV1_0.cpp"
+	"src/TestSimpleDemosV1_1.cpp"
+	"src/TestVersionCheckerV1_0.cpp"
+	"src/TestVersionCheckerV1_1.cpp"
+	"src/TestWriterApiV1_0.cpp"
+	"src/TestWriterApiV1_1.cpp"
+)
+
+set( SOURCES_HELPER
+	"src/helper/EgoCheckerRuleV1_0.cpp"
+	"src/helper/EgoCheckerRuleV1_1.cpp"
+)
 ################################################################
 # Resource files
 if( MSVC )
@@ -240,7 +273,8 @@ endif()
 # Create groups for VS
 if( MSVC )
   # Groups for source files
-  source_group( Sources FILES ${SOURCES} )
+  source_group( Sources FILES ${SOURCES})
+  source_group( Sources\\Helper FILES ${SOURCES_HELPER})
 
   # Groups for header files
   source_group( Headers FILES ${HEADERS} )
@@ -273,7 +307,7 @@ endif()
 
 ################################################################
 # Generate executable
-add_executable( ${PROJECT_NAME} ${SOURCES} ${HEADERS} ${HEADERS_HELPER} 
+add_executable( ${PROJECT_NAME} ${SOURCES} ${SOURCES_HELPER} ${HEADERS} ${HEADERS_HELPER} 
 				${SOURCES_API} ${SOURCES_CHECKER_TREE} ${SOURCES_COMMON} ${SOURCES_EXPORT} ${SOURCES_IMPL} ${SOURCES_LOADER} ${SOURCES_PARAMETER} 
 			    ${SOURCES_PARSER} ${SOURCES_SIMPLE_STRUCT} ${SOURCES_V1_0_CATALOG} ${SOURCES_V1_0_CHECKER} ${SOURCES_V1_0_LOADER} ${SOURCES_V1_0_PARAMETER} 
 			    ${SOURCES_V1_0_PARSER} ${SOURCES_V1_1_CATALOG} ${SOURCES_V1_1_CHECKER} ${SOURCES_V1_1_LOADER} ${SOURCES_V1_1_PARAMETER} ${SOURCES_V1_1_PARSER} 

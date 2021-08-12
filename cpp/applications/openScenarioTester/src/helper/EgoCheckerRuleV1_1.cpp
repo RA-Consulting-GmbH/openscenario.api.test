@@ -17,16 +17,16 @@
 
 #pragma once
 
-#include "TestBaseV1_0.h"
+#include "TestBaseV1_1.h"
 #include "ICheckerRule.h"
 #include "FileContentMessage.h"
 #include "ILocator.h"
 #include "IParserMessageLogger.h"
-#include "ApiClassInterfacesV1_0.h"
-#undef ERROR
+#include "ApiClassInterfacesV1_1.h"
+
 namespace NET_ASAM_OPENSCENARIO
 {
-    namespace v1_0
+    namespace v1_1
 	{
 
 
