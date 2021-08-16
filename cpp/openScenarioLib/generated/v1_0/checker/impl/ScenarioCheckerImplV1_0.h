@@ -5724,8 +5724,8 @@ namespace NET_ASAM_OPENSCENARIO
 	        }
 
         public:
-            OPENSCENARIOLIB_EXP void CheckScenarioInFileContext(std::shared_ptr<IContentMessageLogger> messageLogger, std::shared_ptr<IOpenScenario> openScenario) override;
-            OPENSCENARIOLIB_EXP void CheckScenarioInTreeContext(std::shared_ptr<IContentMessageLogger> messageLogger, std::shared_ptr<IOpenScenario> openScenario) override;
+            OPENSCENARIOLIB_EXP void CheckScenarioInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenario> openScenario) override;
+            OPENSCENARIOLIB_EXP void CheckScenarioInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenario> openScenario) override;
             OPENSCENARIOLIB_EXP void AddAbsoluteSpeedCheckerRule(std::shared_ptr<ICheckerRule> checkerRule) override;
             OPENSCENARIOLIB_EXP void AddAbsoluteTargetLaneCheckerRule(std::shared_ptr<ICheckerRule> checkerRule) override;
             OPENSCENARIOLIB_EXP void AddAbsoluteTargetLaneOffsetCheckerRule(std::shared_ptr<ICheckerRule> checkerRule) override;

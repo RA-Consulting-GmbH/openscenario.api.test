@@ -45,7 +45,7 @@ namespace NET_ASAM_OPENSCENARIO
              * @param openScenario the root of the tree
             */
 
-            virtual void CheckScenarioInFileContext(std::shared_ptr<IContentMessageLogger> messageLogger, std::shared_ptr<IOpenScenario> openScenario) = 0;
+            virtual void CheckScenarioInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenario> openScenario) = 0;
 
             /**
              * Checks the scenario in a tree  context
@@ -54,7 +54,7 @@ namespace NET_ASAM_OPENSCENARIO
              * @param openScenario the root of the tree
             */
 
-            virtual void CheckScenarioInTreeContext(std::shared_ptr<IContentMessageLogger> messageLogger, std::shared_ptr<IOpenScenario> openScenario)  = 0;
+            virtual void CheckScenarioInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenario> openScenario)  = 0;
 
             virtual void AddAbsoluteSpeedCheckerRule(std::shared_ptr<ICheckerRule> checkerRule) = 0;
             virtual void AddAbsoluteTargetLaneCheckerRule(std::shared_ptr<ICheckerRule> checkerRule) = 0;
