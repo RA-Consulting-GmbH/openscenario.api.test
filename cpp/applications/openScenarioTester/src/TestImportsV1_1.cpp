@@ -15,7 +15,6 @@
  * limitations under the License.
  */
 
-#pragma once
 #include "TestImportsV1_1.h"
 #include "CatalogHelperV1_1.h"
 

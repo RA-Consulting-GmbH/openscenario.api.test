@@ -16,6 +16,8 @@
  */
 #include "ExprType.h"
 
+#include <algorithm>
+
 namespace OscExpression
 {
 

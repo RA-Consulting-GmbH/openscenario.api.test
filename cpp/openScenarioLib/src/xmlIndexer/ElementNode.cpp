@@ -15,7 +15,6 @@
  * limitations under the License.
  */
 
-#pragma once
 #include "PositionNode.h"
 #include <string>
 #include <vector>

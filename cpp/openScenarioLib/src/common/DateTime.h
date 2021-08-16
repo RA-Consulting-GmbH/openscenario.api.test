@@ -49,6 +49,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         //2004-04-12T13:20:00-05:00 XML Schema 1.0 > xsd:dateTime
 		OPENSCENARIOLIB_EXP static std::string ToString(const DateTime dateTime);
-		OPENSCENARIOLIB_EXP static bool DateTimeParser::ToDateTime(std::string& dateTimeString, DateTime& dateTime);
+		OPENSCENARIOLIB_EXP static bool ToDateTime(std::string& dateTimeString, DateTime& dateTime);
     };
 }

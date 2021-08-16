@@ -18,6 +18,7 @@
 #pragma once
 #include <iostream>
 #include <fstream>
+#include <memory>
 #include <vector>
 #include "ResourceNotFoundException.h"
 #include "MemLeakDetection.h"

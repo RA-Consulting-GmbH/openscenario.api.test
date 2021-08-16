@@ -20,8 +20,10 @@
 #include "OscExprLexer.h"
 #include "SemanticException.h"
 #include <iostream>
+#include <memory>
 #include <string>
 #include <cfenv>
+#include <math.h>
 
 
 namespace OscExpression
@@ -68,7 +70,8 @@ namespace OscExpression
 
 	std::unique_ptr <SemanticException> EvaluatorListener::CreateOverFlowUnderFlowException(size_t column)
 	{
-		return std::make_unique<SemanticException>(SemanticException("Internal Overflow (limits of internal 64 byte double value exceeded)", column));
+		std::unique_ptr<SemanticException> blub = std::unique_ptr<SemanticException>();
+		return std::unique_ptr<SemanticException>( new SemanticException( "Internal Overflow (limits of internal 64 byte double value exceeded)", column ) );
 	}
 
 	EvaluatorListener::EvaluatorListener(

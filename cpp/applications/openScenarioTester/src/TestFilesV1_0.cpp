@@ -15,7 +15,6 @@
  * limitations under the License.
  */
 
-#pragma once
 #include "TestBaseV1_0.h"
 #include "TestFilesV1_0.h"
 

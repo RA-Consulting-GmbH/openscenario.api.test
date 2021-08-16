@@ -3,6 +3,7 @@ cmake_minimum_required( VERSION 3.8.2 )
 project( ExpressionsTester )
 message("${PROJECT_NAME}")
 
+
 ################################################################
 # Preprocessor settings
 if( WIN32 )
@@ -10,6 +11,7 @@ if( WIN32 )
 else( WIN32 )
   add_definitions( -Wall -fPIC -Wno-unused-variable )
 endif( WIN32 )
+
 
 ################################################################
 # Update rc file
@@ -23,24 +25,30 @@ RAC_SET_FOLDERS()
 
 
 ################################################################
-# Preprocessor settings
-# Shared or static lib?
-if( ${BUILD_SHARED_LIBS} )
-  add_definitions( -DEXPORT_OSC_EXPR )
-  set( LIB_TYPE "SHARED" )
-else()
-  set( LIB_TYPE "STATIC" )
-endif()
-
-
+# Antlr
 include_directories(${ANTLR4_INCLUDE_DIRS})
 
-antlr_target(OscParamDefLexer ./src/antlr/OscParamDefLexer.g4 LEXER
-             PACKAGE OscParamDef)
-antlr_target(OscParamDefParser ./src/antlr/OscParamDefParser.g4 PARSER
-			 PACKAGE OscParamDef
+antlr_target(OscParamDefLexer ${CMAKE_CURRENT_SOURCE_DIR}/src/antlr/OscParamDefLexer.g4 LEXER
+             PACKAGE OscParamDef
+             )
+antlr_target(OscParamDefParser ${CMAKE_CURRENT_SOURCE_DIR}/src/antlr/OscParamDefParser.g4 PARSER
+			       PACKAGE OscParamDef
              DEPENDS_ANTLR OscParamDefLexer
              COMPILE_FLAGS -lib ${ANTLR_OscParamDefLexer_OUTPUT_DIR})
+
+
+################################################################
+# Include folders
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/antlr4cpp_generated_src/OscParamDefLexer )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../expressionsLib/inc )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../common )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/thirdParty/nlohmann/inc )
+include_directories( ${ANTLR4_INCLUDE_DIRS} )
+include_directories( ${ANTLR_OscParamDefLexer_OUTPUT_DIR} )
+include_directories( ${ANTLR_OscParamDefParser_OUTPUT_DIR} )
+include_directories( ${ANTLR_OscParamDefParser_CXX_OUTPUTS} )
+include_directories( ${ANTLR_OscParamDefLexer_CXX_OUTPUTS} )
 
 
 ################################################################
@@ -71,11 +79,6 @@ if( MSVC )
   set( VS_RESOURCE_FILE ${CMAKE_CURRENT_SOURCE_DIR}/rc/${PROJECT_NAME}.rc )
 endif()
 
-include_directories(${ANTLR_OscParamDefLexer_OUTPUT_DIR})
-include_directories(${ANTLR_OscParamDefParser_OUTPUT_DIR})
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../expressionsLib/inc)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/thirdParty/nlohmann/inc)
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../common)
 
 ################################################################
 # Add the executable by using cmake's var \${PROJECT_NAME}

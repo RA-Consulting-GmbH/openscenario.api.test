@@ -20,3 +20,4 @@
 /cpp/applications/openScenarioReader/rc/OpenScenarioReader.aps
 /cpp/applications/openScenarioTester/rc/OpenScenarioTester.aps
 /cpp/openScenarioLib/rc/OpenScenarioLib.aps
+cpp/applications/expressionsTester/rc/ExpressionsTester.rc

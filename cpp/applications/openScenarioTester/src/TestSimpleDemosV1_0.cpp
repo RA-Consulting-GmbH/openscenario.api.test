@@ -15,7 +15,6 @@
  * limitations under the License.
  */
 
-#pragma once
 #include "TestSimpleDemosV1_0.h"
 #include "SimpleMessageLogger.h"
 #include "CatalogHelperV1_0.h"

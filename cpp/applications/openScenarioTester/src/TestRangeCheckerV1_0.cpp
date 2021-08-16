@@ -15,7 +15,6 @@
  * limitations under the License.
  */
 
-#pragma once
 #include "TestRangeCheckerV1_0.h"
 #include "RangeCheckerHelperV1_0.h"
 #include "TreeMessageLogger.h"

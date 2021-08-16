@@ -15,8 +15,6 @@
  * limitations under the License.
  */
 
-#pragma once
-
 #include "TestExamplesV1_1.h"
 #include "FileResourceLocator.h"
 

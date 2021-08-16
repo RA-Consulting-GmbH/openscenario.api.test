@@ -15,8 +15,6 @@
  * limitations under the License.
  */
 
-#pragma once
-
 #include "PropertyTreeContext.h"
 #include "MemLeakDetection.h"
 #include <memory>

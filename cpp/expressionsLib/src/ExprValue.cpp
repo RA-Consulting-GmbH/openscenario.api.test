@@ -15,7 +15,10 @@
  * limitations under the License.
  */
 #include "ExprValue.h"
+#include <algorithm>
 #include <limits>
+//#include <math.h>
+#include <climits>
 
 namespace OscExpression
 {

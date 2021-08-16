@@ -16,9 +16,10 @@
  */
 
 #pragma once
-#include <vector>
-#include <set>
 #include <map>
+#include <memory>
+#include <set>
+#include <vector>
 #include "OscInterfacesV1_0.h"
 #include "IParserMessageLogger.h"
 #include "ApiClassImplV1_0.h"
@@ -87,7 +88,7 @@ namespace NET_ASAM_OPENSCENARIO
              * @param injectedParameters the injected parameters
              * @param scenarioDefinition the scenario definition with the global parameter declarations
              */
-			void ParameterResolver::OverrideGlobalParametersWithInjectedParameters(std::vector<std::shared_ptr<ParameterValue>> parameterDefinitions, std::shared_ptr<IParserMessageLogger> logger, std::map<std::string, std::string>& injectedParameters, std::shared_ptr<IScenarioDefinition> scenarioDefinition);
+			void OverrideGlobalParametersWithInjectedParameters(std::vector<std::shared_ptr<ParameterValue>> parameterDefinitions, std::shared_ptr<IParserMessageLogger> logger, std::map<std::string, std::string>& injectedParameters, std::shared_ptr<IScenarioDefinition> scenarioDefinition);
 
 		public:
         	/**

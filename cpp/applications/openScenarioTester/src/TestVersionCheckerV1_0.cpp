@@ -15,7 +15,6 @@
  * limitations under the License.
  */
 
-#pragma once
 #include "TestVersionCheckerV1_0.h"
 #include "VersionCheckerRuleV1_0.h"
 

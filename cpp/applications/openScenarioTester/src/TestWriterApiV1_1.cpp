@@ -15,7 +15,6 @@
  * limitations under the License.
  */
 
-#pragma once
 #include "TestWriterApiV1_1.h"
 #include "OpenScenarioXmlExporterV1_1.h"
 

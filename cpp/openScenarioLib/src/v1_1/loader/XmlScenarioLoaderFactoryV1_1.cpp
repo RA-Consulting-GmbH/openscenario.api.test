@@ -15,7 +15,6 @@
  * limitations under the License.
  */
 
-#pragma once
 #include "XmlScenarioLoaderFactoryV1_1.h"
 #include "XmlScenarioLoaderV1_1.h"
 #include "MemLeakDetection.h"

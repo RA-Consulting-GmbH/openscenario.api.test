@@ -15,7 +15,6 @@
  * limitations under the License.
  */
 
-#pragma once
 #include "ElementNode.h"
 #include <map>
 #include <stack>

@@ -15,8 +15,6 @@
  * limitations under the License.
  */
 
-#pragma once
-
 #include "XmlScenarioImportLoaderFactoryV1_0.h"
 #include "XmlScenarioLoaderV1_0.h"
 #include "XmlScenarioImportLoaderV1_0.h"

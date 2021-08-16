@@ -16,11 +16,19 @@
  */
 #pragma once
 
-#ifdef EXPORT_OSC_EXPR
-#   define OSC_EXPR_EXP __declspec( dllexport )
-#   pragma message( "dllexport" )
-#else
-#   define OSC_EXPR_EXP
+#ifdef _WINDOWS
+#   ifdef EXPORT_OSC_EXPR
+#      define OSC_EXPR_EXP __declspec( dllexport )
+#      pragma message( "dllexport" )
+#   else
+#      define OSC_EXPR_EXP
 //__declspec( dllimport )
-#   pragma message( "dllimport" )
-#endif
+#      pragma message( "dllimport" )
+#   endif
+#elif defined(__unix__) && defined(__linux__)
+#   define OSC_EXPR_EXP
+#elif defined(__APPLE__)
+#   define OSC_EXPR_EXP
+#else
+#   error "OPENSCENARIOLIB: Operating system not supported."
+#endif // _WINDOWS

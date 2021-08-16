@@ -15,7 +15,6 @@
  * limitations under the License.
  */
 
-#pragma once
 #include "MemLeakDetection.h"
 
 namespace NET_ASAM_OPENSCENARIO

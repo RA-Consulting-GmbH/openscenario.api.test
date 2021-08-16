@@ -1,5 +1,4 @@
-#pragma once
-
+//TODO: why?
 #ifdef _WINDOWS
 # ifdef EXPORT_OPENSCENARIOLIB
 #  define OPENSCENARIOLIB_EXP __declspec(dllexport)

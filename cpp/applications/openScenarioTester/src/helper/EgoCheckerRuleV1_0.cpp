@@ -15,8 +15,6 @@
  * limitations under the License.
  */
 
-#pragma once
-
 #include "TestBaseV1_0.h"
 #include "ICheckerRule.h"
 #include "FileContentMessage.h"

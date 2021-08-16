@@ -3,6 +3,7 @@ cmake_minimum_required( VERSION 3.8.2 )
 project( IndexerTester )
 message("${PROJECT_NAME}")
 
+
 ################################################################
 # Preprocessor settings
 if( WIN32 )
@@ -10,6 +11,7 @@ if( WIN32 )
 else( WIN32 )
   add_definitions( -Wall -fPIC -Wno-unused-variable )
 endif( WIN32 )
+
 
 ################################################################
 # Update rc file
@@ -21,6 +23,9 @@ configure_file("${CMAKE_SOURCE_DIR}/common/rc.template" "${CMAKE_CURRENT_SOURCE_
 # Set compile output folder
 RAC_SET_FOLDERS()
 
+
+################################################################
+# Antlr
 include_directories(${ANTLR4_INCLUDE_DIRS})
 
 antlr_target(XMLLexer ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/antlr/XMLLexer.g4 LEXER)
@@ -41,8 +46,6 @@ include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../externalLibs/Filesystem)
 include_directories(${ANTLR4_INCLUDE_DIRS})
 include_directories(${ANTLR_XMLLexer_OUTPUT_DIR})
 include_directories(${ANTLR_XMLParser_OUTPUT_DIR})
-
-
 
 
 ################################################################
