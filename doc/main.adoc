@@ -24,7 +24,7 @@ compiled C++ binary
 
 `/cpp/build/output/Linux_shared/Release/OpenScenarioReader`. 
 
-See the section <<BuildingTheBinaries,Building the binaries>> for building instructions.
+See section <<BuildingTheBinaries,Building the binaries>> for building instructions.
 
 For example the binary is located in the following directory, dependent
 on your development platform: 
@@ -761,6 +761,34 @@ In order to build OpenSCENARIO on your system the following requirements have to
 * cmake >= 3.19
 * a working copy of the OpenSCENARIO sources
 
+==== A note to CMake prior to version 3.19
+If your CMake version is older than 3.19 then cmake-gui is missing the "Preset" entry as seen in the two images below.
+
+.cmake-gui missing the "Preset" element.
+image:images/oscCgNoPreset.png[cmake_gui,width=720,float="center",align="center"]
+
+.cmake-gui with "Preset" element.
+image:images/oscCgPreset.png[cmake_gui,width=720,float="center",align="center"]
+
+You still can use older versions of cmake-gui but in order to work properly how have to select in advance the preset manually using the command line.
+
+For example the command for Linux would look like that:
+[source,bash]
+----
+$ cmake --preset="Linux-shared-release"
+----
+And for Windows the command would look like that:
+[source,bash]
+----
+> cmake --preset="VS2019-x64-shared"
+----
+
+After entering one of these commands you can switch back to cmake-gui.
+
+See section <<BuildingOnConsoleTerminal,Building on console / terminal>> for further building instructionsfor command line.
+A complete command sequence for building OpenSCENARIO via command line is given in section <<CommandLineStepsCondensed,Command line steps condensed>>.
+
+
 ==== Linux
 * gcc >= 5.8
 * uuid-dev >= 2.34 (required to build antlr4), to install uuid-dev execute this shell command:
@@ -896,7 +924,7 @@ XML_ERROR_PARSING
 XML_ERROR_MISMATCHED_ELEMENT
 Ego has 2 axles (front, rear)
 ----
-
+[[BuildingOnConsoleTerminal]]
 === Building on console / terminal
 You can also easily build OpenSCENARIO on systems with console access only.
 But before we dive into that we will have a short excursion to cmake's `presets` as we will need them on the command line.
@@ -1163,7 +1191,8 @@ According to our example you may go now to the folder `cpp/build/cgDebugMakeStat
 [NOTE]
 You cannot use the build preset as you modified the settings and when using the presets your settings will be overwritten.
 
-==== command line steps condensed
+[[CommandLineStepsCondensed]]
+==== Command line steps condensed
 The necessary steps to setup the OpenSCENARIO build environment for console / terminal are shown in short form as follows:
 
 [source,bash]
@@ -1175,7 +1204,7 @@ $ cmake --build --list-presets              # List available build presets for l
 $ cmake --build --preset="<build-preset>"   # Select a preset and compile the sources
 $ ccmake <path project files folder>        # Bring up ncurses frontend, to re-configure
                                             # and re-generate project files
-
+ 
 $ cd <your project files folder>            # Go to the re-generated project files
 $ make                                      # Manually compile the sources
 ----
