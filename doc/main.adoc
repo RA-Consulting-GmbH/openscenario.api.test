@@ -756,7 +756,7 @@ A great starting point for more information on `cmake` is the http://https://cma
 As cmake experienced a dramatic change from version \<= 3.18 to >= 3.19 where presets were introduced we have two sections for building with cmake:
 
 * <<BuildingWithCmakeVersionLe3.18,Building with cmake version \<= 3.18>>
-* <<BuildingWithCmakeVersionLe3.19,Building with cmake version >= 3.19>>
+* <<BuildingWithCmakeVersionGe3.19,Building with cmake version >= 3.19>>
 
 === System requirements
 In order to build OpenSCENARIO on your system the following requirements have to be fulfilled:
