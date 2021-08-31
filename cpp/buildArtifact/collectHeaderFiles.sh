@@ -27,6 +27,10 @@ FIND_HEADERS_SH=${FIND_HEADERS_SH_PATH}/${FIND_HEADERS_SH_FILE}
 echo "#!/bin/bash" > ${FIND_HEADERS_SH}
 echo "cpp -MM \\" >> ${FIND_HEADERS_SH}
 for i in `find . -type d -print` ; do
+    if [[ $i == *"CMake"* ]] || [[ $i == *"antlr_runtime"* ]] || [[ $i == *"ython"* ]] || [[ $i == *"java"* ]] || [[ $i == *".dir"* ]] ;
+    then
+        continue ;
+    fi
     echo "-I ../../../.$i \\" >> ${FIND_HEADERS_SH} ;
 done
 echo OpenScenarioTester.cpp >> ${FIND_HEADERS_SH}

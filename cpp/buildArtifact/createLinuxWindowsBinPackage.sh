@@ -35,7 +35,7 @@ cp -f "${SCRIPT_DIR}/../CMakeHelpers.cmake" "${SCRIPT_DIR}/${OPEN_SCEANARIO_API}
 ################################################################
 # check if libraries are already compiled
 if [ ! -d "${SCRIPT_DIR}/../build/output/Linux_shared/Release" ] ; then
-    echo "Please run './generate_Linux.sh Release make' to compile the OpenSCENARIO libraries!"
+    echo "Please run './generateLinux.sh all parallel' to compile the OpenSCENARIO libraries!"
     exit -1
 fi
 
@@ -46,15 +46,15 @@ mkdir -p "${OPEN_SCEANARIO_API}/lib/Windows/x64"
 
 # copy libs
 cp -r "${SCRIPT_DIR}/../build/output/Linux_shared/Release"/lib* "${OPEN_SCEANARIO_API}/lib/Linux"
-cp -r "${SCRIPT_DIR}/../build/output/Win32_shared/Release"/*.lib "${OPEN_SCEANARIO_API}/lib/Windows/Win32"
-cp -r "${SCRIPT_DIR}/../build/output/x64_shared/Release"/*.lib "${OPEN_SCEANARIO_API}/lib/Windows/x64"
-cp -r "${SCRIPT_DIR}/../build/output/Win32_shared/Release"/*.dll "${OPEN_SCEANARIO_API}/lib/Windows/Win32"
-cp -r "${SCRIPT_DIR}/../build/output/x64_shared/Release"/*.dll "${OPEN_SCEANARIO_API}/lib/Windows/x64"
-cp -r "${SCRIPT_DIR}/../build/output/Win32_shared/Release"/*.exp "${OPEN_SCEANARIO_API}/lib/Windows/Win32"
-cp -r "${SCRIPT_DIR}/../build/output/x64_shared/Release"/*.exp "${OPEN_SCEANARIO_API}/lib/Windows/x64"
+#cp -r "${SCRIPT_DIR}/../build/output/Win32_shared/Release"/*.lib "${OPEN_SCEANARIO_API}/lib/Windows/Win32"
+#cp -r "${SCRIPT_DIR}/../build/output/x64_shared/Release"/*.lib "${OPEN_SCEANARIO_API}/lib/Windows/x64"
+#cp -r "${SCRIPT_DIR}/../build/output/Win32_shared/Release"/*.dll "${OPEN_SCEANARIO_API}/lib/Windows/Win32"
+#cp -r "${SCRIPT_DIR}/../build/output/x64_shared/Release"/*.dll "${OPEN_SCEANARIO_API}/lib/Windows/x64"
+#cp -r "${SCRIPT_DIR}/../build/output/Win32_shared/Release"/*.exp "${OPEN_SCEANARIO_API}/lib/Windows/Win32"
+#cp -r "${SCRIPT_DIR}/../build/output/x64_shared/Release"/*.exp "${OPEN_SCEANARIO_API}/lib/Windows/x64"
 
 # strip debug infos
-#strip "${OPEN_SCEANARIO_API}"/lib/*
+strip -s "${OPEN_SCEANARIO_API}"/lib/Linux/*
 
 
 ################################################################

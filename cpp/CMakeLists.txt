@@ -23,11 +23,11 @@ option( BUILD_SHARED_LIBS "Build shared libraries" ON )
 
 
 if (${BUILD_SHARED_LIBS})
-	set(ANTLR4_WITH_STATIC_CRT OFF)
+    set(ANTLR4_WITH_STATIC_CRT OFF)
 else()
-	# required if linking to static library
-	add_definitions(-DANTLR4CPP_STATIC)
-	set(ANTLR4_WITH_STATIC_CRT ON)
+    # required if linking to static library
+    add_definitions(-DANTLR4CPP_STATIC)
+    set(ANTLR4_WITH_STATIC_CRT ON)
 endif()
 
 # compiler must be 11 or 14
@@ -94,7 +94,7 @@ message("Subprojects:")
 unset(CMAKE_BUILD_TYPE CACHE)
 RAC_SET_FOLDERS()
 message ("Building all into: ${CMAKE_BINARY_DIR}")
-	
+    
 # CoreLibraries
 add_subdirectory( openScenarioLib ${PROJECT_BINARY_DIR}/openScenarioLib )
 

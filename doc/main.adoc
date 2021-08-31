@@ -752,42 +752,21 @@ For systems with terminal / console access only, cmake provides a ncurses termin
 In this document we focus on building the OpenSCENARIO binaries from its C++ source code using `cmake`, `cmake-gui`, and `ccmake`.
 A great starting point for more information on `cmake` is the http://https://cmake.org/overview/[cmake website].
 
+=== A note to cmake prior to version 3.19
+As cmake experienced a dramatic change from version \<= 3.18 to >= 3.19 where presets were introduced we have two sections for building with cmake:
+
+* <<BuildingWithCmakeVersionLe3.18,Building with cmake version \<= 3.18>>
+* <<BuildingWithCmakeVersionLe3.19,Building with cmake version >= 3.19>>
+
 === System requirements
 In order to build OpenSCENARIO on your system the following requirements have to be fulfilled:
 
 ==== All systems
 * Disk space available >= 4 GB
 * Main memory >= 8 GB
-* cmake >= 3.19
+* cmake \<= 3.18 (build via command line and restricted cmake-gui)
+* cmake >= 3.19 (comfortable build via command line and cmake-gui)
 * a working copy of the OpenSCENARIO sources
-
-==== A note to CMake prior to version 3.19
-If your CMake version is older than 3.19 then cmake-gui is missing the "Preset" entry as seen in the two images below.
-
-.cmake-gui missing the "Preset" element.
-image:images/oscCgNoPreset.png[cmake_gui,width=720,float="center",align="center"]
-
-.cmake-gui with "Preset" element.
-image:images/oscCgPreset.png[cmake_gui,width=720,float="center",align="center"]
-
-You still can use older versions of cmake-gui but in order to work properly how have to select in advance the preset manually using the command line.
-
-For example the command for Linux would look like that:
-[source,bash]
-----
-$ cmake --preset="Linux-shared-release"
-----
-And for Windows the command would look like that:
-[source,bash]
-----
-> cmake --preset="VS2019-x64-shared"
-----
-
-After entering one of these commands you can switch back to cmake-gui.
-
-See section <<BuildingOnConsoleTerminal,Building on console / terminal>> for further building instructionsfor command line.
-A complete command sequence for building OpenSCENARIO via command line is given in section <<CommandLineStepsCondensed,Command line steps condensed>>.
-
 
 ==== Linux
 * gcc >= 5.8
@@ -800,6 +779,65 @@ $ sudo apt install uuid-dev
 
 ==== Windows
 * Visual Studio 2015 or later (2022 is supported, too)
+
+[[BuildingWithCmakeVersionLe3.18]]
+== Building with cmake version \<= 3.18
+
+If your cmake version is older than 3.19 then cmake does not know the concept of "presets" and consequently cmake-gui is missing the "Preset" entry as seen in the two images below.
+
+.cmake-gui missing the "Preset" element.
+image:images/oscCgNoPreset.png[cmake_gui,width=720,float="center",align="center"]
+
+.cmake-gui with "Preset" element.
+image:images/oscCgPreset.png[cmake_gui,width=720,float="center",align="center"]
+
+=== Build scripts for Linux and Windows
+You still can use older versions of cmake but in order to work properly you have to build the project files manually using our command line tool ```generateLinux.sh``` for Linux and ```generateWindows.bat``` for Windows.
+Both scripts are located in ```openscenario.api.test/cpp/buildArtifact```.
+
+==== Build script for Linux
+The script has to be executed in the folder ```openscenario.api.test/cpp/buildArtifact```.
+For example the commands for building and compiling shared objects and binaries will look like that:
+[source,bash]
+----
+$ cd openscenario.api.test/cpp/buildArtifact
+$ ./generateLinux.sh shared release make
+----
+This will create in the ```openscenario.api.test/cpp/build``` folder the following two directories:
+
+* ```cgReleaseMakeShared``` containing the Linux Makefiles for building the binaries and
+* ```output/Linux_Shared/Release``` where the compiled libraries and executables are located.
+
+The general command has the following options:
+[source,bash]
+----
+$ ./generateLinux.sh [all [release] [parallel] | [release|debug] [shared|static] [make [parallel]] ]
+----
+
+Option ```all [release] [parallel]``` builds and compiles static and shared as well as release and optional debug versions of OpenSCENARIO in parallel.
+On the other hand you can build and optionally compile individual versions of OpenSCENARIO, e.g.:
+[source,bash]
+----
+$ ./generateLinux.sh release shared
+----
+
+This command for example creates only the Makefiles for the release and dynamically linked version.
+
+==== Build script for Windows
+(work in progress)
+//The Windows version of the script is almost identical to the Linux version.
+//It has only one additional parameter to choose between a 32 Bit or 64 Bit version.
+//
+//On Windows the commands would look like that:
+//[source,bash]
+//----
+//> cd openscenario.api.test\cpp\build
+//> generateWindows.bat shared release make
+// ----
+
+[[BuildingWithCmakeVersionGe3.19]]
+== Building with cmake version >= 3.19
+
 
 === Building on Windows with cmake-gui target Visual Studio
 Start the `cmake-gui` application then a similar window like the one shown below will show up:

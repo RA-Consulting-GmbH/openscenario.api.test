@@ -10,7 +10,7 @@
             "description": "Base preset for x64 architecture on Windows",
             "name": "x64Arch",
             "architecture": "x64",
-			"toolset": "host=x64",
+            "toolset": "host=x64",
             "environment": {
                 "PR_ENV_ARCH": "x64"
             },
@@ -562,7 +562,7 @@
             "description": "",
             "displayName": "",
             "configurePreset": "Linux-shared-release",
-			"hidden": true
+            "hidden": true
         }
     ]
 }
