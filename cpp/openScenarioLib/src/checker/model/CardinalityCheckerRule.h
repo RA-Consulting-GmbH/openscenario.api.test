@@ -31,7 +31,7 @@
 namespace NET_ASAM_OPENSCENARIO
 {
     template <class T>
-    class CardinalityCheckerRule: public IOpenScenarioModelElement, public ModelCheckerRule<T>
+    class CardinalityCheckerRule:  public ModelCheckerRule<T>
     {
     public:
         CardinalityCheckerRule() = default;
@@ -72,25 +72,28 @@ namespace NET_ASAM_OPENSCENARIO
             return "Content is required.";
         }
 
-        enum VIOLATION_TYPE
-        {
-            TOO_MANY,
-            TOO_FEW,
-            REQUIRED,
-            REQUIRED_SIMPLE_CONTENT
-        };
+       
 
-        class CardinalityViolation
-        {
-        public:
-            std::string propertyName;
-            int expected;
-            int actual;
-            VIOLATION_TYPE violationType;
-
-            CardinalityViolation(const std::string propertyName, const int expected, const int actual, const VIOLATION_TYPE violationType):
-            propertyName(propertyName), expected(expected), actual(actual), violationType(violationType) {}
-        };
     };
+	enum VIOLATION_TYPE
+	{
+		TOO_MANY,
+		TOO_FEW,
+		REQUIRED,
+		REQUIRED_SIMPLE_CONTENT
+	};
+	
+	class CardinalityViolation
+	{
+	public:
+		std::string propertyName;
+		int expected;
+		int actual;
+		VIOLATION_TYPE violationType;
+
+		CardinalityViolation(const std::string propertyName, const int expected, const int actual, const VIOLATION_TYPE violationType) :
+			propertyName(propertyName), expected(expected), actual(actual), violationType(violationType) {}
+	};
+
 
 }

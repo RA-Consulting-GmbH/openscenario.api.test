@@ -68,12 +68,8 @@ namespace NET_ASAM_OPENSCENARIO
     <%-if (element.isSimpleContent()){-%>
         protected:
             void SetContentProperty(const std::string content, std::shared_ptr<<%=element.name.toClassName()%>Impl>& object) override;
-            bool IsContentRequired() override
-            {
-                return false;
-            }
-    <%-}else{-%>
-
+            bool IsContentRequired() override;
+     <%-}else{-%>
         private:
             /**
             * Parser for all subelements
@@ -87,7 +83,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
         <%-}else if (element.isModelGroupChoice()){-%>
             class SubElementParser: public XmlChoiceParser<<%=element.name.toClassName()%>Impl>
@@ -98,7 +94,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
         <%-}else if (element.isModelGroupSequence()){-%>
             class SubElementParser: public XmlSequenceParser<<%=element.name.toClassName()%>Impl>
@@ -109,7 +105,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
         <%-}-%>
             protected:
                 /*
@@ -117,7 +113,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 std::vector<std::shared_ptr<IElementParser<<%=element.name.toClassName()%>Impl>>> CreateParserList() override;
             };
-    <%-}-%>
+    	<%-}-%>
 
         <%-properties = element.getXmlElementProperties();-%>
         <%-properties.each{ property -> -%>
@@ -137,39 +133,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<<%=element.name.toClassName()%>Impl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return <%=property.lower%>;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return <%=property.upper%>;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    <%-if (property.isWrappedList()){-%>
-                    return elementName == OSC_CONSTANTS::ELEMENT__<%=property.getXsdWrapperElementName().toMemberName().toUpperNameFromMemberName()%>;
-                    <%-} else {-%>
-                    return
-                        <%-helper.splitEqualToCpp(property.getPossibleTagNames(),"elementName").each{ name ->-%>
-                        <%=name%>
-                    <%-}-%>
-                 <%-}-%>
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {<%-if (property.isWrappedList()){-%>
-                    return {OSC_CONSTANTS::ELEMENT__<%=property.getXsdWrapperElementName().toMemberName().toUpperNameFromMemberName()%>};
-                <%-} else {-%>
-                    return {
-                    <%-helper.splitStringListCpp(property.getPossibleTagNames()).each{ name ->-%>
-                        <%=name%>
-                    <%-}-%>
-                            };
-                    <%-}-%>
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 <%-}-%>
@@ -180,21 +150,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            <%=element.name.toClassName()%>XmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            <%- if (element.isComplexType()){-%>
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-            <%-}else if (element.isSimpleContent()){-%>
-            XmlSimpleContentParser(messageLogger, filename) {}
-            <%-}else if (element.isGroup()){-%>
-            XmlGroupParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-            <%-}-%>
-
+            <%=element.name.toClassName()%>XmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 <%-}-%>

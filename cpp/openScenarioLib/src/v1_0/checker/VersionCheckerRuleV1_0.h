@@ -30,6 +30,7 @@
 #include "ApiClassImplV1_0.h"
 #include "MemLeakDetection.h"
 #include "OscConstantsV1_0.h"
+#include "ExportDefinitions.h"
 
 /**
  * A checker rule for checking the version of the standard within a OpenSCENARIO file.
@@ -53,7 +54,7 @@ namespace NET_ASAM_OPENSCENARIO
              * @param majorRev The expected major revision
              * @param minorRev The expected minor revision
              */
-			VersionCheckerRule(const int majorRev, const int minorRev);
+			OPENSCENARIOLIB_EXP VersionCheckerRule(const int majorRev, const int minorRev);
 
 			void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IFileHeader> object) override;
 

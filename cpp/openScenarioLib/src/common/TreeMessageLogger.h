@@ -20,6 +20,7 @@
 #include <memory>
 #include "BaseMessageLogger.h"
 #include "ITreeMessageLogger.h"
+#include "ExportDefinitions.h"
 
 /**
  * An simple class that logs messages.
@@ -39,7 +40,7 @@ namespace NET_ASAM_OPENSCENARIO
          * @param logLevel the log level treshhold. Messages with this log level
          * and worse log levels are logged
          */
-		TreeMessageLogger(const ErrorLevel logLevel);
+		OPENSCENARIOLIB_EXP TreeMessageLogger(const ErrorLevel logLevel);
 
 		void LogMessage(TreeContentMessage& message) override;
 

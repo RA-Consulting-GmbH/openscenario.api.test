@@ -126,11 +126,22 @@ set( SOURCES_GENERATED_1_0_CHECKER_IMPL
 set( SOURCES_GENERATED_1_0_CHECKER_RANGE
   ${SOURCES_GENERATED_1_0_CHECKER_RANGE}
   "generated/v1_0/checker/range/RangeCheckerRulesV1_0.cpp"
+  "generated/v1_0/checker/range/RangeCheckerHelperV1_0.cpp"
+)
+
+set( SOURCES_GENERATED_1_0_CATALOG
+  "generated/v1_0/catalog/CatalogHelperV1_0.cpp"
+)
+
+set( SOURCES_GENERATED_1_0_CHECKER_MODEL
+  "generated/v1_0/checker/model/UnionCheckerRulesV1_0.cpp"
+  "generated/v1_0/checker/model/CardinalityCheckerRulesV1_0.cpp"
 )
 
 set( SOURCES_GENERATED_1_0_IMPL
   ${SOURCES_GENERATED_1_0_IMPL}
   "generated/v1_0/impl/ApiClassImplV1_0.cpp"
+  "generated/v1_0/impl/OpenScenarioWriterFactoryImplV1_0.cpp"
 )
 
 set( SOURCES_GENERATED_1_0_XMLPARSER
@@ -139,6 +150,9 @@ set( SOURCES_GENERATED_1_0_XMLPARSER
   "generated/v1_0/xmlParser/XmlParsers2V1_0.cpp"
 )
 
+set( SOURCES_GENERATED_1_0_XMLEXPORTER
+  "generated/v1_0/export/xml/OpenScenarioXmlExporterV1_0.cpp"
+)
 
 
 ## V1.1
@@ -155,11 +169,22 @@ set( SOURCES_GENERATED_1_1_CHECKER_IMPL
 set( SOURCES_GENERATED_1_1_CHECKER_RANGE
   ${SOURCES_GENERATED_1_1_CHECKER_RANGE}
   "generated/v1_1/checker/range/RangeCheckerRulesV1_1.cpp"
+  "generated/v1_1/checker/range/RangeCheckerHelperV1_1.cpp"
+)
+
+set( SOURCES_GENERATED_1_1_CATALOG
+  "generated/v1_1/catalog/CatalogHelperV1_1.cpp"
+)
+
+set( SOURCES_GENERATED_1_1_CHECKER_MODEL
+  "generated/v1_1/checker/model/UnionCheckerRulesV1_1.cpp"
+  "generated/v1_1/checker/model/CardinalityCheckerRulesV1_1.cpp"
 )
 
 set( SOURCES_GENERATED_1_1_IMPL
   ${SOURCES_GENERATED_1_1_IMPL}
   "generated/v1_1/impl/ApiClassImplV1_1.cpp"
+  "generated/v1_1/impl/OpenScenarioWriterFactoryImplV1_1.cpp"
 )
 
 set( SOURCES_GENERATED_1_1_XMLPARSER
@@ -168,6 +193,9 @@ set( SOURCES_GENERATED_1_1_XMLPARSER
   "generated/v1_1/xmlParser/XmlParsers2V1_1.cpp"
 )
 
+set( SOURCES_GENERATED_1_1_XMLEXPORTER
+  "generated/v1_1/export/xml/OpenScenarioXmlExporterV1_1.cpp"
+)
   
 set( HEADERS_EXPRESSIONS_LIB
   ${HEADERS_EXPRESSIONS_LIB}
@@ -230,7 +258,6 @@ set( HEADERS_COMMON_CHECKER_TREE
 )
 
 set( HEADERS_COMMON_CHECKER_MODEL
-  ${HEADERS_COMMON_CHECKER_MODEL}
   "src/checker/model/UnionCheckerRule.h"
   "src/checker/model/ModelCheckerRule.h"
   "src/checker/model/CardinalityCheckerRule.h"
@@ -567,6 +594,7 @@ set( SOURCES_V1_1_CHECKER
 	"src/v1_1/checker/VersionCheckerRuleV1_1.cpp"
 )
 
+
 set( SOURCES_V1_1_LOADER
 	"src/v1_1/loader/OpenScenarioProcessingHelperV1_1.cpp"
 	"src/v1_1/loader/XmlScenarioImportLoaderFactoryV1_1.cpp"
@@ -607,16 +635,22 @@ if( MSVC )
   source_group( Sources\\v1_0\\Generated\\Api FILES ${SOURCES_GENERATED_1_0_API} )
   source_group( Sources\\v1_0\\Generated\\Checker\\Impl FILES ${SOURCES_GENERATED_1_0_CHECKER_IMPL} )
   source_group( Sources\\v1_0\\Generated\\Checker\\Range FILES ${SOURCES_GENERATED_1_0_CHECKER_RANGE} )
+  source_group( Sources\\v1_0\\Generated\\Catalog FILES ${SOURCES_GENERATED_1_0_CATALOG} )
+  source_group( Sources\\v1_0\\Generated\\Checker\\Model FILES ${SOURCES_GENERATED_1_0_CHECKER_MODEL} )
   source_group( Sources\\v1_0\\Generated\\Impl FILES ${SOURCES_GENERATED_1_0_IMPL} )
   source_group( Sources\\v1_0\\Generated\\XmlParser FILES ${SOURCES_GENERATED_1_0_XMLPARSER} )
+  source_group( Sources\\v1_0\\Generated\\XmlParser FILES ${SOURCES_GENERATED_1_0_XMLEXPORTER} )
 
 
   source_group( Sources FILES ${SOURCES} )
   source_group( Sources\\v1_1\\Generated\\Api FILES ${SOURCES_GENERATED_1_1_API} )
   source_group( Sources\\v1_1\\Generated\\Checker\\Impl FILES ${SOURCES_GENERATED_1_1_CHECKER_IMPL} )
   source_group( Sources\\v1_1\\Generated\\Checker\\Range FILES ${SOURCES_GENERATED_1_1_CHECKER_RANGE} )
+  source_group( Sources\\v1_1\\Generated\\Catalog FILES ${SOURCES_GENERATED_1_1_CATALOG} )
+  source_group( Sources\\v1_1\\Generated\\Checker\\Model FILES ${SOURCES_GENERATED_1_1_CHECKER_MODEL} )
   source_group( Sources\\v1_1\\Generated\\Impl FILES ${SOURCES_GENERATED_1_1_IMPL} )
   source_group( Sources\\v1_1\\Generated\\XmlParser FILES ${SOURCES_GENERATED_1_1_XMLPARSER} )
+  source_group( Sources\\v1_1\\Generated\\XmlParser FILES ${SOURCES_GENERATED_1_1_XMLEXPORTER} )
 
   source_group( Sources\\Api FILES ${SOURCES_API})
   source_group( Sources\\Checker\\Tree FILES ${SOURCES_CHECKER_TREE})
@@ -709,10 +743,12 @@ add_library ( ${PROJECT_NAME} # ${LIB_TYPE}
               ${SOURCES} 
 
               ${SOURCES_GENERATED_1_0_API} ${SOURCES_GENERATED_1_0_CHECKER_IMPL} ${SOURCES_GENERATED_1_0_CHECKER_RANGE} 
-              ${SOURCES_GENERATED_1_0_IMPL} ${SOURCES_GENERATED_1_0_XMLPARSER}  
+              ${SOURCES_GENERATED_1_0_IMPL} ${SOURCES_GENERATED_1_0_XMLPARSER} ${SOURCES_GENERATED_1_0_CATALOG} ${SOURCES_GENERATED_1_0_CHECKER_MODEL}
+			  ${SOURCES_GENERATED_1_0_XMLEXPORTER}
 
               ${SOURCES_GENERATED_1_1_API} ${SOURCES_GENERATED_1_1_CHECKER_IMPL} ${SOURCES_GENERATED_1_1_CHECKER_RANGE} 
-              ${SOURCES_GENERATED_1_1_IMPL} ${SOURCES_GENERATED_1_1_XMLPARSER} 
+              ${SOURCES_GENERATED_1_1_IMPL} ${SOURCES_GENERATED_1_1_XMLPARSER} ${SOURCES_GENERATED_1_1_CATALOG} ${SOURCES_GENERATED_1_1_CHECKER_MODEL}
+			  ${SOURCES_GENERATED_1_1_XMLEXPORTER}
 			  
 			  ${SOURCES_API} ${SOURCES_CHECKER_TREE} ${SOURCES_COMMON} ${SOURCES_EXPORT} ${SOURCES_IMPL} ${SOURCES_LOADER} ${SOURCES_PARAMETER} 
 			  ${SOURCES_PARSER} ${SOURCES_SIMPLE_STRUCT} ${SOURCES_V1_0_CATALOG} ${SOURCES_V1_0_CHECKER} ${SOURCES_V1_0_LOADER} ${SOURCES_V1_0_PARAMETER} 

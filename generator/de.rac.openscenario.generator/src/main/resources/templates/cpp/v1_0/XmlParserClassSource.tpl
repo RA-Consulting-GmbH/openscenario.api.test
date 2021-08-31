@@ -34,7 +34,24 @@ namespace NET_ASAM_OPENSCENARIO
 
     <%- element.each{ element->-%>
 <%= helper.makeClassJavaDoc(element, oscVersion, "        ")%>
-    <%- if (element.isComplexType() || element.isSimpleContent()){-%>
+    <%-if (element.isSimpleContent()){-%>
+        bool <%=element.name.toClassName()%>XmlParser::IsContentRequired()
+        {
+          return false;
+        }
+    <%-}else{-%>
+        <%- if (element.isModelGroupAll()){-%>
+            <%=element.name.toClassName()%>XmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+
+        <%-}else if (element.isModelGroupChoice()){-%>
+            <%=element.name.toClassName()%>XmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+
+        <%-}else if (element.isModelGroupSequence()){-%>
+            <%=element.name.toClassName()%>XmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+        <%-}-%>
+    <%-}-%>
+
+   <%- if (element.isComplexType() || element.isSimpleContent()){-%>
         std::map<std::string, std::shared_ptr<IAttributeParser<<%=element.name.toClassName()%>Impl>>> <%=element.name.toClassName()%>XmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<<%=element.name.toClassName()%>Impl>>> result;
@@ -153,8 +170,60 @@ namespace NET_ASAM_OPENSCENARIO
             std::dynamic_pointer_cast<CatalogReferenceParserContext>(parserContext)->AddCatalogReference(std::dynamic_pointer_cast<I<%=property.type.name.toClassName()%>>(<%=property.name.toMemberName()%>));
             <%-}-%>
         }
+        
+        int <%=element.name.toClassName()%>XmlParser::SubElement<%=property.name.toClassName()%>Parser::GetMinOccur() 
+        {
+            return <%=property.lower%>;
+        }
+
+        int <%=element.name.toClassName()%>XmlParser::SubElement<%=property.name.toClassName()%>Parser::GetMaxOccur() 
+        {
+            return <%=property.upper%>;
+        }
+
+        bool <%=element.name.toClassName()%>XmlParser::SubElement<%=property.name.toClassName()%>Parser::DoesMatch(std::string& elementName)
+        {
+            <%-if (property.isWrappedList()){-%>
+            return elementName == OSC_CONSTANTS::ELEMENT__<%=property.getXsdWrapperElementName().toMemberName().toUpperNameFromMemberName()%>;
+            <%-} else {-%>
+            return
+                <%-helper.splitEqualToCpp(property.getPossibleTagNames(),"elementName").each{ name ->-%>
+                <%=name%>
+            <%-}-%>
+         <%-}-%>
+        }
+
+        std::vector<std::string> <%=element.name.toClassName()%>XmlParser::SubElement<%=property.name.toClassName()%>Parser::GetExpectedTagNames()
+        {
+        <%-if (property.isWrappedList()){-%>
+            return {OSC_CONSTANTS::ELEMENT__<%=property.getXsdWrapperElementName().toMemberName().toUpperNameFromMemberName()%>};
+        <%-} else {-%>
+            return {
+            <%-helper.splitStringListCpp(property.getPossibleTagNames()).each{ name ->-%>
+                <%=name%>
+            <%-}-%>
+                    };
+            <%-}-%>
+        }
         <%-}-%>
+  
+        <%=element.name.toClassName()%>XmlParser::<%=element.name.toClassName()%>XmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        <%- if (element.isComplexType()){-%>
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        <%-}else if (element.isSimpleContent()){-%>
+        XmlSimpleContentParser(messageLogger, filename) {}
+        <%-}else if (element.isGroup()){-%>
+        XmlGroupParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        <%-}-%>
+        
 
     <%-}-%>
+    
     }
 }

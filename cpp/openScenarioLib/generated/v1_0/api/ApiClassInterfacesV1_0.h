@@ -238,11 +238,8 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property value
             */
-            virtual double GetValue() const
-            {
-                return 0;
-            }
-
+            virtual double GetValue() const = 0;
+ 
 
         };
 
@@ -266,11 +263,8 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property value
             */
-            virtual std::string GetValue() const
-            {
-                return "";
-            }
-
+            virtual std::string GetValue() const = 0;
+ 
 
         };
 
@@ -294,11 +288,8 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property value
             */
-            virtual double GetValue() const
-            {
-                return 0;
-            }
-
+            virtual double GetValue() const = 0;
+ 
 
         };
 
@@ -322,11 +313,8 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property value
             */
-            virtual double GetValue() const
-            {
-                return 0;
-            }
-
+            virtual double GetValue() const = 0;
+ 
 
         };
 
@@ -351,22 +339,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property rule
             */
-            virtual Rule GetRule() const
-            {
-                return Rule();
-            }
-
+            virtual Rule GetRule() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Acceleration value. Unit: m/s^2.
              * 
              * @return value of model property value
             */
-            virtual double GetValue() const
-            {
-                return 0;
-            }
-
+            virtual double GetValue() const = 0;
+ 
 
         };
 
@@ -390,11 +372,8 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property position
             */
-            virtual std::shared_ptr<IPosition> GetPosition() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IPosition> GetPosition() const = 0;
+ 
 
         };
 
@@ -419,21 +398,15 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property name
             */
-            virtual std::string GetName() const
-            {
-                return "";
-            }
-
+            virtual std::string GetName() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * A list of maneuver groups representing the act.
              * 
              * @return value of model property maneuverGroups
             */
-            virtual std::vector<std::shared_ptr<IManeuverGroup>> GetManeuverGroups() const
-            {
-                return std::vector<std::shared_ptr<IManeuverGroup>>();
-            }
+            virtual std::vector<std::shared_ptr<IManeuverGroup>> GetManeuverGroups() const = 0;
 
             /**
              * From OpenSCENARIO class model specification:
@@ -441,37 +414,28 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property startTrigger
             */
-            virtual std::shared_ptr<ITrigger> GetStartTrigger() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ITrigger> GetStartTrigger() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Defines a trigger that stops the act.
              * 
              * @return value of model property stopTrigger
             */
-            virtual std::shared_ptr<ITrigger> GetStopTrigger() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ITrigger> GetStopTrigger() const = 0;
+ 
             /**
             * Retrieves the size of the list
             * @return the size of the list
             */
-            virtual int GetManeuverGroupsSize() const { return 0; }
+            virtual int GetManeuverGroupsSize() const  = 0;
 
             /**
             * The element at specific index
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IManeuverGroup> GetManeuverGroupsAtIndex(const unsigned int index) const
-            {
-                return nullptr;
-            }
+            virtual std::shared_ptr<IManeuverGroup> GetManeuverGroupsAtIndex(const unsigned int index) const = 0;
 
         };
 
@@ -495,44 +459,32 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property name
             */
-            virtual std::string GetName() const
-            {
-                return "";
-            }
-
+            virtual std::string GetName() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * The GlobalAction to be executed when the enclosing Action is startedis started.
              * 
              * @return value of model property globalAction
             */
-            virtual std::shared_ptr<IGlobalAction> GetGlobalAction() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IGlobalAction> GetGlobalAction() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * The UserDefinedAction to be executed when the enclosing Action is started.
              * 
              * @return value of model property userDefinedAction
             */
-            virtual std::shared_ptr<IUserDefinedAction> GetUserDefinedAction() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IUserDefinedAction> GetUserDefinedAction() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * The PrivateAction to be executed when the enclosing Action is started.
              * 
              * @return value of model property privateAction
             */
-            virtual std::shared_ptr<IPrivateAction> GetPrivateAction() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IPrivateAction> GetPrivateAction() const = 0;
+ 
 
         };
 
@@ -556,22 +508,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property lateral
             */
-            virtual bool GetLateral() const
-            {
-                return false;
-            }
-
+            virtual bool GetLateral() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * In longitudinal domain: Activate or deactivate autonomous behavior.
              * 
              * @return value of model property longitudinal
             */
-            virtual bool GetLongitudinal() const
-            {
-                return false;
-            }
-
+            virtual bool GetLongitudinal() const = 0;
+ 
 
         };
 
@@ -595,37 +541,28 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property selectTriggeringEntities
             */
-            virtual bool GetSelectTriggeringEntities() const
-            {
-                return false;
-            }
-
+            virtual bool GetSelectTriggeringEntities() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * A list of entities this actor is referencing.
              * 
              * @return value of model property entityRefs
             */
-            virtual std::vector<std::shared_ptr<IEntityRef>> GetEntityRefs() const
-            {
-                return std::vector<std::shared_ptr<IEntityRef>>();
-            }
+            virtual std::vector<std::shared_ptr<IEntityRef>> GetEntityRefs() const = 0;
 
             /**
             * Retrieves the size of the list
             * @return the size of the list
             */
-            virtual int GetEntityRefsSize() const { return 0; }
+            virtual int GetEntityRefsSize() const  = 0;
 
             /**
             * The element at specific index
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IEntityRef> GetEntityRefsAtIndex(const unsigned int index) const
-            {
-                return nullptr;
-            }
+            virtual std::shared_ptr<IEntityRef> GetEntityRefsAtIndex(const unsigned int index) const = 0;
 
         };
 
@@ -649,11 +586,8 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property position
             */
-            virtual std::shared_ptr<IPosition> GetPosition() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IPosition> GetPosition() const = 0;
+ 
 
         };
 
@@ -678,22 +612,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property controller
             */
-            virtual std::shared_ptr<IController> GetController() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IController> GetController() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Uses a CatalogReference to assign a controller to a given entity. CatalogReference must point to a Controller type.
              * 
              * @return value of model property catalogReference
             */
-            virtual std::shared_ptr<ICatalogReference> GetCatalogReference() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ICatalogReference> GetCatalogReference() const = 0;
+ 
 
         };
 
@@ -719,22 +647,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property route
             */
-            virtual std::shared_ptr<IRoute> GetRoute() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IRoute> GetRoute() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * A reference to the route definition in a catalog. The reference must point to a route.
              * 
              * @return value of model property catalogReference
             */
-            virtual std::shared_ptr<ICatalogReference> GetCatalogReference() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ICatalogReference> GetCatalogReference() const = 0;
+ 
 
         };
 
@@ -758,22 +680,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property maxSteering
             */
-            virtual double GetMaxSteering() const
-            {
-                return 0;
-            }
-
+            virtual double GetMaxSteering() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Longitudinal position of the axle with respect to the vehicles reference point. Unit: m; Range: [0..inf[.
              * 
              * @return value of model property positionX
             */
-            virtual double GetPositionX() const
-            {
-                return 0;
-            }
-
+            virtual double GetPositionX() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Z-position of the axle with respect to the vehicles reference point. Usually this is half of wheel diameter. Unit:m;
@@ -781,33 +697,24 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property positionZ
             */
-            virtual double GetPositionZ() const
-            {
-                return 0;
-            }
-
+            virtual double GetPositionZ() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Distance of the wheels center lines at zero steering. Unit: m; Range: [0..inf[.
              * 
              * @return value of model property trackWidth
             */
-            virtual double GetTrackWidth() const
-            {
-                return 0;
-            }
-
+            virtual double GetTrackWidth() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Diameter of the wheels on this axle. Unit: m; Range: ]0..inf[.
              * 
              * @return value of model property wheelDiameter
             */
-            virtual double GetWheelDiameter() const
-            {
-                return 0;
-            }
-
+            virtual double GetWheelDiameter() const = 0;
+ 
 
         };
 
@@ -831,48 +738,36 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property frontAxle
             */
-            virtual std::shared_ptr<IAxle> GetFrontAxle() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IAxle> GetFrontAxle() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Rear axle.
              * 
              * @return value of model property rearAxle
             */
-            virtual std::shared_ptr<IAxle> GetRearAxle() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IAxle> GetRearAxle() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * A list of optional additional axles.
              * 
              * @return value of model property additionalAxles
             */
-            virtual std::vector<std::shared_ptr<IAxle>> GetAdditionalAxles() const
-            {
-                return std::vector<std::shared_ptr<IAxle>>();
-            }
+            virtual std::vector<std::shared_ptr<IAxle>> GetAdditionalAxles() const = 0;
 
             /**
             * Retrieves the size of the list
             * @return the size of the list
             */
-            virtual int GetAdditionalAxlesSize() const { return 0; }
+            virtual int GetAdditionalAxlesSize() const  = 0;
 
             /**
             * The element at specific index
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IAxle> GetAdditionalAxlesAtIndex(const unsigned int index) const
-            {
-                return nullptr;
-            }
+            virtual std::shared_ptr<IAxle> GetAdditionalAxlesAtIndex(const unsigned int index) const = 0;
 
         };
 
@@ -897,22 +792,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property center
             */
-            virtual std::shared_ptr<ICenter> GetCenter() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ICenter> GetCenter() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Width, length and height of the bounding box.
              * 
              * @return value of model property dimensions
             */
-            virtual std::shared_ptr<IDimensions> GetDimensions() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IDimensions> GetDimensions() const = 0;
+ 
 
         };
 
@@ -938,22 +827,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property triggeringEntities
             */
-            virtual std::shared_ptr<ITriggeringEntities> GetTriggeringEntities() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ITriggeringEntities> GetTriggeringEntities() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * The condition which is related to the triggering entities.
              * 
              * @return value of model property entityCondition
             */
-            virtual std::shared_ptr<IEntityCondition> GetEntityCondition() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IEntityCondition> GetEntityCondition() const = 0;
+ 
 
         };
 
@@ -977,11 +860,8 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property type
             */
-            virtual ObjectType GetType() const
-            {
-                return ObjectType();
-            }
-
+            virtual ObjectType GetType() const = 0;
+ 
 
         };
 
@@ -1005,11 +885,8 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property objectType
             */
-            virtual ObjectType GetObjectType() const
-            {
-                return ObjectType();
-            }
-
+            virtual ObjectType GetObjectType() const = 0;
+ 
 
         };
 
@@ -1033,77 +910,56 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property parameterCondition
             */
-            virtual std::shared_ptr<IParameterCondition> GetParameterCondition() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IParameterCondition> GetParameterCondition() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * The current time of day is compared to a reference value.
              * 
              * @return value of model property timeOfDayCondition
             */
-            virtual std::shared_ptr<ITimeOfDayCondition> GetTimeOfDayCondition() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ITimeOfDayCondition> GetTimeOfDayCondition() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * The current simulation time is compared to a reference value.
              * 
              * @return value of model property simulationTimeCondition
             */
-            virtual std::shared_ptr<ISimulationTimeCondition> GetSimulationTimeCondition() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ISimulationTimeCondition> GetSimulationTimeCondition() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Condition becomes true if the referenced StoryboardElement terminates according to the given rule.
              * 
              * @return value of model property storyboardElementStateCondition
             */
-            virtual std::shared_ptr<IStoryboardElementStateCondition> GetStoryboardElementStateCondition() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IStoryboardElementStateCondition> GetStoryboardElementStateCondition() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * The current value of an externally defined named value is compared to a reference value (less, greater, equal).
              * 
              * @return value of model property userDefinedValueCondition
             */
-            virtual std::shared_ptr<IUserDefinedValueCondition> GetUserDefinedValueCondition() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IUserDefinedValueCondition> GetUserDefinedValueCondition() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Condition becomes true if the referenced signal reaches the indicated state.
              * 
              * @return value of model property trafficSignalCondition
             */
-            virtual std::shared_ptr<ITrafficSignalCondition> GetTrafficSignalCondition() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ITrafficSignalCondition> GetTrafficSignalCondition() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Condition becomes true if the referenced signal controller reaches the indicated state.
              * 
              * @return value of model property trafficSignalControllerCondition
             */
-            virtual std::shared_ptr<ITrafficSignalControllerCondition> GetTrafficSignalControllerCondition() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ITrafficSignalControllerCondition> GetTrafficSignalControllerCondition() const = 0;
+ 
 
         };
 
@@ -1128,21 +984,15 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property name
             */
-            virtual std::string GetName() const
-            {
-                return "";
-            }
-
+            virtual std::string GetName() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * A list of vehicle types that can be reused in a scenario.
              * 
              * @return value of model property vehicles
             */
-            virtual std::vector<std::shared_ptr<IVehicle>> GetVehicles() const
-            {
-                return std::vector<std::shared_ptr<IVehicle>>();
-            }
+            virtual std::vector<std::shared_ptr<IVehicle>> GetVehicles() const = 0;
 
             /**
              * From OpenSCENARIO class model specification:
@@ -1150,10 +1000,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property controllers
             */
-            virtual std::vector<std::shared_ptr<IController>> GetControllers() const
-            {
-                return std::vector<std::shared_ptr<IController>>();
-            }
+            virtual std::vector<std::shared_ptr<IController>> GetControllers() const = 0;
 
             /**
              * From OpenSCENARIO class model specification:
@@ -1161,10 +1008,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property pedestrians
             */
-            virtual std::vector<std::shared_ptr<IPedestrian>> GetPedestrians() const
-            {
-                return std::vector<std::shared_ptr<IPedestrian>>();
-            }
+            virtual std::vector<std::shared_ptr<IPedestrian>> GetPedestrians() const = 0;
 
             /**
              * From OpenSCENARIO class model specification:
@@ -1172,10 +1016,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property miscObjects
             */
-            virtual std::vector<std::shared_ptr<IMiscObject>> GetMiscObjects() const
-            {
-                return std::vector<std::shared_ptr<IMiscObject>>();
-            }
+            virtual std::vector<std::shared_ptr<IMiscObject>> GetMiscObjects() const = 0;
 
             /**
              * From OpenSCENARIO class model specification:
@@ -1183,10 +1024,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property environments
             */
-            virtual std::vector<std::shared_ptr<IEnvironment>> GetEnvironments() const
-            {
-                return std::vector<std::shared_ptr<IEnvironment>>();
-            }
+            virtual std::vector<std::shared_ptr<IEnvironment>> GetEnvironments() const = 0;
 
             /**
              * From OpenSCENARIO class model specification:
@@ -1194,10 +1032,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property maneuvers
             */
-            virtual std::vector<std::shared_ptr<IManeuver>> GetManeuvers() const
-            {
-                return std::vector<std::shared_ptr<IManeuver>>();
-            }
+            virtual std::vector<std::shared_ptr<IManeuver>> GetManeuvers() const = 0;
 
             /**
              * From OpenSCENARIO class model specification:
@@ -1205,10 +1040,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property trajectories
             */
-            virtual std::vector<std::shared_ptr<ITrajectory>> GetTrajectories() const
-            {
-                return std::vector<std::shared_ptr<ITrajectory>>();
-            }
+            virtual std::vector<std::shared_ptr<ITrajectory>> GetTrajectories() const = 0;
 
             /**
              * From OpenSCENARIO class model specification:
@@ -1216,131 +1048,104 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property routes
             */
-            virtual std::vector<std::shared_ptr<IRoute>> GetRoutes() const
-            {
-                return std::vector<std::shared_ptr<IRoute>>();
-            }
+            virtual std::vector<std::shared_ptr<IRoute>> GetRoutes() const = 0;
 
             /**
             * Retrieves the size of the list
             * @return the size of the list
             */
-            virtual int GetVehiclesSize() const { return 0; }
+            virtual int GetVehiclesSize() const  = 0;
 
             /**
             * The element at specific index
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IVehicle> GetVehiclesAtIndex(const unsigned int index) const
-            {
-                return nullptr;
-            }
+            virtual std::shared_ptr<IVehicle> GetVehiclesAtIndex(const unsigned int index) const = 0;
             /**
             * Retrieves the size of the list
             * @return the size of the list
             */
-            virtual int GetControllersSize() const { return 0; }
+            virtual int GetControllersSize() const  = 0;
 
             /**
             * The element at specific index
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IController> GetControllersAtIndex(const unsigned int index) const
-            {
-                return nullptr;
-            }
+            virtual std::shared_ptr<IController> GetControllersAtIndex(const unsigned int index) const = 0;
             /**
             * Retrieves the size of the list
             * @return the size of the list
             */
-            virtual int GetPedestriansSize() const { return 0; }
+            virtual int GetPedestriansSize() const  = 0;
 
             /**
             * The element at specific index
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IPedestrian> GetPedestriansAtIndex(const unsigned int index) const
-            {
-                return nullptr;
-            }
+            virtual std::shared_ptr<IPedestrian> GetPedestriansAtIndex(const unsigned int index) const = 0;
             /**
             * Retrieves the size of the list
             * @return the size of the list
             */
-            virtual int GetMiscObjectsSize() const { return 0; }
+            virtual int GetMiscObjectsSize() const  = 0;
 
             /**
             * The element at specific index
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IMiscObject> GetMiscObjectsAtIndex(const unsigned int index) const
-            {
-                return nullptr;
-            }
+            virtual std::shared_ptr<IMiscObject> GetMiscObjectsAtIndex(const unsigned int index) const = 0;
             /**
             * Retrieves the size of the list
             * @return the size of the list
             */
-            virtual int GetEnvironmentsSize() const { return 0; }
+            virtual int GetEnvironmentsSize() const  = 0;
 
             /**
             * The element at specific index
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IEnvironment> GetEnvironmentsAtIndex(const unsigned int index) const
-            {
-                return nullptr;
-            }
+            virtual std::shared_ptr<IEnvironment> GetEnvironmentsAtIndex(const unsigned int index) const = 0;
             /**
             * Retrieves the size of the list
             * @return the size of the list
             */
-            virtual int GetManeuversSize() const { return 0; }
+            virtual int GetManeuversSize() const  = 0;
 
             /**
             * The element at specific index
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IManeuver> GetManeuversAtIndex(const unsigned int index) const
-            {
-                return nullptr;
-            }
+            virtual std::shared_ptr<IManeuver> GetManeuversAtIndex(const unsigned int index) const = 0;
             /**
             * Retrieves the size of the list
             * @return the size of the list
             */
-            virtual int GetTrajectoriesSize() const { return 0; }
+            virtual int GetTrajectoriesSize() const  = 0;
 
             /**
             * The element at specific index
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<ITrajectory> GetTrajectoriesAtIndex(const unsigned int index) const
-            {
-                return nullptr;
-            }
+            virtual std::shared_ptr<ITrajectory> GetTrajectoriesAtIndex(const unsigned int index) const = 0;
             /**
             * Retrieves the size of the list
             * @return the size of the list
             */
-            virtual int GetRoutesSize() const { return 0; }
+            virtual int GetRoutesSize() const  = 0;
 
             /**
             * The element at specific index
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IRoute> GetRoutesAtIndex(const unsigned int index) const
-            {
-                return nullptr;
-            }
+            virtual std::shared_ptr<IRoute> GetRoutesAtIndex(const unsigned int index) const = 0;
 
         };
 
@@ -1364,11 +1169,8 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property catalog
             */
-            virtual std::shared_ptr<ICatalog> GetCatalog() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ICatalog> GetCatalog() const = 0;
+ 
 
         };
 
@@ -1392,88 +1194,64 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property vehicleCatalog
             */
-            virtual std::shared_ptr<IVehicleCatalogLocation> GetVehicleCatalog() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IVehicleCatalogLocation> GetVehicleCatalog() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * This catalog location is the first choice to resolve CatalogReferences on controller types.
              * 
              * @return value of model property controllerCatalog
             */
-            virtual std::shared_ptr<IControllerCatalogLocation> GetControllerCatalog() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IControllerCatalogLocation> GetControllerCatalog() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * This catalog location is the first choice to resolve CatalogReferences on pedestrian types.
              * 
              * @return value of model property pedestrianCatalog
             */
-            virtual std::shared_ptr<IPedestrianCatalogLocation> GetPedestrianCatalog() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IPedestrianCatalogLocation> GetPedestrianCatalog() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * This catalog location is the first choice to resolve CatalogReferences on miscellaneous object types.
              * 
              * @return value of model property miscObjectCatalog
             */
-            virtual std::shared_ptr<IMiscObjectCatalogLocation> GetMiscObjectCatalog() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IMiscObjectCatalogLocation> GetMiscObjectCatalog() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * This catalog location is the first choice to resolve CatalogReferences on environment types.
              * 
              * @return value of model property environmentCatalog
             */
-            virtual std::shared_ptr<IEnvironmentCatalogLocation> GetEnvironmentCatalog() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IEnvironmentCatalogLocation> GetEnvironmentCatalog() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * This catalog location is the first choice to resolve CatalogReferences on maneuver types.
              * 
              * @return value of model property maneuverCatalog
             */
-            virtual std::shared_ptr<IManeuverCatalogLocation> GetManeuverCatalog() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IManeuverCatalogLocation> GetManeuverCatalog() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * This catalog location is the first choice to resolve CatalogReferences on trajectory types.
              * 
              * @return value of model property trajectoryCatalog
             */
-            virtual std::shared_ptr<ITrajectoryCatalogLocation> GetTrajectoryCatalog() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ITrajectoryCatalogLocation> GetTrajectoryCatalog() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * This catalog location is the first choice to resolve CatalogReferences on route types.
              * 
              * @return value of model property routeCatalog
             */
-            virtual std::shared_ptr<IRouteCatalogLocation> GetRouteCatalog() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IRouteCatalogLocation> GetRouteCatalog() const = 0;
+ 
 
         };
 
@@ -1498,32 +1276,23 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property catalogName
             */
-            virtual std::string GetCatalogName() const
-            {
-                return "";
-            }
-
+            virtual std::string GetCatalogName() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Name of catalog entry.
              * 
              * @return value of model property entryName
             */
-            virtual std::string GetEntryName() const
-            {
-                return "";
-            }
-
+            virtual std::string GetEntryName() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * List of parameter assignments for instantiation.
              * 
              * @return value of model property parameterAssignments
             */
-            virtual std::vector<std::shared_ptr<IParameterAssignment>> GetParameterAssignments() const
-            {
-                return std::vector<std::shared_ptr<IParameterAssignment>>();
-            }
+            virtual std::vector<std::shared_ptr<IParameterAssignment>> GetParameterAssignments() const = 0;
 
             /**
              * From OpenSCENARIO class model specification:
@@ -1532,26 +1301,20 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property ref
             */
-            virtual std::shared_ptr<ICatalogElement> GetRef() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ICatalogElement> GetRef() const = 0;
+ 
             /**
             * Retrieves the size of the list
             * @return the size of the list
             */
-            virtual int GetParameterAssignmentsSize() const { return 0; }
+            virtual int GetParameterAssignmentsSize() const  = 0;
 
             /**
             * The element at specific index
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IParameterAssignment> GetParameterAssignmentsAtIndex(const unsigned int index) const
-            {
-                return nullptr;
-            }
+            virtual std::shared_ptr<IParameterAssignment> GetParameterAssignmentsAtIndex(const unsigned int index) const = 0;
 
         };
 
@@ -1576,33 +1339,24 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property x
             */
-            virtual double GetX() const
-            {
-                return 0;
-            }
-
+            virtual double GetX() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Center offset in y direction.
              * 
              * @return value of model property y
             */
-            virtual double GetY() const
-            {
-                return 0;
-            }
-
+            virtual double GetY() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Center offset in z direction.
              * 
              * @return value of model property z
             */
-            virtual double GetZ() const
-            {
-                return 0;
-            }
-
+            virtual double GetZ() const = 0;
+ 
 
         };
 
@@ -1626,10 +1380,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property entityRef
             */
-            virtual std::shared_ptr<INamedReference<IEntity>> GetEntityRef() const
-            {
-                return std::make_shared<INamedReference<IEntity>>();
-            }
+            virtual std::shared_ptr<INamedReference<IEntity>> GetEntityRef() const = 0;
 
 
         };
@@ -1654,66 +1405,48 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property curvature
             */
-            virtual double GetCurvature() const
-            {
-                return 0;
-            }
-
+            virtual double GetCurvature() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Rate of change of the curvature of the clothoid.Unit: 1/s;Range [0..inf[.
              * 
              * @return value of model property curvatureDot
             */
-            virtual double GetCurvatureDot() const
-            {
-                return 0;
-            }
-
+            virtual double GetCurvatureDot() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Length of clothoid.
              * 
              * @return value of model property length
             */
-            virtual double GetLength() const
-            {
-                return 0;
-            }
-
+            virtual double GetLength() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Optional time specification at the start of the clothoid. Unit: s;Range [0..inf[.
              * 
              * @return value of model property startTime
             */
-            virtual double GetStartTime() const
-            {
-                return 0;
-            }
-
+            virtual double GetStartTime() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Optional time specification at the end of the clothoid. Unit: s;Range ]0..inf[.
              * 
              * @return value of model property stopTime
             */
-            virtual double GetStopTime() const
-            {
-                return 0;
-            }
-
+            virtual double GetStopTime() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Start position of a clothoid.
              * 
              * @return value of model property position
             */
-            virtual std::shared_ptr<IPosition> GetPosition() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IPosition> GetPosition() const = 0;
+ 
 
         };
 
@@ -1738,22 +1471,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property entityRef
             */
-            virtual std::shared_ptr<IEntityRef> GetEntityRef() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IEntityRef> GetEntityRef() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Entities of this type can trigger the condition when collide.
              * 
              * @return value of model property byType
             */
-            virtual std::shared_ptr<IByObjectType> GetByType() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IByObjectType> GetByType() const = 0;
+ 
 
         };
 
@@ -1779,11 +1506,8 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property conditionEdge
             */
-            virtual ConditionEdge GetConditionEdge() const
-            {
-                return ConditionEdge();
-            }
-
+            virtual ConditionEdge GetConditionEdge() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Time elapsed after the edge condition is verified, until the condition returns true to the scenario. Unit: s; Range:
@@ -1791,44 +1515,32 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property delay
             */
-            virtual double GetDelay() const
-            {
-                return 0;
-            }
-
+            virtual double GetDelay() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Name of the condition.
              * 
              * @return value of model property name
             */
-            virtual std::string GetName() const
-            {
-                return "";
-            }
-
+            virtual std::string GetName() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * A condition that refers to an entity.
              * 
              * @return value of model property byEntityCondition
             */
-            virtual std::shared_ptr<IByEntityCondition> GetByEntityCondition() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IByEntityCondition> GetByEntityCondition() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * A condition that refers to a runtime value.
              * 
              * @return value of model property byValueCondition
             */
-            virtual std::shared_ptr<IByValueCondition> GetByValueCondition() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IByValueCondition> GetByValueCondition() const = 0;
+ 
 
         };
 
@@ -1853,26 +1565,20 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property conditions
             */
-            virtual std::vector<std::shared_ptr<ICondition>> GetConditions() const
-            {
-                return std::vector<std::shared_ptr<ICondition>>();
-            }
+            virtual std::vector<std::shared_ptr<ICondition>> GetConditions() const = 0;
 
             /**
             * Retrieves the size of the list
             * @return the size of the list
             */
-            virtual int GetConditionsSize() const { return 0; }
+            virtual int GetConditionsSize() const  = 0;
 
             /**
             * The element at specific index
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<ICondition> GetConditionsAtIndex(const unsigned int index) const
-            {
-                return nullptr;
-            }
+            virtual std::shared_ptr<ICondition> GetConditionsAtIndex(const unsigned int index) const = 0;
 
         };
 
@@ -1896,11 +1602,8 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property time
             */
-            virtual double GetTime() const
-            {
-                return 0;
-            }
-
+            virtual double GetTime() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Optional weight specification of the control point. If unspecified, all control points will be equal weighted. Range
@@ -1908,22 +1611,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property weight
             */
-            virtual double GetWeight() const
-            {
-                return 0;
-            }
-
+            virtual double GetWeight() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Position of the control point.
              * 
              * @return value of model property position
             */
-            virtual std::shared_ptr<IPosition> GetPosition() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IPosition> GetPosition() const = 0;
+ 
 
         };
 
@@ -1947,21 +1644,15 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property name
             */
-            virtual std::string GetName() const
-            {
-                return "";
-            }
-
+            virtual std::string GetName() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Definition of additional parameters.
              * 
              * @return value of model property parameterDeclarations
             */
-            virtual std::vector<std::shared_ptr<IParameterDeclaration>> GetParameterDeclarations() const
-            {
-                return std::vector<std::shared_ptr<IParameterDeclaration>>();
-            }
+            virtual std::vector<std::shared_ptr<IParameterDeclaration>> GetParameterDeclarations() const = 0;
 
             /**
              * From OpenSCENARIO class model specification:
@@ -1969,26 +1660,20 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property properties
             */
-            virtual std::shared_ptr<IProperties> GetProperties() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IProperties> GetProperties() const = 0;
+ 
             /**
             * Retrieves the size of the list
             * @return the size of the list
             */
-            virtual int GetParameterDeclarationsSize() const { return 0; }
+            virtual int GetParameterDeclarationsSize() const  = 0;
 
             /**
             * The element at specific index
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IParameterDeclaration> GetParameterDeclarationsAtIndex(const unsigned int index) const
-            {
-                return nullptr;
-            }
+            virtual std::shared_ptr<IParameterDeclaration> GetParameterDeclarationsAtIndex(const unsigned int index) const = 0;
 
         };
 
@@ -2012,22 +1697,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property assignControllerAction
             */
-            virtual std::shared_ptr<IAssignControllerAction> GetAssignControllerAction() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IAssignControllerAction> GetAssignControllerAction() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Values for throttle, brake, clutch, parking brake, steering wheel or gear.
              * 
              * @return value of model property overrideControllerValueAction
             */
-            virtual std::shared_ptr<IOverrideControllerValueAction> GetOverrideControllerValueAction() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IOverrideControllerValueAction> GetOverrideControllerValueAction() const = 0;
+ 
 
         };
 
@@ -2051,11 +1730,8 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property directory
             */
-            virtual std::shared_ptr<IDirectory> GetDirectory() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IDirectory> GetDirectory() const = 0;
+ 
 
         };
 
@@ -2079,26 +1755,20 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property controllerDistributionEntries
             */
-            virtual std::vector<std::shared_ptr<IControllerDistributionEntry>> GetControllerDistributionEntries() const
-            {
-                return std::vector<std::shared_ptr<IControllerDistributionEntry>>();
-            }
+            virtual std::vector<std::shared_ptr<IControllerDistributionEntry>> GetControllerDistributionEntries() const = 0;
 
             /**
             * Retrieves the size of the list
             * @return the size of the list
             */
-            virtual int GetControllerDistributionEntriesSize() const { return 0; }
+            virtual int GetControllerDistributionEntriesSize() const  = 0;
 
             /**
             * The element at specific index
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IControllerDistributionEntry> GetControllerDistributionEntriesAtIndex(const unsigned int index) const
-            {
-                return nullptr;
-            }
+            virtual std::shared_ptr<IControllerDistributionEntry> GetControllerDistributionEntriesAtIndex(const unsigned int index) const = 0;
 
         };
 
@@ -2122,33 +1792,24 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property weight
             */
-            virtual double GetWeight() const
-            {
-                return 0;
-            }
-
+            virtual double GetWeight() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * The specified controller type.
              * 
              * @return value of model property controller
             */
-            virtual std::shared_ptr<IController> GetController() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IController> GetController() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * A controller type import from a catalog.
              * 
              * @return value of model property catalogReference
             */
-            virtual std::shared_ptr<ICatalogReference> GetCatalogReference() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ICatalogReference> GetCatalogReference() const = 0;
+ 
 
         };
 
@@ -2172,22 +1833,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property content
             */
-            virtual std::string GetContent() const
-            {
-                return "";
-            }
-
+            virtual std::string GetContent() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Type that is defined as a contract between the simulation environment provider and the author of a scenario.
              * 
              * @return value of model property type
             */
-            virtual std::string GetType() const
-            {
-                return "";
-            }
-
+            virtual std::string GetType() const = 0;
+ 
 
         };
 
@@ -2229,33 +1884,24 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property height
             */
-            virtual double GetHeight() const
-            {
-                return 0;
-            }
-
+            virtual double GetHeight() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Length of the entity's bounding box. Unit: m; Range: [0..inf[.
              * 
              * @return value of model property length
             */
-            virtual double GetLength() const
-            {
-                return 0;
-            }
-
+            virtual double GetLength() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Width of the entity's bounding box. Unit: m; Range: [0..inf[.
              * 
              * @return value of model property width
             */
-            virtual double GetWidth() const
-            {
-                return 0;
-            }
-
+            virtual double GetWidth() const = 0;
+ 
 
         };
 
@@ -2279,11 +1925,8 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property path
             */
-            virtual std::string GetPath() const
-            {
-                return "";
-            }
-
+            virtual std::string GetPath() const = 0;
+ 
 
         };
 
@@ -2308,55 +1951,40 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property alongRoute
             */
-            virtual bool GetAlongRoute() const
-            {
-                return false;
-            }
-
+            virtual bool GetAlongRoute() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * True: distance is measured between closest bounding box points. False: reference point distance is used.
              * 
              * @return value of model property freespace
             */
-            virtual bool GetFreespace() const
-            {
-                return false;
-            }
-
+            virtual bool GetFreespace() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * The operator (less, greater, equal).
              * 
              * @return value of model property rule
             */
-            virtual Rule GetRule() const
-            {
-                return Rule();
-            }
-
+            virtual Rule GetRule() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * The distance value. Unit: s; Range: [0..inf[.
              * 
              * @return value of model property value
             */
-            virtual double GetValue() const
-            {
-                return 0;
-            }
-
+            virtual double GetValue() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * The given position the distance is related to.
              * 
              * @return value of model property position
             */
-            virtual std::shared_ptr<IPosition> GetPosition() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IPosition> GetPosition() const = 0;
+ 
 
         };
 
@@ -2380,33 +2008,24 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property maxAcceleration
             */
-            virtual double GetMaxAcceleration() const
-            {
-                return 0;
-            }
-
+            virtual double GetMaxAcceleration() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Maximum deceleration the distance controller is allowed to use for keeping the distance. Unit: m/s2; Range: [0..inf[.
              * 
              * @return value of model property maxDeceleration
             */
-            virtual double GetMaxDeceleration() const
-            {
-                return 0;
-            }
-
+            virtual double GetMaxDeceleration() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Maximum speed the distance controller is allowed to use for keeping the distance. Unit: m/s; Range: [0..inf[.
              * 
              * @return value of model property maxSpeed
             */
-            virtual double GetMaxSpeed() const
-            {
-                return 0;
-            }
-
+            virtual double GetMaxSpeed() const = 0;
+ 
 
         };
 
@@ -2430,11 +2049,8 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property duration
             */
-            virtual double GetDuration() const
-            {
-                return 0;
-            }
-
+            virtual double GetDuration() const = 0;
+ 
 
         };
 
@@ -2458,10 +2074,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property scenarioObjects
             */
-            virtual std::vector<std::shared_ptr<IScenarioObject>> GetScenarioObjects() const
-            {
-                return std::vector<std::shared_ptr<IScenarioObject>>();
-            }
+            virtual std::vector<std::shared_ptr<IScenarioObject>> GetScenarioObjects() const = 0;
 
             /**
              * From OpenSCENARIO class model specification:
@@ -2469,41 +2082,32 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property entitySelections
             */
-            virtual std::vector<std::shared_ptr<IEntitySelection>> GetEntitySelections() const
-            {
-                return std::vector<std::shared_ptr<IEntitySelection>>();
-            }
+            virtual std::vector<std::shared_ptr<IEntitySelection>> GetEntitySelections() const = 0;
 
             /**
             * Retrieves the size of the list
             * @return the size of the list
             */
-            virtual int GetScenarioObjectsSize() const { return 0; }
+            virtual int GetScenarioObjectsSize() const  = 0;
 
             /**
             * The element at specific index
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IScenarioObject> GetScenarioObjectsAtIndex(const unsigned int index) const
-            {
-                return nullptr;
-            }
+            virtual std::shared_ptr<IScenarioObject> GetScenarioObjectsAtIndex(const unsigned int index) const = 0;
             /**
             * Retrieves the size of the list
             * @return the size of the list
             */
-            virtual int GetEntitySelectionsSize() const { return 0; }
+            virtual int GetEntitySelectionsSize() const  = 0;
 
             /**
             * The element at specific index
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IEntitySelection> GetEntitySelectionsAtIndex(const unsigned int index) const
-            {
-                return nullptr;
-            }
+            virtual std::shared_ptr<IEntitySelection> GetEntitySelectionsAtIndex(const unsigned int index) const = 0;
 
         };
 
@@ -2527,10 +2131,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property entityRef
             */
-            virtual std::shared_ptr<INamedReference<IEntity>> GetEntityRef() const
-            {
-                return std::make_shared<INamedReference<IEntity>>();
-            }
+            virtual std::shared_ptr<INamedReference<IEntity>> GetEntityRef() const = 0;
 
             /**
              * From OpenSCENARIO class model specification:
@@ -2538,22 +2139,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property addEntityAction
             */
-            virtual std::shared_ptr<IAddEntityAction> GetAddEntityAction() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IAddEntityAction> GetAddEntityAction() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Action that deletes the reference entity from the scenario.
              * 
              * @return value of model property deleteEntityAction
             */
-            virtual std::shared_ptr<IDeleteEntityAction> GetDeleteEntityAction() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IDeleteEntityAction> GetDeleteEntityAction() const = 0;
+ 
 
         };
 
@@ -2577,143 +2172,104 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property endOfRoadCondition
             */
-            virtual std::shared_ptr<IEndOfRoadCondition> GetEndOfRoadCondition() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IEndOfRoadCondition> GetEndOfRoadCondition() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Condition checking whether the reference entity was involved in a collision.
              * 
              * @return value of model property collisionCondition
             */
-            virtual std::shared_ptr<ICollisionCondition> GetCollisionCondition() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ICollisionCondition> GetCollisionCondition() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Condition checking for how long the reference entity has left the road.
              * 
              * @return value of model property offroadCondition
             */
-            virtual std::shared_ptr<IOffroadCondition> GetOffroadCondition() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IOffroadCondition> GetOffroadCondition() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Condition checking the time headway between two entities.
              * 
              * @return value of model property timeHeadwayCondition
             */
-            virtual std::shared_ptr<ITimeHeadwayCondition> GetTimeHeadwayCondition() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ITimeHeadwayCondition> GetTimeHeadwayCondition() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Condition checking the time to collision between two entities.
              * 
              * @return value of model property timeToCollisionCondition
             */
-            virtual std::shared_ptr<ITimeToCollisionCondition> GetTimeToCollisionCondition() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ITimeToCollisionCondition> GetTimeToCollisionCondition() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Condition checking the current acceleration of an entity.
              * 
              * @return value of model property accelerationCondition
             */
-            virtual std::shared_ptr<IAccelerationCondition> GetAccelerationCondition() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IAccelerationCondition> GetAccelerationCondition() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Condition checking for how long the reference entity has not moved.
              * 
              * @return value of model property standStillCondition
             */
-            virtual std::shared_ptr<IStandStillCondition> GetStandStillCondition() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IStandStillCondition> GetStandStillCondition() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Condition checking the current speed of the referenced entities.
              * 
              * @return value of model property speedCondition
             */
-            virtual std::shared_ptr<ISpeedCondition> GetSpeedCondition() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ISpeedCondition> GetSpeedCondition() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Condition checking the relative speed between two entity.
              * 
              * @return value of model property relativeSpeedCondition
             */
-            virtual std::shared_ptr<IRelativeSpeedCondition> GetRelativeSpeedCondition() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IRelativeSpeedCondition> GetRelativeSpeedCondition() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Condition checking the total traveled distance of the reference entity since the start of the scenario.
              * 
              * @return value of model property traveledDistanceCondition
             */
-            virtual std::shared_ptr<ITraveledDistanceCondition> GetTraveledDistanceCondition() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ITraveledDistanceCondition> GetTraveledDistanceCondition() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Condition checking whether the reference entity has reached a given position within a given uncertainty.
              * 
              * @return value of model property reachPositionCondition
             */
-            virtual std::shared_ptr<IReachPositionCondition> GetReachPositionCondition() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IReachPositionCondition> GetReachPositionCondition() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Condition checking the distance between two entities or an entity and a position.
              * 
              * @return value of model property distanceCondition
             */
-            virtual std::shared_ptr<IDistanceCondition> GetDistanceCondition() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IDistanceCondition> GetDistanceCondition() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Condition checking the relative distance between two entities.
              * 
              * @return value of model property relativeDistanceCondition
             */
-            virtual std::shared_ptr<IRelativeDistanceCondition> GetRelativeDistanceCondition() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IRelativeDistanceCondition> GetRelativeDistanceCondition() const = 0;
+ 
 
         };
 
@@ -2737,44 +2293,32 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property catalogReference
             */
-            virtual std::shared_ptr<ICatalogReference> GetCatalogReference() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ICatalogReference> GetCatalogReference() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Vehicle definition.
              * 
              * @return value of model property vehicle
             */
-            virtual std::shared_ptr<IVehicle> GetVehicle() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IVehicle> GetVehicle() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Pedestrian definition.
              * 
              * @return value of model property pedestrian
             */
-            virtual std::shared_ptr<IPedestrian> GetPedestrian() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IPedestrian> GetPedestrian() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Definition of a MiscObject.
              * 
              * @return value of model property miscObject
             */
-            virtual std::shared_ptr<IMiscObject> GetMiscObject() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IMiscObject> GetMiscObject() const = 0;
+ 
 
         };
 
@@ -2798,10 +2342,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property entityRef
             */
-            virtual std::shared_ptr<INamedReference<IEntity>> GetEntityRef() const
-            {
-                return std::make_shared<INamedReference<IEntity>>();
-            }
+            virtual std::shared_ptr<INamedReference<IEntity>> GetEntityRef() const = 0;
 
 
         };
@@ -2827,22 +2368,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property name
             */
-            virtual std::string GetName() const
-            {
-                return "";
-            }
-
+            virtual std::string GetName() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Selected entities as members of the entity selection.
              * 
              * @return value of model property members
             */
-            virtual std::shared_ptr<ISelectedEntities> GetMembers() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ISelectedEntities> GetMembers() const = 0;
+ 
 
         };
 
@@ -2866,21 +2401,15 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property name
             */
-            virtual std::string GetName() const
-            {
-                return "";
-            }
-
+            virtual std::string GetName() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Definition of additional parameters.
              * 
              * @return value of model property parameterDeclarations
             */
-            virtual std::vector<std::shared_ptr<IParameterDeclaration>> GetParameterDeclarations() const
-            {
-                return std::vector<std::shared_ptr<IParameterDeclaration>>();
-            }
+            virtual std::vector<std::shared_ptr<IParameterDeclaration>> GetParameterDeclarations() const = 0;
 
             /**
              * From OpenSCENARIO class model specification:
@@ -2888,48 +2417,36 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property timeOfDay
             */
-            virtual std::shared_ptr<ITimeOfDay> GetTimeOfDay() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ITimeOfDay> GetTimeOfDay() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Weather conditions during the simulation.
              * 
              * @return value of model property weather
             */
-            virtual std::shared_ptr<IWeather> GetWeather() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IWeather> GetWeather() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Road conditions during the simulation.
              * 
              * @return value of model property roadCondition
             */
-            virtual std::shared_ptr<IRoadCondition> GetRoadCondition() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IRoadCondition> GetRoadCondition() const = 0;
+ 
             /**
             * Retrieves the size of the list
             * @return the size of the list
             */
-            virtual int GetParameterDeclarationsSize() const { return 0; }
+            virtual int GetParameterDeclarationsSize() const  = 0;
 
             /**
             * The element at specific index
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IParameterDeclaration> GetParameterDeclarationsAtIndex(const unsigned int index) const
-            {
-                return nullptr;
-            }
+            virtual std::shared_ptr<IParameterDeclaration> GetParameterDeclarationsAtIndex(const unsigned int index) const = 0;
 
         };
 
@@ -2954,22 +2471,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property environment
             */
-            virtual std::shared_ptr<IEnvironment> GetEnvironment() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IEnvironment> GetEnvironment() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Reference to a catalog entry of type Environment.
              * 
              * @return value of model property catalogReference
             */
-            virtual std::shared_ptr<ICatalogReference> GetCatalogReference() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ICatalogReference> GetCatalogReference() const = 0;
+ 
 
         };
 
@@ -2993,11 +2504,8 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property directory
             */
-            virtual std::shared_ptr<IDirectory> GetDirectory() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IDirectory> GetDirectory() const = 0;
+ 
 
         };
 
@@ -3022,43 +2530,31 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property maximumExecutionCount
             */
-            virtual uint32_t GetMaximumExecutionCount() const
-            {
-                return 0;
-            }
-
+            virtual uint32_t GetMaximumExecutionCount() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Name of the event.
              * 
              * @return value of model property name
             */
-            virtual std::string GetName() const
-            {
-                return "";
-            }
-
+            virtual std::string GetName() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Priority of each event.
              * 
              * @return value of model property priority
             */
-            virtual Priority GetPriority() const
-            {
-                return Priority();
-            }
-
+            virtual Priority GetPriority() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * List of actions in an event.
              * 
              * @return value of model property actions
             */
-            virtual std::vector<std::shared_ptr<IAction>> GetActions() const
-            {
-                return std::vector<std::shared_ptr<IAction>>();
-            }
+            virtual std::vector<std::shared_ptr<IAction>> GetActions() const = 0;
 
             /**
              * From OpenSCENARIO class model specification:
@@ -3066,26 +2562,20 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property startTrigger
             */
-            virtual std::shared_ptr<ITrigger> GetStartTrigger() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ITrigger> GetStartTrigger() const = 0;
+ 
             /**
             * Retrieves the size of the list
             * @return the size of the list
             */
-            virtual int GetActionsSize() const { return 0; }
+            virtual int GetActionsSize() const  = 0;
 
             /**
             * The element at specific index
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IAction> GetActionsAtIndex(const unsigned int index) const
-            {
-                return nullptr;
-            }
+            virtual std::shared_ptr<IAction> GetActionsAtIndex(const unsigned int index) const = 0;
 
         };
 
@@ -3109,11 +2599,8 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property filepath
             */
-            virtual std::string GetFilepath() const
-            {
-                return "";
-            }
-
+            virtual std::string GetFilepath() const = 0;
+ 
 
         };
 
@@ -3137,55 +2624,40 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property author
             */
-            virtual std::string GetAuthor() const
-            {
-                return "";
-            }
-
+            virtual std::string GetAuthor() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * User specific date and time recommended: YYYY-MM-DDThh:mm:ss.
              * 
              * @return value of model property date
             */
-            virtual DateTime GetDate() const
-            {
-                return {};
-            }
-
+            virtual DateTime GetDate() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * User specific description.
              * 
              * @return value of model property description
             */
-            virtual std::string GetDescription() const
-            {
-                return "";
-            }
-
+            virtual std::string GetDescription() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Major OpenSCENARIO revision, this file conforms to Range: [0..inf[.
              * 
              * @return value of model property revMajor
             */
-            virtual uint16_t GetRevMajor() const
-            {
-                return 0;
-            }
-
+            virtual uint16_t GetRevMajor() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Minor OpenSCENARIO revision, this file conforms to Range: [0..inf[.
              * 
              * @return value of model property revMinor
             */
-            virtual uint16_t GetRevMinor() const
-            {
-                return 0;
-            }
-
+            virtual uint16_t GetRevMinor() const = 0;
+ 
 
         };
 
@@ -3209,22 +2681,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property absoluteSpeed
             */
-            virtual std::shared_ptr<IAbsoluteSpeed> GetAbsoluteSpeed() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IAbsoluteSpeed> GetAbsoluteSpeed() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * The speed a synchronized entity should have relative to its master entity at its target position.
              * 
              * @return value of model property relativeSpeedToMaster
             */
-            virtual std::shared_ptr<IRelativeSpeedToMaster> GetRelativeSpeedToMaster() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IRelativeSpeedToMaster> GetRelativeSpeedToMaster() const = 0;
+ 
 
         };
 
@@ -3248,22 +2714,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property visualRange
             */
-            virtual double GetVisualRange() const
-            {
-                return 0;
-            }
-
+            virtual double GetVisualRange() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Dimensions and center of fog in fixed coordinates.
              * 
              * @return value of model property boundingBox
             */
-            virtual std::shared_ptr<IBoundingBox> GetBoundingBox() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IBoundingBox> GetBoundingBox() const = 0;
+ 
 
         };
 
@@ -3288,22 +2748,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property trajectory
             */
-            virtual std::shared_ptr<ITrajectory> GetTrajectory() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ITrajectory> GetTrajectory() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * A reference to the trajectory type in a catalog.
              * 
              * @return value of model property catalogReference
             */
-            virtual std::shared_ptr<ICatalogReference> GetCatalogReference() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ICatalogReference> GetCatalogReference() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Defines if time information provided within the trajectory should be considered. If so, it may be used as either
@@ -3312,22 +2766,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property timeReference
             */
-            virtual std::shared_ptr<ITimeReference> GetTimeReference() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ITimeReference> GetTimeReference() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * The mode how to follow the given trajectory.
              * 
              * @return value of model property trajectoryFollowingMode
             */
-            virtual std::shared_ptr<ITrajectoryFollowingMode> GetTrajectoryFollowingMode() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ITrajectoryFollowingMode> GetTrajectoryFollowingMode() const = 0;
+ 
 
         };
 
@@ -3351,55 +2799,40 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property environmentAction
             */
-            virtual std::shared_ptr<IEnvironmentAction> GetEnvironmentAction() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IEnvironmentAction> GetEnvironmentAction() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Removing or adding entities.
              * 
              * @return value of model property entityAction
             */
-            virtual std::shared_ptr<IEntityAction> GetEntityAction() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IEntityAction> GetEntityAction() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Setting/modifying values of parameters.
              * 
              * @return value of model property parameterAction
             */
-            virtual std::shared_ptr<IParameterAction> GetParameterAction() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IParameterAction> GetParameterAction() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Setting/modifying traffic signals.
              * 
              * @return value of model property infrastructureAction
             */
-            virtual std::shared_ptr<IInfrastructureAction> GetInfrastructureAction() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IInfrastructureAction> GetInfrastructureAction() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Populating ambient traffic.
              * 
              * @return value of model property trafficAction
             */
-            virtual std::shared_ptr<ITrafficAction> GetTrafficAction() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ITrafficAction> GetTrafficAction() const = 0;
+ 
 
         };
 
@@ -3424,33 +2857,24 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property fromCurrentEntity
             */
-            virtual std::shared_ptr<IPositionOfCurrentEntity> GetFromCurrentEntity() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IPositionOfCurrentEntity> GetFromCurrentEntity() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Route position in road coordinate system.
              * 
              * @return value of model property fromRoadCoordinates
             */
-            virtual std::shared_ptr<IPositionInRoadCoordinates> GetFromRoadCoordinates() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IPositionInRoadCoordinates> GetFromRoadCoordinates() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Route position in lane coordinate system.
              * 
              * @return value of model property fromLaneCoordinates
             */
-            virtual std::shared_ptr<IPositionInLaneCoordinates> GetFromLaneCoordinates() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IPositionInLaneCoordinates> GetFromLaneCoordinates() const = 0;
+ 
 
         };
 
@@ -3474,11 +2898,8 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property trafficSignalAction
             */
-            virtual std::shared_ptr<ITrafficSignalAction> GetTrafficSignalAction() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ITrafficSignalAction> GetTrafficSignalAction() const = 0;
+ 
 
         };
 
@@ -3502,11 +2923,8 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property actions
             */
-            virtual std::shared_ptr<IInitActions> GetActions() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IInitActions> GetActions() const = 0;
+ 
 
         };
 
@@ -3531,10 +2949,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property globalActions
             */
-            virtual std::vector<std::shared_ptr<IGlobalAction>> GetGlobalActions() const
-            {
-                return std::vector<std::shared_ptr<IGlobalAction>>();
-            }
+            virtual std::vector<std::shared_ptr<IGlobalAction>> GetGlobalActions() const = 0;
 
             /**
              * From OpenSCENARIO class model specification:
@@ -3542,10 +2957,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property userDefinedActions
             */
-            virtual std::vector<std::shared_ptr<IUserDefinedAction>> GetUserDefinedActions() const
-            {
-                return std::vector<std::shared_ptr<IUserDefinedAction>>();
-            }
+            virtual std::vector<std::shared_ptr<IUserDefinedAction>> GetUserDefinedActions() const = 0;
 
             /**
              * From OpenSCENARIO class model specification:
@@ -3553,56 +2965,44 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property privates
             */
-            virtual std::vector<std::shared_ptr<IPrivate>> GetPrivates() const
-            {
-                return std::vector<std::shared_ptr<IPrivate>>();
-            }
+            virtual std::vector<std::shared_ptr<IPrivate>> GetPrivates() const = 0;
 
             /**
             * Retrieves the size of the list
             * @return the size of the list
             */
-            virtual int GetGlobalActionsSize() const { return 0; }
+            virtual int GetGlobalActionsSize() const  = 0;
 
             /**
             * The element at specific index
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IGlobalAction> GetGlobalActionsAtIndex(const unsigned int index) const
-            {
-                return nullptr;
-            }
+            virtual std::shared_ptr<IGlobalAction> GetGlobalActionsAtIndex(const unsigned int index) const = 0;
             /**
             * Retrieves the size of the list
             * @return the size of the list
             */
-            virtual int GetUserDefinedActionsSize() const { return 0; }
+            virtual int GetUserDefinedActionsSize() const  = 0;
 
             /**
             * The element at specific index
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IUserDefinedAction> GetUserDefinedActionsAtIndex(const unsigned int index) const
-            {
-                return nullptr;
-            }
+            virtual std::shared_ptr<IUserDefinedAction> GetUserDefinedActionsAtIndex(const unsigned int index) const = 0;
             /**
             * Retrieves the size of the list
             * @return the size of the list
             */
-            virtual int GetPrivatesSize() const { return 0; }
+            virtual int GetPrivatesSize() const  = 0;
 
             /**
             * The element at specific index
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IPrivate> GetPrivatesAtIndex(const unsigned int index) const
-            {
-                return nullptr;
-            }
+            virtual std::shared_ptr<IPrivate> GetPrivatesAtIndex(const unsigned int index) const = 0;
 
         };
 
@@ -3626,11 +3026,8 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property value
             */
-            virtual double GetValue() const
-            {
-                return 0;
-            }
-
+            virtual double GetValue() const = 0;
+ 
 
         };
 
@@ -3658,33 +3055,24 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property targetLaneOffset
             */
-            virtual double GetTargetLaneOffset() const
-            {
-                return 0;
-            }
-
+            virtual double GetTargetLaneOffset() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Shape/time of lane change action.
              * 
              * @return value of model property laneChangeActionDynamics
             */
-            virtual std::shared_ptr<ITransitionDynamics> GetLaneChangeActionDynamics() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ITransitionDynamics> GetLaneChangeActionDynamics() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Direction of lane change action.
              * 
              * @return value of model property laneChangeTarget
             */
-            virtual std::shared_ptr<ILaneChangeTarget> GetLaneChangeTarget() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ILaneChangeTarget> GetLaneChangeTarget() const = 0;
+ 
 
         };
 
@@ -3708,22 +3096,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property relativeTargetLane
             */
-            virtual std::shared_ptr<IRelativeTargetLane> GetRelativeTargetLane() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IRelativeTargetLane> GetRelativeTargetLane() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Lane change target lane number.
              * 
              * @return value of model property absoluteTargetLane
             */
-            virtual std::shared_ptr<IAbsoluteTargetLane> GetAbsoluteTargetLane() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IAbsoluteTargetLane> GetAbsoluteTargetLane() const = 0;
+ 
 
         };
 
@@ -3754,22 +3136,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property continuous
             */
-            virtual bool GetContinuous() const
-            {
-                return false;
-            }
-
+            virtual bool GetContinuous() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Parameters defining the dynamics of the LaneOffsetAction.
              * 
              * @return value of model property laneOffsetActionDynamics
             */
-            virtual std::shared_ptr<ILaneOffsetActionDynamics> GetLaneOffsetActionDynamics() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ILaneOffsetActionDynamics> GetLaneOffsetActionDynamics() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Parameters indicating if the lane offset is defined relative to another entity or absolute to the current lane's center
@@ -3777,11 +3153,8 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property laneOffsetTarget
             */
-            virtual std::shared_ptr<ILaneOffsetTarget> GetLaneOffsetTarget() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ILaneOffsetTarget> GetLaneOffsetTarget() const = 0;
+ 
 
         };
 
@@ -3805,22 +3178,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property dynamicsShape
             */
-            virtual DynamicsShape GetDynamicsShape() const
-            {
-                return DynamicsShape();
-            }
-
+            virtual DynamicsShape GetDynamicsShape() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Maximum lateral acceleration used to initially reach and afterwards keep the lane offset. Unit: m/s2; Range: [0..inf[.
              * 
              * @return value of model property maxLateralAcc
             */
-            virtual double GetMaxLateralAcc() const
-            {
-                return 0;
-            }
-
+            virtual double GetMaxLateralAcc() const = 0;
+ 
 
         };
 
@@ -3844,22 +3211,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property relativeTargetLaneOffset
             */
-            virtual std::shared_ptr<IRelativeTargetLaneOffset> GetRelativeTargetLaneOffset() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IRelativeTargetLaneOffset> GetRelativeTargetLaneOffset() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Absolute reference to the current lane's center line.
              * 
              * @return value of model property absoluteTargetLaneOffset
             */
-            virtual std::shared_ptr<IAbsoluteTargetLaneOffset> GetAbsoluteTargetLaneOffset() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IAbsoluteTargetLaneOffset> GetAbsoluteTargetLaneOffset() const = 0;
+ 
 
         };
 
@@ -3883,55 +3244,40 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property laneId
             */
-            virtual std::string GetLaneId() const
-            {
-                return "";
-            }
-
+            virtual std::string GetLaneId() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Lateral offset to the centerline of the current lane. Unit: m.
              * 
              * @return value of model property offset
             */
-            virtual double GetOffset() const
-            {
-                return 0;
-            }
-
+            virtual double GetOffset() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * ID of the current road (ID of a road in road network).
              * 
              * @return value of model property roadId
             */
-            virtual std::string GetRoadId() const
-            {
-                return "";
-            }
-
+            virtual std::string GetRoadId() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * The s coordinate of the current position. Unit: m; Range: [0..inf[.
              * 
              * @return value of model property s
             */
-            virtual double GetS() const
-            {
-                return 0;
-            }
-
+            virtual double GetS() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Orientation. The relative reference context refers to the referenced road's s and t coordinates.
              * 
              * @return value of model property orientation
             */
-            virtual std::shared_ptr<IOrientation> GetOrientation() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IOrientation> GetOrientation() const = 0;
+ 
 
         };
 
@@ -3955,33 +3301,24 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property laneChangeAction
             */
-            virtual std::shared_ptr<ILaneChangeAction> GetLaneChangeAction() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ILaneChangeAction> GetLaneChangeAction() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Action defining a continuously kept lane offset.
              * 
              * @return value of model property laneOffsetAction
             */
-            virtual std::shared_ptr<ILaneOffsetAction> GetLaneOffsetAction() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ILaneOffsetAction> GetLaneOffsetAction() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Action defining a continuously kept lateral distance to a specific entity.
              * 
              * @return value of model property lateralDistanceAction
             */
-            virtual std::shared_ptr<ILateralDistanceAction> GetLateralDistanceAction() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ILateralDistanceAction> GetLateralDistanceAction() const = 0;
+ 
 
         };
 
@@ -4009,32 +3346,23 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property continuous
             */
-            virtual bool GetContinuous() const
-            {
-                return false;
-            }
-
+            virtual bool GetContinuous() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Lateral distance value. Unit: m; Range: [0..inf[.
              * 
              * @return value of model property distance
             */
-            virtual double GetDistance() const
-            {
-                return 0;
-            }
-
+            virtual double GetDistance() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Name of the reference entity the lateral distance shall be kept to.
              * 
              * @return value of model property entityRef
             */
-            virtual std::shared_ptr<INamedReference<IEntity>> GetEntityRef() const
-            {
-                return std::make_shared<INamedReference<IEntity>>();
-            }
+            virtual std::shared_ptr<INamedReference<IEntity>> GetEntityRef() const = 0;
 
             /**
              * From OpenSCENARIO class model specification:
@@ -4043,11 +3371,8 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property freespace
             */
-            virtual bool GetFreespace() const
-            {
-                return false;
-            }
-
+            virtual bool GetFreespace() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Parameter that assigns either unlimited dynamics (if omitted) or limited maxAcceleration/maxDeceleration/maxSpeed to the
@@ -4055,11 +3380,8 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property dynamicConstraints
             */
-            virtual std::shared_ptr<IDynamicConstraints> GetDynamicConstraints() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IDynamicConstraints> GetDynamicConstraints() const = 0;
+ 
 
         };
 
@@ -4083,22 +3405,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property speedAction
             */
-            virtual std::shared_ptr<ISpeedAction> GetSpeedAction() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ISpeedAction> GetSpeedAction() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * This Action defines a continuously kept longitudinal distance to a specific entity.
              * 
              * @return value of model property longitudinalDistanceAction
             */
-            virtual std::shared_ptr<ILongitudinalDistanceAction> GetLongitudinalDistanceAction() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ILongitudinalDistanceAction> GetLongitudinalDistanceAction() const = 0;
+ 
 
         };
 
@@ -4124,32 +3440,23 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property continuous
             */
-            virtual bool GetContinuous() const
-            {
-                return false;
-            }
-
+            virtual bool GetContinuous() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Distance value, not to be used together with timeGap attribute. Unit: m; Range: [0..inf[.
              * 
              * @return value of model property distance
             */
-            virtual double GetDistance() const
-            {
-                return 0;
-            }
-
+            virtual double GetDistance() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Reference entity the distance shall be kept to.
              * 
              * @return value of model property entityRef
             */
-            virtual std::shared_ptr<INamedReference<IEntity>> GetEntityRef() const
-            {
-                return std::make_shared<INamedReference<IEntity>>();
-            }
+            virtual std::shared_ptr<INamedReference<IEntity>> GetEntityRef() const = 0;
 
             /**
              * From OpenSCENARIO class model specification:
@@ -4158,22 +3465,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property freespace
             */
-            virtual bool GetFreespace() const
-            {
-                return false;
-            }
-
+            virtual bool GetFreespace() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Time gap value, not to be used together with distance attribute. Unit: s; Range: [0..inf[.
              * 
              * @return value of model property timeGap
             */
-            virtual double GetTimeGap() const
-            {
-                return 0;
-            }
-
+            virtual double GetTimeGap() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Parameter that assigns either unlimited dynamics (if ommitted) or limited maxAcceleration/maxDeceleration/maxSpeed to
@@ -4181,11 +3482,8 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property dynamicConstraints
             */
-            virtual std::shared_ptr<IDynamicConstraints> GetDynamicConstraints() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IDynamicConstraints> GetDynamicConstraints() const = 0;
+ 
 
         };
 
@@ -4209,21 +3507,15 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property name
             */
-            virtual std::string GetName() const
-            {
-                return "";
-            }
-
+            virtual std::string GetName() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Definition of additional parameters.
              * 
              * @return value of model property parameterDeclarations
             */
-            virtual std::vector<std::shared_ptr<IParameterDeclaration>> GetParameterDeclarations() const
-            {
-                return std::vector<std::shared_ptr<IParameterDeclaration>>();
-            }
+            virtual std::vector<std::shared_ptr<IParameterDeclaration>> GetParameterDeclarations() const = 0;
 
             /**
              * From OpenSCENARIO class model specification:
@@ -4231,41 +3523,32 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property events
             */
-            virtual std::vector<std::shared_ptr<IEvent>> GetEvents() const
-            {
-                return std::vector<std::shared_ptr<IEvent>>();
-            }
+            virtual std::vector<std::shared_ptr<IEvent>> GetEvents() const = 0;
 
             /**
             * Retrieves the size of the list
             * @return the size of the list
             */
-            virtual int GetParameterDeclarationsSize() const { return 0; }
+            virtual int GetParameterDeclarationsSize() const  = 0;
 
             /**
             * The element at specific index
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IParameterDeclaration> GetParameterDeclarationsAtIndex(const unsigned int index) const
-            {
-                return nullptr;
-            }
+            virtual std::shared_ptr<IParameterDeclaration> GetParameterDeclarationsAtIndex(const unsigned int index) const = 0;
             /**
             * Retrieves the size of the list
             * @return the size of the list
             */
-            virtual int GetEventsSize() const { return 0; }
+            virtual int GetEventsSize() const  = 0;
 
             /**
             * The element at specific index
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IEvent> GetEventsAtIndex(const unsigned int index) const
-            {
-                return nullptr;
-            }
+            virtual std::shared_ptr<IEvent> GetEventsAtIndex(const unsigned int index) const = 0;
 
         };
 
@@ -4289,11 +3572,8 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property directory
             */
-            virtual std::shared_ptr<IDirectory> GetDirectory() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IDirectory> GetDirectory() const = 0;
+ 
 
         };
 
@@ -4318,43 +3598,31 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property maximumExecutionCount
             */
-            virtual uint32_t GetMaximumExecutionCount() const
-            {
-                return 0;
-            }
-
+            virtual uint32_t GetMaximumExecutionCount() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Name of the maneuver group.
              * 
              * @return value of model property name
             */
-            virtual std::string GetName() const
-            {
-                return "";
-            }
-
+            virtual std::string GetName() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Actors of the maneuver group.
              * 
              * @return value of model property actors
             */
-            virtual std::shared_ptr<IActors> GetActors() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IActors> GetActors() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Each element of this list of must reference a maneuver type in a catalog.
              * 
              * @return value of model property catalogReferences
             */
-            virtual std::vector<std::shared_ptr<ICatalogReference>> GetCatalogReferences() const
-            {
-                return std::vector<std::shared_ptr<ICatalogReference>>();
-            }
+            virtual std::vector<std::shared_ptr<ICatalogReference>> GetCatalogReferences() const = 0;
 
             /**
              * From OpenSCENARIO class model specification:
@@ -4362,41 +3630,32 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property maneuvers
             */
-            virtual std::vector<std::shared_ptr<IManeuver>> GetManeuvers() const
-            {
-                return std::vector<std::shared_ptr<IManeuver>>();
-            }
+            virtual std::vector<std::shared_ptr<IManeuver>> GetManeuvers() const = 0;
 
             /**
             * Retrieves the size of the list
             * @return the size of the list
             */
-            virtual int GetCatalogReferencesSize() const { return 0; }
+            virtual int GetCatalogReferencesSize() const  = 0;
 
             /**
             * The element at specific index
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<ICatalogReference> GetCatalogReferencesAtIndex(const unsigned int index) const
-            {
-                return nullptr;
-            }
+            virtual std::shared_ptr<ICatalogReference> GetCatalogReferencesAtIndex(const unsigned int index) const = 0;
             /**
             * Retrieves the size of the list
             * @return the size of the list
             */
-            virtual int GetManeuversSize() const { return 0; }
+            virtual int GetManeuversSize() const  = 0;
 
             /**
             * The element at specific index
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IManeuver> GetManeuversAtIndex(const unsigned int index) const
-            {
-                return nullptr;
-            }
+            virtual std::shared_ptr<IManeuver> GetManeuversAtIndex(const unsigned int index) const = 0;
 
         };
 
@@ -4420,43 +3679,31 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property mass
             */
-            virtual double GetMass() const
-            {
-                return 0;
-            }
-
+            virtual double GetMass() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Categorization of the miscellaneous object.
              * 
              * @return value of model property miscObjectCategory
             */
-            virtual MiscObjectCategory GetMiscObjectCategory() const
-            {
-                return MiscObjectCategory();
-            }
-
+            virtual MiscObjectCategory GetMiscObjectCategory() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Name of the miscellaneous object type.
              * 
              * @return value of model property name
             */
-            virtual std::string GetName() const
-            {
-                return "";
-            }
-
+            virtual std::string GetName() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Definition of additional parameters.
              * 
              * @return value of model property parameterDeclarations
             */
-            virtual std::vector<std::shared_ptr<IParameterDeclaration>> GetParameterDeclarations() const
-            {
-                return std::vector<std::shared_ptr<IParameterDeclaration>>();
-            }
+            virtual std::vector<std::shared_ptr<IParameterDeclaration>> GetParameterDeclarations() const = 0;
 
             /**
              * From OpenSCENARIO class model specification:
@@ -4464,37 +3711,28 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property boundingBox
             */
-            virtual std::shared_ptr<IBoundingBox> GetBoundingBox() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IBoundingBox> GetBoundingBox() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Property definitions for the miscellaneous object.
              * 
              * @return value of model property properties
             */
-            virtual std::shared_ptr<IProperties> GetProperties() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IProperties> GetProperties() const = 0;
+ 
             /**
             * Retrieves the size of the list
             * @return the size of the list
             */
-            virtual int GetParameterDeclarationsSize() const { return 0; }
+            virtual int GetParameterDeclarationsSize() const  = 0;
 
             /**
             * The element at specific index
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IParameterDeclaration> GetParameterDeclarationsAtIndex(const unsigned int index) const
-            {
-                return nullptr;
-            }
+            virtual std::shared_ptr<IParameterDeclaration> GetParameterDeclarationsAtIndex(const unsigned int index) const = 0;
 
         };
 
@@ -4518,11 +3756,8 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property directory
             */
-            virtual std::shared_ptr<IDirectory> GetDirectory() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IDirectory> GetDirectory() const = 0;
+ 
 
         };
 
@@ -4547,22 +3782,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property addValue
             */
-            virtual std::shared_ptr<IParameterAddValueRule> GetAddValue() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IParameterAddValueRule> GetAddValue() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Multiply a parameter by a value.
              * 
              * @return value of model property multiplyByValue
             */
-            virtual std::shared_ptr<IParameterMultiplyByValueRule> GetMultiplyByValue() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IParameterMultiplyByValueRule> GetMultiplyByValue() const = 0;
+ 
 
         };
 
@@ -4604,11 +3833,8 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property order
             */
-            virtual uint32_t GetOrder() const
-            {
-                return 0;
-            }
-
+            virtual uint32_t GetOrder() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Control point vector of the NURBS trajectory. The number of control points must be greater or equal to the order of the
@@ -4616,10 +3842,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property controlPoints
             */
-            virtual std::vector<std::shared_ptr<IControlPoint>> GetControlPoints() const
-            {
-                return std::vector<std::shared_ptr<IControlPoint>>();
-            }
+            virtual std::vector<std::shared_ptr<IControlPoint>> GetControlPoints() const = 0;
 
             /**
              * From OpenSCENARIO class model specification:
@@ -4628,41 +3851,32 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property knots
             */
-            virtual std::vector<std::shared_ptr<IKnot>> GetKnots() const
-            {
-                return std::vector<std::shared_ptr<IKnot>>();
-            }
+            virtual std::vector<std::shared_ptr<IKnot>> GetKnots() const = 0;
 
             /**
             * Retrieves the size of the list
             * @return the size of the list
             */
-            virtual int GetControlPointsSize() const { return 0; }
+            virtual int GetControlPointsSize() const  = 0;
 
             /**
             * The element at specific index
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IControlPoint> GetControlPointsAtIndex(const unsigned int index) const
-            {
-                return nullptr;
-            }
+            virtual std::shared_ptr<IControlPoint> GetControlPointsAtIndex(const unsigned int index) const = 0;
             /**
             * Retrieves the size of the list
             * @return the size of the list
             */
-            virtual int GetKnotsSize() const { return 0; }
+            virtual int GetKnotsSize() const  = 0;
 
             /**
             * The element at specific index
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IKnot> GetKnotsAtIndex(const unsigned int index) const
-            {
-                return nullptr;
-            }
+            virtual std::shared_ptr<IKnot> GetKnotsAtIndex(const unsigned int index) const = 0;
 
         };
 
@@ -4686,22 +3900,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property catalogReference
             */
-            virtual std::shared_ptr<ICatalogReference> GetCatalogReference() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ICatalogReference> GetCatalogReference() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Controller type definition.
              * 
              * @return value of model property controller
             */
-            virtual std::shared_ptr<IController> GetController() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IController> GetController() const = 0;
+ 
 
         };
 
@@ -4726,11 +3934,8 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property duration
             */
-            virtual double GetDuration() const
-            {
-                return 0;
-            }
-
+            virtual double GetDuration() const = 0;
+ 
 
         };
 
@@ -4754,22 +3959,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property fileHeader
             */
-            virtual std::shared_ptr<IFileHeader> GetFileHeader() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IFileHeader> GetFileHeader() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Category (catalog or scenario) of the OpenSCENARIO description.
              * 
              * @return value of model property openScenarioCategory
             */
-            virtual std::shared_ptr<IOpenScenarioCategory> GetOpenScenarioCategory() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IOpenScenarioCategory> GetOpenScenarioCategory() const = 0;
+ 
 
         };
 
@@ -4793,22 +3992,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property scenarioDefinition
             */
-            virtual std::shared_ptr<IScenarioDefinition> GetScenarioDefinition() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IScenarioDefinition> GetScenarioDefinition() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Definition of a catalog.
              * 
              * @return value of model property catalogDefinition
             */
-            virtual std::shared_ptr<ICatalogDefinition> GetCatalogDefinition() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ICatalogDefinition> GetCatalogDefinition() const = 0;
+ 
 
         };
 
@@ -4832,44 +4025,32 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property h
             */
-            virtual double GetH() const
-            {
-                return 0;
-            }
-
+            virtual double GetH() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Pitch angle. Unit: rad;.
              * 
              * @return value of model property p
             */
-            virtual double GetP() const
-            {
-                return 0;
-            }
-
+            virtual double GetP() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Roll angle. Unit: rad;.
              * 
              * @return value of model property r
             */
-            virtual double GetR() const
-            {
-                return 0;
-            }
-
+            virtual double GetR() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Relative or absolute definition.
              * 
              * @return value of model property type
             */
-            virtual ReferenceContext GetType() const
-            {
-                return ReferenceContext();
-            }
-
+            virtual ReferenceContext GetType() const = 0;
+ 
 
         };
 
@@ -4893,22 +4074,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property active
             */
-            virtual bool GetActive() const
-            {
-                return false;
-            }
-
+            virtual bool GetActive() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Brake pedal value. Range: [0..1]. 0 represents 0%, 1 represents 100% of pressing the brake pedal.
              * 
              * @return value of model property value
             */
-            virtual double GetValue() const
-            {
-                return 0;
-            }
-
+            virtual double GetValue() const = 0;
+ 
 
         };
 
@@ -4932,22 +4107,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property active
             */
-            virtual bool GetActive() const
-            {
-                return false;
-            }
-
+            virtual bool GetActive() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Clutch pedal value. Range: [0..1]. 0 represents 0%, 1 represents 100% of pressing the clutch pedal.
              * 
              * @return value of model property value
             */
-            virtual double GetValue() const
-            {
-                return 0;
-            }
-
+            virtual double GetValue() const = 0;
+ 
 
         };
 
@@ -4971,66 +4140,48 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property throttle
             */
-            virtual std::shared_ptr<IOverrideThrottleAction> GetThrottle() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IOverrideThrottleAction> GetThrottle() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * New value for brake position or unset value.
              * 
              * @return value of model property brake
             */
-            virtual std::shared_ptr<IOverrideBrakeAction> GetBrake() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IOverrideBrakeAction> GetBrake() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * New value for clutch position or unset value.
              * 
              * @return value of model property clutch
             */
-            virtual std::shared_ptr<IOverrideClutchAction> GetClutch() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IOverrideClutchAction> GetClutch() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * New value for parking brake position or unset value.
              * 
              * @return value of model property parkingBrake
             */
-            virtual std::shared_ptr<IOverrideParkingBrakeAction> GetParkingBrake() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IOverrideParkingBrakeAction> GetParkingBrake() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * New value for steering wheel position or unset value.
              * 
              * @return value of model property steeringWheel
             */
-            virtual std::shared_ptr<IOverrideSteeringWheelAction> GetSteeringWheel() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IOverrideSteeringWheelAction> GetSteeringWheel() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * New value for gear position or unset value.
              * 
              * @return value of model property gear
             */
-            virtual std::shared_ptr<IOverrideGearAction> GetGear() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IOverrideGearAction> GetGear() const = 0;
+ 
 
         };
 
@@ -5054,22 +4205,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property active
             */
-            virtual bool GetActive() const
-            {
-                return false;
-            }
-
+            virtual bool GetActive() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Gear number.
              * 
              * @return value of model property number
             */
-            virtual double GetNumber() const
-            {
-                return 0;
-            }
-
+            virtual double GetNumber() const = 0;
+ 
 
         };
 
@@ -5093,22 +4238,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property active
             */
-            virtual bool GetActive() const
-            {
-                return false;
-            }
-
+            virtual bool GetActive() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Parking brake value. Unit: %; Range: [0..1]. The value 1 represent the maximum parking brake state.
              * 
              * @return value of model property value
             */
-            virtual double GetValue() const
-            {
-                return 0;
-            }
-
+            virtual double GetValue() const = 0;
+ 
 
         };
 
@@ -5132,22 +4271,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property active
             */
-            virtual bool GetActive() const
-            {
-                return false;
-            }
-
+            virtual bool GetActive() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Steering wheel angle. Unit: rad.
              * 
              * @return value of model property value
             */
-            virtual double GetValue() const
-            {
-                return 0;
-            }
-
+            virtual double GetValue() const = 0;
+ 
 
         };
 
@@ -5171,22 +4304,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property active
             */
-            virtual bool GetActive() const
-            {
-                return false;
-            }
-
+            virtual bool GetActive() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Throttle pedal value. Range: [0..1].0 represents 0%, 1 represents 100% of pressing the throttle pedal.
              * 
              * @return value of model property value
             */
-            virtual double GetValue() const
-            {
-                return 0;
-            }
-
+            virtual double GetValue() const = 0;
+ 
 
         };
 
@@ -5210,10 +4337,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property parameterRef
             */
-            virtual std::shared_ptr<INamedReference<IParameterDeclaration>> GetParameterRef() const
-            {
-                return std::make_shared<INamedReference<IParameterDeclaration>>();
-            }
+            virtual std::shared_ptr<INamedReference<IParameterDeclaration>> GetParameterRef() const = 0;
 
             /**
              * From OpenSCENARIO class model specification:
@@ -5221,22 +4345,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property setAction
             */
-            virtual std::shared_ptr<IParameterSetAction> GetSetAction() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IParameterSetAction> GetSetAction() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Modifying rule for the parameter (Add value or multiply by value).
              * 
              * @return value of model property modifyAction
             */
-            virtual std::shared_ptr<IParameterModifyAction> GetModifyAction() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IParameterModifyAction> GetModifyAction() const = 0;
+ 
 
         };
 
@@ -5260,11 +4378,8 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property value
             */
-            virtual double GetValue() const
-            {
-                return 0;
-            }
-
+            virtual double GetValue() const = 0;
+ 
 
         };
 
@@ -5289,10 +4404,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property parameterRef
             */
-            virtual std::shared_ptr<INamedReference<IParameterDeclaration>> GetParameterRef() const
-            {
-                return std::make_shared<INamedReference<IParameterDeclaration>>();
-            }
+            virtual std::shared_ptr<INamedReference<IParameterDeclaration>> GetParameterRef() const = 0;
 
             /**
              * From OpenSCENARIO class model specification:
@@ -5300,11 +4412,8 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property value
             */
-            virtual std::string GetValue() const
-            {
-                return "";
-            }
-
+            virtual std::string GetValue() const = 0;
+ 
 
         };
 
@@ -5330,10 +4439,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property parameterRef
             */
-            virtual std::shared_ptr<INamedReference<IParameterDeclaration>> GetParameterRef() const
-            {
-                return std::make_shared<INamedReference<IParameterDeclaration>>();
-            }
+            virtual std::shared_ptr<INamedReference<IParameterDeclaration>> GetParameterRef() const = 0;
 
             /**
              * From OpenSCENARIO class model specification:
@@ -5341,22 +4447,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property rule
             */
-            virtual Rule GetRule() const
-            {
-                return Rule();
-            }
-
+            virtual Rule GetRule() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Value of the parameter.
              * 
              * @return value of model property value
             */
-            virtual std::string GetValue() const
-            {
-                return "";
-            }
-
+            virtual std::string GetValue() const = 0;
+ 
 
         };
 
@@ -5380,33 +4480,24 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property name
             */
-            virtual std::string GetName() const
-            {
-                return "";
-            }
-
+            virtual std::string GetName() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Type of the parameter.
              * 
              * @return value of model property parameterType
             */
-            virtual ParameterType GetParameterType() const
-            {
-                return ParameterType();
-            }
-
+            virtual ParameterType GetParameterType() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Value of the parameter as its default value.
              * 
              * @return value of model property value
             */
-            virtual std::string GetValue() const
-            {
-                return "";
-            }
-
+            virtual std::string GetValue() const = 0;
+ 
 
         };
 
@@ -5430,11 +4521,8 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property rule
             */
-            virtual std::shared_ptr<IModifyRule> GetRule() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IModifyRule> GetRule() const = 0;
+ 
 
         };
 
@@ -5458,11 +4546,8 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property value
             */
-            virtual double GetValue() const
-            {
-                return 0;
-            }
-
+            virtual double GetValue() const = 0;
+ 
 
         };
 
@@ -5486,11 +4571,8 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property value
             */
-            virtual std::string GetValue() const
-            {
-                return "";
-            }
-
+            virtual std::string GetValue() const = 0;
+ 
 
         };
 
@@ -5514,54 +4596,39 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property mass
             */
-            virtual double GetMass() const
-            {
-                return 0;
-            }
-
+            virtual double GetMass() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Definition of the model of the pedestrian.
              * 
              * @return value of model property model
             */
-            virtual std::string GetModel() const
-            {
-                return "";
-            }
-
+            virtual std::string GetModel() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Name of the pedestrian type. Required when used in catalog.
              * 
              * @return value of model property name
             */
-            virtual std::string GetName() const
-            {
-                return "";
-            }
-
+            virtual std::string GetName() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Category type of pedestrian.
              * 
              * @return value of model property pedestrianCategory
             */
-            virtual PedestrianCategory GetPedestrianCategory() const
-            {
-                return PedestrianCategory();
-            }
-
+            virtual PedestrianCategory GetPedestrianCategory() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Definition of additional parameters.
              * 
              * @return value of model property parameterDeclarations
             */
-            virtual std::vector<std::shared_ptr<IParameterDeclaration>> GetParameterDeclarations() const
-            {
-                return std::vector<std::shared_ptr<IParameterDeclaration>>();
-            }
+            virtual std::vector<std::shared_ptr<IParameterDeclaration>> GetParameterDeclarations() const = 0;
 
             /**
              * From OpenSCENARIO class model specification:
@@ -5569,37 +4636,28 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property boundingBox
             */
-            virtual std::shared_ptr<IBoundingBox> GetBoundingBox() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IBoundingBox> GetBoundingBox() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Properties (values/files) of the pedestrian.
              * 
              * @return value of model property properties
             */
-            virtual std::shared_ptr<IProperties> GetProperties() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IProperties> GetProperties() const = 0;
+ 
             /**
             * Retrieves the size of the list
             * @return the size of the list
             */
-            virtual int GetParameterDeclarationsSize() const { return 0; }
+            virtual int GetParameterDeclarationsSize() const  = 0;
 
             /**
             * The element at specific index
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IParameterDeclaration> GetParameterDeclarationsAtIndex(const unsigned int index) const
-            {
-                return nullptr;
-            }
+            virtual std::shared_ptr<IParameterDeclaration> GetParameterDeclarationsAtIndex(const unsigned int index) const = 0;
 
         };
 
@@ -5623,11 +4681,8 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property directory
             */
-            virtual std::shared_ptr<IDirectory> GetDirectory() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IDirectory> GetDirectory() const = 0;
+ 
 
         };
 
@@ -5651,33 +4706,24 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property maxAcceleration
             */
-            virtual double GetMaxAcceleration() const
-            {
-                return 0;
-            }
-
+            virtual double GetMaxAcceleration() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Maximum deceleration of the vehicle. Unit: m/s^2. Range: [0..inf[.
              * 
              * @return value of model property maxDeceleration
             */
-            virtual double GetMaxDeceleration() const
-            {
-                return 0;
-            }
-
+            virtual double GetMaxDeceleration() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Maximum speed of the vehicle. Unit: m/s.
              * 
              * @return value of model property maxSpeed
             */
-            virtual double GetMaxSpeed() const
-            {
-                return 0;
-            }
-
+            virtual double GetMaxSpeed() const = 0;
+ 
 
         };
 
@@ -5702,22 +4748,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property duration
             */
-            virtual double GetDuration() const
-            {
-                return 0;
-            }
-
+            virtual double GetDuration() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Name of the phase.
              * 
              * @return value of model property name
             */
-            virtual std::string GetName() const
-            {
-                return "";
-            }
-
+            virtual std::string GetName() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Each phase has multiple TrafficSignalStates. One for each TrafficSignal that is controlled. E.g. phase1
@@ -5725,26 +4765,20 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property trafficSignalStates
             */
-            virtual std::vector<std::shared_ptr<ITrafficSignalState>> GetTrafficSignalStates() const
-            {
-                return std::vector<std::shared_ptr<ITrafficSignalState>>();
-            }
+            virtual std::vector<std::shared_ptr<ITrafficSignalState>> GetTrafficSignalStates() const = 0;
 
             /**
             * Retrieves the size of the list
             * @return the size of the list
             */
-            virtual int GetTrafficSignalStatesSize() const { return 0; }
+            virtual int GetTrafficSignalStatesSize() const  = 0;
 
             /**
             * The element at specific index
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<ITrafficSignalState> GetTrafficSignalStatesAtIndex(const unsigned int index) const
-            {
-                return nullptr;
-            }
+            virtual std::shared_ptr<ITrafficSignalState> GetTrafficSignalStatesAtIndex(const unsigned int index) const = 0;
 
         };
 
@@ -5768,26 +4802,20 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property vertices
             */
-            virtual std::vector<std::shared_ptr<IVertex>> GetVertices() const
-            {
-                return std::vector<std::shared_ptr<IVertex>>();
-            }
+            virtual std::vector<std::shared_ptr<IVertex>> GetVertices() const = 0;
 
             /**
             * Retrieves the size of the list
             * @return the size of the list
             */
-            virtual int GetVerticesSize() const { return 0; }
+            virtual int GetVerticesSize() const  = 0;
 
             /**
             * The element at specific index
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IVertex> GetVerticesAtIndex(const unsigned int index) const
-            {
-                return nullptr;
-            }
+            virtual std::shared_ptr<IVertex> GetVerticesAtIndex(const unsigned int index) const = 0;
 
         };
 
@@ -5811,66 +4839,48 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property worldPosition
             */
-            virtual std::shared_ptr<IWorldPosition> GetWorldPosition() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IWorldPosition> GetWorldPosition() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Position is given relative to a world position.
              * 
              * @return value of model property relativeWorldPosition
             */
-            virtual std::shared_ptr<IRelativeWorldPosition> GetRelativeWorldPosition() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IRelativeWorldPosition> GetRelativeWorldPosition() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Position is given relative to an entity.
              * 
              * @return value of model property relativeObjectPosition
             */
-            virtual std::shared_ptr<IRelativeObjectPosition> GetRelativeObjectPosition() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IRelativeObjectPosition> GetRelativeObjectPosition() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Position in road coordinates (t,s) applied to a given road.
              * 
              * @return value of model property roadPosition
             */
-            virtual std::shared_ptr<IRoadPosition> GetRoadPosition() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IRoadPosition> GetRoadPosition() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Position relative to an entity's road position (ds, dt).
              * 
              * @return value of model property relativeRoadPosition
             */
-            virtual std::shared_ptr<IRelativeRoadPosition> GetRelativeRoadPosition() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IRelativeRoadPosition> GetRelativeRoadPosition() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Position that is determined by a lane (lane ID) and the s coordinate of a given road.
              * 
              * @return value of model property lanePosition
             */
-            virtual std::shared_ptr<ILanePosition> GetLanePosition() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ILanePosition> GetLanePosition() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Position that is determined relative to the lane coordinates of a given entity. (Relative lane and relative s to this
@@ -5878,22 +4888,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property relativeLanePosition
             */
-            virtual std::shared_ptr<IRelativeLanePosition> GetRelativeLanePosition() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IRelativeLanePosition> GetRelativeLanePosition() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Position that is determined by a given route.
              * 
              * @return value of model property routePosition
             */
-            virtual std::shared_ptr<IRoutePosition> GetRoutePosition() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IRoutePosition> GetRoutePosition() const = 0;
+ 
 
         };
 
@@ -5917,33 +4921,24 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property laneId
             */
-            virtual std::string GetLaneId() const
-            {
-                return "";
-            }
-
+            virtual std::string GetLaneId() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Lateral offset (relative to the lane centerline) of the actual position. Unit: m.
              * 
              * @return value of model property laneOffset
             */
-            virtual double GetLaneOffset() const
-            {
-                return 0;
-            }
-
+            virtual double GetLaneOffset() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * s-coordinate of the actual position. Unit: m; Range: [0..inf[.
              * 
              * @return value of model property pathS
             */
-            virtual double GetPathS() const
-            {
-                return 0;
-            }
-
+            virtual double GetPathS() const = 0;
+ 
 
         };
 
@@ -5968,22 +4963,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property pathS
             */
-            virtual double GetPathS() const
-            {
-                return 0;
-            }
-
+            virtual double GetPathS() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Position in t coordinates orthogonal to the reference line of the road.
              * 
              * @return value of model property t
             */
-            virtual double GetT() const
-            {
-                return 0;
-            }
-
+            virtual double GetT() const = 0;
+ 
 
         };
 
@@ -6008,10 +4997,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property entityRef
             */
-            virtual std::shared_ptr<INamedReference<IEntity>> GetEntityRef() const
-            {
-                return std::make_shared<INamedReference<IEntity>>();
-            }
+            virtual std::shared_ptr<INamedReference<IEntity>> GetEntityRef() const = 0;
 
 
         };
@@ -6036,22 +5022,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property intensity
             */
-            virtual double GetIntensity() const
-            {
-                return 0;
-            }
-
+            virtual double GetIntensity() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Type of the precipitation.
              * 
              * @return value of model property precipitationType
             */
-            virtual PrecipitationType GetPrecipitationType() const
-            {
-                return PrecipitationType();
-            }
-
+            virtual PrecipitationType GetPrecipitationType() const = 0;
+ 
 
         };
 
@@ -6075,10 +5055,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property entityRef
             */
-            virtual std::shared_ptr<INamedReference<IEntity>> GetEntityRef() const
-            {
-                return std::make_shared<INamedReference<IEntity>>();
-            }
+            virtual std::shared_ptr<INamedReference<IEntity>> GetEntityRef() const = 0;
 
             /**
              * From OpenSCENARIO class model specification:
@@ -6086,26 +5063,20 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property privateActions
             */
-            virtual std::vector<std::shared_ptr<IPrivateAction>> GetPrivateActions() const
-            {
-                return std::vector<std::shared_ptr<IPrivateAction>>();
-            }
+            virtual std::vector<std::shared_ptr<IPrivateAction>> GetPrivateActions() const = 0;
 
             /**
             * Retrieves the size of the list
             * @return the size of the list
             */
-            virtual int GetPrivateActionsSize() const { return 0; }
+            virtual int GetPrivateActionsSize() const  = 0;
 
             /**
             * The element at specific index
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IPrivateAction> GetPrivateActionsAtIndex(const unsigned int index) const
-            {
-                return nullptr;
-            }
+            virtual std::shared_ptr<IPrivateAction> GetPrivateActionsAtIndex(const unsigned int index) const = 0;
 
         };
 
@@ -6131,11 +5102,8 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property longitudinalAction
             */
-            virtual std::shared_ptr<ILongitudinalAction> GetLongitudinalAction() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ILongitudinalAction> GetLongitudinalAction() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Applies lateral control behavior on the reference entity/entities. Either a LaneChangeAction, LaneOffsetAction or a
@@ -6143,22 +5111,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property lateralAction
             */
-            virtual std::shared_ptr<ILateralAction> GetLateralAction() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ILateralAction> GetLateralAction() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Sets visibility attributes on the reference entity/entities.
              * 
              * @return value of model property visibilityAction
             */
-            virtual std::shared_ptr<IVisibilityAction> GetVisibilityAction() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IVisibilityAction> GetVisibilityAction() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Synchronizes the reference entity/entities with a master entity. A target position is provided for the entity and for
@@ -6166,55 +5128,40 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property synchronizeAction
             */
-            virtual std::shared_ptr<ISynchronizeAction> GetSynchronizeAction() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ISynchronizeAction> GetSynchronizeAction() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Activates/ deactivates a controller on the reference entity/entities.
              * 
              * @return value of model property activateControllerAction
             */
-            virtual std::shared_ptr<IActivateControllerAction> GetActivateControllerAction() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IActivateControllerAction> GetActivateControllerAction() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Assigns a controller to the reference entity/entities.
              * 
              * @return value of model property controllerAction
             */
-            virtual std::shared_ptr<IControllerAction> GetControllerAction() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IControllerAction> GetControllerAction() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Assigns a position to the reference entity/entities.
              * 
              * @return value of model property teleportAction
             */
-            virtual std::shared_ptr<ITeleportAction> GetTeleportAction() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ITeleportAction> GetTeleportAction() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Applies an AssignRouteAction, a FollowTrajectoryAction or an AcquirePositionAction to the reference entity/entities.
              * 
              * @return value of model property routingAction
             */
-            virtual std::shared_ptr<IRoutingAction> GetRoutingAction() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IRoutingAction> GetRoutingAction() const = 0;
+ 
 
         };
 
@@ -6239,10 +5186,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property properties
             */
-            virtual std::vector<std::shared_ptr<IProperty>> GetProperties() const
-            {
-                return std::vector<std::shared_ptr<IProperty>>();
-            }
+            virtual std::vector<std::shared_ptr<IProperty>> GetProperties() const = 0;
 
             /**
              * From OpenSCENARIO class model specification:
@@ -6251,41 +5195,32 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property files
             */
-            virtual std::vector<std::shared_ptr<IFile>> GetFiles() const
-            {
-                return std::vector<std::shared_ptr<IFile>>();
-            }
+            virtual std::vector<std::shared_ptr<IFile>> GetFiles() const = 0;
 
             /**
             * Retrieves the size of the list
             * @return the size of the list
             */
-            virtual int GetPropertiesSize() const { return 0; }
+            virtual int GetPropertiesSize() const  = 0;
 
             /**
             * The element at specific index
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IProperty> GetPropertiesAtIndex(const unsigned int index) const
-            {
-                return nullptr;
-            }
+            virtual std::shared_ptr<IProperty> GetPropertiesAtIndex(const unsigned int index) const = 0;
             /**
             * Retrieves the size of the list
             * @return the size of the list
             */
-            virtual int GetFilesSize() const { return 0; }
+            virtual int GetFilesSize() const  = 0;
 
             /**
             * The element at specific index
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IFile> GetFilesAtIndex(const unsigned int index) const
-            {
-                return nullptr;
-            }
+            virtual std::shared_ptr<IFile> GetFilesAtIndex(const unsigned int index) const = 0;
 
         };
 
@@ -6309,22 +5244,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property name
             */
-            virtual std::string GetName() const
-            {
-                return "";
-            }
-
+            virtual std::string GetName() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Value of a user defined property.
              * 
              * @return value of model property value
             */
-            virtual std::string GetValue() const
-            {
-                return "";
-            }
-
+            virtual std::string GetValue() const = 0;
+ 
 
         };
 
@@ -6348,22 +5277,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property tolerance
             */
-            virtual double GetTolerance() const
-            {
-                return 0;
-            }
-
+            virtual double GetTolerance() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * The position to be reached with the defined tolerance.
              * 
              * @return value of model property position
             */
-            virtual std::shared_ptr<IPosition> GetPosition() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IPosition> GetPosition() const = 0;
+ 
 
         };
 
@@ -6388,10 +5311,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property entityRef
             */
-            virtual std::shared_ptr<INamedReference<IEntity>> GetEntityRef() const
-            {
-                return std::make_shared<INamedReference<IEntity>>();
-            }
+            virtual std::shared_ptr<INamedReference<IEntity>> GetEntityRef() const = 0;
 
             /**
              * From OpenSCENARIO class model specification:
@@ -6399,44 +5319,32 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property freespace
             */
-            virtual bool GetFreespace() const
-            {
-                return false;
-            }
-
+            virtual bool GetFreespace() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * The domain the distance is calculated in.
              * 
              * @return value of model property relativeDistanceType
             */
-            virtual RelativeDistanceType GetRelativeDistanceType() const
-            {
-                return RelativeDistanceType();
-            }
-
+            virtual RelativeDistanceType GetRelativeDistanceType() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * The operator (less, greater, equal).
              * 
              * @return value of model property rule
             */
-            virtual Rule GetRule() const
-            {
-                return Rule();
-            }
-
+            virtual Rule GetRule() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * The distance value. Unit: m; Range: [0..inf[.
              * 
              * @return value of model property value
             */
-            virtual double GetValue() const
-            {
-                return 0;
-            }
-
+            virtual double GetValue() const = 0;
+ 
 
         };
 
@@ -6460,32 +5368,23 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property dLane
             */
-            virtual int GetDLane() const
-            {
-                return 0;
-            }
-
+            virtual int GetDLane() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Relative ds to the s of reference entity.
              * 
              * @return value of model property ds
             */
-            virtual double GetDs() const
-            {
-                return 0;
-            }
-
+            virtual double GetDs() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Reference entity.
              * 
              * @return value of model property entityRef
             */
-            virtual std::shared_ptr<INamedReference<IEntity>> GetEntityRef() const
-            {
-                return std::make_shared<INamedReference<IEntity>>();
-            }
+            virtual std::shared_ptr<INamedReference<IEntity>> GetEntityRef() const = 0;
 
             /**
              * From OpenSCENARIO class model specification:
@@ -6493,22 +5392,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property offset
             */
-            virtual double GetOffset() const
-            {
-                return 0;
-            }
-
+            virtual double GetOffset() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Orientation. The relative reference context refers to the referenced lane's s and t coordinates.
              * 
              * @return value of model property orientation
             */
-            virtual std::shared_ptr<IOrientation> GetOrientation() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IOrientation> GetOrientation() const = 0;
+ 
 
         };
 
@@ -6534,43 +5427,31 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property dx
             */
-            virtual double GetDx() const
-            {
-                return 0;
-            }
-
+            virtual double GetDx() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Relative position in the y axis, using the coordinate system of the reference entity.
              * 
              * @return value of model property dy
             */
-            virtual double GetDy() const
-            {
-                return 0;
-            }
-
+            virtual double GetDy() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Relative position in the z axis, using the coordinate system of the reference entity.
              * 
              * @return value of model property dz
             */
-            virtual double GetDz() const
-            {
-                return 0;
-            }
-
+            virtual double GetDz() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Reference entity.
              * 
              * @return value of model property entityRef
             */
-            virtual std::shared_ptr<INamedReference<IEntity>> GetEntityRef() const
-            {
-                return std::make_shared<INamedReference<IEntity>>();
-            }
+            virtual std::shared_ptr<INamedReference<IEntity>> GetEntityRef() const = 0;
 
             /**
              * From OpenSCENARIO class model specification:
@@ -6578,11 +5459,8 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property orientation
             */
-            virtual std::shared_ptr<IOrientation> GetOrientation() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IOrientation> GetOrientation() const = 0;
+ 
 
         };
 
@@ -6606,32 +5484,23 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property ds
             */
-            virtual double GetDs() const
-            {
-                return 0;
-            }
-
+            virtual double GetDs() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Relative dt road coordinate to t coordinate of the reference entity.
              * 
              * @return value of model property dt
             */
-            virtual double GetDt() const
-            {
-                return 0;
-            }
-
+            virtual double GetDt() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * reference entity.
              * 
              * @return value of model property entityRef
             */
-            virtual std::shared_ptr<INamedReference<IEntity>> GetEntityRef() const
-            {
-                return std::make_shared<INamedReference<IEntity>>();
-            }
+            virtual std::shared_ptr<INamedReference<IEntity>> GetEntityRef() const = 0;
 
             /**
              * From OpenSCENARIO class model specification:
@@ -6639,11 +5508,8 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property orientation
             */
-            virtual std::shared_ptr<IOrientation> GetOrientation() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IOrientation> GetOrientation() const = 0;
+ 
 
         };
 
@@ -6668,10 +5534,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property entityRef
             */
-            virtual std::shared_ptr<INamedReference<IEntity>> GetEntityRef() const
-            {
-                return std::make_shared<INamedReference<IEntity>>();
-            }
+            virtual std::shared_ptr<INamedReference<IEntity>> GetEntityRef() const = 0;
 
             /**
              * From OpenSCENARIO class model specification:
@@ -6679,22 +5542,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property rule
             */
-            virtual Rule GetRule() const
-            {
-                return Rule();
-            }
-
+            virtual Rule GetRule() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Relative speed value. Unit: m/s.
              * 
              * @return value of model property value
             */
-            virtual double GetValue() const
-            {
-                return 0;
-            }
-
+            virtual double GetValue() const = 0;
+ 
 
         };
 
@@ -6718,22 +5575,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property speedTargetValueType
             */
-            virtual SpeedTargetValueType GetSpeedTargetValueType() const
-            {
-                return SpeedTargetValueType();
-            }
-
+            virtual SpeedTargetValueType GetSpeedTargetValueType() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Relative speed. Unit: m/s. Range: ]-inf..inf[.
              * 
              * @return value of model property value
             */
-            virtual double GetValue() const
-            {
-                return 0;
-            }
-
+            virtual double GetValue() const = 0;
+ 
 
         };
 
@@ -6757,10 +5608,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property entityRef
             */
-            virtual std::shared_ptr<INamedReference<IEntity>> GetEntityRef() const
-            {
-                return std::make_shared<INamedReference<IEntity>>();
-            }
+            virtual std::shared_ptr<INamedReference<IEntity>> GetEntityRef() const = 0;
 
             /**
              * From OpenSCENARIO class model specification:
@@ -6768,11 +5616,8 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property value
             */
-            virtual int GetValue() const
-            {
-                return 0;
-            }
-
+            virtual int GetValue() const = 0;
+ 
 
         };
 
@@ -6797,10 +5642,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property entityRef
             */
-            virtual std::shared_ptr<INamedReference<IEntity>> GetEntityRef() const
-            {
-                return std::make_shared<INamedReference<IEntity>>();
-            }
+            virtual std::shared_ptr<INamedReference<IEntity>> GetEntityRef() const = 0;
 
             /**
              * From OpenSCENARIO class model specification:
@@ -6808,11 +5650,8 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property value
             */
-            virtual double GetValue() const
-            {
-                return 0;
-            }
-
+            virtual double GetValue() const = 0;
+ 
 
         };
 
@@ -6837,21 +5676,15 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property continuous
             */
-            virtual bool GetContinuous() const
-            {
-                return false;
-            }
-
+            virtual bool GetContinuous() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Reference entity.
              * 
              * @return value of model property entityRef
             */
-            virtual std::shared_ptr<INamedReference<IEntity>> GetEntityRef() const
-            {
-                return std::make_shared<INamedReference<IEntity>>();
-            }
+            virtual std::shared_ptr<INamedReference<IEntity>> GetEntityRef() const = 0;
 
             /**
              * From OpenSCENARIO class model specification:
@@ -6859,11 +5692,8 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property speedTargetValueType
             */
-            virtual SpeedTargetValueType GetSpeedTargetValueType() const
-            {
-                return SpeedTargetValueType();
-            }
-
+            virtual SpeedTargetValueType GetSpeedTargetValueType() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Value of the relative speed. This value is either given as a delta or as a factor. E.g. value=10 together with
@@ -6873,11 +5703,8 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property value
             */
-            virtual double GetValue() const
-            {
-                return 0;
-            }
-
+            virtual double GetValue() const = 0;
+ 
 
         };
 
@@ -6902,43 +5729,31 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property dx
             */
-            virtual double GetDx() const
-            {
-                return 0;
-            }
-
+            virtual double GetDx() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Relative y coordinate in the world coordinate system.
              * 
              * @return value of model property dy
             */
-            virtual double GetDy() const
-            {
-                return 0;
-            }
-
+            virtual double GetDy() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Relative z coordinate in the world coordinate system.
              * 
              * @return value of model property dz
             */
-            virtual double GetDz() const
-            {
-                return 0;
-            }
-
+            virtual double GetDz() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Reference entity from which the relative world position is measured.
              * 
              * @return value of model property entityRef
             */
-            virtual std::shared_ptr<INamedReference<IEntity>> GetEntityRef() const
-            {
-                return std::make_shared<INamedReference<IEntity>>();
-            }
+            virtual std::shared_ptr<INamedReference<IEntity>> GetEntityRef() const = 0;
 
             /**
              * From OpenSCENARIO class model specification:
@@ -6946,11 +5761,8 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property orientation
             */
-            virtual std::shared_ptr<IOrientation> GetOrientation() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IOrientation> GetOrientation() const = 0;
+ 
 
         };
 
@@ -6974,22 +5786,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property frictionScaleFactor
             */
-            virtual double GetFrictionScaleFactor() const
-            {
-                return 0;
-            }
-
+            virtual double GetFrictionScaleFactor() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Additional properties to describe the road condition.
              * 
              * @return value of model property properties
             */
-            virtual std::shared_ptr<IProperties> GetProperties() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IProperties> GetProperties() const = 0;
+ 
 
         };
 
@@ -7016,48 +5822,36 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property logicFile
             */
-            virtual std::shared_ptr<IFile> GetLogicFile() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IFile> GetLogicFile() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * File path of a 3D model representing the virtual environment. This may be used for visual representation (rendering).
              * 
              * @return value of model property sceneGraphFile
             */
-            virtual std::shared_ptr<IFile> GetSceneGraphFile() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IFile> GetSceneGraphFile() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Name references and description of dynamic behavior for traffic signals defined in the road network file.
              * 
              * @return value of model property trafficSignals
             */
-            virtual std::vector<std::shared_ptr<ITrafficSignalController>> GetTrafficSignals() const
-            {
-                return std::vector<std::shared_ptr<ITrafficSignalController>>();
-            }
+            virtual std::vector<std::shared_ptr<ITrafficSignalController>> GetTrafficSignals() const = 0;
 
             /**
             * Retrieves the size of the list
             * @return the size of the list
             */
-            virtual int GetTrafficSignalsSize() const { return 0; }
+            virtual int GetTrafficSignalsSize() const  = 0;
 
             /**
             * The element at specific index
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<ITrafficSignalController> GetTrafficSignalsAtIndex(const unsigned int index) const
-            {
-                return nullptr;
-            }
+            virtual std::shared_ptr<ITrafficSignalController> GetTrafficSignalsAtIndex(const unsigned int index) const = 0;
 
         };
 
@@ -7082,44 +5876,32 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property roadId
             */
-            virtual std::string GetRoadId() const
-            {
-                return "";
-            }
-
+            virtual std::string GetRoadId() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Represents s coordinate along the reference line of the road.
              * 
              * @return value of model property s
             */
-            virtual double GetS() const
-            {
-                return 0;
-            }
-
+            virtual double GetS() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Represents t coordinate orthogonal to the reference line of the road.
              * 
              * @return value of model property t
             */
-            virtual double GetT() const
-            {
-                return 0;
-            }
-
+            virtual double GetT() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Orientation. The relative reference context refers to the referenced road's s and t coordinates.
              * 
              * @return value of model property orientation
             */
-            virtual std::shared_ptr<IOrientation> GetOrientation() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IOrientation> GetOrientation() const = 0;
+ 
 
         };
 
@@ -7144,32 +5926,23 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property closed
             */
-            virtual bool GetClosed() const
-            {
-                return false;
-            }
-
+            virtual bool GetClosed() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Name of the route. Required in catalogs.
              * 
              * @return value of model property name
             */
-            virtual std::string GetName() const
-            {
-                return "";
-            }
-
+            virtual std::string GetName() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Definition of additional parameters.
              * 
              * @return value of model property parameterDeclarations
             */
-            virtual std::vector<std::shared_ptr<IParameterDeclaration>> GetParameterDeclarations() const
-            {
-                return std::vector<std::shared_ptr<IParameterDeclaration>>();
-            }
+            virtual std::vector<std::shared_ptr<IParameterDeclaration>> GetParameterDeclarations() const = 0;
 
             /**
              * From OpenSCENARIO class model specification:
@@ -7177,41 +5950,32 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property waypoints
             */
-            virtual std::vector<std::shared_ptr<IWaypoint>> GetWaypoints() const
-            {
-                return std::vector<std::shared_ptr<IWaypoint>>();
-            }
+            virtual std::vector<std::shared_ptr<IWaypoint>> GetWaypoints() const = 0;
 
             /**
             * Retrieves the size of the list
             * @return the size of the list
             */
-            virtual int GetParameterDeclarationsSize() const { return 0; }
+            virtual int GetParameterDeclarationsSize() const  = 0;
 
             /**
             * The element at specific index
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IParameterDeclaration> GetParameterDeclarationsAtIndex(const unsigned int index) const
-            {
-                return nullptr;
-            }
+            virtual std::shared_ptr<IParameterDeclaration> GetParameterDeclarationsAtIndex(const unsigned int index) const = 0;
             /**
             * Retrieves the size of the list
             * @return the size of the list
             */
-            virtual int GetWaypointsSize() const { return 0; }
+            virtual int GetWaypointsSize() const  = 0;
 
             /**
             * The element at specific index
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IWaypoint> GetWaypointsAtIndex(const unsigned int index) const
-            {
-                return nullptr;
-            }
+            virtual std::shared_ptr<IWaypoint> GetWaypointsAtIndex(const unsigned int index) const = 0;
 
         };
 
@@ -7235,11 +5999,8 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property directory
             */
-            virtual std::shared_ptr<IDirectory> GetDirectory() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IDirectory> GetDirectory() const = 0;
+ 
 
         };
 
@@ -7264,11 +6025,8 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property routeRef
             */
-            virtual std::shared_ptr<IRouteRef> GetRouteRef() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IRouteRef> GetRouteRef() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Orientation. The relative reference context refers to the referenced road's s and t coordinates, to the current lane's s
@@ -7276,22 +6034,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property orientation
             */
-            virtual std::shared_ptr<IOrientation> GetOrientation() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IOrientation> GetOrientation() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Position along the route.
              * 
              * @return value of model property inRoutePosition
             */
-            virtual std::shared_ptr<IInRoutePosition> GetInRoutePosition() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IInRoutePosition> GetInRoutePosition() const = 0;
+ 
 
         };
 
@@ -7315,22 +6067,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property route
             */
-            virtual std::shared_ptr<IRoute> GetRoute() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IRoute> GetRoute() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Reference to route in the catalog.
              * 
              * @return value of model property catalogReference
             */
-            virtual std::shared_ptr<ICatalogReference> GetCatalogReference() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ICatalogReference> GetCatalogReference() const = 0;
+ 
 
         };
 
@@ -7355,22 +6101,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property assignRouteAction
             */
-            virtual std::shared_ptr<IAssignRouteAction> GetAssignRouteAction() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IAssignRouteAction> GetAssignRouteAction() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Controls an entity to follow a trajectory.
              * 
              * @return value of model property followTrajectoryAction
             */
-            virtual std::shared_ptr<IFollowTrajectoryAction> GetFollowTrajectoryAction() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IFollowTrajectoryAction> GetFollowTrajectoryAction() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Assigns a route to an entity. The route assigned will be the shortest route (along roads) between the entity's current
@@ -7378,11 +6118,8 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property acquirePositionAction
             */
-            virtual std::shared_ptr<IAcquirePositionAction> GetAcquirePositionAction() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IAcquirePositionAction> GetAcquirePositionAction() const = 0;
+ 
 
         };
 
@@ -7408,10 +6145,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property parameterDeclarations
             */
-            virtual std::vector<std::shared_ptr<IParameterDeclaration>> GetParameterDeclarations() const
-            {
-                return std::vector<std::shared_ptr<IParameterDeclaration>>();
-            }
+            virtual std::vector<std::shared_ptr<IParameterDeclaration>> GetParameterDeclarations() const = 0;
 
             /**
              * From OpenSCENARIO class model specification:
@@ -7419,22 +6153,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property catalogLocations
             */
-            virtual std::shared_ptr<ICatalogLocations> GetCatalogLocations() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ICatalogLocations> GetCatalogLocations() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Reference to the road network.
              * 
              * @return value of model property roadNetwork
             */
-            virtual std::shared_ptr<IRoadNetwork> GetRoadNetwork() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IRoadNetwork> GetRoadNetwork() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Container for entity selections and scenario object definitions. Instances of ScenarioObject, of EntitySelection and of
@@ -7442,37 +6170,28 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property entities
             */
-            virtual std::shared_ptr<IEntities> GetEntities() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IEntities> GetEntities() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Container for the dynamic content of the scenario.
              * 
              * @return value of model property storyboard
             */
-            virtual std::shared_ptr<IStoryboard> GetStoryboard() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IStoryboard> GetStoryboard() const = 0;
+ 
             /**
             * Retrieves the size of the list
             * @return the size of the list
             */
-            virtual int GetParameterDeclarationsSize() const { return 0; }
+            virtual int GetParameterDeclarationsSize() const  = 0;
 
             /**
             * The element at specific index
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IParameterDeclaration> GetParameterDeclarationsAtIndex(const unsigned int index) const
-            {
-                return nullptr;
-            }
+            virtual std::shared_ptr<IParameterDeclaration> GetParameterDeclarationsAtIndex(const unsigned int index) const = 0;
 
         };
 
@@ -7497,33 +6216,24 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property name
             */
-            virtual std::string GetName() const
-            {
-                return "";
-            }
-
+            virtual std::string GetName() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * The EntityObject (either instance of type Vehicle, Pedestrian or MiscObject).
              * 
              * @return value of model property entityObject
             */
-            virtual std::shared_ptr<IEntityObject> GetEntityObject() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IEntityObject> GetEntityObject() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Controller of the EntityObject instance.
              * 
              * @return value of model property objectController
             */
-            virtual std::shared_ptr<IObjectController> GetObjectController() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IObjectController> GetObjectController() const = 0;
+ 
 
         };
 
@@ -7547,10 +6257,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property entityRef
             */
-            virtual std::vector<std::shared_ptr<IEntityRef>> GetEntityRef() const
-            {
-                return std::vector<std::shared_ptr<IEntityRef>>();
-            }
+            virtual std::vector<std::shared_ptr<IEntityRef>> GetEntityRef() const = 0;
 
             /**
              * From OpenSCENARIO class model specification:
@@ -7558,41 +6265,32 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property byType
             */
-            virtual std::vector<std::shared_ptr<IByType>> GetByType() const
-            {
-                return std::vector<std::shared_ptr<IByType>>();
-            }
+            virtual std::vector<std::shared_ptr<IByType>> GetByType() const = 0;
 
             /**
             * Retrieves the size of the list
             * @return the size of the list
             */
-            virtual int GetEntityRefSize() const { return 0; }
+            virtual int GetEntityRefSize() const  = 0;
 
             /**
             * The element at specific index
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IEntityRef> GetEntityRefAtIndex(const unsigned int index) const
-            {
-                return nullptr;
-            }
+            virtual std::shared_ptr<IEntityRef> GetEntityRefAtIndex(const unsigned int index) const = 0;
             /**
             * Retrieves the size of the list
             * @return the size of the list
             */
-            virtual int GetByTypeSize() const { return 0; }
+            virtual int GetByTypeSize() const  = 0;
 
             /**
             * The element at specific index
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IByType> GetByTypeAtIndex(const unsigned int index) const
-            {
-                return nullptr;
-            }
+            virtual std::shared_ptr<IByType> GetByTypeAtIndex(const unsigned int index) const = 0;
 
         };
 
@@ -7616,33 +6314,24 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property polyline
             */
-            virtual std::shared_ptr<IPolyline> GetPolyline() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IPolyline> GetPolyline() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Clothoid property of a shape.
              * 
              * @return value of model property clothoid
             */
-            virtual std::shared_ptr<IClothoid> GetClothoid() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IClothoid> GetClothoid() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * NURBS property of a shape.
              * 
              * @return value of model property nurbs
             */
-            virtual std::shared_ptr<INurbs> GetNurbs() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<INurbs> GetNurbs() const = 0;
+ 
 
         };
 
@@ -7666,22 +6355,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property rule
             */
-            virtual Rule GetRule() const
-            {
-                return Rule();
-            }
-
+            virtual Rule GetRule() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Time value of the simulation time condition. Unit: s.
              * 
              * @return value of model property value
             */
-            virtual double GetValue() const
-            {
-                return 0;
-            }
-
+            virtual double GetValue() const = 0;
+ 
 
         };
 
@@ -7706,22 +6389,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property speedActionDynamics
             */
-            virtual std::shared_ptr<ITransitionDynamics> GetSpeedActionDynamics() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ITransitionDynamics> GetSpeedActionDynamics() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Defines the target speed which should be reached.
              * 
              * @return value of model property speedActionTarget
             */
-            virtual std::shared_ptr<ISpeedActionTarget> GetSpeedActionTarget() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ISpeedActionTarget> GetSpeedActionTarget() const = 0;
+ 
 
         };
 
@@ -7746,22 +6423,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property relativeTargetSpeed
             */
-            virtual std::shared_ptr<IRelativeTargetSpeed> GetRelativeTargetSpeed() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IRelativeTargetSpeed> GetRelativeTargetSpeed() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Defines the target speed as absolute speed.Unit: m/s.
              * 
              * @return value of model property absoluteTargetSpeed
             */
-            virtual std::shared_ptr<IAbsoluteTargetSpeed> GetAbsoluteTargetSpeed() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IAbsoluteTargetSpeed> GetAbsoluteTargetSpeed() const = 0;
+ 
 
         };
 
@@ -7786,22 +6457,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property rule
             */
-            virtual Rule GetRule() const
-            {
-                return Rule();
-            }
-
+            virtual Rule GetRule() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Speed value of the speed condition. Unit m/s.
              * 
              * @return value of model property value
             */
-            virtual double GetValue() const
-            {
-                return 0;
-            }
-
+            virtual double GetValue() const = 0;
+ 
 
         };
 
@@ -7825,11 +6490,8 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property duration
             */
-            virtual double GetDuration() const
-            {
-                return 0;
-            }
-
+            virtual double GetDuration() const = 0;
+ 
 
         };
 
@@ -7853,21 +6515,15 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property name
             */
-            virtual std::string GetName() const
-            {
-                return "";
-            }
-
+            virtual std::string GetName() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Definition of additional parameters.
              * 
              * @return value of model property parameterDeclarations
             */
-            virtual std::vector<std::shared_ptr<IParameterDeclaration>> GetParameterDeclarations() const
-            {
-                return std::vector<std::shared_ptr<IParameterDeclaration>>();
-            }
+            virtual std::vector<std::shared_ptr<IParameterDeclaration>> GetParameterDeclarations() const = 0;
 
             /**
              * From OpenSCENARIO class model specification:
@@ -7875,41 +6531,32 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property acts
             */
-            virtual std::vector<std::shared_ptr<IAct>> GetActs() const
-            {
-                return std::vector<std::shared_ptr<IAct>>();
-            }
+            virtual std::vector<std::shared_ptr<IAct>> GetActs() const = 0;
 
             /**
             * Retrieves the size of the list
             * @return the size of the list
             */
-            virtual int GetParameterDeclarationsSize() const { return 0; }
+            virtual int GetParameterDeclarationsSize() const  = 0;
 
             /**
             * The element at specific index
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IParameterDeclaration> GetParameterDeclarationsAtIndex(const unsigned int index) const
-            {
-                return nullptr;
-            }
+            virtual std::shared_ptr<IParameterDeclaration> GetParameterDeclarationsAtIndex(const unsigned int index) const = 0;
             /**
             * Retrieves the size of the list
             * @return the size of the list
             */
-            virtual int GetActsSize() const { return 0; }
+            virtual int GetActsSize() const  = 0;
 
             /**
             * The element at specific index
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IAct> GetActsAtIndex(const unsigned int index) const
-            {
-                return nullptr;
-            }
+            virtual std::shared_ptr<IAct> GetActsAtIndex(const unsigned int index) const = 0;
 
         };
 
@@ -7933,21 +6580,15 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property init
             */
-            virtual std::shared_ptr<IInit> GetInit() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IInit> GetInit() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * List of stories defined in a story board.
              * 
              * @return value of model property stories
             */
-            virtual std::vector<std::shared_ptr<IStory>> GetStories() const
-            {
-                return std::vector<std::shared_ptr<IStory>>();
-            }
+            virtual std::vector<std::shared_ptr<IStory>> GetStories() const = 0;
 
             /**
              * From OpenSCENARIO class model specification:
@@ -7955,26 +6596,20 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property stopTrigger
             */
-            virtual std::shared_ptr<ITrigger> GetStopTrigger() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ITrigger> GetStopTrigger() const = 0;
+ 
             /**
             * Retrieves the size of the list
             * @return the size of the list
             */
-            virtual int GetStoriesSize() const { return 0; }
+            virtual int GetStoriesSize() const  = 0;
 
             /**
             * The element at specific index
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IStory> GetStoriesAtIndex(const unsigned int index) const
-            {
-                return nullptr;
-            }
+            virtual std::shared_ptr<IStory> GetStoriesAtIndex(const unsigned int index) const = 0;
 
         };
 
@@ -8000,21 +6635,15 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property state
             */
-            virtual StoryboardElementState GetState() const
-            {
-                return StoryboardElementState();
-            }
-
+            virtual StoryboardElementState GetState() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Name of the referenced Storyboard instance.
              * 
              * @return value of model property storyboardElementRef
             */
-            virtual std::shared_ptr<INamedReference<IStoryboardElement>> GetStoryboardElementRef() const
-            {
-                return std::make_shared<INamedReference<IStoryboardElement>>();
-            }
+            virtual std::shared_ptr<INamedReference<IStoryboardElement>> GetStoryboardElementRef() const = 0;
 
             /**
              * From OpenSCENARIO class model specification:
@@ -8022,11 +6651,8 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property storyboardElementType
             */
-            virtual StoryboardElementType GetStoryboardElementType() const
-            {
-                return StoryboardElementType();
-            }
-
+            virtual StoryboardElementType GetStoryboardElementType() const = 0;
+ 
 
         };
 
@@ -8051,33 +6677,24 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property azimuth
             */
-            virtual double GetAzimuth() const
-            {
-                return 0;
-            }
-
+            virtual double GetAzimuth() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Solar elevation angle, 0=x/y plane, PI/2=zenith. Unit: rad; Range: [-PI..PI].
              * 
              * @return value of model property elevation
             */
-            virtual double GetElevation() const
-            {
-                return 0;
-            }
-
+            virtual double GetElevation() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Illuminance of the sun, direct sunlight is around 100,00 lx. Unit: lux; Range: [0..inf[.
              * 
              * @return value of model property intensity
             */
-            virtual double GetIntensity() const
-            {
-                return 0;
-            }
-
+            virtual double GetIntensity() const = 0;
+ 
 
         };
 
@@ -8103,10 +6720,7 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property masterEntityRef
             */
-            virtual std::shared_ptr<INamedReference<IEntity>> GetMasterEntityRef() const
-            {
-                return std::make_shared<INamedReference<IEntity>>();
-            }
+            virtual std::shared_ptr<INamedReference<IEntity>> GetMasterEntityRef() const = 0;
 
             /**
              * From OpenSCENARIO class model specification:
@@ -8114,33 +6728,24 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property targetPositionMaster
             */
-            virtual std::shared_ptr<IPosition> GetTargetPositionMaster() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IPosition> GetTargetPositionMaster() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * The target position for the entity that should be synchronized.
              * 
              * @return value of model property targetPosition
             */
-            virtual std::shared_ptr<IPosition> GetTargetPosition() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IPosition> GetTargetPosition() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * The speed that the synchronized entity should have at its target position.
              * 
              * @return value of model property finalSpeed
             */
-            virtual std::shared_ptr<IFinalSpeed> GetFinalSpeed() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IFinalSpeed> GetFinalSpeed() const = 0;
+ 
 
         };
 
@@ -8164,11 +6769,8 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property position
             */
-            virtual std::shared_ptr<IPosition> GetPosition() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IPosition> GetPosition() const = 0;
+ 
 
         };
 
@@ -8193,21 +6795,15 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property alongRoute
             */
-            virtual bool GetAlongRoute() const
-            {
-                return false;
-            }
-
+            virtual bool GetAlongRoute() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Reference entity to which the time headway is computed.
              * 
              * @return value of model property entityRef
             */
-            virtual std::shared_ptr<INamedReference<IEntity>> GetEntityRef() const
-            {
-                return std::make_shared<INamedReference<IEntity>>();
-            }
+            virtual std::shared_ptr<INamedReference<IEntity>> GetEntityRef() const = 0;
 
             /**
              * From OpenSCENARIO class model specification:
@@ -8216,33 +6812,24 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property freespace
             */
-            virtual bool GetFreespace() const
-            {
-                return false;
-            }
-
+            virtual bool GetFreespace() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * The operator (less, greater, equal).
              * 
              * @return value of model property rule
             */
-            virtual Rule GetRule() const
-            {
-                return Rule();
-            }
-
+            virtual Rule GetRule() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * The time headway value. Unit: s; Range: [0..inf[.
              * 
              * @return value of model property value
             */
-            virtual double GetValue() const
-            {
-                return 0;
-            }
-
+            virtual double GetValue() const = 0;
+ 
 
         };
 
@@ -8266,22 +6853,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property animation
             */
-            virtual bool GetAnimation() const
-            {
-                return false;
-            }
-
+            virtual bool GetAnimation() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Datetime value.
              * 
              * @return value of model property dateTime
             */
-            virtual DateTime GetDateTime() const
-            {
-                return {};
-            }
-
+            virtual DateTime GetDateTime() const = 0;
+ 
 
         };
 
@@ -8306,22 +6887,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property dateTime
             */
-            virtual DateTime GetDateTime() const
-            {
-                return {};
-            }
-
+            virtual DateTime GetDateTime() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * The operator (less, greater, equal).
              * 
              * @return value of model property rule
             */
-            virtual Rule GetRule() const
-            {
-                return Rule();
-            }
-
+            virtual Rule GetRule() const = 0;
+ 
 
         };
 
@@ -8346,11 +6921,8 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property none
             */
-            virtual std::shared_ptr<INone> GetNone() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<INone> GetNone() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * This property indicates timing information is taken into account. Its underlying properties allow specification of the
@@ -8358,11 +6930,8 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property timing
             */
-            virtual std::shared_ptr<ITiming> GetTiming() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ITiming> GetTiming() const = 0;
+ 
 
         };
 
@@ -8388,11 +6957,8 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property alongRoute
             */
-            virtual bool GetAlongRoute() const
-            {
-                return false;
-            }
-
+            virtual bool GetAlongRoute() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * True: time to collision is measured using the distance between closest bounding box points.False: reference point
@@ -8400,44 +6966,32 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property freespace
             */
-            virtual bool GetFreespace() const
-            {
-                return false;
-            }
-
+            virtual bool GetFreespace() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * The operator (less, greater, equal).
              * 
              * @return value of model property rule
             */
-            virtual Rule GetRule() const
-            {
-                return Rule();
-            }
-
+            virtual Rule GetRule() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * The time to collision value. Unit: s; Range: [0..inf[.
              * 
              * @return value of model property value
             */
-            virtual double GetValue() const
-            {
-                return 0;
-            }
-
+            virtual double GetValue() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * The explicit position or a position defined through the current position of a reference entity.
              * 
              * @return value of model property timeToCollisionConditionTarget
             */
-            virtual std::shared_ptr<ITimeToCollisionConditionTarget> GetTimeToCollisionConditionTarget() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ITimeToCollisionConditionTarget> GetTimeToCollisionConditionTarget() const = 0;
+ 
 
         };
 
@@ -8462,22 +7016,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property position
             */
-            virtual std::shared_ptr<IPosition> GetPosition() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IPosition> GetPosition() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Reference entity.
              * 
              * @return value of model property entityRef
             */
-            virtual std::shared_ptr<IEntityRef> GetEntityRef() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IEntityRef> GetEntityRef() const = 0;
+ 
 
         };
 
@@ -8501,22 +7049,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property domainAbsoluteRelative
             */
-            virtual ReferenceContext GetDomainAbsoluteRelative() const
-            {
-                return ReferenceContext();
-            }
-
+            virtual ReferenceContext GetDomainAbsoluteRelative() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Introduction of a global offset for all time values. Unit: s; Range: ]-inf..inf[.
              * 
              * @return value of model property offset
             */
-            virtual double GetOffset() const
-            {
-                return 0;
-            }
-
+            virtual double GetOffset() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Scaling factor for time values. While values smaller than 1.0 represent negative scaling, values larger than 1.0 will
@@ -8524,11 +7066,8 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property scale
             */
-            virtual double GetScale() const
-            {
-                return 0;
-            }
-
+            virtual double GetScale() const = 0;
+ 
 
         };
 
@@ -8552,33 +7091,24 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property trafficSourceAction
             */
-            virtual std::shared_ptr<ITrafficSourceAction> GetTrafficSourceAction() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ITrafficSourceAction> GetTrafficSourceAction() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Defines a sink of traffic at a specific position.
              * 
              * @return value of model property trafficSinkAction
             */
-            virtual std::shared_ptr<ITrafficSinkAction> GetTrafficSinkAction() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ITrafficSinkAction> GetTrafficSinkAction() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Defines swarm traffic around a given central entity.
              * 
              * @return value of model property trafficSwarmAction
             */
-            virtual std::shared_ptr<ITrafficSwarmAction> GetTrafficSwarmAction() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ITrafficSwarmAction> GetTrafficSwarmAction() const = 0;
+ 
 
         };
 
@@ -8602,33 +7132,24 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property name
             */
-            virtual std::string GetName() const
-            {
-                return "";
-            }
-
+            virtual std::string GetName() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Distribution of vehicle categories within the traffic.
              * 
              * @return value of model property vehicleCategoryDistribution
             */
-            virtual std::shared_ptr<IVehicleCategoryDistribution> GetVehicleCategoryDistribution() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IVehicleCategoryDistribution> GetVehicleCategoryDistribution() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Distribution of controllers within this traffic.
              * 
              * @return value of model property controllerDistribution
             */
-            virtual std::shared_ptr<IControllerDistribution> GetControllerDistribution() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IControllerDistribution> GetControllerDistribution() const = 0;
+ 
 
         };
 
@@ -8652,22 +7173,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property trafficSignalControllerAction
             */
-            virtual std::shared_ptr<ITrafficSignalControllerAction> GetTrafficSignalControllerAction() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ITrafficSignalControllerAction> GetTrafficSignalControllerAction() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Action used to set a specific phase of a signal controller.
              * 
              * @return value of model property trafficSignalStateAction
             */
-            virtual std::shared_ptr<ITrafficSignalStateAction> GetTrafficSignalStateAction() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ITrafficSignalStateAction> GetTrafficSignalStateAction() const = 0;
+ 
 
         };
 
@@ -8694,22 +7209,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property name
             */
-            virtual std::string GetName() const
-            {
-                return "";
-            }
-
+            virtual std::string GetName() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * State of the signal to be reached for the condition to become true.
              * 
              * @return value of model property state
             */
-            virtual std::string GetState() const
-            {
-                return "";
-            }
-
+            virtual std::string GetState() const = 0;
+ 
 
         };
 
@@ -8736,59 +7245,44 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property delay
             */
-            virtual double GetDelay() const
-            {
-                return 0;
-            }
-
+            virtual double GetDelay() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * ID of the traffic signal controller in the road network.
              * 
              * @return value of model property name
             */
-            virtual std::string GetName() const
-            {
-                return "";
-            }
-
+            virtual std::string GetName() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * A reference (ID) to the connected controller in the road network. If reference is set, a delay is required.
              * 
              * @return value of model property reference
             */
-            virtual std::string GetReference() const
-            {
-                return "";
-            }
-
+            virtual std::string GetReference() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Phases of a TrafficSignalController.
              * 
              * @return value of model property phases
             */
-            virtual std::vector<std::shared_ptr<IPhase>> GetPhases() const
-            {
-                return std::vector<std::shared_ptr<IPhase>>();
-            }
+            virtual std::vector<std::shared_ptr<IPhase>> GetPhases() const = 0;
 
             /**
             * Retrieves the size of the list
             * @return the size of the list
             */
-            virtual int GetPhasesSize() const { return 0; }
+            virtual int GetPhasesSize() const  = 0;
 
             /**
             * The element at specific index
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IPhase> GetPhasesAtIndex(const unsigned int index) const
-            {
-                return nullptr;
-            }
+            virtual std::shared_ptr<IPhase> GetPhasesAtIndex(const unsigned int index) const = 0;
 
         };
 
@@ -8813,21 +7307,15 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property phase
             */
-            virtual std::string GetPhase() const
-            {
-                return "";
-            }
-
+            virtual std::string GetPhase() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * ID of the signal controller in a road network.
              * 
              * @return value of model property trafficSignalControllerRef
             */
-            virtual std::shared_ptr<INamedReference<ITrafficSignalController>> GetTrafficSignalControllerRef() const
-            {
-                return std::make_shared<INamedReference<ITrafficSignalController>>();
-            }
+            virtual std::shared_ptr<INamedReference<ITrafficSignalController>> GetTrafficSignalControllerRef() const = 0;
 
             /**
              * From OpenSCENARIO class model specification:
@@ -8835,26 +7323,20 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property phaseRef
             */
-            virtual std::vector<std::shared_ptr<IPhase>> GetPhaseRef() const
-            {
-                return std::vector<std::shared_ptr<IPhase>>();
-            }
+            virtual std::vector<std::shared_ptr<IPhase>> GetPhaseRef() const = 0;
 
             /**
             * Retrieves the size of the list
             * @return the size of the list
             */
-            virtual int GetPhaseRefSize() const { return 0; }
+            virtual int GetPhaseRefSize() const  = 0;
 
             /**
             * The element at specific index
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IPhase> GetPhaseRefAtIndex(const unsigned int index) const
-            {
-                return nullptr;
-            }
+            virtual std::shared_ptr<IPhase> GetPhaseRefAtIndex(const unsigned int index) const = 0;
 
         };
 
@@ -8880,21 +7362,15 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property phase
             */
-            virtual std::string GetPhase() const
-            {
-                return "";
-            }
-
+            virtual std::string GetPhase() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * ID of the referenced signal controller in a road network.
              * 
              * @return value of model property trafficSignalControllerRef
             */
-            virtual std::shared_ptr<INamedReference<ITrafficSignalController>> GetTrafficSignalControllerRef() const
-            {
-                return std::make_shared<INamedReference<ITrafficSignalController>>();
-            }
+            virtual std::shared_ptr<INamedReference<ITrafficSignalController>> GetTrafficSignalControllerRef() const = 0;
 
             /**
              * From OpenSCENARIO class model specification:
@@ -8902,26 +7378,20 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property phaseRef
             */
-            virtual std::vector<std::shared_ptr<IPhase>> GetPhaseRef() const
-            {
-                return std::vector<std::shared_ptr<IPhase>>();
-            }
+            virtual std::vector<std::shared_ptr<IPhase>> GetPhaseRef() const = 0;
 
             /**
             * Retrieves the size of the list
             * @return the size of the list
             */
-            virtual int GetPhaseRefSize() const { return 0; }
+            virtual int GetPhaseRefSize() const  = 0;
 
             /**
             * The element at specific index
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IPhase> GetPhaseRefAtIndex(const unsigned int index) const
-            {
-                return nullptr;
-            }
+            virtual std::shared_ptr<IPhase> GetPhaseRefAtIndex(const unsigned int index) const = 0;
 
         };
 
@@ -8945,22 +7415,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property state
             */
-            virtual std::string GetState() const
-            {
-                return "";
-            }
-
+            virtual std::string GetState() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * ID of the referenced signal in a road network. The signal ID must be listed in TrafficSignal list of the RoadNetwork.
              * 
              * @return value of model property trafficSignalId
             */
-            virtual std::string GetTrafficSignalId() const
-            {
-                return "";
-            }
-
+            virtual std::string GetTrafficSignalId() const = 0;
+ 
 
         };
 
@@ -8984,22 +7448,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property name
             */
-            virtual std::string GetName() const
-            {
-                return "";
-            }
-
+            virtual std::string GetName() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Targeted state of the signal. The available states are listed in the TrafficSignal list of the RoadNetwork.
              * 
              * @return value of model property state
             */
-            virtual std::string GetState() const
-            {
-                return "";
-            }
-
+            virtual std::string GetState() const = 0;
+ 
 
         };
 
@@ -9023,44 +7481,32 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property radius
             */
-            virtual double GetRadius() const
-            {
-                return 0;
-            }
-
+            virtual double GetRadius() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Defines the rate on which vehicles disappear at the sinks location. Unit: vehicles/s Range: [0..inf[.
              * 
              * @return value of model property rate
             */
-            virtual double GetRate() const
-            {
-                return 0;
-            }
-
+            virtual double GetRate() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Defines the position of the traffic sink.
              * 
              * @return value of model property position
             */
-            virtual std::shared_ptr<IPosition> GetPosition() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IPosition> GetPosition() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Defines the vehicle and controller distribution for the sink.
              * 
              * @return value of model property trafficDefinition
             */
-            virtual std::shared_ptr<ITrafficDefinition> GetTrafficDefinition() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ITrafficDefinition> GetTrafficDefinition() const = 0;
+ 
 
         };
 
@@ -9084,55 +7530,40 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property radius
             */
-            virtual double GetRadius() const
-            {
-                return 0;
-            }
-
+            virtual double GetRadius() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Defines the rate on which vehicles appear at the source location. Unit: vehicles/s. Range: [0..inf[.
              * 
              * @return value of model property rate
             */
-            virtual double GetRate() const
-            {
-                return 0;
-            }
-
+            virtual double GetRate() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * The optional starting velocity of a scenario object. Unit: m/s; Range: [0..inf[.
              * 
              * @return value of model property velocity
             */
-            virtual double GetVelocity() const
-            {
-                return 0;
-            }
-
+            virtual double GetVelocity() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Defines the position of the traffic source.
              * 
              * @return value of model property position
             */
-            virtual std::shared_ptr<IPosition> GetPosition() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IPosition> GetPosition() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Defines the vehicle and controller distribution for the source.
              * 
              * @return value of model property trafficDefinition
             */
-            virtual std::shared_ptr<ITrafficDefinition> GetTrafficDefinition() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ITrafficDefinition> GetTrafficDefinition() const = 0;
+ 
 
         };
 
@@ -9161,11 +7592,8 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property innerRadius
             */
-            virtual double GetInnerRadius() const
-            {
-                return 0;
-            }
-
+            virtual double GetInnerRadius() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * The maximum number of vehicles surrounding the central entity. Depending on the current road situation less than
@@ -9173,22 +7601,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property numberOfVehicles
             */
-            virtual uint32_t GetNumberOfVehicles() const
-            {
-                return 0;
-            }
-
+            virtual uint32_t GetNumberOfVehicles() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Offset in longitudinal direction related to the x-axis of the central entity. Unit: m;.
              * 
              * @return value of model property offset
             */
-            virtual double GetOffset() const
-            {
-                return 0;
-            }
-
+            virtual double GetOffset() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Shape of the swarm traffic distribution area is given as an ellipsis around a central entity. SemiMajorAxis defines the
@@ -9196,11 +7618,8 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property semiMajorAxis
             */
-            virtual double GetSemiMajorAxis() const
-            {
-                return 0;
-            }
-
+            virtual double GetSemiMajorAxis() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Shape of the swarm traffic distribution area is given as an ellipsis around a central entity. SemiMinorAxis defines the
@@ -9208,44 +7627,32 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property semiMinorAxis
             */
-            virtual double GetSemiMinorAxis() const
-            {
-                return 0;
-            }
-
+            virtual double GetSemiMinorAxis() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * The optional starting velocity of a created entity. Unit: m/s; Range: [0..inf[.
              * 
              * @return value of model property velocity
             */
-            virtual double GetVelocity() const
-            {
-                return 0;
-            }
-
+            virtual double GetVelocity() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * The entity that represents the center of a swarm.
              * 
              * @return value of model property centralObject
             */
-            virtual std::shared_ptr<ICentralSwarmObject> GetCentralObject() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ICentralSwarmObject> GetCentralObject() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Specifies properties of autonomous traffic with respect to vehicle and driver distributions.
              * 
              * @return value of model property trafficDefinition
             */
-            virtual std::shared_ptr<ITrafficDefinition> GetTrafficDefinition() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ITrafficDefinition> GetTrafficDefinition() const = 0;
+ 
 
         };
 
@@ -9269,32 +7676,23 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property closed
             */
-            virtual bool GetClosed() const
-            {
-                return false;
-            }
-
+            virtual bool GetClosed() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Name of the trajectory type. Required if used in catalog.
              * 
              * @return value of model property name
             */
-            virtual std::string GetName() const
-            {
-                return "";
-            }
-
+            virtual std::string GetName() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Definition of additional parameters.
              * 
              * @return value of model property parameterDeclarations
             */
-            virtual std::vector<std::shared_ptr<IParameterDeclaration>> GetParameterDeclarations() const
-            {
-                return std::vector<std::shared_ptr<IParameterDeclaration>>();
-            }
+            virtual std::vector<std::shared_ptr<IParameterDeclaration>> GetParameterDeclarations() const = 0;
 
             /**
              * From OpenSCENARIO class model specification:
@@ -9302,26 +7700,20 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property shape
             */
-            virtual std::shared_ptr<IShape> GetShape() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IShape> GetShape() const = 0;
+ 
             /**
             * Retrieves the size of the list
             * @return the size of the list
             */
-            virtual int GetParameterDeclarationsSize() const { return 0; }
+            virtual int GetParameterDeclarationsSize() const  = 0;
 
             /**
             * The element at specific index
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IParameterDeclaration> GetParameterDeclarationsAtIndex(const unsigned int index) const
-            {
-                return nullptr;
-            }
+            virtual std::shared_ptr<IParameterDeclaration> GetParameterDeclarationsAtIndex(const unsigned int index) const = 0;
 
         };
 
@@ -9345,11 +7737,8 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property directory
             */
-            virtual std::shared_ptr<IDirectory> GetDirectory() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IDirectory> GetDirectory() const = 0;
+ 
 
         };
 
@@ -9375,11 +7764,8 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property followingMode
             */
-            virtual FollowingMode GetFollowingMode() const
-            {
-                return FollowingMode();
-            }
-
+            virtual FollowingMode GetFollowingMode() const = 0;
+ 
 
         };
 
@@ -9406,22 +7792,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property dynamicsDimension
             */
-            virtual DynamicsDimension GetDynamicsDimension() const
-            {
-                return DynamicsDimension();
-            }
-
+            virtual DynamicsDimension GetDynamicsDimension() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * The shape of the transition function f(x) between current and target value.
              * 
              * @return value of model property dynamicsShape
             */
-            virtual DynamicsShape GetDynamicsShape() const
-            {
-                return DynamicsShape();
-            }
-
+            virtual DynamicsShape GetDynamicsShape() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * The value for a predefined rate (Unit: delta/s), time (Unit: s) or distance (Unit: m) to acquire the target value.
@@ -9429,11 +7809,8 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property value
             */
-            virtual double GetValue() const
-            {
-                return 0;
-            }
-
+            virtual double GetValue() const = 0;
+ 
 
         };
 
@@ -9457,11 +7834,8 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property value
             */
-            virtual double GetValue() const
-            {
-                return 0;
-            }
-
+            virtual double GetValue() const = 0;
+ 
 
         };
 
@@ -9486,26 +7860,20 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property conditionGroups
             */
-            virtual std::vector<std::shared_ptr<IConditionGroup>> GetConditionGroups() const
-            {
-                return std::vector<std::shared_ptr<IConditionGroup>>();
-            }
+            virtual std::vector<std::shared_ptr<IConditionGroup>> GetConditionGroups() const = 0;
 
             /**
             * Retrieves the size of the list
             * @return the size of the list
             */
-            virtual int GetConditionGroupsSize() const { return 0; }
+            virtual int GetConditionGroupsSize() const  = 0;
 
             /**
             * The element at specific index
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IConditionGroup> GetConditionGroupsAtIndex(const unsigned int index) const
-            {
-                return nullptr;
-            }
+            virtual std::shared_ptr<IConditionGroup> GetConditionGroupsAtIndex(const unsigned int index) const = 0;
 
         };
 
@@ -9530,37 +7898,28 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property triggeringEntitiesRule
             */
-            virtual TriggeringEntitiesRule GetTriggeringEntitiesRule() const
-            {
-                return TriggeringEntitiesRule();
-            }
-
+            virtual TriggeringEntitiesRule GetTriggeringEntitiesRule() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * List of referenced entities that trigger the condition.
              * 
              * @return value of model property entityRefs
             */
-            virtual std::vector<std::shared_ptr<IEntityRef>> GetEntityRefs() const
-            {
-                return std::vector<std::shared_ptr<IEntityRef>>();
-            }
+            virtual std::vector<std::shared_ptr<IEntityRef>> GetEntityRefs() const = 0;
 
             /**
             * Retrieves the size of the list
             * @return the size of the list
             */
-            virtual int GetEntityRefsSize() const { return 0; }
+            virtual int GetEntityRefsSize() const  = 0;
 
             /**
             * The element at specific index
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IEntityRef> GetEntityRefsAtIndex(const unsigned int index) const
-            {
-                return nullptr;
-            }
+            virtual std::shared_ptr<IEntityRef> GetEntityRefsAtIndex(const unsigned int index) const = 0;
 
         };
 
@@ -9585,11 +7944,8 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property customCommandAction
             */
-            virtual std::shared_ptr<ICustomCommandAction> GetCustomCommandAction() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ICustomCommandAction> GetCustomCommandAction() const = 0;
+ 
 
         };
 
@@ -9615,33 +7971,24 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property name
             */
-            virtual std::string GetName() const
-            {
-                return "";
-            }
-
+            virtual std::string GetName() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * The operator (less, greater, equal).
              * 
              * @return value of model property rule
             */
-            virtual Rule GetRule() const
-            {
-                return Rule();
-            }
-
+            virtual Rule GetRule() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Reference value the external value is compared to.
              * 
              * @return value of model property value
             */
-            virtual std::string GetValue() const
-            {
-                return "";
-            }
-
+            virtual std::string GetValue() const = 0;
+ 
 
         };
 
@@ -9665,32 +8012,23 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property name
             */
-            virtual std::string GetName() const
-            {
-                return "";
-            }
-
+            virtual std::string GetName() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Category of the vehicle (bicycle, train,...).
              * 
              * @return value of model property vehicleCategory
             */
-            virtual VehicleCategory GetVehicleCategory() const
-            {
-                return VehicleCategory();
-            }
-
+            virtual VehicleCategory GetVehicleCategory() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Definition of additional parameters.
              * 
              * @return value of model property parameterDeclarations
             */
-            virtual std::vector<std::shared_ptr<IParameterDeclaration>> GetParameterDeclarations() const
-            {
-                return std::vector<std::shared_ptr<IParameterDeclaration>>();
-            }
+            virtual std::vector<std::shared_ptr<IParameterDeclaration>> GetParameterDeclarations() const = 0;
 
             /**
              * From OpenSCENARIO class model specification:
@@ -9698,59 +8036,44 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property boundingBox
             */
-            virtual std::shared_ptr<IBoundingBox> GetBoundingBox() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IBoundingBox> GetBoundingBox() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Performance properties of the vehicle.
              * 
              * @return value of model property performance
             */
-            virtual std::shared_ptr<IPerformance> GetPerformance() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IPerformance> GetPerformance() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * A set of axles (front, rear, additional) and their geometric locations.
              * 
              * @return value of model property axles
             */
-            virtual std::shared_ptr<IAxles> GetAxles() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IAxles> GetAxles() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Additional properties as name value pairs.
              * 
              * @return value of model property properties
             */
-            virtual std::shared_ptr<IProperties> GetProperties() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IProperties> GetProperties() const = 0;
+ 
             /**
             * Retrieves the size of the list
             * @return the size of the list
             */
-            virtual int GetParameterDeclarationsSize() const { return 0; }
+            virtual int GetParameterDeclarationsSize() const  = 0;
 
             /**
             * The element at specific index
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IParameterDeclaration> GetParameterDeclarationsAtIndex(const unsigned int index) const
-            {
-                return nullptr;
-            }
+            virtual std::shared_ptr<IParameterDeclaration> GetParameterDeclarationsAtIndex(const unsigned int index) const = 0;
 
         };
 
@@ -9774,11 +8097,8 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property directory
             */
-            virtual std::shared_ptr<IDirectory> GetDirectory() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IDirectory> GetDirectory() const = 0;
+ 
 
         };
 
@@ -9803,26 +8123,20 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property vehicleCategoryDistributionEntries
             */
-            virtual std::vector<std::shared_ptr<IVehicleCategoryDistributionEntry>> GetVehicleCategoryDistributionEntries() const
-            {
-                return std::vector<std::shared_ptr<IVehicleCategoryDistributionEntry>>();
-            }
+            virtual std::vector<std::shared_ptr<IVehicleCategoryDistributionEntry>> GetVehicleCategoryDistributionEntries() const = 0;
 
             /**
             * Retrieves the size of the list
             * @return the size of the list
             */
-            virtual int GetVehicleCategoryDistributionEntriesSize() const { return 0; }
+            virtual int GetVehicleCategoryDistributionEntriesSize() const  = 0;
 
             /**
             * The element at specific index
             * @param index the index of the list
             * @return the element at index
             */
-            virtual std::shared_ptr<IVehicleCategoryDistributionEntry> GetVehicleCategoryDistributionEntriesAtIndex(const unsigned int index) const
-            {
-                return nullptr;
-            }
+            virtual std::shared_ptr<IVehicleCategoryDistributionEntry> GetVehicleCategoryDistributionEntriesAtIndex(const unsigned int index) const = 0;
 
         };
 
@@ -9847,22 +8161,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property category
             */
-            virtual VehicleCategory GetCategory() const
-            {
-                return VehicleCategory();
-            }
-
+            virtual VehicleCategory GetCategory() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * The weight of a vehicle category within a traffic distribution. Range: [0..inf[.
              * 
              * @return value of model property weight
             */
-            virtual double GetWeight() const
-            {
-                return 0;
-            }
-
+            virtual double GetWeight() const = 0;
+ 
 
         };
 
@@ -9886,22 +8194,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property time
             */
-            virtual double GetTime() const
-            {
-                return 0;
-            }
-
+            virtual double GetTime() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Position of the vertex.
              * 
              * @return value of model property position
             */
-            virtual std::shared_ptr<IPosition> GetPosition() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IPosition> GetPosition() const = 0;
+ 
 
         };
 
@@ -9926,22 +8228,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property graphics
             */
-            virtual bool GetGraphics() const
-            {
-                return false;
-            }
-
+            virtual bool GetGraphics() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * True: actor is visible in sensor(s). False: actor is not visible in sensor(s).
              * 
              * @return value of model property sensors
             */
-            virtual bool GetSensors() const
-            {
-                return false;
-            }
-
+            virtual bool GetSensors() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * True: actor is visible for other traffic participants, particularly for autonomous driver models. False: actor is not
@@ -9949,11 +8245,8 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property traffic
             */
-            virtual bool GetTraffic() const
-            {
-                return false;
-            }
-
+            virtual bool GetTraffic() const = 0;
+ 
 
         };
 
@@ -9977,22 +8270,16 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property routeStrategy
             */
-            virtual RouteStrategy GetRouteStrategy() const
-            {
-                return RouteStrategy();
-            }
-
+            virtual RouteStrategy GetRouteStrategy() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * The reference position to form the route.
              * 
              * @return value of model property position
             */
-            virtual std::shared_ptr<IPosition> GetPosition() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IPosition> GetPosition() const = 0;
+ 
 
         };
 
@@ -10016,44 +8303,32 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property cloudState
             */
-            virtual CloudState GetCloudState() const
-            {
-                return CloudState();
-            }
-
+            virtual CloudState GetCloudState() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Definition of the sun, i.e. position and intensity.
              * 
              * @return value of model property sun
             */
-            virtual std::shared_ptr<ISun> GetSun() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<ISun> GetSun() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Definition of fog, i.e. visual range and bounding box.
              * 
              * @return value of model property fog
             */
-            virtual std::shared_ptr<IFog> GetFog() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IFog> GetFog() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * Definition of precipitation, i.e. type and intensity.
              * 
              * @return value of model property precipitation
             */
-            virtual std::shared_ptr<IPrecipitation> GetPrecipitation() const
-            {
-                return nullptr;
-            }
-
+            virtual std::shared_ptr<IPrecipitation> GetPrecipitation() const = 0;
+ 
 
         };
 
@@ -10078,66 +8353,48 @@ namespace NET_ASAM_OPENSCENARIO
              * 
              * @return value of model property h
             */
-            virtual double GetH() const
-            {
-                return 0;
-            }
-
+            virtual double GetH() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * The pitch angle of the object, defining a mathematically positive rotation about the y-axis (see ISO 8855:2011).
              * 
              * @return value of model property p
             */
-            virtual double GetP() const
-            {
-                return 0;
-            }
-
+            virtual double GetP() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * The roll angle of the object, defining a mathematically positive rotation about the x-axis (see ISO 8855:2011).
              * 
              * @return value of model property r
             */
-            virtual double GetR() const
-            {
-                return 0;
-            }
-
+            virtual double GetR() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * The x coordinate value.
              * 
              * @return value of model property x
             */
-            virtual double GetX() const
-            {
-                return 0;
-            }
-
+            virtual double GetX() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * The y coordinate value.
              * 
              * @return value of model property y
             */
-            virtual double GetY() const
-            {
-                return 0;
-            }
-
+            virtual double GetY() const = 0;
+ 
             /**
              * From OpenSCENARIO class model specification:
              * The z coordinate value.
              * 
              * @return value of model property z
             */
-            virtual double GetZ() const
-            {
-                return 0;
-            }
-
+            virtual double GetZ() const = 0;
+ 
 
         };
 

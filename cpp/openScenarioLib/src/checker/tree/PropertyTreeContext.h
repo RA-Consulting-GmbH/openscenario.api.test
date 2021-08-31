@@ -20,7 +20,7 @@
 #include "BaseTreeContext.h"
 #include "MemLeakDetection.h"
 #include <memory>
-
+#include "ExportDefinitions.h"
 
 namespace NET_ASAM_OPENSCENARIO
 {
@@ -37,7 +37,7 @@ namespace NET_ASAM_OPENSCENARIO
          * @param propertyNames the names of the properties as you would use it in the IOpenScenarioFlexElement
          */
 		PropertyTreeContext(std::shared_ptr<IOpenScenarioModelElement> treeObjectContext, std::vector<std::string>&  propertyNames);
-
+		virtual ~PropertyTreeContext() = default;
         /**
          * @return the property names
          */
@@ -49,7 +49,7 @@ namespace NET_ASAM_OPENSCENARIO
          * @param propertyName the name of the property
          * @return a property tree context
          */
-		static std::shared_ptr<PropertyTreeContext> Create(std::shared_ptr<IOpenScenarioModelElement> treeObjectContext, const std::string propertyName);
+		OPENSCENARIOLIB_EXP static std::shared_ptr<PropertyTreeContext> Create(std::shared_ptr<IOpenScenarioModelElement> treeObjectContext, const std::string propertyName);
 
     };
 }

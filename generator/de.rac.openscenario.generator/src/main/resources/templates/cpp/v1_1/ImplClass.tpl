@@ -62,35 +62,17 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP <%=element.name.toClassName()%>Impl();
 
-            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override
-            {
-                return this;
-            }
+            IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
 
     <%-properties.each{ property ->-%>
         <%-if (property.upper== -1){-%>
             OPENSCENARIOLIB_EXP std::vector<<%=property.type.toCppName()%>> Get<%=property.name.toClassName()%>() const override;
 
-<%- if (!property.isTransient()){-%>
-            OPENSCENARIOLIB_EXP std::vector<<%=property.type.toCppWriterName()%>> GetWriter<%=property.name.toClassName()%>() const override
-            {
-                return _<%=property.name.toMemberName()%>;
-            }
-<%-} -%>
-
-            OPENSCENARIOLIB_EXP int Get<%=property.name.toClassName()%>Size() const override
-            {
-                return static_cast<int>(_<%=property.name.toMemberName()%>.size());
-            }
-
-            OPENSCENARIOLIB_EXP <%=property.type.toCppName()%> Get<%=property.name.toClassName()%>AtIndex(unsigned int index) const override
-            {
-                if (index >= 0 && _<%=property.name.toMemberName()%>.size() > index)
-                {
-                    return _<%=property.name.toMemberName()%>[index];
-                }
-                return <%=property.type.toCppDefaultValue()%>;
-            }
+		<%- if (!property.isTransient()){-%>
+            OPENSCENARIOLIB_EXP std::vector<<%=property.type.toCppWriterName()%>> GetWriter<%=property.name.toClassName()%>() const override;
+		<%-} -%>
+            OPENSCENARIOLIB_EXP int Get<%=property.name.toClassName()%>Size() const override;
+            OPENSCENARIOLIB_EXP <%=property.type.toCppName()%> Get<%=property.name.toClassName()%>AtIndex(unsigned int index) const override;
         <%-}else if (property.isProxy()){-%>
             OPENSCENARIOLIB_EXP std::shared_ptr<INamedReference<I<%=property.type.name.toClassName()%>>> Get<%=property.name.toClassName()%>() const override;
         <%-}else{-%>
@@ -101,38 +83,18 @@ namespace NET_ASAM_OPENSCENARIO
 <%-properties.each{ property ->-%>
 
 <%- if (property.isProxy() && !property.isList()){-%>
-            OPENSCENARIOLIB_EXP void Set<%=property.name.toClassName()%>(std::shared_ptr<INamedReference<<%=property.type.toCppTemplateName()%>>> <%=property.name.toMemberName()%>) override
+            OPENSCENARIOLIB_EXP void Set<%=property.name.toClassName()%>(std::shared_ptr<INamedReference<<%=property.type.toCppTemplateName()%>>> <%=property.name.toMemberName()%>) override;
 <%}else if (property.isTransient() && property.isList()){-%>
-            OPENSCENARIOLIB_EXP void Set<%=property.name.toClassName()%>(std::vector<<%=property.type.toCppName()%>>& <%=property.name.toMemberName()%>) override
+            OPENSCENARIOLIB_EXP void Set<%=property.name.toClassName()%>(std::vector<<%=property.type.toCppName()%>>& <%=property.name.toMemberName()%>) override;
 <%}else if (property.isTransient() && !property.isList()){-%>
-            OPENSCENARIOLIB_EXP void Set<%=property.name.toClassName()%>(const <%=property.type.toCppName()%> <%=property.name.toMemberName()%>) override
+            OPENSCENARIOLIB_EXP void Set<%=property.name.toClassName()%>(const <%=property.type.toCppName()%> <%=property.name.toMemberName()%>) override;
 <%}else if (property.isXmlElementProperty() && !property.isList()){-%>
-            OPENSCENARIOLIB_EXP void Set<%=property.name.toClassName()%>(<%=property.type.toCppWriterName()%> <%=property.name.toMemberName()%>) override
+            OPENSCENARIOLIB_EXP void Set<%=property.name.toClassName()%>(<%=property.type.toCppWriterName()%> <%=property.name.toMemberName()%>) override;
 <%}else if (property.isXmlElementProperty() && property.isList()){-%>
-            OPENSCENARIOLIB_EXP void Set<%=property.name.toClassName()%>(std::vector<<%=property.type.toCppWriterName()%>>& <%=property.name.toMemberName()%>) override
+            OPENSCENARIOLIB_EXP void Set<%=property.name.toClassName()%>(std::vector<<%=property.type.toCppWriterName()%>>& <%=property.name.toMemberName()%>) override;
 <%}else {-%>
-            OPENSCENARIOLIB_EXP void Set<%=property.name.toClassName()%>(const <%=property.type.toCppName()%> <%=property.name.toMemberName()%>) override
+            OPENSCENARIOLIB_EXP void Set<%=property.name.toClassName()%>(const <%=property.type.toCppName()%> <%=property.name.toMemberName()%>) override;
 <%-}-%>
-            {
-<%- if (property.isXmlElementProperty() && property.isList()){-%>
-                _<%=property.name.toMemberName()%> = <%=property.name.toMemberName()%>;
-<%}else {-%>
-                _<%=property.name.toMemberName()%> = <%=property.name.toMemberName()%>;
-<%-}-%>
-<%-if (property.isXorElement()){-%>
-<%- element.getXmlElementProperties().each{ siblingProperty -> siblingProperty-%>
-<%-if (siblingProperty.isXorElement()){-%> 
-<%-if (siblingProperty != property){-%>
-                _<%=siblingProperty.name.toMemberName()%> = {};
-<%-}-%>
-<%-}else{-%>
-<%-throw new Error();-%>
-<%-}-%>
-<%-}}-%>
-<%-if (property.isParameterizableProperty()){-%>
-                //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>);
-<%-}-%>
-            }
 <%-}-%>
 
             OPENSCENARIOLIB_EXP void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& parameterLiteralValue) override;
@@ -158,55 +120,25 @@ namespace NET_ASAM_OPENSCENARIO
             */
             OPENSCENARIOLIB_EXP std::shared_ptr<BaseImpl> Clone() override;
 
-            std::shared_ptr<void> GetAdapter(const std::string classifier) override
-            {
-                if (classifier == typeid(<%=element.name.toClassName()%>Impl).name())
-                    return shared_from_this();
-                else if (classifier == typeid(I<%=element.name.toClassName()%>).name())
-                    return std::dynamic_pointer_cast<I<%=element.name.toClassName()%>>(shared_from_this());
-                else if (classifier == typeid(I<%=element.name.toClassName()%>Writer).name())
-                    return std::dynamic_pointer_cast<I<%=element.name.toClassName()%>Writer>(shared_from_this());
-                return BaseImpl::GetAdapter(classifier);
-            }
+            std::shared_ptr<void> GetAdapter(const std::string classifier) override;
 
-            std::weak_ptr<IOpenScenarioModelElement> GetParent() const override
-            {
-                return BaseImpl::GetParent();
-            }
+            std::weak_ptr<IOpenScenarioModelElement> GetParent() const override;
 
             // Implement the IOpenScenarioFlexElement interface
 
             OPENSCENARIOLIB_EXP std::string GetStringProperty(std::string key) const override;
 
-            uint32_t GetUnsignedIntProperty(std::string key) const override
-            {
-                <%addTypeCode(element,"UnsignedInt")%>
-            }
+            uint32_t GetUnsignedIntProperty(std::string key) const override;
 
-            int GetIntProperty(std::string key) const override
-            {
-                <%addTypeCode(element,"Int")%>
-            }
+            int GetIntProperty(std::string key) const override;
 
-            double GetDoubleProperty(std::string key) const override
-            {
-                <%addTypeCode(element,"Double")%>
-            }
+            double GetDoubleProperty(std::string key) const override;
 
-            uint16_t GetUnsignedShortProperty(std::string key) const override
-            {
-                <%addTypeCode(element,"UnsignedShort")%>
-            }
+            uint16_t GetUnsignedShortProperty(std::string key) const override;
  
-            bool GetBooleanProperty(std::string key) const override
-            {
-                <%addTypeCode(element,"Boolean")%>
-            }
+            bool GetBooleanProperty(std::string key) const override;
 
-            DateTime GetDateTimeProperty(std::string key) const override
-            {
-                <%addTypeCode(element,"DateTime")%>
-            }
+            DateTime GetDateTimeProperty(std::string key) const override;
 
             OPENSCENARIOLIB_EXP std::shared_ptr<IOpenScenarioFlexElement> GetChildElement(std::string key) const override;
   <%-List listChildElements = element.getXmlElementProperties().findAll(){ it.isList() }-%>
@@ -214,56 +146,31 @@ namespace NET_ASAM_OPENSCENARIO
   <%-}-%>
             OPENSCENARIOLIB_EXP std::vector<std::shared_ptr<IOpenScenarioFlexElement>> GetListChildElement(std::string key) const override;
 
-            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() const override
-            {
-                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
-            }
+            std::weak_ptr<IOpenScenarioFlexElement> GetParentFlexElement() const override;
 
             OPENSCENARIOLIB_EXP std::shared_ptr<IOpenScenarioFlexElement> GetReferencedElement(std::string key, std::string name) const override;
 
             OPENSCENARIOLIB_EXP std::string GetEnumerationLiteral(std::string key) const override;
 
-            std::string GetModelType() const override
-            {
-                return "<%=element.name.toClassName()%>";
-            }
+            std::string GetModelType() const override;
 
 <%properties = element.getParametrizableAttributes()-%>
 <%-properties.each{ property ->-%>
-            OPENSCENARIOLIB_EXP  void WriteParameterTo<%=property.name.toClassName()%>(std::string& parameterName) override
-            {
-                Textmarker nullTextMarker(-1, -1, "");
-                SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>, parameterName, nullTextMarker /*no textmarker*/);
-                _<%=property.name.toMemberName()%> = {};
-            }
+            OPENSCENARIOLIB_EXP  void WriteParameterTo<%=property.name.toClassName()%>(std::string& parameterName) override;
 
 <%-}-%>
 <%-properties.each{ property ->-%>
-            OPENSCENARIOLIB_EXP std::string GetParameterFrom<%=property.name.toClassName()%>() const override
-            {
-                auto <%=property.name.toMemberName()%> = OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>;
-                return GetParameterNameFromAttribute(<%=property.name.toMemberName()%>);
-            }
+            OPENSCENARIOLIB_EXP std::string GetParameterFrom<%=property.name.toClassName()%>() const override;
 
 <%-}-%>
 <%-properties.each{ property ->-%>
-            OPENSCENARIOLIB_EXP bool Is<%=property.name.toClassName()%>Parameterized() override
-            {
-                auto keys = GetParameterizedAttributeKeys();
-                const auto kIt = std::find(keys.begin(), keys.end(), OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>);
-                if (kIt != keys.end())
-                    return true;
-                return false;
-            }
+            OPENSCENARIOLIB_EXP bool Is<%=property.name.toClassName()%>Parameterized() override;
 
 <%-}-%>
             // children
 <%-properties = element.getXmlElementProperties().findAll(){ !it.isList() }-%>
 <%-properties.each{ property ->-%>
-            OPENSCENARIOLIB_EXP <%=property.type.toCppWriterName()%> GetWriter<%=property.name.toClassName()%>() const override
-            {
-                return std::dynamic_pointer_cast<<%=property.type.toCppTemplateName()%>Writer>(_<%=property.name.toMemberName()%>);
-            }
+            OPENSCENARIOLIB_EXP <%=property.type.toCppWriterName()%> GetWriter<%=property.name.toClassName()%>() const override;
 <%-}-%>
         };
 
@@ -271,23 +178,3 @@ namespace NET_ASAM_OPENSCENARIO
 
     }
 }
-
-<%-def addTypeCode(element, String primitiveTypeName){-%>
-<%- List properties = element.umlProperties.findAll(){ it.type.isPrimitiveType() && it.type.name.toClassName().equals(primitiveTypeName) }-%>
-    <%-if (properties.isEmpty()){-%>
-throw KeyNotSupportedException();
-    <%-} else {-%>
-if (key.empty())
-                {
-                    throw KeyNotSupportedException();
-                }
-    <%-properties.eachWithIndex{ property, index ->-%>
-    <%=index != 0?"else ":" "%>
-                if (key == OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>)
-                {
-                    return Get<%=property.name.toClassName()%>();
-                }<%-}-%>
-
-                throw KeyNotSupportedException();
- <%-}-%>
- <%-}-%>

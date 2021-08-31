@@ -42,11 +42,11 @@ namespace NET_ASAM_OPENSCENARIO
     protected:
         std::shared_ptr<Textmarker> GetTextmarker(std::shared_ptr<T> object)
         {
-            auto locator = object->GetAdapter(typeid(ILocator).name());
+            auto locator = std::static_pointer_cast<NET_ASAM_OPENSCENARIO::ILocator>(object->GetAdapter(typeid(ILocator).name()));
 
             if (locator) 
             {
-                return locator->GetStartMarker();
+                return std::make_shared<Textmarker>(locator->GetStartMarker());
             }
         
             return nullptr;

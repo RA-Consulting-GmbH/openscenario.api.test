@@ -45,67 +45,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IAbsoluteSpeed> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetValue() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IAbsoluteSpeed> object);
 
         public:
-             AbsoluteSpeedCardinalityCheckerRule() = default;
+             AbsoluteSpeedCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IAbsoluteSpeed> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IAbsoluteSpeed> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IAbsoluteSpeed> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IAbsoluteSpeed> object);
         };
 
         /**
@@ -119,67 +66,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IAbsoluteTargetLane> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetValue().empty())
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IAbsoluteTargetLane> object);
 
         public:
-             AbsoluteTargetLaneCardinalityCheckerRule() = default;
+             AbsoluteTargetLaneCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IAbsoluteTargetLane> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IAbsoluteTargetLane> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IAbsoluteTargetLane> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IAbsoluteTargetLane> object);
         };
 
         /**
@@ -193,67 +87,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IAbsoluteTargetLaneOffset> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetValue() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IAbsoluteTargetLaneOffset> object);
 
         public:
-             AbsoluteTargetLaneOffsetCardinalityCheckerRule() = default;
+             AbsoluteTargetLaneOffsetCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IAbsoluteTargetLaneOffset> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IAbsoluteTargetLaneOffset> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IAbsoluteTargetLaneOffset> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IAbsoluteTargetLaneOffset> object);
         };
 
         /**
@@ -267,67 +108,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IAbsoluteTargetSpeed> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetValue() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IAbsoluteTargetSpeed> object);
 
         public:
-             AbsoluteTargetSpeedCardinalityCheckerRule() = default;
+             AbsoluteTargetSpeedCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IAbsoluteTargetSpeed> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IAbsoluteTargetSpeed> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IAbsoluteTargetSpeed> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IAbsoluteTargetSpeed> object);
         };
 
         /**
@@ -341,73 +129,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IAccelerationCondition> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetRule() == Rule::UNKNOWN)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__RULE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetValue() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IAccelerationCondition> object);
 
         public:
-             AccelerationConditionCardinalityCheckerRule() = default;
+             AccelerationConditionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IAccelerationCondition> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IAccelerationCondition> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IAccelerationCondition> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IAccelerationCondition> object);
         };
 
         /**
@@ -421,67 +150,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IAcquirePositionAction> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetPosition() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__POSITION, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IAcquirePositionAction> object);
 
         public:
-             AcquirePositionActionCardinalityCheckerRule() = default;
+             AcquirePositionActionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IAcquirePositionAction> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IAcquirePositionAction> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IAcquirePositionAction> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IAcquirePositionAction> object);
         };
 
         /**
@@ -495,80 +171,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IAct> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetName().empty())
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__NAME, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                const auto kManeuverGroupsSize = object->GetManeuverGroupsSize();
-                // Check too few elements
-                if (kManeuverGroupsSize < 1)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__MANEUVER_GROUP, 1, kManeuverGroupsSize, VIOLATION_TYPE::TOO_FEW) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetStartTrigger() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__START_TRIGGER, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IAct> object);
 
         public:
-             ActCardinalityCheckerRule() = default;
+             ActCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IAct> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IAct> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IAct> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IAct> object);
         };
 
         /**
@@ -582,67 +192,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IAction> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetName().empty())
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__NAME, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IAction> object);
 
         public:
-             ActionCardinalityCheckerRule() = default;
+             ActionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IAction> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IAction> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IAction> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IAction> object);
         };
 
         /**
@@ -656,67 +213,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IActors> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetSelectTriggeringEntities() == false)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__SELECT_TRIGGERING_ENTITIES, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IActors> object);
 
         public:
-             ActorsCardinalityCheckerRule() = default;
+             ActorsCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IActors> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IActors> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IActors> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IActors> object);
         };
 
         /**
@@ -730,67 +234,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IAddEntityAction> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetPosition() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__POSITION, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IAddEntityAction> object);
 
         public:
-             AddEntityActionCardinalityCheckerRule() = default;
+             AddEntityActionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IAddEntityAction> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IAddEntityAction> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IAddEntityAction> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IAddEntityAction> object);
         };
 
         /**
@@ -804,91 +255,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IAxle> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetMaxSteering() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__MAX_STEERING, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetPositionX() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__POSITION_X, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetPositionZ() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__POSITION_Z, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetTrackWidth() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__TRACK_WIDTH, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetWheelDiameter() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__WHEEL_DIAMETER, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IAxle> object);
 
         public:
-             AxleCardinalityCheckerRule() = default;
+             AxleCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IAxle> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IAxle> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IAxle> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IAxle> object);
         };
 
         /**
@@ -902,73 +276,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IAxles> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetFrontAxle() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__FRONT_AXLE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetRearAxle() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__REAR_AXLE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IAxles> object);
 
         public:
-             AxlesCardinalityCheckerRule() = default;
+             AxlesCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IAxles> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IAxles> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IAxles> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IAxles> object);
         };
 
         /**
@@ -982,73 +297,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IBoundingBox> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetCenter() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__CENTER, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetDimensions() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__DIMENSIONS, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IBoundingBox> object);
 
         public:
-             BoundingBoxCardinalityCheckerRule() = default;
+             BoundingBoxCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IBoundingBox> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IBoundingBox> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IBoundingBox> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IBoundingBox> object);
         };
 
         /**
@@ -1062,73 +318,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IByEntityCondition> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetTriggeringEntities() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__TRIGGERING_ENTITIES, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetEntityCondition() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__ENTITY_CONDITION, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IByEntityCondition> object);
 
         public:
-             ByEntityConditionCardinalityCheckerRule() = default;
+             ByEntityConditionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IByEntityCondition> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IByEntityCondition> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IByEntityCondition> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IByEntityCondition> object);
         };
 
         /**
@@ -1142,67 +339,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IByObjectType> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetType() == ObjectType::UNKNOWN)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__TYPE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IByObjectType> object);
 
         public:
-             ByObjectTypeCardinalityCheckerRule() = default;
+             ByObjectTypeCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IByObjectType> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IByObjectType> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IByObjectType> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IByObjectType> object);
         };
 
         /**
@@ -1216,67 +360,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IByType> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetObjectType() == ObjectType::UNKNOWN)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__OBJECT_TYPE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IByType> object);
 
         public:
-             ByTypeCardinalityCheckerRule() = default;
+             ByTypeCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IByType> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IByType> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IByType> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IByType> object);
         };
 
         /**
@@ -1290,67 +381,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ICatalogDefinition> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetCatalog() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__CATALOG, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ICatalogDefinition> object);
 
         public:
-             CatalogDefinitionCardinalityCheckerRule() = default;
+             CatalogDefinitionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ICatalogDefinition> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ICatalogDefinition> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ICatalogDefinition> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ICatalogDefinition> object);
         };
 
         /**
@@ -1364,73 +402,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ICatalogReference> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetCatalogName().empty())
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__CATALOG_NAME, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetEntryName().empty())
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__ENTRY_NAME, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ICatalogReference> object);
 
         public:
-             CatalogReferenceCardinalityCheckerRule() = default;
+             CatalogReferenceCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ICatalogReference> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ICatalogReference> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ICatalogReference> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ICatalogReference> object);
         };
 
         /**
@@ -1444,79 +423,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ICenter> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetX() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__X, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetY() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__Y, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetZ() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__Z, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ICenter> object);
 
         public:
-             CenterCardinalityCheckerRule() = default;
+             CenterCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ICenter> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ICenter> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ICenter> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ICenter> object);
         };
 
         /**
@@ -1530,67 +444,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ICentralSwarmObject> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetEntityRef() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ICentralSwarmObject> object);
 
         public:
-             CentralSwarmObjectCardinalityCheckerRule() = default;
+             CentralSwarmObjectCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ICentralSwarmObject> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ICentralSwarmObject> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ICentralSwarmObject> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ICentralSwarmObject> object);
         };
 
         /**
@@ -1604,79 +465,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IClothoid> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetCurvature() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__CURVATURE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetLength() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__LENGTH, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetPosition() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__POSITION, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IClothoid> object);
 
         public:
-             ClothoidCardinalityCheckerRule() = default;
+             ClothoidCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IClothoid> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IClothoid> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IClothoid> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IClothoid> object);
         };
 
         /**
@@ -1690,79 +486,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ICondition> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetConditionEdge() == ConditionEdge::UNKNOWN)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__CONDITION_EDGE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetDelay() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__DELAY, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetName().empty())
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__NAME, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ICondition> object);
 
         public:
-             ConditionCardinalityCheckerRule() = default;
+             ConditionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ICondition> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ICondition> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ICondition> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ICondition> object);
         };
 
         /**
@@ -1776,68 +507,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IConditionGroup> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                const auto kConditionsSize = object->GetConditionsSize();
-                // Check too few elements
-                if (kConditionsSize < 1)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__CONDITION, 1, kConditionsSize, VIOLATION_TYPE::TOO_FEW) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IConditionGroup> object);
 
         public:
-             ConditionGroupCardinalityCheckerRule() = default;
+             ConditionGroupCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IConditionGroup> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IConditionGroup> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IConditionGroup> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IConditionGroup> object);
         };
 
         /**
@@ -1851,67 +528,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IControlPoint> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetPosition() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__POSITION, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IControlPoint> object);
 
         public:
-             ControlPointCardinalityCheckerRule() = default;
+             ControlPointCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IControlPoint> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IControlPoint> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IControlPoint> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IControlPoint> object);
         };
 
         /**
@@ -1925,73 +549,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IController> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetName().empty())
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__NAME, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetProperties() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__PROPERTIES, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IController> object);
 
         public:
-             ControllerCardinalityCheckerRule() = default;
+             ControllerCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IController> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IController> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IController> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IController> object);
         };
 
         /**
@@ -2005,67 +570,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IControllerCatalogLocation> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetDirectory() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__DIRECTORY, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IControllerCatalogLocation> object);
 
         public:
-             ControllerCatalogLocationCardinalityCheckerRule() = default;
+             ControllerCatalogLocationCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IControllerCatalogLocation> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IControllerCatalogLocation> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IControllerCatalogLocation> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IControllerCatalogLocation> object);
         };
 
         /**
@@ -2079,68 +591,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IControllerDistribution> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                const auto kControllerDistributionEntriesSize = object->GetControllerDistributionEntriesSize();
-                // Check too few elements
-                if (kControllerDistributionEntriesSize < 1)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__CONTROLLER_DISTRIBUTION_ENTRY, 1, kControllerDistributionEntriesSize, VIOLATION_TYPE::TOO_FEW) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IControllerDistribution> object);
 
         public:
-             ControllerDistributionCardinalityCheckerRule() = default;
+             ControllerDistributionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IControllerDistribution> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IControllerDistribution> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IControllerDistribution> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IControllerDistribution> object);
         };
 
         /**
@@ -2154,67 +612,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IControllerDistributionEntry> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetWeight() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__WEIGHT, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IControllerDistributionEntry> object);
 
         public:
-             ControllerDistributionEntryCardinalityCheckerRule() = default;
+             ControllerDistributionEntryCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IControllerDistributionEntry> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IControllerDistributionEntry> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IControllerDistributionEntry> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IControllerDistributionEntry> object);
         };
 
         /**
@@ -2228,73 +633,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ICustomCommandAction> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetContent().empty())
-                {
-                    violations.push_back( CardinalityViolation("", 0, 1, VIOLATION_TYPE::REQUIRED_SIMPLE_CONTENT) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetType().empty())
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__TYPE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ICustomCommandAction> object);
 
         public:
-             CustomCommandActionCardinalityCheckerRule() = default;
+             CustomCommandActionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ICustomCommandAction> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ICustomCommandAction> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ICustomCommandAction> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ICustomCommandAction> object);
         };
 
         /**
@@ -2309,67 +655,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IDeterministicMultiParameterDistribution> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetDeterministicMultiParameterDistributionType() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__DETERMINISTIC_MULTI_PARAMETER_DISTRIBUTION_TYPE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IDeterministicMultiParameterDistribution> object);
 
         public:
-             DeterministicMultiParameterDistributionCardinalityCheckerRule() = default;
+             DeterministicMultiParameterDistributionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IDeterministicMultiParameterDistribution> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IDeterministicMultiParameterDistribution> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IDeterministicMultiParameterDistribution> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IDeterministicMultiParameterDistribution> object);
         };
 
         /**
@@ -2384,67 +677,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IDeterministicMultiParameterDistributionType> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetValueSetDistribution() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__VALUE_SET_DISTRIBUTION, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IDeterministicMultiParameterDistributionType> object);
 
         public:
-             DeterministicMultiParameterDistributionTypeCardinalityCheckerRule() = default;
+             DeterministicMultiParameterDistributionTypeCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IDeterministicMultiParameterDistributionType> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IDeterministicMultiParameterDistributionType> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IDeterministicMultiParameterDistributionType> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IDeterministicMultiParameterDistributionType> object);
         };
 
         /**
@@ -2458,73 +698,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IDeterministicParameterDistribution> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetDeterministicMultiParameterDistribution() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__DETERMINISTIC_MULTI_PARAMETER_DISTRIBUTION, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetDeterministicSingleParameterDistribution() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__DETERMINISTIC_SINGLE_PARAMETER_DISTRIBUTION, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IDeterministicParameterDistribution> object);
 
         public:
-             DeterministicParameterDistributionCardinalityCheckerRule() = default;
+             DeterministicParameterDistributionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IDeterministicParameterDistribution> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IDeterministicParameterDistribution> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IDeterministicParameterDistribution> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IDeterministicParameterDistribution> object);
         };
 
         /**
@@ -2539,73 +720,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IDeterministicSingleParameterDistribution> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetParameterName().empty())
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_NAME, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetDeterministicSingleParameterDistributionType() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__DETERMINISTIC_SINGLE_PARAMETER_DISTRIBUTION_TYPE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IDeterministicSingleParameterDistribution> object);
 
         public:
-             DeterministicSingleParameterDistributionCardinalityCheckerRule() = default;
+             DeterministicSingleParameterDistributionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IDeterministicSingleParameterDistribution> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IDeterministicSingleParameterDistribution> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IDeterministicSingleParameterDistribution> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IDeterministicSingleParameterDistribution> object);
         };
 
         /**
@@ -2620,79 +742,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IDeterministicSingleParameterDistributionType> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetDistributionSet() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__DISTRIBUTION_SET, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetDistributionRange() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__DISTRIBUTION_RANGE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetUserDefinedDistribution() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__USER_DEFINED_DISTRIBUTION, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IDeterministicSingleParameterDistributionType> object);
 
         public:
-             DeterministicSingleParameterDistributionTypeCardinalityCheckerRule() = default;
+             DeterministicSingleParameterDistributionTypeCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IDeterministicSingleParameterDistributionType> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IDeterministicSingleParameterDistributionType> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IDeterministicSingleParameterDistributionType> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IDeterministicSingleParameterDistributionType> object);
         };
 
         /**
@@ -2706,79 +763,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IDimensions> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetHeight() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__HEIGHT, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetLength() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__LENGTH, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetWidth() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__WIDTH, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IDimensions> object);
 
         public:
-             DimensionsCardinalityCheckerRule() = default;
+             DimensionsCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IDimensions> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IDimensions> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IDimensions> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IDimensions> object);
         };
 
         /**
@@ -2792,67 +784,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IDirectory> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetPath().empty())
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__PATH, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IDirectory> object);
 
         public:
-             DirectoryCardinalityCheckerRule() = default;
+             DirectoryCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IDirectory> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IDirectory> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IDirectory> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IDirectory> object);
         };
 
         /**
@@ -2866,85 +805,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IDistanceCondition> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetFreespace() == false)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetRule() == Rule::UNKNOWN)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__RULE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetValue() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetPosition() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__POSITION, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IDistanceCondition> object);
 
         public:
-             DistanceConditionCardinalityCheckerRule() = default;
+             DistanceConditionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IDistanceCondition> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IDistanceCondition> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IDistanceCondition> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IDistanceCondition> object);
         };
 
         /**
@@ -2958,73 +826,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IDistributionDefinition> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetDeterministic() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__DETERMINISTIC, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetStochastic() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__STOCHASTIC, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IDistributionDefinition> object);
 
         public:
-             DistributionDefinitionCardinalityCheckerRule() = default;
+             DistributionDefinitionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IDistributionDefinition> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IDistributionDefinition> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IDistributionDefinition> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IDistributionDefinition> object);
         };
 
         /**
@@ -3038,73 +847,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IDistributionRange> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetStepWidth() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__STEP_WIDTH, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetRange() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__RANGE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IDistributionRange> object);
 
         public:
-             DistributionRangeCardinalityCheckerRule() = default;
+             DistributionRangeCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IDistributionRange> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IDistributionRange> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IDistributionRange> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IDistributionRange> object);
         };
 
         /**
@@ -3118,68 +868,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IDistributionSet> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                const auto kElementsSize = object->GetElementsSize();
-                // Check too few elements
-                if (kElementsSize < 1)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__ELEMENT, 1, kElementsSize, VIOLATION_TYPE::TOO_FEW) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IDistributionSet> object);
 
         public:
-             DistributionSetCardinalityCheckerRule() = default;
+             DistributionSetCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IDistributionSet> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IDistributionSet> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IDistributionSet> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IDistributionSet> object);
         };
 
         /**
@@ -3193,67 +889,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IDistributionSetElement> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetValue().empty())
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IDistributionSetElement> object);
 
         public:
-             DistributionSetElementCardinalityCheckerRule() = default;
+             DistributionSetElementCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IDistributionSetElement> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IDistributionSetElement> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IDistributionSetElement> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IDistributionSetElement> object);
         };
 
         /**
@@ -3267,67 +910,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IEndOfRoadCondition> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetDuration() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__DURATION, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IEndOfRoadCondition> object);
 
         public:
-             EndOfRoadConditionCardinalityCheckerRule() = default;
+             EndOfRoadConditionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IEndOfRoadCondition> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IEndOfRoadCondition> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IEndOfRoadCondition> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IEndOfRoadCondition> object);
         };
 
         /**
@@ -3341,67 +931,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IEntityAction> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetEntityRef() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IEntityAction> object);
 
         public:
-             EntityActionCardinalityCheckerRule() = default;
+             EntityActionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IEntityAction> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IEntityAction> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IEntityAction> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IEntityAction> object);
         };
 
         /**
@@ -3415,67 +952,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IEntityRef> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetEntityRef() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IEntityRef> object);
 
         public:
-             EntityRefCardinalityCheckerRule() = default;
+             EntityRefCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IEntityRef> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IEntityRef> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IEntityRef> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IEntityRef> object);
         };
 
         /**
@@ -3489,73 +973,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IEntitySelection> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetName().empty())
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__NAME, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetMembers() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__MEMBERS, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IEntitySelection> object);
 
         public:
-             EntitySelectionCardinalityCheckerRule() = default;
+             EntitySelectionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IEntitySelection> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IEntitySelection> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IEntitySelection> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IEntitySelection> object);
         };
 
         /**
@@ -3569,67 +994,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IEnvironment> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetName().empty())
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__NAME, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IEnvironment> object);
 
         public:
-             EnvironmentCardinalityCheckerRule() = default;
+             EnvironmentCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IEnvironment> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IEnvironment> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IEnvironment> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IEnvironment> object);
         };
 
         /**
@@ -3643,67 +1015,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IEnvironmentCatalogLocation> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetDirectory() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__DIRECTORY, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IEnvironmentCatalogLocation> object);
 
         public:
-             EnvironmentCatalogLocationCardinalityCheckerRule() = default;
+             EnvironmentCatalogLocationCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IEnvironmentCatalogLocation> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IEnvironmentCatalogLocation> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IEnvironmentCatalogLocation> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IEnvironmentCatalogLocation> object);
         };
 
         /**
@@ -3717,80 +1036,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IEvent> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetName().empty())
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__NAME, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetPriority() == Priority::UNKNOWN)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__PRIORITY, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                const auto kActionsSize = object->GetActionsSize();
-                // Check too few elements
-                if (kActionsSize < 1)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__ACTION, 1, kActionsSize, VIOLATION_TYPE::TOO_FEW) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IEvent> object);
 
         public:
-             EventCardinalityCheckerRule() = default;
+             EventCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IEvent> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IEvent> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IEvent> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IEvent> object);
         };
 
         /**
@@ -3804,67 +1057,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IExternalObjectReference> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetName().empty())
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__NAME, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IExternalObjectReference> object);
 
         public:
-             ExternalObjectReferenceCardinalityCheckerRule() = default;
+             ExternalObjectReferenceCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IExternalObjectReference> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IExternalObjectReference> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IExternalObjectReference> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IExternalObjectReference> object);
         };
 
         /**
@@ -3878,67 +1078,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IFile> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetFilepath().empty())
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__FILEPATH, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IFile> object);
 
         public:
-             FileCardinalityCheckerRule() = default;
+             FileCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IFile> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IFile> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IFile> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IFile> object);
         };
 
         /**
@@ -3952,91 +1099,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IFileHeader> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetAuthor().empty())
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__AUTHOR, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetDate() == DateTime())
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__DATE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetDescription().empty())
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__DESCRIPTION, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetRevMajor() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__REV_MAJOR, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetRevMinor() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__REV_MINOR, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IFileHeader> object);
 
         public:
-             FileHeaderCardinalityCheckerRule() = default;
+             FileHeaderCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IFileHeader> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IFileHeader> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IFileHeader> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IFileHeader> object);
         };
 
         /**
@@ -4050,67 +1120,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IFog> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetVisualRange() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VISUAL_RANGE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IFog> object);
 
         public:
-             FogCardinalityCheckerRule() = default;
+             FogCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IFog> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IFog> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IFog> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IFog> object);
         };
 
         /**
@@ -4124,73 +1141,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IFollowTrajectoryAction> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetTimeReference() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__TIME_REFERENCE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetTrajectoryFollowingMode() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__TRAJECTORY_FOLLOWING_MODE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IFollowTrajectoryAction> object);
 
         public:
-             FollowTrajectoryActionCardinalityCheckerRule() = default;
+             FollowTrajectoryActionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IFollowTrajectoryAction> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IFollowTrajectoryAction> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IFollowTrajectoryAction> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IFollowTrajectoryAction> object);
         };
 
         /**
@@ -4204,73 +1162,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IGeoPosition> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetLatitude() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__LATITUDE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetLongitude() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__LONGITUDE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IGeoPosition> object);
 
         public:
-             GeoPositionCardinalityCheckerRule() = default;
+             GeoPositionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IGeoPosition> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IGeoPosition> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IGeoPosition> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IGeoPosition> object);
         };
 
         /**
@@ -4284,68 +1183,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IHistogram> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                const auto kBinsSize = object->GetBinsSize();
-                // Check too few elements
-                if (kBinsSize < 1)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__BIN, 1, kBinsSize, VIOLATION_TYPE::TOO_FEW) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IHistogram> object);
 
         public:
-             HistogramCardinalityCheckerRule() = default;
+             HistogramCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IHistogram> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IHistogram> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IHistogram> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IHistogram> object);
         };
 
         /**
@@ -4359,73 +1204,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IHistogramBin> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetWeight() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__WEIGHT, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetRange() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__RANGE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IHistogramBin> object);
 
         public:
-             HistogramBinCardinalityCheckerRule() = default;
+             HistogramBinCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IHistogramBin> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IHistogramBin> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IHistogramBin> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IHistogramBin> object);
         };
 
         /**
@@ -4439,67 +1225,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IInfrastructureAction> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetTrafficSignalAction() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__TRAFFIC_SIGNAL_ACTION, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IInfrastructureAction> object);
 
         public:
-             InfrastructureActionCardinalityCheckerRule() = default;
+             InfrastructureActionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IInfrastructureAction> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IInfrastructureAction> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IInfrastructureAction> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IInfrastructureAction> object);
         };
 
         /**
@@ -4513,67 +1246,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IInit> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetActions() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__ACTIONS, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IInit> object);
 
         public:
-             InitCardinalityCheckerRule() = default;
+             InitCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IInit> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IInit> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IInit> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IInit> object);
         };
 
         /**
@@ -4587,67 +1267,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IKnot> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetValue() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IKnot> object);
 
         public:
-             KnotCardinalityCheckerRule() = default;
+             KnotCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IKnot> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IKnot> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IKnot> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IKnot> object);
         };
 
         /**
@@ -4661,73 +1288,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ILaneChangeAction> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetLaneChangeActionDynamics() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__LANE_CHANGE_ACTION_DYNAMICS, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetLaneChangeTarget() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__LANE_CHANGE_TARGET, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ILaneChangeAction> object);
 
         public:
-             LaneChangeActionCardinalityCheckerRule() = default;
+             LaneChangeActionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ILaneChangeAction> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ILaneChangeAction> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ILaneChangeAction> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ILaneChangeAction> object);
         };
 
         /**
@@ -4741,79 +1309,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ILaneOffsetAction> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetContinuous() == false)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetLaneOffsetActionDynamics() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__LANE_OFFSET_ACTION_DYNAMICS, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetLaneOffsetTarget() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__LANE_OFFSET_TARGET, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ILaneOffsetAction> object);
 
         public:
-             LaneOffsetActionCardinalityCheckerRule() = default;
+             LaneOffsetActionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ILaneOffsetAction> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ILaneOffsetAction> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ILaneOffsetAction> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ILaneOffsetAction> object);
         };
 
         /**
@@ -4827,67 +1330,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ILaneOffsetActionDynamics> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetDynamicsShape() == DynamicsShape::UNKNOWN)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__DYNAMICS_SHAPE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ILaneOffsetActionDynamics> object);
 
         public:
-             LaneOffsetActionDynamicsCardinalityCheckerRule() = default;
+             LaneOffsetActionDynamicsCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ILaneOffsetActionDynamics> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ILaneOffsetActionDynamics> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ILaneOffsetActionDynamics> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ILaneOffsetActionDynamics> object);
         };
 
         /**
@@ -4901,79 +1351,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ILanePosition> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetLaneId().empty())
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__LANE_ID, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetRoadId().empty())
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__ROAD_ID, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetS() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__S, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ILanePosition> object);
 
         public:
-             LanePositionCardinalityCheckerRule() = default;
+             LanePositionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ILanePosition> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ILanePosition> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ILanePosition> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ILanePosition> object);
         };
 
         /**
@@ -4987,79 +1372,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ILateralDistanceAction> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetContinuous() == false)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetEntityRef() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetFreespace() == false)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ILateralDistanceAction> object);
 
         public:
-             LateralDistanceActionCardinalityCheckerRule() = default;
+             LateralDistanceActionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ILateralDistanceAction> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ILateralDistanceAction> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ILateralDistanceAction> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ILateralDistanceAction> object);
         };
 
         /**
@@ -5073,67 +1393,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ILicense> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetName().empty())
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__NAME, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ILicense> object);
 
         public:
-             LicenseCardinalityCheckerRule() = default;
+             LicenseCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ILicense> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ILicense> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ILicense> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ILicense> object);
         };
 
         /**
@@ -5147,79 +1414,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ILongitudinalDistanceAction> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetContinuous() == false)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetEntityRef() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetFreespace() == false)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ILongitudinalDistanceAction> object);
 
         public:
-             LongitudinalDistanceActionCardinalityCheckerRule() = default;
+             LongitudinalDistanceActionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ILongitudinalDistanceAction> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ILongitudinalDistanceAction> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ILongitudinalDistanceAction> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ILongitudinalDistanceAction> object);
         };
 
         /**
@@ -5233,74 +1435,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IManeuver> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetName().empty())
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__NAME, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                const auto kEventsSize = object->GetEventsSize();
-                // Check too few elements
-                if (kEventsSize < 1)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__EVENT, 1, kEventsSize, VIOLATION_TYPE::TOO_FEW) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IManeuver> object);
 
         public:
-             ManeuverCardinalityCheckerRule() = default;
+             ManeuverCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IManeuver> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IManeuver> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IManeuver> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IManeuver> object);
         };
 
         /**
@@ -5314,67 +1456,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IManeuverCatalogLocation> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetDirectory() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__DIRECTORY, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IManeuverCatalogLocation> object);
 
         public:
-             ManeuverCatalogLocationCardinalityCheckerRule() = default;
+             ManeuverCatalogLocationCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IManeuverCatalogLocation> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IManeuverCatalogLocation> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IManeuverCatalogLocation> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IManeuverCatalogLocation> object);
         };
 
         /**
@@ -5388,79 +1477,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IManeuverGroup> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetMaximumExecutionCount() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__MAXIMUM_EXECUTION_COUNT, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetName().empty())
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__NAME, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetActors() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__ACTORS, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IManeuverGroup> object);
 
         public:
-             ManeuverGroupCardinalityCheckerRule() = default;
+             ManeuverGroupCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IManeuverGroup> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IManeuverGroup> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IManeuverGroup> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IManeuverGroup> object);
         };
 
         /**
@@ -5474,91 +1498,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IMiscObject> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetMass() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__MASS, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetMiscObjectCategory() == MiscObjectCategory::UNKNOWN)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__MISC_OBJECT_CATEGORY, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetName().empty())
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__NAME, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetBoundingBox() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__BOUNDING_BOX, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetProperties() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__PROPERTIES, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IMiscObject> object);
 
         public:
-             MiscObjectCardinalityCheckerRule() = default;
+             MiscObjectCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IMiscObject> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IMiscObject> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IMiscObject> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IMiscObject> object);
         };
 
         /**
@@ -5572,67 +1519,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IMiscObjectCatalogLocation> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetDirectory() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__DIRECTORY, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IMiscObjectCatalogLocation> object);
 
         public:
-             MiscObjectCatalogLocationCardinalityCheckerRule() = default;
+             MiscObjectCatalogLocationCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IMiscObjectCatalogLocation> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IMiscObjectCatalogLocation> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IMiscObjectCatalogLocation> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IMiscObjectCatalogLocation> object);
         };
 
         /**
@@ -5646,73 +1540,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<INormalDistribution> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetExpectedValue() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__EXPECTED_VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetVariance() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VARIANCE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<INormalDistribution> object);
 
         public:
-             NormalDistributionCardinalityCheckerRule() = default;
+             NormalDistributionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<INormalDistribution> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<INormalDistribution> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<INormalDistribution> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<INormalDistribution> object);
         };
 
         /**
@@ -5726,81 +1561,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<INurbs> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetOrder() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__ORDER, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                const auto kControlPointsSize = object->GetControlPointsSize();
-                // Check too few elements
-                if (kControlPointsSize < 2)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__CONTROL_POINT, 2, kControlPointsSize, VIOLATION_TYPE::TOO_FEW) );
-                }
-                // Check violation
-                const auto kKnotsSize = object->GetKnotsSize();
-                // Check too few elements
-                if (kKnotsSize < 2)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__KNOT, 2, kKnotsSize, VIOLATION_TYPE::TOO_FEW) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<INurbs> object);
 
         public:
-             NurbsCardinalityCheckerRule() = default;
+             NurbsCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<INurbs> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<INurbs> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<INurbs> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<INurbs> object);
         };
 
         /**
@@ -5814,67 +1582,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IOffroadCondition> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetDuration() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__DURATION, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IOffroadCondition> object);
 
         public:
-             OffroadConditionCardinalityCheckerRule() = default;
+             OffroadConditionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOffroadCondition> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOffroadCondition> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOffroadCondition> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOffroadCondition> object);
         };
 
         /**
@@ -5888,73 +1603,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IOpenScenario> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetFileHeader() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__FILE_HEADER, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetOpenScenarioCategory() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__OPEN_SCENARIO_CATEGORY, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IOpenScenario> object);
 
         public:
-             OpenScenarioCardinalityCheckerRule() = default;
+             OpenScenarioCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenario> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenario> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenario> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenario> object);
         };
 
         /**
@@ -5968,79 +1624,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IOpenScenarioCategory> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetScenarioDefinition() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__SCENARIO_DEFINITION, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetCatalogDefinition() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__CATALOG_DEFINITION, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetParameterValueDistributionDefinition() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__PARAMETER_VALUE_DISTRIBUTION_DEFINITION, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IOpenScenarioCategory> object);
 
         public:
-             OpenScenarioCategoryCardinalityCheckerRule() = default;
+             OpenScenarioCategoryCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioCategory> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioCategory> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioCategory> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioCategory> object);
         };
 
         /**
@@ -6054,73 +1645,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IOverrideBrakeAction> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetActive() == false)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetValue() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IOverrideBrakeAction> object);
 
         public:
-             OverrideBrakeActionCardinalityCheckerRule() = default;
+             OverrideBrakeActionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOverrideBrakeAction> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOverrideBrakeAction> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOverrideBrakeAction> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOverrideBrakeAction> object);
         };
 
         /**
@@ -6134,73 +1666,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IOverrideClutchAction> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetActive() == false)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetValue() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IOverrideClutchAction> object);
 
         public:
-             OverrideClutchActionCardinalityCheckerRule() = default;
+             OverrideClutchActionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOverrideClutchAction> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOverrideClutchAction> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOverrideClutchAction> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOverrideClutchAction> object);
         };
 
         /**
@@ -6214,73 +1687,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IOverrideGearAction> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetActive() == false)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetNumber() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__NUMBER, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IOverrideGearAction> object);
 
         public:
-             OverrideGearActionCardinalityCheckerRule() = default;
+             OverrideGearActionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOverrideGearAction> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOverrideGearAction> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOverrideGearAction> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOverrideGearAction> object);
         };
 
         /**
@@ -6294,73 +1708,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IOverrideParkingBrakeAction> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetActive() == false)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetValue() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IOverrideParkingBrakeAction> object);
 
         public:
-             OverrideParkingBrakeActionCardinalityCheckerRule() = default;
+             OverrideParkingBrakeActionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOverrideParkingBrakeAction> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOverrideParkingBrakeAction> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOverrideParkingBrakeAction> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOverrideParkingBrakeAction> object);
         };
 
         /**
@@ -6374,73 +1729,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IOverrideSteeringWheelAction> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetActive() == false)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetValue() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IOverrideSteeringWheelAction> object);
 
         public:
-             OverrideSteeringWheelActionCardinalityCheckerRule() = default;
+             OverrideSteeringWheelActionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOverrideSteeringWheelAction> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOverrideSteeringWheelAction> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOverrideSteeringWheelAction> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOverrideSteeringWheelAction> object);
         };
 
         /**
@@ -6454,73 +1750,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IOverrideThrottleAction> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetActive() == false)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetValue() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IOverrideThrottleAction> object);
 
         public:
-             OverrideThrottleActionCardinalityCheckerRule() = default;
+             OverrideThrottleActionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOverrideThrottleAction> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOverrideThrottleAction> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOverrideThrottleAction> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOverrideThrottleAction> object);
         };
 
         /**
@@ -6534,67 +1771,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IParameterAction> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetParameterRef() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_REF, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IParameterAction> object);
 
         public:
-             ParameterActionCardinalityCheckerRule() = default;
+             ParameterActionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IParameterAction> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IParameterAction> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IParameterAction> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IParameterAction> object);
         };
 
         /**
@@ -6608,67 +1792,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IParameterAddValueRule> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetValue() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IParameterAddValueRule> object);
 
         public:
-             ParameterAddValueRuleCardinalityCheckerRule() = default;
+             ParameterAddValueRuleCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IParameterAddValueRule> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IParameterAddValueRule> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IParameterAddValueRule> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IParameterAddValueRule> object);
         };
 
         /**
@@ -6682,73 +1813,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IParameterAssignment> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetParameterRef() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_REF, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetValue().empty())
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IParameterAssignment> object);
 
         public:
-             ParameterAssignmentCardinalityCheckerRule() = default;
+             ParameterAssignmentCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IParameterAssignment> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IParameterAssignment> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IParameterAssignment> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IParameterAssignment> object);
         };
 
         /**
@@ -6762,79 +1834,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IParameterCondition> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetParameterRef() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_REF, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetRule() == Rule::UNKNOWN)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__RULE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetValue().empty())
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IParameterCondition> object);
 
         public:
-             ParameterConditionCardinalityCheckerRule() = default;
+             ParameterConditionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IParameterCondition> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IParameterCondition> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IParameterCondition> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IParameterCondition> object);
         };
 
         /**
@@ -6848,79 +1855,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IParameterDeclaration> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetName().empty())
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__NAME, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetParameterType() == ParameterType::UNKNOWN)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_TYPE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetValue().empty())
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IParameterDeclaration> object);
 
         public:
-             ParameterDeclarationCardinalityCheckerRule() = default;
+             ParameterDeclarationCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IParameterDeclaration> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IParameterDeclaration> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IParameterDeclaration> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IParameterDeclaration> object);
         };
 
         /**
@@ -6934,67 +1876,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IParameterModifyAction> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetRule() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__RULE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IParameterModifyAction> object);
 
         public:
-             ParameterModifyActionCardinalityCheckerRule() = default;
+             ParameterModifyActionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IParameterModifyAction> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IParameterModifyAction> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IParameterModifyAction> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IParameterModifyAction> object);
         };
 
         /**
@@ -7008,67 +1897,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IParameterMultiplyByValueRule> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetValue() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IParameterMultiplyByValueRule> object);
 
         public:
-             ParameterMultiplyByValueRuleCardinalityCheckerRule() = default;
+             ParameterMultiplyByValueRuleCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IParameterMultiplyByValueRule> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IParameterMultiplyByValueRule> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IParameterMultiplyByValueRule> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IParameterMultiplyByValueRule> object);
         };
 
         /**
@@ -7082,67 +1918,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IParameterSetAction> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetValue().empty())
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IParameterSetAction> object);
 
         public:
-             ParameterSetActionCardinalityCheckerRule() = default;
+             ParameterSetActionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IParameterSetAction> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IParameterSetAction> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IParameterSetAction> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IParameterSetAction> object);
         };
 
         /**
@@ -7156,73 +1939,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IParameterValueDistribution> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetScenarioFile() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__SCENARIO_FILE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetDistributionDefinition() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__DISTRIBUTION_DEFINITION, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IParameterValueDistribution> object);
 
         public:
-             ParameterValueDistributionCardinalityCheckerRule() = default;
+             ParameterValueDistributionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IParameterValueDistribution> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IParameterValueDistribution> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IParameterValueDistribution> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IParameterValueDistribution> object);
         };
 
         /**
@@ -7236,67 +1960,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IParameterValueDistributionDefinition> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetParameterValueDistribution() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__PARAMETER_VALUE_DISTRIBUTION, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IParameterValueDistributionDefinition> object);
 
         public:
-             ParameterValueDistributionDefinitionCardinalityCheckerRule() = default;
+             ParameterValueDistributionDefinitionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IParameterValueDistributionDefinition> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IParameterValueDistributionDefinition> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IParameterValueDistributionDefinition> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IParameterValueDistributionDefinition> object);
         };
 
         /**
@@ -7310,68 +1981,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IParameterValueSet> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                const auto kParameterAssignmentsSize = object->GetParameterAssignmentsSize();
-                // Check too few elements
-                if (kParameterAssignmentsSize < 1)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__PARAMETER_ASSIGNMENT, 1, kParameterAssignmentsSize, VIOLATION_TYPE::TOO_FEW) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IParameterValueSet> object);
 
         public:
-             ParameterValueSetCardinalityCheckerRule() = default;
+             ParameterValueSetCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IParameterValueSet> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IParameterValueSet> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IParameterValueSet> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IParameterValueSet> object);
         };
 
         /**
@@ -7385,91 +2002,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IPedestrian> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetMass() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__MASS, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetName().empty())
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__NAME, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetPedestrianCategory() == PedestrianCategory::UNKNOWN)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__PEDESTRIAN_CATEGORY, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetBoundingBox() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__BOUNDING_BOX, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetProperties() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__PROPERTIES, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IPedestrian> object);
 
         public:
-             PedestrianCardinalityCheckerRule() = default;
+             PedestrianCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IPedestrian> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IPedestrian> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IPedestrian> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IPedestrian> object);
         };
 
         /**
@@ -7483,67 +2023,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IPedestrianCatalogLocation> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetDirectory() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__DIRECTORY, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IPedestrianCatalogLocation> object);
 
         public:
-             PedestrianCatalogLocationCardinalityCheckerRule() = default;
+             PedestrianCatalogLocationCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IPedestrianCatalogLocation> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IPedestrianCatalogLocation> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IPedestrianCatalogLocation> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IPedestrianCatalogLocation> object);
         };
 
         /**
@@ -7557,79 +2044,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IPerformance> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetMaxAcceleration() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__MAX_ACCELERATION, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetMaxDeceleration() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__MAX_DECELERATION, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetMaxSpeed() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__MAX_SPEED, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IPerformance> object);
 
         public:
-             PerformanceCardinalityCheckerRule() = default;
+             PerformanceCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IPerformance> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IPerformance> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IPerformance> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IPerformance> object);
         };
 
         /**
@@ -7643,73 +2065,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IPhase> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetDuration() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__DURATION, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetName().empty())
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__NAME, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IPhase> object);
 
         public:
-             PhaseCardinalityCheckerRule() = default;
+             PhaseCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IPhase> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IPhase> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IPhase> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IPhase> object);
         };
 
         /**
@@ -7723,67 +2086,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IPoissonDistribution> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetExpectedValue() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__EXPECTED_VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IPoissonDistribution> object);
 
         public:
-             PoissonDistributionCardinalityCheckerRule() = default;
+             PoissonDistributionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IPoissonDistribution> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IPoissonDistribution> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IPoissonDistribution> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IPoissonDistribution> object);
         };
 
         /**
@@ -7797,68 +2107,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IPolyline> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                const auto kVerticesSize = object->GetVerticesSize();
-                // Check too few elements
-                if (kVerticesSize < 2)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__VERTEX, 2, kVerticesSize, VIOLATION_TYPE::TOO_FEW) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IPolyline> object);
 
         public:
-             PolylineCardinalityCheckerRule() = default;
+             PolylineCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IPolyline> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IPolyline> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IPolyline> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IPolyline> object);
         };
 
         /**
@@ -7872,73 +2128,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IPositionInLaneCoordinates> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetLaneId().empty())
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__LANE_ID, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetPathS() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__PATH_S, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IPositionInLaneCoordinates> object);
 
         public:
-             PositionInLaneCoordinatesCardinalityCheckerRule() = default;
+             PositionInLaneCoordinatesCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IPositionInLaneCoordinates> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IPositionInLaneCoordinates> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IPositionInLaneCoordinates> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IPositionInLaneCoordinates> object);
         };
 
         /**
@@ -7952,73 +2149,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IPositionInRoadCoordinates> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetPathS() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__PATH_S, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetT() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__T, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IPositionInRoadCoordinates> object);
 
         public:
-             PositionInRoadCoordinatesCardinalityCheckerRule() = default;
+             PositionInRoadCoordinatesCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IPositionInRoadCoordinates> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IPositionInRoadCoordinates> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IPositionInRoadCoordinates> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IPositionInRoadCoordinates> object);
         };
 
         /**
@@ -8032,67 +2170,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IPositionOfCurrentEntity> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetEntityRef() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IPositionOfCurrentEntity> object);
 
         public:
-             PositionOfCurrentEntityCardinalityCheckerRule() = default;
+             PositionOfCurrentEntityCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IPositionOfCurrentEntity> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IPositionOfCurrentEntity> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IPositionOfCurrentEntity> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IPositionOfCurrentEntity> object);
         };
 
         /**
@@ -8106,67 +2191,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IPrecipitation> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetPrecipitationType() == PrecipitationType::UNKNOWN)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__PRECIPITATION_TYPE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IPrecipitation> object);
 
         public:
-             PrecipitationCardinalityCheckerRule() = default;
+             PrecipitationCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IPrecipitation> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IPrecipitation> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IPrecipitation> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IPrecipitation> object);
         };
 
         /**
@@ -8180,74 +2212,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IPrivate> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetEntityRef() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                const auto kPrivateActionsSize = object->GetPrivateActionsSize();
-                // Check too few elements
-                if (kPrivateActionsSize < 1)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__PRIVATE_ACTION, 1, kPrivateActionsSize, VIOLATION_TYPE::TOO_FEW) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IPrivate> object);
 
         public:
-             PrivateCardinalityCheckerRule() = default;
+             PrivateCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IPrivate> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IPrivate> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IPrivate> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IPrivate> object);
         };
 
         /**
@@ -8261,68 +2233,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IProbabilityDistributionSet> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                const auto kElementsSize = object->GetElementsSize();
-                // Check too few elements
-                if (kElementsSize < 1)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__ELEMENT, 1, kElementsSize, VIOLATION_TYPE::TOO_FEW) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IProbabilityDistributionSet> object);
 
         public:
-             ProbabilityDistributionSetCardinalityCheckerRule() = default;
+             ProbabilityDistributionSetCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IProbabilityDistributionSet> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IProbabilityDistributionSet> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IProbabilityDistributionSet> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IProbabilityDistributionSet> object);
         };
 
         /**
@@ -8336,73 +2254,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IProbabilityDistributionSetElement> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetValue().empty())
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetWeight() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__WEIGHT, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IProbabilityDistributionSetElement> object);
 
         public:
-             ProbabilityDistributionSetElementCardinalityCheckerRule() = default;
+             ProbabilityDistributionSetElementCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IProbabilityDistributionSetElement> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IProbabilityDistributionSetElement> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IProbabilityDistributionSetElement> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IProbabilityDistributionSetElement> object);
         };
 
         /**
@@ -8416,73 +2275,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IProperty> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetName().empty())
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__NAME, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetValue().empty())
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IProperty> object);
 
         public:
-             PropertyCardinalityCheckerRule() = default;
+             PropertyCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IProperty> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IProperty> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IProperty> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IProperty> object);
         };
 
         /**
@@ -8496,73 +2296,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IRange> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetLowerLimit() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__LOWER_LIMIT, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetUpperLimit() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__UPPER_LIMIT, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IRange> object);
 
         public:
-             RangeCardinalityCheckerRule() = default;
+             RangeCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IRange> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IRange> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IRange> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IRange> object);
         };
 
         /**
@@ -8576,73 +2317,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IReachPositionCondition> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetTolerance() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__TOLERANCE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetPosition() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__POSITION, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IReachPositionCondition> object);
 
         public:
-             ReachPositionConditionCardinalityCheckerRule() = default;
+             ReachPositionConditionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IReachPositionCondition> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IReachPositionCondition> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IReachPositionCondition> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IReachPositionCondition> object);
         };
 
         /**
@@ -8656,91 +2338,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IRelativeDistanceCondition> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetEntityRef() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetFreespace() == false)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetRelativeDistanceType() == RelativeDistanceType::UNKNOWN)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__RELATIVE_DISTANCE_TYPE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetRule() == Rule::UNKNOWN)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__RULE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetValue() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IRelativeDistanceCondition> object);
 
         public:
-             RelativeDistanceConditionCardinalityCheckerRule() = default;
+             RelativeDistanceConditionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IRelativeDistanceCondition> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IRelativeDistanceCondition> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IRelativeDistanceCondition> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IRelativeDistanceCondition> object);
         };
 
         /**
@@ -8754,73 +2359,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IRelativeLanePosition> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetDLane() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__D_LANE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetEntityRef() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IRelativeLanePosition> object);
 
         public:
-             RelativeLanePositionCardinalityCheckerRule() = default;
+             RelativeLanePositionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IRelativeLanePosition> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IRelativeLanePosition> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IRelativeLanePosition> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IRelativeLanePosition> object);
         };
 
         /**
@@ -8834,79 +2380,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IRelativeObjectPosition> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetDx() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__DX, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetDy() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__DY, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetEntityRef() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IRelativeObjectPosition> object);
 
         public:
-             RelativeObjectPositionCardinalityCheckerRule() = default;
+             RelativeObjectPositionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IRelativeObjectPosition> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IRelativeObjectPosition> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IRelativeObjectPosition> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IRelativeObjectPosition> object);
         };
 
         /**
@@ -8920,79 +2401,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IRelativeRoadPosition> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetDs() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__DS, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetDt() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__DT, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetEntityRef() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IRelativeRoadPosition> object);
 
         public:
-             RelativeRoadPositionCardinalityCheckerRule() = default;
+             RelativeRoadPositionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IRelativeRoadPosition> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IRelativeRoadPosition> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IRelativeRoadPosition> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IRelativeRoadPosition> object);
         };
 
         /**
@@ -9006,79 +2422,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IRelativeSpeedCondition> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetEntityRef() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetRule() == Rule::UNKNOWN)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__RULE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetValue() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IRelativeSpeedCondition> object);
 
         public:
-             RelativeSpeedConditionCardinalityCheckerRule() = default;
+             RelativeSpeedConditionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IRelativeSpeedCondition> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IRelativeSpeedCondition> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IRelativeSpeedCondition> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IRelativeSpeedCondition> object);
         };
 
         /**
@@ -9092,73 +2443,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IRelativeSpeedToMaster> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetSpeedTargetValueType() == SpeedTargetValueType::UNKNOWN)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__SPEED_TARGET_VALUE_TYPE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetValue() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IRelativeSpeedToMaster> object);
 
         public:
-             RelativeSpeedToMasterCardinalityCheckerRule() = default;
+             RelativeSpeedToMasterCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IRelativeSpeedToMaster> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IRelativeSpeedToMaster> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IRelativeSpeedToMaster> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IRelativeSpeedToMaster> object);
         };
 
         /**
@@ -9172,73 +2464,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IRelativeTargetLane> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetEntityRef() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetValue() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IRelativeTargetLane> object);
 
         public:
-             RelativeTargetLaneCardinalityCheckerRule() = default;
+             RelativeTargetLaneCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IRelativeTargetLane> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IRelativeTargetLane> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IRelativeTargetLane> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IRelativeTargetLane> object);
         };
 
         /**
@@ -9252,73 +2485,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IRelativeTargetLaneOffset> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetEntityRef() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetValue() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IRelativeTargetLaneOffset> object);
 
         public:
-             RelativeTargetLaneOffsetCardinalityCheckerRule() = default;
+             RelativeTargetLaneOffsetCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IRelativeTargetLaneOffset> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IRelativeTargetLaneOffset> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IRelativeTargetLaneOffset> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IRelativeTargetLaneOffset> object);
         };
 
         /**
@@ -9332,85 +2506,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IRelativeTargetSpeed> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetContinuous() == false)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetEntityRef() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetSpeedTargetValueType() == SpeedTargetValueType::UNKNOWN)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__SPEED_TARGET_VALUE_TYPE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetValue() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IRelativeTargetSpeed> object);
 
         public:
-             RelativeTargetSpeedCardinalityCheckerRule() = default;
+             RelativeTargetSpeedCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IRelativeTargetSpeed> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IRelativeTargetSpeed> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IRelativeTargetSpeed> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IRelativeTargetSpeed> object);
         };
 
         /**
@@ -9424,79 +2527,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IRelativeWorldPosition> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetDx() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__DX, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetDy() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__DY, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetEntityRef() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IRelativeWorldPosition> object);
 
         public:
-             RelativeWorldPositionCardinalityCheckerRule() = default;
+             RelativeWorldPositionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IRelativeWorldPosition> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IRelativeWorldPosition> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IRelativeWorldPosition> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IRelativeWorldPosition> object);
         };
 
         /**
@@ -9510,67 +2548,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IRoadCondition> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetFrictionScaleFactor() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__FRICTION_SCALE_FACTOR, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IRoadCondition> object);
 
         public:
-             RoadConditionCardinalityCheckerRule() = default;
+             RoadConditionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IRoadCondition> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IRoadCondition> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IRoadCondition> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IRoadCondition> object);
         };
 
         /**
@@ -9584,79 +2569,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IRoadPosition> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetRoadId().empty())
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__ROAD_ID, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetS() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__S, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetT() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__T, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IRoadPosition> object);
 
         public:
-             RoadPositionCardinalityCheckerRule() = default;
+             RoadPositionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IRoadPosition> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IRoadPosition> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IRoadPosition> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IRoadPosition> object);
         };
 
         /**
@@ -9670,80 +2590,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IRoute> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetClosed() == false)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__CLOSED, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetName().empty())
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__NAME, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                const auto kWaypointsSize = object->GetWaypointsSize();
-                // Check too few elements
-                if (kWaypointsSize < 2)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__WAYPOINT, 2, kWaypointsSize, VIOLATION_TYPE::TOO_FEW) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IRoute> object);
 
         public:
-             RouteCardinalityCheckerRule() = default;
+             RouteCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IRoute> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IRoute> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IRoute> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IRoute> object);
         };
 
         /**
@@ -9757,67 +2611,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IRouteCatalogLocation> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetDirectory() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__DIRECTORY, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IRouteCatalogLocation> object);
 
         public:
-             RouteCatalogLocationCardinalityCheckerRule() = default;
+             RouteCatalogLocationCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IRouteCatalogLocation> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IRouteCatalogLocation> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IRouteCatalogLocation> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IRouteCatalogLocation> object);
         };
 
         /**
@@ -9831,73 +2632,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IRoutePosition> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetRouteRef() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__ROUTE_REF, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetInRoutePosition() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__IN_ROUTE_POSITION, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IRoutePosition> object);
 
         public:
-             RoutePositionCardinalityCheckerRule() = default;
+             RoutePositionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IRoutePosition> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IRoutePosition> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IRoutePosition> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IRoutePosition> object);
         };
 
         /**
@@ -9911,85 +2653,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IScenarioDefinition> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetCatalogLocations() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__CATALOG_LOCATIONS, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetRoadNetwork() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__ROAD_NETWORK, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetEntities() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__ENTITIES, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetStoryboard() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__STORYBOARD, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IScenarioDefinition> object);
 
         public:
-             ScenarioDefinitionCardinalityCheckerRule() = default;
+             ScenarioDefinitionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IScenarioDefinition> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IScenarioDefinition> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IScenarioDefinition> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IScenarioDefinition> object);
         };
 
         /**
@@ -10003,73 +2674,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IScenarioObject> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetName().empty())
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__NAME, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetEntityObject() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__ENTITY_OBJECT, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IScenarioObject> object);
 
         public:
-             ScenarioObjectCardinalityCheckerRule() = default;
+             ScenarioObjectCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IScenarioObject> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IScenarioObject> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IScenarioObject> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IScenarioObject> object);
         };
 
         /**
@@ -10083,73 +2695,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ISimulationTimeCondition> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetRule() == Rule::UNKNOWN)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__RULE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetValue() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ISimulationTimeCondition> object);
 
         public:
-             SimulationTimeConditionCardinalityCheckerRule() = default;
+             SimulationTimeConditionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ISimulationTimeCondition> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ISimulationTimeCondition> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ISimulationTimeCondition> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ISimulationTimeCondition> object);
         };
 
         /**
@@ -10163,73 +2716,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ISpeedAction> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetSpeedActionDynamics() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__SPEED_ACTION_DYNAMICS, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetSpeedActionTarget() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__SPEED_ACTION_TARGET, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ISpeedAction> object);
 
         public:
-             SpeedActionCardinalityCheckerRule() = default;
+             SpeedActionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ISpeedAction> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ISpeedAction> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ISpeedAction> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ISpeedAction> object);
         };
 
         /**
@@ -10243,73 +2737,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ISpeedCondition> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetRule() == Rule::UNKNOWN)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__RULE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetValue() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ISpeedCondition> object);
 
         public:
-             SpeedConditionCardinalityCheckerRule() = default;
+             SpeedConditionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ISpeedCondition> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ISpeedCondition> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ISpeedCondition> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ISpeedCondition> object);
         };
 
         /**
@@ -10323,67 +2758,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IStandStillCondition> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetDuration() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__DURATION, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IStandStillCondition> object);
 
         public:
-             StandStillConditionCardinalityCheckerRule() = default;
+             StandStillConditionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IStandStillCondition> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IStandStillCondition> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IStandStillCondition> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IStandStillCondition> object);
         };
 
         /**
@@ -10397,73 +2779,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ISteadyState> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetTargetDistanceSteadyState() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__TARGET_DISTANCE_STEADY_STATE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetTargetTimeSteadyState() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__TARGET_TIME_STEADY_STATE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ISteadyState> object);
 
         public:
-             SteadyStateCardinalityCheckerRule() = default;
+             SteadyStateCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ISteadyState> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ISteadyState> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ISteadyState> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ISteadyState> object);
         };
 
         /**
@@ -10477,74 +2800,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IStochastic> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetNumberOfTestRuns() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__NUMBER_OF_TEST_RUNS, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                const auto kStochasticDistributionsSize = object->GetStochasticDistributionsSize();
-                // Check too few elements
-                if (kStochasticDistributionsSize < 1)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__STOCHASTIC_DISTRIBUTION, 1, kStochasticDistributionsSize, VIOLATION_TYPE::TOO_FEW) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IStochastic> object);
 
         public:
-             StochasticCardinalityCheckerRule() = default;
+             StochasticCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IStochastic> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IStochastic> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IStochastic> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IStochastic> object);
         };
 
         /**
@@ -10558,73 +2821,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IStochasticDistribution> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetParameterName().empty())
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_NAME, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetStochasticDistributionType() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__STOCHASTIC_DISTRIBUTION_TYPE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IStochasticDistribution> object);
 
         public:
-             StochasticDistributionCardinalityCheckerRule() = default;
+             StochasticDistributionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IStochasticDistribution> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IStochasticDistribution> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IStochasticDistribution> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IStochasticDistribution> object);
         };
 
         /**
@@ -10638,97 +2842,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IStochasticDistributionType> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetProbabilityDistributionSet() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__PROBABILITY_DISTRIBUTION_SET, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetNormalDistribution() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__NORMAL_DISTRIBUTION, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetUniformDistribution() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__UNIFORM_DISTRIBUTION, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetPoissonDistribution() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__POISSON_DISTRIBUTION, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetHistogram() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__HISTOGRAM, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetUserDefinedDistribution() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__USER_DEFINED_DISTRIBUTION, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IStochasticDistributionType> object);
 
         public:
-             StochasticDistributionTypeCardinalityCheckerRule() = default;
+             StochasticDistributionTypeCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IStochasticDistributionType> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IStochasticDistributionType> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IStochasticDistributionType> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IStochasticDistributionType> object);
         };
 
         /**
@@ -10742,74 +2863,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IStory> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetName().empty())
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__NAME, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                const auto kActsSize = object->GetActsSize();
-                // Check too few elements
-                if (kActsSize < 1)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__ACT, 1, kActsSize, VIOLATION_TYPE::TOO_FEW) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IStory> object);
 
         public:
-             StoryCardinalityCheckerRule() = default;
+             StoryCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IStory> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IStory> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IStory> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IStory> object);
         };
 
         /**
@@ -10823,80 +2884,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IStoryboard> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetInit() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__INIT, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                const auto kStoriesSize = object->GetStoriesSize();
-                // Check too few elements
-                if (kStoriesSize < 1)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__STORY, 1, kStoriesSize, VIOLATION_TYPE::TOO_FEW) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetStopTrigger() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__STOP_TRIGGER, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IStoryboard> object);
 
         public:
-             StoryboardCardinalityCheckerRule() = default;
+             StoryboardCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IStoryboard> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IStoryboard> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IStoryboard> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IStoryboard> object);
         };
 
         /**
@@ -10910,79 +2905,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IStoryboardElementStateCondition> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetState() == StoryboardElementState::UNKNOWN)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__STATE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetStoryboardElementRef() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__STORYBOARD_ELEMENT_REF, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetStoryboardElementType() == StoryboardElementType::UNKNOWN)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__STORYBOARD_ELEMENT_TYPE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IStoryboardElementStateCondition> object);
 
         public:
-             StoryboardElementStateConditionCardinalityCheckerRule() = default;
+             StoryboardElementStateConditionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IStoryboardElementStateCondition> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IStoryboardElementStateCondition> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IStoryboardElementStateCondition> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IStoryboardElementStateCondition> object);
         };
 
         /**
@@ -10996,79 +2926,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ISun> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetAzimuth() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__AZIMUTH, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetElevation() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__ELEVATION, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetIntensity() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__INTENSITY, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ISun> object);
 
         public:
-             SunCardinalityCheckerRule() = default;
+             SunCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ISun> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ISun> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ISun> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ISun> object);
         };
 
         /**
@@ -11082,79 +2947,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ISynchronizeAction> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetMasterEntityRef() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__MASTER_ENTITY_REF, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetTargetPositionMaster() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__TARGET_POSITION_MASTER, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetTargetPosition() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__TARGET_POSITION, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ISynchronizeAction> object);
 
         public:
-             SynchronizeActionCardinalityCheckerRule() = default;
+             SynchronizeActionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ISynchronizeAction> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ISynchronizeAction> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ISynchronizeAction> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ISynchronizeAction> object);
         };
 
         /**
@@ -11168,67 +2968,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ITargetDistanceSteadyState> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetDistance() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__DISTANCE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ITargetDistanceSteadyState> object);
 
         public:
-             TargetDistanceSteadyStateCardinalityCheckerRule() = default;
+             TargetDistanceSteadyStateCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITargetDistanceSteadyState> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITargetDistanceSteadyState> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITargetDistanceSteadyState> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITargetDistanceSteadyState> object);
         };
 
         /**
@@ -11242,67 +2989,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ITargetTimeSteadyState> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetTime() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__TIME, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ITargetTimeSteadyState> object);
 
         public:
-             TargetTimeSteadyStateCardinalityCheckerRule() = default;
+             TargetTimeSteadyStateCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITargetTimeSteadyState> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITargetTimeSteadyState> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITargetTimeSteadyState> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITargetTimeSteadyState> object);
         };
 
         /**
@@ -11316,67 +3010,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ITeleportAction> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetPosition() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__POSITION, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ITeleportAction> object);
 
         public:
-             TeleportActionCardinalityCheckerRule() = default;
+             TeleportActionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITeleportAction> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITeleportAction> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITeleportAction> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITeleportAction> object);
         };
 
         /**
@@ -11390,85 +3031,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ITimeHeadwayCondition> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetEntityRef() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetFreespace() == false)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetRule() == Rule::UNKNOWN)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__RULE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetValue() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ITimeHeadwayCondition> object);
 
         public:
-             TimeHeadwayConditionCardinalityCheckerRule() = default;
+             TimeHeadwayConditionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITimeHeadwayCondition> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITimeHeadwayCondition> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITimeHeadwayCondition> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITimeHeadwayCondition> object);
         };
 
         /**
@@ -11482,73 +3052,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ITimeOfDay> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetAnimation() == false)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__ANIMATION, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetDateTime() == DateTime())
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__DATE_TIME, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ITimeOfDay> object);
 
         public:
-             TimeOfDayCardinalityCheckerRule() = default;
+             TimeOfDayCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITimeOfDay> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITimeOfDay> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITimeOfDay> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITimeOfDay> object);
         };
 
         /**
@@ -11562,73 +3073,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ITimeOfDayCondition> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetDateTime() == DateTime())
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__DATE_TIME, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetRule() == Rule::UNKNOWN)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__RULE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ITimeOfDayCondition> object);
 
         public:
-             TimeOfDayConditionCardinalityCheckerRule() = default;
+             TimeOfDayConditionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITimeOfDayCondition> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITimeOfDayCondition> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITimeOfDayCondition> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITimeOfDayCondition> object);
         };
 
         /**
@@ -11642,85 +3094,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ITimeToCollisionCondition> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetFreespace() == false)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetRule() == Rule::UNKNOWN)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__RULE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetValue() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetTimeToCollisionConditionTarget() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__TIME_TO_COLLISION_CONDITION_TARGET, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ITimeToCollisionCondition> object);
 
         public:
-             TimeToCollisionConditionCardinalityCheckerRule() = default;
+             TimeToCollisionConditionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITimeToCollisionCondition> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITimeToCollisionCondition> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITimeToCollisionCondition> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITimeToCollisionCondition> object);
         };
 
         /**
@@ -11734,79 +3115,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ITiming> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetDomainAbsoluteRelative() == ReferenceContext::UNKNOWN)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__DOMAIN_ABSOLUTE_RELATIVE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetOffset() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__OFFSET, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetScale() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__SCALE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ITiming> object);
 
         public:
-             TimingCardinalityCheckerRule() = default;
+             TimingCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITiming> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITiming> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITiming> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITiming> object);
         };
 
         /**
@@ -11820,79 +3136,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ITrafficDefinition> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetName().empty())
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__NAME, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetVehicleCategoryDistribution() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__VEHICLE_CATEGORY_DISTRIBUTION, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetControllerDistribution() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__CONTROLLER_DISTRIBUTION, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ITrafficDefinition> object);
 
         public:
-             TrafficDefinitionCardinalityCheckerRule() = default;
+             TrafficDefinitionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITrafficDefinition> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITrafficDefinition> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITrafficDefinition> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITrafficDefinition> object);
         };
 
         /**
@@ -11906,73 +3157,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ITrafficSignalCondition> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetName().empty())
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__NAME, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetState().empty())
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__STATE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ITrafficSignalCondition> object);
 
         public:
-             TrafficSignalConditionCardinalityCheckerRule() = default;
+             TrafficSignalConditionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITrafficSignalCondition> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITrafficSignalCondition> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITrafficSignalCondition> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITrafficSignalCondition> object);
         };
 
         /**
@@ -11986,67 +3178,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ITrafficSignalController> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetName().empty())
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__NAME, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ITrafficSignalController> object);
 
         public:
-             TrafficSignalControllerCardinalityCheckerRule() = default;
+             TrafficSignalControllerCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITrafficSignalController> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITrafficSignalController> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITrafficSignalController> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITrafficSignalController> object);
         };
 
         /**
@@ -12060,73 +3199,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ITrafficSignalControllerAction> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetPhase().empty())
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__PHASE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetTrafficSignalControllerRef() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__TRAFFIC_SIGNAL_CONTROLLER_REF, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ITrafficSignalControllerAction> object);
 
         public:
-             TrafficSignalControllerActionCardinalityCheckerRule() = default;
+             TrafficSignalControllerActionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITrafficSignalControllerAction> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITrafficSignalControllerAction> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITrafficSignalControllerAction> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITrafficSignalControllerAction> object);
         };
 
         /**
@@ -12140,73 +3220,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ITrafficSignalControllerCondition> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetPhase().empty())
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__PHASE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetTrafficSignalControllerRef() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__TRAFFIC_SIGNAL_CONTROLLER_REF, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ITrafficSignalControllerCondition> object);
 
         public:
-             TrafficSignalControllerConditionCardinalityCheckerRule() = default;
+             TrafficSignalControllerConditionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITrafficSignalControllerCondition> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITrafficSignalControllerCondition> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITrafficSignalControllerCondition> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITrafficSignalControllerCondition> object);
         };
 
         /**
@@ -12220,73 +3241,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ITrafficSignalState> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetState().empty())
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__STATE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetTrafficSignalId().empty())
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__TRAFFIC_SIGNAL_ID, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ITrafficSignalState> object);
 
         public:
-             TrafficSignalStateCardinalityCheckerRule() = default;
+             TrafficSignalStateCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITrafficSignalState> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITrafficSignalState> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITrafficSignalState> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITrafficSignalState> object);
         };
 
         /**
@@ -12300,73 +3262,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ITrafficSignalStateAction> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetName().empty())
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__NAME, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetState().empty())
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__STATE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ITrafficSignalStateAction> object);
 
         public:
-             TrafficSignalStateActionCardinalityCheckerRule() = default;
+             TrafficSignalStateActionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITrafficSignalStateAction> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITrafficSignalStateAction> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITrafficSignalStateAction> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITrafficSignalStateAction> object);
         };
 
         /**
@@ -12380,73 +3283,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ITrafficSinkAction> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetRadius() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__RADIUS, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetPosition() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__POSITION, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ITrafficSinkAction> object);
 
         public:
-             TrafficSinkActionCardinalityCheckerRule() = default;
+             TrafficSinkActionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITrafficSinkAction> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITrafficSinkAction> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITrafficSinkAction> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITrafficSinkAction> object);
         };
 
         /**
@@ -12460,85 +3304,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ITrafficSourceAction> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetRadius() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__RADIUS, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetRate() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__RATE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetPosition() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__POSITION, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetTrafficDefinition() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__TRAFFIC_DEFINITION, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ITrafficSourceAction> object);
 
         public:
-             TrafficSourceActionCardinalityCheckerRule() = default;
+             TrafficSourceActionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITrafficSourceAction> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITrafficSourceAction> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITrafficSourceAction> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITrafficSourceAction> object);
         };
 
         /**
@@ -12552,103 +3325,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ITrafficSwarmAction> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetInnerRadius() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__INNER_RADIUS, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetNumberOfVehicles() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__NUMBER_OF_VEHICLES, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetOffset() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__OFFSET, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetSemiMajorAxis() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__SEMI_MAJOR_AXIS, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetSemiMinorAxis() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__SEMI_MINOR_AXIS, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetCentralObject() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__CENTRAL_OBJECT, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetTrafficDefinition() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__TRAFFIC_DEFINITION, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ITrafficSwarmAction> object);
 
         public:
-             TrafficSwarmActionCardinalityCheckerRule() = default;
+             TrafficSwarmActionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITrafficSwarmAction> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITrafficSwarmAction> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITrafficSwarmAction> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITrafficSwarmAction> object);
         };
 
         /**
@@ -12662,79 +3346,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ITrajectory> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetClosed() == false)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__CLOSED, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetName().empty())
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__NAME, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetShape() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__SHAPE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ITrajectory> object);
 
         public:
-             TrajectoryCardinalityCheckerRule() = default;
+             TrajectoryCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITrajectory> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITrajectory> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITrajectory> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITrajectory> object);
         };
 
         /**
@@ -12748,67 +3367,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ITrajectoryCatalogLocation> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetDirectory() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__DIRECTORY, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ITrajectoryCatalogLocation> object);
 
         public:
-             TrajectoryCatalogLocationCardinalityCheckerRule() = default;
+             TrajectoryCatalogLocationCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITrajectoryCatalogLocation> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITrajectoryCatalogLocation> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITrajectoryCatalogLocation> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITrajectoryCatalogLocation> object);
         };
 
         /**
@@ -12822,67 +3388,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ITrajectoryFollowingMode> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetFollowingMode() == FollowingMode::UNKNOWN)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__FOLLOWING_MODE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ITrajectoryFollowingMode> object);
 
         public:
-             TrajectoryFollowingModeCardinalityCheckerRule() = default;
+             TrajectoryFollowingModeCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITrajectoryFollowingMode> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITrajectoryFollowingMode> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITrajectoryFollowingMode> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITrajectoryFollowingMode> object);
         };
 
         /**
@@ -12896,73 +3409,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ITrajectoryPosition> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetS() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__S, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetTrajectoryRef() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__TRAJECTORY_REF, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ITrajectoryPosition> object);
 
         public:
-             TrajectoryPositionCardinalityCheckerRule() = default;
+             TrajectoryPositionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITrajectoryPosition> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITrajectoryPosition> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITrajectoryPosition> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITrajectoryPosition> object);
         };
 
         /**
@@ -12976,73 +3430,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ITrajectoryRef> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetTrajectory() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__TRAJECTORY, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetCatalogReference() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__CATALOG_REFERENCE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ITrajectoryRef> object);
 
         public:
-             TrajectoryRefCardinalityCheckerRule() = default;
+             TrajectoryRefCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITrajectoryRef> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITrajectoryRef> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITrajectoryRef> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITrajectoryRef> object);
         };
 
         /**
@@ -13056,79 +3451,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ITransitionDynamics> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetDynamicsDimension() == DynamicsDimension::UNKNOWN)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__DYNAMICS_DIMENSION, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetDynamicsShape() == DynamicsShape::UNKNOWN)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__DYNAMICS_SHAPE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetValue() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ITransitionDynamics> object);
 
         public:
-             TransitionDynamicsCardinalityCheckerRule() = default;
+             TransitionDynamicsCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITransitionDynamics> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITransitionDynamics> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITransitionDynamics> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITransitionDynamics> object);
         };
 
         /**
@@ -13142,67 +3472,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ITraveledDistanceCondition> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetValue() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ITraveledDistanceCondition> object);
 
         public:
-             TraveledDistanceConditionCardinalityCheckerRule() = default;
+             TraveledDistanceConditionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITraveledDistanceCondition> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITraveledDistanceCondition> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITraveledDistanceCondition> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITraveledDistanceCondition> object);
         };
 
         /**
@@ -13216,74 +3493,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ITriggeringEntities> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetTriggeringEntitiesRule() == TriggeringEntitiesRule::UNKNOWN)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__TRIGGERING_ENTITIES_RULE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                const auto kEntityRefsSize = object->GetEntityRefsSize();
-                // Check too few elements
-                if (kEntityRefsSize < 1)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__ENTITY_REF, 1, kEntityRefsSize, VIOLATION_TYPE::TOO_FEW) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<ITriggeringEntities> object);
 
         public:
-             TriggeringEntitiesCardinalityCheckerRule() = default;
+             TriggeringEntitiesCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITriggeringEntities> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITriggeringEntities> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITriggeringEntities> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITriggeringEntities> object);
         };
 
         /**
@@ -13297,67 +3514,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IUniformDistribution> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetRange() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__RANGE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IUniformDistribution> object);
 
         public:
-             UniformDistributionCardinalityCheckerRule() = default;
+             UniformDistributionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IUniformDistribution> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IUniformDistribution> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IUniformDistribution> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IUniformDistribution> object);
         };
 
         /**
@@ -13371,68 +3535,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IUsedArea> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                const auto kPositionsSize = object->GetPositionsSize();
-                // Check too few elements
-                if (kPositionsSize < 2)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__POSITION, 2, kPositionsSize, VIOLATION_TYPE::TOO_FEW) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IUsedArea> object);
 
         public:
-             UsedAreaCardinalityCheckerRule() = default;
+             UsedAreaCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IUsedArea> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IUsedArea> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IUsedArea> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IUsedArea> object);
         };
 
         /**
@@ -13446,67 +3556,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IUserDefinedAction> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetCustomCommandAction() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__CUSTOM_COMMAND_ACTION, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IUserDefinedAction> object);
 
         public:
-             UserDefinedActionCardinalityCheckerRule() = default;
+             UserDefinedActionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IUserDefinedAction> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IUserDefinedAction> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IUserDefinedAction> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IUserDefinedAction> object);
         };
 
         /**
@@ -13520,73 +3577,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IUserDefinedDistribution> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetContent().empty())
-                {
-                    violations.push_back( CardinalityViolation("", 0, 1, VIOLATION_TYPE::REQUIRED_SIMPLE_CONTENT) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetType().empty())
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__TYPE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IUserDefinedDistribution> object);
 
         public:
-             UserDefinedDistributionCardinalityCheckerRule() = default;
+             UserDefinedDistributionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IUserDefinedDistribution> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IUserDefinedDistribution> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IUserDefinedDistribution> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IUserDefinedDistribution> object);
         };
 
         /**
@@ -13600,79 +3598,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IUserDefinedValueCondition> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetName().empty())
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__NAME, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetRule() == Rule::UNKNOWN)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__RULE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetValue().empty())
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IUserDefinedValueCondition> object);
 
         public:
-             UserDefinedValueConditionCardinalityCheckerRule() = default;
+             UserDefinedValueConditionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IUserDefinedValueCondition> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IUserDefinedValueCondition> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IUserDefinedValueCondition> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IUserDefinedValueCondition> object);
         };
 
         /**
@@ -13686,73 +3619,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IValueConstraint> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetRule() == Rule::UNKNOWN)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__RULE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetValue().empty())
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IValueConstraint> object);
 
         public:
-             ValueConstraintCardinalityCheckerRule() = default;
+             ValueConstraintCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IValueConstraint> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IValueConstraint> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IValueConstraint> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IValueConstraint> object);
         };
 
         /**
@@ -13766,68 +3640,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IValueConstraintGroup> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                const auto kConstraintsSize = object->GetConstraintsSize();
-                // Check too few elements
-                if (kConstraintsSize < 1)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__VALUE_CONSTRAINT, 1, kConstraintsSize, VIOLATION_TYPE::TOO_FEW) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IValueConstraintGroup> object);
 
         public:
-             ValueConstraintGroupCardinalityCheckerRule() = default;
+             ValueConstraintGroupCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IValueConstraintGroup> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IValueConstraintGroup> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IValueConstraintGroup> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IValueConstraintGroup> object);
         };
 
         /**
@@ -13841,68 +3661,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IValueSetDistribution> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                const auto kParameterValueSetsSize = object->GetParameterValueSetsSize();
-                // Check too few elements
-                if (kParameterValueSetsSize < 1)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__PARAMETER_VALUE_SET, 1, kParameterValueSetsSize, VIOLATION_TYPE::TOO_FEW) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IValueSetDistribution> object);
 
         public:
-             ValueSetDistributionCardinalityCheckerRule() = default;
+             ValueSetDistributionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IValueSetDistribution> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IValueSetDistribution> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IValueSetDistribution> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IValueSetDistribution> object);
         };
 
         /**
@@ -13916,97 +3682,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IVehicle> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetName().empty())
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__NAME, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetVehicleCategory() == VehicleCategory::UNKNOWN)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VEHICLE_CATEGORY, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetBoundingBox() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__BOUNDING_BOX, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetPerformance() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__PERFORMANCE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetAxles() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__AXLES, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetProperties() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__PROPERTIES, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IVehicle> object);
 
         public:
-             VehicleCardinalityCheckerRule() = default;
+             VehicleCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IVehicle> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IVehicle> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IVehicle> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IVehicle> object);
         };
 
         /**
@@ -14020,67 +3703,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IVehicleCatalogLocation> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetDirectory() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__DIRECTORY, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IVehicleCatalogLocation> object);
 
         public:
-             VehicleCatalogLocationCardinalityCheckerRule() = default;
+             VehicleCatalogLocationCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IVehicleCatalogLocation> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IVehicleCatalogLocation> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IVehicleCatalogLocation> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IVehicleCatalogLocation> object);
         };
 
         /**
@@ -14094,68 +3724,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IVehicleCategoryDistribution> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                const auto kVehicleCategoryDistributionEntriesSize = object->GetVehicleCategoryDistributionEntriesSize();
-                // Check too few elements
-                if (kVehicleCategoryDistributionEntriesSize < 1)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__VEHICLE_CATEGORY_DISTRIBUTION_ENTRY, 1, kVehicleCategoryDistributionEntriesSize, VIOLATION_TYPE::TOO_FEW) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IVehicleCategoryDistribution> object);
 
         public:
-             VehicleCategoryDistributionCardinalityCheckerRule() = default;
+             VehicleCategoryDistributionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IVehicleCategoryDistribution> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IVehicleCategoryDistribution> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IVehicleCategoryDistribution> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IVehicleCategoryDistribution> object);
         };
 
         /**
@@ -14169,73 +3745,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IVehicleCategoryDistributionEntry> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetCategory() == VehicleCategory::UNKNOWN)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__CATEGORY, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetWeight() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__WEIGHT, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IVehicleCategoryDistributionEntry> object);
 
         public:
-             VehicleCategoryDistributionEntryCardinalityCheckerRule() = default;
+             VehicleCategoryDistributionEntryCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IVehicleCategoryDistributionEntry> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IVehicleCategoryDistributionEntry> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IVehicleCategoryDistributionEntry> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IVehicleCategoryDistributionEntry> object);
         };
 
         /**
@@ -14249,67 +3766,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IVertex> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetPosition() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__POSITION, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IVertex> object);
 
         public:
-             VertexCardinalityCheckerRule() = default;
+             VertexCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IVertex> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IVertex> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IVertex> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IVertex> object);
         };
 
         /**
@@ -14323,79 +3787,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IVisibilityAction> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetGraphics() == false)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__GRAPHICS, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetSensors() == false)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__SENSORS, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetTraffic() == false)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__TRAFFIC, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IVisibilityAction> object);
 
         public:
-             VisibilityActionCardinalityCheckerRule() = default;
+             VisibilityActionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IVisibilityAction> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IVisibilityAction> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IVisibilityAction> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IVisibilityAction> object);
         };
 
         /**
@@ -14409,73 +3808,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IWaypoint> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetRouteStrategy() == RouteStrategy::UNKNOWN)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__ROUTE_STRATEGY, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetPosition() == nullptr)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__POSITION, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IWaypoint> object);
 
         public:
-             WaypointCardinalityCheckerRule() = default;
+             WaypointCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IWaypoint> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IWaypoint> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IWaypoint> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IWaypoint> object);
         };
 
         /**
@@ -14489,73 +3829,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IWind> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetDirection() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__DIRECTION, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetSpeed() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__SPEED, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IWind> object);
 
         public:
-             WindCardinalityCheckerRule() = default;
+             WindCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IWind> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IWind> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IWind> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IWind> object);
         };
 
         /**
@@ -14569,73 +3850,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
 
-            std::string GetMsg(CardinalityViolation& violation)
-            {
-                std::string message;
-                if (violation.violationType ==  VIOLATION_TYPE::REQUIRED)
-                {
-                    message = GetRequiredMessage(violation.propertyName);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_FEW)
-                {
-                    message = GetTooFewMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else if (violation.violationType ==  VIOLATION_TYPE::TOO_MANY)
-                {
-                    message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
-                }
-                else
-                {
-                    message = GetRequiredContentMessage();
-                }
-                return message;
-
-            }
-
-            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IWorldPosition> object)
-            {
-                std::vector<CardinalityViolation> violations;
-                // Check violation
-                // Check required
-                if (object->GetX() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__X, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                // Check violation
-                // Check required
-                if (object->GetY() == 0)
-                {
-                    violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__Y, 0, 1, VIOLATION_TYPE::REQUIRED) );
-                }
-                 return violations;
-            }
-
+            std::string GetMsg(CardinalityViolation& violation);
+            std::vector<CardinalityViolation> GetAllViolations(std::shared_ptr<IWorldPosition> object);
 
         public:
-             WorldPositionCardinalityCheckerRule() = default;
+             WorldPositionCardinalityCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IWorldPosition> object) override
-            {
-                auto  violations = GetAllViolations(object);
-                
-                for (auto&& violation : violations)
-                {
-                    auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IWorldPosition> object) override
-            {
-                auto violations = GetAllViolations(object);
-
-                for (auto&& violation : violations)
-                {
-                    auto msg = TreeContentMessage(GetMsg(violation), ERROR, PropertyTreeContext::Create(object, violation.propertyName));
-                    messageLogger->LogMessage(msg);
-                }
-            }
-
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IWorldPosition> object);
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IWorldPosition> object);
         };
 
     }

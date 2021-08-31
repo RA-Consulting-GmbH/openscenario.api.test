@@ -35,6 +35,9 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            ParameterActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+
+
         std::map<std::string, std::shared_ptr<IAttributeParser<ParameterActionImpl>>> ParameterActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<ParameterActionImpl>>> result;
@@ -96,6 +99,29 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetSetAction(setAction);
         }
+        
+        int ParameterActionXmlParser::SubElementSetActionParser::GetMinOccur() 
+        {
+            return 0;
+        }
+
+        int ParameterActionXmlParser::SubElementSetActionParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool ParameterActionXmlParser::SubElementSetActionParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__SET_ACTION ;
+        }
+
+        std::vector<std::string> ParameterActionXmlParser::SubElementSetActionParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__SET_ACTION
+                    };
+        }
         ParameterActionXmlParser::SubElementModifyActionParser::SubElementModifyActionParser(IParserMessageLogger& messageLogger, std::string& filename)
         {
             _parameterModifyActionXmlParser = std::make_shared<ParameterModifyActionXmlParser>(messageLogger, filename);
@@ -110,6 +136,36 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetModifyAction(modifyAction);
         }
+        
+        int ParameterActionXmlParser::SubElementModifyActionParser::GetMinOccur() 
+        {
+            return 0;
+        }
+
+        int ParameterActionXmlParser::SubElementModifyActionParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool ParameterActionXmlParser::SubElementModifyActionParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__MODIFY_ACTION ;
+        }
+
+        std::vector<std::string> ParameterActionXmlParser::SubElementModifyActionParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__MODIFY_ACTION
+                    };
+        }
+  
+        ParameterActionXmlParser::ParameterActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -117,6 +173,8 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            ParameterAddValueRuleXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+
         std::map<std::string, std::shared_ptr<IAttributeParser<ParameterAddValueRuleImpl>>> ParameterAddValueRuleXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<ParameterAddValueRuleImpl>>> result;
@@ -160,6 +218,13 @@ namespace NET_ASAM_OPENSCENARIO
             return result;
         }
 
+  
+        ParameterAddValueRuleXmlParser::ParameterAddValueRuleXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -167,6 +232,8 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            ParameterAssignmentXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+
         std::map<std::string, std::shared_ptr<IAttributeParser<ParameterAssignmentImpl>>> ParameterAssignmentXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<ParameterAssignmentImpl>>> result;
@@ -232,6 +299,13 @@ namespace NET_ASAM_OPENSCENARIO
             return result;
         }
 
+  
+        ParameterAssignmentXmlParser::ParameterAssignmentXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -239,6 +313,8 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            ParameterConditionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+
         std::map<std::string, std::shared_ptr<IAttributeParser<ParameterConditionImpl>>> ParameterConditionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<ParameterConditionImpl>>> result;
@@ -353,6 +429,13 @@ namespace NET_ASAM_OPENSCENARIO
             return result;
         }
 
+  
+        ParameterConditionXmlParser::ParameterConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -360,6 +443,8 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            ParameterDeclarationXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+
         std::map<std::string, std::shared_ptr<IAttributeParser<ParameterDeclarationImpl>>> ParameterDeclarationXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<ParameterDeclarationImpl>>> result;
@@ -462,6 +547,13 @@ namespace NET_ASAM_OPENSCENARIO
             return result;
         }
 
+  
+        ParameterDeclarationXmlParser::ParameterDeclarationXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -469,6 +561,9 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            ParameterModifyActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+
+
         std::map<std::string, std::shared_ptr<IAttributeParser<ParameterModifyActionImpl>>> ParameterModifyActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<ParameterModifyActionImpl>>> result;
@@ -497,6 +592,36 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetRule(rule);
         }
+        
+        int ParameterModifyActionXmlParser::SubElementRuleParser::GetMinOccur() 
+        {
+            return 1;
+        }
+
+        int ParameterModifyActionXmlParser::SubElementRuleParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool ParameterModifyActionXmlParser::SubElementRuleParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__RULE ;
+        }
+
+        std::vector<std::string> ParameterModifyActionXmlParser::SubElementRuleParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__RULE
+                    };
+        }
+  
+        ParameterModifyActionXmlParser::ParameterModifyActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -504,6 +629,8 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            ParameterMultiplyByValueRuleXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+
         std::map<std::string, std::shared_ptr<IAttributeParser<ParameterMultiplyByValueRuleImpl>>> ParameterMultiplyByValueRuleXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<ParameterMultiplyByValueRuleImpl>>> result;
@@ -547,6 +674,13 @@ namespace NET_ASAM_OPENSCENARIO
             return result;
         }
 
+  
+        ParameterMultiplyByValueRuleXmlParser::ParameterMultiplyByValueRuleXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -554,6 +688,8 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            ParameterSetActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+
         std::map<std::string, std::shared_ptr<IAttributeParser<ParameterSetActionImpl>>> ParameterSetActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<ParameterSetActionImpl>>> result;
@@ -597,6 +733,13 @@ namespace NET_ASAM_OPENSCENARIO
             return result;
         }
 
+  
+        ParameterSetActionXmlParser::ParameterSetActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -604,6 +747,9 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            PedestrianXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+
+
         std::map<std::string, std::shared_ptr<IAttributeParser<PedestrianImpl>>> PedestrianXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<PedestrianImpl>>> result;
@@ -764,6 +910,26 @@ namespace NET_ASAM_OPENSCENARIO
             parameterDeclarationsList.push_back(parameterDeclarations);
             object->SetParameterDeclarations(parameterDeclarationsList);
         }
+        
+        int PedestrianXmlParser::SubElementParameterDeclarationsParser::GetMinOccur() 
+        {
+            return 0;
+        }
+
+        int PedestrianXmlParser::SubElementParameterDeclarationsParser::GetMaxOccur() 
+        {
+            return -1;
+        }
+
+        bool PedestrianXmlParser::SubElementParameterDeclarationsParser::DoesMatch(std::string& elementName)
+        {
+            return elementName == OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION;
+        }
+
+        std::vector<std::string> PedestrianXmlParser::SubElementParameterDeclarationsParser::GetExpectedTagNames()
+        {
+            return {OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION};
+        }
         PedestrianXmlParser::SubElementBoundingBoxParser::SubElementBoundingBoxParser(IParserMessageLogger& messageLogger, std::string& filename)
         {
             _boundingBoxXmlParser = std::make_shared<BoundingBoxXmlParser>(messageLogger, filename);
@@ -777,6 +943,29 @@ namespace NET_ASAM_OPENSCENARIO
             _boundingBoxXmlParser->ParseElement(indexedElement, parserContext, boundingBox);
 
             object->SetBoundingBox(boundingBox);
+        }
+        
+        int PedestrianXmlParser::SubElementBoundingBoxParser::GetMinOccur() 
+        {
+            return 1;
+        }
+
+        int PedestrianXmlParser::SubElementBoundingBoxParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool PedestrianXmlParser::SubElementBoundingBoxParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__BOUNDING_BOX ;
+        }
+
+        std::vector<std::string> PedestrianXmlParser::SubElementBoundingBoxParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__BOUNDING_BOX
+                    };
         }
         PedestrianXmlParser::SubElementPropertiesParser::SubElementPropertiesParser(IParserMessageLogger& messageLogger, std::string& filename)
         {
@@ -792,6 +981,36 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetProperties(properties);
         }
+        
+        int PedestrianXmlParser::SubElementPropertiesParser::GetMinOccur() 
+        {
+            return 1;
+        }
+
+        int PedestrianXmlParser::SubElementPropertiesParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool PedestrianXmlParser::SubElementPropertiesParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__PROPERTIES ;
+        }
+
+        std::vector<std::string> PedestrianXmlParser::SubElementPropertiesParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__PROPERTIES
+                    };
+        }
+  
+        PedestrianXmlParser::PedestrianXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -799,6 +1018,9 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            PedestrianCatalogLocationXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+
+
         std::map<std::string, std::shared_ptr<IAttributeParser<PedestrianCatalogLocationImpl>>> PedestrianCatalogLocationXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<PedestrianCatalogLocationImpl>>> result;
@@ -827,6 +1049,36 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetDirectory(directory);
         }
+        
+        int PedestrianCatalogLocationXmlParser::SubElementDirectoryParser::GetMinOccur() 
+        {
+            return 1;
+        }
+
+        int PedestrianCatalogLocationXmlParser::SubElementDirectoryParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool PedestrianCatalogLocationXmlParser::SubElementDirectoryParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__DIRECTORY ;
+        }
+
+        std::vector<std::string> PedestrianCatalogLocationXmlParser::SubElementDirectoryParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__DIRECTORY
+                    };
+        }
+  
+        PedestrianCatalogLocationXmlParser::PedestrianCatalogLocationXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -834,6 +1086,8 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            PerformanceXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+
         std::map<std::string, std::shared_ptr<IAttributeParser<PerformanceImpl>>> PerformanceXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<PerformanceImpl>>> result;
@@ -937,6 +1191,13 @@ namespace NET_ASAM_OPENSCENARIO
             return result;
         }
 
+  
+        PerformanceXmlParser::PerformanceXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -944,6 +1205,8 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            PhaseXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+
         std::map<std::string, std::shared_ptr<IAttributeParser<PhaseImpl>>> PhaseXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<PhaseImpl>>> result;
@@ -1033,6 +1296,36 @@ namespace NET_ASAM_OPENSCENARIO
             trafficSignalStatesList.push_back(trafficSignalStates);
             object->SetTrafficSignalStates(trafficSignalStatesList);
         }
+        
+        int PhaseXmlParser::SubElementTrafficSignalStatesParser::GetMinOccur() 
+        {
+            return 0;
+        }
+
+        int PhaseXmlParser::SubElementTrafficSignalStatesParser::GetMaxOccur() 
+        {
+            return -1;
+        }
+
+        bool PhaseXmlParser::SubElementTrafficSignalStatesParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__TRAFFIC_SIGNAL_STATE ;
+        }
+
+        std::vector<std::string> PhaseXmlParser::SubElementTrafficSignalStatesParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__TRAFFIC_SIGNAL_STATE
+                    };
+        }
+  
+        PhaseXmlParser::PhaseXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -1040,6 +1333,8 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            PolylineXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+
         std::map<std::string, std::shared_ptr<IAttributeParser<PolylineImpl>>> PolylineXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<PolylineImpl>>> result;
@@ -1069,6 +1364,36 @@ namespace NET_ASAM_OPENSCENARIO
             verticesList.push_back(vertices);
             object->SetVertices(verticesList);
         }
+        
+        int PolylineXmlParser::SubElementVerticesParser::GetMinOccur() 
+        {
+            return 2;
+        }
+
+        int PolylineXmlParser::SubElementVerticesParser::GetMaxOccur() 
+        {
+            return -1;
+        }
+
+        bool PolylineXmlParser::SubElementVerticesParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__VERTEX ;
+        }
+
+        std::vector<std::string> PolylineXmlParser::SubElementVerticesParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__VERTEX
+                    };
+        }
+  
+        PolylineXmlParser::PolylineXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -1076,6 +1401,9 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            PositionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+
+
         std::map<std::string, std::shared_ptr<IAttributeParser<PositionImpl>>> PositionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<PositionImpl>>> result;
@@ -1111,6 +1439,29 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetWorldPosition(worldPosition);
         }
+        
+        int PositionXmlParser::SubElementWorldPositionParser::GetMinOccur() 
+        {
+            return 0;
+        }
+
+        int PositionXmlParser::SubElementWorldPositionParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool PositionXmlParser::SubElementWorldPositionParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__WORLD_POSITION ;
+        }
+
+        std::vector<std::string> PositionXmlParser::SubElementWorldPositionParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__WORLD_POSITION
+                    };
+        }
         PositionXmlParser::SubElementRelativeWorldPositionParser::SubElementRelativeWorldPositionParser(IParserMessageLogger& messageLogger, std::string& filename)
         {
             _relativeWorldPositionXmlParser = std::make_shared<RelativeWorldPositionXmlParser>(messageLogger, filename);
@@ -1124,6 +1475,29 @@ namespace NET_ASAM_OPENSCENARIO
             _relativeWorldPositionXmlParser->ParseElement(indexedElement, parserContext, relativeWorldPosition);
 
             object->SetRelativeWorldPosition(relativeWorldPosition);
+        }
+        
+        int PositionXmlParser::SubElementRelativeWorldPositionParser::GetMinOccur() 
+        {
+            return 0;
+        }
+
+        int PositionXmlParser::SubElementRelativeWorldPositionParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool PositionXmlParser::SubElementRelativeWorldPositionParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__RELATIVE_WORLD_POSITION ;
+        }
+
+        std::vector<std::string> PositionXmlParser::SubElementRelativeWorldPositionParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__RELATIVE_WORLD_POSITION
+                    };
         }
         PositionXmlParser::SubElementRelativeObjectPositionParser::SubElementRelativeObjectPositionParser(IParserMessageLogger& messageLogger, std::string& filename)
         {
@@ -1139,6 +1513,29 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetRelativeObjectPosition(relativeObjectPosition);
         }
+        
+        int PositionXmlParser::SubElementRelativeObjectPositionParser::GetMinOccur() 
+        {
+            return 0;
+        }
+
+        int PositionXmlParser::SubElementRelativeObjectPositionParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool PositionXmlParser::SubElementRelativeObjectPositionParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__RELATIVE_OBJECT_POSITION ;
+        }
+
+        std::vector<std::string> PositionXmlParser::SubElementRelativeObjectPositionParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__RELATIVE_OBJECT_POSITION
+                    };
+        }
         PositionXmlParser::SubElementRoadPositionParser::SubElementRoadPositionParser(IParserMessageLogger& messageLogger, std::string& filename)
         {
             _roadPositionXmlParser = std::make_shared<RoadPositionXmlParser>(messageLogger, filename);
@@ -1152,6 +1549,29 @@ namespace NET_ASAM_OPENSCENARIO
             _roadPositionXmlParser->ParseElement(indexedElement, parserContext, roadPosition);
 
             object->SetRoadPosition(roadPosition);
+        }
+        
+        int PositionXmlParser::SubElementRoadPositionParser::GetMinOccur() 
+        {
+            return 0;
+        }
+
+        int PositionXmlParser::SubElementRoadPositionParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool PositionXmlParser::SubElementRoadPositionParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__ROAD_POSITION ;
+        }
+
+        std::vector<std::string> PositionXmlParser::SubElementRoadPositionParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__ROAD_POSITION
+                    };
         }
         PositionXmlParser::SubElementRelativeRoadPositionParser::SubElementRelativeRoadPositionParser(IParserMessageLogger& messageLogger, std::string& filename)
         {
@@ -1167,6 +1587,29 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetRelativeRoadPosition(relativeRoadPosition);
         }
+        
+        int PositionXmlParser::SubElementRelativeRoadPositionParser::GetMinOccur() 
+        {
+            return 0;
+        }
+
+        int PositionXmlParser::SubElementRelativeRoadPositionParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool PositionXmlParser::SubElementRelativeRoadPositionParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__RELATIVE_ROAD_POSITION ;
+        }
+
+        std::vector<std::string> PositionXmlParser::SubElementRelativeRoadPositionParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__RELATIVE_ROAD_POSITION
+                    };
+        }
         PositionXmlParser::SubElementLanePositionParser::SubElementLanePositionParser(IParserMessageLogger& messageLogger, std::string& filename)
         {
             _lanePositionXmlParser = std::make_shared<LanePositionXmlParser>(messageLogger, filename);
@@ -1180,6 +1623,29 @@ namespace NET_ASAM_OPENSCENARIO
             _lanePositionXmlParser->ParseElement(indexedElement, parserContext, lanePosition);
 
             object->SetLanePosition(lanePosition);
+        }
+        
+        int PositionXmlParser::SubElementLanePositionParser::GetMinOccur() 
+        {
+            return 0;
+        }
+
+        int PositionXmlParser::SubElementLanePositionParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool PositionXmlParser::SubElementLanePositionParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__LANE_POSITION ;
+        }
+
+        std::vector<std::string> PositionXmlParser::SubElementLanePositionParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__LANE_POSITION
+                    };
         }
         PositionXmlParser::SubElementRelativeLanePositionParser::SubElementRelativeLanePositionParser(IParserMessageLogger& messageLogger, std::string& filename)
         {
@@ -1195,6 +1661,29 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetRelativeLanePosition(relativeLanePosition);
         }
+        
+        int PositionXmlParser::SubElementRelativeLanePositionParser::GetMinOccur() 
+        {
+            return 0;
+        }
+
+        int PositionXmlParser::SubElementRelativeLanePositionParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool PositionXmlParser::SubElementRelativeLanePositionParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__RELATIVE_LANE_POSITION ;
+        }
+
+        std::vector<std::string> PositionXmlParser::SubElementRelativeLanePositionParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__RELATIVE_LANE_POSITION
+                    };
+        }
         PositionXmlParser::SubElementRoutePositionParser::SubElementRoutePositionParser(IParserMessageLogger& messageLogger, std::string& filename)
         {
             _routePositionXmlParser = std::make_shared<RoutePositionXmlParser>(messageLogger, filename);
@@ -1209,6 +1698,36 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetRoutePosition(routePosition);
         }
+        
+        int PositionXmlParser::SubElementRoutePositionParser::GetMinOccur() 
+        {
+            return 0;
+        }
+
+        int PositionXmlParser::SubElementRoutePositionParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool PositionXmlParser::SubElementRoutePositionParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__ROUTE_POSITION ;
+        }
+
+        std::vector<std::string> PositionXmlParser::SubElementRoutePositionParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__ROUTE_POSITION
+                    };
+        }
+  
+        PositionXmlParser::PositionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -1216,6 +1735,8 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            PositionInLaneCoordinatesXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+
         std::map<std::string, std::shared_ptr<IAttributeParser<PositionInLaneCoordinatesImpl>>> PositionInLaneCoordinatesXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<PositionInLaneCoordinatesImpl>>> result;
@@ -1319,6 +1840,13 @@ namespace NET_ASAM_OPENSCENARIO
             return result;
         }
 
+  
+        PositionInLaneCoordinatesXmlParser::PositionInLaneCoordinatesXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -1326,6 +1854,8 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            PositionInRoadCoordinatesXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+
         std::map<std::string, std::shared_ptr<IAttributeParser<PositionInRoadCoordinatesImpl>>> PositionInRoadCoordinatesXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<PositionInRoadCoordinatesImpl>>> result;
@@ -1399,6 +1929,13 @@ namespace NET_ASAM_OPENSCENARIO
             return result;
         }
 
+  
+        PositionInRoadCoordinatesXmlParser::PositionInRoadCoordinatesXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -1406,6 +1943,8 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            PositionOfCurrentEntityXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+
         std::map<std::string, std::shared_ptr<IAttributeParser<PositionOfCurrentEntityImpl>>> PositionOfCurrentEntityXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<PositionOfCurrentEntityImpl>>> result;
@@ -1451,6 +1990,13 @@ namespace NET_ASAM_OPENSCENARIO
             return result;
         }
 
+  
+        PositionOfCurrentEntityXmlParser::PositionOfCurrentEntityXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -1458,6 +2004,8 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            PrecipitationXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+
         std::map<std::string, std::shared_ptr<IAttributeParser<PrecipitationImpl>>> PrecipitationXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<PrecipitationImpl>>> result;
@@ -1540,6 +2088,13 @@ namespace NET_ASAM_OPENSCENARIO
             return result;
         }
 
+  
+        PrecipitationXmlParser::PrecipitationXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -1547,6 +2102,8 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            PrivateXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+
         std::map<std::string, std::shared_ptr<IAttributeParser<PrivateImpl>>> PrivateXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<PrivateImpl>>> result;
@@ -1608,6 +2165,36 @@ namespace NET_ASAM_OPENSCENARIO
             privateActionsList.push_back(privateActions);
             object->SetPrivateActions(privateActionsList);
         }
+        
+        int PrivateXmlParser::SubElementPrivateActionsParser::GetMinOccur() 
+        {
+            return 1;
+        }
+
+        int PrivateXmlParser::SubElementPrivateActionsParser::GetMaxOccur() 
+        {
+            return -1;
+        }
+
+        bool PrivateXmlParser::SubElementPrivateActionsParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__PRIVATE_ACTION ;
+        }
+
+        std::vector<std::string> PrivateXmlParser::SubElementPrivateActionsParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__PRIVATE_ACTION
+                    };
+        }
+  
+        PrivateXmlParser::PrivateXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -1615,6 +2202,9 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            PrivateActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+
+
         std::map<std::string, std::shared_ptr<IAttributeParser<PrivateActionImpl>>> PrivateActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<PrivateActionImpl>>> result;
@@ -1650,6 +2240,29 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetLongitudinalAction(longitudinalAction);
         }
+        
+        int PrivateActionXmlParser::SubElementLongitudinalActionParser::GetMinOccur() 
+        {
+            return 0;
+        }
+
+        int PrivateActionXmlParser::SubElementLongitudinalActionParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool PrivateActionXmlParser::SubElementLongitudinalActionParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__LONGITUDINAL_ACTION ;
+        }
+
+        std::vector<std::string> PrivateActionXmlParser::SubElementLongitudinalActionParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__LONGITUDINAL_ACTION
+                    };
+        }
         PrivateActionXmlParser::SubElementLateralActionParser::SubElementLateralActionParser(IParserMessageLogger& messageLogger, std::string& filename)
         {
             _lateralActionXmlParser = std::make_shared<LateralActionXmlParser>(messageLogger, filename);
@@ -1663,6 +2276,29 @@ namespace NET_ASAM_OPENSCENARIO
             _lateralActionXmlParser->ParseElement(indexedElement, parserContext, lateralAction);
 
             object->SetLateralAction(lateralAction);
+        }
+        
+        int PrivateActionXmlParser::SubElementLateralActionParser::GetMinOccur() 
+        {
+            return 0;
+        }
+
+        int PrivateActionXmlParser::SubElementLateralActionParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool PrivateActionXmlParser::SubElementLateralActionParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__LATERAL_ACTION ;
+        }
+
+        std::vector<std::string> PrivateActionXmlParser::SubElementLateralActionParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__LATERAL_ACTION
+                    };
         }
         PrivateActionXmlParser::SubElementVisibilityActionParser::SubElementVisibilityActionParser(IParserMessageLogger& messageLogger, std::string& filename)
         {
@@ -1678,6 +2314,29 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetVisibilityAction(visibilityAction);
         }
+        
+        int PrivateActionXmlParser::SubElementVisibilityActionParser::GetMinOccur() 
+        {
+            return 0;
+        }
+
+        int PrivateActionXmlParser::SubElementVisibilityActionParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool PrivateActionXmlParser::SubElementVisibilityActionParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__VISIBILITY_ACTION ;
+        }
+
+        std::vector<std::string> PrivateActionXmlParser::SubElementVisibilityActionParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__VISIBILITY_ACTION
+                    };
+        }
         PrivateActionXmlParser::SubElementSynchronizeActionParser::SubElementSynchronizeActionParser(IParserMessageLogger& messageLogger, std::string& filename)
         {
             _synchronizeActionXmlParser = std::make_shared<SynchronizeActionXmlParser>(messageLogger, filename);
@@ -1691,6 +2350,29 @@ namespace NET_ASAM_OPENSCENARIO
             _synchronizeActionXmlParser->ParseElement(indexedElement, parserContext, synchronizeAction);
 
             object->SetSynchronizeAction(synchronizeAction);
+        }
+        
+        int PrivateActionXmlParser::SubElementSynchronizeActionParser::GetMinOccur() 
+        {
+            return 0;
+        }
+
+        int PrivateActionXmlParser::SubElementSynchronizeActionParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool PrivateActionXmlParser::SubElementSynchronizeActionParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__SYNCHRONIZE_ACTION ;
+        }
+
+        std::vector<std::string> PrivateActionXmlParser::SubElementSynchronizeActionParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__SYNCHRONIZE_ACTION
+                    };
         }
         PrivateActionXmlParser::SubElementActivateControllerActionParser::SubElementActivateControllerActionParser(IParserMessageLogger& messageLogger, std::string& filename)
         {
@@ -1706,6 +2388,29 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetActivateControllerAction(activateControllerAction);
         }
+        
+        int PrivateActionXmlParser::SubElementActivateControllerActionParser::GetMinOccur() 
+        {
+            return 0;
+        }
+
+        int PrivateActionXmlParser::SubElementActivateControllerActionParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool PrivateActionXmlParser::SubElementActivateControllerActionParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__ACTIVATE_CONTROLLER_ACTION ;
+        }
+
+        std::vector<std::string> PrivateActionXmlParser::SubElementActivateControllerActionParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__ACTIVATE_CONTROLLER_ACTION
+                    };
+        }
         PrivateActionXmlParser::SubElementControllerActionParser::SubElementControllerActionParser(IParserMessageLogger& messageLogger, std::string& filename)
         {
             _controllerActionXmlParser = std::make_shared<ControllerActionXmlParser>(messageLogger, filename);
@@ -1719,6 +2424,29 @@ namespace NET_ASAM_OPENSCENARIO
             _controllerActionXmlParser->ParseElement(indexedElement, parserContext, controllerAction);
 
             object->SetControllerAction(controllerAction);
+        }
+        
+        int PrivateActionXmlParser::SubElementControllerActionParser::GetMinOccur() 
+        {
+            return 0;
+        }
+
+        int PrivateActionXmlParser::SubElementControllerActionParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool PrivateActionXmlParser::SubElementControllerActionParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__CONTROLLER_ACTION ;
+        }
+
+        std::vector<std::string> PrivateActionXmlParser::SubElementControllerActionParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__CONTROLLER_ACTION
+                    };
         }
         PrivateActionXmlParser::SubElementTeleportActionParser::SubElementTeleportActionParser(IParserMessageLogger& messageLogger, std::string& filename)
         {
@@ -1734,6 +2462,29 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetTeleportAction(teleportAction);
         }
+        
+        int PrivateActionXmlParser::SubElementTeleportActionParser::GetMinOccur() 
+        {
+            return 0;
+        }
+
+        int PrivateActionXmlParser::SubElementTeleportActionParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool PrivateActionXmlParser::SubElementTeleportActionParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__TELEPORT_ACTION ;
+        }
+
+        std::vector<std::string> PrivateActionXmlParser::SubElementTeleportActionParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__TELEPORT_ACTION
+                    };
+        }
         PrivateActionXmlParser::SubElementRoutingActionParser::SubElementRoutingActionParser(IParserMessageLogger& messageLogger, std::string& filename)
         {
             _routingActionXmlParser = std::make_shared<RoutingActionXmlParser>(messageLogger, filename);
@@ -1748,6 +2499,36 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetRoutingAction(routingAction);
         }
+        
+        int PrivateActionXmlParser::SubElementRoutingActionParser::GetMinOccur() 
+        {
+            return 0;
+        }
+
+        int PrivateActionXmlParser::SubElementRoutingActionParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool PrivateActionXmlParser::SubElementRoutingActionParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__ROUTING_ACTION ;
+        }
+
+        std::vector<std::string> PrivateActionXmlParser::SubElementRoutingActionParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__ROUTING_ACTION
+                    };
+        }
+  
+        PrivateActionXmlParser::PrivateActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -1755,6 +2536,8 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            PropertiesXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+
         std::map<std::string, std::shared_ptr<IAttributeParser<PropertiesImpl>>> PropertiesXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<PropertiesImpl>>> result;
@@ -1785,6 +2568,29 @@ namespace NET_ASAM_OPENSCENARIO
             propertiesList.push_back(properties);
             object->SetProperties(propertiesList);
         }
+        
+        int PropertiesXmlParser::SubElementPropertiesParser::GetMinOccur() 
+        {
+            return 0;
+        }
+
+        int PropertiesXmlParser::SubElementPropertiesParser::GetMaxOccur() 
+        {
+            return -1;
+        }
+
+        bool PropertiesXmlParser::SubElementPropertiesParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__PROPERTY ;
+        }
+
+        std::vector<std::string> PropertiesXmlParser::SubElementPropertiesParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__PROPERTY
+                    };
+        }
         PropertiesXmlParser::SubElementFilesParser::SubElementFilesParser(IParserMessageLogger& messageLogger, std::string& filename)
         {
             _fileXmlParser = std::make_shared<FileXmlParser>(messageLogger, filename);
@@ -1800,6 +2606,36 @@ namespace NET_ASAM_OPENSCENARIO
             filesList.push_back(files);
             object->SetFiles(filesList);
         }
+        
+        int PropertiesXmlParser::SubElementFilesParser::GetMinOccur() 
+        {
+            return 0;
+        }
+
+        int PropertiesXmlParser::SubElementFilesParser::GetMaxOccur() 
+        {
+            return -1;
+        }
+
+        bool PropertiesXmlParser::SubElementFilesParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__FILE ;
+        }
+
+        std::vector<std::string> PropertiesXmlParser::SubElementFilesParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__FILE
+                    };
+        }
+  
+        PropertiesXmlParser::PropertiesXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -1807,6 +2643,8 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            PropertyXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+
         std::map<std::string, std::shared_ptr<IAttributeParser<PropertyImpl>>> PropertyXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<PropertyImpl>>> result;
@@ -1880,6 +2718,13 @@ namespace NET_ASAM_OPENSCENARIO
             return result;
         }
 
+  
+        PropertyXmlParser::PropertyXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -1887,6 +2732,9 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            ReachPositionConditionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+
+
         std::map<std::string, std::shared_ptr<IAttributeParser<ReachPositionConditionImpl>>> ReachPositionConditionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<ReachPositionConditionImpl>>> result;
@@ -1945,6 +2793,36 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetPosition(position);
         }
+        
+        int ReachPositionConditionXmlParser::SubElementPositionParser::GetMinOccur() 
+        {
+            return 1;
+        }
+
+        int ReachPositionConditionXmlParser::SubElementPositionParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool ReachPositionConditionXmlParser::SubElementPositionParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__POSITION ;
+        }
+
+        std::vector<std::string> ReachPositionConditionXmlParser::SubElementPositionParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__POSITION
+                    };
+        }
+  
+        ReachPositionConditionXmlParser::ReachPositionConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -1952,6 +2830,8 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            RelativeDistanceConditionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+
         std::map<std::string, std::shared_ptr<IAttributeParser<RelativeDistanceConditionImpl>>> RelativeDistanceConditionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<RelativeDistanceConditionImpl>>> result;
@@ -2135,6 +3015,13 @@ namespace NET_ASAM_OPENSCENARIO
             return result;
         }
 
+  
+        RelativeDistanceConditionXmlParser::RelativeDistanceConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -2142,6 +3029,9 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            RelativeLanePositionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+
+
         std::map<std::string, std::shared_ptr<IAttributeParser<RelativeLanePositionImpl>>> RelativeLanePositionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<RelativeLanePositionImpl>>> result;
@@ -2292,6 +3182,36 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetOrientation(orientation);
         }
+        
+        int RelativeLanePositionXmlParser::SubElementOrientationParser::GetMinOccur() 
+        {
+            return 0;
+        }
+
+        int RelativeLanePositionXmlParser::SubElementOrientationParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool RelativeLanePositionXmlParser::SubElementOrientationParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__ORIENTATION ;
+        }
+
+        std::vector<std::string> RelativeLanePositionXmlParser::SubElementOrientationParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__ORIENTATION
+                    };
+        }
+  
+        RelativeLanePositionXmlParser::RelativeLanePositionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -2299,6 +3219,9 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            RelativeObjectPositionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+
+
         std::map<std::string, std::shared_ptr<IAttributeParser<RelativeObjectPositionImpl>>> RelativeObjectPositionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<RelativeObjectPositionImpl>>> result;
@@ -2449,6 +3372,36 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetOrientation(orientation);
         }
+        
+        int RelativeObjectPositionXmlParser::SubElementOrientationParser::GetMinOccur() 
+        {
+            return 0;
+        }
+
+        int RelativeObjectPositionXmlParser::SubElementOrientationParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool RelativeObjectPositionXmlParser::SubElementOrientationParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__ORIENTATION ;
+        }
+
+        std::vector<std::string> RelativeObjectPositionXmlParser::SubElementOrientationParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__ORIENTATION
+                    };
+        }
+  
+        RelativeObjectPositionXmlParser::RelativeObjectPositionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -2456,6 +3409,9 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            RelativeRoadPositionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+
+
         std::map<std::string, std::shared_ptr<IAttributeParser<RelativeRoadPositionImpl>>> RelativeRoadPositionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<RelativeRoadPositionImpl>>> result;
@@ -2576,6 +3532,36 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetOrientation(orientation);
         }
+        
+        int RelativeRoadPositionXmlParser::SubElementOrientationParser::GetMinOccur() 
+        {
+            return 0;
+        }
+
+        int RelativeRoadPositionXmlParser::SubElementOrientationParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool RelativeRoadPositionXmlParser::SubElementOrientationParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__ORIENTATION ;
+        }
+
+        std::vector<std::string> RelativeRoadPositionXmlParser::SubElementOrientationParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__ORIENTATION
+                    };
+        }
+  
+        RelativeRoadPositionXmlParser::RelativeRoadPositionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -2583,6 +3569,8 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            RelativeSpeedConditionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+
         std::map<std::string, std::shared_ptr<IAttributeParser<RelativeSpeedConditionImpl>>> RelativeSpeedConditionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<RelativeSpeedConditionImpl>>> result;
@@ -2697,6 +3685,13 @@ namespace NET_ASAM_OPENSCENARIO
             return result;
         }
 
+  
+        RelativeSpeedConditionXmlParser::RelativeSpeedConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -2704,6 +3699,8 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            RelativeSpeedToMasterXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+
         std::map<std::string, std::shared_ptr<IAttributeParser<RelativeSpeedToMasterImpl>>> RelativeSpeedToMasterXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<RelativeSpeedToMasterImpl>>> result;
@@ -2786,6 +3783,13 @@ namespace NET_ASAM_OPENSCENARIO
             return result;
         }
 
+  
+        RelativeSpeedToMasterXmlParser::RelativeSpeedToMasterXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -2793,6 +3797,8 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            RelativeTargetLaneXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+
         std::map<std::string, std::shared_ptr<IAttributeParser<RelativeTargetLaneImpl>>> RelativeTargetLaneXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<RelativeTargetLaneImpl>>> result;
@@ -2868,6 +3874,13 @@ namespace NET_ASAM_OPENSCENARIO
             return result;
         }
 
+  
+        RelativeTargetLaneXmlParser::RelativeTargetLaneXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -2875,6 +3888,8 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            RelativeTargetLaneOffsetXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+
         std::map<std::string, std::shared_ptr<IAttributeParser<RelativeTargetLaneOffsetImpl>>> RelativeTargetLaneOffsetXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<RelativeTargetLaneOffsetImpl>>> result;
@@ -2950,6 +3965,13 @@ namespace NET_ASAM_OPENSCENARIO
             return result;
         }
 
+  
+        RelativeTargetLaneOffsetXmlParser::RelativeTargetLaneOffsetXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -2957,6 +3979,8 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            RelativeTargetSpeedXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+
         std::map<std::string, std::shared_ptr<IAttributeParser<RelativeTargetSpeedImpl>>> RelativeTargetSpeedXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<RelativeTargetSpeedImpl>>> result;
@@ -3101,6 +4125,13 @@ namespace NET_ASAM_OPENSCENARIO
             return result;
         }
 
+  
+        RelativeTargetSpeedXmlParser::RelativeTargetSpeedXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -3108,6 +4139,9 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            RelativeWorldPositionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+
+
         std::map<std::string, std::shared_ptr<IAttributeParser<RelativeWorldPositionImpl>>> RelativeWorldPositionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<RelativeWorldPositionImpl>>> result;
@@ -3258,6 +4292,36 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetOrientation(orientation);
         }
+        
+        int RelativeWorldPositionXmlParser::SubElementOrientationParser::GetMinOccur() 
+        {
+            return 0;
+        }
+
+        int RelativeWorldPositionXmlParser::SubElementOrientationParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool RelativeWorldPositionXmlParser::SubElementOrientationParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__ORIENTATION ;
+        }
+
+        std::vector<std::string> RelativeWorldPositionXmlParser::SubElementOrientationParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__ORIENTATION
+                    };
+        }
+  
+        RelativeWorldPositionXmlParser::RelativeWorldPositionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -3265,6 +4329,8 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            RoadConditionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+
         std::map<std::string, std::shared_ptr<IAttributeParser<RoadConditionImpl>>> RoadConditionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<RoadConditionImpl>>> result;
@@ -3323,6 +4389,36 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetProperties(properties);
         }
+        
+        int RoadConditionXmlParser::SubElementPropertiesParser::GetMinOccur() 
+        {
+            return 0;
+        }
+
+        int RoadConditionXmlParser::SubElementPropertiesParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool RoadConditionXmlParser::SubElementPropertiesParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__PROPERTIES ;
+        }
+
+        std::vector<std::string> RoadConditionXmlParser::SubElementPropertiesParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__PROPERTIES
+                    };
+        }
+  
+        RoadConditionXmlParser::RoadConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -3330,6 +4426,8 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            RoadNetworkXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+
         std::map<std::string, std::shared_ptr<IAttributeParser<RoadNetworkImpl>>> RoadNetworkXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<RoadNetworkImpl>>> result;
@@ -3360,6 +4458,29 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetLogicFile(logicFile);
         }
+        
+        int RoadNetworkXmlParser::SubElementLogicFileParser::GetMinOccur() 
+        {
+            return 0;
+        }
+
+        int RoadNetworkXmlParser::SubElementLogicFileParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool RoadNetworkXmlParser::SubElementLogicFileParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__LOGIC_FILE ;
+        }
+
+        std::vector<std::string> RoadNetworkXmlParser::SubElementLogicFileParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__LOGIC_FILE
+                    };
+        }
         RoadNetworkXmlParser::SubElementSceneGraphFileParser::SubElementSceneGraphFileParser(IParserMessageLogger& messageLogger, std::string& filename)
         {
             _fileXmlParser = std::make_shared<FileXmlParser>(messageLogger, filename);
@@ -3373,6 +4494,29 @@ namespace NET_ASAM_OPENSCENARIO
             _fileXmlParser->ParseElement(indexedElement, parserContext, sceneGraphFile);
 
             object->SetSceneGraphFile(sceneGraphFile);
+        }
+        
+        int RoadNetworkXmlParser::SubElementSceneGraphFileParser::GetMinOccur() 
+        {
+            return 0;
+        }
+
+        int RoadNetworkXmlParser::SubElementSceneGraphFileParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool RoadNetworkXmlParser::SubElementSceneGraphFileParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__SCENE_GRAPH_FILE ;
+        }
+
+        std::vector<std::string> RoadNetworkXmlParser::SubElementSceneGraphFileParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__SCENE_GRAPH_FILE
+                    };
         }
         RoadNetworkXmlParser::SubElementTrafficSignalsParser::SubElementTrafficSignalsParser(IParserMessageLogger& messageLogger, std::string& filename)
         {
@@ -3389,6 +4533,33 @@ namespace NET_ASAM_OPENSCENARIO
             trafficSignalsList.push_back(trafficSignals);
             object->SetTrafficSignals(trafficSignalsList);
         }
+        
+        int RoadNetworkXmlParser::SubElementTrafficSignalsParser::GetMinOccur() 
+        {
+            return 0;
+        }
+
+        int RoadNetworkXmlParser::SubElementTrafficSignalsParser::GetMaxOccur() 
+        {
+            return -1;
+        }
+
+        bool RoadNetworkXmlParser::SubElementTrafficSignalsParser::DoesMatch(std::string& elementName)
+        {
+            return elementName == OSC_CONSTANTS::ELEMENT__TRAFFIC_SIGNAL_CONTROLLER;
+        }
+
+        std::vector<std::string> RoadNetworkXmlParser::SubElementTrafficSignalsParser::GetExpectedTagNames()
+        {
+            return {OSC_CONSTANTS::ELEMENT__TRAFFIC_SIGNAL_CONTROLLER};
+        }
+  
+        RoadNetworkXmlParser::RoadNetworkXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -3396,6 +4567,9 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            RoadPositionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+
+
         std::map<std::string, std::shared_ptr<IAttributeParser<RoadPositionImpl>>> RoadPositionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<RoadPositionImpl>>> result;
@@ -3514,6 +4688,36 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetOrientation(orientation);
         }
+        
+        int RoadPositionXmlParser::SubElementOrientationParser::GetMinOccur() 
+        {
+            return 0;
+        }
+
+        int RoadPositionXmlParser::SubElementOrientationParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool RoadPositionXmlParser::SubElementOrientationParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__ORIENTATION ;
+        }
+
+        std::vector<std::string> RoadPositionXmlParser::SubElementOrientationParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__ORIENTATION
+                    };
+        }
+  
+        RoadPositionXmlParser::RoadPositionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -3521,6 +4725,8 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            RouteXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+
         std::map<std::string, std::shared_ptr<IAttributeParser<RouteImpl>>> RouteXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<RouteImpl>>> result;
@@ -3611,6 +4817,26 @@ namespace NET_ASAM_OPENSCENARIO
             parameterDeclarationsList.push_back(parameterDeclarations);
             object->SetParameterDeclarations(parameterDeclarationsList);
         }
+        
+        int RouteXmlParser::SubElementParameterDeclarationsParser::GetMinOccur() 
+        {
+            return 0;
+        }
+
+        int RouteXmlParser::SubElementParameterDeclarationsParser::GetMaxOccur() 
+        {
+            return -1;
+        }
+
+        bool RouteXmlParser::SubElementParameterDeclarationsParser::DoesMatch(std::string& elementName)
+        {
+            return elementName == OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION;
+        }
+
+        std::vector<std::string> RouteXmlParser::SubElementParameterDeclarationsParser::GetExpectedTagNames()
+        {
+            return {OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION};
+        }
         RouteXmlParser::SubElementWaypointsParser::SubElementWaypointsParser(IParserMessageLogger& messageLogger, std::string& filename)
         {
             _waypointXmlParser = std::make_shared<WaypointXmlParser>(messageLogger, filename);
@@ -3626,6 +4852,36 @@ namespace NET_ASAM_OPENSCENARIO
             waypointsList.push_back(waypoints);
             object->SetWaypoints(waypointsList);
         }
+        
+        int RouteXmlParser::SubElementWaypointsParser::GetMinOccur() 
+        {
+            return 2;
+        }
+
+        int RouteXmlParser::SubElementWaypointsParser::GetMaxOccur() 
+        {
+            return -1;
+        }
+
+        bool RouteXmlParser::SubElementWaypointsParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__WAYPOINT ;
+        }
+
+        std::vector<std::string> RouteXmlParser::SubElementWaypointsParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__WAYPOINT
+                    };
+        }
+  
+        RouteXmlParser::RouteXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -3633,6 +4889,9 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            RouteCatalogLocationXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+
+
         std::map<std::string, std::shared_ptr<IAttributeParser<RouteCatalogLocationImpl>>> RouteCatalogLocationXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<RouteCatalogLocationImpl>>> result;
@@ -3661,6 +4920,36 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetDirectory(directory);
         }
+        
+        int RouteCatalogLocationXmlParser::SubElementDirectoryParser::GetMinOccur() 
+        {
+            return 1;
+        }
+
+        int RouteCatalogLocationXmlParser::SubElementDirectoryParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool RouteCatalogLocationXmlParser::SubElementDirectoryParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__DIRECTORY ;
+        }
+
+        std::vector<std::string> RouteCatalogLocationXmlParser::SubElementDirectoryParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__DIRECTORY
+                    };
+        }
+  
+        RouteCatalogLocationXmlParser::RouteCatalogLocationXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -3668,6 +4957,9 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            RoutePositionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+
+
         std::map<std::string, std::shared_ptr<IAttributeParser<RoutePositionImpl>>> RoutePositionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<RoutePositionImpl>>> result;
@@ -3698,6 +4990,29 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetRouteRef(routeRef);
         }
+        
+        int RoutePositionXmlParser::SubElementRouteRefParser::GetMinOccur() 
+        {
+            return 1;
+        }
+
+        int RoutePositionXmlParser::SubElementRouteRefParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool RoutePositionXmlParser::SubElementRouteRefParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__ROUTE_REF ;
+        }
+
+        std::vector<std::string> RoutePositionXmlParser::SubElementRouteRefParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__ROUTE_REF
+                    };
+        }
         RoutePositionXmlParser::SubElementOrientationParser::SubElementOrientationParser(IParserMessageLogger& messageLogger, std::string& filename)
         {
             _orientationXmlParser = std::make_shared<OrientationXmlParser>(messageLogger, filename);
@@ -3711,6 +5026,29 @@ namespace NET_ASAM_OPENSCENARIO
             _orientationXmlParser->ParseElement(indexedElement, parserContext, orientation);
 
             object->SetOrientation(orientation);
+        }
+        
+        int RoutePositionXmlParser::SubElementOrientationParser::GetMinOccur() 
+        {
+            return 0;
+        }
+
+        int RoutePositionXmlParser::SubElementOrientationParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool RoutePositionXmlParser::SubElementOrientationParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__ORIENTATION ;
+        }
+
+        std::vector<std::string> RoutePositionXmlParser::SubElementOrientationParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__ORIENTATION
+                    };
         }
         RoutePositionXmlParser::SubElementInRoutePositionParser::SubElementInRoutePositionParser(IParserMessageLogger& messageLogger, std::string& filename)
         {
@@ -3726,6 +5064,36 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetInRoutePosition(inRoutePosition);
         }
+        
+        int RoutePositionXmlParser::SubElementInRoutePositionParser::GetMinOccur() 
+        {
+            return 1;
+        }
+
+        int RoutePositionXmlParser::SubElementInRoutePositionParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool RoutePositionXmlParser::SubElementInRoutePositionParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__IN_ROUTE_POSITION ;
+        }
+
+        std::vector<std::string> RoutePositionXmlParser::SubElementInRoutePositionParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__IN_ROUTE_POSITION
+                    };
+        }
+  
+        RoutePositionXmlParser::RoutePositionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -3733,6 +5101,9 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            RouteRefXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+
+
         std::map<std::string, std::shared_ptr<IAttributeParser<RouteRefImpl>>> RouteRefXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<RouteRefImpl>>> result;
@@ -3762,6 +5133,29 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetRoute(route);
         }
+        
+        int RouteRefXmlParser::SubElementRouteParser::GetMinOccur() 
+        {
+            return 0;
+        }
+
+        int RouteRefXmlParser::SubElementRouteParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool RouteRefXmlParser::SubElementRouteParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__ROUTE ;
+        }
+
+        std::vector<std::string> RouteRefXmlParser::SubElementRouteParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__ROUTE
+                    };
+        }
         RouteRefXmlParser::SubElementCatalogReferenceParser::SubElementCatalogReferenceParser(IParserMessageLogger& messageLogger, std::string& filename)
         {
             _catalogReferenceXmlParser = std::make_shared<CatalogReferenceXmlParser>(messageLogger, filename);
@@ -3777,6 +5171,36 @@ namespace NET_ASAM_OPENSCENARIO
             object->SetCatalogReference(catalogReference);
             std::dynamic_pointer_cast<CatalogReferenceParserContext>(parserContext)->AddCatalogReference(std::dynamic_pointer_cast<ICatalogReference>(catalogReference));
         }
+        
+        int RouteRefXmlParser::SubElementCatalogReferenceParser::GetMinOccur() 
+        {
+            return 0;
+        }
+
+        int RouteRefXmlParser::SubElementCatalogReferenceParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool RouteRefXmlParser::SubElementCatalogReferenceParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__CATALOG_REFERENCE ;
+        }
+
+        std::vector<std::string> RouteRefXmlParser::SubElementCatalogReferenceParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__CATALOG_REFERENCE
+                    };
+        }
+  
+        RouteRefXmlParser::RouteRefXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -3784,6 +5208,9 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            RoutingActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+
+
         std::map<std::string, std::shared_ptr<IAttributeParser<RoutingActionImpl>>> RoutingActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<RoutingActionImpl>>> result;
@@ -3814,6 +5241,29 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetAssignRouteAction(assignRouteAction);
         }
+        
+        int RoutingActionXmlParser::SubElementAssignRouteActionParser::GetMinOccur() 
+        {
+            return 0;
+        }
+
+        int RoutingActionXmlParser::SubElementAssignRouteActionParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool RoutingActionXmlParser::SubElementAssignRouteActionParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__ASSIGN_ROUTE_ACTION ;
+        }
+
+        std::vector<std::string> RoutingActionXmlParser::SubElementAssignRouteActionParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__ASSIGN_ROUTE_ACTION
+                    };
+        }
         RoutingActionXmlParser::SubElementFollowTrajectoryActionParser::SubElementFollowTrajectoryActionParser(IParserMessageLogger& messageLogger, std::string& filename)
         {
             _followTrajectoryActionXmlParser = std::make_shared<FollowTrajectoryActionXmlParser>(messageLogger, filename);
@@ -3827,6 +5277,29 @@ namespace NET_ASAM_OPENSCENARIO
             _followTrajectoryActionXmlParser->ParseElement(indexedElement, parserContext, followTrajectoryAction);
 
             object->SetFollowTrajectoryAction(followTrajectoryAction);
+        }
+        
+        int RoutingActionXmlParser::SubElementFollowTrajectoryActionParser::GetMinOccur() 
+        {
+            return 0;
+        }
+
+        int RoutingActionXmlParser::SubElementFollowTrajectoryActionParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool RoutingActionXmlParser::SubElementFollowTrajectoryActionParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__FOLLOW_TRAJECTORY_ACTION ;
+        }
+
+        std::vector<std::string> RoutingActionXmlParser::SubElementFollowTrajectoryActionParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__FOLLOW_TRAJECTORY_ACTION
+                    };
         }
         RoutingActionXmlParser::SubElementAcquirePositionActionParser::SubElementAcquirePositionActionParser(IParserMessageLogger& messageLogger, std::string& filename)
         {
@@ -3842,6 +5315,36 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetAcquirePositionAction(acquirePositionAction);
         }
+        
+        int RoutingActionXmlParser::SubElementAcquirePositionActionParser::GetMinOccur() 
+        {
+            return 0;
+        }
+
+        int RoutingActionXmlParser::SubElementAcquirePositionActionParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool RoutingActionXmlParser::SubElementAcquirePositionActionParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__ACQUIRE_POSITION_ACTION ;
+        }
+
+        std::vector<std::string> RoutingActionXmlParser::SubElementAcquirePositionActionParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__ACQUIRE_POSITION_ACTION
+                    };
+        }
+  
+        RoutingActionXmlParser::RoutingActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -3849,6 +5352,8 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            ScenarioDefinitionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+
 
         std::vector<std::shared_ptr<IElementParser<ScenarioDefinitionImpl>>> ScenarioDefinitionXmlParser::SubElementParser::CreateParserList()
         {
@@ -3876,6 +5381,26 @@ namespace NET_ASAM_OPENSCENARIO
             parameterDeclarationsList.push_back(parameterDeclarations);
             object->SetParameterDeclarations(parameterDeclarationsList);
         }
+        
+        int ScenarioDefinitionXmlParser::SubElementParameterDeclarationsParser::GetMinOccur() 
+        {
+            return 0;
+        }
+
+        int ScenarioDefinitionXmlParser::SubElementParameterDeclarationsParser::GetMaxOccur() 
+        {
+            return -1;
+        }
+
+        bool ScenarioDefinitionXmlParser::SubElementParameterDeclarationsParser::DoesMatch(std::string& elementName)
+        {
+            return elementName == OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION;
+        }
+
+        std::vector<std::string> ScenarioDefinitionXmlParser::SubElementParameterDeclarationsParser::GetExpectedTagNames()
+        {
+            return {OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION};
+        }
         ScenarioDefinitionXmlParser::SubElementCatalogLocationsParser::SubElementCatalogLocationsParser(IParserMessageLogger& messageLogger, std::string& filename)
         {
             _catalogLocationsXmlParser = std::make_shared<CatalogLocationsXmlParser>(messageLogger, filename);
@@ -3889,6 +5414,29 @@ namespace NET_ASAM_OPENSCENARIO
             _catalogLocationsXmlParser->ParseElement(indexedElement, parserContext, catalogLocations);
 
             object->SetCatalogLocations(catalogLocations);
+        }
+        
+        int ScenarioDefinitionXmlParser::SubElementCatalogLocationsParser::GetMinOccur() 
+        {
+            return 1;
+        }
+
+        int ScenarioDefinitionXmlParser::SubElementCatalogLocationsParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool ScenarioDefinitionXmlParser::SubElementCatalogLocationsParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__CATALOG_LOCATIONS ;
+        }
+
+        std::vector<std::string> ScenarioDefinitionXmlParser::SubElementCatalogLocationsParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__CATALOG_LOCATIONS
+                    };
         }
         ScenarioDefinitionXmlParser::SubElementRoadNetworkParser::SubElementRoadNetworkParser(IParserMessageLogger& messageLogger, std::string& filename)
         {
@@ -3904,6 +5452,29 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetRoadNetwork(roadNetwork);
         }
+        
+        int ScenarioDefinitionXmlParser::SubElementRoadNetworkParser::GetMinOccur() 
+        {
+            return 1;
+        }
+
+        int ScenarioDefinitionXmlParser::SubElementRoadNetworkParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool ScenarioDefinitionXmlParser::SubElementRoadNetworkParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__ROAD_NETWORK ;
+        }
+
+        std::vector<std::string> ScenarioDefinitionXmlParser::SubElementRoadNetworkParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__ROAD_NETWORK
+                    };
+        }
         ScenarioDefinitionXmlParser::SubElementEntitiesParser::SubElementEntitiesParser(IParserMessageLogger& messageLogger, std::string& filename)
         {
             _entitiesXmlParser = std::make_shared<EntitiesXmlParser>(messageLogger, filename);
@@ -3917,6 +5488,29 @@ namespace NET_ASAM_OPENSCENARIO
             _entitiesXmlParser->ParseElement(indexedElement, parserContext, entities);
 
             object->SetEntities(entities);
+        }
+        
+        int ScenarioDefinitionXmlParser::SubElementEntitiesParser::GetMinOccur() 
+        {
+            return 1;
+        }
+
+        int ScenarioDefinitionXmlParser::SubElementEntitiesParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool ScenarioDefinitionXmlParser::SubElementEntitiesParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__ENTITIES ;
+        }
+
+        std::vector<std::string> ScenarioDefinitionXmlParser::SubElementEntitiesParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__ENTITIES
+                    };
         }
         ScenarioDefinitionXmlParser::SubElementStoryboardParser::SubElementStoryboardParser(IParserMessageLogger& messageLogger, std::string& filename)
         {
@@ -3932,6 +5526,36 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetStoryboard(storyboard);
         }
+        
+        int ScenarioDefinitionXmlParser::SubElementStoryboardParser::GetMinOccur() 
+        {
+            return 1;
+        }
+
+        int ScenarioDefinitionXmlParser::SubElementStoryboardParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool ScenarioDefinitionXmlParser::SubElementStoryboardParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__STORYBOARD ;
+        }
+
+        std::vector<std::string> ScenarioDefinitionXmlParser::SubElementStoryboardParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__STORYBOARD
+                    };
+        }
+  
+        ScenarioDefinitionXmlParser::ScenarioDefinitionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlGroupParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -3939,6 +5563,8 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            ScenarioObjectXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+
         std::map<std::string, std::shared_ptr<IAttributeParser<ScenarioObjectImpl>>> ScenarioObjectXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<ScenarioObjectImpl>>> result;
@@ -3998,6 +5624,35 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetEntityObject(entityObject);
         }
+        
+        int ScenarioObjectXmlParser::SubElementEntityObjectParser::GetMinOccur() 
+        {
+            return 1;
+        }
+
+        int ScenarioObjectXmlParser::SubElementEntityObjectParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool ScenarioObjectXmlParser::SubElementEntityObjectParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__CATALOG_REFERENCE || 
+                elementName == OSC_CONSTANTS::ELEMENT__VEHICLE || 
+                elementName == OSC_CONSTANTS::ELEMENT__PEDESTRIAN || 
+                elementName == OSC_CONSTANTS::ELEMENT__MISC_OBJECT ;
+        }
+
+        std::vector<std::string> ScenarioObjectXmlParser::SubElementEntityObjectParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__CATALOG_REFERENCE,
+                OSC_CONSTANTS::ELEMENT__VEHICLE,
+                OSC_CONSTANTS::ELEMENT__PEDESTRIAN,
+                OSC_CONSTANTS::ELEMENT__MISC_OBJECT
+                    };
+        }
         ScenarioObjectXmlParser::SubElementObjectControllerParser::SubElementObjectControllerParser(IParserMessageLogger& messageLogger, std::string& filename)
         {
             _objectControllerXmlParser = std::make_shared<ObjectControllerXmlParser>(messageLogger, filename);
@@ -4012,6 +5667,36 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetObjectController(objectController);
         }
+        
+        int ScenarioObjectXmlParser::SubElementObjectControllerParser::GetMinOccur() 
+        {
+            return 0;
+        }
+
+        int ScenarioObjectXmlParser::SubElementObjectControllerParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool ScenarioObjectXmlParser::SubElementObjectControllerParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__OBJECT_CONTROLLER ;
+        }
+
+        std::vector<std::string> ScenarioObjectXmlParser::SubElementObjectControllerParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__OBJECT_CONTROLLER
+                    };
+        }
+  
+        ScenarioObjectXmlParser::ScenarioObjectXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -4019,6 +5704,9 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            SelectedEntitiesXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+
+
         std::map<std::string, std::shared_ptr<IAttributeParser<SelectedEntitiesImpl>>> SelectedEntitiesXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<SelectedEntitiesImpl>>> result;
@@ -4049,6 +5737,29 @@ namespace NET_ASAM_OPENSCENARIO
             entityRefList.push_back(entityRef);
             object->SetEntityRef(entityRefList);
         }
+        
+        int SelectedEntitiesXmlParser::SubElementEntityRefParser::GetMinOccur() 
+        {
+            return 0;
+        }
+
+        int SelectedEntitiesXmlParser::SubElementEntityRefParser::GetMaxOccur() 
+        {
+            return -1;
+        }
+
+        bool SelectedEntitiesXmlParser::SubElementEntityRefParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__ENTITY_REF ;
+        }
+
+        std::vector<std::string> SelectedEntitiesXmlParser::SubElementEntityRefParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__ENTITY_REF
+                    };
+        }
         SelectedEntitiesXmlParser::SubElementByTypeParser::SubElementByTypeParser(IParserMessageLogger& messageLogger, std::string& filename)
         {
             _byTypeXmlParser = std::make_shared<ByTypeXmlParser>(messageLogger, filename);
@@ -4064,6 +5775,36 @@ namespace NET_ASAM_OPENSCENARIO
             byTypeList.push_back(byType);
             object->SetByType(byTypeList);
         }
+        
+        int SelectedEntitiesXmlParser::SubElementByTypeParser::GetMinOccur() 
+        {
+            return 0;
+        }
+
+        int SelectedEntitiesXmlParser::SubElementByTypeParser::GetMaxOccur() 
+        {
+            return -1;
+        }
+
+        bool SelectedEntitiesXmlParser::SubElementByTypeParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__BY_TYPE ;
+        }
+
+        std::vector<std::string> SelectedEntitiesXmlParser::SubElementByTypeParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__BY_TYPE
+                    };
+        }
+  
+        SelectedEntitiesXmlParser::SelectedEntitiesXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -4071,6 +5812,9 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            ShapeXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+
+
         std::map<std::string, std::shared_ptr<IAttributeParser<ShapeImpl>>> ShapeXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<ShapeImpl>>> result;
@@ -4101,6 +5845,29 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetPolyline(polyline);
         }
+        
+        int ShapeXmlParser::SubElementPolylineParser::GetMinOccur() 
+        {
+            return 0;
+        }
+
+        int ShapeXmlParser::SubElementPolylineParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool ShapeXmlParser::SubElementPolylineParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__POLYLINE ;
+        }
+
+        std::vector<std::string> ShapeXmlParser::SubElementPolylineParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__POLYLINE
+                    };
+        }
         ShapeXmlParser::SubElementClothoidParser::SubElementClothoidParser(IParserMessageLogger& messageLogger, std::string& filename)
         {
             _clothoidXmlParser = std::make_shared<ClothoidXmlParser>(messageLogger, filename);
@@ -4114,6 +5881,29 @@ namespace NET_ASAM_OPENSCENARIO
             _clothoidXmlParser->ParseElement(indexedElement, parserContext, clothoid);
 
             object->SetClothoid(clothoid);
+        }
+        
+        int ShapeXmlParser::SubElementClothoidParser::GetMinOccur() 
+        {
+            return 0;
+        }
+
+        int ShapeXmlParser::SubElementClothoidParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool ShapeXmlParser::SubElementClothoidParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__CLOTHOID ;
+        }
+
+        std::vector<std::string> ShapeXmlParser::SubElementClothoidParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__CLOTHOID
+                    };
         }
         ShapeXmlParser::SubElementNurbsParser::SubElementNurbsParser(IParserMessageLogger& messageLogger, std::string& filename)
         {
@@ -4129,6 +5919,36 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetNurbs(nurbs);
         }
+        
+        int ShapeXmlParser::SubElementNurbsParser::GetMinOccur() 
+        {
+            return 0;
+        }
+
+        int ShapeXmlParser::SubElementNurbsParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool ShapeXmlParser::SubElementNurbsParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__NURBS ;
+        }
+
+        std::vector<std::string> ShapeXmlParser::SubElementNurbsParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__NURBS
+                    };
+        }
+  
+        ShapeXmlParser::ShapeXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -4136,6 +5956,8 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            SimulationTimeConditionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+
         std::map<std::string, std::shared_ptr<IAttributeParser<SimulationTimeConditionImpl>>> SimulationTimeConditionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<SimulationTimeConditionImpl>>> result;
@@ -4218,6 +6040,13 @@ namespace NET_ASAM_OPENSCENARIO
             return result;
         }
 
+  
+        SimulationTimeConditionXmlParser::SimulationTimeConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -4225,6 +6054,9 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            SpeedActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+
+
         std::map<std::string, std::shared_ptr<IAttributeParser<SpeedActionImpl>>> SpeedActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<SpeedActionImpl>>> result;
@@ -4254,6 +6086,29 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetSpeedActionDynamics(speedActionDynamics);
         }
+        
+        int SpeedActionXmlParser::SubElementSpeedActionDynamicsParser::GetMinOccur() 
+        {
+            return 1;
+        }
+
+        int SpeedActionXmlParser::SubElementSpeedActionDynamicsParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool SpeedActionXmlParser::SubElementSpeedActionDynamicsParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__SPEED_ACTION_DYNAMICS ;
+        }
+
+        std::vector<std::string> SpeedActionXmlParser::SubElementSpeedActionDynamicsParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__SPEED_ACTION_DYNAMICS
+                    };
+        }
         SpeedActionXmlParser::SubElementSpeedActionTargetParser::SubElementSpeedActionTargetParser(IParserMessageLogger& messageLogger, std::string& filename)
         {
             _speedActionTargetXmlParser = std::make_shared<SpeedActionTargetXmlParser>(messageLogger, filename);
@@ -4268,6 +6123,36 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetSpeedActionTarget(speedActionTarget);
         }
+        
+        int SpeedActionXmlParser::SubElementSpeedActionTargetParser::GetMinOccur() 
+        {
+            return 1;
+        }
+
+        int SpeedActionXmlParser::SubElementSpeedActionTargetParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool SpeedActionXmlParser::SubElementSpeedActionTargetParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__SPEED_ACTION_TARGET ;
+        }
+
+        std::vector<std::string> SpeedActionXmlParser::SubElementSpeedActionTargetParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__SPEED_ACTION_TARGET
+                    };
+        }
+  
+        SpeedActionXmlParser::SpeedActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -4275,6 +6160,9 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            SpeedActionTargetXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+
+
         std::map<std::string, std::shared_ptr<IAttributeParser<SpeedActionTargetImpl>>> SpeedActionTargetXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<SpeedActionTargetImpl>>> result;
@@ -4304,6 +6192,29 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetRelativeTargetSpeed(relativeTargetSpeed);
         }
+        
+        int SpeedActionTargetXmlParser::SubElementRelativeTargetSpeedParser::GetMinOccur() 
+        {
+            return 0;
+        }
+
+        int SpeedActionTargetXmlParser::SubElementRelativeTargetSpeedParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool SpeedActionTargetXmlParser::SubElementRelativeTargetSpeedParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__RELATIVE_TARGET_SPEED ;
+        }
+
+        std::vector<std::string> SpeedActionTargetXmlParser::SubElementRelativeTargetSpeedParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__RELATIVE_TARGET_SPEED
+                    };
+        }
         SpeedActionTargetXmlParser::SubElementAbsoluteTargetSpeedParser::SubElementAbsoluteTargetSpeedParser(IParserMessageLogger& messageLogger, std::string& filename)
         {
             _absoluteTargetSpeedXmlParser = std::make_shared<AbsoluteTargetSpeedXmlParser>(messageLogger, filename);
@@ -4318,6 +6229,36 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetAbsoluteTargetSpeed(absoluteTargetSpeed);
         }
+        
+        int SpeedActionTargetXmlParser::SubElementAbsoluteTargetSpeedParser::GetMinOccur() 
+        {
+            return 0;
+        }
+
+        int SpeedActionTargetXmlParser::SubElementAbsoluteTargetSpeedParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool SpeedActionTargetXmlParser::SubElementAbsoluteTargetSpeedParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__ABSOLUTE_TARGET_SPEED ;
+        }
+
+        std::vector<std::string> SpeedActionTargetXmlParser::SubElementAbsoluteTargetSpeedParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__ABSOLUTE_TARGET_SPEED
+                    };
+        }
+  
+        SpeedActionTargetXmlParser::SpeedActionTargetXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -4325,6 +6266,8 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            SpeedConditionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+
         std::map<std::string, std::shared_ptr<IAttributeParser<SpeedConditionImpl>>> SpeedConditionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<SpeedConditionImpl>>> result;
@@ -4407,6 +6350,13 @@ namespace NET_ASAM_OPENSCENARIO
             return result;
         }
 
+  
+        SpeedConditionXmlParser::SpeedConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -4414,6 +6364,8 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            StandStillConditionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+
         std::map<std::string, std::shared_ptr<IAttributeParser<StandStillConditionImpl>>> StandStillConditionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<StandStillConditionImpl>>> result;
@@ -4457,6 +6409,13 @@ namespace NET_ASAM_OPENSCENARIO
             return result;
         }
 
+  
+        StandStillConditionXmlParser::StandStillConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -4464,6 +6423,8 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            StoryXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+
         std::map<std::string, std::shared_ptr<IAttributeParser<StoryImpl>>> StoryXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<StoryImpl>>> result;
@@ -4524,6 +6485,26 @@ namespace NET_ASAM_OPENSCENARIO
             parameterDeclarationsList.push_back(parameterDeclarations);
             object->SetParameterDeclarations(parameterDeclarationsList);
         }
+        
+        int StoryXmlParser::SubElementParameterDeclarationsParser::GetMinOccur() 
+        {
+            return 0;
+        }
+
+        int StoryXmlParser::SubElementParameterDeclarationsParser::GetMaxOccur() 
+        {
+            return -1;
+        }
+
+        bool StoryXmlParser::SubElementParameterDeclarationsParser::DoesMatch(std::string& elementName)
+        {
+            return elementName == OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION;
+        }
+
+        std::vector<std::string> StoryXmlParser::SubElementParameterDeclarationsParser::GetExpectedTagNames()
+        {
+            return {OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION};
+        }
         StoryXmlParser::SubElementActsParser::SubElementActsParser(IParserMessageLogger& messageLogger, std::string& filename)
         {
             _actXmlParser = std::make_shared<ActXmlParser>(messageLogger, filename);
@@ -4539,6 +6520,36 @@ namespace NET_ASAM_OPENSCENARIO
             actsList.push_back(acts);
             object->SetActs(actsList);
         }
+        
+        int StoryXmlParser::SubElementActsParser::GetMinOccur() 
+        {
+            return 1;
+        }
+
+        int StoryXmlParser::SubElementActsParser::GetMaxOccur() 
+        {
+            return -1;
+        }
+
+        bool StoryXmlParser::SubElementActsParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__ACT ;
+        }
+
+        std::vector<std::string> StoryXmlParser::SubElementActsParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__ACT
+                    };
+        }
+  
+        StoryXmlParser::StoryXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -4546,6 +6557,8 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            StoryboardXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+
         std::map<std::string, std::shared_ptr<IAttributeParser<StoryboardImpl>>> StoryboardXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<StoryboardImpl>>> result;
@@ -4576,6 +6589,29 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetInit(init);
         }
+        
+        int StoryboardXmlParser::SubElementInitParser::GetMinOccur() 
+        {
+            return 1;
+        }
+
+        int StoryboardXmlParser::SubElementInitParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool StoryboardXmlParser::SubElementInitParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__INIT ;
+        }
+
+        std::vector<std::string> StoryboardXmlParser::SubElementInitParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__INIT
+                    };
+        }
         StoryboardXmlParser::SubElementStoriesParser::SubElementStoriesParser(IParserMessageLogger& messageLogger, std::string& filename)
         {
             _storyXmlParser = std::make_shared<StoryXmlParser>(messageLogger, filename);
@@ -4591,6 +6627,29 @@ namespace NET_ASAM_OPENSCENARIO
             storiesList.push_back(stories);
             object->SetStories(storiesList);
         }
+        
+        int StoryboardXmlParser::SubElementStoriesParser::GetMinOccur() 
+        {
+            return 1;
+        }
+
+        int StoryboardXmlParser::SubElementStoriesParser::GetMaxOccur() 
+        {
+            return -1;
+        }
+
+        bool StoryboardXmlParser::SubElementStoriesParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__STORY ;
+        }
+
+        std::vector<std::string> StoryboardXmlParser::SubElementStoriesParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__STORY
+                    };
+        }
         StoryboardXmlParser::SubElementStopTriggerParser::SubElementStopTriggerParser(IParserMessageLogger& messageLogger, std::string& filename)
         {
             _triggerXmlParser = std::make_shared<TriggerXmlParser>(messageLogger, filename);
@@ -4605,6 +6664,36 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetStopTrigger(stopTrigger);
         }
+        
+        int StoryboardXmlParser::SubElementStopTriggerParser::GetMinOccur() 
+        {
+            return 1;
+        }
+
+        int StoryboardXmlParser::SubElementStopTriggerParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool StoryboardXmlParser::SubElementStopTriggerParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__STOP_TRIGGER ;
+        }
+
+        std::vector<std::string> StoryboardXmlParser::SubElementStopTriggerParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__STOP_TRIGGER
+                    };
+        }
+  
+        StoryboardXmlParser::StoryboardXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -4612,6 +6701,8 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            StoryboardElementStateConditionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+
         std::map<std::string, std::shared_ptr<IAttributeParser<StoryboardElementStateConditionImpl>>> StoryboardElementStateConditionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<StoryboardElementStateConditionImpl>>> result;
@@ -4735,6 +6826,13 @@ namespace NET_ASAM_OPENSCENARIO
             return result;
         }
 
+  
+        StoryboardElementStateConditionXmlParser::StoryboardElementStateConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -4742,6 +6840,8 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            SunXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+
         std::map<std::string, std::shared_ptr<IAttributeParser<SunImpl>>> SunXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<SunImpl>>> result;
@@ -4845,6 +6945,13 @@ namespace NET_ASAM_OPENSCENARIO
             return result;
         }
 
+  
+        SunXmlParser::SunXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -4852,6 +6959,9 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            SynchronizeActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+
+
         std::map<std::string, std::shared_ptr<IAttributeParser<SynchronizeActionImpl>>> SynchronizeActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<SynchronizeActionImpl>>> result;
@@ -4914,6 +7024,29 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetTargetPositionMaster(targetPositionMaster);
         }
+        
+        int SynchronizeActionXmlParser::SubElementTargetPositionMasterParser::GetMinOccur() 
+        {
+            return 1;
+        }
+
+        int SynchronizeActionXmlParser::SubElementTargetPositionMasterParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool SynchronizeActionXmlParser::SubElementTargetPositionMasterParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__TARGET_POSITION_MASTER ;
+        }
+
+        std::vector<std::string> SynchronizeActionXmlParser::SubElementTargetPositionMasterParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__TARGET_POSITION_MASTER
+                    };
+        }
         SynchronizeActionXmlParser::SubElementTargetPositionParser::SubElementTargetPositionParser(IParserMessageLogger& messageLogger, std::string& filename)
         {
             _positionXmlParser = std::make_shared<PositionXmlParser>(messageLogger, filename);
@@ -4927,6 +7060,29 @@ namespace NET_ASAM_OPENSCENARIO
             _positionXmlParser->ParseElement(indexedElement, parserContext, targetPosition);
 
             object->SetTargetPosition(targetPosition);
+        }
+        
+        int SynchronizeActionXmlParser::SubElementTargetPositionParser::GetMinOccur() 
+        {
+            return 1;
+        }
+
+        int SynchronizeActionXmlParser::SubElementTargetPositionParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool SynchronizeActionXmlParser::SubElementTargetPositionParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__TARGET_POSITION ;
+        }
+
+        std::vector<std::string> SynchronizeActionXmlParser::SubElementTargetPositionParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__TARGET_POSITION
+                    };
         }
         SynchronizeActionXmlParser::SubElementFinalSpeedParser::SubElementFinalSpeedParser(IParserMessageLogger& messageLogger, std::string& filename)
         {
@@ -4942,6 +7098,36 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetFinalSpeed(finalSpeed);
         }
+        
+        int SynchronizeActionXmlParser::SubElementFinalSpeedParser::GetMinOccur() 
+        {
+            return 0;
+        }
+
+        int SynchronizeActionXmlParser::SubElementFinalSpeedParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool SynchronizeActionXmlParser::SubElementFinalSpeedParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__FINAL_SPEED ;
+        }
+
+        std::vector<std::string> SynchronizeActionXmlParser::SubElementFinalSpeedParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__FINAL_SPEED
+                    };
+        }
+  
+        SynchronizeActionXmlParser::SynchronizeActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -4949,6 +7135,8 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            TeleportActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+
         std::map<std::string, std::shared_ptr<IAttributeParser<TeleportActionImpl>>> TeleportActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<TeleportActionImpl>>> result;
@@ -4977,6 +7165,36 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetPosition(position);
         }
+        
+        int TeleportActionXmlParser::SubElementPositionParser::GetMinOccur() 
+        {
+            return 1;
+        }
+
+        int TeleportActionXmlParser::SubElementPositionParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool TeleportActionXmlParser::SubElementPositionParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__POSITION ;
+        }
+
+        std::vector<std::string> TeleportActionXmlParser::SubElementPositionParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__POSITION
+                    };
+        }
+  
+        TeleportActionXmlParser::TeleportActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -4984,6 +7202,8 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            TimeHeadwayConditionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+
         std::map<std::string, std::shared_ptr<IAttributeParser<TimeHeadwayConditionImpl>>> TimeHeadwayConditionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<TimeHeadwayConditionImpl>>> result;
@@ -5158,6 +7378,13 @@ namespace NET_ASAM_OPENSCENARIO
             return result;
         }
 
+  
+        TimeHeadwayConditionXmlParser::TimeHeadwayConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -5165,6 +7392,8 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            TimeOfDayXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+
         std::map<std::string, std::shared_ptr<IAttributeParser<TimeOfDayImpl>>> TimeOfDayXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<TimeOfDayImpl>>> result;
@@ -5238,6 +7467,13 @@ namespace NET_ASAM_OPENSCENARIO
             return result;
         }
 
+  
+        TimeOfDayXmlParser::TimeOfDayXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -5245,6 +7481,8 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            TimeOfDayConditionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+
         std::map<std::string, std::shared_ptr<IAttributeParser<TimeOfDayConditionImpl>>> TimeOfDayConditionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<TimeOfDayConditionImpl>>> result;
@@ -5327,6 +7565,13 @@ namespace NET_ASAM_OPENSCENARIO
             return result;
         }
 
+  
+        TimeOfDayConditionXmlParser::TimeOfDayConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -5334,6 +7579,9 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            TimeReferenceXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+
+
         std::map<std::string, std::shared_ptr<IAttributeParser<TimeReferenceImpl>>> TimeReferenceXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<TimeReferenceImpl>>> result;
@@ -5363,6 +7611,29 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetNone(none);
         }
+        
+        int TimeReferenceXmlParser::SubElementNoneParser::GetMinOccur() 
+        {
+            return 0;
+        }
+
+        int TimeReferenceXmlParser::SubElementNoneParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool TimeReferenceXmlParser::SubElementNoneParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__NONE ;
+        }
+
+        std::vector<std::string> TimeReferenceXmlParser::SubElementNoneParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__NONE
+                    };
+        }
         TimeReferenceXmlParser::SubElementTimingParser::SubElementTimingParser(IParserMessageLogger& messageLogger, std::string& filename)
         {
             _timingXmlParser = std::make_shared<TimingXmlParser>(messageLogger, filename);
@@ -5377,6 +7648,36 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetTiming(timing);
         }
+        
+        int TimeReferenceXmlParser::SubElementTimingParser::GetMinOccur() 
+        {
+            return 0;
+        }
+
+        int TimeReferenceXmlParser::SubElementTimingParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool TimeReferenceXmlParser::SubElementTimingParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__TIMING ;
+        }
+
+        std::vector<std::string> TimeReferenceXmlParser::SubElementTimingParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__TIMING
+                    };
+        }
+  
+        TimeReferenceXmlParser::TimeReferenceXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -5384,6 +7685,9 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            TimeToCollisionConditionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+
+
         std::map<std::string, std::shared_ptr<IAttributeParser<TimeToCollisionConditionImpl>>> TimeToCollisionConditionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<TimeToCollisionConditionImpl>>> result;
@@ -5541,6 +7845,36 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetTimeToCollisionConditionTarget(timeToCollisionConditionTarget);
         }
+        
+        int TimeToCollisionConditionXmlParser::SubElementTimeToCollisionConditionTargetParser::GetMinOccur() 
+        {
+            return 1;
+        }
+
+        int TimeToCollisionConditionXmlParser::SubElementTimeToCollisionConditionTargetParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool TimeToCollisionConditionXmlParser::SubElementTimeToCollisionConditionTargetParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__TIME_TO_COLLISION_CONDITION_TARGET ;
+        }
+
+        std::vector<std::string> TimeToCollisionConditionXmlParser::SubElementTimeToCollisionConditionTargetParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__TIME_TO_COLLISION_CONDITION_TARGET
+                    };
+        }
+  
+        TimeToCollisionConditionXmlParser::TimeToCollisionConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -5548,6 +7882,9 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            TimeToCollisionConditionTargetXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+
+
         std::map<std::string, std::shared_ptr<IAttributeParser<TimeToCollisionConditionTargetImpl>>> TimeToCollisionConditionTargetXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<TimeToCollisionConditionTargetImpl>>> result;
@@ -5577,6 +7914,29 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetPosition(position);
         }
+        
+        int TimeToCollisionConditionTargetXmlParser::SubElementPositionParser::GetMinOccur() 
+        {
+            return 0;
+        }
+
+        int TimeToCollisionConditionTargetXmlParser::SubElementPositionParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool TimeToCollisionConditionTargetXmlParser::SubElementPositionParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__POSITION ;
+        }
+
+        std::vector<std::string> TimeToCollisionConditionTargetXmlParser::SubElementPositionParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__POSITION
+                    };
+        }
         TimeToCollisionConditionTargetXmlParser::SubElementEntityRefParser::SubElementEntityRefParser(IParserMessageLogger& messageLogger, std::string& filename)
         {
             _entityRefXmlParser = std::make_shared<EntityRefXmlParser>(messageLogger, filename);
@@ -5591,6 +7951,36 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetEntityRef(entityRef);
         }
+        
+        int TimeToCollisionConditionTargetXmlParser::SubElementEntityRefParser::GetMinOccur() 
+        {
+            return 0;
+        }
+
+        int TimeToCollisionConditionTargetXmlParser::SubElementEntityRefParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool TimeToCollisionConditionTargetXmlParser::SubElementEntityRefParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__ENTITY_REF ;
+        }
+
+        std::vector<std::string> TimeToCollisionConditionTargetXmlParser::SubElementEntityRefParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__ENTITY_REF
+                    };
+        }
+  
+        TimeToCollisionConditionTargetXmlParser::TimeToCollisionConditionTargetXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -5598,6 +7988,8 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            TimingXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+
         std::map<std::string, std::shared_ptr<IAttributeParser<TimingImpl>>> TimingXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<TimingImpl>>> result;
@@ -5710,6 +8102,13 @@ namespace NET_ASAM_OPENSCENARIO
             return result;
         }
 
+  
+        TimingXmlParser::TimingXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -5717,6 +8116,9 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            TrafficActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+
+
         std::map<std::string, std::shared_ptr<IAttributeParser<TrafficActionImpl>>> TrafficActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<TrafficActionImpl>>> result;
@@ -5747,6 +8149,29 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetTrafficSourceAction(trafficSourceAction);
         }
+        
+        int TrafficActionXmlParser::SubElementTrafficSourceActionParser::GetMinOccur() 
+        {
+            return 0;
+        }
+
+        int TrafficActionXmlParser::SubElementTrafficSourceActionParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool TrafficActionXmlParser::SubElementTrafficSourceActionParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__TRAFFIC_SOURCE_ACTION ;
+        }
+
+        std::vector<std::string> TrafficActionXmlParser::SubElementTrafficSourceActionParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__TRAFFIC_SOURCE_ACTION
+                    };
+        }
         TrafficActionXmlParser::SubElementTrafficSinkActionParser::SubElementTrafficSinkActionParser(IParserMessageLogger& messageLogger, std::string& filename)
         {
             _trafficSinkActionXmlParser = std::make_shared<TrafficSinkActionXmlParser>(messageLogger, filename);
@@ -5760,6 +8185,29 @@ namespace NET_ASAM_OPENSCENARIO
             _trafficSinkActionXmlParser->ParseElement(indexedElement, parserContext, trafficSinkAction);
 
             object->SetTrafficSinkAction(trafficSinkAction);
+        }
+        
+        int TrafficActionXmlParser::SubElementTrafficSinkActionParser::GetMinOccur() 
+        {
+            return 0;
+        }
+
+        int TrafficActionXmlParser::SubElementTrafficSinkActionParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool TrafficActionXmlParser::SubElementTrafficSinkActionParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__TRAFFIC_SINK_ACTION ;
+        }
+
+        std::vector<std::string> TrafficActionXmlParser::SubElementTrafficSinkActionParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__TRAFFIC_SINK_ACTION
+                    };
         }
         TrafficActionXmlParser::SubElementTrafficSwarmActionParser::SubElementTrafficSwarmActionParser(IParserMessageLogger& messageLogger, std::string& filename)
         {
@@ -5775,6 +8223,36 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetTrafficSwarmAction(trafficSwarmAction);
         }
+        
+        int TrafficActionXmlParser::SubElementTrafficSwarmActionParser::GetMinOccur() 
+        {
+            return 0;
+        }
+
+        int TrafficActionXmlParser::SubElementTrafficSwarmActionParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool TrafficActionXmlParser::SubElementTrafficSwarmActionParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__TRAFFIC_SWARM_ACTION ;
+        }
+
+        std::vector<std::string> TrafficActionXmlParser::SubElementTrafficSwarmActionParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__TRAFFIC_SWARM_ACTION
+                    };
+        }
+  
+        TrafficActionXmlParser::TrafficActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -5782,6 +8260,9 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            TrafficDefinitionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+
+
         std::map<std::string, std::shared_ptr<IAttributeParser<TrafficDefinitionImpl>>> TrafficDefinitionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<TrafficDefinitionImpl>>> result;
@@ -5841,6 +8322,29 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetVehicleCategoryDistribution(vehicleCategoryDistribution);
         }
+        
+        int TrafficDefinitionXmlParser::SubElementVehicleCategoryDistributionParser::GetMinOccur() 
+        {
+            return 1;
+        }
+
+        int TrafficDefinitionXmlParser::SubElementVehicleCategoryDistributionParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool TrafficDefinitionXmlParser::SubElementVehicleCategoryDistributionParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__VEHICLE_CATEGORY_DISTRIBUTION ;
+        }
+
+        std::vector<std::string> TrafficDefinitionXmlParser::SubElementVehicleCategoryDistributionParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__VEHICLE_CATEGORY_DISTRIBUTION
+                    };
+        }
         TrafficDefinitionXmlParser::SubElementControllerDistributionParser::SubElementControllerDistributionParser(IParserMessageLogger& messageLogger, std::string& filename)
         {
             _controllerDistributionXmlParser = std::make_shared<ControllerDistributionXmlParser>(messageLogger, filename);
@@ -5855,6 +8359,36 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetControllerDistribution(controllerDistribution);
         }
+        
+        int TrafficDefinitionXmlParser::SubElementControllerDistributionParser::GetMinOccur() 
+        {
+            return 1;
+        }
+
+        int TrafficDefinitionXmlParser::SubElementControllerDistributionParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool TrafficDefinitionXmlParser::SubElementControllerDistributionParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__CONTROLLER_DISTRIBUTION ;
+        }
+
+        std::vector<std::string> TrafficDefinitionXmlParser::SubElementControllerDistributionParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__CONTROLLER_DISTRIBUTION
+                    };
+        }
+  
+        TrafficDefinitionXmlParser::TrafficDefinitionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -5862,6 +8396,9 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            TrafficSignalActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+
+
         std::map<std::string, std::shared_ptr<IAttributeParser<TrafficSignalActionImpl>>> TrafficSignalActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<TrafficSignalActionImpl>>> result;
@@ -5891,6 +8428,29 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetTrafficSignalControllerAction(trafficSignalControllerAction);
         }
+        
+        int TrafficSignalActionXmlParser::SubElementTrafficSignalControllerActionParser::GetMinOccur() 
+        {
+            return 0;
+        }
+
+        int TrafficSignalActionXmlParser::SubElementTrafficSignalControllerActionParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool TrafficSignalActionXmlParser::SubElementTrafficSignalControllerActionParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__TRAFFIC_SIGNAL_CONTROLLER_ACTION ;
+        }
+
+        std::vector<std::string> TrafficSignalActionXmlParser::SubElementTrafficSignalControllerActionParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__TRAFFIC_SIGNAL_CONTROLLER_ACTION
+                    };
+        }
         TrafficSignalActionXmlParser::SubElementTrafficSignalStateActionParser::SubElementTrafficSignalStateActionParser(IParserMessageLogger& messageLogger, std::string& filename)
         {
             _trafficSignalStateActionXmlParser = std::make_shared<TrafficSignalStateActionXmlParser>(messageLogger, filename);
@@ -5905,6 +8465,36 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetTrafficSignalStateAction(trafficSignalStateAction);
         }
+        
+        int TrafficSignalActionXmlParser::SubElementTrafficSignalStateActionParser::GetMinOccur() 
+        {
+            return 0;
+        }
+
+        int TrafficSignalActionXmlParser::SubElementTrafficSignalStateActionParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool TrafficSignalActionXmlParser::SubElementTrafficSignalStateActionParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__TRAFFIC_SIGNAL_STATE_ACTION ;
+        }
+
+        std::vector<std::string> TrafficSignalActionXmlParser::SubElementTrafficSignalStateActionParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__TRAFFIC_SIGNAL_STATE_ACTION
+                    };
+        }
+  
+        TrafficSignalActionXmlParser::TrafficSignalActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -5912,6 +8502,8 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            TrafficSignalConditionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+
         std::map<std::string, std::shared_ptr<IAttributeParser<TrafficSignalConditionImpl>>> TrafficSignalConditionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<TrafficSignalConditionImpl>>> result;
@@ -5985,6 +8577,13 @@ namespace NET_ASAM_OPENSCENARIO
             return result;
         }
 
+  
+        TrafficSignalConditionXmlParser::TrafficSignalConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -5992,6 +8591,8 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            TrafficSignalControllerXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+
         std::map<std::string, std::shared_ptr<IAttributeParser<TrafficSignalControllerImpl>>> TrafficSignalControllerXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<TrafficSignalControllerImpl>>> result;
@@ -6111,6 +8712,36 @@ namespace NET_ASAM_OPENSCENARIO
             phasesList.push_back(phases);
             object->SetPhases(phasesList);
         }
+        
+        int TrafficSignalControllerXmlParser::SubElementPhasesParser::GetMinOccur() 
+        {
+            return 0;
+        }
+
+        int TrafficSignalControllerXmlParser::SubElementPhasesParser::GetMaxOccur() 
+        {
+            return -1;
+        }
+
+        bool TrafficSignalControllerXmlParser::SubElementPhasesParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__PHASE ;
+        }
+
+        std::vector<std::string> TrafficSignalControllerXmlParser::SubElementPhasesParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__PHASE
+                    };
+        }
+  
+        TrafficSignalControllerXmlParser::TrafficSignalControllerXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -6118,6 +8749,8 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            TrafficSignalControllerActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+
         std::map<std::string, std::shared_ptr<IAttributeParser<TrafficSignalControllerActionImpl>>> TrafficSignalControllerActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<TrafficSignalControllerActionImpl>>> result;
@@ -6193,6 +8826,13 @@ namespace NET_ASAM_OPENSCENARIO
             return result;
         }
 
+  
+        TrafficSignalControllerActionXmlParser::TrafficSignalControllerActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -6200,6 +8840,8 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            TrafficSignalControllerConditionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+
         std::map<std::string, std::shared_ptr<IAttributeParser<TrafficSignalControllerConditionImpl>>> TrafficSignalControllerConditionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<TrafficSignalControllerConditionImpl>>> result;
@@ -6275,6 +8917,13 @@ namespace NET_ASAM_OPENSCENARIO
             return result;
         }
 
+  
+        TrafficSignalControllerConditionXmlParser::TrafficSignalControllerConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -6282,6 +8931,8 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            TrafficSignalStateXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+
         std::map<std::string, std::shared_ptr<IAttributeParser<TrafficSignalStateImpl>>> TrafficSignalStateXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<TrafficSignalStateImpl>>> result;
@@ -6355,6 +9006,13 @@ namespace NET_ASAM_OPENSCENARIO
             return result;
         }
 
+  
+        TrafficSignalStateXmlParser::TrafficSignalStateXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -6362,6 +9020,8 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            TrafficSignalStateActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+
         std::map<std::string, std::shared_ptr<IAttributeParser<TrafficSignalStateActionImpl>>> TrafficSignalStateActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<TrafficSignalStateActionImpl>>> result;
@@ -6435,6 +9095,13 @@ namespace NET_ASAM_OPENSCENARIO
             return result;
         }
 
+  
+        TrafficSignalStateActionXmlParser::TrafficSignalStateActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -6442,6 +9109,9 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            TrafficSinkActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+
+
         std::map<std::string, std::shared_ptr<IAttributeParser<TrafficSinkActionImpl>>> TrafficSinkActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<TrafficSinkActionImpl>>> result;
@@ -6531,6 +9201,29 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetPosition(position);
         }
+        
+        int TrafficSinkActionXmlParser::SubElementPositionParser::GetMinOccur() 
+        {
+            return 1;
+        }
+
+        int TrafficSinkActionXmlParser::SubElementPositionParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool TrafficSinkActionXmlParser::SubElementPositionParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__POSITION ;
+        }
+
+        std::vector<std::string> TrafficSinkActionXmlParser::SubElementPositionParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__POSITION
+                    };
+        }
         TrafficSinkActionXmlParser::SubElementTrafficDefinitionParser::SubElementTrafficDefinitionParser(IParserMessageLogger& messageLogger, std::string& filename)
         {
             _trafficDefinitionXmlParser = std::make_shared<TrafficDefinitionXmlParser>(messageLogger, filename);
@@ -6545,6 +9238,36 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetTrafficDefinition(trafficDefinition);
         }
+        
+        int TrafficSinkActionXmlParser::SubElementTrafficDefinitionParser::GetMinOccur() 
+        {
+            return 0;
+        }
+
+        int TrafficSinkActionXmlParser::SubElementTrafficDefinitionParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool TrafficSinkActionXmlParser::SubElementTrafficDefinitionParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__TRAFFIC_DEFINITION ;
+        }
+
+        std::vector<std::string> TrafficSinkActionXmlParser::SubElementTrafficDefinitionParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__TRAFFIC_DEFINITION
+                    };
+        }
+  
+        TrafficSinkActionXmlParser::TrafficSinkActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -6552,6 +9275,9 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            TrafficSourceActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+
+
         std::map<std::string, std::shared_ptr<IAttributeParser<TrafficSourceActionImpl>>> TrafficSourceActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<TrafficSourceActionImpl>>> result;
@@ -6671,6 +9397,29 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetPosition(position);
         }
+        
+        int TrafficSourceActionXmlParser::SubElementPositionParser::GetMinOccur() 
+        {
+            return 1;
+        }
+
+        int TrafficSourceActionXmlParser::SubElementPositionParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool TrafficSourceActionXmlParser::SubElementPositionParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__POSITION ;
+        }
+
+        std::vector<std::string> TrafficSourceActionXmlParser::SubElementPositionParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__POSITION
+                    };
+        }
         TrafficSourceActionXmlParser::SubElementTrafficDefinitionParser::SubElementTrafficDefinitionParser(IParserMessageLogger& messageLogger, std::string& filename)
         {
             _trafficDefinitionXmlParser = std::make_shared<TrafficDefinitionXmlParser>(messageLogger, filename);
@@ -6685,6 +9434,36 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetTrafficDefinition(trafficDefinition);
         }
+        
+        int TrafficSourceActionXmlParser::SubElementTrafficDefinitionParser::GetMinOccur() 
+        {
+            return 1;
+        }
+
+        int TrafficSourceActionXmlParser::SubElementTrafficDefinitionParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool TrafficSourceActionXmlParser::SubElementTrafficDefinitionParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__TRAFFIC_DEFINITION ;
+        }
+
+        std::vector<std::string> TrafficSourceActionXmlParser::SubElementTrafficDefinitionParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__TRAFFIC_DEFINITION
+                    };
+        }
+  
+        TrafficSourceActionXmlParser::TrafficSourceActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -6692,6 +9471,9 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            TrafficSwarmActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+
+
         std::map<std::string, std::shared_ptr<IAttributeParser<TrafficSwarmActionImpl>>> TrafficSwarmActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<TrafficSwarmActionImpl>>> result;
@@ -6901,6 +9683,29 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetCentralObject(centralObject);
         }
+        
+        int TrafficSwarmActionXmlParser::SubElementCentralObjectParser::GetMinOccur() 
+        {
+            return 1;
+        }
+
+        int TrafficSwarmActionXmlParser::SubElementCentralObjectParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool TrafficSwarmActionXmlParser::SubElementCentralObjectParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__CENTRAL_OBJECT ;
+        }
+
+        std::vector<std::string> TrafficSwarmActionXmlParser::SubElementCentralObjectParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__CENTRAL_OBJECT
+                    };
+        }
         TrafficSwarmActionXmlParser::SubElementTrafficDefinitionParser::SubElementTrafficDefinitionParser(IParserMessageLogger& messageLogger, std::string& filename)
         {
             _trafficDefinitionXmlParser = std::make_shared<TrafficDefinitionXmlParser>(messageLogger, filename);
@@ -6915,6 +9720,36 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetTrafficDefinition(trafficDefinition);
         }
+        
+        int TrafficSwarmActionXmlParser::SubElementTrafficDefinitionParser::GetMinOccur() 
+        {
+            return 1;
+        }
+
+        int TrafficSwarmActionXmlParser::SubElementTrafficDefinitionParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool TrafficSwarmActionXmlParser::SubElementTrafficDefinitionParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__TRAFFIC_DEFINITION ;
+        }
+
+        std::vector<std::string> TrafficSwarmActionXmlParser::SubElementTrafficDefinitionParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__TRAFFIC_DEFINITION
+                    };
+        }
+  
+        TrafficSwarmActionXmlParser::TrafficSwarmActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -6922,6 +9757,8 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            TrajectoryXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+
         std::map<std::string, std::shared_ptr<IAttributeParser<TrajectoryImpl>>> TrajectoryXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<TrajectoryImpl>>> result;
@@ -7012,6 +9849,26 @@ namespace NET_ASAM_OPENSCENARIO
             parameterDeclarationsList.push_back(parameterDeclarations);
             object->SetParameterDeclarations(parameterDeclarationsList);
         }
+        
+        int TrajectoryXmlParser::SubElementParameterDeclarationsParser::GetMinOccur() 
+        {
+            return 0;
+        }
+
+        int TrajectoryXmlParser::SubElementParameterDeclarationsParser::GetMaxOccur() 
+        {
+            return -1;
+        }
+
+        bool TrajectoryXmlParser::SubElementParameterDeclarationsParser::DoesMatch(std::string& elementName)
+        {
+            return elementName == OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION;
+        }
+
+        std::vector<std::string> TrajectoryXmlParser::SubElementParameterDeclarationsParser::GetExpectedTagNames()
+        {
+            return {OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION};
+        }
         TrajectoryXmlParser::SubElementShapeParser::SubElementShapeParser(IParserMessageLogger& messageLogger, std::string& filename)
         {
             _shapeXmlParser = std::make_shared<ShapeXmlParser>(messageLogger, filename);
@@ -7026,6 +9883,36 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetShape(shape);
         }
+        
+        int TrajectoryXmlParser::SubElementShapeParser::GetMinOccur() 
+        {
+            return 1;
+        }
+
+        int TrajectoryXmlParser::SubElementShapeParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool TrajectoryXmlParser::SubElementShapeParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__SHAPE ;
+        }
+
+        std::vector<std::string> TrajectoryXmlParser::SubElementShapeParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__SHAPE
+                    };
+        }
+  
+        TrajectoryXmlParser::TrajectoryXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -7033,6 +9920,9 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            TrajectoryCatalogLocationXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+
+
         std::map<std::string, std::shared_ptr<IAttributeParser<TrajectoryCatalogLocationImpl>>> TrajectoryCatalogLocationXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<TrajectoryCatalogLocationImpl>>> result;
@@ -7061,6 +9951,36 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetDirectory(directory);
         }
+        
+        int TrajectoryCatalogLocationXmlParser::SubElementDirectoryParser::GetMinOccur() 
+        {
+            return 1;
+        }
+
+        int TrajectoryCatalogLocationXmlParser::SubElementDirectoryParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool TrajectoryCatalogLocationXmlParser::SubElementDirectoryParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__DIRECTORY ;
+        }
+
+        std::vector<std::string> TrajectoryCatalogLocationXmlParser::SubElementDirectoryParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__DIRECTORY
+                    };
+        }
+  
+        TrajectoryCatalogLocationXmlParser::TrajectoryCatalogLocationXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -7068,6 +9988,8 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            TrajectoryFollowingModeXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+
         std::map<std::string, std::shared_ptr<IAttributeParser<TrajectoryFollowingModeImpl>>> TrajectoryFollowingModeXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<TrajectoryFollowingModeImpl>>> result;
@@ -7120,6 +10042,13 @@ namespace NET_ASAM_OPENSCENARIO
             return result;
         }
 
+  
+        TrajectoryFollowingModeXmlParser::TrajectoryFollowingModeXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -7127,6 +10056,8 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            TransitionDynamicsXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+
         std::map<std::string, std::shared_ptr<IAttributeParser<TransitionDynamicsImpl>>> TransitionDynamicsXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<TransitionDynamicsImpl>>> result;
@@ -7248,6 +10179,13 @@ namespace NET_ASAM_OPENSCENARIO
             return result;
         }
 
+  
+        TransitionDynamicsXmlParser::TransitionDynamicsXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -7255,6 +10193,8 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            TraveledDistanceConditionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+
         std::map<std::string, std::shared_ptr<IAttributeParser<TraveledDistanceConditionImpl>>> TraveledDistanceConditionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<TraveledDistanceConditionImpl>>> result;
@@ -7298,6 +10238,13 @@ namespace NET_ASAM_OPENSCENARIO
             return result;
         }
 
+  
+        TraveledDistanceConditionXmlParser::TraveledDistanceConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -7305,6 +10252,8 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            TriggerXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+
         std::map<std::string, std::shared_ptr<IAttributeParser<TriggerImpl>>> TriggerXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<TriggerImpl>>> result;
@@ -7334,6 +10283,36 @@ namespace NET_ASAM_OPENSCENARIO
             conditionGroupsList.push_back(conditionGroups);
             object->SetConditionGroups(conditionGroupsList);
         }
+        
+        int TriggerXmlParser::SubElementConditionGroupsParser::GetMinOccur() 
+        {
+            return 0;
+        }
+
+        int TriggerXmlParser::SubElementConditionGroupsParser::GetMaxOccur() 
+        {
+            return -1;
+        }
+
+        bool TriggerXmlParser::SubElementConditionGroupsParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__CONDITION_GROUP ;
+        }
+
+        std::vector<std::string> TriggerXmlParser::SubElementConditionGroupsParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__CONDITION_GROUP
+                    };
+        }
+  
+        TriggerXmlParser::TriggerXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -7341,6 +10320,8 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            TriggeringEntitiesXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+
         std::map<std::string, std::shared_ptr<IAttributeParser<TriggeringEntitiesImpl>>> TriggeringEntitiesXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<TriggeringEntitiesImpl>>> result;
@@ -7409,6 +10390,36 @@ namespace NET_ASAM_OPENSCENARIO
             entityRefsList.push_back(entityRefs);
             object->SetEntityRefs(entityRefsList);
         }
+        
+        int TriggeringEntitiesXmlParser::SubElementEntityRefsParser::GetMinOccur() 
+        {
+            return 1;
+        }
+
+        int TriggeringEntitiesXmlParser::SubElementEntityRefsParser::GetMaxOccur() 
+        {
+            return -1;
+        }
+
+        bool TriggeringEntitiesXmlParser::SubElementEntityRefsParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__ENTITY_REF ;
+        }
+
+        std::vector<std::string> TriggeringEntitiesXmlParser::SubElementEntityRefsParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__ENTITY_REF
+                    };
+        }
+  
+        TriggeringEntitiesXmlParser::TriggeringEntitiesXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -7416,6 +10427,8 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            UserDefinedActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+
         std::map<std::string, std::shared_ptr<IAttributeParser<UserDefinedActionImpl>>> UserDefinedActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<UserDefinedActionImpl>>> result;
@@ -7444,6 +10457,36 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetCustomCommandAction(customCommandAction);
         }
+        
+        int UserDefinedActionXmlParser::SubElementCustomCommandActionParser::GetMinOccur() 
+        {
+            return 1;
+        }
+
+        int UserDefinedActionXmlParser::SubElementCustomCommandActionParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool UserDefinedActionXmlParser::SubElementCustomCommandActionParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__CUSTOM_COMMAND_ACTION ;
+        }
+
+        std::vector<std::string> UserDefinedActionXmlParser::SubElementCustomCommandActionParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__CUSTOM_COMMAND_ACTION
+                    };
+        }
+  
+        UserDefinedActionXmlParser::UserDefinedActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -7451,6 +10494,8 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            UserDefinedValueConditionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+
         std::map<std::string, std::shared_ptr<IAttributeParser<UserDefinedValueConditionImpl>>> UserDefinedValueConditionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<UserDefinedValueConditionImpl>>> result;
@@ -7563,6 +10608,13 @@ namespace NET_ASAM_OPENSCENARIO
             return result;
         }
 
+  
+        UserDefinedValueConditionXmlParser::UserDefinedValueConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -7570,6 +10622,9 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            VehicleXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+
+
         std::map<std::string, std::shared_ptr<IAttributeParser<VehicleImpl>>> VehicleXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<VehicleImpl>>> result;
@@ -7672,6 +10727,26 @@ namespace NET_ASAM_OPENSCENARIO
             parameterDeclarationsList.push_back(parameterDeclarations);
             object->SetParameterDeclarations(parameterDeclarationsList);
         }
+        
+        int VehicleXmlParser::SubElementParameterDeclarationsParser::GetMinOccur() 
+        {
+            return 0;
+        }
+
+        int VehicleXmlParser::SubElementParameterDeclarationsParser::GetMaxOccur() 
+        {
+            return -1;
+        }
+
+        bool VehicleXmlParser::SubElementParameterDeclarationsParser::DoesMatch(std::string& elementName)
+        {
+            return elementName == OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION;
+        }
+
+        std::vector<std::string> VehicleXmlParser::SubElementParameterDeclarationsParser::GetExpectedTagNames()
+        {
+            return {OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION};
+        }
         VehicleXmlParser::SubElementBoundingBoxParser::SubElementBoundingBoxParser(IParserMessageLogger& messageLogger, std::string& filename)
         {
             _boundingBoxXmlParser = std::make_shared<BoundingBoxXmlParser>(messageLogger, filename);
@@ -7685,6 +10760,29 @@ namespace NET_ASAM_OPENSCENARIO
             _boundingBoxXmlParser->ParseElement(indexedElement, parserContext, boundingBox);
 
             object->SetBoundingBox(boundingBox);
+        }
+        
+        int VehicleXmlParser::SubElementBoundingBoxParser::GetMinOccur() 
+        {
+            return 1;
+        }
+
+        int VehicleXmlParser::SubElementBoundingBoxParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool VehicleXmlParser::SubElementBoundingBoxParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__BOUNDING_BOX ;
+        }
+
+        std::vector<std::string> VehicleXmlParser::SubElementBoundingBoxParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__BOUNDING_BOX
+                    };
         }
         VehicleXmlParser::SubElementPerformanceParser::SubElementPerformanceParser(IParserMessageLogger& messageLogger, std::string& filename)
         {
@@ -7700,6 +10798,29 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetPerformance(performance);
         }
+        
+        int VehicleXmlParser::SubElementPerformanceParser::GetMinOccur() 
+        {
+            return 1;
+        }
+
+        int VehicleXmlParser::SubElementPerformanceParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool VehicleXmlParser::SubElementPerformanceParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__PERFORMANCE ;
+        }
+
+        std::vector<std::string> VehicleXmlParser::SubElementPerformanceParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__PERFORMANCE
+                    };
+        }
         VehicleXmlParser::SubElementAxlesParser::SubElementAxlesParser(IParserMessageLogger& messageLogger, std::string& filename)
         {
             _axlesXmlParser = std::make_shared<AxlesXmlParser>(messageLogger, filename);
@@ -7713,6 +10834,29 @@ namespace NET_ASAM_OPENSCENARIO
             _axlesXmlParser->ParseElement(indexedElement, parserContext, axles);
 
             object->SetAxles(axles);
+        }
+        
+        int VehicleXmlParser::SubElementAxlesParser::GetMinOccur() 
+        {
+            return 1;
+        }
+
+        int VehicleXmlParser::SubElementAxlesParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool VehicleXmlParser::SubElementAxlesParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__AXLES ;
+        }
+
+        std::vector<std::string> VehicleXmlParser::SubElementAxlesParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__AXLES
+                    };
         }
         VehicleXmlParser::SubElementPropertiesParser::SubElementPropertiesParser(IParserMessageLogger& messageLogger, std::string& filename)
         {
@@ -7728,6 +10872,36 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetProperties(properties);
         }
+        
+        int VehicleXmlParser::SubElementPropertiesParser::GetMinOccur() 
+        {
+            return 1;
+        }
+
+        int VehicleXmlParser::SubElementPropertiesParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool VehicleXmlParser::SubElementPropertiesParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__PROPERTIES ;
+        }
+
+        std::vector<std::string> VehicleXmlParser::SubElementPropertiesParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__PROPERTIES
+                    };
+        }
+  
+        VehicleXmlParser::VehicleXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -7735,6 +10909,9 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            VehicleCatalogLocationXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+
+
         std::map<std::string, std::shared_ptr<IAttributeParser<VehicleCatalogLocationImpl>>> VehicleCatalogLocationXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<VehicleCatalogLocationImpl>>> result;
@@ -7763,6 +10940,36 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetDirectory(directory);
         }
+        
+        int VehicleCatalogLocationXmlParser::SubElementDirectoryParser::GetMinOccur() 
+        {
+            return 1;
+        }
+
+        int VehicleCatalogLocationXmlParser::SubElementDirectoryParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool VehicleCatalogLocationXmlParser::SubElementDirectoryParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__DIRECTORY ;
+        }
+
+        std::vector<std::string> VehicleCatalogLocationXmlParser::SubElementDirectoryParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__DIRECTORY
+                    };
+        }
+  
+        VehicleCatalogLocationXmlParser::VehicleCatalogLocationXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -7770,6 +10977,8 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            VehicleCategoryDistributionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+
         std::map<std::string, std::shared_ptr<IAttributeParser<VehicleCategoryDistributionImpl>>> VehicleCategoryDistributionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<VehicleCategoryDistributionImpl>>> result;
@@ -7799,6 +11008,36 @@ namespace NET_ASAM_OPENSCENARIO
             vehicleCategoryDistributionEntriesList.push_back(vehicleCategoryDistributionEntries);
             object->SetVehicleCategoryDistributionEntries(vehicleCategoryDistributionEntriesList);
         }
+        
+        int VehicleCategoryDistributionXmlParser::SubElementVehicleCategoryDistributionEntriesParser::GetMinOccur() 
+        {
+            return 1;
+        }
+
+        int VehicleCategoryDistributionXmlParser::SubElementVehicleCategoryDistributionEntriesParser::GetMaxOccur() 
+        {
+            return -1;
+        }
+
+        bool VehicleCategoryDistributionXmlParser::SubElementVehicleCategoryDistributionEntriesParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__VEHICLE_CATEGORY_DISTRIBUTION_ENTRY ;
+        }
+
+        std::vector<std::string> VehicleCategoryDistributionXmlParser::SubElementVehicleCategoryDistributionEntriesParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__VEHICLE_CATEGORY_DISTRIBUTION_ENTRY
+                    };
+        }
+  
+        VehicleCategoryDistributionXmlParser::VehicleCategoryDistributionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -7806,6 +11045,8 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            VehicleCategoryDistributionEntryXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+
         std::map<std::string, std::shared_ptr<IAttributeParser<VehicleCategoryDistributionEntryImpl>>> VehicleCategoryDistributionEntryXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<VehicleCategoryDistributionEntryImpl>>> result;
@@ -7888,6 +11129,13 @@ namespace NET_ASAM_OPENSCENARIO
             return result;
         }
 
+  
+        VehicleCategoryDistributionEntryXmlParser::VehicleCategoryDistributionEntryXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -7895,6 +11143,8 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            VertexXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+
         std::map<std::string, std::shared_ptr<IAttributeParser<VertexImpl>>> VertexXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<VertexImpl>>> result;
@@ -7953,6 +11203,36 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetPosition(position);
         }
+        
+        int VertexXmlParser::SubElementPositionParser::GetMinOccur() 
+        {
+            return 1;
+        }
+
+        int VertexXmlParser::SubElementPositionParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool VertexXmlParser::SubElementPositionParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__POSITION ;
+        }
+
+        std::vector<std::string> VertexXmlParser::SubElementPositionParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__POSITION
+                    };
+        }
+  
+        VertexXmlParser::VertexXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -7960,6 +11240,8 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            VisibilityActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+
         std::map<std::string, std::shared_ptr<IAttributeParser<VisibilityActionImpl>>> VisibilityActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<VisibilityActionImpl>>> result;
@@ -8063,6 +11345,13 @@ namespace NET_ASAM_OPENSCENARIO
             return result;
         }
 
+  
+        VisibilityActionXmlParser::VisibilityActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -8070,6 +11359,8 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            WaypointXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+
         std::map<std::string, std::shared_ptr<IAttributeParser<WaypointImpl>>> WaypointXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<WaypointImpl>>> result;
@@ -8137,6 +11428,36 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetPosition(position);
         }
+        
+        int WaypointXmlParser::SubElementPositionParser::GetMinOccur() 
+        {
+            return 1;
+        }
+
+        int WaypointXmlParser::SubElementPositionParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool WaypointXmlParser::SubElementPositionParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__POSITION ;
+        }
+
+        std::vector<std::string> WaypointXmlParser::SubElementPositionParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__POSITION
+                    };
+        }
+  
+        WaypointXmlParser::WaypointXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -8144,6 +11465,9 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            WeatherXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+
+
         std::map<std::string, std::shared_ptr<IAttributeParser<WeatherImpl>>> WeatherXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<WeatherImpl>>> result;
@@ -8213,6 +11537,29 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetSun(sun);
         }
+        
+        int WeatherXmlParser::SubElementSunParser::GetMinOccur() 
+        {
+            return 1;
+        }
+
+        int WeatherXmlParser::SubElementSunParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool WeatherXmlParser::SubElementSunParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__SUN ;
+        }
+
+        std::vector<std::string> WeatherXmlParser::SubElementSunParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__SUN
+                    };
+        }
         WeatherXmlParser::SubElementFogParser::SubElementFogParser(IParserMessageLogger& messageLogger, std::string& filename)
         {
             _fogXmlParser = std::make_shared<FogXmlParser>(messageLogger, filename);
@@ -8226,6 +11573,29 @@ namespace NET_ASAM_OPENSCENARIO
             _fogXmlParser->ParseElement(indexedElement, parserContext, fog);
 
             object->SetFog(fog);
+        }
+        
+        int WeatherXmlParser::SubElementFogParser::GetMinOccur() 
+        {
+            return 1;
+        }
+
+        int WeatherXmlParser::SubElementFogParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool WeatherXmlParser::SubElementFogParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__FOG ;
+        }
+
+        std::vector<std::string> WeatherXmlParser::SubElementFogParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__FOG
+                    };
         }
         WeatherXmlParser::SubElementPrecipitationParser::SubElementPrecipitationParser(IParserMessageLogger& messageLogger, std::string& filename)
         {
@@ -8241,6 +11611,36 @@ namespace NET_ASAM_OPENSCENARIO
 
             object->SetPrecipitation(precipitation);
         }
+        
+        int WeatherXmlParser::SubElementPrecipitationParser::GetMinOccur() 
+        {
+            return 1;
+        }
+
+        int WeatherXmlParser::SubElementPrecipitationParser::GetMaxOccur() 
+        {
+            return 1;
+        }
+
+        bool WeatherXmlParser::SubElementPrecipitationParser::DoesMatch(std::string& elementName)
+        {
+            return
+                elementName == OSC_CONSTANTS::ELEMENT__PRECIPITATION ;
+        }
+
+        std::vector<std::string> WeatherXmlParser::SubElementPrecipitationParser::GetExpectedTagNames()
+        {
+            return {
+                OSC_CONSTANTS::ELEMENT__PRECIPITATION
+                    };
+        }
+  
+        WeatherXmlParser::WeatherXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
@@ -8248,6 +11648,8 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
+            WorldPositionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+
         std::map<std::string, std::shared_ptr<IAttributeParser<WorldPositionImpl>>> WorldPositionXmlParser::GetAttributeNameToAttributeParserMap()
         {
             std::map<std::string, std::shared_ptr<IAttributeParser<WorldPositionImpl>>> result;
@@ -8441,6 +11843,14 @@ namespace NET_ASAM_OPENSCENARIO
             return result;
         }
 
+  
+        WorldPositionXmlParser::WorldPositionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        XmlComplexTypeParser(messageLogger, filename)
+        {
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+        }
+        
 
+    
     }
 }

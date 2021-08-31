@@ -60,70 +60,35 @@ namespace NET_ASAM_OPENSCENARIO
             /**
              * Default Constructor
              */
-            <%=element.name.toClassName()%>()
-            {
-                _literal = k<%=element.name.toClassName()%>EnumString[0];
-                _<%=element.name.toMemberName()%>Enum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP <%=element.name.toClassName()%>();
 
-            <%=element.name.toClassName()%>(<%=element.name.toClassName()%>Enum& <%=element.name.toMemberName()%>)
-            {
-                _literal = k<%=element.name.toClassName()%>EnumString[<%=element.name.toMemberName()%>+1];
-                _<%=element.name.toMemberName()%>Enum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP <%=element.name.toClassName()%>(<%=element.name.toClassName()%>Enum& <%=element.name.toMemberName()%>);
 
-            <%=element.name.toClassName()%>(const <%=element.name.toClassName()%>Enum <%=element.name.toMemberName()%>)
-            {
-                _literal = k<%=element.name.toClassName()%>EnumString[<%=element.name.toMemberName()%>+1];
-                _<%=element.name.toMemberName()%>Enum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP <%=element.name.toClassName()%>(const <%=element.name.toClassName()%>Enum <%=element.name.toMemberName()%>);
 
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO
              */
-            <%=element.name.toClassName()%>(std::string& literal_):_literal(literal_) 
-            {
-                _<%=element.name.toMemberName()%>Enum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP <%=element.name.toClassName()%>(std::string& literal_);
 
             /**
              * The literal from this enumeration value.
              * @return the literal as defined in OpenSCENARIO
              */
-            std::string GetLiteral() const { return _literal;}
+            OPENSCENARIOLIB_EXP std::string GetLiteral() const;
 
-            <%=element.name.toClassName()%>& operator= (const <%=element.name.toClassName()%>Enum &rhs)
-            {
-                _<%=element.name.toMemberName()%>Enum = rhs;
-                _literal = k<%=element.name.toClassName()%>EnumString[_<%=element.name.toMemberName()%>Enum+1];
-                return *this;
-            }
+            OPENSCENARIOLIB_EXP <%=element.name.toClassName()%>& operator= (const <%=element.name.toClassName()%>Enum &rhs);
 
-            <%=element.name.toClassName()%>& operator= (const <%=element.name.toClassName()%> &rhs ) 
-            { 
-                _literal = rhs._literal;
-                _<%=element.name.toMemberName()%>Enum = rhs._<%=element.name.toMemberName()%>Enum;
-                return *this;
-            }
+            OPENSCENARIOLIB_EXP <%=element.name.toClassName()%>& operator= (const <%=element.name.toClassName()%> &rhs );
 
-            bool operator== (const <%=element.name.toClassName()%>Enum &rhs) const
-            {
-                return _<%=element.name.toMemberName()%>Enum == rhs;
-            }
-
+            OPENSCENARIOLIB_EXP bool operator== (const <%=element.name.toClassName()%>Enum &rhs) const;
             /**
              * The enumeration value from the literal
              * @param literal_ as defined in OpenSCENARIO
              * @return the enumeration value
              */
-            static <%=element.name.toClassName()%>Enum GetFromLiteral(const std::string literal_)
-            {
-                const auto kIt = _stringToEnum.find(literal_);
-                if (kIt != _stringToEnum.end())
-                    return kIt->second;
-                return UNKNOWN;
-            }
+            OPENSCENARIOLIB_EXP static <%=element.name.toClassName()%>Enum GetFromLiteral(const std::string literal_);
 
         };
 

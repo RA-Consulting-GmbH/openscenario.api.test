@@ -57,52 +57,46 @@ namespace NET_ASAM_OPENSCENARIO
 
 <%=helper.makeGetterCppDoc(element, property, "            ")%>
 <%- if (property.isProxy() && !property.isList()){-%>
-            virtual void Set<%=property.name.toClassName()%>(std::shared_ptr<INamedReference<<%=property.type.toCppTemplateName()%>>> <%=property.name.toMemberName()%>) {}
+            virtual void Set<%=property.name.toClassName()%>(std::shared_ptr<INamedReference<<%=property.type.toCppTemplateName()%>>> <%=property.name.toMemberName()%>) = 0;
 <%}else if (property.isTransient() && property.isList()){-%>
-            virtual void Set<%=property.name.toClassName()%>(std::vector<<%=property.type.toCppName()%>>& <%=property.name.toMemberName()%>) {}
+            virtual void Set<%=property.name.toClassName()%>(std::vector<<%=property.type.toCppName()%>>& <%=property.name.toMemberName()%>) = 0;
 <%}else if (property.isTransient() && !property.isList()){-%>
-            virtual void Set<%=property.name.toClassName()%>(const <%=property.type.toCppName()%> <%=property.name.toMemberName()%>) {}
+            virtual void Set<%=property.name.toClassName()%>(const <%=property.type.toCppName()%> <%=property.name.toMemberName()%>) = 0;
 <%}else if (property.isXmlElementProperty() && !property.isList()){-%>
-            virtual void Set<%=property.name.toClassName()%>(<%=property.type.toCppWriterName()%> <%=property.name.toMemberName()%>) {}
+            virtual void Set<%=property.name.toClassName()%>(<%=property.type.toCppWriterName()%> <%=property.name.toMemberName()%>)  = 0;
 <%}else if (property.isXmlElementProperty() && property.isList()){-%>
-            virtual void Set<%=property.name.toClassName()%>(std::vector<<%=property.type.toCppWriterName()%>>& <%=property.name.toMemberName()%>) {}
+            virtual void Set<%=property.name.toClassName()%>(std::vector<<%=property.type.toCppWriterName()%>>& <%=property.name.toMemberName()%>)  = 0;
 <%}else {-%>
-            virtual void Set<%=property.name.toClassName()%>(const <%=property.type.toCppName()%> <%=property.name.toMemberName()%>) {}
+            virtual void Set<%=property.name.toClassName()%>(const <%=property.type.toCppName()%> <%=property.name.toMemberName()%>)  = 0;
 <%-}}-%>
 
 <%properties = element.getParametrizableAttributes()-%>
 <%-properties.each{ property ->-%>
 <%=helper.makeAttributeSetterParameterCppDoc(element, property, "            ")%>
-            virtual void WriteParameterTo<%=property.name.toClassName()%>(std::string& parameterName) {}
+            virtual void WriteParameterTo<%=property.name.toClassName()%>(std::string& parameterName)  = 0;
 <%-}-%>
 
 <%-properties.each{ property ->-%>
 <%=helper.makeAttributeGetterParameterCppDoc(element, property, "            ")%>
-            virtual std::string GetParameterFrom<%=property.name.toClassName()%>() const { return ""; }
+            virtual std::string GetParameterFrom<%=property.name.toClassName()%>() const  = 0;
 <%-}-%>
 
 <%-properties.each{ property ->-%>
 <%=helper.makeIsParameterizedCppDoc(element, property, "            ")%>
-            virtual bool Is<%=property.name.toClassName()%>Parameterized() { return false; }
+            virtual bool Is<%=property.name.toClassName()%>Parameterized()  = 0;
 <%-}-%>
 
             // children
 <%-properties = element.getXmlElementProperties().findAll(){ !it.isList() }-%>
 <%-properties.each{ property ->-%>
 <%=helper.makeChildWriterGetterCppDoc(element, property, "            ")%>
-            virtual <%=property.type.toCppWriterName()%> GetWriter<%=property.name.toClassName()%>() const 
-            {
-                return <%=property.type.toCppDefaultValue()%>;
-            } 
+            virtual <%=property.type.toCppWriterName()%> GetWriter<%=property.name.toClassName()%>() const  = 0;
 <%-}-%>
 
 <%-properties = element.getXmlElementProperties().findAll(){ it.isList() }-%>
 <%-properties.each{ property ->-%>
 <%=helper.makeChildListWriterGetterCppDoc(element, property, "            ")%>
-            virtual std::vector<<%=property.type.toCppWriterName()%>> GetWriter<%=property.name.toClassName()%>() const
-            {
-                return std::vector<<%=property.type.toCppWriterName()%>>();
-            }
+            virtual std::vector<<%=property.type.toCppWriterName()%>> GetWriter<%=property.name.toClassName()%>() const = 0;
 <%-}-%>
         };
 

@@ -37,7 +37,7 @@
 namespace NET_ASAM_OPENSCENARIO
 {
     template <class T>
-    class UnionCheckerRule:  public IOpenScenarioModelElement, public ModelCheckerRule<T>
+    class UnionCheckerRule:  public ModelCheckerRule<T>
     {
     public:
         UnionCheckerRule() = default;

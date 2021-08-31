@@ -236,7 +236,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<AbsoluteSpeedImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -249,7 +248,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -264,12 +263,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            AbsoluteSpeedXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            AbsoluteSpeedXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -284,7 +278,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<AbsoluteTargetLaneImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -297,7 +290,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -312,12 +305,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            AbsoluteTargetLaneXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            AbsoluteTargetLaneXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -332,7 +320,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<AbsoluteTargetLaneOffsetImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -345,7 +332,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -360,12 +347,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            AbsoluteTargetLaneOffsetXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            AbsoluteTargetLaneOffsetXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -380,7 +362,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<AbsoluteTargetSpeedImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -393,7 +374,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -408,12 +389,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            AbsoluteTargetSpeedXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            AbsoluteTargetSpeedXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -428,7 +404,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<AccelerationConditionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -441,7 +416,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -456,12 +431,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            AccelerationConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            AccelerationConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -476,7 +446,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<AcquirePositionActionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -489,7 +458,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -514,27 +483,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AcquirePositionActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__POSITION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__POSITION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -544,12 +499,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            AcquirePositionActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            AcquirePositionActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -564,7 +514,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<ActImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -577,7 +526,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -601,27 +550,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ActImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return -1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__MANEUVER_GROUP ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__MANEUVER_GROUP
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -640,27 +575,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ActImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__START_TRIGGER ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__START_TRIGGER
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -679,27 +600,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ActImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__STOP_TRIGGER ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__STOP_TRIGGER
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -709,12 +616,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            ActXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            ActXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -729,7 +631,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<ActionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -742,7 +643,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -767,27 +668,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__GLOBAL_ACTION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__GLOBAL_ACTION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -806,27 +693,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__USER_DEFINED_ACTION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__USER_DEFINED_ACTION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -845,27 +718,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__PRIVATE_ACTION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__PRIVATE_ACTION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -875,12 +734,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            ActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            ActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -895,7 +749,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<ActivateControllerActionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -908,7 +761,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -923,12 +776,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            ActivateControllerActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            ActivateControllerActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -943,7 +791,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<ActorsImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -956,7 +803,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -980,27 +827,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ActorsImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return -1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__ENTITY_REF ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__ENTITY_REF
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -1010,12 +843,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            ActorsXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            ActorsXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -1030,7 +858,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<AddEntityActionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -1043,7 +870,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -1068,27 +895,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AddEntityActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__POSITION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__POSITION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -1098,12 +911,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            AddEntityActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            AddEntityActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -1118,7 +926,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<AssignControllerActionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -1131,7 +938,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -1156,27 +963,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AssignControllerActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__CONTROLLER ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__CONTROLLER
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -1195,27 +988,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AssignControllerActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__CATALOG_REFERENCE ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__CATALOG_REFERENCE
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -1225,12 +1004,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            AssignControllerActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            AssignControllerActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -1245,7 +1019,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<AssignRouteActionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -1258,7 +1031,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -1283,27 +1056,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AssignRouteActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__ROUTE ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__ROUTE
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -1322,27 +1081,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AssignRouteActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__CATALOG_REFERENCE ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__CATALOG_REFERENCE
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -1352,12 +1097,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            AssignRouteActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            AssignRouteActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -1372,7 +1112,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<AxleImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -1385,7 +1124,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -1400,12 +1139,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            AxleXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            AxleXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -1420,7 +1154,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<AxlesImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -1433,7 +1166,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -1457,27 +1190,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AxlesImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__FRONT_AXLE ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__FRONT_AXLE
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -1496,27 +1215,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AxlesImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__REAR_AXLE ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__REAR_AXLE
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -1535,27 +1240,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AxlesImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return -1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__ADDITIONAL_AXLE ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__ADDITIONAL_AXLE
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -1565,12 +1256,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            AxlesXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            AxlesXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -1585,7 +1271,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<BoundingBoxImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -1598,7 +1283,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -1623,27 +1308,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BoundingBoxImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__CENTER ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__CENTER
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -1662,27 +1333,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BoundingBoxImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__DIMENSIONS ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__DIMENSIONS
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -1692,12 +1349,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            BoundingBoxXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            BoundingBoxXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -1712,7 +1364,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<ByEntityConditionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -1725,7 +1376,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -1750,27 +1401,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ByEntityConditionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__TRIGGERING_ENTITIES ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__TRIGGERING_ENTITIES
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -1789,27 +1426,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ByEntityConditionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__ENTITY_CONDITION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__ENTITY_CONDITION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -1819,12 +1442,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            ByEntityConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            ByEntityConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -1839,7 +1457,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<ByObjectTypeImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -1852,7 +1469,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -1867,12 +1484,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            ByObjectTypeXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            ByObjectTypeXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -1887,7 +1499,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<ByTypeImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -1900,7 +1511,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -1915,12 +1526,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            ByTypeXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            ByTypeXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -1935,7 +1541,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<ByValueConditionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -1948,7 +1553,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -1973,27 +1578,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ByValueConditionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__PARAMETER_CONDITION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__PARAMETER_CONDITION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -2012,27 +1603,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ByValueConditionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__TIME_OF_DAY_CONDITION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__TIME_OF_DAY_CONDITION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -2051,27 +1628,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ByValueConditionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__SIMULATION_TIME_CONDITION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__SIMULATION_TIME_CONDITION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -2090,27 +1653,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ByValueConditionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__STORYBOARD_ELEMENT_STATE_CONDITION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__STORYBOARD_ELEMENT_STATE_CONDITION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -2129,27 +1678,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ByValueConditionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__USER_DEFINED_VALUE_CONDITION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__USER_DEFINED_VALUE_CONDITION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -2168,27 +1703,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ByValueConditionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__TRAFFIC_SIGNAL_CONDITION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__TRAFFIC_SIGNAL_CONDITION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -2207,27 +1728,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ByValueConditionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__TRAFFIC_SIGNAL_CONTROLLER_CONDITION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__TRAFFIC_SIGNAL_CONTROLLER_CONDITION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -2237,12 +1744,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            ByValueConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            ByValueConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -2257,7 +1759,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<CatalogImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -2270,7 +1771,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -2294,27 +1795,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return -1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__VEHICLE ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__VEHICLE
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -2333,27 +1820,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return -1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__CONTROLLER ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__CONTROLLER
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -2372,27 +1845,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return -1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__PEDESTRIAN ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__PEDESTRIAN
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -2411,27 +1870,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return -1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__MISC_OBJECT ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__MISC_OBJECT
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -2450,27 +1895,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return -1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__ENVIRONMENT ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__ENVIRONMENT
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -2489,27 +1920,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return -1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__MANEUVER ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__MANEUVER
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -2528,27 +1945,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return -1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__TRAJECTORY ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__TRAJECTORY
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -2567,27 +1970,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return -1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__ROUTE ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__ROUTE
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -2597,12 +1986,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            CatalogXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            CatalogXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -2616,7 +2000,6 @@ namespace NET_ASAM_OPENSCENARIO
         class CatalogDefinitionXmlParser: public XmlGroupParser<CatalogDefinitionImpl> 
         {
 
-
         private:
             /**
             * Parser for all subelements
@@ -2629,7 +2012,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -2653,27 +2036,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogDefinitionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__CATALOG ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__CATALOG
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -2683,12 +2052,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            CatalogDefinitionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlGroupParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            CatalogDefinitionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -2703,7 +2067,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<CatalogLocationsImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -2716,7 +2079,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -2741,27 +2104,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogLocationsImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__VEHICLE_CATALOG ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__VEHICLE_CATALOG
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -2780,27 +2129,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogLocationsImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__CONTROLLER_CATALOG ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__CONTROLLER_CATALOG
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -2819,27 +2154,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogLocationsImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__PEDESTRIAN_CATALOG ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__PEDESTRIAN_CATALOG
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -2858,27 +2179,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogLocationsImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__MISC_OBJECT_CATALOG ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__MISC_OBJECT_CATALOG
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -2897,27 +2204,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogLocationsImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__ENVIRONMENT_CATALOG ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__ENVIRONMENT_CATALOG
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -2936,27 +2229,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogLocationsImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__MANEUVER_CATALOG ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__MANEUVER_CATALOG
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -2975,27 +2254,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogLocationsImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__TRAJECTORY_CATALOG ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__TRAJECTORY_CATALOG
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -3014,27 +2279,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogLocationsImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__ROUTE_CATALOG ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__ROUTE_CATALOG
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -3044,12 +2295,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            CatalogLocationsXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            CatalogLocationsXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -3064,7 +2310,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<CatalogReferenceImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -3077,7 +2322,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -3101,24 +2346,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogReferenceImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return -1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return elementName == OSC_CONSTANTS::ELEMENT__PARAMETER_ASSIGNMENT;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {OSC_CONSTANTS::ELEMENT__PARAMETER_ASSIGNMENT};
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -3128,12 +2362,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            CatalogReferenceXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            CatalogReferenceXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -3148,7 +2377,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<CenterImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -3161,7 +2389,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -3176,12 +2404,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            CenterXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            CenterXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -3196,7 +2419,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<CentralSwarmObjectImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -3209,7 +2431,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -3224,12 +2446,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            CentralSwarmObjectXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            CentralSwarmObjectXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -3244,7 +2461,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<ClothoidImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -3257,7 +2473,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -3281,27 +2497,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ClothoidImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__POSITION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__POSITION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -3311,12 +2513,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            ClothoidXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            ClothoidXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -3331,7 +2528,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<CollisionConditionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -3344,7 +2540,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -3369,27 +2565,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CollisionConditionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__ENTITY_REF ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__ENTITY_REF
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -3408,27 +2590,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CollisionConditionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__BY_TYPE ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__BY_TYPE
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -3438,12 +2606,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            CollisionConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            CollisionConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -3458,7 +2621,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<ConditionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -3471,7 +2633,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -3496,27 +2658,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ConditionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__BY_ENTITY_CONDITION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__BY_ENTITY_CONDITION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -3535,27 +2683,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ConditionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__BY_VALUE_CONDITION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__BY_VALUE_CONDITION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -3565,12 +2699,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            ConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            ConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -3585,7 +2714,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<ConditionGroupImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -3598,7 +2726,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -3622,27 +2750,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ConditionGroupImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return -1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__CONDITION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__CONDITION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -3652,12 +2766,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            ConditionGroupXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            ConditionGroupXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -3672,7 +2781,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<ControlPointImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -3685,7 +2793,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -3709,27 +2817,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ControlPointImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__POSITION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__POSITION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -3739,12 +2833,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            ControlPointXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            ControlPointXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -3759,7 +2848,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<ControllerImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -3772,7 +2860,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -3797,24 +2885,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ControllerImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return -1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return elementName == OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION};
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -3833,27 +2910,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ControllerImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__PROPERTIES ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__PROPERTIES
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -3863,12 +2926,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            ControllerXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            ControllerXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -3883,7 +2941,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<ControllerActionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -3896,7 +2953,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -3921,27 +2978,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ControllerActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__ASSIGN_CONTROLLER_ACTION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__ASSIGN_CONTROLLER_ACTION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -3960,27 +3003,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ControllerActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__OVERRIDE_CONTROLLER_VALUE_ACTION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__OVERRIDE_CONTROLLER_VALUE_ACTION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -3990,12 +3019,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            ControllerActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            ControllerActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -4010,7 +3034,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<ControllerCatalogLocationImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -4023,7 +3046,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -4048,27 +3071,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ControllerCatalogLocationImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__DIRECTORY ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__DIRECTORY
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -4078,12 +3087,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            ControllerCatalogLocationXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            ControllerCatalogLocationXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -4098,7 +3102,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<ControllerDistributionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -4111,7 +3114,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -4135,27 +3138,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ControllerDistributionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return -1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__CONTROLLER_DISTRIBUTION_ENTRY ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__CONTROLLER_DISTRIBUTION_ENTRY
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -4165,12 +3154,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            ControllerDistributionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            ControllerDistributionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -4185,7 +3169,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<ControllerDistributionEntryImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -4198,7 +3181,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -4223,27 +3206,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ControllerDistributionEntryImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__CONTROLLER ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__CONTROLLER
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -4262,27 +3231,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ControllerDistributionEntryImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__CATALOG_REFERENCE ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__CATALOG_REFERENCE
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -4292,12 +3247,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            ControllerDistributionEntryXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            ControllerDistributionEntryXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -4315,10 +3265,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::map<std::string, std::shared_ptr<IAttributeParser<CustomCommandActionImpl>>> GetAttributeNameToAttributeParserMap() override;
         protected:
             void SetContentProperty(const std::string content, std::shared_ptr<CustomCommandActionImpl>& object) override;
-            bool IsContentRequired() override
-            {
-                return false;
-            }
+            bool IsContentRequired() override;
 
 
         public:
@@ -4327,9 +3274,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            CustomCommandActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlSimpleContentParser(messageLogger, filename) {}
-
+            CustomCommandActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -4344,7 +3289,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<DeleteEntityActionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -4357,7 +3301,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -4372,12 +3316,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            DeleteEntityActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            DeleteEntityActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -4392,7 +3331,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<DimensionsImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -4405,7 +3343,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -4420,12 +3358,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            DimensionsXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            DimensionsXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -4440,7 +3373,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<DirectoryImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -4453,7 +3385,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -4468,12 +3400,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            DirectoryXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            DirectoryXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -4488,7 +3415,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<DistanceConditionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -4501,7 +3427,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -4526,27 +3452,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<DistanceConditionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__POSITION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__POSITION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -4556,12 +3468,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            DistanceConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            DistanceConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -4576,7 +3483,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<DynamicConstraintsImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -4589,7 +3495,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -4604,12 +3510,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            DynamicConstraintsXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            DynamicConstraintsXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -4624,7 +3525,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<EndOfRoadConditionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -4637,7 +3537,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -4652,12 +3552,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            EndOfRoadConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            EndOfRoadConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -4672,7 +3567,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<EntitiesImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -4685,7 +3579,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -4709,27 +3603,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntitiesImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return -1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__SCENARIO_OBJECT ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__SCENARIO_OBJECT
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -4748,27 +3628,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntitiesImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return -1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__ENTITY_SELECTION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__ENTITY_SELECTION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -4778,12 +3644,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            EntitiesXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            EntitiesXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -4798,7 +3659,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<EntityActionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -4811,7 +3671,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -4836,27 +3696,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__ADD_ENTITY_ACTION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__ADD_ENTITY_ACTION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -4875,27 +3721,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__DELETE_ENTITY_ACTION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__DELETE_ENTITY_ACTION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -4905,12 +3737,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            EntityActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            EntityActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -4925,7 +3752,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<EntityConditionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -4938,7 +3764,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -4963,27 +3789,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityConditionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__END_OF_ROAD_CONDITION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__END_OF_ROAD_CONDITION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -5002,27 +3814,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityConditionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__COLLISION_CONDITION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__COLLISION_CONDITION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -5041,27 +3839,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityConditionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__OFFROAD_CONDITION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__OFFROAD_CONDITION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -5080,27 +3864,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityConditionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__TIME_HEADWAY_CONDITION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__TIME_HEADWAY_CONDITION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -5119,27 +3889,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityConditionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__TIME_TO_COLLISION_CONDITION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__TIME_TO_COLLISION_CONDITION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -5158,27 +3914,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityConditionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__ACCELERATION_CONDITION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__ACCELERATION_CONDITION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -5197,27 +3939,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityConditionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__STAND_STILL_CONDITION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__STAND_STILL_CONDITION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -5236,27 +3964,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityConditionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__SPEED_CONDITION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__SPEED_CONDITION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -5275,27 +3989,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityConditionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__RELATIVE_SPEED_CONDITION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__RELATIVE_SPEED_CONDITION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -5314,27 +4014,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityConditionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__TRAVELED_DISTANCE_CONDITION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__TRAVELED_DISTANCE_CONDITION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -5353,27 +4039,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityConditionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__REACH_POSITION_CONDITION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__REACH_POSITION_CONDITION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -5392,27 +4064,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityConditionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__DISTANCE_CONDITION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__DISTANCE_CONDITION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -5431,27 +4089,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityConditionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__RELATIVE_DISTANCE_CONDITION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__RELATIVE_DISTANCE_CONDITION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -5461,12 +4105,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            EntityConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            EntityConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -5480,7 +4119,6 @@ namespace NET_ASAM_OPENSCENARIO
         class EntityObjectXmlParser: public XmlGroupParser<EntityObjectImpl> 
         {
 
-
         private:
             /**
             * Parser for all subelements
@@ -5493,7 +4131,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -5518,27 +4156,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityObjectImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__CATALOG_REFERENCE ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__CATALOG_REFERENCE
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -5557,27 +4181,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityObjectImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__VEHICLE ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__VEHICLE
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -5596,27 +4206,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityObjectImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__PEDESTRIAN ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__PEDESTRIAN
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -5635,27 +4231,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityObjectImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__MISC_OBJECT ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__MISC_OBJECT
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -5665,12 +4247,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            EntityObjectXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlGroupParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            EntityObjectXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -5685,7 +4262,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<EntityRefImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -5698,7 +4274,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -5713,12 +4289,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            EntityRefXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            EntityRefXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -5733,7 +4304,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<EntitySelectionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -5746,7 +4316,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -5770,27 +4340,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntitySelectionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__MEMBERS ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__MEMBERS
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -5800,12 +4356,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            EntitySelectionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            EntitySelectionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -5820,7 +4371,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<EnvironmentImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -5833,7 +4383,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -5858,24 +4408,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EnvironmentImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return -1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return elementName == OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION};
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -5894,27 +4433,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EnvironmentImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__TIME_OF_DAY ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__TIME_OF_DAY
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -5933,27 +4458,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EnvironmentImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__WEATHER ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__WEATHER
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -5972,27 +4483,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EnvironmentImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__ROAD_CONDITION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__ROAD_CONDITION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -6002,12 +4499,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            EnvironmentXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            EnvironmentXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -6022,7 +4514,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<EnvironmentActionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -6035,7 +4526,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -6060,27 +4551,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EnvironmentActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__ENVIRONMENT ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__ENVIRONMENT
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -6099,27 +4576,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EnvironmentActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__CATALOG_REFERENCE ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__CATALOG_REFERENCE
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -6129,12 +4592,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            EnvironmentActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            EnvironmentActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -6149,7 +4607,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<EnvironmentCatalogLocationImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -6162,7 +4619,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -6187,27 +4644,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EnvironmentCatalogLocationImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__DIRECTORY ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__DIRECTORY
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -6217,12 +4660,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            EnvironmentCatalogLocationXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            EnvironmentCatalogLocationXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -6237,7 +4675,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<EventImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -6250,7 +4687,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -6274,27 +4711,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EventImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return -1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__ACTION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__ACTION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -6313,27 +4736,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EventImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__START_TRIGGER ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__START_TRIGGER
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -6343,12 +4752,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            EventXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            EventXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -6363,7 +4767,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<FileImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -6376,7 +4779,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -6391,12 +4794,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            FileXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            FileXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -6411,7 +4809,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<FileHeaderImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -6424,7 +4821,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -6439,12 +4836,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            FileHeaderXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            FileHeaderXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -6459,7 +4851,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<FinalSpeedImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -6472,7 +4863,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -6497,27 +4888,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<FinalSpeedImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__ABSOLUTE_SPEED ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__ABSOLUTE_SPEED
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -6536,27 +4913,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<FinalSpeedImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__RELATIVE_SPEED_TO_MASTER ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__RELATIVE_SPEED_TO_MASTER
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -6566,12 +4929,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            FinalSpeedXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            FinalSpeedXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -6586,7 +4944,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<FogImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -6599,7 +4956,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -6624,27 +4981,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<FogImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__BOUNDING_BOX ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__BOUNDING_BOX
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -6654,12 +4997,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            FogXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            FogXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -6674,7 +5012,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<FollowTrajectoryActionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -6687,7 +5024,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -6712,27 +5049,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<FollowTrajectoryActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__TRAJECTORY ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__TRAJECTORY
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -6751,27 +5074,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<FollowTrajectoryActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__CATALOG_REFERENCE ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__CATALOG_REFERENCE
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -6790,27 +5099,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<FollowTrajectoryActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__TIME_REFERENCE ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__TIME_REFERENCE
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -6829,27 +5124,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<FollowTrajectoryActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__TRAJECTORY_FOLLOWING_MODE ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__TRAJECTORY_FOLLOWING_MODE
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -6859,12 +5140,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            FollowTrajectoryActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            FollowTrajectoryActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -6879,7 +5155,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<GlobalActionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -6892,7 +5167,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -6917,27 +5192,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<GlobalActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__ENVIRONMENT_ACTION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__ENVIRONMENT_ACTION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -6956,27 +5217,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<GlobalActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__ENTITY_ACTION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__ENTITY_ACTION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -6995,27 +5242,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<GlobalActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__PARAMETER_ACTION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__PARAMETER_ACTION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -7034,27 +5267,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<GlobalActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__INFRASTRUCTURE_ACTION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__INFRASTRUCTURE_ACTION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -7073,27 +5292,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<GlobalActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__TRAFFIC_ACTION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__TRAFFIC_ACTION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -7103,12 +5308,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            GlobalActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            GlobalActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -7123,7 +5323,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<InRoutePositionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -7136,7 +5335,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -7161,27 +5360,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<InRoutePositionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__FROM_CURRENT_ENTITY ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__FROM_CURRENT_ENTITY
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -7200,27 +5385,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<InRoutePositionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__FROM_ROAD_COORDINATES ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__FROM_ROAD_COORDINATES
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -7239,27 +5410,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<InRoutePositionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__FROM_LANE_COORDINATES ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__FROM_LANE_COORDINATES
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -7269,12 +5426,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            InRoutePositionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            InRoutePositionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -7289,7 +5441,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<InfrastructureActionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -7302,7 +5453,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -7327,27 +5478,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<InfrastructureActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__TRAFFIC_SIGNAL_ACTION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__TRAFFIC_SIGNAL_ACTION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -7357,12 +5494,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            InfrastructureActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            InfrastructureActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -7377,7 +5509,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<InitImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -7390,7 +5521,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -7414,27 +5545,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<InitImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__ACTIONS ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__ACTIONS
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -7444,12 +5561,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            InitXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            InitXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -7464,7 +5576,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<InitActionsImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -7477,7 +5588,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -7501,27 +5612,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<InitActionsImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return -1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__GLOBAL_ACTION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__GLOBAL_ACTION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -7540,27 +5637,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<InitActionsImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return -1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__USER_DEFINED_ACTION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__USER_DEFINED_ACTION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -7579,27 +5662,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<InitActionsImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return -1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__PRIVATE ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__PRIVATE
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -7609,12 +5678,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            InitActionsXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            InitActionsXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -7629,7 +5693,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<KnotImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -7642,7 +5705,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -7657,12 +5720,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            KnotXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            KnotXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -7677,7 +5735,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<LaneChangeActionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -7690,7 +5747,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -7715,27 +5772,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LaneChangeActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__LANE_CHANGE_ACTION_DYNAMICS ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__LANE_CHANGE_ACTION_DYNAMICS
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -7754,27 +5797,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LaneChangeActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__LANE_CHANGE_TARGET ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__LANE_CHANGE_TARGET
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -7784,12 +5813,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            LaneChangeActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            LaneChangeActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -7804,7 +5828,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<LaneChangeTargetImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -7817,7 +5840,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -7842,27 +5865,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LaneChangeTargetImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__RELATIVE_TARGET_LANE ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__RELATIVE_TARGET_LANE
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -7881,27 +5890,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LaneChangeTargetImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__ABSOLUTE_TARGET_LANE ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__ABSOLUTE_TARGET_LANE
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -7911,12 +5906,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            LaneChangeTargetXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            LaneChangeTargetXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -7931,7 +5921,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<LaneOffsetActionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -7944,7 +5933,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -7969,27 +5958,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LaneOffsetActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__LANE_OFFSET_ACTION_DYNAMICS ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__LANE_OFFSET_ACTION_DYNAMICS
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -8008,27 +5983,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LaneOffsetActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__LANE_OFFSET_TARGET ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__LANE_OFFSET_TARGET
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -8038,12 +5999,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            LaneOffsetActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            LaneOffsetActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -8058,7 +6014,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<LaneOffsetActionDynamicsImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -8071,7 +6026,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -8086,12 +6041,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            LaneOffsetActionDynamicsXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            LaneOffsetActionDynamicsXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -8106,7 +6056,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<LaneOffsetTargetImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -8119,7 +6068,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -8144,27 +6093,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LaneOffsetTargetImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__RELATIVE_TARGET_LANE_OFFSET ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__RELATIVE_TARGET_LANE_OFFSET
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -8183,27 +6118,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LaneOffsetTargetImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__ABSOLUTE_TARGET_LANE_OFFSET ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__ABSOLUTE_TARGET_LANE_OFFSET
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -8213,12 +6134,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            LaneOffsetTargetXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            LaneOffsetTargetXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -8233,7 +6149,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<LanePositionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -8246,7 +6161,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -8271,27 +6186,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LanePositionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__ORIENTATION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__ORIENTATION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -8301,12 +6202,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            LanePositionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            LanePositionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -8321,7 +6217,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<LateralActionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -8334,7 +6229,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -8359,27 +6254,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LateralActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__LANE_CHANGE_ACTION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__LANE_CHANGE_ACTION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -8398,27 +6279,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LateralActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__LANE_OFFSET_ACTION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__LANE_OFFSET_ACTION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -8437,27 +6304,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LateralActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__LATERAL_DISTANCE_ACTION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__LATERAL_DISTANCE_ACTION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -8467,12 +6320,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            LateralActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            LateralActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -8487,7 +6335,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<LateralDistanceActionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -8500,7 +6347,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -8525,27 +6372,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LateralDistanceActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__DYNAMIC_CONSTRAINTS ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__DYNAMIC_CONSTRAINTS
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -8555,12 +6388,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            LateralDistanceActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            LateralDistanceActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -8575,7 +6403,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<LongitudinalActionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -8588,7 +6415,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -8613,27 +6440,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LongitudinalActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__SPEED_ACTION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__SPEED_ACTION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -8652,27 +6465,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LongitudinalActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__LONGITUDINAL_DISTANCE_ACTION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__LONGITUDINAL_DISTANCE_ACTION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -8682,12 +6481,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            LongitudinalActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            LongitudinalActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -8702,7 +6496,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<LongitudinalDistanceActionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -8715,7 +6508,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -8740,27 +6533,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LongitudinalDistanceActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__DYNAMIC_CONSTRAINTS ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__DYNAMIC_CONSTRAINTS
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -8770,12 +6549,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            LongitudinalDistanceActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            LongitudinalDistanceActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -8790,7 +6564,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<ManeuverImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -8803,7 +6576,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -8827,24 +6600,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ManeuverImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return -1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return elementName == OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION};
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -8863,27 +6625,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ManeuverImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return -1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__EVENT ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__EVENT
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -8893,12 +6641,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            ManeuverXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            ManeuverXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -8913,7 +6656,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<ManeuverCatalogLocationImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -8926,7 +6668,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -8951,27 +6693,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ManeuverCatalogLocationImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__DIRECTORY ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__DIRECTORY
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -8981,12 +6709,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            ManeuverCatalogLocationXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            ManeuverCatalogLocationXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -9001,7 +6724,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<ManeuverGroupImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -9014,7 +6736,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -9038,27 +6760,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ManeuverGroupImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__ACTORS ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__ACTORS
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -9077,27 +6785,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ManeuverGroupImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return -1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__CATALOG_REFERENCE ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__CATALOG_REFERENCE
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -9116,27 +6810,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ManeuverGroupImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return -1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__MANEUVER ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__MANEUVER
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -9146,12 +6826,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            ManeuverGroupXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            ManeuverGroupXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -9166,7 +6841,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<MiscObjectImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -9179,7 +6853,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -9204,24 +6878,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<MiscObjectImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return -1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return elementName == OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION};
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -9240,27 +6903,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<MiscObjectImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__BOUNDING_BOX ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__BOUNDING_BOX
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -9279,27 +6928,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<MiscObjectImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__PROPERTIES ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__PROPERTIES
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -9309,12 +6944,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            MiscObjectXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            MiscObjectXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -9329,7 +6959,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<MiscObjectCatalogLocationImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -9342,7 +6971,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -9367,27 +6996,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<MiscObjectCatalogLocationImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__DIRECTORY ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__DIRECTORY
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -9397,12 +7012,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            MiscObjectCatalogLocationXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            MiscObjectCatalogLocationXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -9417,7 +7027,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<ModifyRuleImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -9430,7 +7039,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -9455,27 +7064,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ModifyRuleImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__ADD_VALUE ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__ADD_VALUE
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -9494,27 +7089,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ModifyRuleImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__MULTIPLY_BY_VALUE ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__MULTIPLY_BY_VALUE
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -9524,12 +7105,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            ModifyRuleXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            ModifyRuleXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -9544,7 +7120,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<NoneImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -9557,7 +7132,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -9572,12 +7147,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            NoneXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            NoneXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -9592,7 +7162,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<NurbsImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -9605,7 +7174,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -9629,27 +7198,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<NurbsImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 2;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return -1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__CONTROL_POINT ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__CONTROL_POINT
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -9668,27 +7223,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<NurbsImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 2;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return -1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__KNOT ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__KNOT
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -9698,12 +7239,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            NurbsXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            NurbsXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -9718,7 +7254,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<ObjectControllerImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -9731,7 +7266,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -9756,27 +7291,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ObjectControllerImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__CATALOG_REFERENCE ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__CATALOG_REFERENCE
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -9795,27 +7316,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ObjectControllerImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__CONTROLLER ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__CONTROLLER
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -9825,12 +7332,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            ObjectControllerXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            ObjectControllerXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -9845,7 +7347,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<OffroadConditionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -9858,7 +7359,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -9873,12 +7374,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            OffroadConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            OffroadConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -9893,7 +7389,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<OpenScenarioImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -9906,7 +7401,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -9930,27 +7425,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OpenScenarioImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__FILE_HEADER ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__FILE_HEADER
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -9969,31 +7450,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OpenScenarioImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATIONS || 
-                        elementName == OSC_CONSTANTS::ELEMENT__CATALOG_LOCATIONS || 
-                        elementName == OSC_CONSTANTS::ELEMENT__CATALOG ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATIONS,
-                        OSC_CONSTANTS::ELEMENT__CATALOG_LOCATIONS,
-                        OSC_CONSTANTS::ELEMENT__CATALOG
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -10003,12 +7466,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            OpenScenarioXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            OpenScenarioXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -10022,7 +7480,6 @@ namespace NET_ASAM_OPENSCENARIO
         class OpenScenarioCategoryXmlParser: public XmlGroupParser<OpenScenarioCategoryImpl> 
         {
 
-
         private:
             /**
             * Parser for all subelements
@@ -10035,7 +7492,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -10060,29 +7517,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OpenScenarioCategoryImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATIONS || 
-                        elementName == OSC_CONSTANTS::ELEMENT__CATALOG_LOCATIONS ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATIONS,
-                        OSC_CONSTANTS::ELEMENT__CATALOG_LOCATIONS
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -10101,27 +7542,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OpenScenarioCategoryImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__CATALOG ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__CATALOG
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -10131,12 +7558,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            OpenScenarioCategoryXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlGroupParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            OpenScenarioCategoryXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -10151,7 +7573,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<OrientationImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -10164,7 +7585,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -10179,12 +7600,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            OrientationXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            OrientationXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -10199,7 +7615,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<OverrideBrakeActionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -10212,7 +7627,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -10227,12 +7642,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            OverrideBrakeActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            OverrideBrakeActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -10247,7 +7657,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<OverrideClutchActionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -10260,7 +7669,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -10275,12 +7684,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            OverrideClutchActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            OverrideClutchActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -10295,7 +7699,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<OverrideControllerValueActionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -10308,7 +7711,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -10333,27 +7736,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OverrideControllerValueActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__THROTTLE ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__THROTTLE
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -10372,27 +7761,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OverrideControllerValueActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__BRAKE ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__BRAKE
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -10411,27 +7786,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OverrideControllerValueActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__CLUTCH ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__CLUTCH
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -10450,27 +7811,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OverrideControllerValueActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__PARKING_BRAKE ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__PARKING_BRAKE
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -10489,27 +7836,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OverrideControllerValueActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__STEERING_WHEEL ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__STEERING_WHEEL
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -10528,27 +7861,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OverrideControllerValueActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__GEAR ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__GEAR
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -10558,12 +7877,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            OverrideControllerValueActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            OverrideControllerValueActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -10578,7 +7892,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<OverrideGearActionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -10591,7 +7904,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -10606,12 +7919,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            OverrideGearActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            OverrideGearActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -10626,7 +7934,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<OverrideParkingBrakeActionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -10639,7 +7946,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -10654,12 +7961,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            OverrideParkingBrakeActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            OverrideParkingBrakeActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -10674,7 +7976,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<OverrideSteeringWheelActionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -10687,7 +7988,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -10702,12 +8003,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            OverrideSteeringWheelActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            OverrideSteeringWheelActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -10722,7 +8018,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<OverrideThrottleActionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -10735,7 +8030,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -10750,12 +8045,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            OverrideThrottleActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            OverrideThrottleActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -10770,7 +8060,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<ParameterActionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -10783,7 +8072,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -10808,27 +8097,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ParameterActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__SET_ACTION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__SET_ACTION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -10847,27 +8122,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ParameterActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__MODIFY_ACTION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__MODIFY_ACTION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -10877,12 +8138,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            ParameterActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            ParameterActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -10897,7 +8153,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<ParameterAddValueRuleImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -10910,7 +8165,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -10925,12 +8180,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            ParameterAddValueRuleXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            ParameterAddValueRuleXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -10945,7 +8195,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<ParameterAssignmentImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -10958,7 +8207,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -10973,12 +8222,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            ParameterAssignmentXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            ParameterAssignmentXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -10993,7 +8237,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<ParameterConditionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -11006,7 +8249,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -11021,12 +8264,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            ParameterConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            ParameterConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -11041,7 +8279,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<ParameterDeclarationImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -11054,7 +8291,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -11069,12 +8306,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            ParameterDeclarationXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            ParameterDeclarationXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -11089,7 +8321,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<ParameterModifyActionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -11102,7 +8333,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -11127,27 +8358,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ParameterModifyActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__RULE ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__RULE
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -11157,12 +8374,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            ParameterModifyActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            ParameterModifyActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -11177,7 +8389,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<ParameterMultiplyByValueRuleImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -11190,7 +8401,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -11205,12 +8416,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            ParameterMultiplyByValueRuleXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            ParameterMultiplyByValueRuleXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -11225,7 +8431,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<ParameterSetActionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -11238,7 +8443,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -11253,12 +8458,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            ParameterSetActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            ParameterSetActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -11273,7 +8473,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<PedestrianImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -11286,7 +8485,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -11311,24 +8510,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PedestrianImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return -1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return elementName == OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION};
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -11347,27 +8535,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PedestrianImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__BOUNDING_BOX ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__BOUNDING_BOX
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -11386,27 +8560,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PedestrianImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__PROPERTIES ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__PROPERTIES
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -11416,12 +8576,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            PedestrianXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            PedestrianXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -11436,7 +8591,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<PedestrianCatalogLocationImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -11449,7 +8603,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -11474,27 +8628,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PedestrianCatalogLocationImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__DIRECTORY ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__DIRECTORY
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -11504,12 +8644,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            PedestrianCatalogLocationXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            PedestrianCatalogLocationXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -11524,7 +8659,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<PerformanceImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -11537,7 +8671,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -11552,12 +8686,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            PerformanceXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            PerformanceXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -11572,7 +8701,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<PhaseImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -11585,7 +8713,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -11609,27 +8737,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PhaseImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return -1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__TRAFFIC_SIGNAL_STATE ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__TRAFFIC_SIGNAL_STATE
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -11639,12 +8753,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            PhaseXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            PhaseXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -11659,7 +8768,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<PolylineImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -11672,7 +8780,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -11696,27 +8804,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PolylineImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 2;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return -1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__VERTEX ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__VERTEX
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -11726,12 +8820,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            PolylineXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            PolylineXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -11746,7 +8835,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<PositionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -11759,7 +8847,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -11784,27 +8872,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PositionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__WORLD_POSITION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__WORLD_POSITION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -11823,27 +8897,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PositionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__RELATIVE_WORLD_POSITION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__RELATIVE_WORLD_POSITION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -11862,27 +8922,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PositionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__RELATIVE_OBJECT_POSITION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__RELATIVE_OBJECT_POSITION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -11901,27 +8947,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PositionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__ROAD_POSITION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__ROAD_POSITION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -11940,27 +8972,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PositionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__RELATIVE_ROAD_POSITION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__RELATIVE_ROAD_POSITION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -11979,27 +8997,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PositionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__LANE_POSITION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__LANE_POSITION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -12018,27 +9022,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PositionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__RELATIVE_LANE_POSITION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__RELATIVE_LANE_POSITION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -12057,27 +9047,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PositionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__ROUTE_POSITION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__ROUTE_POSITION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -12087,12 +9063,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            PositionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            PositionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -12107,7 +9078,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<PositionInLaneCoordinatesImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -12120,7 +9090,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -12135,12 +9105,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            PositionInLaneCoordinatesXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            PositionInLaneCoordinatesXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -12155,7 +9120,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<PositionInRoadCoordinatesImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -12168,7 +9132,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -12183,12 +9147,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            PositionInRoadCoordinatesXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            PositionInRoadCoordinatesXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -12203,7 +9162,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<PositionOfCurrentEntityImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -12216,7 +9174,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -12231,12 +9189,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            PositionOfCurrentEntityXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            PositionOfCurrentEntityXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -12251,7 +9204,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<PrecipitationImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -12264,7 +9216,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -12279,12 +9231,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            PrecipitationXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            PrecipitationXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -12299,7 +9246,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<PrivateImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -12312,7 +9258,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -12336,27 +9282,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PrivateImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return -1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__PRIVATE_ACTION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__PRIVATE_ACTION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -12366,12 +9298,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            PrivateXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            PrivateXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -12386,7 +9313,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<PrivateActionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -12399,7 +9325,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -12424,27 +9350,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PrivateActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__LONGITUDINAL_ACTION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__LONGITUDINAL_ACTION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -12463,27 +9375,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PrivateActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__LATERAL_ACTION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__LATERAL_ACTION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -12502,27 +9400,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PrivateActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__VISIBILITY_ACTION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__VISIBILITY_ACTION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -12541,27 +9425,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PrivateActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__SYNCHRONIZE_ACTION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__SYNCHRONIZE_ACTION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -12580,27 +9450,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PrivateActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__ACTIVATE_CONTROLLER_ACTION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__ACTIVATE_CONTROLLER_ACTION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -12619,27 +9475,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PrivateActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__CONTROLLER_ACTION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__CONTROLLER_ACTION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -12658,27 +9500,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PrivateActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__TELEPORT_ACTION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__TELEPORT_ACTION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -12697,27 +9525,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PrivateActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__ROUTING_ACTION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__ROUTING_ACTION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -12727,12 +9541,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            PrivateActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            PrivateActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -12747,7 +9556,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<PropertiesImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -12760,7 +9568,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -12784,27 +9592,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PropertiesImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return -1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__PROPERTY ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__PROPERTY
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -12823,27 +9617,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PropertiesImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return -1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__FILE ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__FILE
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -12853,12 +9633,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            PropertiesXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            PropertiesXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -12873,7 +9648,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<PropertyImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -12886,7 +9660,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -12901,12 +9675,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            PropertyXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            PropertyXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -12921,7 +9690,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<ReachPositionConditionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -12934,7 +9702,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -12959,27 +9727,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ReachPositionConditionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__POSITION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__POSITION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -12989,12 +9743,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            ReachPositionConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            ReachPositionConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -13009,7 +9758,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<RelativeDistanceConditionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -13022,7 +9770,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -13037,12 +9785,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            RelativeDistanceConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            RelativeDistanceConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -13057,7 +9800,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<RelativeLanePositionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -13070,7 +9812,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -13095,27 +9837,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RelativeLanePositionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__ORIENTATION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__ORIENTATION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -13125,12 +9853,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            RelativeLanePositionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            RelativeLanePositionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -13145,7 +9868,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<RelativeObjectPositionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -13158,7 +9880,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -13183,27 +9905,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RelativeObjectPositionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__ORIENTATION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__ORIENTATION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -13213,12 +9921,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            RelativeObjectPositionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            RelativeObjectPositionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -13233,7 +9936,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<RelativeRoadPositionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -13246,7 +9948,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -13271,27 +9973,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RelativeRoadPositionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__ORIENTATION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__ORIENTATION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -13301,12 +9989,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            RelativeRoadPositionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            RelativeRoadPositionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -13321,7 +10004,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<RelativeSpeedConditionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -13334,7 +10016,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -13349,12 +10031,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            RelativeSpeedConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            RelativeSpeedConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -13369,7 +10046,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<RelativeSpeedToMasterImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -13382,7 +10058,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -13397,12 +10073,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            RelativeSpeedToMasterXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            RelativeSpeedToMasterXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -13417,7 +10088,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<RelativeTargetLaneImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -13430,7 +10100,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -13445,12 +10115,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            RelativeTargetLaneXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            RelativeTargetLaneXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -13465,7 +10130,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<RelativeTargetLaneOffsetImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -13478,7 +10142,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -13493,12 +10157,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            RelativeTargetLaneOffsetXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            RelativeTargetLaneOffsetXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -13513,7 +10172,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<RelativeTargetSpeedImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -13526,7 +10184,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -13541,12 +10199,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            RelativeTargetSpeedXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            RelativeTargetSpeedXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -13561,7 +10214,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<RelativeWorldPositionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -13574,7 +10226,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -13599,27 +10251,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RelativeWorldPositionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__ORIENTATION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__ORIENTATION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -13629,12 +10267,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            RelativeWorldPositionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            RelativeWorldPositionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -13649,7 +10282,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<RoadConditionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -13662,7 +10294,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -13686,27 +10318,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RoadConditionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__PROPERTIES ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__PROPERTIES
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -13716,12 +10334,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            RoadConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            RoadConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -13736,7 +10349,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<RoadNetworkImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -13749,7 +10361,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -13773,27 +10385,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RoadNetworkImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__LOGIC_FILE ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__LOGIC_FILE
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -13812,27 +10410,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RoadNetworkImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__SCENE_GRAPH_FILE ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__SCENE_GRAPH_FILE
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -13851,24 +10435,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RoadNetworkImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return -1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return elementName == OSC_CONSTANTS::ELEMENT__TRAFFIC_SIGNAL_CONTROLLER;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {OSC_CONSTANTS::ELEMENT__TRAFFIC_SIGNAL_CONTROLLER};
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -13878,12 +10451,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            RoadNetworkXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            RoadNetworkXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -13898,7 +10466,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<RoadPositionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -13911,7 +10478,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -13936,27 +10503,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RoadPositionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__ORIENTATION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__ORIENTATION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -13966,12 +10519,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            RoadPositionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            RoadPositionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -13986,7 +10534,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<RouteImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -13999,7 +10546,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -14023,24 +10570,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RouteImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return -1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return elementName == OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION};
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -14059,27 +10595,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RouteImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 2;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return -1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__WAYPOINT ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__WAYPOINT
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -14089,12 +10611,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            RouteXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            RouteXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -14109,7 +10626,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<RouteCatalogLocationImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -14122,7 +10638,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -14147,27 +10663,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RouteCatalogLocationImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__DIRECTORY ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__DIRECTORY
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -14177,12 +10679,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            RouteCatalogLocationXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            RouteCatalogLocationXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -14197,7 +10694,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<RoutePositionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -14210,7 +10706,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -14235,27 +10731,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RoutePositionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__ROUTE_REF ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__ROUTE_REF
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -14274,27 +10756,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RoutePositionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__ORIENTATION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__ORIENTATION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -14313,27 +10781,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RoutePositionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__IN_ROUTE_POSITION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__IN_ROUTE_POSITION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -14343,12 +10797,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            RoutePositionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            RoutePositionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -14363,7 +10812,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<RouteRefImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -14376,7 +10824,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -14401,27 +10849,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RouteRefImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__ROUTE ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__ROUTE
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -14440,27 +10874,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RouteRefImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__CATALOG_REFERENCE ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__CATALOG_REFERENCE
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -14470,12 +10890,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            RouteRefXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            RouteRefXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -14490,7 +10905,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<RoutingActionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -14503,7 +10917,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -14528,27 +10942,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RoutingActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__ASSIGN_ROUTE_ACTION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__ASSIGN_ROUTE_ACTION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -14567,27 +10967,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RoutingActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__FOLLOW_TRAJECTORY_ACTION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__FOLLOW_TRAJECTORY_ACTION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -14606,27 +10992,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RoutingActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__ACQUIRE_POSITION_ACTION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__ACQUIRE_POSITION_ACTION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -14636,12 +11008,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            RoutingActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            RoutingActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -14655,7 +11022,6 @@ namespace NET_ASAM_OPENSCENARIO
         class ScenarioDefinitionXmlParser: public XmlGroupParser<ScenarioDefinitionImpl> 
         {
 
-
         private:
             /**
             * Parser for all subelements
@@ -14668,7 +11034,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -14692,24 +11058,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ScenarioDefinitionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return -1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return elementName == OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION};
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -14728,27 +11083,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ScenarioDefinitionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__CATALOG_LOCATIONS ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__CATALOG_LOCATIONS
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -14767,27 +11108,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ScenarioDefinitionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__ROAD_NETWORK ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__ROAD_NETWORK
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -14806,27 +11133,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ScenarioDefinitionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__ENTITIES ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__ENTITIES
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -14845,27 +11158,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ScenarioDefinitionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__STORYBOARD ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__STORYBOARD
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -14875,12 +11174,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            ScenarioDefinitionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlGroupParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            ScenarioDefinitionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -14895,7 +11189,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<ScenarioObjectImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -14908,7 +11201,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -14932,33 +11225,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ScenarioObjectImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__CATALOG_REFERENCE || 
-                        elementName == OSC_CONSTANTS::ELEMENT__VEHICLE || 
-                        elementName == OSC_CONSTANTS::ELEMENT__PEDESTRIAN || 
-                        elementName == OSC_CONSTANTS::ELEMENT__MISC_OBJECT ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__CATALOG_REFERENCE,
-                        OSC_CONSTANTS::ELEMENT__VEHICLE,
-                        OSC_CONSTANTS::ELEMENT__PEDESTRIAN,
-                        OSC_CONSTANTS::ELEMENT__MISC_OBJECT
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -14977,27 +11250,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ScenarioObjectImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__OBJECT_CONTROLLER ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__OBJECT_CONTROLLER
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -15007,12 +11266,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            ScenarioObjectXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            ScenarioObjectXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -15027,7 +11281,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<SelectedEntitiesImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -15040,7 +11293,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -15065,27 +11318,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<SelectedEntitiesImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return -1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__ENTITY_REF ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__ENTITY_REF
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -15104,27 +11343,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<SelectedEntitiesImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return -1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__BY_TYPE ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__BY_TYPE
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -15134,12 +11359,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            SelectedEntitiesXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            SelectedEntitiesXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -15154,7 +11374,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<ShapeImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -15167,7 +11386,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -15192,27 +11411,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ShapeImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__POLYLINE ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__POLYLINE
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -15231,27 +11436,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ShapeImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__CLOTHOID ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__CLOTHOID
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -15270,27 +11461,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ShapeImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__NURBS ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__NURBS
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -15300,12 +11477,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            ShapeXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            ShapeXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -15320,7 +11492,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<SimulationTimeConditionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -15333,7 +11504,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -15348,12 +11519,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            SimulationTimeConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            SimulationTimeConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -15368,7 +11534,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<SpeedActionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -15381,7 +11546,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -15406,27 +11571,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<SpeedActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__SPEED_ACTION_DYNAMICS ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__SPEED_ACTION_DYNAMICS
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -15445,27 +11596,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<SpeedActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__SPEED_ACTION_TARGET ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__SPEED_ACTION_TARGET
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -15475,12 +11612,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            SpeedActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            SpeedActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -15495,7 +11627,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<SpeedActionTargetImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -15508,7 +11639,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -15533,27 +11664,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<SpeedActionTargetImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__RELATIVE_TARGET_SPEED ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__RELATIVE_TARGET_SPEED
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -15572,27 +11689,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<SpeedActionTargetImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__ABSOLUTE_TARGET_SPEED ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__ABSOLUTE_TARGET_SPEED
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -15602,12 +11705,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            SpeedActionTargetXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            SpeedActionTargetXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -15622,7 +11720,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<SpeedConditionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -15635,7 +11732,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -15650,12 +11747,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            SpeedConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            SpeedConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -15670,7 +11762,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<StandStillConditionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -15683,7 +11774,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -15698,12 +11789,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            StandStillConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            StandStillConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -15718,7 +11804,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<StoryImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -15731,7 +11816,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -15755,24 +11840,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<StoryImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return -1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return elementName == OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION};
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -15791,27 +11865,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<StoryImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return -1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__ACT ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__ACT
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -15821,12 +11881,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            StoryXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            StoryXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -15841,7 +11896,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<StoryboardImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -15854,7 +11908,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -15878,27 +11932,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<StoryboardImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__INIT ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__INIT
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -15917,27 +11957,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<StoryboardImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return -1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__STORY ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__STORY
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -15956,27 +11982,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<StoryboardImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__STOP_TRIGGER ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__STOP_TRIGGER
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -15986,12 +11998,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            StoryboardXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            StoryboardXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -16006,7 +12013,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<StoryboardElementStateConditionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -16019,7 +12025,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -16034,12 +12040,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            StoryboardElementStateConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            StoryboardElementStateConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -16054,7 +12055,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<SunImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -16067,7 +12067,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -16082,12 +12082,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            SunXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            SunXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -16102,7 +12097,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<SynchronizeActionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -16115,7 +12109,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -16140,27 +12134,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<SynchronizeActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__TARGET_POSITION_MASTER ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__TARGET_POSITION_MASTER
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -16179,27 +12159,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<SynchronizeActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__TARGET_POSITION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__TARGET_POSITION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -16218,27 +12184,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<SynchronizeActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__FINAL_SPEED ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__FINAL_SPEED
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -16248,12 +12200,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            SynchronizeActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            SynchronizeActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -16268,7 +12215,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<TeleportActionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -16281,7 +12227,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -16305,27 +12251,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TeleportActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__POSITION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__POSITION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -16335,12 +12267,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            TeleportActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            TeleportActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -16355,7 +12282,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<TimeHeadwayConditionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -16368,7 +12294,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -16383,12 +12309,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            TimeHeadwayConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            TimeHeadwayConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -16403,7 +12324,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<TimeOfDayImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -16416,7 +12336,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -16431,12 +12351,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            TimeOfDayXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            TimeOfDayXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -16451,7 +12366,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<TimeOfDayConditionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -16464,7 +12378,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -16479,12 +12393,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            TimeOfDayConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            TimeOfDayConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -16499,7 +12408,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<TimeReferenceImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -16512,7 +12420,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -16537,27 +12445,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TimeReferenceImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__NONE ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__NONE
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -16576,27 +12470,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TimeReferenceImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__TIMING ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__TIMING
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -16606,12 +12486,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            TimeReferenceXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            TimeReferenceXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -16626,7 +12501,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<TimeToCollisionConditionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -16639,7 +12513,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -16664,27 +12538,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TimeToCollisionConditionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__TIME_TO_COLLISION_CONDITION_TARGET ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__TIME_TO_COLLISION_CONDITION_TARGET
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -16694,12 +12554,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            TimeToCollisionConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            TimeToCollisionConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -16714,7 +12569,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<TimeToCollisionConditionTargetImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -16727,7 +12581,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -16752,27 +12606,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TimeToCollisionConditionTargetImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__POSITION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__POSITION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -16791,27 +12631,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TimeToCollisionConditionTargetImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__ENTITY_REF ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__ENTITY_REF
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -16821,12 +12647,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            TimeToCollisionConditionTargetXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            TimeToCollisionConditionTargetXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -16841,7 +12662,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<TimingImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -16854,7 +12674,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -16869,12 +12689,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            TimingXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            TimingXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -16889,7 +12704,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<TrafficActionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -16902,7 +12716,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -16927,27 +12741,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__TRAFFIC_SOURCE_ACTION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__TRAFFIC_SOURCE_ACTION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -16966,27 +12766,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__TRAFFIC_SINK_ACTION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__TRAFFIC_SINK_ACTION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -17005,27 +12791,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__TRAFFIC_SWARM_ACTION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__TRAFFIC_SWARM_ACTION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -17035,12 +12807,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            TrafficActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            TrafficActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -17055,7 +12822,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<TrafficDefinitionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -17068,7 +12834,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -17093,27 +12859,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficDefinitionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__VEHICLE_CATEGORY_DISTRIBUTION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__VEHICLE_CATEGORY_DISTRIBUTION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -17132,27 +12884,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficDefinitionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__CONTROLLER_DISTRIBUTION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__CONTROLLER_DISTRIBUTION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -17162,12 +12900,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            TrafficDefinitionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            TrafficDefinitionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -17182,7 +12915,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<TrafficSignalActionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -17195,7 +12927,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -17220,27 +12952,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSignalActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__TRAFFIC_SIGNAL_CONTROLLER_ACTION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__TRAFFIC_SIGNAL_CONTROLLER_ACTION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -17259,27 +12977,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSignalActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__TRAFFIC_SIGNAL_STATE_ACTION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__TRAFFIC_SIGNAL_STATE_ACTION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -17289,12 +12993,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            TrafficSignalActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            TrafficSignalActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -17309,7 +13008,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<TrafficSignalConditionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -17322,7 +13020,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -17337,12 +13035,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            TrafficSignalConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            TrafficSignalConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -17357,7 +13050,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<TrafficSignalControllerImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -17370,7 +13062,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -17394,27 +13086,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSignalControllerImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return -1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__PHASE ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__PHASE
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -17424,12 +13102,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            TrafficSignalControllerXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            TrafficSignalControllerXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -17444,7 +13117,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<TrafficSignalControllerActionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -17457,7 +13129,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -17472,12 +13144,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            TrafficSignalControllerActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            TrafficSignalControllerActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -17492,7 +13159,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<TrafficSignalControllerConditionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -17505,7 +13171,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -17520,12 +13186,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            TrafficSignalControllerConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            TrafficSignalControllerConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -17540,7 +13201,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<TrafficSignalStateImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -17553,7 +13213,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -17568,12 +13228,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            TrafficSignalStateXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            TrafficSignalStateXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -17588,7 +13243,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<TrafficSignalStateActionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -17601,7 +13255,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -17616,12 +13270,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            TrafficSignalStateActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            TrafficSignalStateActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -17636,7 +13285,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<TrafficSinkActionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -17649,7 +13297,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -17674,27 +13322,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSinkActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__POSITION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__POSITION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -17713,27 +13347,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSinkActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__TRAFFIC_DEFINITION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__TRAFFIC_DEFINITION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -17743,12 +13363,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            TrafficSinkActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            TrafficSinkActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -17763,7 +13378,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<TrafficSourceActionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -17776,7 +13390,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -17801,27 +13415,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSourceActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__POSITION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__POSITION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -17840,27 +13440,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSourceActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__TRAFFIC_DEFINITION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__TRAFFIC_DEFINITION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -17870,12 +13456,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            TrafficSourceActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            TrafficSourceActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -17890,7 +13471,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<TrafficSwarmActionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -17903,7 +13483,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -17928,27 +13508,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSwarmActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__CENTRAL_OBJECT ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__CENTRAL_OBJECT
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -17967,27 +13533,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSwarmActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__TRAFFIC_DEFINITION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__TRAFFIC_DEFINITION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -17997,12 +13549,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            TrafficSwarmActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            TrafficSwarmActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -18017,7 +13564,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<TrajectoryImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -18030,7 +13576,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -18054,24 +13600,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrajectoryImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return -1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return elementName == OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION};
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -18090,27 +13625,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrajectoryImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__SHAPE ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__SHAPE
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -18120,12 +13641,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            TrajectoryXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            TrajectoryXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -18140,7 +13656,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<TrajectoryCatalogLocationImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -18153,7 +13668,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -18178,27 +13693,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrajectoryCatalogLocationImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__DIRECTORY ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__DIRECTORY
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -18208,12 +13709,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            TrajectoryCatalogLocationXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            TrajectoryCatalogLocationXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -18228,7 +13724,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<TrajectoryFollowingModeImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -18241,7 +13736,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -18256,12 +13751,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            TrajectoryFollowingModeXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            TrajectoryFollowingModeXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -18276,7 +13766,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<TransitionDynamicsImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -18289,7 +13778,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -18304,12 +13793,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            TransitionDynamicsXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            TransitionDynamicsXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -18324,7 +13808,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<TraveledDistanceConditionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -18337,7 +13820,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -18352,12 +13835,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            TraveledDistanceConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            TraveledDistanceConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -18372,7 +13850,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<TriggerImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -18385,7 +13862,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -18409,27 +13886,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TriggerImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return -1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__CONDITION_GROUP ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__CONDITION_GROUP
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -18439,12 +13902,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            TriggerXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            TriggerXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -18459,7 +13917,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<TriggeringEntitiesImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -18472,7 +13929,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -18496,27 +13953,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TriggeringEntitiesImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return -1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__ENTITY_REF ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__ENTITY_REF
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -18526,12 +13969,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            TriggeringEntitiesXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            TriggeringEntitiesXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -18546,7 +13984,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<UserDefinedActionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -18559,7 +13996,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -18583,27 +14020,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<UserDefinedActionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__CUSTOM_COMMAND_ACTION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__CUSTOM_COMMAND_ACTION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -18613,12 +14036,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            UserDefinedActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            UserDefinedActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -18633,7 +14051,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<UserDefinedValueConditionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -18646,7 +14063,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -18661,12 +14078,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            UserDefinedValueConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            UserDefinedValueConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -18681,7 +14093,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<VehicleImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -18694,7 +14105,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -18719,24 +14130,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<VehicleImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 0;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return -1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return elementName == OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION};
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -18755,27 +14155,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<VehicleImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__BOUNDING_BOX ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__BOUNDING_BOX
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -18794,27 +14180,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<VehicleImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__PERFORMANCE ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__PERFORMANCE
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -18833,27 +14205,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<VehicleImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__AXLES ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__AXLES
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -18872,27 +14230,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<VehicleImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__PROPERTIES ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__PROPERTIES
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -18902,12 +14246,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            VehicleXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            VehicleXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -18922,7 +14261,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<VehicleCatalogLocationImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -18935,7 +14273,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -18960,27 +14298,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<VehicleCatalogLocationImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__DIRECTORY ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__DIRECTORY
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -18990,12 +14314,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            VehicleCatalogLocationXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            VehicleCatalogLocationXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -19010,7 +14329,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<VehicleCategoryDistributionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -19023,7 +14341,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -19047,27 +14365,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<VehicleCategoryDistributionImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return -1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__VEHICLE_CATEGORY_DISTRIBUTION_ENTRY ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__VEHICLE_CATEGORY_DISTRIBUTION_ENTRY
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -19077,12 +14381,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            VehicleCategoryDistributionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            VehicleCategoryDistributionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -19097,7 +14396,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<VehicleCategoryDistributionEntryImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -19110,7 +14408,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -19125,12 +14423,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            VehicleCategoryDistributionEntryXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            VehicleCategoryDistributionEntryXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -19145,7 +14438,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<VertexImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -19158,7 +14450,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -19182,27 +14474,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<VertexImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__POSITION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__POSITION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -19212,12 +14490,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            VertexXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            VertexXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -19232,7 +14505,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<VisibilityActionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -19245,7 +14517,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -19260,12 +14532,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            VisibilityActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            VisibilityActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -19280,7 +14547,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<WaypointImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -19293,7 +14559,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -19317,27 +14583,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<WaypointImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__POSITION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__POSITION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -19347,12 +14599,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            WaypointXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            WaypointXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -19367,7 +14614,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<WeatherImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -19380,7 +14626,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
             protected:
                 /*
@@ -19405,27 +14651,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<WeatherImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__SUN ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__SUN
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -19444,27 +14676,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<WeatherImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__FOG ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__FOG
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
             /**
@@ -19483,27 +14701,13 @@ namespace NET_ASAM_OPENSCENARIO
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<WeatherImpl>& object) override;
 
-                int GetMinOccur() override
-                {
-                    return 1;
-                }
+                int GetMinOccur() override;
 
-                int GetMaxOccur() override
-                {
-                    return 1;
-                }
+                int GetMaxOccur() override;
 
-                bool DoesMatch(std::string& elementName) override
-                {
-                    return
-                        elementName == OSC_CONSTANTS::ELEMENT__PRECIPITATION ;
-                }
+                bool DoesMatch(std::string& elementName) override;
 
-                std::vector<std::string> GetExpectedTagNames() override
-                {                    return {
-                        OSC_CONSTANTS::ELEMENT__PRECIPITATION
-                            };
-                }
+                std::vector<std::string> GetExpectedTagNames() override;
             };
 
 
@@ -19513,12 +14717,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            WeatherXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            WeatherXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
 
@@ -19533,7 +14732,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser<WorldPositionImpl>>> GetAttributeNameToAttributeParserMap() override;
-
         private:
             /**
             * Parser for all subelements
@@ -19546,7 +14744,7 @@ namespace NET_ASAM_OPENSCENARIO
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
             protected:
                 /*
                 * Creates a list of parser
@@ -19561,12 +14759,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
             */
-            WorldPositionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-            XmlComplexTypeParser(messageLogger, filename)
-            {
-                _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
-            }
-
+            WorldPositionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
         };
 
     }

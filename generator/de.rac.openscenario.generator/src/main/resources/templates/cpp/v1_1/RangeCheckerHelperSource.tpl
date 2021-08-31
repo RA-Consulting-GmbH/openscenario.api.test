@@ -18,20 +18,22 @@
 -%>
 <%=JavaLicenseHelper.getApache2License()%>
  
-#include "Enumerations<%=fileSuffix%>.h"
+#pragma once
+
+#include "RangeCheckerHelper<%=fileSuffix%>.h"
+#include "RangeCheckerRules<%=fileSuffix%>.h"
+#include "MemLeakDetection.h"
 
 namespace NET_ASAM_OPENSCENARIO
 {
     namespace <%=versionNamespace%>
     {
-    <%- model.getEnumerations().each{ element->-%>
-        std::map<std::string, <%=element.name.toClassName()%>::<%=element.name.toClassName()%>Enum> <%=element.name.toClassName()%>::_stringToEnum = 
+		void RangeCheckerHelper::AddAllRangeCheckerRules(std::shared_ptr<IScenarioChecker> scenarioChecker)
         {
-            <%- element.enumerationValues.each{ property ->-%>
-            {"<%=property.literal.toMemberName()%>", <%=property.literal.toUpperNameFromMemberName()%>},
+            <%- element.each{ umlClass ->-%>
+            scenarioChecker->Add<%=umlClass.name.toClassName()%>CheckerRule(std::shared_ptr<<%=umlClass.name.toClassName()%>RangeCheckerRule>(new <%=umlClass.name.toClassName()%>RangeCheckerRule()));
             <%-}-%>
-        };
+        }
 
-    <%-}-%>
     }
 }
