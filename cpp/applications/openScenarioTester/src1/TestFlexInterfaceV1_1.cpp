@@ -15,7 +15,6 @@
  * limitations under the License.
  */
 
-#pragma once
 #include "TestFlexInterfaceV1_1.h"
 #include "FileResourceLocator.h"
 #undef ERROR

@@ -18,7 +18,6 @@
 -%>
 <%=JavaLicenseHelper.getApache2License()%>
  
-#pragma once
 #include "CatalogHelper<%=fileSuffix%>.h"
 #include "MemLeakDetection.h"
 

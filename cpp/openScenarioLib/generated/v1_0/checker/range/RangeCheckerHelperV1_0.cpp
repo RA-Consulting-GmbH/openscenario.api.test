@@ -14,8 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
-#pragma once
+
 
 #include "RangeCheckerHelperV1_0.h"
 #include "RangeCheckerRulesV1_0.h"

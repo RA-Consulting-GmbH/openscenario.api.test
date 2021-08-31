@@ -17,8 +17,7 @@
  */
 -%>
 <%=JavaLicenseHelper.getApache2License()%>
- 
-#pragma once
+
 
 #include "RangeCheckerHelper<%=fileSuffix%>.h"
 #include "RangeCheckerRules<%=fileSuffix%>.h"

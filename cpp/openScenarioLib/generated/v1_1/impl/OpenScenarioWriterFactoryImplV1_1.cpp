@@ -15,9 +15,7 @@
  * limitations under the License.
  */
 
-#pragma once
 #include "OpenScenarioWriterFactoryImplV1_1.h"
-
 
 namespace NET_ASAM_OPENSCENARIO
 {

@@ -17,7 +17,7 @@
  */
 -%>
 <%=JavaLicenseHelper.getApache2License()%>
- 
+
 #pragma once
 
 #include "ApiClassInterfaces<%=fileSuffix%>.h"

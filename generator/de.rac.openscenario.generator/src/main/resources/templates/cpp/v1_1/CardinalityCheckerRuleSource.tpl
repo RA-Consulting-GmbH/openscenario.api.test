@@ -17,7 +17,6 @@
  */
 -%>
 <%=JavaLicenseHelper.getApache2License()%>
-#pragma once
 
 
 #include "CardinalityCheckerRules<%=fileSuffix%>.h"

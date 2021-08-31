@@ -18,7 +18,6 @@
 -%>
 <%=JavaLicenseHelper.getApache2License()%>
 
-#pragma once
 #include "OpenScenarioWriterFactoryImpl<%=fileSuffix%>.h"
 
 namespace NET_ASAM_OPENSCENARIO

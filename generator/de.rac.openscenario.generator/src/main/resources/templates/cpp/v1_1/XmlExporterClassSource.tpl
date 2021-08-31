@@ -18,7 +18,7 @@
 -%>
 <%=JavaLicenseHelper.getApache2License()%>
 
-#pragma once
+
 #include <vector>
 #include <map>
 #include "XmlExportHelper.h"
@@ -31,11 +31,6 @@
 #include "ApiClassInterfaces<%=fileSuffix%>.h"
 
 #include "OpenScenarioXmlExporter<%=fileSuffix%>.h"
-
-
-
-
-
 
 namespace NET_ASAM_OPENSCENARIO
 {

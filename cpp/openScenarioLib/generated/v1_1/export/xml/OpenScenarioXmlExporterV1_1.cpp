@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-#pragma once
+
 #include <vector>
 #include <map>
 #include "XmlExportHelper.h"
@@ -28,11 +28,6 @@
 #include "ApiClassInterfacesV1_1.h"
 
 #include "OpenScenarioXmlExporterV1_1.h"
-
-
-
-
-
 
 namespace NET_ASAM_OPENSCENARIO
 {

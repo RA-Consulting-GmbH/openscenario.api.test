@@ -15,7 +15,6 @@
  * limitations under the License.
  */
  
-#pragma once
 #include "CatalogHelperV1_0.h"
 #include "MemLeakDetection.h"
 

@@ -15,8 +15,7 @@
  * limitations under the License.
  */
 
-#pragma once
-//#include "MessageLogger.h"
+
 #include "TestBaseV1_1.h"
 #include "FileResourceLocator.h"
 
