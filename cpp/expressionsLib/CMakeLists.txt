@@ -117,6 +117,15 @@ else()
   target_link_libraries( ${PROJECT_NAME} antlr4_static )
 endif()
 
+
+################################################################
+# Linux lib versioning
+if( UNIX )
+  set_target_properties( ${PROJECT_NAME} PROPERTIES VERSION ${VERSION_MAJOR}.${VERSION_MINOR}.${PATCHNUMBER} )
+  set_target_properties( ${PROJECT_NAME} PROPERTIES SOVERSION ${VERSION_MAJOR} )
+endif()
+ 
+
  ################################################################
 # Visual Studio solution folders
 if( MSVC )

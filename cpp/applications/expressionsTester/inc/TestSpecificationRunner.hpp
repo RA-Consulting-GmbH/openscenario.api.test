@@ -113,7 +113,7 @@ public:
 
 					}
 					catch (OscExpression::SemanticException error) {
-						bool isColumnConsistent = test->GetExpectedErrorColumn() == error.GetColumn();
+						bool isColumnConsistent = test->GetExpectedErrorColumn() == (int)error.GetColumn();
 						bool isMessageConsistent = test->GetExpectedError() == error.GetErrorMessage();
 						if (!isMessageConsistent || !isColumnConsistent) {
 							isSuccessfull = false;
@@ -135,7 +135,7 @@ public:
 					}
 				}
 			}
-			catch (std::exception e) {
+			catch (std::exception& e) {
 				std::ostringstream stringStream;
 				stringStream << e.what() << "\n";
 				issueError(test->getId(), stringStream.str(), logger);

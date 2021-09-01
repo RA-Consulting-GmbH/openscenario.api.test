@@ -349,7 +349,8 @@ namespace NET_ASAM_OPENSCENARIO
             // There must be one item set
             if (propertyNamesNotNull.size() == 0)
             {
-                auto msg = TreeContentMessage(GetTooFewMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(object, GetAllChildren()));
+                auto allChildren = GetAllChildren();
+                auto msg = TreeContentMessage( GetTooFewMessage( propertyNamesNotNull ), ERROR, std::make_shared<PropertyTreeContext>( object, allChildren ) );
                 messageLogger->LogMessage(msg);
             }
         }
@@ -409,7 +410,8 @@ namespace NET_ASAM_OPENSCENARIO
             // There must be one item set
             if (propertyNamesNotNull.size() == 0)
             {
-                auto msg = TreeContentMessage(GetTooFewMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(object, GetAllChildren()));
+                auto allChildren = GetAllChildren();
+                auto msg = TreeContentMessage(GetTooFewMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(object, allChildren));
                 messageLogger->LogMessage(msg);
             }
         }
@@ -464,7 +466,8 @@ namespace NET_ASAM_OPENSCENARIO
             // There must be one item set
             if (propertyNamesNotNull.size() == 0)
             {
-                auto msg = TreeContentMessage(GetTooFewMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(object, GetAllChildren()));
+                auto allChildren = GetAllChildren();
+                auto msg = TreeContentMessage(GetTooFewMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(object, allChildren));
                 messageLogger->LogMessage(msg);
             }
         }
@@ -1068,7 +1071,8 @@ namespace NET_ASAM_OPENSCENARIO
             // There must be one item set
             if (propertyNamesNotNull.size() == 0)
             {
-                auto msg = TreeContentMessage(GetTooFewMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(object, GetAllChildren()));
+                auto allChildren = GetAllChildren();
+                auto msg = TreeContentMessage(GetTooFewMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(object, allChildren));
                 messageLogger->LogMessage(msg);
             }
         }
@@ -1475,7 +1479,8 @@ namespace NET_ASAM_OPENSCENARIO
             // There must be one item set
             if (propertyNamesNotNull.size() == 0)
             {
-                auto msg = TreeContentMessage(GetTooFewMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(object, GetAllChildren()));
+                auto allChildren = GetAllChildren();
+                auto msg = TreeContentMessage(GetTooFewMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(object, allChildren));
                 messageLogger->LogMessage(msg);
             }
         }
@@ -1550,7 +1555,8 @@ namespace NET_ASAM_OPENSCENARIO
             // There must be one item set
             if (propertyNamesNotNull.size() == 0)
             {
-                auto msg = TreeContentMessage(GetTooFewMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(object, GetAllChildren()));
+                auto allChildren = GetAllChildren();
+                auto msg = TreeContentMessage(GetTooFewMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(object, allChildren));
                 messageLogger->LogMessage(msg);
             }
         }
@@ -1757,7 +1763,8 @@ namespace NET_ASAM_OPENSCENARIO
             // There must be one item set
             if (propertyNamesNotNull.size() == 0)
             {
-                auto msg = TreeContentMessage(GetTooFewMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(object, GetAllChildren()));
+                auto allChildren = GetAllChildren();
+                auto msg = TreeContentMessage(GetTooFewMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(object, allChildren));
                 messageLogger->LogMessage(msg);
             }
         }

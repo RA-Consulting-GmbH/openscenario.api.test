@@ -14,6 +14,7 @@
             "environment": {
                 "PR_ENV_ARCH": "x64"
             },
+            "warnings": {"dev": false},
             "hidden": true
         },
         {
@@ -23,6 +24,7 @@
             "environment": {
                 "PR_ENV_ARCH": "Win32"
             },
+            "warnings": {"dev": false},
             "hidden": true
         },
         {
@@ -292,6 +294,7 @@
                     "value": "TRUE"
                 }
             },
+            "warnings": {"dev": false},
             "hidden": true
         },
         {
@@ -424,38 +427,44 @@
             "name": "Build-Linux-shared-release",
             "description": "Build shared release using Unix Makefiles",
             "displayName": "Build Linux shared release",
-            "configurePreset": "Linux-shared-release"
+            "configurePreset": "Linux-shared-release",
+            "jobs": 2
         },
         {
             "name": "Build-Linux-shared-debug",
             "description": "Build shared debug using Unix Makefiles",
             "displayName": "Build Linux shared debug",
-            "configurePreset": "Linux-shared-debug"
+            "configurePreset": "Linux-shared-debug",
+            "jobs": 2
         },
         {
             "name": "Build-Linux-shared-relWithDebInfo",
             "description": "Build shared relWithDebInfo using Unix Makefiles",
             "displayName": "Build Linux shared relWithDebInfo",
             "configurePreset": "Linux-shared-relWithDebInfo",
+            "jobs": 2,
             "hidden": true
         },
         {
             "name": "Build-Linux-static-release",
             "description": "Build static release using Unix Makefiles",
             "displayName": "Build Linux static release",
-            "configurePreset": "Linux-static-release"
+            "configurePreset": "Linux-static-release",
+            "jobs": 2
         },
         {
             "name": "Build-Linux-static-debug",
             "description": "Build static debug using Unix Makefiles",
             "displayName": "Build Linux static debug",
-            "configurePreset": "Linux-static-debug"
+            "configurePreset": "Linux-static-debug",
+            "jobs": 2
         },
         {
             "name": "Build-Linux-static-relWithDebInfo",
             "description": "Build static relWithDebInfo using Unix Makefiles",
             "displayName": "Build Linux static relWithDebInfo",
             "configurePreset": "Linux-static-relWithDebInfo",
+            "jobs": 2,
             "hidden": true
         },
         {

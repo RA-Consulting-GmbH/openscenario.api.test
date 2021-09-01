@@ -47,8 +47,6 @@ include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/thirdParty/nlohmann/inc )
 include_directories( ${ANTLR4_INCLUDE_DIRS} )
 include_directories( ${ANTLR_OscParamDefLexer_OUTPUT_DIR} )
 include_directories( ${ANTLR_OscParamDefParser_OUTPUT_DIR} )
-include_directories( ${ANTLR_OscParamDefParser_CXX_OUTPUTS} )
-include_directories( ${ANTLR_OscParamDefLexer_CXX_OUTPUTS} )
 
 
 ################################################################
@@ -107,10 +105,8 @@ target_link_libraries( ${PROJECT_NAME}
 target_include_directories( ${PROJECT_NAME}
                     PUBLIC  ${CMAKE_CURRENT_SOURCE_DIR}
                             ${CMAKE_CURRENT_SOURCE_DIR}/inc
-							${ANTLR_OscParamDefLexer_CXX_OUTPUTS}
-							${ANTLR_OscParamDefParser_CXX_OUTPUTS}
-                            
 )
+
 list(APPEND CMAKE_CTEST_ARGUMENTS "--output-on-failure")
 
 if(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
@@ -121,7 +117,6 @@ else()
 	target_compile_options(${PROJECT_NAME} PRIVATE "/MT$<$<CONFIG:Debug>:d>")
 endif()
 endif()
-
 
 
 if( MSVC )
