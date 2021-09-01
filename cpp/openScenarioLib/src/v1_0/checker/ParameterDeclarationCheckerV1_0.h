@@ -19,15 +19,10 @@
 #pragma once
 
 #include "ICheckerRule.h"
-#include "ErrorLevel.h"
-#include "FileContentMessage.h"
-#include "ILocator.h"
 #include "IParserMessageLogger.h"
 #include "ParserHelper.h"
 #include "ApiClassImplV1_0.h"
-#include "PropertyTreeContext.h"
 #include "ITreeMessageLogger.h"
-#include  "TreeContentMessage.h"
 #include "MemLeakDetection.h"
 
 /**

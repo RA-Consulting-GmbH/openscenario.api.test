@@ -18,6 +18,8 @@
 
 #include "CatalogCacheV1_0.h"
 
+#include "ScenarioLoaderException.h"
+
 namespace NET_ASAM_OPENSCENARIO
 {
     namespace v1_0

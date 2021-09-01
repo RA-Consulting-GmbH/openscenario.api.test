@@ -16,6 +16,7 @@
  */
 
 #include "UnionCheckerRulesV1_0.h"
+#include "OscConstantsV1_0.h"
 
 namespace NET_ASAM_OPENSCENARIO
 {

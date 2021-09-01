@@ -18,7 +18,6 @@
 #pragma once
 #include <map>
 #include <memory>
-#include <set>
 #include <vector>
 #include "OscInterfacesV1_1.h"
 #include "IParserMessageLogger.h"

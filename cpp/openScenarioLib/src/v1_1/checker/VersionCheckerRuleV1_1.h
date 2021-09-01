@@ -19,17 +19,9 @@
 #pragma once
 
 #include "ICheckerRule.h"
-#include "ErrorLevel.h"
-#include "FileContentMessage.h"
-#include "ILocator.h"
 #include "IParserMessageLogger.h"
-#include "PropertyTreeContext.h"
 #include "ITreeMessageLogger.h"
-#include "TreeContentMessage.h"
-#include "Textmarker.h"
 #include "ApiClassImplV1_1.h"
-#include "MemLeakDetection.h"
-#include "OscConstantsV1_1.h"
 #include "ExportDefinitions.h"
 
 /**

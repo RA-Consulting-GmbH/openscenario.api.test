@@ -19,6 +19,7 @@
 <%=JavaLicenseHelper.getApache2License()%>
 
 #include "UnionCheckerRules<%=fileSuffix%>.h"
+#include "OscConstants<%=fileSuffix%>.h"
 
 namespace NET_ASAM_OPENSCENARIO
 {

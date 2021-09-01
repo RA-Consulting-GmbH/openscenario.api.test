@@ -17,7 +17,7 @@
 
 #include "TestVersionCheckerV1_1.h"
 #include "VersionCheckerRuleV1_1.h"
-
+#include "ScenarioLoaderException.h"
 namespace NET_ASAM_OPENSCENARIO
 {
     namespace v1_1

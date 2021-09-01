@@ -17,6 +17,8 @@
 
 #include "ParameterDeclarationCheckerV1_0.h"
 
+#include "PropertyTreeContext.h"
+
 
 /**
  * Checks Parameter declarations' value to be parsable (not empty value)

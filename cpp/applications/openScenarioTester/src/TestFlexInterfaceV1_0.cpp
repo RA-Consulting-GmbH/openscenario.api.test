@@ -17,6 +17,7 @@
 
 #include "TestFlexInterfaceV1_0.h"
 #include "FileResourceLocator.h"
+
 #undef ERROR
 
 namespace NET_ASAM_OPENSCENARIO

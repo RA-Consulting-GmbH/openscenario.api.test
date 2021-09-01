@@ -18,6 +18,7 @@
 //#include "MessageLogger.h"
 #include "TestBaseV1_1.h"
 #include "FileResourceLocator.h"
+#include <iostream>
 
 #define ASSERT_LOCATION __FILE__, __func__, __LINE__
 namespace NET_ASAM_OPENSCENARIO

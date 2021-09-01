@@ -23,10 +23,8 @@
 #include <map>
 #include "XmlExportHelper.h"
 #include "IParserMessageLogger.h"
-#include "OscConstants<%=fileSuffix%>.h"
-#include "IndexedElement.h"
+#include "OscConstants<%=fileSuffix%>.h" 
 #include "INamedReference.h"
-#include "ParserContext.h"
 #include "ApiClassImpl<%=fileSuffix%>.h"
 #include "ApiClassInterfaces<%=fileSuffix%>.h"
 

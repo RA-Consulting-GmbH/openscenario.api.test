@@ -19,7 +19,6 @@
 #include "IContentMessageLogger.h"
 #include <algorithm>
 #include "MemLeakDetection.h"
-#include <memory>
 
 
 namespace NET_ASAM_OPENSCENARIO

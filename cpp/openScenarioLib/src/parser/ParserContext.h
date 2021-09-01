@@ -17,7 +17,6 @@
 
 #pragma once
 #include "IndexedElement.h"
-#include <vector>
 #include "MemLeakDetection.h"
 
 namespace NET_ASAM_OPENSCENARIO

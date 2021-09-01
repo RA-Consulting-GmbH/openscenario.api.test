@@ -23,6 +23,7 @@
 #include "ScenarioCheckerImplV1_0.h"
 #include "XmlParsersV1_0.h"
 #include "CatalogReferenceParserContextV1_0.h"
+#include "ScenarioLoaderException.h"
 #include "XmlToSimpleNodeConverter.h"
 
 namespace NET_ASAM_OPENSCENARIO

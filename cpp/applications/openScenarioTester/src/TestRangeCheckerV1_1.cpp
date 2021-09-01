@@ -18,6 +18,8 @@
 #include "TestRangeCheckerV1_1.h"
 #include "RangeCheckerHelperV1_1.h"
 #include "TreeMessageLogger.h"
+#include <iostream>
+#include "ScenarioLoaderException.h"
 
 namespace NET_ASAM_OPENSCENARIO
 {

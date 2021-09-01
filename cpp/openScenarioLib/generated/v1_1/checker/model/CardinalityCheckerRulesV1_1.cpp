@@ -17,7 +17,7 @@
 
 
 #include "CardinalityCheckerRulesV1_1.h"
-
+#include "OscConstantsV1_1.h"
 
 
 namespace NET_ASAM_OPENSCENARIO

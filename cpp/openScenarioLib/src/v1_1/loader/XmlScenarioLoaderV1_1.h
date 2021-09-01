@@ -16,9 +16,6 @@
  */
 
 #pragma once
-#include <iostream>
-#include <fstream>
-#include "ICatalogReferenceProviderV1_1.h"
 #include "IParserMessageLogger.h"
 #include "OpenScenarioProcessingHelperV1_1.h"
 #include "ScenarioCheckerImplV1_1.h"

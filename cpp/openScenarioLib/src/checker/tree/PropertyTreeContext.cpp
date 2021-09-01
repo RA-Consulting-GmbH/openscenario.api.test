@@ -16,7 +16,6 @@
  */
 
 #include "PropertyTreeContext.h"
-#include "MemLeakDetection.h"
 #include <memory>
 
 

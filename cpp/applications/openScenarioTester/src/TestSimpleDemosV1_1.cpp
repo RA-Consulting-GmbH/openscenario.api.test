@@ -22,6 +22,8 @@
 #include "VersionCheckerRuleV1_1.h"
 #include "EgoCheckerRuleV1_1.h"
 
+#include <iostream>
+#include "ScenarioLoaderException.h"
 #undef ERROR
 namespace NET_ASAM_OPENSCENARIO
 {

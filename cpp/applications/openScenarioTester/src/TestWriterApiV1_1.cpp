@@ -17,6 +17,8 @@
 
 #include "TestWriterApiV1_1.h"
 #include "OpenScenarioXmlExporterV1_1.h"
+#include <iostream>
+#include "ScenarioLoaderException.h"
 
 namespace NET_ASAM_OPENSCENARIO
 {

@@ -17,6 +17,10 @@
 
 #include "TestExamplesV1_1.h"
 #include "FileResourceLocator.h"
+#include <iostream>
+
+#include "PropertyTreeContext.h"
+#include "ScenarioLoaderException.h"
 
 #undef ERROR
 
