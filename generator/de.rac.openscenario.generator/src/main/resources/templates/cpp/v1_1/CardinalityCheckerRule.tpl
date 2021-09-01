@@ -24,11 +24,7 @@
 #include "CardinalityCheckerRule.h"
 #include "IParserMessageLogger.h"
 #include "ITreeMessageLogger.h"
-#include "OscConstants<%=fileSuffix%>.h"
-#include "ErrorLevel.h"
 #include "ApiClassInterfaces<%=fileSuffix%>.h"
-#include "FileContentMessage.h"
-#include "TreeContentMessage.h"
 #include "PropertyTreeContext.h"
 #include "MemLeakDetection.h"
 

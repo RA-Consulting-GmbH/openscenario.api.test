@@ -17,7 +17,6 @@
 #pragma once
 
 #include "MemLeakDetection.h"
-#include <memory>
 #include "BaseMessageLogger.h"
 #include "ITreeMessageLogger.h"
 #include "ExportDefinitions.h"

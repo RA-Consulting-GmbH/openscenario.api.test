@@ -17,17 +17,14 @@
 
 #pragma once
 
-#include  "ErrorLevel.h"
-#include "FileContentMessage.h"
+
 #include "IParserMessageLogger.h"
 #include "Textmarker.h"
 #include <climits>
-#include <sstream>
 #include <stdexcept> 
 #include <algorithm>
 #include <locale>
 #include <iomanip>
-#include <iostream>
 #include "DateTime.h"
 #include "MemLeakDetection.h"
 

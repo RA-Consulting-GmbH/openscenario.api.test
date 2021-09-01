@@ -17,7 +17,8 @@
 
 #include "TestImportsV1_0.h"
 #include "CatalogHelperV1_0.h"
-
+#include <iostream>
+#include "ScenarioLoaderException.h"
 namespace NET_ASAM_OPENSCENARIO
 {
     namespace v1_0

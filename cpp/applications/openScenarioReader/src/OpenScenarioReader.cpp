@@ -30,6 +30,7 @@
 #include "ScenarioLoaderException.h"
 #include "FileResourceLocator.h"
 #include "../common/version.h"
+#include "ResourceNotFoundException.h"
 
 #undef ERROR
 

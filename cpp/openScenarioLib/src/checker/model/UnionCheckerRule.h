@@ -22,7 +22,6 @@
 #include <string>
 #include "MemLeakDetection.h"
 #include "ModelCheckerRule.h"
-#include <memory>
 
 /**
  * Checks the xor constraints of all children.

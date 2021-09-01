@@ -16,7 +16,6 @@
  */
 
 #pragma once
-#include <vector>
 #include "FileContentMessage.h"
 #include "IContentMessageLogger.h"
 #include "MemLeakDetection.h"

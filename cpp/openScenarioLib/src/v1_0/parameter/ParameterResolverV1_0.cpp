@@ -25,6 +25,7 @@
 #include "BaseImpl.h"
 #include "ApiClassImplV1_0.h"
 #include "SimpleType.h"
+#include <set>
 #include "MemLeakDetection.h"
 
 namespace NET_ASAM_OPENSCENARIO

@@ -18,6 +18,7 @@
 #include "FileResourceLocator.h"
 #include "filesystem.hpp"
 #include "MemLeakDetection.h"
+#include "ResourceNotFoundException.h"
 
 namespace NET_ASAM_OPENSCENARIO
 {

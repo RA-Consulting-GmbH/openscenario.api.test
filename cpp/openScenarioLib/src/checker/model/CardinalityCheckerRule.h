@@ -21,6 +21,7 @@
 #include "ModelCheckerRule.h"
 #include "MemLeakDetection.h"
 #include <memory>
+#include <sstream>
 
 /**
  * Checks the cardinalitiy of all properties that are not (0..1).

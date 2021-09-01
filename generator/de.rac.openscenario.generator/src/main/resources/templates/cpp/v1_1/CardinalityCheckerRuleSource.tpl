@@ -20,7 +20,7 @@
 
 
 #include "CardinalityCheckerRules<%=fileSuffix%>.h"
-
+#include "OscConstants<%=fileSuffix%>.h"
 
 
 namespace NET_ASAM_OPENSCENARIO

@@ -17,6 +17,7 @@
 
 #include "TestExamplesV1_0.h"
 #include "FileResourceLocator.h"
+#include "PropertyTreeContext.h"
 
 #undef ERROR
 

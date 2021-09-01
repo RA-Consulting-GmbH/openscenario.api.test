@@ -18,12 +18,11 @@
 #pragma once
 #include <map>
 #include <memory>
-#include <set>
 #include <vector>
 #include "OscInterfacesV1_0.h"
 #include "IParserMessageLogger.h"
-#include "ApiClassImplV1_0.h"
 #include "BaseImpl.h"
+#include "IOpenScenarioWriterFactoryV1_0.h"
 #include "SimpleType.h"
 
 

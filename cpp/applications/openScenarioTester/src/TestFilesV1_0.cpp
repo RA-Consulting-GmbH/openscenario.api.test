@@ -17,6 +17,8 @@
 
 #include "TestBaseV1_0.h"
 #include "TestFilesV1_0.h"
+#include <iostream>
+#include "ScenarioLoaderException.h"
 
 namespace NET_ASAM_OPENSCENARIO
 {

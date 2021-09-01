@@ -23,10 +23,7 @@
 #include "IParserMessageLogger.h"
 #include "BaseImpl.h"
 #include "IResourceLocator.h"
-#include "IScenarioLoader.h"
 #include "IScenarioLoaderFactory.h"
-#include "ErrorLevel.h"
-#include "ScenarioLoaderException.h"
 #include "MemLeakDetection.h"
 
 namespace NET_ASAM_OPENSCENARIO

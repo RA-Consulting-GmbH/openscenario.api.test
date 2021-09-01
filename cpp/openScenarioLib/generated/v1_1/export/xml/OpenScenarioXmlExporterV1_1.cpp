@@ -20,10 +20,8 @@
 #include <map>
 #include "XmlExportHelper.h"
 #include "IParserMessageLogger.h"
-#include "OscConstantsV1_1.h"
-#include "IndexedElement.h"
+#include "OscConstantsV1_1.h" 
 #include "INamedReference.h"
-#include "ParserContext.h"
 #include "ApiClassImplV1_1.h"
 #include "ApiClassInterfacesV1_1.h"
 

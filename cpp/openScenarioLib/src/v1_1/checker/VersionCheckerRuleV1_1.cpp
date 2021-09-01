@@ -17,6 +17,8 @@
 
 #include "VersionCheckerRuleV1_1.h"
 
+#include "PropertyTreeContext.h"
+
 
 /**
  * A checker rule for checking the version of the standard within a OpenSCENARIO file.

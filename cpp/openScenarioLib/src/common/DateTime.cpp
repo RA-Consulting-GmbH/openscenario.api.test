@@ -16,6 +16,8 @@
  */
 
 #include "DateTime.h"
+#include <sstream>
+#include <iomanip>
 #include "MemLeakDetection.h"
 
 namespace NET_ASAM_OPENSCENARIO

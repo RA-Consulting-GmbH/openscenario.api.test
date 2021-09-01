@@ -18,7 +18,6 @@
 #pragma once
 
 #include "MemLeakDetection.h"
-#include <memory>
 #include "ErrorLevel.h"
 #include "ExportDefinitions.h"
 
