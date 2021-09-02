@@ -121,7 +121,7 @@ else
 
             # Build Linux Makefiles and compile project
             echo -e "\nBuilding Linux $BINDING_TYPE $BUILD_TYPE ..."
-            cmake -Wno-dev -DCMAKE_BUILD_TYPE="${BUT_CC}" -DBUILD_SHARED_LIBS="${BUILD_SHARED_LIBS}" -DPLATFORM_PARAM=${PLATFORM_NAME} -DMASTER_PROJECT=TRUE $ROOT_DIR/cpp/
+            cmake -Wno-dev -DCMAKE_BUILD_TYPE="${BUT_CC}" -DBUILD_SHARED_LIBS="${BUILD_SHARED_LIBS}" -DPLATFORM_PARAM="${PLATFORM_NAME}" -DMASTER_PROJECT=TRUE $ROOT_DIR/cpp/
             if [ $MAKE == "yes" ]; then
                 echo -e "\nCompiling Linux $BINDING_TYPE $BUILD_TYPE ..."
                 make $PAR

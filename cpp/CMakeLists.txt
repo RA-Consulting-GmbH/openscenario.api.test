@@ -4,6 +4,9 @@ cmake_minimum_required( VERSION 3.8.2 )
 project( OpenScenario-Cpp )
 message("${PROJECT_NAME}")
 
+################################################################
+# Write msbuild.exe for Windows build
+write_file("${CMAKE_SOURCE_DIR}/buildArtifact/msbuildcmd.txt" "cmd,${CMAKE_VS_MSBUILD_COMMAND}")
 
 ################################################################
 # Add a module path for cmake modules
