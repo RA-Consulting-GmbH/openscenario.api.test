@@ -1,5 +1,25 @@
 #!/bin/bash
 
+
+################################
+# Script-Dir: https://stackoverflow.com/questions/59895/get-the-source-directory-of-a-bash-script-from-within-the-script-itself
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
+
+
+################################
+# Print help
+if [ "$1" == "" ] || [ $1 == "h" ] || [ $1 == "help" ] || [ $1 == "-h" ] || [ $1 == "-help" ] || [ $1 == "--h" ] || [ $1 == "--help" ]; then
+    echo "$0 (all [release] [shared|static]) | ([release|debug] [shared|static] [make])"
+    echo ""
+    echo "Multi config: all [release] [shared|static] [parallel]"
+    echo "  Builds and compiles multiple projects or even all projects at once (takes a long time)."
+    echo ""
+    echo "Single config: [release|debug] [shared|static] [make [parallel]]"
+    echo "  Builds and optionaly compiles only one project (quite fast)."
+    exit 0
+fi
+
+
 ################################
 # Check if cmake is installed
 command -v cmake >/dev/null 2>&1 || {
@@ -7,9 +27,6 @@ command -v cmake >/dev/null 2>&1 || {
     exit 1
 }
 
-################################
-# Script-Dir: https://stackoverflow.com/questions/59895/get-the-source-directory-of-a-bash-script-from-within-the-script-itself
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 
 ################################
 # Parse cmd line params
@@ -22,6 +39,9 @@ if [ $1 == "all" ]; then
         case "$i" in
         "release")
             BUILD_TYPES="release"
+            ;;
+        "shared")
+            BINDING_TYPES="shared"
             ;;
         "parallel")
             PAR="-j 4"
@@ -54,9 +74,11 @@ else
     done
 fi
 
+
 ################################
 # Remember user dir
 USER_DIR=$(pwd)
+
 
 ################################
 # Root-Dir
@@ -72,11 +94,13 @@ echo "OpenSCENARIO root dir: $ROOT_DIR"
 cd $ROOT_DIR/cpp
 echo "Entering $ROOT_DIR/cpp"
 
+
 ################################
 # Get cmake version
 CMV=$(cmake --version | egrep -o "[0-9]+\.[0-9]+")
 CMV_MAJOR=$(echo $CMV | cut -d '.' -f1 -)
 CMV_MINOR=$(echo $CMV | cut -d '.' -f2 -)
+
 
 ################################################################################
 # Build the release binaries cmake version dependent
@@ -109,11 +133,12 @@ else
                 BUILD_SHARED_LIBS="ON"
             fi
 
-            # Create build folder
+            # Create build folder name
             BUT_CC=${BUILD_TYPE/d/D}
             BUT_CC=${BUT_CC/r/R}
             BIT_CC=${BINDING_TYPE/s/S}
 
+            # Create the build folder
             BUILDFOLDER="cg${BUT_CC}Make${BIT_CC}"
             mkdir -p "build/${BUILDFOLDER}"
             LOCAL_CWD=$(pwd)
@@ -131,6 +156,7 @@ else
         done
     done
 fi
+
 
 ################################
 # Return to user dir

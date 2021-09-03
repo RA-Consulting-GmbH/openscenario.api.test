@@ -3,7 +3,15 @@ setlocal EnableDelayedExpansion
 
 
 ::################################
-::# Check if cmake is installed
+::# Script dir
+set _cd=%~dp0
+set _me=%~nx0
+call :dequote _cd
+call :dequote _me
+
+
+::################################
+::# Print help
 set HELP=false
 if "%1"=="" set HELP=true
 if "%1"=="h" set HELP=true
@@ -15,11 +23,17 @@ if "%1"=="--help" set HELP=true
 if "%1"=="/h" set HELP=true
 if "%1"=="/help" set HELP=true
 if %HELP%==true (
-    echo "%~n0 (all (VS2010|...|VS2022) [release] [shared|static] [Win32|x64]) | ((VS2010|...|VS2022) [release|debug] [shared|static] [Win32|x64] [make])"
-    echo "Multi configuration:    all (VS2010|...|VS2022) [release] [shared|static] [Win32|x64]"
-    echo "  builds and compiles multiple projects or even all projects at once (takes a long time)"
-    echo "Single configuration: (VS2010|...|VS2022) [release|debug] [shared|static] [Win32|x64] [make]"
-    echo "  builds and optionaly compiles only one project (quite fast)"
+    set H1="%~n0 (all (VS2010|...|VS2022) [release] [shared|static] [Win32|x64]) | ((VS2010|...|VS2022) [release|debug] [shared|static] [Win32|x64] [make])"
+    set H2=""
+    set H3="Multi configuration:    all (VS2010|...|VS2022) [release] [shared|static] [Win32|x64]"
+    set H4="  Builds and compiles multiple projects or even all projects at once (takes a long time)."
+    set H5=""
+    set H6="Single configuration: (VS2010|...|VS2022) [release|debug] [shared|static] [Win32|x64] [make]"
+    set H7="  Builds and optionaly compiles only one project (quite fast)."
+    set H8=""
+    set H9="Note: if VS20.. is omitted then VS2017 is used as a default. Compiling is parallel by default."
+    for /l %%I in (1,1,9) do call :DeQuote H%%I
+    for /l %%I in (1,1,9) do if "!H%%I!"=="" ( echo. ) else ( echo !H%%I! )
     exit /b 0
 )
 
@@ -33,14 +47,6 @@ if errorlevel 1 (
     pause
     exit /b 1
 )
-
-
-::################################
-::# Script dir
-set _cd=%~dp0
-set _me=%~nx0
-call :dequote _cd
-call :dequote _me
 
 
 ::################################
