@@ -21,6 +21,7 @@
 #include "ErrorLevel.h"
 #include "FileContentMessage.h"
 #include "IParserMessageLogger.h"
+#include "BaseImpl.h"
 #include "Textmarker.h"
 #include "BaseImpl.h"
 #include "XmlParserBase.h"
@@ -33,11 +34,10 @@ namespace NET_ASAM_OPENSCENARIO
     /**
     * Generic parsers for wrapped list. An inner parser is wrapped by this parser.
     */
-    template <class T>
-    class WrappedListParser: public BaseImpl, public XmlParserBase<T>, public IElementParser<T>
+    class WrappedListParser: public BaseImpl, public XmlParserBase, public IElementParser
     {
     private:
-        std::shared_ptr<IElementParser<T>> _innerElementParser;
+        std::shared_ptr<IElementParser> _innerElementParser;
 
     protected:
         std::string _wrapperTagName;
@@ -51,10 +51,10 @@ namespace NET_ASAM_OPENSCENARIO
          * @param innerParser the inner parser
          * @param wrapperTagName the tagname that wrapps the list.
          */
-        WrappedListParser(IParserMessageLogger& messageLogger, std::string& filename, const std::shared_ptr<IElementParser<T>> innerParser, const std::string wrapperTagName):
-            XmlParserBase<T>(messageLogger, filename), _innerElementParser(innerParser), _wrapperTagName(wrapperTagName), _wrapperTagNameEndPosition(-1,-1) {}
+        WrappedListParser(IParserMessageLogger& messageLogger, std::string& filename, const std::shared_ptr<IElementParser> innerParser, const std::string wrapperTagName):
+            XmlParserBase(messageLogger, filename), _innerElementParser(innerParser), _wrapperTagName(wrapperTagName), _wrapperTagNameEndPosition(-1,-1) {}
 
-        void ParseSubElements(std::vector<std::shared_ptr<IndexedElement>>& parentElements, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<T>& object) override
+        void ParseSubElements(std::vector<std::shared_ptr<IndexedElement>>& parentElements, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override
         {
             int currentOccurs = 0;
             for (auto && indexedElement : parentElements)
@@ -93,7 +93,7 @@ namespace NET_ASAM_OPENSCENARIO
 
         }
 
-        void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr <ParserContext>& parserContext, std::shared_ptr <T>& object) override
+        void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr <ParserContext>& parserContext, std::shared_ptr <BaseImpl> object) override
         {
             _wrapperTagNameEndPosition = indexedElement->GetEndElementLocation();
             auto subElements = indexedElement->GetSubElements();

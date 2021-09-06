@@ -36,11 +36,10 @@ namespace NET_ASAM_OPENSCENARIO
     /**
     * Parser for a XSD:choice model group (one out of of a list of types).
     */
-    template <class T>
-    class XmlChoiceParser: public virtual BaseImpl, public XmlModelGroupParser<T> 
+    class XmlChoiceParser: public virtual BaseImpl, public XmlModelGroupParser 
     {
     private:
-        std::map<std::shared_ptr<IElementParser<T>>, int>  _occuredElementList;
+        std::map<std::shared_ptr<IElementParser>, int>  _occuredElementList;
 
     public:
         /**
@@ -48,9 +47,9 @@ namespace NET_ASAM_OPENSCENARIO
          * @param messageLogger to log messages during parsing process
          * @param filename of the file the parser is operating on.
          */
-        XmlChoiceParser(IParserMessageLogger& messageLogger, std::string& filename) : XmlModelGroupParser<T>(messageLogger, filename) {}
+        XmlChoiceParser(IParserMessageLogger& messageLogger, std::string& filename) : XmlModelGroupParser(messageLogger, filename) {}
 
-        void ParseSubElementsInternal(std::vector<std::shared_ptr<IndexedElement>>& indexedElements, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<T>& object) override 
+        void ParseSubElementsInternal(std::vector<std::shared_ptr<IndexedElement>>& indexedElements, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override 
         {
             unsigned int currentListIndex = 0;
             std::shared_ptr<IndexedElement> lastElementParsed = nullptr;
@@ -127,7 +126,7 @@ namespace NET_ASAM_OPENSCENARIO
          * Once a occurance is found, exclude all other parser (choice)
          * @param parser the parser that was used to parse the element
          */
-        void ExcludeOtherParsers(std::shared_ptr<IElementParser<T>>& parser) 
+        void ExcludeOtherParsers(std::shared_ptr<IElementParser>& parser) 
         {
             auto parsers = this->GetParsers();
             parsers.clear();

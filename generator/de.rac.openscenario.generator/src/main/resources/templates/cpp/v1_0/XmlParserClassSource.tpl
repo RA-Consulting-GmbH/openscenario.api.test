@@ -52,43 +52,45 @@ namespace NET_ASAM_OPENSCENARIO
     <%-}-%>
 
    <%- if (element.isComplexType() || element.isSimpleContent()){-%>
-        std::map<std::string, std::shared_ptr<IAttributeParser<<%=element.name.toClassName()%>Impl>>> <%=element.name.toClassName()%>XmlParser::GetAttributeNameToAttributeParserMap()
+        std::map<std::string, std::shared_ptr<IAttributeParser>> <%=element.name.toClassName()%>XmlParser::GetAttributeNameToAttributeParserMap()
         {
-            std::map<std::string, std::shared_ptr<IAttributeParser<<%=element.name.toClassName()%>Impl>>> result;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> result;
 
             <%-List properties = element.getXmlAttributeProperties();-%>
             <%-properties.each{ property -> -%>
-            class Attribute<%=property.name.toClassName()%>: public IAttributeParser<<%=element.name.toClassName()%>Impl>, public XmlParserBase<<%=element.name.toClassName()%>Impl>
+            class Attribute<%=property.name.toClassName()%>: public IAttributeParser, public XmlParserBase
             {
             public:
                 Attribute<%=property.name.toClassName()%>(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<<%=element.name.toClassName()%>Impl>& object) override
+                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
+                    auto typedObject = std::static_pointer_cast<<%=element.name.toClassName()%>Impl>(object);
                     <%-if (property.isParameterizableProperty()){-%>
                     if (IsParametrized(attributeValue))
                     {
-                        object->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>, StripDollarSign(attributeValue), startMarker); 
                     }
                     else
                     {
+                    	
                         // Parse value
                         <%-if (property.isProxy()){-%>
                         // Proxy
                         auto proxy = std::make_shared<NamedReferenceProxy<I<%=property.type.name.toClassName()%>>>(attributeValue);
-                        proxy->SetParent(object);
-                        object->Set<%=property.name.toClassName()%>(proxy);
+                        proxy->SetParent(typedObject);
+                        typedObject->Set<%=property.name.toClassName()%>(proxy);
                         <%-} else if (property.type.isPrimitiveType()) {-%>
                         // Simple type
-                        object->Set<%=property.name.toClassName()%>(Parse<%=property.type.name.toClassName()%>(attributeValue, startMarker));
+                        typedObject->Set<%=property.name.toClassName()%>(Parse<%=property.type.name.toClassName()%>(attributeValue, startMarker));
                         <%-} else {-%>
                         // Enumeration Type
                         const auto kResult = <%=property.type.name.toClassName()%>::GetFromLiteral(attributeValue);
                         if (kResult != <%=property.type.name.toClassName()%>::UNKNOWN)
                         {
-                            object->Set<%=property.name.toClassName()%>(attributeValue);
+                            typedObject->Set<%=property.name.toClassName()%>(attributeValue);
                         }
                         else
                         {
@@ -97,19 +99,19 @@ namespace NET_ASAM_OPENSCENARIO
                         }
                         <%-}-%>
                     }
-                    object->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>, std::make_shared<Textmarker>(startMarker));
-                    object->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>, std::make_shared<Textmarker>(endMarker));
+                    typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>, std::make_shared<Textmarker>(startMarker));
+                    typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>, std::make_shared<Textmarker>(endMarker));
                     
                     <%-} else {-%>
                     // This is a special case for ParameterDeclaration.name or ParamterAssignment.parameterRef
                         <%-if (property.isProxy()){-%>
                     // Proxy
                     auto proxy = std::make_shared<NamedReferenceProxy<I<%=property.type.name.toClassName()%>>>(StripDollarSign(attributeValue));
-                    proxy->SetParent(object);
-                    object->Set<%=property.name.toClassName()%>(proxy);
+                    proxy->SetParent(typedObject);
+                    typedObject->Set<%=property.name.toClassName()%>(proxy);
                     <%-} else if (property.type.isPrimitiveType()) {-%>
                     // Simple type
-                    object->Set<%=property.name.toClassName()%>(Parse<%=property.type.name.toClassName()%>(StripDollarSign(attributeValue), startMarker));
+                    typedObject->Set<%=property.name.toClassName()%>(Parse<%=property.type.name.toClassName()%>(StripDollarSign(attributeValue), startMarker));
                         <%-}-%>
                     <%-}-%>
                 }
@@ -125,19 +127,20 @@ namespace NET_ASAM_OPENSCENARIO
         }
     <%-}-%>
     <%-if (element.isSimpleContent()){-%>
-        void <%=element.name.toClassName()%>XmlParser::SetContentProperty(const std::string content, std::shared_ptr<<%=element.name.toClassName()%>Impl>& object)
+        void <%=element.name.toClassName()%>XmlParser::SetContentProperty(const std::string content, std::shared_ptr<BaseImpl> object)
         {
-            object->Set<%=element.getContentPropertyName().toClassName()%>(content);
+        	auto typedObject = std::static_pointer_cast<<%=element.name.toClassName()%>Impl>(object);                    
+            typedObject->Set<%=element.getContentPropertyName().toClassName()%>(content);
         }
     <%-}else{-%>
 
-        std::vector<std::shared_ptr<IElementParser<<%=element.name.toClassName()%>Impl>>> <%=element.name.toClassName()%>XmlParser::SubElementParser::CreateParserList()
+        std::vector<std::shared_ptr<IElementParser>> <%=element.name.toClassName()%>XmlParser::SubElementParser::CreateParserList()
         {
-            std::vector<std::shared_ptr<IElementParser<<%=element.name.toClassName()%>Impl>>> result;
+            std::vector<std::shared_ptr<IElementParser>> result;
             <%-properties = element.getXmlElementProperties();-%>
             <%-properties.each{ property -> -%>
                 <%- if (property.isWrappedList()){-%>
-            result.push_back(std::make_shared<WrappedListParser<<%=element.name.toClassName()%>Impl>>(_messageLogger, _filename, std::make_shared<SubElement<%=property.name.toClassName()%>Parser>(_messageLogger, _filename), OSC_CONSTANTS::ELEMENT__<%=property.name.toClassName().toUpperNameFromMemberName()%>) );
+            result.push_back(std::make_shared<WrappedListParser>(_messageLogger, _filename, std::make_shared<SubElement<%=property.name.toClassName()%>Parser>(_messageLogger, _filename), OSC_CONSTANTS::ELEMENT__<%=property.name.toClassName().toUpperNameFromMemberName()%>) );
                 <%-} else { -%>
             result.push_back(std::make_shared<SubElement<%=property.name.toClassName()%>Parser>(_messageLogger, _filename));
                 <%-}-%>
@@ -153,18 +156,19 @@ namespace NET_ASAM_OPENSCENARIO
             _<%=property.type.name.toMemberName()%>XmlParser = std::make_shared<<%=property.type.name.toClassName()%>XmlParser>(messageLogger, filename);
         }
 
-        void <%=element.name.toClassName()%>XmlParser::SubElement<%=property.name.toClassName()%>Parser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<<%=element.name.toClassName()%>Impl>& object)
+        void <%=element.name.toClassName()%>XmlParser::SubElement<%=property.name.toClassName()%>Parser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
         {
             auto <%=property.name.toMemberName()%> = std::make_shared<<%=property.type.name.toClassName()%>Impl>();
+            auto typedObject = std::static_pointer_cast<<%=element.name.toClassName()%>Impl>(object);                    
             // Setting the parent
             <%=property.name.toMemberName()%>->SetParent(object);
             _<%=property.type.name.toMemberName()%>XmlParser->ParseElement(indexedElement, parserContext, <%=property.name.toMemberName()%>);
             <%-if (property.isList()){-%>
-            auto <%=property.name.toMemberName()%>List = object->GetWriter<%=property.name.toClassName()%>();
+            auto <%=property.name.toMemberName()%>List = typedObject->GetWriter<%=property.name.toClassName()%>();
             <%=property.name.toMemberName()%>List.push_back(<%=property.name.toMemberName()%>);
-            object->Set<%=property.name.toClassName()%>(<%=property.name.toMemberName()%>List);
+            typedObject->Set<%=property.name.toClassName()%>(<%=property.name.toMemberName()%>List);
             <%-} else {%>
-            object->Set<%=property.name.toClassName()%>(<%=property.name.toMemberName()%>);
+            typedObject->Set<%=property.name.toClassName()%>(<%=property.name.toMemberName()%>);
             <%-}-%>
             <%- if (property.type.name.toClassName() == "CatalogReference"){-%>
             std::dynamic_pointer_cast<CatalogReferenceParserContext>(parserContext)->AddCatalogReference(std::dynamic_pointer_cast<I<%=property.type.name.toClassName()%>>(<%=property.name.toMemberName()%>));

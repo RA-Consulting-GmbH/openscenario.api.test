@@ -21,6 +21,7 @@
 #include "OscConstantsV1_1.h"
 #include "IndexedElement.h"
 #include "ParserContext.h"
+#include "BaseImpl.h"
 #include <vector>
 #include "ApiClassImplV1_1.h"
 #include "XmlAllParser.h"
@@ -270,16 +271,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class AbsoluteSpeedXmlParser: public XmlComplexTypeParser<AbsoluteSpeedImpl>
+        class AbsoluteSpeedXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<AbsoluteSpeedImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<AbsoluteSpeedImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -292,13 +293,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<AbsoluteSpeedImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement steadyState
             */
-            class SubElementSteadyStateParser: public IElementParser<AbsoluteSpeedImpl> 
+            class SubElementSteadyStateParser: public IElementParser
             {
             private:
                 std::shared_ptr<SteadyStateXmlParser> _steadyStateXmlParser;
@@ -309,7 +310,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementSteadyStateParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AbsoluteSpeedImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -337,16 +338,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class AbsoluteTargetLaneXmlParser: public XmlComplexTypeParser<AbsoluteTargetLaneImpl>
+        class AbsoluteTargetLaneXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<AbsoluteTargetLaneImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<AbsoluteTargetLaneImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -359,7 +360,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<AbsoluteTargetLaneImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -379,16 +380,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class AbsoluteTargetLaneOffsetXmlParser: public XmlComplexTypeParser<AbsoluteTargetLaneOffsetImpl>
+        class AbsoluteTargetLaneOffsetXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<AbsoluteTargetLaneOffsetImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<AbsoluteTargetLaneOffsetImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -401,7 +402,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<AbsoluteTargetLaneOffsetImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -421,16 +422,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class AbsoluteTargetSpeedXmlParser: public XmlComplexTypeParser<AbsoluteTargetSpeedImpl>
+        class AbsoluteTargetSpeedXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<AbsoluteTargetSpeedImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<AbsoluteTargetSpeedImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -443,7 +444,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<AbsoluteTargetSpeedImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -463,16 +464,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class AccelerationConditionXmlParser: public XmlComplexTypeParser<AccelerationConditionImpl>
+        class AccelerationConditionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<AccelerationConditionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<AccelerationConditionImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -485,7 +486,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<AccelerationConditionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -505,16 +506,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class AcquirePositionActionXmlParser: public XmlComplexTypeParser<AcquirePositionActionImpl>
+        class AcquirePositionActionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<AcquirePositionActionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlAllParser<AcquirePositionActionImpl>
+            class SubElementParser: public XmlAllParser
             {
             public:
                 /**
@@ -528,13 +529,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<AcquirePositionActionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement position
             */
-            class SubElementPositionParser: public IElementParser<AcquirePositionActionImpl> 
+            class SubElementPositionParser: public IElementParser
             {
             private:
                 std::shared_ptr<PositionXmlParser> _positionXmlParser;
@@ -545,7 +546,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AcquirePositionActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -573,16 +574,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ActXmlParser: public XmlComplexTypeParser<ActImpl>
+        class ActXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<ActImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<ActImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -595,13 +596,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<ActImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement maneuverGroups
             */
-            class SubElementManeuverGroupsParser: public IElementParser<ActImpl> 
+            class SubElementManeuverGroupsParser: public IElementParser
             {
             private:
                 std::shared_ptr<ManeuverGroupXmlParser> _maneuverGroupXmlParser;
@@ -612,7 +613,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementManeuverGroupsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ActImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -626,7 +627,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement startTrigger
             */
-            class SubElementStartTriggerParser: public IElementParser<ActImpl> 
+            class SubElementStartTriggerParser: public IElementParser
             {
             private:
                 std::shared_ptr<TriggerXmlParser> _triggerXmlParser;
@@ -637,7 +638,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementStartTriggerParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ActImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -651,7 +652,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement stopTrigger
             */
-            class SubElementStopTriggerParser: public IElementParser<ActImpl> 
+            class SubElementStopTriggerParser: public IElementParser
             {
             private:
                 std::shared_ptr<TriggerXmlParser> _triggerXmlParser;
@@ -662,7 +663,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementStopTriggerParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ActImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -690,16 +691,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ActionXmlParser: public XmlComplexTypeParser<ActionImpl>
+        class ActionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<ActionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlChoiceParser<ActionImpl>
+            class SubElementParser: public XmlChoiceParser
             {
             public:
                 /**
@@ -713,13 +714,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<ActionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement globalAction
             */
-            class SubElementGlobalActionParser: public IElementParser<ActionImpl> 
+            class SubElementGlobalActionParser: public IElementParser
             {
             private:
                 std::shared_ptr<GlobalActionXmlParser> _globalActionXmlParser;
@@ -730,7 +731,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementGlobalActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -744,7 +745,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement userDefinedAction
             */
-            class SubElementUserDefinedActionParser: public IElementParser<ActionImpl> 
+            class SubElementUserDefinedActionParser: public IElementParser
             {
             private:
                 std::shared_ptr<UserDefinedActionXmlParser> _userDefinedActionXmlParser;
@@ -755,7 +756,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementUserDefinedActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -769,7 +770,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement privateAction
             */
-            class SubElementPrivateActionParser: public IElementParser<ActionImpl> 
+            class SubElementPrivateActionParser: public IElementParser
             {
             private:
                 std::shared_ptr<PrivateActionXmlParser> _privateActionXmlParser;
@@ -780,7 +781,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementPrivateActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -808,16 +809,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ActivateControllerActionXmlParser: public XmlComplexTypeParser<ActivateControllerActionImpl>
+        class ActivateControllerActionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<ActivateControllerActionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<ActivateControllerActionImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -830,7 +831,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<ActivateControllerActionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -850,16 +851,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ActorsXmlParser: public XmlComplexTypeParser<ActorsImpl>
+        class ActorsXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<ActorsImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<ActorsImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -872,13 +873,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<ActorsImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement entityRefs
             */
-            class SubElementEntityRefsParser: public IElementParser<ActorsImpl> 
+            class SubElementEntityRefsParser: public IElementParser
             {
             private:
                 std::shared_ptr<EntityRefXmlParser> _entityRefXmlParser;
@@ -889,7 +890,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementEntityRefsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ActorsImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -917,16 +918,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class AddEntityActionXmlParser: public XmlComplexTypeParser<AddEntityActionImpl>
+        class AddEntityActionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<AddEntityActionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlAllParser<AddEntityActionImpl>
+            class SubElementParser: public XmlAllParser
             {
             public:
                 /**
@@ -940,13 +941,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<AddEntityActionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement position
             */
-            class SubElementPositionParser: public IElementParser<AddEntityActionImpl> 
+            class SubElementPositionParser: public IElementParser
             {
             private:
                 std::shared_ptr<PositionXmlParser> _positionXmlParser;
@@ -957,7 +958,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AddEntityActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -985,16 +986,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class AssignControllerActionXmlParser: public XmlComplexTypeParser<AssignControllerActionImpl>
+        class AssignControllerActionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<AssignControllerActionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlChoiceParser<AssignControllerActionImpl>
+            class SubElementParser: public XmlChoiceParser
             {
             public:
                 /**
@@ -1008,13 +1009,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<AssignControllerActionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement controller
             */
-            class SubElementControllerParser: public IElementParser<AssignControllerActionImpl> 
+            class SubElementControllerParser: public IElementParser
             {
             private:
                 std::shared_ptr<ControllerXmlParser> _controllerXmlParser;
@@ -1025,7 +1026,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementControllerParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AssignControllerActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -1039,7 +1040,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement catalogReference
             */
-            class SubElementCatalogReferenceParser: public IElementParser<AssignControllerActionImpl> 
+            class SubElementCatalogReferenceParser: public IElementParser
             {
             private:
                 std::shared_ptr<CatalogReferenceXmlParser> _catalogReferenceXmlParser;
@@ -1050,7 +1051,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementCatalogReferenceParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AssignControllerActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -1078,16 +1079,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class AssignRouteActionXmlParser: public XmlComplexTypeParser<AssignRouteActionImpl>
+        class AssignRouteActionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<AssignRouteActionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlChoiceParser<AssignRouteActionImpl>
+            class SubElementParser: public XmlChoiceParser
             {
             public:
                 /**
@@ -1101,13 +1102,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<AssignRouteActionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement route
             */
-            class SubElementRouteParser: public IElementParser<AssignRouteActionImpl> 
+            class SubElementRouteParser: public IElementParser
             {
             private:
                 std::shared_ptr<RouteXmlParser> _routeXmlParser;
@@ -1118,7 +1119,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementRouteParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AssignRouteActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -1132,7 +1133,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement catalogReference
             */
-            class SubElementCatalogReferenceParser: public IElementParser<AssignRouteActionImpl> 
+            class SubElementCatalogReferenceParser: public IElementParser
             {
             private:
                 std::shared_ptr<CatalogReferenceXmlParser> _catalogReferenceXmlParser;
@@ -1143,7 +1144,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementCatalogReferenceParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AssignRouteActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -1171,16 +1172,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class AxleXmlParser: public XmlComplexTypeParser<AxleImpl>
+        class AxleXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<AxleImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<AxleImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -1193,7 +1194,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<AxleImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -1213,16 +1214,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class AxlesXmlParser: public XmlComplexTypeParser<AxlesImpl>
+        class AxlesXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<AxlesImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<AxlesImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -1235,13 +1236,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<AxlesImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement frontAxle
             */
-            class SubElementFrontAxleParser: public IElementParser<AxlesImpl> 
+            class SubElementFrontAxleParser: public IElementParser
             {
             private:
                 std::shared_ptr<AxleXmlParser> _axleXmlParser;
@@ -1252,7 +1253,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementFrontAxleParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AxlesImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -1266,7 +1267,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement rearAxle
             */
-            class SubElementRearAxleParser: public IElementParser<AxlesImpl> 
+            class SubElementRearAxleParser: public IElementParser
             {
             private:
                 std::shared_ptr<AxleXmlParser> _axleXmlParser;
@@ -1277,7 +1278,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementRearAxleParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AxlesImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -1291,7 +1292,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement additionalAxles
             */
-            class SubElementAdditionalAxlesParser: public IElementParser<AxlesImpl> 
+            class SubElementAdditionalAxlesParser: public IElementParser
             {
             private:
                 std::shared_ptr<AxleXmlParser> _axleXmlParser;
@@ -1302,7 +1303,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementAdditionalAxlesParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<AxlesImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -1330,16 +1331,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class BoundingBoxXmlParser: public XmlComplexTypeParser<BoundingBoxImpl>
+        class BoundingBoxXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<BoundingBoxImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlAllParser<BoundingBoxImpl>
+            class SubElementParser: public XmlAllParser
             {
             public:
                 /**
@@ -1353,13 +1354,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<BoundingBoxImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement center
             */
-            class SubElementCenterParser: public IElementParser<BoundingBoxImpl> 
+            class SubElementCenterParser: public IElementParser
             {
             private:
                 std::shared_ptr<CenterXmlParser> _centerXmlParser;
@@ -1370,7 +1371,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementCenterParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BoundingBoxImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -1384,7 +1385,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement dimensions
             */
-            class SubElementDimensionsParser: public IElementParser<BoundingBoxImpl> 
+            class SubElementDimensionsParser: public IElementParser
             {
             private:
                 std::shared_ptr<DimensionsXmlParser> _dimensionsXmlParser;
@@ -1395,7 +1396,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementDimensionsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BoundingBoxImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -1423,16 +1424,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ByEntityConditionXmlParser: public XmlComplexTypeParser<ByEntityConditionImpl>
+        class ByEntityConditionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<ByEntityConditionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlAllParser<ByEntityConditionImpl>
+            class SubElementParser: public XmlAllParser
             {
             public:
                 /**
@@ -1446,13 +1447,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<ByEntityConditionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement triggeringEntities
             */
-            class SubElementTriggeringEntitiesParser: public IElementParser<ByEntityConditionImpl> 
+            class SubElementTriggeringEntitiesParser: public IElementParser
             {
             private:
                 std::shared_ptr<TriggeringEntitiesXmlParser> _triggeringEntitiesXmlParser;
@@ -1463,7 +1464,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementTriggeringEntitiesParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ByEntityConditionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -1477,7 +1478,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement entityCondition
             */
-            class SubElementEntityConditionParser: public IElementParser<ByEntityConditionImpl> 
+            class SubElementEntityConditionParser: public IElementParser
             {
             private:
                 std::shared_ptr<EntityConditionXmlParser> _entityConditionXmlParser;
@@ -1488,7 +1489,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementEntityConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ByEntityConditionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -1516,16 +1517,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ByObjectTypeXmlParser: public XmlComplexTypeParser<ByObjectTypeImpl>
+        class ByObjectTypeXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<ByObjectTypeImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<ByObjectTypeImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -1538,7 +1539,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<ByObjectTypeImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -1558,16 +1559,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ByTypeXmlParser: public XmlComplexTypeParser<ByTypeImpl>
+        class ByTypeXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<ByTypeImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<ByTypeImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -1580,7 +1581,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<ByTypeImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -1600,16 +1601,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ByValueConditionXmlParser: public XmlComplexTypeParser<ByValueConditionImpl>
+        class ByValueConditionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<ByValueConditionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlChoiceParser<ByValueConditionImpl>
+            class SubElementParser: public XmlChoiceParser
             {
             public:
                 /**
@@ -1623,13 +1624,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<ByValueConditionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement parameterCondition
             */
-            class SubElementParameterConditionParser: public IElementParser<ByValueConditionImpl> 
+            class SubElementParameterConditionParser: public IElementParser
             {
             private:
                 std::shared_ptr<ParameterConditionXmlParser> _parameterConditionXmlParser;
@@ -1640,7 +1641,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementParameterConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ByValueConditionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -1654,7 +1655,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement timeOfDayCondition
             */
-            class SubElementTimeOfDayConditionParser: public IElementParser<ByValueConditionImpl> 
+            class SubElementTimeOfDayConditionParser: public IElementParser
             {
             private:
                 std::shared_ptr<TimeOfDayConditionXmlParser> _timeOfDayConditionXmlParser;
@@ -1665,7 +1666,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementTimeOfDayConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ByValueConditionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -1679,7 +1680,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement simulationTimeCondition
             */
-            class SubElementSimulationTimeConditionParser: public IElementParser<ByValueConditionImpl> 
+            class SubElementSimulationTimeConditionParser: public IElementParser
             {
             private:
                 std::shared_ptr<SimulationTimeConditionXmlParser> _simulationTimeConditionXmlParser;
@@ -1690,7 +1691,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementSimulationTimeConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ByValueConditionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -1704,7 +1705,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement storyboardElementStateCondition
             */
-            class SubElementStoryboardElementStateConditionParser: public IElementParser<ByValueConditionImpl> 
+            class SubElementStoryboardElementStateConditionParser: public IElementParser
             {
             private:
                 std::shared_ptr<StoryboardElementStateConditionXmlParser> _storyboardElementStateConditionXmlParser;
@@ -1715,7 +1716,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementStoryboardElementStateConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ByValueConditionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -1729,7 +1730,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement userDefinedValueCondition
             */
-            class SubElementUserDefinedValueConditionParser: public IElementParser<ByValueConditionImpl> 
+            class SubElementUserDefinedValueConditionParser: public IElementParser
             {
             private:
                 std::shared_ptr<UserDefinedValueConditionXmlParser> _userDefinedValueConditionXmlParser;
@@ -1740,7 +1741,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementUserDefinedValueConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ByValueConditionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -1754,7 +1755,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement trafficSignalCondition
             */
-            class SubElementTrafficSignalConditionParser: public IElementParser<ByValueConditionImpl> 
+            class SubElementTrafficSignalConditionParser: public IElementParser
             {
             private:
                 std::shared_ptr<TrafficSignalConditionXmlParser> _trafficSignalConditionXmlParser;
@@ -1765,7 +1766,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementTrafficSignalConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ByValueConditionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -1779,7 +1780,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement trafficSignalControllerCondition
             */
-            class SubElementTrafficSignalControllerConditionParser: public IElementParser<ByValueConditionImpl> 
+            class SubElementTrafficSignalControllerConditionParser: public IElementParser
             {
             private:
                 std::shared_ptr<TrafficSignalControllerConditionXmlParser> _trafficSignalControllerConditionXmlParser;
@@ -1790,7 +1791,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementTrafficSignalControllerConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ByValueConditionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -1818,16 +1819,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class CatalogXmlParser: public XmlComplexTypeParser<CatalogImpl>
+        class CatalogXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<CatalogImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<CatalogImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -1840,13 +1841,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<CatalogImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement vehicles
             */
-            class SubElementVehiclesParser: public IElementParser<CatalogImpl> 
+            class SubElementVehiclesParser: public IElementParser
             {
             private:
                 std::shared_ptr<VehicleXmlParser> _vehicleXmlParser;
@@ -1857,7 +1858,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementVehiclesParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -1871,7 +1872,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement controllers
             */
-            class SubElementControllersParser: public IElementParser<CatalogImpl> 
+            class SubElementControllersParser: public IElementParser
             {
             private:
                 std::shared_ptr<ControllerXmlParser> _controllerXmlParser;
@@ -1882,7 +1883,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementControllersParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -1896,7 +1897,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement pedestrians
             */
-            class SubElementPedestriansParser: public IElementParser<CatalogImpl> 
+            class SubElementPedestriansParser: public IElementParser
             {
             private:
                 std::shared_ptr<PedestrianXmlParser> _pedestrianXmlParser;
@@ -1907,7 +1908,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementPedestriansParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -1921,7 +1922,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement miscObjects
             */
-            class SubElementMiscObjectsParser: public IElementParser<CatalogImpl> 
+            class SubElementMiscObjectsParser: public IElementParser
             {
             private:
                 std::shared_ptr<MiscObjectXmlParser> _miscObjectXmlParser;
@@ -1932,7 +1933,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementMiscObjectsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -1946,7 +1947,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement environments
             */
-            class SubElementEnvironmentsParser: public IElementParser<CatalogImpl> 
+            class SubElementEnvironmentsParser: public IElementParser
             {
             private:
                 std::shared_ptr<EnvironmentXmlParser> _environmentXmlParser;
@@ -1957,7 +1958,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementEnvironmentsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -1971,7 +1972,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement maneuvers
             */
-            class SubElementManeuversParser: public IElementParser<CatalogImpl> 
+            class SubElementManeuversParser: public IElementParser
             {
             private:
                 std::shared_ptr<ManeuverXmlParser> _maneuverXmlParser;
@@ -1982,7 +1983,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementManeuversParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -1996,7 +1997,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement trajectories
             */
-            class SubElementTrajectoriesParser: public IElementParser<CatalogImpl> 
+            class SubElementTrajectoriesParser: public IElementParser
             {
             private:
                 std::shared_ptr<TrajectoryXmlParser> _trajectoryXmlParser;
@@ -2007,7 +2008,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementTrajectoriesParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -2021,7 +2022,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement routes
             */
-            class SubElementRoutesParser: public IElementParser<CatalogImpl> 
+            class SubElementRoutesParser: public IElementParser
             {
             private:
                 std::shared_ptr<RouteXmlParser> _routeXmlParser;
@@ -2032,7 +2033,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementRoutesParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -2061,14 +2062,14 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class CatalogDefinitionXmlParser: public XmlGroupParser<CatalogDefinitionImpl> 
+        class CatalogDefinitionXmlParser: public XmlGroupParser
         {
 
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<CatalogDefinitionImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -2081,13 +2082,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<CatalogDefinitionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement catalog
             */
-            class SubElementCatalogParser: public IElementParser<CatalogDefinitionImpl> 
+            class SubElementCatalogParser: public IElementParser
             {
             private:
                 std::shared_ptr<CatalogXmlParser> _catalogXmlParser;
@@ -2098,7 +2099,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementCatalogParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogDefinitionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -2126,16 +2127,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class CatalogLocationsXmlParser: public XmlComplexTypeParser<CatalogLocationsImpl>
+        class CatalogLocationsXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<CatalogLocationsImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlAllParser<CatalogLocationsImpl>
+            class SubElementParser: public XmlAllParser
             {
             public:
                 /**
@@ -2149,13 +2150,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<CatalogLocationsImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement vehicleCatalog
             */
-            class SubElementVehicleCatalogParser: public IElementParser<CatalogLocationsImpl> 
+            class SubElementVehicleCatalogParser: public IElementParser
             {
             private:
                 std::shared_ptr<VehicleCatalogLocationXmlParser> _vehicleCatalogLocationXmlParser;
@@ -2166,7 +2167,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementVehicleCatalogParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogLocationsImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -2180,7 +2181,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement controllerCatalog
             */
-            class SubElementControllerCatalogParser: public IElementParser<CatalogLocationsImpl> 
+            class SubElementControllerCatalogParser: public IElementParser
             {
             private:
                 std::shared_ptr<ControllerCatalogLocationXmlParser> _controllerCatalogLocationXmlParser;
@@ -2191,7 +2192,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementControllerCatalogParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogLocationsImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -2205,7 +2206,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement pedestrianCatalog
             */
-            class SubElementPedestrianCatalogParser: public IElementParser<CatalogLocationsImpl> 
+            class SubElementPedestrianCatalogParser: public IElementParser
             {
             private:
                 std::shared_ptr<PedestrianCatalogLocationXmlParser> _pedestrianCatalogLocationXmlParser;
@@ -2216,7 +2217,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementPedestrianCatalogParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogLocationsImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -2230,7 +2231,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement miscObjectCatalog
             */
-            class SubElementMiscObjectCatalogParser: public IElementParser<CatalogLocationsImpl> 
+            class SubElementMiscObjectCatalogParser: public IElementParser
             {
             private:
                 std::shared_ptr<MiscObjectCatalogLocationXmlParser> _miscObjectCatalogLocationXmlParser;
@@ -2241,7 +2242,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementMiscObjectCatalogParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogLocationsImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -2255,7 +2256,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement environmentCatalog
             */
-            class SubElementEnvironmentCatalogParser: public IElementParser<CatalogLocationsImpl> 
+            class SubElementEnvironmentCatalogParser: public IElementParser
             {
             private:
                 std::shared_ptr<EnvironmentCatalogLocationXmlParser> _environmentCatalogLocationXmlParser;
@@ -2266,7 +2267,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementEnvironmentCatalogParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogLocationsImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -2280,7 +2281,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement maneuverCatalog
             */
-            class SubElementManeuverCatalogParser: public IElementParser<CatalogLocationsImpl> 
+            class SubElementManeuverCatalogParser: public IElementParser
             {
             private:
                 std::shared_ptr<ManeuverCatalogLocationXmlParser> _maneuverCatalogLocationXmlParser;
@@ -2291,7 +2292,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementManeuverCatalogParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogLocationsImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -2305,7 +2306,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement trajectoryCatalog
             */
-            class SubElementTrajectoryCatalogParser: public IElementParser<CatalogLocationsImpl> 
+            class SubElementTrajectoryCatalogParser: public IElementParser
             {
             private:
                 std::shared_ptr<TrajectoryCatalogLocationXmlParser> _trajectoryCatalogLocationXmlParser;
@@ -2316,7 +2317,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementTrajectoryCatalogParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogLocationsImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -2330,7 +2331,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement routeCatalog
             */
-            class SubElementRouteCatalogParser: public IElementParser<CatalogLocationsImpl> 
+            class SubElementRouteCatalogParser: public IElementParser
             {
             private:
                 std::shared_ptr<RouteCatalogLocationXmlParser> _routeCatalogLocationXmlParser;
@@ -2341,7 +2342,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementRouteCatalogParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogLocationsImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -2369,16 +2370,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class CatalogReferenceXmlParser: public XmlComplexTypeParser<CatalogReferenceImpl>
+        class CatalogReferenceXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<CatalogReferenceImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<CatalogReferenceImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -2391,13 +2392,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<CatalogReferenceImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement parameterAssignments
             */
-            class SubElementParameterAssignmentsParser: public IElementParser<CatalogReferenceImpl> 
+            class SubElementParameterAssignmentsParser: public IElementParser
             {
             private:
                 std::shared_ptr<ParameterAssignmentXmlParser> _parameterAssignmentXmlParser;
@@ -2408,7 +2409,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementParameterAssignmentsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CatalogReferenceImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -2436,16 +2437,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class CenterXmlParser: public XmlComplexTypeParser<CenterImpl>
+        class CenterXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<CenterImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<CenterImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -2458,7 +2459,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<CenterImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -2478,16 +2479,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class CentralSwarmObjectXmlParser: public XmlComplexTypeParser<CentralSwarmObjectImpl>
+        class CentralSwarmObjectXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<CentralSwarmObjectImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<CentralSwarmObjectImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -2500,7 +2501,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<CentralSwarmObjectImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -2520,16 +2521,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ClothoidXmlParser: public XmlComplexTypeParser<ClothoidImpl>
+        class ClothoidXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<ClothoidImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<ClothoidImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -2542,13 +2543,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<ClothoidImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement position
             */
-            class SubElementPositionParser: public IElementParser<ClothoidImpl> 
+            class SubElementPositionParser: public IElementParser
             {
             private:
                 std::shared_ptr<PositionXmlParser> _positionXmlParser;
@@ -2559,7 +2560,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ClothoidImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -2587,16 +2588,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class CollisionConditionXmlParser: public XmlComplexTypeParser<CollisionConditionImpl>
+        class CollisionConditionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<CollisionConditionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlChoiceParser<CollisionConditionImpl>
+            class SubElementParser: public XmlChoiceParser
             {
             public:
                 /**
@@ -2610,13 +2611,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<CollisionConditionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement entityRef
             */
-            class SubElementEntityRefParser: public IElementParser<CollisionConditionImpl> 
+            class SubElementEntityRefParser: public IElementParser
             {
             private:
                 std::shared_ptr<EntityRefXmlParser> _entityRefXmlParser;
@@ -2627,7 +2628,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementEntityRefParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CollisionConditionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -2641,7 +2642,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement byType
             */
-            class SubElementByTypeParser: public IElementParser<CollisionConditionImpl> 
+            class SubElementByTypeParser: public IElementParser
             {
             private:
                 std::shared_ptr<ByObjectTypeXmlParser> _byObjectTypeXmlParser;
@@ -2652,7 +2653,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementByTypeParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<CollisionConditionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -2680,16 +2681,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ConditionXmlParser: public XmlComplexTypeParser<ConditionImpl>
+        class ConditionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<ConditionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlChoiceParser<ConditionImpl>
+            class SubElementParser: public XmlChoiceParser
             {
             public:
                 /**
@@ -2703,13 +2704,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<ConditionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement byEntityCondition
             */
-            class SubElementByEntityConditionParser: public IElementParser<ConditionImpl> 
+            class SubElementByEntityConditionParser: public IElementParser
             {
             private:
                 std::shared_ptr<ByEntityConditionXmlParser> _byEntityConditionXmlParser;
@@ -2720,7 +2721,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementByEntityConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ConditionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -2734,7 +2735,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement byValueCondition
             */
-            class SubElementByValueConditionParser: public IElementParser<ConditionImpl> 
+            class SubElementByValueConditionParser: public IElementParser
             {
             private:
                 std::shared_ptr<ByValueConditionXmlParser> _byValueConditionXmlParser;
@@ -2745,7 +2746,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementByValueConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ConditionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -2773,16 +2774,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ConditionGroupXmlParser: public XmlComplexTypeParser<ConditionGroupImpl>
+        class ConditionGroupXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<ConditionGroupImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<ConditionGroupImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -2795,13 +2796,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<ConditionGroupImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement conditions
             */
-            class SubElementConditionsParser: public IElementParser<ConditionGroupImpl> 
+            class SubElementConditionsParser: public IElementParser
             {
             private:
                 std::shared_ptr<ConditionXmlParser> _conditionXmlParser;
@@ -2812,7 +2813,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementConditionsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ConditionGroupImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -2840,16 +2841,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ControlPointXmlParser: public XmlComplexTypeParser<ControlPointImpl>
+        class ControlPointXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<ControlPointImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<ControlPointImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -2862,13 +2863,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<ControlPointImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement position
             */
-            class SubElementPositionParser: public IElementParser<ControlPointImpl> 
+            class SubElementPositionParser: public IElementParser
             {
             private:
                 std::shared_ptr<PositionXmlParser> _positionXmlParser;
@@ -2879,7 +2880,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ControlPointImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -2907,16 +2908,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ControllerXmlParser: public XmlComplexTypeParser<ControllerImpl>
+        class ControllerXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<ControllerImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlAllParser<ControllerImpl>
+            class SubElementParser: public XmlAllParser
             {
             public:
                 /**
@@ -2930,13 +2931,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<ControllerImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement parameterDeclarations
             */
-            class SubElementParameterDeclarationsParser: public IElementParser<ControllerImpl> 
+            class SubElementParameterDeclarationsParser: public IElementParser
             {
             private:
                 std::shared_ptr<ParameterDeclarationXmlParser> _parameterDeclarationXmlParser;
@@ -2947,7 +2948,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementParameterDeclarationsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ControllerImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -2961,7 +2962,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement properties
             */
-            class SubElementPropertiesParser: public IElementParser<ControllerImpl> 
+            class SubElementPropertiesParser: public IElementParser
             {
             private:
                 std::shared_ptr<PropertiesXmlParser> _propertiesXmlParser;
@@ -2972,7 +2973,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementPropertiesParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ControllerImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -3000,16 +3001,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ControllerActionXmlParser: public XmlComplexTypeParser<ControllerActionImpl>
+        class ControllerActionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<ControllerActionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlAllParser<ControllerActionImpl>
+            class SubElementParser: public XmlAllParser
             {
             public:
                 /**
@@ -3023,13 +3024,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<ControllerActionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement assignControllerAction
             */
-            class SubElementAssignControllerActionParser: public IElementParser<ControllerActionImpl> 
+            class SubElementAssignControllerActionParser: public IElementParser
             {
             private:
                 std::shared_ptr<AssignControllerActionXmlParser> _assignControllerActionXmlParser;
@@ -3040,7 +3041,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementAssignControllerActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ControllerActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -3054,7 +3055,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement overrideControllerValueAction
             */
-            class SubElementOverrideControllerValueActionParser: public IElementParser<ControllerActionImpl> 
+            class SubElementOverrideControllerValueActionParser: public IElementParser
             {
             private:
                 std::shared_ptr<OverrideControllerValueActionXmlParser> _overrideControllerValueActionXmlParser;
@@ -3065,7 +3066,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementOverrideControllerValueActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ControllerActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -3079,7 +3080,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement activateControllerAction
             */
-            class SubElementActivateControllerActionParser: public IElementParser<ControllerActionImpl> 
+            class SubElementActivateControllerActionParser: public IElementParser
             {
             private:
                 std::shared_ptr<ActivateControllerActionXmlParser> _activateControllerActionXmlParser;
@@ -3090,7 +3091,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementActivateControllerActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ControllerActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -3118,16 +3119,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ControllerCatalogLocationXmlParser: public XmlComplexTypeParser<ControllerCatalogLocationImpl>
+        class ControllerCatalogLocationXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<ControllerCatalogLocationImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlAllParser<ControllerCatalogLocationImpl>
+            class SubElementParser: public XmlAllParser
             {
             public:
                 /**
@@ -3141,13 +3142,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<ControllerCatalogLocationImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement directory
             */
-            class SubElementDirectoryParser: public IElementParser<ControllerCatalogLocationImpl> 
+            class SubElementDirectoryParser: public IElementParser
             {
             private:
                 std::shared_ptr<DirectoryXmlParser> _directoryXmlParser;
@@ -3158,7 +3159,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementDirectoryParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ControllerCatalogLocationImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -3186,16 +3187,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ControllerDistributionXmlParser: public XmlComplexTypeParser<ControllerDistributionImpl>
+        class ControllerDistributionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<ControllerDistributionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<ControllerDistributionImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -3208,13 +3209,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<ControllerDistributionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement controllerDistributionEntries
             */
-            class SubElementControllerDistributionEntriesParser: public IElementParser<ControllerDistributionImpl> 
+            class SubElementControllerDistributionEntriesParser: public IElementParser
             {
             private:
                 std::shared_ptr<ControllerDistributionEntryXmlParser> _controllerDistributionEntryXmlParser;
@@ -3225,7 +3226,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementControllerDistributionEntriesParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ControllerDistributionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -3253,16 +3254,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ControllerDistributionEntryXmlParser: public XmlComplexTypeParser<ControllerDistributionEntryImpl>
+        class ControllerDistributionEntryXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<ControllerDistributionEntryImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlChoiceParser<ControllerDistributionEntryImpl>
+            class SubElementParser: public XmlChoiceParser
             {
             public:
                 /**
@@ -3276,13 +3277,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<ControllerDistributionEntryImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement controller
             */
-            class SubElementControllerParser: public IElementParser<ControllerDistributionEntryImpl> 
+            class SubElementControllerParser: public IElementParser
             {
             private:
                 std::shared_ptr<ControllerXmlParser> _controllerXmlParser;
@@ -3293,7 +3294,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementControllerParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ControllerDistributionEntryImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -3307,7 +3308,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement catalogReference
             */
-            class SubElementCatalogReferenceParser: public IElementParser<ControllerDistributionEntryImpl> 
+            class SubElementCatalogReferenceParser: public IElementParser
             {
             private:
                 std::shared_ptr<CatalogReferenceXmlParser> _catalogReferenceXmlParser;
@@ -3318,7 +3319,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementCatalogReferenceParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ControllerDistributionEntryImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -3347,13 +3348,13 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class CustomCommandActionXmlParser: public XmlSimpleContentParser<CustomCommandActionImpl> 
+        class CustomCommandActionXmlParser: public XmlSimpleContentParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<CustomCommandActionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         protected:
-            void SetContentProperty(const std::string content, std::shared_ptr<CustomCommandActionImpl>& object) override;
+            void SetContentProperty(const std::string content, std::shared_ptr<BaseImpl> object) override;
             bool IsContentRequired() override;
 
 
@@ -3373,16 +3374,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class DeleteEntityActionXmlParser: public XmlComplexTypeParser<DeleteEntityActionImpl>
+        class DeleteEntityActionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<DeleteEntityActionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<DeleteEntityActionImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -3395,7 +3396,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<DeleteEntityActionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -3415,16 +3416,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class DeterministicXmlParser: public XmlComplexTypeParser<DeterministicImpl>
+        class DeterministicXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<DeterministicImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<DeterministicImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -3437,13 +3438,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<DeterministicImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement deterministicParameterDistributions
             */
-            class SubElementDeterministicParameterDistributionsParser: public IElementParser<DeterministicImpl> 
+            class SubElementDeterministicParameterDistributionsParser: public IElementParser
             {
             private:
                 std::shared_ptr<DeterministicParameterDistributionXmlParser> _deterministicParameterDistributionXmlParser;
@@ -3454,7 +3455,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementDeterministicParameterDistributionsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<DeterministicImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -3482,16 +3483,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class DeterministicMultiParameterDistributionXmlParser: public XmlComplexTypeParser<DeterministicMultiParameterDistributionImpl>
+        class DeterministicMultiParameterDistributionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<DeterministicMultiParameterDistributionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<DeterministicMultiParameterDistributionImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -3504,13 +3505,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<DeterministicMultiParameterDistributionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement deterministicMultiParameterDistributionType
             */
-            class SubElementDeterministicMultiParameterDistributionTypeParser: public IElementParser<DeterministicMultiParameterDistributionImpl> 
+            class SubElementDeterministicMultiParameterDistributionTypeParser: public IElementParser
             {
             private:
                 std::shared_ptr<DeterministicMultiParameterDistributionTypeXmlParser> _deterministicMultiParameterDistributionTypeXmlParser;
@@ -3521,7 +3522,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementDeterministicMultiParameterDistributionTypeParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<DeterministicMultiParameterDistributionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -3550,14 +3551,14 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class DeterministicMultiParameterDistributionTypeXmlParser: public XmlGroupParser<DeterministicMultiParameterDistributionTypeImpl> 
+        class DeterministicMultiParameterDistributionTypeXmlParser: public XmlGroupParser
         {
 
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<DeterministicMultiParameterDistributionTypeImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -3570,13 +3571,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<DeterministicMultiParameterDistributionTypeImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement valueSetDistribution
             */
-            class SubElementValueSetDistributionParser: public IElementParser<DeterministicMultiParameterDistributionTypeImpl> 
+            class SubElementValueSetDistributionParser: public IElementParser
             {
             private:
                 std::shared_ptr<ValueSetDistributionXmlParser> _valueSetDistributionXmlParser;
@@ -3587,7 +3588,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementValueSetDistributionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<DeterministicMultiParameterDistributionTypeImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -3616,14 +3617,14 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class DeterministicParameterDistributionXmlParser: public XmlGroupParser<DeterministicParameterDistributionImpl> 
+        class DeterministicParameterDistributionXmlParser: public XmlGroupParser
         {
 
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlChoiceParser<DeterministicParameterDistributionImpl>
+            class SubElementParser: public XmlChoiceParser
             {
             public:
                 /**
@@ -3637,13 +3638,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<DeterministicParameterDistributionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement deterministicMultiParameterDistribution
             */
-            class SubElementDeterministicMultiParameterDistributionParser: public IElementParser<DeterministicParameterDistributionImpl> 
+            class SubElementDeterministicMultiParameterDistributionParser: public IElementParser
             {
             private:
                 std::shared_ptr<DeterministicMultiParameterDistributionXmlParser> _deterministicMultiParameterDistributionXmlParser;
@@ -3654,7 +3655,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementDeterministicMultiParameterDistributionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<DeterministicParameterDistributionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -3668,7 +3669,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement deterministicSingleParameterDistribution
             */
-            class SubElementDeterministicSingleParameterDistributionParser: public IElementParser<DeterministicParameterDistributionImpl> 
+            class SubElementDeterministicSingleParameterDistributionParser: public IElementParser
             {
             private:
                 std::shared_ptr<DeterministicSingleParameterDistributionXmlParser> _deterministicSingleParameterDistributionXmlParser;
@@ -3679,7 +3680,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementDeterministicSingleParameterDistributionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<DeterministicParameterDistributionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -3707,16 +3708,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class DeterministicSingleParameterDistributionXmlParser: public XmlComplexTypeParser<DeterministicSingleParameterDistributionImpl>
+        class DeterministicSingleParameterDistributionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<DeterministicSingleParameterDistributionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<DeterministicSingleParameterDistributionImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -3729,13 +3730,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<DeterministicSingleParameterDistributionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement deterministicSingleParameterDistributionType
             */
-            class SubElementDeterministicSingleParameterDistributionTypeParser: public IElementParser<DeterministicSingleParameterDistributionImpl> 
+            class SubElementDeterministicSingleParameterDistributionTypeParser: public IElementParser
             {
             private:
                 std::shared_ptr<DeterministicSingleParameterDistributionTypeXmlParser> _deterministicSingleParameterDistributionTypeXmlParser;
@@ -3746,7 +3747,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementDeterministicSingleParameterDistributionTypeParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<DeterministicSingleParameterDistributionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -3775,14 +3776,14 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class DeterministicSingleParameterDistributionTypeXmlParser: public XmlGroupParser<DeterministicSingleParameterDistributionTypeImpl> 
+        class DeterministicSingleParameterDistributionTypeXmlParser: public XmlGroupParser
         {
 
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlChoiceParser<DeterministicSingleParameterDistributionTypeImpl>
+            class SubElementParser: public XmlChoiceParser
             {
             public:
                 /**
@@ -3796,13 +3797,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<DeterministicSingleParameterDistributionTypeImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement distributionSet
             */
-            class SubElementDistributionSetParser: public IElementParser<DeterministicSingleParameterDistributionTypeImpl> 
+            class SubElementDistributionSetParser: public IElementParser
             {
             private:
                 std::shared_ptr<DistributionSetXmlParser> _distributionSetXmlParser;
@@ -3813,7 +3814,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementDistributionSetParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<DeterministicSingleParameterDistributionTypeImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -3827,7 +3828,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement distributionRange
             */
-            class SubElementDistributionRangeParser: public IElementParser<DeterministicSingleParameterDistributionTypeImpl> 
+            class SubElementDistributionRangeParser: public IElementParser
             {
             private:
                 std::shared_ptr<DistributionRangeXmlParser> _distributionRangeXmlParser;
@@ -3838,7 +3839,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementDistributionRangeParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<DeterministicSingleParameterDistributionTypeImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -3852,7 +3853,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement userDefinedDistribution
             */
-            class SubElementUserDefinedDistributionParser: public IElementParser<DeterministicSingleParameterDistributionTypeImpl> 
+            class SubElementUserDefinedDistributionParser: public IElementParser
             {
             private:
                 std::shared_ptr<UserDefinedDistributionXmlParser> _userDefinedDistributionXmlParser;
@@ -3863,7 +3864,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementUserDefinedDistributionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<DeterministicSingleParameterDistributionTypeImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -3891,16 +3892,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class DimensionsXmlParser: public XmlComplexTypeParser<DimensionsImpl>
+        class DimensionsXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<DimensionsImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<DimensionsImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -3913,7 +3914,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<DimensionsImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -3933,16 +3934,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class DirectoryXmlParser: public XmlComplexTypeParser<DirectoryImpl>
+        class DirectoryXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<DirectoryImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<DirectoryImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -3955,7 +3956,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<DirectoryImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -3975,16 +3976,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class DistanceConditionXmlParser: public XmlComplexTypeParser<DistanceConditionImpl>
+        class DistanceConditionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<DistanceConditionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlAllParser<DistanceConditionImpl>
+            class SubElementParser: public XmlAllParser
             {
             public:
                 /**
@@ -3998,13 +3999,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<DistanceConditionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement position
             */
-            class SubElementPositionParser: public IElementParser<DistanceConditionImpl> 
+            class SubElementPositionParser: public IElementParser
             {
             private:
                 std::shared_ptr<PositionXmlParser> _positionXmlParser;
@@ -4015,7 +4016,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<DistanceConditionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -4044,14 +4045,14 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class DistributionDefinitionXmlParser: public XmlGroupParser<DistributionDefinitionImpl> 
+        class DistributionDefinitionXmlParser: public XmlGroupParser
         {
 
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlChoiceParser<DistributionDefinitionImpl>
+            class SubElementParser: public XmlChoiceParser
             {
             public:
                 /**
@@ -4065,13 +4066,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<DistributionDefinitionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement deterministic
             */
-            class SubElementDeterministicParser: public IElementParser<DistributionDefinitionImpl> 
+            class SubElementDeterministicParser: public IElementParser
             {
             private:
                 std::shared_ptr<DeterministicXmlParser> _deterministicXmlParser;
@@ -4082,7 +4083,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementDeterministicParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<DistributionDefinitionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -4096,7 +4097,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement stochastic
             */
-            class SubElementStochasticParser: public IElementParser<DistributionDefinitionImpl> 
+            class SubElementStochasticParser: public IElementParser
             {
             private:
                 std::shared_ptr<StochasticXmlParser> _stochasticXmlParser;
@@ -4107,7 +4108,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementStochasticParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<DistributionDefinitionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -4135,16 +4136,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class DistributionRangeXmlParser: public XmlComplexTypeParser<DistributionRangeImpl>
+        class DistributionRangeXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<DistributionRangeImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlAllParser<DistributionRangeImpl>
+            class SubElementParser: public XmlAllParser
             {
             public:
                 /**
@@ -4158,13 +4159,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<DistributionRangeImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement range
             */
-            class SubElementRangeParser: public IElementParser<DistributionRangeImpl> 
+            class SubElementRangeParser: public IElementParser
             {
             private:
                 std::shared_ptr<RangeXmlParser> _rangeXmlParser;
@@ -4175,7 +4176,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementRangeParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<DistributionRangeImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -4203,16 +4204,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class DistributionSetXmlParser: public XmlComplexTypeParser<DistributionSetImpl>
+        class DistributionSetXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<DistributionSetImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<DistributionSetImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -4225,13 +4226,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<DistributionSetImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement elements
             */
-            class SubElementElementsParser: public IElementParser<DistributionSetImpl> 
+            class SubElementElementsParser: public IElementParser
             {
             private:
                 std::shared_ptr<DistributionSetElementXmlParser> _distributionSetElementXmlParser;
@@ -4242,7 +4243,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementElementsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<DistributionSetImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -4270,16 +4271,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class DistributionSetElementXmlParser: public XmlComplexTypeParser<DistributionSetElementImpl>
+        class DistributionSetElementXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<DistributionSetElementImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlAllParser<DistributionSetElementImpl>
+            class SubElementParser: public XmlAllParser
             {
             public:
                 /**
@@ -4293,7 +4294,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<DistributionSetElementImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -4313,16 +4314,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class DynamicConstraintsXmlParser: public XmlComplexTypeParser<DynamicConstraintsImpl>
+        class DynamicConstraintsXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<DynamicConstraintsImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<DynamicConstraintsImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -4335,7 +4336,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<DynamicConstraintsImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -4355,16 +4356,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class EndOfRoadConditionXmlParser: public XmlComplexTypeParser<EndOfRoadConditionImpl>
+        class EndOfRoadConditionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<EndOfRoadConditionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<EndOfRoadConditionImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -4377,7 +4378,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<EndOfRoadConditionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -4397,16 +4398,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class EntitiesXmlParser: public XmlComplexTypeParser<EntitiesImpl>
+        class EntitiesXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<EntitiesImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<EntitiesImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -4419,13 +4420,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<EntitiesImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement scenarioObjects
             */
-            class SubElementScenarioObjectsParser: public IElementParser<EntitiesImpl> 
+            class SubElementScenarioObjectsParser: public IElementParser
             {
             private:
                 std::shared_ptr<ScenarioObjectXmlParser> _scenarioObjectXmlParser;
@@ -4436,7 +4437,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementScenarioObjectsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntitiesImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -4450,7 +4451,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement entitySelections
             */
-            class SubElementEntitySelectionsParser: public IElementParser<EntitiesImpl> 
+            class SubElementEntitySelectionsParser: public IElementParser
             {
             private:
                 std::shared_ptr<EntitySelectionXmlParser> _entitySelectionXmlParser;
@@ -4461,7 +4462,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementEntitySelectionsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntitiesImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -4489,16 +4490,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class EntityActionXmlParser: public XmlComplexTypeParser<EntityActionImpl>
+        class EntityActionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<EntityActionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlChoiceParser<EntityActionImpl>
+            class SubElementParser: public XmlChoiceParser
             {
             public:
                 /**
@@ -4512,13 +4513,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<EntityActionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement addEntityAction
             */
-            class SubElementAddEntityActionParser: public IElementParser<EntityActionImpl> 
+            class SubElementAddEntityActionParser: public IElementParser
             {
             private:
                 std::shared_ptr<AddEntityActionXmlParser> _addEntityActionXmlParser;
@@ -4529,7 +4530,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementAddEntityActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -4543,7 +4544,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement deleteEntityAction
             */
-            class SubElementDeleteEntityActionParser: public IElementParser<EntityActionImpl> 
+            class SubElementDeleteEntityActionParser: public IElementParser
             {
             private:
                 std::shared_ptr<DeleteEntityActionXmlParser> _deleteEntityActionXmlParser;
@@ -4554,7 +4555,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementDeleteEntityActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -4582,16 +4583,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class EntityConditionXmlParser: public XmlComplexTypeParser<EntityConditionImpl>
+        class EntityConditionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<EntityConditionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlChoiceParser<EntityConditionImpl>
+            class SubElementParser: public XmlChoiceParser
             {
             public:
                 /**
@@ -4605,13 +4606,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<EntityConditionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement endOfRoadCondition
             */
-            class SubElementEndOfRoadConditionParser: public IElementParser<EntityConditionImpl> 
+            class SubElementEndOfRoadConditionParser: public IElementParser
             {
             private:
                 std::shared_ptr<EndOfRoadConditionXmlParser> _endOfRoadConditionXmlParser;
@@ -4622,7 +4623,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementEndOfRoadConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityConditionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -4636,7 +4637,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement collisionCondition
             */
-            class SubElementCollisionConditionParser: public IElementParser<EntityConditionImpl> 
+            class SubElementCollisionConditionParser: public IElementParser
             {
             private:
                 std::shared_ptr<CollisionConditionXmlParser> _collisionConditionXmlParser;
@@ -4647,7 +4648,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementCollisionConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityConditionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -4661,7 +4662,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement offroadCondition
             */
-            class SubElementOffroadConditionParser: public IElementParser<EntityConditionImpl> 
+            class SubElementOffroadConditionParser: public IElementParser
             {
             private:
                 std::shared_ptr<OffroadConditionXmlParser> _offroadConditionXmlParser;
@@ -4672,7 +4673,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementOffroadConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityConditionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -4686,7 +4687,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement timeHeadwayCondition
             */
-            class SubElementTimeHeadwayConditionParser: public IElementParser<EntityConditionImpl> 
+            class SubElementTimeHeadwayConditionParser: public IElementParser
             {
             private:
                 std::shared_ptr<TimeHeadwayConditionXmlParser> _timeHeadwayConditionXmlParser;
@@ -4697,7 +4698,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementTimeHeadwayConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityConditionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -4711,7 +4712,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement timeToCollisionCondition
             */
-            class SubElementTimeToCollisionConditionParser: public IElementParser<EntityConditionImpl> 
+            class SubElementTimeToCollisionConditionParser: public IElementParser
             {
             private:
                 std::shared_ptr<TimeToCollisionConditionXmlParser> _timeToCollisionConditionXmlParser;
@@ -4722,7 +4723,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementTimeToCollisionConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityConditionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -4736,7 +4737,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement accelerationCondition
             */
-            class SubElementAccelerationConditionParser: public IElementParser<EntityConditionImpl> 
+            class SubElementAccelerationConditionParser: public IElementParser
             {
             private:
                 std::shared_ptr<AccelerationConditionXmlParser> _accelerationConditionXmlParser;
@@ -4747,7 +4748,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementAccelerationConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityConditionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -4761,7 +4762,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement standStillCondition
             */
-            class SubElementStandStillConditionParser: public IElementParser<EntityConditionImpl> 
+            class SubElementStandStillConditionParser: public IElementParser
             {
             private:
                 std::shared_ptr<StandStillConditionXmlParser> _standStillConditionXmlParser;
@@ -4772,7 +4773,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementStandStillConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityConditionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -4786,7 +4787,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement speedCondition
             */
-            class SubElementSpeedConditionParser: public IElementParser<EntityConditionImpl> 
+            class SubElementSpeedConditionParser: public IElementParser
             {
             private:
                 std::shared_ptr<SpeedConditionXmlParser> _speedConditionXmlParser;
@@ -4797,7 +4798,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementSpeedConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityConditionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -4811,7 +4812,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement relativeSpeedCondition
             */
-            class SubElementRelativeSpeedConditionParser: public IElementParser<EntityConditionImpl> 
+            class SubElementRelativeSpeedConditionParser: public IElementParser
             {
             private:
                 std::shared_ptr<RelativeSpeedConditionXmlParser> _relativeSpeedConditionXmlParser;
@@ -4822,7 +4823,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementRelativeSpeedConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityConditionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -4836,7 +4837,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement traveledDistanceCondition
             */
-            class SubElementTraveledDistanceConditionParser: public IElementParser<EntityConditionImpl> 
+            class SubElementTraveledDistanceConditionParser: public IElementParser
             {
             private:
                 std::shared_ptr<TraveledDistanceConditionXmlParser> _traveledDistanceConditionXmlParser;
@@ -4847,7 +4848,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementTraveledDistanceConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityConditionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -4861,7 +4862,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement reachPositionCondition
             */
-            class SubElementReachPositionConditionParser: public IElementParser<EntityConditionImpl> 
+            class SubElementReachPositionConditionParser: public IElementParser
             {
             private:
                 std::shared_ptr<ReachPositionConditionXmlParser> _reachPositionConditionXmlParser;
@@ -4872,7 +4873,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementReachPositionConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityConditionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -4886,7 +4887,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement distanceCondition
             */
-            class SubElementDistanceConditionParser: public IElementParser<EntityConditionImpl> 
+            class SubElementDistanceConditionParser: public IElementParser
             {
             private:
                 std::shared_ptr<DistanceConditionXmlParser> _distanceConditionXmlParser;
@@ -4897,7 +4898,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementDistanceConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityConditionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -4911,7 +4912,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement relativeDistanceCondition
             */
-            class SubElementRelativeDistanceConditionParser: public IElementParser<EntityConditionImpl> 
+            class SubElementRelativeDistanceConditionParser: public IElementParser
             {
             private:
                 std::shared_ptr<RelativeDistanceConditionXmlParser> _relativeDistanceConditionXmlParser;
@@ -4922,7 +4923,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementRelativeDistanceConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityConditionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -4951,14 +4952,14 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class EntityObjectXmlParser: public XmlGroupParser<EntityObjectImpl> 
+        class EntityObjectXmlParser: public XmlGroupParser
         {
 
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlChoiceParser<EntityObjectImpl>
+            class SubElementParser: public XmlChoiceParser
             {
             public:
                 /**
@@ -4972,13 +4973,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<EntityObjectImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement catalogReference
             */
-            class SubElementCatalogReferenceParser: public IElementParser<EntityObjectImpl> 
+            class SubElementCatalogReferenceParser: public IElementParser
             {
             private:
                 std::shared_ptr<CatalogReferenceXmlParser> _catalogReferenceXmlParser;
@@ -4989,7 +4990,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementCatalogReferenceParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityObjectImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -5003,7 +5004,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement vehicle
             */
-            class SubElementVehicleParser: public IElementParser<EntityObjectImpl> 
+            class SubElementVehicleParser: public IElementParser
             {
             private:
                 std::shared_ptr<VehicleXmlParser> _vehicleXmlParser;
@@ -5014,7 +5015,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementVehicleParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityObjectImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -5028,7 +5029,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement pedestrian
             */
-            class SubElementPedestrianParser: public IElementParser<EntityObjectImpl> 
+            class SubElementPedestrianParser: public IElementParser
             {
             private:
                 std::shared_ptr<PedestrianXmlParser> _pedestrianXmlParser;
@@ -5039,7 +5040,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementPedestrianParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityObjectImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -5053,7 +5054,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement miscObject
             */
-            class SubElementMiscObjectParser: public IElementParser<EntityObjectImpl> 
+            class SubElementMiscObjectParser: public IElementParser
             {
             private:
                 std::shared_ptr<MiscObjectXmlParser> _miscObjectXmlParser;
@@ -5064,7 +5065,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementMiscObjectParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityObjectImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -5078,7 +5079,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement externalObjectReference
             */
-            class SubElementExternalObjectReferenceParser: public IElementParser<EntityObjectImpl> 
+            class SubElementExternalObjectReferenceParser: public IElementParser
             {
             private:
                 std::shared_ptr<ExternalObjectReferenceXmlParser> _externalObjectReferenceXmlParser;
@@ -5089,7 +5090,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementExternalObjectReferenceParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntityObjectImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -5117,16 +5118,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class EntityRefXmlParser: public XmlComplexTypeParser<EntityRefImpl>
+        class EntityRefXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<EntityRefImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<EntityRefImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -5139,7 +5140,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<EntityRefImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -5159,16 +5160,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class EntitySelectionXmlParser: public XmlComplexTypeParser<EntitySelectionImpl>
+        class EntitySelectionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<EntitySelectionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<EntitySelectionImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -5181,13 +5182,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<EntitySelectionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement members
             */
-            class SubElementMembersParser: public IElementParser<EntitySelectionImpl> 
+            class SubElementMembersParser: public IElementParser
             {
             private:
                 std::shared_ptr<SelectedEntitiesXmlParser> _selectedEntitiesXmlParser;
@@ -5198,7 +5199,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementMembersParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EntitySelectionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -5226,16 +5227,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class EnvironmentXmlParser: public XmlComplexTypeParser<EnvironmentImpl>
+        class EnvironmentXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<EnvironmentImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlAllParser<EnvironmentImpl>
+            class SubElementParser: public XmlAllParser
             {
             public:
                 /**
@@ -5249,13 +5250,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<EnvironmentImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement parameterDeclarations
             */
-            class SubElementParameterDeclarationsParser: public IElementParser<EnvironmentImpl> 
+            class SubElementParameterDeclarationsParser: public IElementParser
             {
             private:
                 std::shared_ptr<ParameterDeclarationXmlParser> _parameterDeclarationXmlParser;
@@ -5266,7 +5267,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementParameterDeclarationsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EnvironmentImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -5280,7 +5281,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement timeOfDay
             */
-            class SubElementTimeOfDayParser: public IElementParser<EnvironmentImpl> 
+            class SubElementTimeOfDayParser: public IElementParser
             {
             private:
                 std::shared_ptr<TimeOfDayXmlParser> _timeOfDayXmlParser;
@@ -5291,7 +5292,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementTimeOfDayParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EnvironmentImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -5305,7 +5306,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement weather
             */
-            class SubElementWeatherParser: public IElementParser<EnvironmentImpl> 
+            class SubElementWeatherParser: public IElementParser
             {
             private:
                 std::shared_ptr<WeatherXmlParser> _weatherXmlParser;
@@ -5316,7 +5317,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementWeatherParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EnvironmentImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -5330,7 +5331,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement roadCondition
             */
-            class SubElementRoadConditionParser: public IElementParser<EnvironmentImpl> 
+            class SubElementRoadConditionParser: public IElementParser
             {
             private:
                 std::shared_ptr<RoadConditionXmlParser> _roadConditionXmlParser;
@@ -5341,7 +5342,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementRoadConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EnvironmentImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -5369,16 +5370,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class EnvironmentActionXmlParser: public XmlComplexTypeParser<EnvironmentActionImpl>
+        class EnvironmentActionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<EnvironmentActionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlChoiceParser<EnvironmentActionImpl>
+            class SubElementParser: public XmlChoiceParser
             {
             public:
                 /**
@@ -5392,13 +5393,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<EnvironmentActionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement environment
             */
-            class SubElementEnvironmentParser: public IElementParser<EnvironmentActionImpl> 
+            class SubElementEnvironmentParser: public IElementParser
             {
             private:
                 std::shared_ptr<EnvironmentXmlParser> _environmentXmlParser;
@@ -5409,7 +5410,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementEnvironmentParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EnvironmentActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -5423,7 +5424,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement catalogReference
             */
-            class SubElementCatalogReferenceParser: public IElementParser<EnvironmentActionImpl> 
+            class SubElementCatalogReferenceParser: public IElementParser
             {
             private:
                 std::shared_ptr<CatalogReferenceXmlParser> _catalogReferenceXmlParser;
@@ -5434,7 +5435,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementCatalogReferenceParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EnvironmentActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -5462,16 +5463,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class EnvironmentCatalogLocationXmlParser: public XmlComplexTypeParser<EnvironmentCatalogLocationImpl>
+        class EnvironmentCatalogLocationXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<EnvironmentCatalogLocationImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlAllParser<EnvironmentCatalogLocationImpl>
+            class SubElementParser: public XmlAllParser
             {
             public:
                 /**
@@ -5485,13 +5486,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<EnvironmentCatalogLocationImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement directory
             */
-            class SubElementDirectoryParser: public IElementParser<EnvironmentCatalogLocationImpl> 
+            class SubElementDirectoryParser: public IElementParser
             {
             private:
                 std::shared_ptr<DirectoryXmlParser> _directoryXmlParser;
@@ -5502,7 +5503,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementDirectoryParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EnvironmentCatalogLocationImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -5530,16 +5531,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class EventXmlParser: public XmlComplexTypeParser<EventImpl>
+        class EventXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<EventImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<EventImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -5552,13 +5553,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<EventImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement actions
             */
-            class SubElementActionsParser: public IElementParser<EventImpl> 
+            class SubElementActionsParser: public IElementParser
             {
             private:
                 std::shared_ptr<ActionXmlParser> _actionXmlParser;
@@ -5569,7 +5570,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementActionsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EventImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -5583,7 +5584,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement startTrigger
             */
-            class SubElementStartTriggerParser: public IElementParser<EventImpl> 
+            class SubElementStartTriggerParser: public IElementParser
             {
             private:
                 std::shared_ptr<TriggerXmlParser> _triggerXmlParser;
@@ -5594,7 +5595,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementStartTriggerParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<EventImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -5622,16 +5623,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ExternalObjectReferenceXmlParser: public XmlComplexTypeParser<ExternalObjectReferenceImpl>
+        class ExternalObjectReferenceXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<ExternalObjectReferenceImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlAllParser<ExternalObjectReferenceImpl>
+            class SubElementParser: public XmlAllParser
             {
             public:
                 /**
@@ -5645,7 +5646,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<ExternalObjectReferenceImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -5665,16 +5666,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class FileXmlParser: public XmlComplexTypeParser<FileImpl>
+        class FileXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<FileImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<FileImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -5687,7 +5688,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<FileImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -5707,16 +5708,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class FileHeaderXmlParser: public XmlComplexTypeParser<FileHeaderImpl>
+        class FileHeaderXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<FileHeaderImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<FileHeaderImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -5729,13 +5730,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<FileHeaderImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement license
             */
-            class SubElementLicenseParser: public IElementParser<FileHeaderImpl> 
+            class SubElementLicenseParser: public IElementParser
             {
             private:
                 std::shared_ptr<LicenseXmlParser> _licenseXmlParser;
@@ -5746,7 +5747,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementLicenseParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<FileHeaderImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -5774,16 +5775,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class FinalSpeedXmlParser: public XmlComplexTypeParser<FinalSpeedImpl>
+        class FinalSpeedXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<FinalSpeedImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlChoiceParser<FinalSpeedImpl>
+            class SubElementParser: public XmlChoiceParser
             {
             public:
                 /**
@@ -5797,13 +5798,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<FinalSpeedImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement absoluteSpeed
             */
-            class SubElementAbsoluteSpeedParser: public IElementParser<FinalSpeedImpl> 
+            class SubElementAbsoluteSpeedParser: public IElementParser
             {
             private:
                 std::shared_ptr<AbsoluteSpeedXmlParser> _absoluteSpeedXmlParser;
@@ -5814,7 +5815,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementAbsoluteSpeedParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<FinalSpeedImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -5828,7 +5829,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement relativeSpeedToMaster
             */
-            class SubElementRelativeSpeedToMasterParser: public IElementParser<FinalSpeedImpl> 
+            class SubElementRelativeSpeedToMasterParser: public IElementParser
             {
             private:
                 std::shared_ptr<RelativeSpeedToMasterXmlParser> _relativeSpeedToMasterXmlParser;
@@ -5839,7 +5840,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementRelativeSpeedToMasterParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<FinalSpeedImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -5867,16 +5868,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class FogXmlParser: public XmlComplexTypeParser<FogImpl>
+        class FogXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<FogImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlAllParser<FogImpl>
+            class SubElementParser: public XmlAllParser
             {
             public:
                 /**
@@ -5890,13 +5891,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<FogImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement boundingBox
             */
-            class SubElementBoundingBoxParser: public IElementParser<FogImpl> 
+            class SubElementBoundingBoxParser: public IElementParser
             {
             private:
                 std::shared_ptr<BoundingBoxXmlParser> _boundingBoxXmlParser;
@@ -5907,7 +5908,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementBoundingBoxParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<FogImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -5935,16 +5936,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class FollowTrajectoryActionXmlParser: public XmlComplexTypeParser<FollowTrajectoryActionImpl>
+        class FollowTrajectoryActionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<FollowTrajectoryActionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlAllParser<FollowTrajectoryActionImpl>
+            class SubElementParser: public XmlAllParser
             {
             public:
                 /**
@@ -5958,13 +5959,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<FollowTrajectoryActionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement trajectory
             */
-            class SubElementTrajectoryParser: public IElementParser<FollowTrajectoryActionImpl> 
+            class SubElementTrajectoryParser: public IElementParser
             {
             private:
                 std::shared_ptr<TrajectoryXmlParser> _trajectoryXmlParser;
@@ -5975,7 +5976,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementTrajectoryParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<FollowTrajectoryActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -5989,7 +5990,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement catalogReference
             */
-            class SubElementCatalogReferenceParser: public IElementParser<FollowTrajectoryActionImpl> 
+            class SubElementCatalogReferenceParser: public IElementParser
             {
             private:
                 std::shared_ptr<CatalogReferenceXmlParser> _catalogReferenceXmlParser;
@@ -6000,7 +6001,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementCatalogReferenceParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<FollowTrajectoryActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -6014,7 +6015,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement timeReference
             */
-            class SubElementTimeReferenceParser: public IElementParser<FollowTrajectoryActionImpl> 
+            class SubElementTimeReferenceParser: public IElementParser
             {
             private:
                 std::shared_ptr<TimeReferenceXmlParser> _timeReferenceXmlParser;
@@ -6025,7 +6026,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementTimeReferenceParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<FollowTrajectoryActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -6039,7 +6040,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement trajectoryFollowingMode
             */
-            class SubElementTrajectoryFollowingModeParser: public IElementParser<FollowTrajectoryActionImpl> 
+            class SubElementTrajectoryFollowingModeParser: public IElementParser
             {
             private:
                 std::shared_ptr<TrajectoryFollowingModeXmlParser> _trajectoryFollowingModeXmlParser;
@@ -6050,7 +6051,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementTrajectoryFollowingModeParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<FollowTrajectoryActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -6064,7 +6065,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement trajectoryRef
             */
-            class SubElementTrajectoryRefParser: public IElementParser<FollowTrajectoryActionImpl> 
+            class SubElementTrajectoryRefParser: public IElementParser
             {
             private:
                 std::shared_ptr<TrajectoryRefXmlParser> _trajectoryRefXmlParser;
@@ -6075,7 +6076,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementTrajectoryRefParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<FollowTrajectoryActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -6103,16 +6104,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class GeoPositionXmlParser: public XmlComplexTypeParser<GeoPositionImpl>
+        class GeoPositionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<GeoPositionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlAllParser<GeoPositionImpl>
+            class SubElementParser: public XmlAllParser
             {
             public:
                 /**
@@ -6126,13 +6127,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<GeoPositionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement orientation
             */
-            class SubElementOrientationParser: public IElementParser<GeoPositionImpl> 
+            class SubElementOrientationParser: public IElementParser
             {
             private:
                 std::shared_ptr<OrientationXmlParser> _orientationXmlParser;
@@ -6143,7 +6144,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementOrientationParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<GeoPositionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -6171,16 +6172,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class GlobalActionXmlParser: public XmlComplexTypeParser<GlobalActionImpl>
+        class GlobalActionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<GlobalActionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlChoiceParser<GlobalActionImpl>
+            class SubElementParser: public XmlChoiceParser
             {
             public:
                 /**
@@ -6194,13 +6195,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<GlobalActionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement environmentAction
             */
-            class SubElementEnvironmentActionParser: public IElementParser<GlobalActionImpl> 
+            class SubElementEnvironmentActionParser: public IElementParser
             {
             private:
                 std::shared_ptr<EnvironmentActionXmlParser> _environmentActionXmlParser;
@@ -6211,7 +6212,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementEnvironmentActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<GlobalActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -6225,7 +6226,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement entityAction
             */
-            class SubElementEntityActionParser: public IElementParser<GlobalActionImpl> 
+            class SubElementEntityActionParser: public IElementParser
             {
             private:
                 std::shared_ptr<EntityActionXmlParser> _entityActionXmlParser;
@@ -6236,7 +6237,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementEntityActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<GlobalActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -6250,7 +6251,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement parameterAction
             */
-            class SubElementParameterActionParser: public IElementParser<GlobalActionImpl> 
+            class SubElementParameterActionParser: public IElementParser
             {
             private:
                 std::shared_ptr<ParameterActionXmlParser> _parameterActionXmlParser;
@@ -6261,7 +6262,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementParameterActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<GlobalActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -6275,7 +6276,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement infrastructureAction
             */
-            class SubElementInfrastructureActionParser: public IElementParser<GlobalActionImpl> 
+            class SubElementInfrastructureActionParser: public IElementParser
             {
             private:
                 std::shared_ptr<InfrastructureActionXmlParser> _infrastructureActionXmlParser;
@@ -6286,7 +6287,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementInfrastructureActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<GlobalActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -6300,7 +6301,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement trafficAction
             */
-            class SubElementTrafficActionParser: public IElementParser<GlobalActionImpl> 
+            class SubElementTrafficActionParser: public IElementParser
             {
             private:
                 std::shared_ptr<TrafficActionXmlParser> _trafficActionXmlParser;
@@ -6311,7 +6312,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementTrafficActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<GlobalActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -6339,16 +6340,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class HistogramXmlParser: public XmlComplexTypeParser<HistogramImpl>
+        class HistogramXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<HistogramImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<HistogramImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -6361,13 +6362,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<HistogramImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement bins
             */
-            class SubElementBinsParser: public IElementParser<HistogramImpl> 
+            class SubElementBinsParser: public IElementParser
             {
             private:
                 std::shared_ptr<HistogramBinXmlParser> _histogramBinXmlParser;
@@ -6378,7 +6379,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementBinsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<HistogramImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -6406,16 +6407,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class HistogramBinXmlParser: public XmlComplexTypeParser<HistogramBinImpl>
+        class HistogramBinXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<HistogramBinImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<HistogramBinImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -6428,13 +6429,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<HistogramBinImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement range
             */
-            class SubElementRangeParser: public IElementParser<HistogramBinImpl> 
+            class SubElementRangeParser: public IElementParser
             {
             private:
                 std::shared_ptr<RangeXmlParser> _rangeXmlParser;
@@ -6445,7 +6446,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementRangeParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<HistogramBinImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -6473,16 +6474,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class InRoutePositionXmlParser: public XmlComplexTypeParser<InRoutePositionImpl>
+        class InRoutePositionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<InRoutePositionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlChoiceParser<InRoutePositionImpl>
+            class SubElementParser: public XmlChoiceParser
             {
             public:
                 /**
@@ -6496,13 +6497,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<InRoutePositionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement fromCurrentEntity
             */
-            class SubElementFromCurrentEntityParser: public IElementParser<InRoutePositionImpl> 
+            class SubElementFromCurrentEntityParser: public IElementParser
             {
             private:
                 std::shared_ptr<PositionOfCurrentEntityXmlParser> _positionOfCurrentEntityXmlParser;
@@ -6513,7 +6514,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementFromCurrentEntityParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<InRoutePositionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -6527,7 +6528,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement fromRoadCoordinates
             */
-            class SubElementFromRoadCoordinatesParser: public IElementParser<InRoutePositionImpl> 
+            class SubElementFromRoadCoordinatesParser: public IElementParser
             {
             private:
                 std::shared_ptr<PositionInRoadCoordinatesXmlParser> _positionInRoadCoordinatesXmlParser;
@@ -6538,7 +6539,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementFromRoadCoordinatesParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<InRoutePositionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -6552,7 +6553,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement fromLaneCoordinates
             */
-            class SubElementFromLaneCoordinatesParser: public IElementParser<InRoutePositionImpl> 
+            class SubElementFromLaneCoordinatesParser: public IElementParser
             {
             private:
                 std::shared_ptr<PositionInLaneCoordinatesXmlParser> _positionInLaneCoordinatesXmlParser;
@@ -6563,7 +6564,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementFromLaneCoordinatesParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<InRoutePositionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -6591,16 +6592,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class InfrastructureActionXmlParser: public XmlComplexTypeParser<InfrastructureActionImpl>
+        class InfrastructureActionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<InfrastructureActionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlAllParser<InfrastructureActionImpl>
+            class SubElementParser: public XmlAllParser
             {
             public:
                 /**
@@ -6614,13 +6615,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<InfrastructureActionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement trafficSignalAction
             */
-            class SubElementTrafficSignalActionParser: public IElementParser<InfrastructureActionImpl> 
+            class SubElementTrafficSignalActionParser: public IElementParser
             {
             private:
                 std::shared_ptr<TrafficSignalActionXmlParser> _trafficSignalActionXmlParser;
@@ -6631,7 +6632,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementTrafficSignalActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<InfrastructureActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -6659,16 +6660,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class InitXmlParser: public XmlComplexTypeParser<InitImpl>
+        class InitXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<InitImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<InitImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -6681,13 +6682,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<InitImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement actions
             */
-            class SubElementActionsParser: public IElementParser<InitImpl> 
+            class SubElementActionsParser: public IElementParser
             {
             private:
                 std::shared_ptr<InitActionsXmlParser> _initActionsXmlParser;
@@ -6698,7 +6699,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementActionsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<InitImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -6726,16 +6727,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class InitActionsXmlParser: public XmlComplexTypeParser<InitActionsImpl>
+        class InitActionsXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<InitActionsImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<InitActionsImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -6748,13 +6749,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<InitActionsImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement globalActions
             */
-            class SubElementGlobalActionsParser: public IElementParser<InitActionsImpl> 
+            class SubElementGlobalActionsParser: public IElementParser
             {
             private:
                 std::shared_ptr<GlobalActionXmlParser> _globalActionXmlParser;
@@ -6765,7 +6766,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementGlobalActionsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<InitActionsImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -6779,7 +6780,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement userDefinedActions
             */
-            class SubElementUserDefinedActionsParser: public IElementParser<InitActionsImpl> 
+            class SubElementUserDefinedActionsParser: public IElementParser
             {
             private:
                 std::shared_ptr<UserDefinedActionXmlParser> _userDefinedActionXmlParser;
@@ -6790,7 +6791,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementUserDefinedActionsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<InitActionsImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -6804,7 +6805,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement privates
             */
-            class SubElementPrivatesParser: public IElementParser<InitActionsImpl> 
+            class SubElementPrivatesParser: public IElementParser
             {
             private:
                 std::shared_ptr<PrivateXmlParser> _privateXmlParser;
@@ -6815,7 +6816,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementPrivatesParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<InitActionsImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -6843,16 +6844,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class KnotXmlParser: public XmlComplexTypeParser<KnotImpl>
+        class KnotXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<KnotImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<KnotImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -6865,7 +6866,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<KnotImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -6885,16 +6886,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class LaneChangeActionXmlParser: public XmlComplexTypeParser<LaneChangeActionImpl>
+        class LaneChangeActionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<LaneChangeActionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlAllParser<LaneChangeActionImpl>
+            class SubElementParser: public XmlAllParser
             {
             public:
                 /**
@@ -6908,13 +6909,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<LaneChangeActionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement laneChangeActionDynamics
             */
-            class SubElementLaneChangeActionDynamicsParser: public IElementParser<LaneChangeActionImpl> 
+            class SubElementLaneChangeActionDynamicsParser: public IElementParser
             {
             private:
                 std::shared_ptr<TransitionDynamicsXmlParser> _transitionDynamicsXmlParser;
@@ -6925,7 +6926,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementLaneChangeActionDynamicsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LaneChangeActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -6939,7 +6940,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement laneChangeTarget
             */
-            class SubElementLaneChangeTargetParser: public IElementParser<LaneChangeActionImpl> 
+            class SubElementLaneChangeTargetParser: public IElementParser
             {
             private:
                 std::shared_ptr<LaneChangeTargetXmlParser> _laneChangeTargetXmlParser;
@@ -6950,7 +6951,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementLaneChangeTargetParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LaneChangeActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -6978,16 +6979,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class LaneChangeTargetXmlParser: public XmlComplexTypeParser<LaneChangeTargetImpl>
+        class LaneChangeTargetXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<LaneChangeTargetImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlChoiceParser<LaneChangeTargetImpl>
+            class SubElementParser: public XmlChoiceParser
             {
             public:
                 /**
@@ -7001,13 +7002,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<LaneChangeTargetImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement relativeTargetLane
             */
-            class SubElementRelativeTargetLaneParser: public IElementParser<LaneChangeTargetImpl> 
+            class SubElementRelativeTargetLaneParser: public IElementParser
             {
             private:
                 std::shared_ptr<RelativeTargetLaneXmlParser> _relativeTargetLaneXmlParser;
@@ -7018,7 +7019,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementRelativeTargetLaneParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LaneChangeTargetImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -7032,7 +7033,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement absoluteTargetLane
             */
-            class SubElementAbsoluteTargetLaneParser: public IElementParser<LaneChangeTargetImpl> 
+            class SubElementAbsoluteTargetLaneParser: public IElementParser
             {
             private:
                 std::shared_ptr<AbsoluteTargetLaneXmlParser> _absoluteTargetLaneXmlParser;
@@ -7043,7 +7044,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementAbsoluteTargetLaneParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LaneChangeTargetImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -7071,16 +7072,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class LaneOffsetActionXmlParser: public XmlComplexTypeParser<LaneOffsetActionImpl>
+        class LaneOffsetActionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<LaneOffsetActionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlAllParser<LaneOffsetActionImpl>
+            class SubElementParser: public XmlAllParser
             {
             public:
                 /**
@@ -7094,13 +7095,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<LaneOffsetActionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement laneOffsetActionDynamics
             */
-            class SubElementLaneOffsetActionDynamicsParser: public IElementParser<LaneOffsetActionImpl> 
+            class SubElementLaneOffsetActionDynamicsParser: public IElementParser
             {
             private:
                 std::shared_ptr<LaneOffsetActionDynamicsXmlParser> _laneOffsetActionDynamicsXmlParser;
@@ -7111,7 +7112,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementLaneOffsetActionDynamicsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LaneOffsetActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -7125,7 +7126,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement laneOffsetTarget
             */
-            class SubElementLaneOffsetTargetParser: public IElementParser<LaneOffsetActionImpl> 
+            class SubElementLaneOffsetTargetParser: public IElementParser
             {
             private:
                 std::shared_ptr<LaneOffsetTargetXmlParser> _laneOffsetTargetXmlParser;
@@ -7136,7 +7137,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementLaneOffsetTargetParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LaneOffsetActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -7164,16 +7165,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class LaneOffsetActionDynamicsXmlParser: public XmlComplexTypeParser<LaneOffsetActionDynamicsImpl>
+        class LaneOffsetActionDynamicsXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<LaneOffsetActionDynamicsImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<LaneOffsetActionDynamicsImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -7186,7 +7187,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<LaneOffsetActionDynamicsImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -7206,16 +7207,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class LaneOffsetTargetXmlParser: public XmlComplexTypeParser<LaneOffsetTargetImpl>
+        class LaneOffsetTargetXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<LaneOffsetTargetImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlChoiceParser<LaneOffsetTargetImpl>
+            class SubElementParser: public XmlChoiceParser
             {
             public:
                 /**
@@ -7229,13 +7230,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<LaneOffsetTargetImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement relativeTargetLaneOffset
             */
-            class SubElementRelativeTargetLaneOffsetParser: public IElementParser<LaneOffsetTargetImpl> 
+            class SubElementRelativeTargetLaneOffsetParser: public IElementParser
             {
             private:
                 std::shared_ptr<RelativeTargetLaneOffsetXmlParser> _relativeTargetLaneOffsetXmlParser;
@@ -7246,7 +7247,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementRelativeTargetLaneOffsetParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LaneOffsetTargetImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -7260,7 +7261,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement absoluteTargetLaneOffset
             */
-            class SubElementAbsoluteTargetLaneOffsetParser: public IElementParser<LaneOffsetTargetImpl> 
+            class SubElementAbsoluteTargetLaneOffsetParser: public IElementParser
             {
             private:
                 std::shared_ptr<AbsoluteTargetLaneOffsetXmlParser> _absoluteTargetLaneOffsetXmlParser;
@@ -7271,7 +7272,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementAbsoluteTargetLaneOffsetParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LaneOffsetTargetImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -7299,16 +7300,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class LanePositionXmlParser: public XmlComplexTypeParser<LanePositionImpl>
+        class LanePositionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<LanePositionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlAllParser<LanePositionImpl>
+            class SubElementParser: public XmlAllParser
             {
             public:
                 /**
@@ -7322,13 +7323,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<LanePositionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement orientation
             */
-            class SubElementOrientationParser: public IElementParser<LanePositionImpl> 
+            class SubElementOrientationParser: public IElementParser
             {
             private:
                 std::shared_ptr<OrientationXmlParser> _orientationXmlParser;
@@ -7339,7 +7340,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementOrientationParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LanePositionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -7367,16 +7368,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class LateralActionXmlParser: public XmlComplexTypeParser<LateralActionImpl>
+        class LateralActionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<LateralActionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlChoiceParser<LateralActionImpl>
+            class SubElementParser: public XmlChoiceParser
             {
             public:
                 /**
@@ -7390,13 +7391,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<LateralActionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement laneChangeAction
             */
-            class SubElementLaneChangeActionParser: public IElementParser<LateralActionImpl> 
+            class SubElementLaneChangeActionParser: public IElementParser
             {
             private:
                 std::shared_ptr<LaneChangeActionXmlParser> _laneChangeActionXmlParser;
@@ -7407,7 +7408,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementLaneChangeActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LateralActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -7421,7 +7422,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement laneOffsetAction
             */
-            class SubElementLaneOffsetActionParser: public IElementParser<LateralActionImpl> 
+            class SubElementLaneOffsetActionParser: public IElementParser
             {
             private:
                 std::shared_ptr<LaneOffsetActionXmlParser> _laneOffsetActionXmlParser;
@@ -7432,7 +7433,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementLaneOffsetActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LateralActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -7446,7 +7447,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement lateralDistanceAction
             */
-            class SubElementLateralDistanceActionParser: public IElementParser<LateralActionImpl> 
+            class SubElementLateralDistanceActionParser: public IElementParser
             {
             private:
                 std::shared_ptr<LateralDistanceActionXmlParser> _lateralDistanceActionXmlParser;
@@ -7457,7 +7458,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementLateralDistanceActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LateralActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -7485,16 +7486,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class LateralDistanceActionXmlParser: public XmlComplexTypeParser<LateralDistanceActionImpl>
+        class LateralDistanceActionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<LateralDistanceActionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlAllParser<LateralDistanceActionImpl>
+            class SubElementParser: public XmlAllParser
             {
             public:
                 /**
@@ -7508,13 +7509,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<LateralDistanceActionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement dynamicConstraints
             */
-            class SubElementDynamicConstraintsParser: public IElementParser<LateralDistanceActionImpl> 
+            class SubElementDynamicConstraintsParser: public IElementParser
             {
             private:
                 std::shared_ptr<DynamicConstraintsXmlParser> _dynamicConstraintsXmlParser;
@@ -7525,7 +7526,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementDynamicConstraintsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LateralDistanceActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -7554,13 +7555,13 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class LicenseXmlParser: public XmlSimpleContentParser<LicenseImpl> 
+        class LicenseXmlParser: public XmlSimpleContentParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<LicenseImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         protected:
-            void SetContentProperty(const std::string content, std::shared_ptr<LicenseImpl>& object) override;
+            void SetContentProperty(const std::string content, std::shared_ptr<BaseImpl> object) override;
             bool IsContentRequired() override;
 
 
@@ -7580,16 +7581,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class LongitudinalActionXmlParser: public XmlComplexTypeParser<LongitudinalActionImpl>
+        class LongitudinalActionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<LongitudinalActionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlChoiceParser<LongitudinalActionImpl>
+            class SubElementParser: public XmlChoiceParser
             {
             public:
                 /**
@@ -7603,13 +7604,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<LongitudinalActionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement speedAction
             */
-            class SubElementSpeedActionParser: public IElementParser<LongitudinalActionImpl> 
+            class SubElementSpeedActionParser: public IElementParser
             {
             private:
                 std::shared_ptr<SpeedActionXmlParser> _speedActionXmlParser;
@@ -7620,7 +7621,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementSpeedActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LongitudinalActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -7634,7 +7635,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement longitudinalDistanceAction
             */
-            class SubElementLongitudinalDistanceActionParser: public IElementParser<LongitudinalActionImpl> 
+            class SubElementLongitudinalDistanceActionParser: public IElementParser
             {
             private:
                 std::shared_ptr<LongitudinalDistanceActionXmlParser> _longitudinalDistanceActionXmlParser;
@@ -7645,7 +7646,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementLongitudinalDistanceActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LongitudinalActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -7673,16 +7674,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class LongitudinalDistanceActionXmlParser: public XmlComplexTypeParser<LongitudinalDistanceActionImpl>
+        class LongitudinalDistanceActionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<LongitudinalDistanceActionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlAllParser<LongitudinalDistanceActionImpl>
+            class SubElementParser: public XmlAllParser
             {
             public:
                 /**
@@ -7696,13 +7697,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<LongitudinalDistanceActionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement dynamicConstraints
             */
-            class SubElementDynamicConstraintsParser: public IElementParser<LongitudinalDistanceActionImpl> 
+            class SubElementDynamicConstraintsParser: public IElementParser
             {
             private:
                 std::shared_ptr<DynamicConstraintsXmlParser> _dynamicConstraintsXmlParser;
@@ -7713,7 +7714,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementDynamicConstraintsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<LongitudinalDistanceActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -7741,16 +7742,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ManeuverXmlParser: public XmlComplexTypeParser<ManeuverImpl>
+        class ManeuverXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<ManeuverImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<ManeuverImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -7763,13 +7764,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<ManeuverImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement parameterDeclarations
             */
-            class SubElementParameterDeclarationsParser: public IElementParser<ManeuverImpl> 
+            class SubElementParameterDeclarationsParser: public IElementParser
             {
             private:
                 std::shared_ptr<ParameterDeclarationXmlParser> _parameterDeclarationXmlParser;
@@ -7780,7 +7781,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementParameterDeclarationsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ManeuverImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -7794,7 +7795,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement events
             */
-            class SubElementEventsParser: public IElementParser<ManeuverImpl> 
+            class SubElementEventsParser: public IElementParser
             {
             private:
                 std::shared_ptr<EventXmlParser> _eventXmlParser;
@@ -7805,7 +7806,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementEventsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ManeuverImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -7833,16 +7834,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ManeuverCatalogLocationXmlParser: public XmlComplexTypeParser<ManeuverCatalogLocationImpl>
+        class ManeuverCatalogLocationXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<ManeuverCatalogLocationImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlAllParser<ManeuverCatalogLocationImpl>
+            class SubElementParser: public XmlAllParser
             {
             public:
                 /**
@@ -7856,13 +7857,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<ManeuverCatalogLocationImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement directory
             */
-            class SubElementDirectoryParser: public IElementParser<ManeuverCatalogLocationImpl> 
+            class SubElementDirectoryParser: public IElementParser
             {
             private:
                 std::shared_ptr<DirectoryXmlParser> _directoryXmlParser;
@@ -7873,7 +7874,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementDirectoryParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ManeuverCatalogLocationImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -7901,16 +7902,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ManeuverGroupXmlParser: public XmlComplexTypeParser<ManeuverGroupImpl>
+        class ManeuverGroupXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<ManeuverGroupImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<ManeuverGroupImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -7923,13 +7924,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<ManeuverGroupImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement actors
             */
-            class SubElementActorsParser: public IElementParser<ManeuverGroupImpl> 
+            class SubElementActorsParser: public IElementParser
             {
             private:
                 std::shared_ptr<ActorsXmlParser> _actorsXmlParser;
@@ -7940,7 +7941,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementActorsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ManeuverGroupImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -7954,7 +7955,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement catalogReferences
             */
-            class SubElementCatalogReferencesParser: public IElementParser<ManeuverGroupImpl> 
+            class SubElementCatalogReferencesParser: public IElementParser
             {
             private:
                 std::shared_ptr<CatalogReferenceXmlParser> _catalogReferenceXmlParser;
@@ -7965,7 +7966,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementCatalogReferencesParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ManeuverGroupImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -7979,7 +7980,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement maneuvers
             */
-            class SubElementManeuversParser: public IElementParser<ManeuverGroupImpl> 
+            class SubElementManeuversParser: public IElementParser
             {
             private:
                 std::shared_ptr<ManeuverXmlParser> _maneuverXmlParser;
@@ -7990,7 +7991,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementManeuversParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ManeuverGroupImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -8018,16 +8019,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class MiscObjectXmlParser: public XmlComplexTypeParser<MiscObjectImpl>
+        class MiscObjectXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<MiscObjectImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlAllParser<MiscObjectImpl>
+            class SubElementParser: public XmlAllParser
             {
             public:
                 /**
@@ -8041,13 +8042,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<MiscObjectImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement parameterDeclarations
             */
-            class SubElementParameterDeclarationsParser: public IElementParser<MiscObjectImpl> 
+            class SubElementParameterDeclarationsParser: public IElementParser
             {
             private:
                 std::shared_ptr<ParameterDeclarationXmlParser> _parameterDeclarationXmlParser;
@@ -8058,7 +8059,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementParameterDeclarationsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<MiscObjectImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -8072,7 +8073,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement boundingBox
             */
-            class SubElementBoundingBoxParser: public IElementParser<MiscObjectImpl> 
+            class SubElementBoundingBoxParser: public IElementParser
             {
             private:
                 std::shared_ptr<BoundingBoxXmlParser> _boundingBoxXmlParser;
@@ -8083,7 +8084,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementBoundingBoxParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<MiscObjectImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -8097,7 +8098,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement properties
             */
-            class SubElementPropertiesParser: public IElementParser<MiscObjectImpl> 
+            class SubElementPropertiesParser: public IElementParser
             {
             private:
                 std::shared_ptr<PropertiesXmlParser> _propertiesXmlParser;
@@ -8108,7 +8109,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementPropertiesParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<MiscObjectImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -8136,16 +8137,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class MiscObjectCatalogLocationXmlParser: public XmlComplexTypeParser<MiscObjectCatalogLocationImpl>
+        class MiscObjectCatalogLocationXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<MiscObjectCatalogLocationImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlAllParser<MiscObjectCatalogLocationImpl>
+            class SubElementParser: public XmlAllParser
             {
             public:
                 /**
@@ -8159,13 +8160,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<MiscObjectCatalogLocationImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement directory
             */
-            class SubElementDirectoryParser: public IElementParser<MiscObjectCatalogLocationImpl> 
+            class SubElementDirectoryParser: public IElementParser
             {
             private:
                 std::shared_ptr<DirectoryXmlParser> _directoryXmlParser;
@@ -8176,7 +8177,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementDirectoryParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<MiscObjectCatalogLocationImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -8204,16 +8205,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ModifyRuleXmlParser: public XmlComplexTypeParser<ModifyRuleImpl>
+        class ModifyRuleXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<ModifyRuleImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlChoiceParser<ModifyRuleImpl>
+            class SubElementParser: public XmlChoiceParser
             {
             public:
                 /**
@@ -8227,13 +8228,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<ModifyRuleImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement addValue
             */
-            class SubElementAddValueParser: public IElementParser<ModifyRuleImpl> 
+            class SubElementAddValueParser: public IElementParser
             {
             private:
                 std::shared_ptr<ParameterAddValueRuleXmlParser> _parameterAddValueRuleXmlParser;
@@ -8244,7 +8245,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementAddValueParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ModifyRuleImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -8258,7 +8259,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement multiplyByValue
             */
-            class SubElementMultiplyByValueParser: public IElementParser<ModifyRuleImpl> 
+            class SubElementMultiplyByValueParser: public IElementParser
             {
             private:
                 std::shared_ptr<ParameterMultiplyByValueRuleXmlParser> _parameterMultiplyByValueRuleXmlParser;
@@ -8269,7 +8270,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementMultiplyByValueParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ModifyRuleImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -8297,16 +8298,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class NoneXmlParser: public XmlComplexTypeParser<NoneImpl>
+        class NoneXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<NoneImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<NoneImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -8319,7 +8320,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<NoneImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -8339,16 +8340,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class NormalDistributionXmlParser: public XmlComplexTypeParser<NormalDistributionImpl>
+        class NormalDistributionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<NormalDistributionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<NormalDistributionImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -8361,13 +8362,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<NormalDistributionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement range
             */
-            class SubElementRangeParser: public IElementParser<NormalDistributionImpl> 
+            class SubElementRangeParser: public IElementParser
             {
             private:
                 std::shared_ptr<RangeXmlParser> _rangeXmlParser;
@@ -8378,7 +8379,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementRangeParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<NormalDistributionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -8406,16 +8407,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class NurbsXmlParser: public XmlComplexTypeParser<NurbsImpl>
+        class NurbsXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<NurbsImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<NurbsImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -8428,13 +8429,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<NurbsImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement controlPoints
             */
-            class SubElementControlPointsParser: public IElementParser<NurbsImpl> 
+            class SubElementControlPointsParser: public IElementParser
             {
             private:
                 std::shared_ptr<ControlPointXmlParser> _controlPointXmlParser;
@@ -8445,7 +8446,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementControlPointsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<NurbsImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -8459,7 +8460,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement knots
             */
-            class SubElementKnotsParser: public IElementParser<NurbsImpl> 
+            class SubElementKnotsParser: public IElementParser
             {
             private:
                 std::shared_ptr<KnotXmlParser> _knotXmlParser;
@@ -8470,7 +8471,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementKnotsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<NurbsImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -8498,16 +8499,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ObjectControllerXmlParser: public XmlComplexTypeParser<ObjectControllerImpl>
+        class ObjectControllerXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<ObjectControllerImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlChoiceParser<ObjectControllerImpl>
+            class SubElementParser: public XmlChoiceParser
             {
             public:
                 /**
@@ -8521,13 +8522,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<ObjectControllerImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement catalogReference
             */
-            class SubElementCatalogReferenceParser: public IElementParser<ObjectControllerImpl> 
+            class SubElementCatalogReferenceParser: public IElementParser
             {
             private:
                 std::shared_ptr<CatalogReferenceXmlParser> _catalogReferenceXmlParser;
@@ -8538,7 +8539,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementCatalogReferenceParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ObjectControllerImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -8552,7 +8553,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement controller
             */
-            class SubElementControllerParser: public IElementParser<ObjectControllerImpl> 
+            class SubElementControllerParser: public IElementParser
             {
             private:
                 std::shared_ptr<ControllerXmlParser> _controllerXmlParser;
@@ -8563,7 +8564,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementControllerParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ObjectControllerImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -8591,16 +8592,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class OffroadConditionXmlParser: public XmlComplexTypeParser<OffroadConditionImpl>
+        class OffroadConditionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<OffroadConditionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<OffroadConditionImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -8613,7 +8614,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<OffroadConditionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -8633,16 +8634,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class OpenScenarioXmlParser: public XmlComplexTypeParser<OpenScenarioImpl>
+        class OpenScenarioXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<OpenScenarioImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<OpenScenarioImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -8655,13 +8656,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<OpenScenarioImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement fileHeader
             */
-            class SubElementFileHeaderParser: public IElementParser<OpenScenarioImpl> 
+            class SubElementFileHeaderParser: public IElementParser
             {
             private:
                 std::shared_ptr<FileHeaderXmlParser> _fileHeaderXmlParser;
@@ -8672,7 +8673,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementFileHeaderParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OpenScenarioImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -8686,7 +8687,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement openScenarioCategory
             */
-            class SubElementOpenScenarioCategoryParser: public IElementParser<OpenScenarioImpl> 
+            class SubElementOpenScenarioCategoryParser: public IElementParser
             {
             private:
                 std::shared_ptr<OpenScenarioCategoryXmlParser> _openScenarioCategoryXmlParser;
@@ -8697,7 +8698,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementOpenScenarioCategoryParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OpenScenarioImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -8726,14 +8727,14 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class OpenScenarioCategoryXmlParser: public XmlGroupParser<OpenScenarioCategoryImpl> 
+        class OpenScenarioCategoryXmlParser: public XmlGroupParser
         {
 
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlChoiceParser<OpenScenarioCategoryImpl>
+            class SubElementParser: public XmlChoiceParser
             {
             public:
                 /**
@@ -8747,13 +8748,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<OpenScenarioCategoryImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement scenarioDefinition
             */
-            class SubElementScenarioDefinitionParser: public IElementParser<OpenScenarioCategoryImpl> 
+            class SubElementScenarioDefinitionParser: public IElementParser
             {
             private:
                 std::shared_ptr<ScenarioDefinitionXmlParser> _scenarioDefinitionXmlParser;
@@ -8764,7 +8765,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementScenarioDefinitionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OpenScenarioCategoryImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -8778,7 +8779,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement catalogDefinition
             */
-            class SubElementCatalogDefinitionParser: public IElementParser<OpenScenarioCategoryImpl> 
+            class SubElementCatalogDefinitionParser: public IElementParser
             {
             private:
                 std::shared_ptr<CatalogDefinitionXmlParser> _catalogDefinitionXmlParser;
@@ -8789,7 +8790,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementCatalogDefinitionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OpenScenarioCategoryImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -8803,7 +8804,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement parameterValueDistributionDefinition
             */
-            class SubElementParameterValueDistributionDefinitionParser: public IElementParser<OpenScenarioCategoryImpl> 
+            class SubElementParameterValueDistributionDefinitionParser: public IElementParser
             {
             private:
                 std::shared_ptr<ParameterValueDistributionDefinitionXmlParser> _parameterValueDistributionDefinitionXmlParser;
@@ -8814,7 +8815,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementParameterValueDistributionDefinitionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OpenScenarioCategoryImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -8842,16 +8843,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class OrientationXmlParser: public XmlComplexTypeParser<OrientationImpl>
+        class OrientationXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<OrientationImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<OrientationImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -8864,7 +8865,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<OrientationImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -8884,16 +8885,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class OverrideBrakeActionXmlParser: public XmlComplexTypeParser<OverrideBrakeActionImpl>
+        class OverrideBrakeActionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<OverrideBrakeActionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<OverrideBrakeActionImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -8906,7 +8907,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<OverrideBrakeActionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -8926,16 +8927,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class OverrideClutchActionXmlParser: public XmlComplexTypeParser<OverrideClutchActionImpl>
+        class OverrideClutchActionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<OverrideClutchActionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<OverrideClutchActionImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -8948,7 +8949,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<OverrideClutchActionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -8968,16 +8969,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class OverrideControllerValueActionXmlParser: public XmlComplexTypeParser<OverrideControllerValueActionImpl>
+        class OverrideControllerValueActionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<OverrideControllerValueActionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlAllParser<OverrideControllerValueActionImpl>
+            class SubElementParser: public XmlAllParser
             {
             public:
                 /**
@@ -8991,13 +8992,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<OverrideControllerValueActionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement throttle
             */
-            class SubElementThrottleParser: public IElementParser<OverrideControllerValueActionImpl> 
+            class SubElementThrottleParser: public IElementParser
             {
             private:
                 std::shared_ptr<OverrideThrottleActionXmlParser> _overrideThrottleActionXmlParser;
@@ -9008,7 +9009,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementThrottleParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OverrideControllerValueActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -9022,7 +9023,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement brake
             */
-            class SubElementBrakeParser: public IElementParser<OverrideControllerValueActionImpl> 
+            class SubElementBrakeParser: public IElementParser
             {
             private:
                 std::shared_ptr<OverrideBrakeActionXmlParser> _overrideBrakeActionXmlParser;
@@ -9033,7 +9034,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementBrakeParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OverrideControllerValueActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -9047,7 +9048,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement clutch
             */
-            class SubElementClutchParser: public IElementParser<OverrideControllerValueActionImpl> 
+            class SubElementClutchParser: public IElementParser
             {
             private:
                 std::shared_ptr<OverrideClutchActionXmlParser> _overrideClutchActionXmlParser;
@@ -9058,7 +9059,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementClutchParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OverrideControllerValueActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -9072,7 +9073,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement parkingBrake
             */
-            class SubElementParkingBrakeParser: public IElementParser<OverrideControllerValueActionImpl> 
+            class SubElementParkingBrakeParser: public IElementParser
             {
             private:
                 std::shared_ptr<OverrideParkingBrakeActionXmlParser> _overrideParkingBrakeActionXmlParser;
@@ -9083,7 +9084,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementParkingBrakeParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OverrideControllerValueActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -9097,7 +9098,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement steeringWheel
             */
-            class SubElementSteeringWheelParser: public IElementParser<OverrideControllerValueActionImpl> 
+            class SubElementSteeringWheelParser: public IElementParser
             {
             private:
                 std::shared_ptr<OverrideSteeringWheelActionXmlParser> _overrideSteeringWheelActionXmlParser;
@@ -9108,7 +9109,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementSteeringWheelParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OverrideControllerValueActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -9122,7 +9123,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement gear
             */
-            class SubElementGearParser: public IElementParser<OverrideControllerValueActionImpl> 
+            class SubElementGearParser: public IElementParser
             {
             private:
                 std::shared_ptr<OverrideGearActionXmlParser> _overrideGearActionXmlParser;
@@ -9133,7 +9134,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementGearParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<OverrideControllerValueActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -9161,16 +9162,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class OverrideGearActionXmlParser: public XmlComplexTypeParser<OverrideGearActionImpl>
+        class OverrideGearActionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<OverrideGearActionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<OverrideGearActionImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -9183,7 +9184,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<OverrideGearActionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -9203,16 +9204,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class OverrideParkingBrakeActionXmlParser: public XmlComplexTypeParser<OverrideParkingBrakeActionImpl>
+        class OverrideParkingBrakeActionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<OverrideParkingBrakeActionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<OverrideParkingBrakeActionImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -9225,7 +9226,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<OverrideParkingBrakeActionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -9245,16 +9246,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class OverrideSteeringWheelActionXmlParser: public XmlComplexTypeParser<OverrideSteeringWheelActionImpl>
+        class OverrideSteeringWheelActionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<OverrideSteeringWheelActionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<OverrideSteeringWheelActionImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -9267,7 +9268,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<OverrideSteeringWheelActionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -9287,16 +9288,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class OverrideThrottleActionXmlParser: public XmlComplexTypeParser<OverrideThrottleActionImpl>
+        class OverrideThrottleActionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<OverrideThrottleActionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<OverrideThrottleActionImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -9309,7 +9310,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<OverrideThrottleActionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -9329,16 +9330,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ParameterActionXmlParser: public XmlComplexTypeParser<ParameterActionImpl>
+        class ParameterActionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<ParameterActionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlChoiceParser<ParameterActionImpl>
+            class SubElementParser: public XmlChoiceParser
             {
             public:
                 /**
@@ -9352,13 +9353,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<ParameterActionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement setAction
             */
-            class SubElementSetActionParser: public IElementParser<ParameterActionImpl> 
+            class SubElementSetActionParser: public IElementParser
             {
             private:
                 std::shared_ptr<ParameterSetActionXmlParser> _parameterSetActionXmlParser;
@@ -9369,7 +9370,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementSetActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ParameterActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -9383,7 +9384,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement modifyAction
             */
-            class SubElementModifyActionParser: public IElementParser<ParameterActionImpl> 
+            class SubElementModifyActionParser: public IElementParser
             {
             private:
                 std::shared_ptr<ParameterModifyActionXmlParser> _parameterModifyActionXmlParser;
@@ -9394,7 +9395,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementModifyActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ParameterActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -9422,16 +9423,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ParameterAddValueRuleXmlParser: public XmlComplexTypeParser<ParameterAddValueRuleImpl>
+        class ParameterAddValueRuleXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<ParameterAddValueRuleImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<ParameterAddValueRuleImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -9444,7 +9445,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<ParameterAddValueRuleImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -9464,16 +9465,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ParameterAssignmentXmlParser: public XmlComplexTypeParser<ParameterAssignmentImpl>
+        class ParameterAssignmentXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<ParameterAssignmentImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<ParameterAssignmentImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -9486,7 +9487,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<ParameterAssignmentImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -9506,16 +9507,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ParameterConditionXmlParser: public XmlComplexTypeParser<ParameterConditionImpl>
+        class ParameterConditionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<ParameterConditionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<ParameterConditionImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -9528,7 +9529,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<ParameterConditionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -9548,16 +9549,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ParameterDeclarationXmlParser: public XmlComplexTypeParser<ParameterDeclarationImpl>
+        class ParameterDeclarationXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<ParameterDeclarationImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<ParameterDeclarationImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -9570,13 +9571,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<ParameterDeclarationImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement constraintGroups
             */
-            class SubElementConstraintGroupsParser: public IElementParser<ParameterDeclarationImpl> 
+            class SubElementConstraintGroupsParser: public IElementParser
             {
             private:
                 std::shared_ptr<ValueConstraintGroupXmlParser> _valueConstraintGroupXmlParser;
@@ -9587,7 +9588,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementConstraintGroupsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ParameterDeclarationImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -9615,16 +9616,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ParameterModifyActionXmlParser: public XmlComplexTypeParser<ParameterModifyActionImpl>
+        class ParameterModifyActionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<ParameterModifyActionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlAllParser<ParameterModifyActionImpl>
+            class SubElementParser: public XmlAllParser
             {
             public:
                 /**
@@ -9638,13 +9639,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<ParameterModifyActionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement rule
             */
-            class SubElementRuleParser: public IElementParser<ParameterModifyActionImpl> 
+            class SubElementRuleParser: public IElementParser
             {
             private:
                 std::shared_ptr<ModifyRuleXmlParser> _modifyRuleXmlParser;
@@ -9655,7 +9656,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementRuleParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ParameterModifyActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -9683,16 +9684,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ParameterMultiplyByValueRuleXmlParser: public XmlComplexTypeParser<ParameterMultiplyByValueRuleImpl>
+        class ParameterMultiplyByValueRuleXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<ParameterMultiplyByValueRuleImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<ParameterMultiplyByValueRuleImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -9705,7 +9706,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<ParameterMultiplyByValueRuleImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -9725,16 +9726,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ParameterSetActionXmlParser: public XmlComplexTypeParser<ParameterSetActionImpl>
+        class ParameterSetActionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<ParameterSetActionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<ParameterSetActionImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -9747,7 +9748,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<ParameterSetActionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -9767,16 +9768,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ParameterValueDistributionXmlParser: public XmlComplexTypeParser<ParameterValueDistributionImpl>
+        class ParameterValueDistributionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<ParameterValueDistributionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<ParameterValueDistributionImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -9789,13 +9790,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<ParameterValueDistributionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement scenarioFile
             */
-            class SubElementScenarioFileParser: public IElementParser<ParameterValueDistributionImpl> 
+            class SubElementScenarioFileParser: public IElementParser
             {
             private:
                 std::shared_ptr<FileXmlParser> _fileXmlParser;
@@ -9806,7 +9807,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementScenarioFileParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ParameterValueDistributionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -9820,7 +9821,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement distributionDefinition
             */
-            class SubElementDistributionDefinitionParser: public IElementParser<ParameterValueDistributionImpl> 
+            class SubElementDistributionDefinitionParser: public IElementParser
             {
             private:
                 std::shared_ptr<DistributionDefinitionXmlParser> _distributionDefinitionXmlParser;
@@ -9831,7 +9832,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementDistributionDefinitionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ParameterValueDistributionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -9860,14 +9861,14 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ParameterValueDistributionDefinitionXmlParser: public XmlGroupParser<ParameterValueDistributionDefinitionImpl> 
+        class ParameterValueDistributionDefinitionXmlParser: public XmlGroupParser
         {
 
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<ParameterValueDistributionDefinitionImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -9880,13 +9881,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<ParameterValueDistributionDefinitionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement parameterValueDistribution
             */
-            class SubElementParameterValueDistributionParser: public IElementParser<ParameterValueDistributionDefinitionImpl> 
+            class SubElementParameterValueDistributionParser: public IElementParser
             {
             private:
                 std::shared_ptr<ParameterValueDistributionXmlParser> _parameterValueDistributionXmlParser;
@@ -9897,7 +9898,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementParameterValueDistributionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ParameterValueDistributionDefinitionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -9925,16 +9926,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ParameterValueSetXmlParser: public XmlComplexTypeParser<ParameterValueSetImpl>
+        class ParameterValueSetXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<ParameterValueSetImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<ParameterValueSetImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -9947,13 +9948,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<ParameterValueSetImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement parameterAssignments
             */
-            class SubElementParameterAssignmentsParser: public IElementParser<ParameterValueSetImpl> 
+            class SubElementParameterAssignmentsParser: public IElementParser
             {
             private:
                 std::shared_ptr<ParameterAssignmentXmlParser> _parameterAssignmentXmlParser;
@@ -9964,7 +9965,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementParameterAssignmentsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ParameterValueSetImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -9992,16 +9993,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class PedestrianXmlParser: public XmlComplexTypeParser<PedestrianImpl>
+        class PedestrianXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<PedestrianImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlAllParser<PedestrianImpl>
+            class SubElementParser: public XmlAllParser
             {
             public:
                 /**
@@ -10015,13 +10016,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<PedestrianImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement parameterDeclarations
             */
-            class SubElementParameterDeclarationsParser: public IElementParser<PedestrianImpl> 
+            class SubElementParameterDeclarationsParser: public IElementParser
             {
             private:
                 std::shared_ptr<ParameterDeclarationXmlParser> _parameterDeclarationXmlParser;
@@ -10032,7 +10033,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementParameterDeclarationsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PedestrianImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -10046,7 +10047,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement boundingBox
             */
-            class SubElementBoundingBoxParser: public IElementParser<PedestrianImpl> 
+            class SubElementBoundingBoxParser: public IElementParser
             {
             private:
                 std::shared_ptr<BoundingBoxXmlParser> _boundingBoxXmlParser;
@@ -10057,7 +10058,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementBoundingBoxParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PedestrianImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -10071,7 +10072,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement properties
             */
-            class SubElementPropertiesParser: public IElementParser<PedestrianImpl> 
+            class SubElementPropertiesParser: public IElementParser
             {
             private:
                 std::shared_ptr<PropertiesXmlParser> _propertiesXmlParser;
@@ -10082,7 +10083,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementPropertiesParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PedestrianImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -10110,16 +10111,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class PedestrianCatalogLocationXmlParser: public XmlComplexTypeParser<PedestrianCatalogLocationImpl>
+        class PedestrianCatalogLocationXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<PedestrianCatalogLocationImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlAllParser<PedestrianCatalogLocationImpl>
+            class SubElementParser: public XmlAllParser
             {
             public:
                 /**
@@ -10133,13 +10134,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<PedestrianCatalogLocationImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement directory
             */
-            class SubElementDirectoryParser: public IElementParser<PedestrianCatalogLocationImpl> 
+            class SubElementDirectoryParser: public IElementParser
             {
             private:
                 std::shared_ptr<DirectoryXmlParser> _directoryXmlParser;
@@ -10150,7 +10151,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementDirectoryParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PedestrianCatalogLocationImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -10178,16 +10179,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class PerformanceXmlParser: public XmlComplexTypeParser<PerformanceImpl>
+        class PerformanceXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<PerformanceImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<PerformanceImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -10200,7 +10201,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<PerformanceImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -10220,16 +10221,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class PhaseXmlParser: public XmlComplexTypeParser<PhaseImpl>
+        class PhaseXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<PhaseImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<PhaseImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -10242,13 +10243,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<PhaseImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement trafficSignalStates
             */
-            class SubElementTrafficSignalStatesParser: public IElementParser<PhaseImpl> 
+            class SubElementTrafficSignalStatesParser: public IElementParser
             {
             private:
                 std::shared_ptr<TrafficSignalStateXmlParser> _trafficSignalStateXmlParser;
@@ -10259,7 +10260,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementTrafficSignalStatesParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PhaseImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -10287,16 +10288,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class PoissonDistributionXmlParser: public XmlComplexTypeParser<PoissonDistributionImpl>
+        class PoissonDistributionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<PoissonDistributionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<PoissonDistributionImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -10309,13 +10310,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<PoissonDistributionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement range
             */
-            class SubElementRangeParser: public IElementParser<PoissonDistributionImpl> 
+            class SubElementRangeParser: public IElementParser
             {
             private:
                 std::shared_ptr<RangeXmlParser> _rangeXmlParser;
@@ -10326,7 +10327,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementRangeParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PoissonDistributionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -10354,16 +10355,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class PolylineXmlParser: public XmlComplexTypeParser<PolylineImpl>
+        class PolylineXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<PolylineImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<PolylineImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -10376,13 +10377,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<PolylineImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement vertices
             */
-            class SubElementVerticesParser: public IElementParser<PolylineImpl> 
+            class SubElementVerticesParser: public IElementParser
             {
             private:
                 std::shared_ptr<VertexXmlParser> _vertexXmlParser;
@@ -10393,7 +10394,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementVerticesParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PolylineImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -10421,16 +10422,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class PositionXmlParser: public XmlComplexTypeParser<PositionImpl>
+        class PositionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<PositionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlChoiceParser<PositionImpl>
+            class SubElementParser: public XmlChoiceParser
             {
             public:
                 /**
@@ -10444,13 +10445,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<PositionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement worldPosition
             */
-            class SubElementWorldPositionParser: public IElementParser<PositionImpl> 
+            class SubElementWorldPositionParser: public IElementParser
             {
             private:
                 std::shared_ptr<WorldPositionXmlParser> _worldPositionXmlParser;
@@ -10461,7 +10462,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementWorldPositionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PositionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -10475,7 +10476,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement relativeWorldPosition
             */
-            class SubElementRelativeWorldPositionParser: public IElementParser<PositionImpl> 
+            class SubElementRelativeWorldPositionParser: public IElementParser
             {
             private:
                 std::shared_ptr<RelativeWorldPositionXmlParser> _relativeWorldPositionXmlParser;
@@ -10486,7 +10487,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementRelativeWorldPositionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PositionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -10500,7 +10501,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement relativeObjectPosition
             */
-            class SubElementRelativeObjectPositionParser: public IElementParser<PositionImpl> 
+            class SubElementRelativeObjectPositionParser: public IElementParser
             {
             private:
                 std::shared_ptr<RelativeObjectPositionXmlParser> _relativeObjectPositionXmlParser;
@@ -10511,7 +10512,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementRelativeObjectPositionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PositionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -10525,7 +10526,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement roadPosition
             */
-            class SubElementRoadPositionParser: public IElementParser<PositionImpl> 
+            class SubElementRoadPositionParser: public IElementParser
             {
             private:
                 std::shared_ptr<RoadPositionXmlParser> _roadPositionXmlParser;
@@ -10536,7 +10537,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementRoadPositionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PositionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -10550,7 +10551,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement relativeRoadPosition
             */
-            class SubElementRelativeRoadPositionParser: public IElementParser<PositionImpl> 
+            class SubElementRelativeRoadPositionParser: public IElementParser
             {
             private:
                 std::shared_ptr<RelativeRoadPositionXmlParser> _relativeRoadPositionXmlParser;
@@ -10561,7 +10562,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementRelativeRoadPositionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PositionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -10575,7 +10576,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement lanePosition
             */
-            class SubElementLanePositionParser: public IElementParser<PositionImpl> 
+            class SubElementLanePositionParser: public IElementParser
             {
             private:
                 std::shared_ptr<LanePositionXmlParser> _lanePositionXmlParser;
@@ -10586,7 +10587,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementLanePositionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PositionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -10600,7 +10601,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement relativeLanePosition
             */
-            class SubElementRelativeLanePositionParser: public IElementParser<PositionImpl> 
+            class SubElementRelativeLanePositionParser: public IElementParser
             {
             private:
                 std::shared_ptr<RelativeLanePositionXmlParser> _relativeLanePositionXmlParser;
@@ -10611,7 +10612,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementRelativeLanePositionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PositionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -10625,7 +10626,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement routePosition
             */
-            class SubElementRoutePositionParser: public IElementParser<PositionImpl> 
+            class SubElementRoutePositionParser: public IElementParser
             {
             private:
                 std::shared_ptr<RoutePositionXmlParser> _routePositionXmlParser;
@@ -10636,7 +10637,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementRoutePositionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PositionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -10650,7 +10651,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement geoPosition
             */
-            class SubElementGeoPositionParser: public IElementParser<PositionImpl> 
+            class SubElementGeoPositionParser: public IElementParser
             {
             private:
                 std::shared_ptr<GeoPositionXmlParser> _geoPositionXmlParser;
@@ -10661,7 +10662,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementGeoPositionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PositionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -10675,7 +10676,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement trajectoryPosition
             */
-            class SubElementTrajectoryPositionParser: public IElementParser<PositionImpl> 
+            class SubElementTrajectoryPositionParser: public IElementParser
             {
             private:
                 std::shared_ptr<TrajectoryPositionXmlParser> _trajectoryPositionXmlParser;
@@ -10686,7 +10687,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementTrajectoryPositionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PositionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -10714,16 +10715,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class PositionInLaneCoordinatesXmlParser: public XmlComplexTypeParser<PositionInLaneCoordinatesImpl>
+        class PositionInLaneCoordinatesXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<PositionInLaneCoordinatesImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<PositionInLaneCoordinatesImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -10736,7 +10737,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<PositionInLaneCoordinatesImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -10756,16 +10757,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class PositionInRoadCoordinatesXmlParser: public XmlComplexTypeParser<PositionInRoadCoordinatesImpl>
+        class PositionInRoadCoordinatesXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<PositionInRoadCoordinatesImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<PositionInRoadCoordinatesImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -10778,7 +10779,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<PositionInRoadCoordinatesImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -10798,16 +10799,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class PositionOfCurrentEntityXmlParser: public XmlComplexTypeParser<PositionOfCurrentEntityImpl>
+        class PositionOfCurrentEntityXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<PositionOfCurrentEntityImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<PositionOfCurrentEntityImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -10820,7 +10821,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<PositionOfCurrentEntityImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -10840,16 +10841,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class PrecipitationXmlParser: public XmlComplexTypeParser<PrecipitationImpl>
+        class PrecipitationXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<PrecipitationImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<PrecipitationImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -10862,7 +10863,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<PrecipitationImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -10882,16 +10883,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class PrivateXmlParser: public XmlComplexTypeParser<PrivateImpl>
+        class PrivateXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<PrivateImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<PrivateImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -10904,13 +10905,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<PrivateImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement privateActions
             */
-            class SubElementPrivateActionsParser: public IElementParser<PrivateImpl> 
+            class SubElementPrivateActionsParser: public IElementParser
             {
             private:
                 std::shared_ptr<PrivateActionXmlParser> _privateActionXmlParser;
@@ -10921,7 +10922,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementPrivateActionsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PrivateImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -10949,16 +10950,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class PrivateActionXmlParser: public XmlComplexTypeParser<PrivateActionImpl>
+        class PrivateActionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<PrivateActionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlChoiceParser<PrivateActionImpl>
+            class SubElementParser: public XmlChoiceParser
             {
             public:
                 /**
@@ -10972,13 +10973,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<PrivateActionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement longitudinalAction
             */
-            class SubElementLongitudinalActionParser: public IElementParser<PrivateActionImpl> 
+            class SubElementLongitudinalActionParser: public IElementParser
             {
             private:
                 std::shared_ptr<LongitudinalActionXmlParser> _longitudinalActionXmlParser;
@@ -10989,7 +10990,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementLongitudinalActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PrivateActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -11003,7 +11004,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement lateralAction
             */
-            class SubElementLateralActionParser: public IElementParser<PrivateActionImpl> 
+            class SubElementLateralActionParser: public IElementParser
             {
             private:
                 std::shared_ptr<LateralActionXmlParser> _lateralActionXmlParser;
@@ -11014,7 +11015,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementLateralActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PrivateActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -11028,7 +11029,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement visibilityAction
             */
-            class SubElementVisibilityActionParser: public IElementParser<PrivateActionImpl> 
+            class SubElementVisibilityActionParser: public IElementParser
             {
             private:
                 std::shared_ptr<VisibilityActionXmlParser> _visibilityActionXmlParser;
@@ -11039,7 +11040,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementVisibilityActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PrivateActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -11053,7 +11054,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement synchronizeAction
             */
-            class SubElementSynchronizeActionParser: public IElementParser<PrivateActionImpl> 
+            class SubElementSynchronizeActionParser: public IElementParser
             {
             private:
                 std::shared_ptr<SynchronizeActionXmlParser> _synchronizeActionXmlParser;
@@ -11064,7 +11065,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementSynchronizeActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PrivateActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -11078,7 +11079,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement activateControllerAction
             */
-            class SubElementActivateControllerActionParser: public IElementParser<PrivateActionImpl> 
+            class SubElementActivateControllerActionParser: public IElementParser
             {
             private:
                 std::shared_ptr<ActivateControllerActionXmlParser> _activateControllerActionXmlParser;
@@ -11089,7 +11090,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementActivateControllerActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PrivateActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -11103,7 +11104,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement controllerAction
             */
-            class SubElementControllerActionParser: public IElementParser<PrivateActionImpl> 
+            class SubElementControllerActionParser: public IElementParser
             {
             private:
                 std::shared_ptr<ControllerActionXmlParser> _controllerActionXmlParser;
@@ -11114,7 +11115,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementControllerActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PrivateActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -11128,7 +11129,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement teleportAction
             */
-            class SubElementTeleportActionParser: public IElementParser<PrivateActionImpl> 
+            class SubElementTeleportActionParser: public IElementParser
             {
             private:
                 std::shared_ptr<TeleportActionXmlParser> _teleportActionXmlParser;
@@ -11139,7 +11140,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementTeleportActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PrivateActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -11153,7 +11154,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement routingAction
             */
-            class SubElementRoutingActionParser: public IElementParser<PrivateActionImpl> 
+            class SubElementRoutingActionParser: public IElementParser
             {
             private:
                 std::shared_ptr<RoutingActionXmlParser> _routingActionXmlParser;
@@ -11164,7 +11165,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementRoutingActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PrivateActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -11192,16 +11193,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ProbabilityDistributionSetXmlParser: public XmlComplexTypeParser<ProbabilityDistributionSetImpl>
+        class ProbabilityDistributionSetXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<ProbabilityDistributionSetImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<ProbabilityDistributionSetImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -11214,13 +11215,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<ProbabilityDistributionSetImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement elements
             */
-            class SubElementElementsParser: public IElementParser<ProbabilityDistributionSetImpl> 
+            class SubElementElementsParser: public IElementParser
             {
             private:
                 std::shared_ptr<ProbabilityDistributionSetElementXmlParser> _probabilityDistributionSetElementXmlParser;
@@ -11231,7 +11232,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementElementsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ProbabilityDistributionSetImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -11259,16 +11260,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ProbabilityDistributionSetElementXmlParser: public XmlComplexTypeParser<ProbabilityDistributionSetElementImpl>
+        class ProbabilityDistributionSetElementXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<ProbabilityDistributionSetElementImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlAllParser<ProbabilityDistributionSetElementImpl>
+            class SubElementParser: public XmlAllParser
             {
             public:
                 /**
@@ -11282,7 +11283,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<ProbabilityDistributionSetElementImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -11302,16 +11303,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class PropertiesXmlParser: public XmlComplexTypeParser<PropertiesImpl>
+        class PropertiesXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<PropertiesImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<PropertiesImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -11324,13 +11325,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<PropertiesImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement properties
             */
-            class SubElementPropertiesParser: public IElementParser<PropertiesImpl> 
+            class SubElementPropertiesParser: public IElementParser
             {
             private:
                 std::shared_ptr<PropertyXmlParser> _propertyXmlParser;
@@ -11341,7 +11342,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementPropertiesParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PropertiesImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -11355,7 +11356,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement files
             */
-            class SubElementFilesParser: public IElementParser<PropertiesImpl> 
+            class SubElementFilesParser: public IElementParser
             {
             private:
                 std::shared_ptr<FileXmlParser> _fileXmlParser;
@@ -11366,7 +11367,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementFilesParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<PropertiesImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -11394,16 +11395,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class PropertyXmlParser: public XmlComplexTypeParser<PropertyImpl>
+        class PropertyXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<PropertyImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<PropertyImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -11416,7 +11417,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<PropertyImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -11436,16 +11437,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class RangeXmlParser: public XmlComplexTypeParser<RangeImpl>
+        class RangeXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<RangeImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<RangeImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -11458,7 +11459,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<RangeImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -11478,16 +11479,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ReachPositionConditionXmlParser: public XmlComplexTypeParser<ReachPositionConditionImpl>
+        class ReachPositionConditionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<ReachPositionConditionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlAllParser<ReachPositionConditionImpl>
+            class SubElementParser: public XmlAllParser
             {
             public:
                 /**
@@ -11501,13 +11502,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<ReachPositionConditionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement position
             */
-            class SubElementPositionParser: public IElementParser<ReachPositionConditionImpl> 
+            class SubElementPositionParser: public IElementParser
             {
             private:
                 std::shared_ptr<PositionXmlParser> _positionXmlParser;
@@ -11518,7 +11519,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ReachPositionConditionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -11546,16 +11547,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class RelativeDistanceConditionXmlParser: public XmlComplexTypeParser<RelativeDistanceConditionImpl>
+        class RelativeDistanceConditionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<RelativeDistanceConditionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<RelativeDistanceConditionImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -11568,7 +11569,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<RelativeDistanceConditionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -11588,16 +11589,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class RelativeLanePositionXmlParser: public XmlComplexTypeParser<RelativeLanePositionImpl>
+        class RelativeLanePositionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<RelativeLanePositionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlAllParser<RelativeLanePositionImpl>
+            class SubElementParser: public XmlAllParser
             {
             public:
                 /**
@@ -11611,13 +11612,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<RelativeLanePositionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement orientation
             */
-            class SubElementOrientationParser: public IElementParser<RelativeLanePositionImpl> 
+            class SubElementOrientationParser: public IElementParser
             {
             private:
                 std::shared_ptr<OrientationXmlParser> _orientationXmlParser;
@@ -11628,7 +11629,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementOrientationParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RelativeLanePositionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -11656,16 +11657,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class RelativeObjectPositionXmlParser: public XmlComplexTypeParser<RelativeObjectPositionImpl>
+        class RelativeObjectPositionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<RelativeObjectPositionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlAllParser<RelativeObjectPositionImpl>
+            class SubElementParser: public XmlAllParser
             {
             public:
                 /**
@@ -11679,13 +11680,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<RelativeObjectPositionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement orientation
             */
-            class SubElementOrientationParser: public IElementParser<RelativeObjectPositionImpl> 
+            class SubElementOrientationParser: public IElementParser
             {
             private:
                 std::shared_ptr<OrientationXmlParser> _orientationXmlParser;
@@ -11696,7 +11697,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementOrientationParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RelativeObjectPositionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -11724,16 +11725,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class RelativeRoadPositionXmlParser: public XmlComplexTypeParser<RelativeRoadPositionImpl>
+        class RelativeRoadPositionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<RelativeRoadPositionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlAllParser<RelativeRoadPositionImpl>
+            class SubElementParser: public XmlAllParser
             {
             public:
                 /**
@@ -11747,13 +11748,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<RelativeRoadPositionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement orientation
             */
-            class SubElementOrientationParser: public IElementParser<RelativeRoadPositionImpl> 
+            class SubElementOrientationParser: public IElementParser
             {
             private:
                 std::shared_ptr<OrientationXmlParser> _orientationXmlParser;
@@ -11764,7 +11765,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementOrientationParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RelativeRoadPositionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -11792,16 +11793,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class RelativeSpeedConditionXmlParser: public XmlComplexTypeParser<RelativeSpeedConditionImpl>
+        class RelativeSpeedConditionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<RelativeSpeedConditionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<RelativeSpeedConditionImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -11814,7 +11815,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<RelativeSpeedConditionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -11834,16 +11835,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class RelativeSpeedToMasterXmlParser: public XmlComplexTypeParser<RelativeSpeedToMasterImpl>
+        class RelativeSpeedToMasterXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<RelativeSpeedToMasterImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<RelativeSpeedToMasterImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -11856,13 +11857,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<RelativeSpeedToMasterImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement steadyState
             */
-            class SubElementSteadyStateParser: public IElementParser<RelativeSpeedToMasterImpl> 
+            class SubElementSteadyStateParser: public IElementParser
             {
             private:
                 std::shared_ptr<SteadyStateXmlParser> _steadyStateXmlParser;
@@ -11873,7 +11874,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementSteadyStateParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RelativeSpeedToMasterImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -11901,16 +11902,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class RelativeTargetLaneXmlParser: public XmlComplexTypeParser<RelativeTargetLaneImpl>
+        class RelativeTargetLaneXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<RelativeTargetLaneImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<RelativeTargetLaneImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -11923,7 +11924,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<RelativeTargetLaneImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -11943,16 +11944,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class RelativeTargetLaneOffsetXmlParser: public XmlComplexTypeParser<RelativeTargetLaneOffsetImpl>
+        class RelativeTargetLaneOffsetXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<RelativeTargetLaneOffsetImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<RelativeTargetLaneOffsetImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -11965,7 +11966,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<RelativeTargetLaneOffsetImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -11985,16 +11986,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class RelativeTargetSpeedXmlParser: public XmlComplexTypeParser<RelativeTargetSpeedImpl>
+        class RelativeTargetSpeedXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<RelativeTargetSpeedImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<RelativeTargetSpeedImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -12007,7 +12008,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<RelativeTargetSpeedImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -12027,16 +12028,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class RelativeWorldPositionXmlParser: public XmlComplexTypeParser<RelativeWorldPositionImpl>
+        class RelativeWorldPositionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<RelativeWorldPositionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlAllParser<RelativeWorldPositionImpl>
+            class SubElementParser: public XmlAllParser
             {
             public:
                 /**
@@ -12050,13 +12051,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<RelativeWorldPositionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement orientation
             */
-            class SubElementOrientationParser: public IElementParser<RelativeWorldPositionImpl> 
+            class SubElementOrientationParser: public IElementParser
             {
             private:
                 std::shared_ptr<OrientationXmlParser> _orientationXmlParser;
@@ -12067,7 +12068,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementOrientationParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RelativeWorldPositionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -12095,16 +12096,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class RoadConditionXmlParser: public XmlComplexTypeParser<RoadConditionImpl>
+        class RoadConditionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<RoadConditionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<RoadConditionImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -12117,13 +12118,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<RoadConditionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement properties
             */
-            class SubElementPropertiesParser: public IElementParser<RoadConditionImpl> 
+            class SubElementPropertiesParser: public IElementParser
             {
             private:
                 std::shared_ptr<PropertiesXmlParser> _propertiesXmlParser;
@@ -12134,7 +12135,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementPropertiesParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RoadConditionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -12162,16 +12163,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class RoadNetworkXmlParser: public XmlComplexTypeParser<RoadNetworkImpl>
+        class RoadNetworkXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<RoadNetworkImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<RoadNetworkImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -12184,13 +12185,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<RoadNetworkImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement logicFile
             */
-            class SubElementLogicFileParser: public IElementParser<RoadNetworkImpl> 
+            class SubElementLogicFileParser: public IElementParser
             {
             private:
                 std::shared_ptr<FileXmlParser> _fileXmlParser;
@@ -12201,7 +12202,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementLogicFileParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RoadNetworkImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -12215,7 +12216,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement sceneGraphFile
             */
-            class SubElementSceneGraphFileParser: public IElementParser<RoadNetworkImpl> 
+            class SubElementSceneGraphFileParser: public IElementParser
             {
             private:
                 std::shared_ptr<FileXmlParser> _fileXmlParser;
@@ -12226,7 +12227,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementSceneGraphFileParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RoadNetworkImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -12240,7 +12241,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement trafficSignals
             */
-            class SubElementTrafficSignalsParser: public IElementParser<RoadNetworkImpl> 
+            class SubElementTrafficSignalsParser: public IElementParser
             {
             private:
                 std::shared_ptr<TrafficSignalControllerXmlParser> _trafficSignalControllerXmlParser;
@@ -12251,7 +12252,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementTrafficSignalsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RoadNetworkImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -12265,7 +12266,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement usedArea
             */
-            class SubElementUsedAreaParser: public IElementParser<RoadNetworkImpl> 
+            class SubElementUsedAreaParser: public IElementParser
             {
             private:
                 std::shared_ptr<UsedAreaXmlParser> _usedAreaXmlParser;
@@ -12276,7 +12277,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementUsedAreaParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RoadNetworkImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -12304,16 +12305,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class RoadPositionXmlParser: public XmlComplexTypeParser<RoadPositionImpl>
+        class RoadPositionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<RoadPositionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlAllParser<RoadPositionImpl>
+            class SubElementParser: public XmlAllParser
             {
             public:
                 /**
@@ -12327,13 +12328,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<RoadPositionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement orientation
             */
-            class SubElementOrientationParser: public IElementParser<RoadPositionImpl> 
+            class SubElementOrientationParser: public IElementParser
             {
             private:
                 std::shared_ptr<OrientationXmlParser> _orientationXmlParser;
@@ -12344,7 +12345,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementOrientationParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RoadPositionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -12372,16 +12373,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class RouteXmlParser: public XmlComplexTypeParser<RouteImpl>
+        class RouteXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<RouteImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<RouteImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -12394,13 +12395,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<RouteImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement parameterDeclarations
             */
-            class SubElementParameterDeclarationsParser: public IElementParser<RouteImpl> 
+            class SubElementParameterDeclarationsParser: public IElementParser
             {
             private:
                 std::shared_ptr<ParameterDeclarationXmlParser> _parameterDeclarationXmlParser;
@@ -12411,7 +12412,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementParameterDeclarationsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RouteImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -12425,7 +12426,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement waypoints
             */
-            class SubElementWaypointsParser: public IElementParser<RouteImpl> 
+            class SubElementWaypointsParser: public IElementParser
             {
             private:
                 std::shared_ptr<WaypointXmlParser> _waypointXmlParser;
@@ -12436,7 +12437,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementWaypointsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RouteImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -12464,16 +12465,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class RouteCatalogLocationXmlParser: public XmlComplexTypeParser<RouteCatalogLocationImpl>
+        class RouteCatalogLocationXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<RouteCatalogLocationImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlAllParser<RouteCatalogLocationImpl>
+            class SubElementParser: public XmlAllParser
             {
             public:
                 /**
@@ -12487,13 +12488,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<RouteCatalogLocationImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement directory
             */
-            class SubElementDirectoryParser: public IElementParser<RouteCatalogLocationImpl> 
+            class SubElementDirectoryParser: public IElementParser
             {
             private:
                 std::shared_ptr<DirectoryXmlParser> _directoryXmlParser;
@@ -12504,7 +12505,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementDirectoryParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RouteCatalogLocationImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -12532,16 +12533,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class RoutePositionXmlParser: public XmlComplexTypeParser<RoutePositionImpl>
+        class RoutePositionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<RoutePositionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlAllParser<RoutePositionImpl>
+            class SubElementParser: public XmlAllParser
             {
             public:
                 /**
@@ -12555,13 +12556,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<RoutePositionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement routeRef
             */
-            class SubElementRouteRefParser: public IElementParser<RoutePositionImpl> 
+            class SubElementRouteRefParser: public IElementParser
             {
             private:
                 std::shared_ptr<RouteRefXmlParser> _routeRefXmlParser;
@@ -12572,7 +12573,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementRouteRefParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RoutePositionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -12586,7 +12587,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement orientation
             */
-            class SubElementOrientationParser: public IElementParser<RoutePositionImpl> 
+            class SubElementOrientationParser: public IElementParser
             {
             private:
                 std::shared_ptr<OrientationXmlParser> _orientationXmlParser;
@@ -12597,7 +12598,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementOrientationParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RoutePositionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -12611,7 +12612,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement inRoutePosition
             */
-            class SubElementInRoutePositionParser: public IElementParser<RoutePositionImpl> 
+            class SubElementInRoutePositionParser: public IElementParser
             {
             private:
                 std::shared_ptr<InRoutePositionXmlParser> _inRoutePositionXmlParser;
@@ -12622,7 +12623,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementInRoutePositionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RoutePositionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -12650,16 +12651,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class RouteRefXmlParser: public XmlComplexTypeParser<RouteRefImpl>
+        class RouteRefXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<RouteRefImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlChoiceParser<RouteRefImpl>
+            class SubElementParser: public XmlChoiceParser
             {
             public:
                 /**
@@ -12673,13 +12674,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<RouteRefImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement route
             */
-            class SubElementRouteParser: public IElementParser<RouteRefImpl> 
+            class SubElementRouteParser: public IElementParser
             {
             private:
                 std::shared_ptr<RouteXmlParser> _routeXmlParser;
@@ -12690,7 +12691,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementRouteParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RouteRefImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -12704,7 +12705,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement catalogReference
             */
-            class SubElementCatalogReferenceParser: public IElementParser<RouteRefImpl> 
+            class SubElementCatalogReferenceParser: public IElementParser
             {
             private:
                 std::shared_ptr<CatalogReferenceXmlParser> _catalogReferenceXmlParser;
@@ -12715,7 +12716,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementCatalogReferenceParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RouteRefImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -12743,16 +12744,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class RoutingActionXmlParser: public XmlComplexTypeParser<RoutingActionImpl>
+        class RoutingActionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<RoutingActionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlChoiceParser<RoutingActionImpl>
+            class SubElementParser: public XmlChoiceParser
             {
             public:
                 /**
@@ -12766,13 +12767,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<RoutingActionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement assignRouteAction
             */
-            class SubElementAssignRouteActionParser: public IElementParser<RoutingActionImpl> 
+            class SubElementAssignRouteActionParser: public IElementParser
             {
             private:
                 std::shared_ptr<AssignRouteActionXmlParser> _assignRouteActionXmlParser;
@@ -12783,7 +12784,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementAssignRouteActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RoutingActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -12797,7 +12798,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement followTrajectoryAction
             */
-            class SubElementFollowTrajectoryActionParser: public IElementParser<RoutingActionImpl> 
+            class SubElementFollowTrajectoryActionParser: public IElementParser
             {
             private:
                 std::shared_ptr<FollowTrajectoryActionXmlParser> _followTrajectoryActionXmlParser;
@@ -12808,7 +12809,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementFollowTrajectoryActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RoutingActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -12822,7 +12823,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement acquirePositionAction
             */
-            class SubElementAcquirePositionActionParser: public IElementParser<RoutingActionImpl> 
+            class SubElementAcquirePositionActionParser: public IElementParser
             {
             private:
                 std::shared_ptr<AcquirePositionActionXmlParser> _acquirePositionActionXmlParser;
@@ -12833,7 +12834,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementAcquirePositionActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<RoutingActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -12862,14 +12863,14 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ScenarioDefinitionXmlParser: public XmlGroupParser<ScenarioDefinitionImpl> 
+        class ScenarioDefinitionXmlParser: public XmlGroupParser
         {
 
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<ScenarioDefinitionImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -12882,13 +12883,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<ScenarioDefinitionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement parameterDeclarations
             */
-            class SubElementParameterDeclarationsParser: public IElementParser<ScenarioDefinitionImpl> 
+            class SubElementParameterDeclarationsParser: public IElementParser
             {
             private:
                 std::shared_ptr<ParameterDeclarationXmlParser> _parameterDeclarationXmlParser;
@@ -12899,7 +12900,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementParameterDeclarationsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ScenarioDefinitionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -12913,7 +12914,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement catalogLocations
             */
-            class SubElementCatalogLocationsParser: public IElementParser<ScenarioDefinitionImpl> 
+            class SubElementCatalogLocationsParser: public IElementParser
             {
             private:
                 std::shared_ptr<CatalogLocationsXmlParser> _catalogLocationsXmlParser;
@@ -12924,7 +12925,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementCatalogLocationsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ScenarioDefinitionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -12938,7 +12939,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement roadNetwork
             */
-            class SubElementRoadNetworkParser: public IElementParser<ScenarioDefinitionImpl> 
+            class SubElementRoadNetworkParser: public IElementParser
             {
             private:
                 std::shared_ptr<RoadNetworkXmlParser> _roadNetworkXmlParser;
@@ -12949,7 +12950,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementRoadNetworkParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ScenarioDefinitionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -12963,7 +12964,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement entities
             */
-            class SubElementEntitiesParser: public IElementParser<ScenarioDefinitionImpl> 
+            class SubElementEntitiesParser: public IElementParser
             {
             private:
                 std::shared_ptr<EntitiesXmlParser> _entitiesXmlParser;
@@ -12974,7 +12975,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementEntitiesParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ScenarioDefinitionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -12988,7 +12989,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement storyboard
             */
-            class SubElementStoryboardParser: public IElementParser<ScenarioDefinitionImpl> 
+            class SubElementStoryboardParser: public IElementParser
             {
             private:
                 std::shared_ptr<StoryboardXmlParser> _storyboardXmlParser;
@@ -12999,7 +13000,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementStoryboardParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ScenarioDefinitionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -13027,16 +13028,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ScenarioObjectXmlParser: public XmlComplexTypeParser<ScenarioObjectImpl>
+        class ScenarioObjectXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<ScenarioObjectImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<ScenarioObjectImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -13049,13 +13050,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<ScenarioObjectImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement entityObject
             */
-            class SubElementEntityObjectParser: public IElementParser<ScenarioObjectImpl> 
+            class SubElementEntityObjectParser: public IElementParser
             {
             private:
                 std::shared_ptr<EntityObjectXmlParser> _entityObjectXmlParser;
@@ -13066,7 +13067,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementEntityObjectParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ScenarioObjectImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -13080,7 +13081,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement objectController
             */
-            class SubElementObjectControllerParser: public IElementParser<ScenarioObjectImpl> 
+            class SubElementObjectControllerParser: public IElementParser
             {
             private:
                 std::shared_ptr<ObjectControllerXmlParser> _objectControllerXmlParser;
@@ -13091,7 +13092,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementObjectControllerParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ScenarioObjectImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -13119,16 +13120,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class SelectedEntitiesXmlParser: public XmlComplexTypeParser<SelectedEntitiesImpl>
+        class SelectedEntitiesXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<SelectedEntitiesImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlChoiceParser<SelectedEntitiesImpl>
+            class SubElementParser: public XmlChoiceParser
             {
             public:
                 /**
@@ -13142,13 +13143,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<SelectedEntitiesImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement entityRef
             */
-            class SubElementEntityRefParser: public IElementParser<SelectedEntitiesImpl> 
+            class SubElementEntityRefParser: public IElementParser
             {
             private:
                 std::shared_ptr<EntityRefXmlParser> _entityRefXmlParser;
@@ -13159,7 +13160,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementEntityRefParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<SelectedEntitiesImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -13173,7 +13174,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement byType
             */
-            class SubElementByTypeParser: public IElementParser<SelectedEntitiesImpl> 
+            class SubElementByTypeParser: public IElementParser
             {
             private:
                 std::shared_ptr<ByTypeXmlParser> _byTypeXmlParser;
@@ -13184,7 +13185,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementByTypeParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<SelectedEntitiesImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -13212,16 +13213,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ShapeXmlParser: public XmlComplexTypeParser<ShapeImpl>
+        class ShapeXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<ShapeImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlChoiceParser<ShapeImpl>
+            class SubElementParser: public XmlChoiceParser
             {
             public:
                 /**
@@ -13235,13 +13236,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<ShapeImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement polyline
             */
-            class SubElementPolylineParser: public IElementParser<ShapeImpl> 
+            class SubElementPolylineParser: public IElementParser
             {
             private:
                 std::shared_ptr<PolylineXmlParser> _polylineXmlParser;
@@ -13252,7 +13253,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementPolylineParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ShapeImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -13266,7 +13267,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement clothoid
             */
-            class SubElementClothoidParser: public IElementParser<ShapeImpl> 
+            class SubElementClothoidParser: public IElementParser
             {
             private:
                 std::shared_ptr<ClothoidXmlParser> _clothoidXmlParser;
@@ -13277,7 +13278,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementClothoidParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ShapeImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -13291,7 +13292,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement nurbs
             */
-            class SubElementNurbsParser: public IElementParser<ShapeImpl> 
+            class SubElementNurbsParser: public IElementParser
             {
             private:
                 std::shared_ptr<NurbsXmlParser> _nurbsXmlParser;
@@ -13302,7 +13303,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementNurbsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ShapeImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -13330,16 +13331,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class SimulationTimeConditionXmlParser: public XmlComplexTypeParser<SimulationTimeConditionImpl>
+        class SimulationTimeConditionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<SimulationTimeConditionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<SimulationTimeConditionImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -13352,7 +13353,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<SimulationTimeConditionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -13372,16 +13373,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class SpeedActionXmlParser: public XmlComplexTypeParser<SpeedActionImpl>
+        class SpeedActionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<SpeedActionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlAllParser<SpeedActionImpl>
+            class SubElementParser: public XmlAllParser
             {
             public:
                 /**
@@ -13395,13 +13396,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<SpeedActionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement speedActionDynamics
             */
-            class SubElementSpeedActionDynamicsParser: public IElementParser<SpeedActionImpl> 
+            class SubElementSpeedActionDynamicsParser: public IElementParser
             {
             private:
                 std::shared_ptr<TransitionDynamicsXmlParser> _transitionDynamicsXmlParser;
@@ -13412,7 +13413,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementSpeedActionDynamicsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<SpeedActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -13426,7 +13427,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement speedActionTarget
             */
-            class SubElementSpeedActionTargetParser: public IElementParser<SpeedActionImpl> 
+            class SubElementSpeedActionTargetParser: public IElementParser
             {
             private:
                 std::shared_ptr<SpeedActionTargetXmlParser> _speedActionTargetXmlParser;
@@ -13437,7 +13438,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementSpeedActionTargetParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<SpeedActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -13465,16 +13466,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class SpeedActionTargetXmlParser: public XmlComplexTypeParser<SpeedActionTargetImpl>
+        class SpeedActionTargetXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<SpeedActionTargetImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlChoiceParser<SpeedActionTargetImpl>
+            class SubElementParser: public XmlChoiceParser
             {
             public:
                 /**
@@ -13488,13 +13489,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<SpeedActionTargetImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement relativeTargetSpeed
             */
-            class SubElementRelativeTargetSpeedParser: public IElementParser<SpeedActionTargetImpl> 
+            class SubElementRelativeTargetSpeedParser: public IElementParser
             {
             private:
                 std::shared_ptr<RelativeTargetSpeedXmlParser> _relativeTargetSpeedXmlParser;
@@ -13505,7 +13506,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementRelativeTargetSpeedParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<SpeedActionTargetImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -13519,7 +13520,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement absoluteTargetSpeed
             */
-            class SubElementAbsoluteTargetSpeedParser: public IElementParser<SpeedActionTargetImpl> 
+            class SubElementAbsoluteTargetSpeedParser: public IElementParser
             {
             private:
                 std::shared_ptr<AbsoluteTargetSpeedXmlParser> _absoluteTargetSpeedXmlParser;
@@ -13530,7 +13531,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementAbsoluteTargetSpeedParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<SpeedActionTargetImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -13558,16 +13559,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class SpeedConditionXmlParser: public XmlComplexTypeParser<SpeedConditionImpl>
+        class SpeedConditionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<SpeedConditionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<SpeedConditionImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -13580,7 +13581,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<SpeedConditionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -13600,16 +13601,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class StandStillConditionXmlParser: public XmlComplexTypeParser<StandStillConditionImpl>
+        class StandStillConditionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<StandStillConditionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<StandStillConditionImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -13622,7 +13623,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<StandStillConditionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -13643,14 +13644,14 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class SteadyStateXmlParser: public XmlGroupParser<SteadyStateImpl> 
+        class SteadyStateXmlParser: public XmlGroupParser
         {
 
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlChoiceParser<SteadyStateImpl>
+            class SubElementParser: public XmlChoiceParser
             {
             public:
                 /**
@@ -13664,13 +13665,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<SteadyStateImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement targetDistanceSteadyState
             */
-            class SubElementTargetDistanceSteadyStateParser: public IElementParser<SteadyStateImpl> 
+            class SubElementTargetDistanceSteadyStateParser: public IElementParser
             {
             private:
                 std::shared_ptr<TargetDistanceSteadyStateXmlParser> _targetDistanceSteadyStateXmlParser;
@@ -13681,7 +13682,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementTargetDistanceSteadyStateParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<SteadyStateImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -13695,7 +13696,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement targetTimeSteadyState
             */
-            class SubElementTargetTimeSteadyStateParser: public IElementParser<SteadyStateImpl> 
+            class SubElementTargetTimeSteadyStateParser: public IElementParser
             {
             private:
                 std::shared_ptr<TargetTimeSteadyStateXmlParser> _targetTimeSteadyStateXmlParser;
@@ -13706,7 +13707,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementTargetTimeSteadyStateParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<SteadyStateImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -13734,16 +13735,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class StochasticXmlParser: public XmlComplexTypeParser<StochasticImpl>
+        class StochasticXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<StochasticImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<StochasticImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -13756,13 +13757,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<StochasticImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement stochasticDistributions
             */
-            class SubElementStochasticDistributionsParser: public IElementParser<StochasticImpl> 
+            class SubElementStochasticDistributionsParser: public IElementParser
             {
             private:
                 std::shared_ptr<StochasticDistributionXmlParser> _stochasticDistributionXmlParser;
@@ -13773,7 +13774,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementStochasticDistributionsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<StochasticImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -13801,16 +13802,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class StochasticDistributionXmlParser: public XmlComplexTypeParser<StochasticDistributionImpl>
+        class StochasticDistributionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<StochasticDistributionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<StochasticDistributionImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -13823,13 +13824,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<StochasticDistributionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement stochasticDistributionType
             */
-            class SubElementStochasticDistributionTypeParser: public IElementParser<StochasticDistributionImpl> 
+            class SubElementStochasticDistributionTypeParser: public IElementParser
             {
             private:
                 std::shared_ptr<StochasticDistributionTypeXmlParser> _stochasticDistributionTypeXmlParser;
@@ -13840,7 +13841,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementStochasticDistributionTypeParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<StochasticDistributionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -13869,14 +13870,14 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class StochasticDistributionTypeXmlParser: public XmlGroupParser<StochasticDistributionTypeImpl> 
+        class StochasticDistributionTypeXmlParser: public XmlGroupParser
         {
 
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlChoiceParser<StochasticDistributionTypeImpl>
+            class SubElementParser: public XmlChoiceParser
             {
             public:
                 /**
@@ -13890,13 +13891,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<StochasticDistributionTypeImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement probabilityDistributionSet
             */
-            class SubElementProbabilityDistributionSetParser: public IElementParser<StochasticDistributionTypeImpl> 
+            class SubElementProbabilityDistributionSetParser: public IElementParser
             {
             private:
                 std::shared_ptr<ProbabilityDistributionSetXmlParser> _probabilityDistributionSetXmlParser;
@@ -13907,7 +13908,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementProbabilityDistributionSetParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<StochasticDistributionTypeImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -13921,7 +13922,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement normalDistribution
             */
-            class SubElementNormalDistributionParser: public IElementParser<StochasticDistributionTypeImpl> 
+            class SubElementNormalDistributionParser: public IElementParser
             {
             private:
                 std::shared_ptr<NormalDistributionXmlParser> _normalDistributionXmlParser;
@@ -13932,7 +13933,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementNormalDistributionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<StochasticDistributionTypeImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -13946,7 +13947,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement uniformDistribution
             */
-            class SubElementUniformDistributionParser: public IElementParser<StochasticDistributionTypeImpl> 
+            class SubElementUniformDistributionParser: public IElementParser
             {
             private:
                 std::shared_ptr<UniformDistributionXmlParser> _uniformDistributionXmlParser;
@@ -13957,7 +13958,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementUniformDistributionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<StochasticDistributionTypeImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -13971,7 +13972,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement poissonDistribution
             */
-            class SubElementPoissonDistributionParser: public IElementParser<StochasticDistributionTypeImpl> 
+            class SubElementPoissonDistributionParser: public IElementParser
             {
             private:
                 std::shared_ptr<PoissonDistributionXmlParser> _poissonDistributionXmlParser;
@@ -13982,7 +13983,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementPoissonDistributionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<StochasticDistributionTypeImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -13996,7 +13997,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement histogram
             */
-            class SubElementHistogramParser: public IElementParser<StochasticDistributionTypeImpl> 
+            class SubElementHistogramParser: public IElementParser
             {
             private:
                 std::shared_ptr<HistogramXmlParser> _histogramXmlParser;
@@ -14007,7 +14008,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementHistogramParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<StochasticDistributionTypeImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -14021,7 +14022,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement userDefinedDistribution
             */
-            class SubElementUserDefinedDistributionParser: public IElementParser<StochasticDistributionTypeImpl> 
+            class SubElementUserDefinedDistributionParser: public IElementParser
             {
             private:
                 std::shared_ptr<UserDefinedDistributionXmlParser> _userDefinedDistributionXmlParser;
@@ -14032,7 +14033,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementUserDefinedDistributionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<StochasticDistributionTypeImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -14060,16 +14061,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class StoryXmlParser: public XmlComplexTypeParser<StoryImpl>
+        class StoryXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<StoryImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<StoryImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -14082,13 +14083,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<StoryImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement parameterDeclarations
             */
-            class SubElementParameterDeclarationsParser: public IElementParser<StoryImpl> 
+            class SubElementParameterDeclarationsParser: public IElementParser
             {
             private:
                 std::shared_ptr<ParameterDeclarationXmlParser> _parameterDeclarationXmlParser;
@@ -14099,7 +14100,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementParameterDeclarationsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<StoryImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -14113,7 +14114,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement acts
             */
-            class SubElementActsParser: public IElementParser<StoryImpl> 
+            class SubElementActsParser: public IElementParser
             {
             private:
                 std::shared_ptr<ActXmlParser> _actXmlParser;
@@ -14124,7 +14125,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementActsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<StoryImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -14152,16 +14153,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class StoryboardXmlParser: public XmlComplexTypeParser<StoryboardImpl>
+        class StoryboardXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<StoryboardImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<StoryboardImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -14174,13 +14175,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<StoryboardImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement init
             */
-            class SubElementInitParser: public IElementParser<StoryboardImpl> 
+            class SubElementInitParser: public IElementParser
             {
             private:
                 std::shared_ptr<InitXmlParser> _initXmlParser;
@@ -14191,7 +14192,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementInitParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<StoryboardImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -14205,7 +14206,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement stories
             */
-            class SubElementStoriesParser: public IElementParser<StoryboardImpl> 
+            class SubElementStoriesParser: public IElementParser
             {
             private:
                 std::shared_ptr<StoryXmlParser> _storyXmlParser;
@@ -14216,7 +14217,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementStoriesParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<StoryboardImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -14230,7 +14231,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement stopTrigger
             */
-            class SubElementStopTriggerParser: public IElementParser<StoryboardImpl> 
+            class SubElementStopTriggerParser: public IElementParser
             {
             private:
                 std::shared_ptr<TriggerXmlParser> _triggerXmlParser;
@@ -14241,7 +14242,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementStopTriggerParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<StoryboardImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -14269,16 +14270,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class StoryboardElementStateConditionXmlParser: public XmlComplexTypeParser<StoryboardElementStateConditionImpl>
+        class StoryboardElementStateConditionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<StoryboardElementStateConditionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<StoryboardElementStateConditionImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -14291,7 +14292,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<StoryboardElementStateConditionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -14311,16 +14312,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class SunXmlParser: public XmlComplexTypeParser<SunImpl>
+        class SunXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<SunImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<SunImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -14333,7 +14334,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<SunImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -14353,16 +14354,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class SynchronizeActionXmlParser: public XmlComplexTypeParser<SynchronizeActionImpl>
+        class SynchronizeActionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<SynchronizeActionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlAllParser<SynchronizeActionImpl>
+            class SubElementParser: public XmlAllParser
             {
             public:
                 /**
@@ -14376,13 +14377,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<SynchronizeActionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement targetPositionMaster
             */
-            class SubElementTargetPositionMasterParser: public IElementParser<SynchronizeActionImpl> 
+            class SubElementTargetPositionMasterParser: public IElementParser
             {
             private:
                 std::shared_ptr<PositionXmlParser> _positionXmlParser;
@@ -14393,7 +14394,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementTargetPositionMasterParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<SynchronizeActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -14407,7 +14408,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement targetPosition
             */
-            class SubElementTargetPositionParser: public IElementParser<SynchronizeActionImpl> 
+            class SubElementTargetPositionParser: public IElementParser
             {
             private:
                 std::shared_ptr<PositionXmlParser> _positionXmlParser;
@@ -14418,7 +14419,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementTargetPositionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<SynchronizeActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -14432,7 +14433,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement finalSpeed
             */
-            class SubElementFinalSpeedParser: public IElementParser<SynchronizeActionImpl> 
+            class SubElementFinalSpeedParser: public IElementParser
             {
             private:
                 std::shared_ptr<FinalSpeedXmlParser> _finalSpeedXmlParser;
@@ -14443,7 +14444,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementFinalSpeedParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<SynchronizeActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -14471,16 +14472,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TargetDistanceSteadyStateXmlParser: public XmlComplexTypeParser<TargetDistanceSteadyStateImpl>
+        class TargetDistanceSteadyStateXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<TargetDistanceSteadyStateImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlChoiceParser<TargetDistanceSteadyStateImpl>
+            class SubElementParser: public XmlChoiceParser
             {
             public:
                 /**
@@ -14494,7 +14495,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<TargetDistanceSteadyStateImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -14514,16 +14515,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TargetTimeSteadyStateXmlParser: public XmlComplexTypeParser<TargetTimeSteadyStateImpl>
+        class TargetTimeSteadyStateXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<TargetTimeSteadyStateImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlChoiceParser<TargetTimeSteadyStateImpl>
+            class SubElementParser: public XmlChoiceParser
             {
             public:
                 /**
@@ -14537,7 +14538,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<TargetTimeSteadyStateImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -14557,16 +14558,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TeleportActionXmlParser: public XmlComplexTypeParser<TeleportActionImpl>
+        class TeleportActionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<TeleportActionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<TeleportActionImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -14579,13 +14580,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<TeleportActionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement position
             */
-            class SubElementPositionParser: public IElementParser<TeleportActionImpl> 
+            class SubElementPositionParser: public IElementParser
             {
             private:
                 std::shared_ptr<PositionXmlParser> _positionXmlParser;
@@ -14596,7 +14597,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TeleportActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -14624,16 +14625,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TimeHeadwayConditionXmlParser: public XmlComplexTypeParser<TimeHeadwayConditionImpl>
+        class TimeHeadwayConditionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<TimeHeadwayConditionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<TimeHeadwayConditionImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -14646,7 +14647,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<TimeHeadwayConditionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -14666,16 +14667,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TimeOfDayXmlParser: public XmlComplexTypeParser<TimeOfDayImpl>
+        class TimeOfDayXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<TimeOfDayImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<TimeOfDayImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -14688,7 +14689,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<TimeOfDayImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -14708,16 +14709,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TimeOfDayConditionXmlParser: public XmlComplexTypeParser<TimeOfDayConditionImpl>
+        class TimeOfDayConditionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<TimeOfDayConditionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<TimeOfDayConditionImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -14730,7 +14731,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<TimeOfDayConditionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -14750,16 +14751,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TimeReferenceXmlParser: public XmlComplexTypeParser<TimeReferenceImpl>
+        class TimeReferenceXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<TimeReferenceImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlChoiceParser<TimeReferenceImpl>
+            class SubElementParser: public XmlChoiceParser
             {
             public:
                 /**
@@ -14773,13 +14774,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<TimeReferenceImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement none
             */
-            class SubElementNoneParser: public IElementParser<TimeReferenceImpl> 
+            class SubElementNoneParser: public IElementParser
             {
             private:
                 std::shared_ptr<NoneXmlParser> _noneXmlParser;
@@ -14790,7 +14791,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementNoneParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TimeReferenceImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -14804,7 +14805,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement timing
             */
-            class SubElementTimingParser: public IElementParser<TimeReferenceImpl> 
+            class SubElementTimingParser: public IElementParser
             {
             private:
                 std::shared_ptr<TimingXmlParser> _timingXmlParser;
@@ -14815,7 +14816,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementTimingParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TimeReferenceImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -14843,16 +14844,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TimeToCollisionConditionXmlParser: public XmlComplexTypeParser<TimeToCollisionConditionImpl>
+        class TimeToCollisionConditionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<TimeToCollisionConditionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlAllParser<TimeToCollisionConditionImpl>
+            class SubElementParser: public XmlAllParser
             {
             public:
                 /**
@@ -14866,13 +14867,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<TimeToCollisionConditionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement timeToCollisionConditionTarget
             */
-            class SubElementTimeToCollisionConditionTargetParser: public IElementParser<TimeToCollisionConditionImpl> 
+            class SubElementTimeToCollisionConditionTargetParser: public IElementParser
             {
             private:
                 std::shared_ptr<TimeToCollisionConditionTargetXmlParser> _timeToCollisionConditionTargetXmlParser;
@@ -14883,7 +14884,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementTimeToCollisionConditionTargetParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TimeToCollisionConditionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -14911,16 +14912,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TimeToCollisionConditionTargetXmlParser: public XmlComplexTypeParser<TimeToCollisionConditionTargetImpl>
+        class TimeToCollisionConditionTargetXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<TimeToCollisionConditionTargetImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlChoiceParser<TimeToCollisionConditionTargetImpl>
+            class SubElementParser: public XmlChoiceParser
             {
             public:
                 /**
@@ -14934,13 +14935,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<TimeToCollisionConditionTargetImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement position
             */
-            class SubElementPositionParser: public IElementParser<TimeToCollisionConditionTargetImpl> 
+            class SubElementPositionParser: public IElementParser
             {
             private:
                 std::shared_ptr<PositionXmlParser> _positionXmlParser;
@@ -14951,7 +14952,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TimeToCollisionConditionTargetImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -14965,7 +14966,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement entityRef
             */
-            class SubElementEntityRefParser: public IElementParser<TimeToCollisionConditionTargetImpl> 
+            class SubElementEntityRefParser: public IElementParser
             {
             private:
                 std::shared_ptr<EntityRefXmlParser> _entityRefXmlParser;
@@ -14976,7 +14977,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementEntityRefParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TimeToCollisionConditionTargetImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -15004,16 +15005,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TimingXmlParser: public XmlComplexTypeParser<TimingImpl>
+        class TimingXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<TimingImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<TimingImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -15026,7 +15027,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<TimingImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -15046,16 +15047,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TrafficActionXmlParser: public XmlComplexTypeParser<TrafficActionImpl>
+        class TrafficActionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<TrafficActionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlChoiceParser<TrafficActionImpl>
+            class SubElementParser: public XmlChoiceParser
             {
             public:
                 /**
@@ -15069,13 +15070,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<TrafficActionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement trafficSourceAction
             */
-            class SubElementTrafficSourceActionParser: public IElementParser<TrafficActionImpl> 
+            class SubElementTrafficSourceActionParser: public IElementParser
             {
             private:
                 std::shared_ptr<TrafficSourceActionXmlParser> _trafficSourceActionXmlParser;
@@ -15086,7 +15087,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementTrafficSourceActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -15100,7 +15101,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement trafficSinkAction
             */
-            class SubElementTrafficSinkActionParser: public IElementParser<TrafficActionImpl> 
+            class SubElementTrafficSinkActionParser: public IElementParser
             {
             private:
                 std::shared_ptr<TrafficSinkActionXmlParser> _trafficSinkActionXmlParser;
@@ -15111,7 +15112,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementTrafficSinkActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -15125,7 +15126,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement trafficSwarmAction
             */
-            class SubElementTrafficSwarmActionParser: public IElementParser<TrafficActionImpl> 
+            class SubElementTrafficSwarmActionParser: public IElementParser
             {
             private:
                 std::shared_ptr<TrafficSwarmActionXmlParser> _trafficSwarmActionXmlParser;
@@ -15136,7 +15137,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementTrafficSwarmActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -15150,7 +15151,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement trafficStopAction
             */
-            class SubElementTrafficStopActionParser: public IElementParser<TrafficActionImpl> 
+            class SubElementTrafficStopActionParser: public IElementParser
             {
             private:
                 std::shared_ptr<TrafficStopActionXmlParser> _trafficStopActionXmlParser;
@@ -15161,7 +15162,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementTrafficStopActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -15189,16 +15190,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TrafficDefinitionXmlParser: public XmlComplexTypeParser<TrafficDefinitionImpl>
+        class TrafficDefinitionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<TrafficDefinitionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlAllParser<TrafficDefinitionImpl>
+            class SubElementParser: public XmlAllParser
             {
             public:
                 /**
@@ -15212,13 +15213,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<TrafficDefinitionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement vehicleCategoryDistribution
             */
-            class SubElementVehicleCategoryDistributionParser: public IElementParser<TrafficDefinitionImpl> 
+            class SubElementVehicleCategoryDistributionParser: public IElementParser
             {
             private:
                 std::shared_ptr<VehicleCategoryDistributionXmlParser> _vehicleCategoryDistributionXmlParser;
@@ -15229,7 +15230,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementVehicleCategoryDistributionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficDefinitionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -15243,7 +15244,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement controllerDistribution
             */
-            class SubElementControllerDistributionParser: public IElementParser<TrafficDefinitionImpl> 
+            class SubElementControllerDistributionParser: public IElementParser
             {
             private:
                 std::shared_ptr<ControllerDistributionXmlParser> _controllerDistributionXmlParser;
@@ -15254,7 +15255,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementControllerDistributionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficDefinitionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -15282,16 +15283,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TrafficSignalActionXmlParser: public XmlComplexTypeParser<TrafficSignalActionImpl>
+        class TrafficSignalActionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<TrafficSignalActionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlChoiceParser<TrafficSignalActionImpl>
+            class SubElementParser: public XmlChoiceParser
             {
             public:
                 /**
@@ -15305,13 +15306,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<TrafficSignalActionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement trafficSignalControllerAction
             */
-            class SubElementTrafficSignalControllerActionParser: public IElementParser<TrafficSignalActionImpl> 
+            class SubElementTrafficSignalControllerActionParser: public IElementParser
             {
             private:
                 std::shared_ptr<TrafficSignalControllerActionXmlParser> _trafficSignalControllerActionXmlParser;
@@ -15322,7 +15323,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementTrafficSignalControllerActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSignalActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -15336,7 +15337,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement trafficSignalStateAction
             */
-            class SubElementTrafficSignalStateActionParser: public IElementParser<TrafficSignalActionImpl> 
+            class SubElementTrafficSignalStateActionParser: public IElementParser
             {
             private:
                 std::shared_ptr<TrafficSignalStateActionXmlParser> _trafficSignalStateActionXmlParser;
@@ -15347,7 +15348,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementTrafficSignalStateActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSignalActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -15375,16 +15376,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TrafficSignalConditionXmlParser: public XmlComplexTypeParser<TrafficSignalConditionImpl>
+        class TrafficSignalConditionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<TrafficSignalConditionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<TrafficSignalConditionImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -15397,7 +15398,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<TrafficSignalConditionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -15417,16 +15418,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TrafficSignalControllerXmlParser: public XmlComplexTypeParser<TrafficSignalControllerImpl>
+        class TrafficSignalControllerXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<TrafficSignalControllerImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<TrafficSignalControllerImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -15439,13 +15440,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<TrafficSignalControllerImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement phases
             */
-            class SubElementPhasesParser: public IElementParser<TrafficSignalControllerImpl> 
+            class SubElementPhasesParser: public IElementParser
             {
             private:
                 std::shared_ptr<PhaseXmlParser> _phaseXmlParser;
@@ -15456,7 +15457,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementPhasesParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSignalControllerImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -15484,16 +15485,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TrafficSignalControllerActionXmlParser: public XmlComplexTypeParser<TrafficSignalControllerActionImpl>
+        class TrafficSignalControllerActionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<TrafficSignalControllerActionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<TrafficSignalControllerActionImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -15506,7 +15507,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<TrafficSignalControllerActionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -15526,16 +15527,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TrafficSignalControllerConditionXmlParser: public XmlComplexTypeParser<TrafficSignalControllerConditionImpl>
+        class TrafficSignalControllerConditionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<TrafficSignalControllerConditionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<TrafficSignalControllerConditionImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -15548,7 +15549,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<TrafficSignalControllerConditionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -15568,16 +15569,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TrafficSignalStateXmlParser: public XmlComplexTypeParser<TrafficSignalStateImpl>
+        class TrafficSignalStateXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<TrafficSignalStateImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<TrafficSignalStateImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -15590,7 +15591,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<TrafficSignalStateImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -15610,16 +15611,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TrafficSignalStateActionXmlParser: public XmlComplexTypeParser<TrafficSignalStateActionImpl>
+        class TrafficSignalStateActionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<TrafficSignalStateActionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<TrafficSignalStateActionImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -15632,7 +15633,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<TrafficSignalStateActionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -15652,16 +15653,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TrafficSinkActionXmlParser: public XmlComplexTypeParser<TrafficSinkActionImpl>
+        class TrafficSinkActionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<TrafficSinkActionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlAllParser<TrafficSinkActionImpl>
+            class SubElementParser: public XmlAllParser
             {
             public:
                 /**
@@ -15675,13 +15676,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<TrafficSinkActionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement position
             */
-            class SubElementPositionParser: public IElementParser<TrafficSinkActionImpl> 
+            class SubElementPositionParser: public IElementParser
             {
             private:
                 std::shared_ptr<PositionXmlParser> _positionXmlParser;
@@ -15692,7 +15693,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSinkActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -15706,7 +15707,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement trafficDefinition
             */
-            class SubElementTrafficDefinitionParser: public IElementParser<TrafficSinkActionImpl> 
+            class SubElementTrafficDefinitionParser: public IElementParser
             {
             private:
                 std::shared_ptr<TrafficDefinitionXmlParser> _trafficDefinitionXmlParser;
@@ -15717,7 +15718,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementTrafficDefinitionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSinkActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -15745,16 +15746,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TrafficSourceActionXmlParser: public XmlComplexTypeParser<TrafficSourceActionImpl>
+        class TrafficSourceActionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<TrafficSourceActionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlAllParser<TrafficSourceActionImpl>
+            class SubElementParser: public XmlAllParser
             {
             public:
                 /**
@@ -15768,13 +15769,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<TrafficSourceActionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement position
             */
-            class SubElementPositionParser: public IElementParser<TrafficSourceActionImpl> 
+            class SubElementPositionParser: public IElementParser
             {
             private:
                 std::shared_ptr<PositionXmlParser> _positionXmlParser;
@@ -15785,7 +15786,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSourceActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -15799,7 +15800,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement trafficDefinition
             */
-            class SubElementTrafficDefinitionParser: public IElementParser<TrafficSourceActionImpl> 
+            class SubElementTrafficDefinitionParser: public IElementParser
             {
             private:
                 std::shared_ptr<TrafficDefinitionXmlParser> _trafficDefinitionXmlParser;
@@ -15810,7 +15811,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementTrafficDefinitionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSourceActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -15838,16 +15839,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TrafficStopActionXmlParser: public XmlComplexTypeParser<TrafficStopActionImpl>
+        class TrafficStopActionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<TrafficStopActionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<TrafficStopActionImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -15860,7 +15861,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<TrafficStopActionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -15880,16 +15881,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TrafficSwarmActionXmlParser: public XmlComplexTypeParser<TrafficSwarmActionImpl>
+        class TrafficSwarmActionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<TrafficSwarmActionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlAllParser<TrafficSwarmActionImpl>
+            class SubElementParser: public XmlAllParser
             {
             public:
                 /**
@@ -15903,13 +15904,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<TrafficSwarmActionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement centralObject
             */
-            class SubElementCentralObjectParser: public IElementParser<TrafficSwarmActionImpl> 
+            class SubElementCentralObjectParser: public IElementParser
             {
             private:
                 std::shared_ptr<CentralSwarmObjectXmlParser> _centralSwarmObjectXmlParser;
@@ -15920,7 +15921,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementCentralObjectParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSwarmActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -15934,7 +15935,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement trafficDefinition
             */
-            class SubElementTrafficDefinitionParser: public IElementParser<TrafficSwarmActionImpl> 
+            class SubElementTrafficDefinitionParser: public IElementParser
             {
             private:
                 std::shared_ptr<TrafficDefinitionXmlParser> _trafficDefinitionXmlParser;
@@ -15945,7 +15946,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementTrafficDefinitionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrafficSwarmActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -15973,16 +15974,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TrajectoryXmlParser: public XmlComplexTypeParser<TrajectoryImpl>
+        class TrajectoryXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<TrajectoryImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<TrajectoryImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -15995,13 +15996,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<TrajectoryImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement parameterDeclarations
             */
-            class SubElementParameterDeclarationsParser: public IElementParser<TrajectoryImpl> 
+            class SubElementParameterDeclarationsParser: public IElementParser
             {
             private:
                 std::shared_ptr<ParameterDeclarationXmlParser> _parameterDeclarationXmlParser;
@@ -16012,7 +16013,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementParameterDeclarationsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrajectoryImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -16026,7 +16027,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement shape
             */
-            class SubElementShapeParser: public IElementParser<TrajectoryImpl> 
+            class SubElementShapeParser: public IElementParser
             {
             private:
                 std::shared_ptr<ShapeXmlParser> _shapeXmlParser;
@@ -16037,7 +16038,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementShapeParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrajectoryImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -16065,16 +16066,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TrajectoryCatalogLocationXmlParser: public XmlComplexTypeParser<TrajectoryCatalogLocationImpl>
+        class TrajectoryCatalogLocationXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<TrajectoryCatalogLocationImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlAllParser<TrajectoryCatalogLocationImpl>
+            class SubElementParser: public XmlAllParser
             {
             public:
                 /**
@@ -16088,13 +16089,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<TrajectoryCatalogLocationImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement directory
             */
-            class SubElementDirectoryParser: public IElementParser<TrajectoryCatalogLocationImpl> 
+            class SubElementDirectoryParser: public IElementParser
             {
             private:
                 std::shared_ptr<DirectoryXmlParser> _directoryXmlParser;
@@ -16105,7 +16106,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementDirectoryParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrajectoryCatalogLocationImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -16133,16 +16134,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TrajectoryFollowingModeXmlParser: public XmlComplexTypeParser<TrajectoryFollowingModeImpl>
+        class TrajectoryFollowingModeXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<TrajectoryFollowingModeImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<TrajectoryFollowingModeImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -16155,7 +16156,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<TrajectoryFollowingModeImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -16175,16 +16176,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TrajectoryPositionXmlParser: public XmlComplexTypeParser<TrajectoryPositionImpl>
+        class TrajectoryPositionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<TrajectoryPositionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlAllParser<TrajectoryPositionImpl>
+            class SubElementParser: public XmlAllParser
             {
             public:
                 /**
@@ -16198,13 +16199,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<TrajectoryPositionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement orientation
             */
-            class SubElementOrientationParser: public IElementParser<TrajectoryPositionImpl> 
+            class SubElementOrientationParser: public IElementParser
             {
             private:
                 std::shared_ptr<OrientationXmlParser> _orientationXmlParser;
@@ -16215,7 +16216,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementOrientationParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrajectoryPositionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -16229,7 +16230,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement trajectoryRef
             */
-            class SubElementTrajectoryRefParser: public IElementParser<TrajectoryPositionImpl> 
+            class SubElementTrajectoryRefParser: public IElementParser
             {
             private:
                 std::shared_ptr<TrajectoryRefXmlParser> _trajectoryRefXmlParser;
@@ -16240,7 +16241,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementTrajectoryRefParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrajectoryPositionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -16268,16 +16269,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TrajectoryRefXmlParser: public XmlComplexTypeParser<TrajectoryRefImpl>
+        class TrajectoryRefXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<TrajectoryRefImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlChoiceParser<TrajectoryRefImpl>
+            class SubElementParser: public XmlChoiceParser
             {
             public:
                 /**
@@ -16291,13 +16292,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<TrajectoryRefImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement trajectory
             */
-            class SubElementTrajectoryParser: public IElementParser<TrajectoryRefImpl> 
+            class SubElementTrajectoryParser: public IElementParser
             {
             private:
                 std::shared_ptr<TrajectoryXmlParser> _trajectoryXmlParser;
@@ -16308,7 +16309,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementTrajectoryParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrajectoryRefImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -16322,7 +16323,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement catalogReference
             */
-            class SubElementCatalogReferenceParser: public IElementParser<TrajectoryRefImpl> 
+            class SubElementCatalogReferenceParser: public IElementParser
             {
             private:
                 std::shared_ptr<CatalogReferenceXmlParser> _catalogReferenceXmlParser;
@@ -16333,7 +16334,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementCatalogReferenceParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TrajectoryRefImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -16361,16 +16362,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TransitionDynamicsXmlParser: public XmlComplexTypeParser<TransitionDynamicsImpl>
+        class TransitionDynamicsXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<TransitionDynamicsImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<TransitionDynamicsImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -16383,7 +16384,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<TransitionDynamicsImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -16403,16 +16404,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TraveledDistanceConditionXmlParser: public XmlComplexTypeParser<TraveledDistanceConditionImpl>
+        class TraveledDistanceConditionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<TraveledDistanceConditionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<TraveledDistanceConditionImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -16425,7 +16426,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<TraveledDistanceConditionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -16445,16 +16446,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TriggerXmlParser: public XmlComplexTypeParser<TriggerImpl>
+        class TriggerXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<TriggerImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<TriggerImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -16467,13 +16468,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<TriggerImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement conditionGroups
             */
-            class SubElementConditionGroupsParser: public IElementParser<TriggerImpl> 
+            class SubElementConditionGroupsParser: public IElementParser
             {
             private:
                 std::shared_ptr<ConditionGroupXmlParser> _conditionGroupXmlParser;
@@ -16484,7 +16485,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementConditionGroupsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TriggerImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -16512,16 +16513,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TriggeringEntitiesXmlParser: public XmlComplexTypeParser<TriggeringEntitiesImpl>
+        class TriggeringEntitiesXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<TriggeringEntitiesImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<TriggeringEntitiesImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -16534,13 +16535,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<TriggeringEntitiesImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement entityRefs
             */
-            class SubElementEntityRefsParser: public IElementParser<TriggeringEntitiesImpl> 
+            class SubElementEntityRefsParser: public IElementParser
             {
             private:
                 std::shared_ptr<EntityRefXmlParser> _entityRefXmlParser;
@@ -16551,7 +16552,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementEntityRefsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<TriggeringEntitiesImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -16579,16 +16580,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class UniformDistributionXmlParser: public XmlComplexTypeParser<UniformDistributionImpl>
+        class UniformDistributionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<UniformDistributionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<UniformDistributionImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -16601,13 +16602,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<UniformDistributionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement range
             */
-            class SubElementRangeParser: public IElementParser<UniformDistributionImpl> 
+            class SubElementRangeParser: public IElementParser
             {
             private:
                 std::shared_ptr<RangeXmlParser> _rangeXmlParser;
@@ -16618,7 +16619,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementRangeParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<UniformDistributionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -16646,16 +16647,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class UsedAreaXmlParser: public XmlComplexTypeParser<UsedAreaImpl>
+        class UsedAreaXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<UsedAreaImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<UsedAreaImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -16668,13 +16669,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<UsedAreaImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement positions
             */
-            class SubElementPositionsParser: public IElementParser<UsedAreaImpl> 
+            class SubElementPositionsParser: public IElementParser
             {
             private:
                 std::shared_ptr<PositionXmlParser> _positionXmlParser;
@@ -16685,7 +16686,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementPositionsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<UsedAreaImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -16713,16 +16714,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class UserDefinedActionXmlParser: public XmlComplexTypeParser<UserDefinedActionImpl>
+        class UserDefinedActionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<UserDefinedActionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<UserDefinedActionImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -16735,13 +16736,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<UserDefinedActionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement customCommandAction
             */
-            class SubElementCustomCommandActionParser: public IElementParser<UserDefinedActionImpl> 
+            class SubElementCustomCommandActionParser: public IElementParser
             {
             private:
                 std::shared_ptr<CustomCommandActionXmlParser> _customCommandActionXmlParser;
@@ -16752,7 +16753,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementCustomCommandActionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<UserDefinedActionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -16781,13 +16782,13 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class UserDefinedDistributionXmlParser: public XmlSimpleContentParser<UserDefinedDistributionImpl> 
+        class UserDefinedDistributionXmlParser: public XmlSimpleContentParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<UserDefinedDistributionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         protected:
-            void SetContentProperty(const std::string content, std::shared_ptr<UserDefinedDistributionImpl>& object) override;
+            void SetContentProperty(const std::string content, std::shared_ptr<BaseImpl> object) override;
             bool IsContentRequired() override;
 
 
@@ -16807,16 +16808,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class UserDefinedValueConditionXmlParser: public XmlComplexTypeParser<UserDefinedValueConditionImpl>
+        class UserDefinedValueConditionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<UserDefinedValueConditionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<UserDefinedValueConditionImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -16829,7 +16830,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<UserDefinedValueConditionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -16849,16 +16850,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ValueConstraintXmlParser: public XmlComplexTypeParser<ValueConstraintImpl>
+        class ValueConstraintXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<ValueConstraintImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlAllParser<ValueConstraintImpl>
+            class SubElementParser: public XmlAllParser
             {
             public:
                 /**
@@ -16872,7 +16873,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<ValueConstraintImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -16892,16 +16893,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ValueConstraintGroupXmlParser: public XmlComplexTypeParser<ValueConstraintGroupImpl>
+        class ValueConstraintGroupXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<ValueConstraintGroupImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<ValueConstraintGroupImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -16914,13 +16915,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<ValueConstraintGroupImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement constraints
             */
-            class SubElementConstraintsParser: public IElementParser<ValueConstraintGroupImpl> 
+            class SubElementConstraintsParser: public IElementParser
             {
             private:
                 std::shared_ptr<ValueConstraintXmlParser> _valueConstraintXmlParser;
@@ -16931,7 +16932,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementConstraintsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ValueConstraintGroupImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -16959,16 +16960,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ValueSetDistributionXmlParser: public XmlComplexTypeParser<ValueSetDistributionImpl>
+        class ValueSetDistributionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<ValueSetDistributionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<ValueSetDistributionImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -16981,13 +16982,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<ValueSetDistributionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement parameterValueSets
             */
-            class SubElementParameterValueSetsParser: public IElementParser<ValueSetDistributionImpl> 
+            class SubElementParameterValueSetsParser: public IElementParser
             {
             private:
                 std::shared_ptr<ParameterValueSetXmlParser> _parameterValueSetXmlParser;
@@ -16998,7 +16999,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementParameterValueSetsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<ValueSetDistributionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -17026,16 +17027,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class VehicleXmlParser: public XmlComplexTypeParser<VehicleImpl>
+        class VehicleXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<VehicleImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlAllParser<VehicleImpl>
+            class SubElementParser: public XmlAllParser
             {
             public:
                 /**
@@ -17049,13 +17050,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<VehicleImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement parameterDeclarations
             */
-            class SubElementParameterDeclarationsParser: public IElementParser<VehicleImpl> 
+            class SubElementParameterDeclarationsParser: public IElementParser
             {
             private:
                 std::shared_ptr<ParameterDeclarationXmlParser> _parameterDeclarationXmlParser;
@@ -17066,7 +17067,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementParameterDeclarationsParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<VehicleImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -17080,7 +17081,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement boundingBox
             */
-            class SubElementBoundingBoxParser: public IElementParser<VehicleImpl> 
+            class SubElementBoundingBoxParser: public IElementParser
             {
             private:
                 std::shared_ptr<BoundingBoxXmlParser> _boundingBoxXmlParser;
@@ -17091,7 +17092,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementBoundingBoxParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<VehicleImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -17105,7 +17106,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement performance
             */
-            class SubElementPerformanceParser: public IElementParser<VehicleImpl> 
+            class SubElementPerformanceParser: public IElementParser
             {
             private:
                 std::shared_ptr<PerformanceXmlParser> _performanceXmlParser;
@@ -17116,7 +17117,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementPerformanceParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<VehicleImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -17130,7 +17131,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement axles
             */
-            class SubElementAxlesParser: public IElementParser<VehicleImpl> 
+            class SubElementAxlesParser: public IElementParser
             {
             private:
                 std::shared_ptr<AxlesXmlParser> _axlesXmlParser;
@@ -17141,7 +17142,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementAxlesParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<VehicleImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -17155,7 +17156,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement properties
             */
-            class SubElementPropertiesParser: public IElementParser<VehicleImpl> 
+            class SubElementPropertiesParser: public IElementParser
             {
             private:
                 std::shared_ptr<PropertiesXmlParser> _propertiesXmlParser;
@@ -17166,7 +17167,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementPropertiesParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<VehicleImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -17194,16 +17195,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class VehicleCatalogLocationXmlParser: public XmlComplexTypeParser<VehicleCatalogLocationImpl>
+        class VehicleCatalogLocationXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<VehicleCatalogLocationImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlAllParser<VehicleCatalogLocationImpl>
+            class SubElementParser: public XmlAllParser
             {
             public:
                 /**
@@ -17217,13 +17218,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<VehicleCatalogLocationImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement directory
             */
-            class SubElementDirectoryParser: public IElementParser<VehicleCatalogLocationImpl> 
+            class SubElementDirectoryParser: public IElementParser
             {
             private:
                 std::shared_ptr<DirectoryXmlParser> _directoryXmlParser;
@@ -17234,7 +17235,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementDirectoryParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<VehicleCatalogLocationImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -17262,16 +17263,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class VehicleCategoryDistributionXmlParser: public XmlComplexTypeParser<VehicleCategoryDistributionImpl>
+        class VehicleCategoryDistributionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<VehicleCategoryDistributionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<VehicleCategoryDistributionImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -17284,13 +17285,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<VehicleCategoryDistributionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement vehicleCategoryDistributionEntries
             */
-            class SubElementVehicleCategoryDistributionEntriesParser: public IElementParser<VehicleCategoryDistributionImpl> 
+            class SubElementVehicleCategoryDistributionEntriesParser: public IElementParser
             {
             private:
                 std::shared_ptr<VehicleCategoryDistributionEntryXmlParser> _vehicleCategoryDistributionEntryXmlParser;
@@ -17301,7 +17302,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementVehicleCategoryDistributionEntriesParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<VehicleCategoryDistributionImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -17329,16 +17330,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class VehicleCategoryDistributionEntryXmlParser: public XmlComplexTypeParser<VehicleCategoryDistributionEntryImpl>
+        class VehicleCategoryDistributionEntryXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<VehicleCategoryDistributionEntryImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<VehicleCategoryDistributionEntryImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -17351,7 +17352,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<VehicleCategoryDistributionEntryImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -17371,16 +17372,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class VertexXmlParser: public XmlComplexTypeParser<VertexImpl>
+        class VertexXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<VertexImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<VertexImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -17393,13 +17394,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<VertexImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement position
             */
-            class SubElementPositionParser: public IElementParser<VertexImpl> 
+            class SubElementPositionParser: public IElementParser
             {
             private:
                 std::shared_ptr<PositionXmlParser> _positionXmlParser;
@@ -17410,7 +17411,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<VertexImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -17438,16 +17439,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class VisibilityActionXmlParser: public XmlComplexTypeParser<VisibilityActionImpl>
+        class VisibilityActionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<VisibilityActionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<VisibilityActionImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -17460,7 +17461,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<VisibilityActionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -17480,16 +17481,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class WaypointXmlParser: public XmlComplexTypeParser<WaypointImpl>
+        class WaypointXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<WaypointImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<WaypointImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -17502,13 +17503,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<WaypointImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement position
             */
-            class SubElementPositionParser: public IElementParser<WaypointImpl> 
+            class SubElementPositionParser: public IElementParser
             {
             private:
                 std::shared_ptr<PositionXmlParser> _positionXmlParser;
@@ -17519,7 +17520,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<WaypointImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -17547,16 +17548,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class WeatherXmlParser: public XmlComplexTypeParser<WeatherImpl>
+        class WeatherXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<WeatherImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlAllParser<WeatherImpl>
+            class SubElementParser: public XmlAllParser
             {
             public:
                 /**
@@ -17570,13 +17571,13 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<WeatherImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
             /**
             * A parser for subelement sun
             */
-            class SubElementSunParser: public IElementParser<WeatherImpl> 
+            class SubElementSunParser: public IElementParser
             {
             private:
                 std::shared_ptr<SunXmlParser> _sunXmlParser;
@@ -17587,7 +17588,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementSunParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<WeatherImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -17601,7 +17602,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement fog
             */
-            class SubElementFogParser: public IElementParser<WeatherImpl> 
+            class SubElementFogParser: public IElementParser
             {
             private:
                 std::shared_ptr<FogXmlParser> _fogXmlParser;
@@ -17612,7 +17613,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementFogParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<WeatherImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -17626,7 +17627,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement precipitation
             */
-            class SubElementPrecipitationParser: public IElementParser<WeatherImpl> 
+            class SubElementPrecipitationParser: public IElementParser
             {
             private:
                 std::shared_ptr<PrecipitationXmlParser> _precipitationXmlParser;
@@ -17637,7 +17638,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementPrecipitationParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<WeatherImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -17651,7 +17652,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement wind
             */
-            class SubElementWindParser: public IElementParser<WeatherImpl> 
+            class SubElementWindParser: public IElementParser
             {
             private:
                 std::shared_ptr<WindXmlParser> _windXmlParser;
@@ -17662,7 +17663,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElementWindParser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<WeatherImpl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 
@@ -17690,16 +17691,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class WindXmlParser: public XmlComplexTypeParser<WindImpl>
+        class WindXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<WindImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<WindImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -17712,7 +17713,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<WindImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 
@@ -17732,16 +17733,16 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class WorldPositionXmlParser: public XmlComplexTypeParser<WorldPositionImpl>
+        class WorldPositionXmlParser: public XmlComplexTypeParser
         {
 
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<WorldPositionImpl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements
             */
-            class SubElementParser: public XmlSequenceParser<WorldPositionImpl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -17754,7 +17755,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<WorldPositionImpl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
 
 

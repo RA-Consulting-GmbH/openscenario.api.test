@@ -33,13 +33,12 @@ namespace NET_ASAM_OPENSCENARIO
     /**
     * Parser for XSD:group types
     */
-    template <class T>
-    class XmlGroupParser:public BaseImpl, public XmlParserBase<T>, public IXmlTypeParser<T> 
+    class XmlGroupParser:public BaseImpl, public XmlParserBase, public IXmlTypeParser 
     {
 
     protected:
         std::string _elementName;
-        std::shared_ptr<XmlModelGroupParser<T>> _subElementParser = nullptr;
+        std::shared_ptr<XmlModelGroupParser> _subElementParser = nullptr;
 
     public:
         /**
@@ -47,9 +46,9 @@ namespace NET_ASAM_OPENSCENARIO
          * @param messageLogger to log messages during parsing process
          * @param filename of the file the parser is operating on.
          */
-        XmlGroupParser(IParserMessageLogger& messageLogger, std::string& filename): XmlParserBase<T>(messageLogger, filename) {}
+        XmlGroupParser(IParserMessageLogger& messageLogger, std::string& filename): XmlParserBase(messageLogger, filename) {}
 
-        void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr <ParserContext>& parserContext, std::shared_ptr <T>& object) override
+        void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr <ParserContext>& parserContext, std::shared_ptr <BaseImpl> object) override
         {
             const auto kStartPosition = indexedElement->GetStartElementLocation();
             object->SetStartMarker(Textmarker(kStartPosition.GetLine(), kStartPosition.GetColumn(), this->_filename));
@@ -72,7 +71,7 @@ namespace NET_ASAM_OPENSCENARIO
             object->SetEndMarker(Textmarker(kEndPosition.GetLine(), kEndPosition.GetColumn(), this->_filename));
         }
 
-        void ParseSubElements(std::vector<std::shared_ptr<IndexedElement>>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<T>& object) override
+        void ParseSubElements(std::vector<std::shared_ptr<IndexedElement>>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override
         {
             _subElementParser->ParseSubElements(indexedElement, parserContext, object);
         }

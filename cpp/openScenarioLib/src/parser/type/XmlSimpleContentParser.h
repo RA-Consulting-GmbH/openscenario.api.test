@@ -33,8 +33,7 @@ namespace NET_ASAM_OPENSCENARIO
     /**
     * Parser for XSD:simpleContent types (a complexType Parser with no elements, just content)
     */
-    template <class T>
-    class XmlSimpleContentParser: public virtual BaseImpl, public XmlComplexTypeParser<T> 
+    class XmlSimpleContentParser: public virtual BaseImpl, public XmlComplexTypeParser 
     {
     public:
         /**
@@ -42,9 +41,9 @@ namespace NET_ASAM_OPENSCENARIO
          * @param messageLogger to log messages during parsing process
          * @param filename of the file the parser is operating on.
          */
-        XmlSimpleContentParser(IParserMessageLogger& messageLogger, std::string& filename) : XmlComplexTypeParser<T>(messageLogger, filename) {}
+        XmlSimpleContentParser(IParserMessageLogger& messageLogger, std::string& filename) : XmlComplexTypeParser(messageLogger, filename) {}
 
-        void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr <ParserContext>& parserContext, std::shared_ptr <T>& object) override
+        void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr <ParserContext>& parserContext, std::shared_ptr <BaseImpl> object) override
         {
 
             this->ParseAttributes(indexedElement, object);
@@ -77,7 +76,7 @@ namespace NET_ASAM_OPENSCENARIO
          * @param content the content of the simpleContent
          * @param object the model object for that the property is assigned with the content
          */
-        virtual void SetContentProperty( const std::string content, std::shared_ptr<T>& object) {}
+        virtual void SetContentProperty( const std::string content, std::shared_ptr<BaseImpl> object) {}
 
         /**
          * is the content a required property.

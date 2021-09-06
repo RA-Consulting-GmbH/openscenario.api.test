@@ -34,12 +34,11 @@ namespace NET_ASAM_OPENSCENARIO
     {/**
      * Parser for a XSD:sequence model group (exact order of elements).
      */
-    template <class T>
-    class XmlSequenceParser : public virtual BaseImpl, public XmlModelGroupParser<T>
+    class XmlSequenceParser : public virtual BaseImpl, public XmlModelGroupParser
     {
     private:
         static const int kNotFound = -1;
-        std::map<std::shared_ptr<IElementParser<T>>, int> _occuredElementList;
+        std::map<std::shared_ptr<IElementParser>, int> _occuredElementList;
 
     public:
 
@@ -48,9 +47,9 @@ namespace NET_ASAM_OPENSCENARIO
          * @param messageLogger to log messages during parsing process
          * @param filename of the file the parser is operating on.
          */
-        XmlSequenceParser(IParserMessageLogger& messageLogger, std::string& filename) : XmlModelGroupParser<T>(messageLogger, filename) {}
+        XmlSequenceParser(IParserMessageLogger& messageLogger, std::string& filename) : XmlModelGroupParser(messageLogger, filename) {}
 
-        void ParseSubElementsInternal(std::vector<std::shared_ptr<IndexedElement>>& indexedElements, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<T>& object) override
+        void ParseSubElementsInternal(std::vector<std::shared_ptr<IndexedElement>>& indexedElements, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override
         {
             unsigned int currentListIndex = 0;
             int currentParserIndex = 0;

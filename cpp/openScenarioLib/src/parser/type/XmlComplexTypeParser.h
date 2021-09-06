@@ -36,23 +36,22 @@ namespace NET_ASAM_OPENSCENARIO
     /**
     * Parsing an XSD:complexType
     */
-    template <class T>
-    class XmlComplexTypeParser : public virtual BaseImpl, public XmlParserBase<T>, public IXmlTypeParser<T> 
+    class XmlComplexTypeParser : public virtual BaseImpl, public XmlParserBase, public IXmlTypeParser 
     {
     protected:
-        std::shared_ptr<XmlModelGroupParser<T>> _subElementParser = nullptr;
+        std::shared_ptr<XmlModelGroupParser> _subElementParser = nullptr;
         /**
          * A dictionary that maps an attribute names to their parser.
          * @return the name to parser dictionary
          */
-        virtual std::map<std::string, std::shared_ptr<IAttributeParser<T>>> GetAttributeNameToAttributeParserMap()
+        virtual std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap()
         {
             return {};
         }
 
 
     private:
-        std::map<std::string, std::shared_ptr<IAttributeParser<T>>> _attributeNameToAttributeParser;
+        std::map<std::string, std::shared_ptr<IAttributeParser>> _attributeNameToAttributeParser;
 
     public:
         /**
@@ -60,7 +59,7 @@ namespace NET_ASAM_OPENSCENARIO
          * @param messageLogger to log messages during parsing process
          * @param filename of the file the parser is operating on.
          */
-         XmlComplexTypeParser(IParserMessageLogger& messageLogger, std::string& filename): XmlParserBase<T>(messageLogger, filename) {}
+         XmlComplexTypeParser(IParserMessageLogger& messageLogger, std::string& filename): XmlParserBase(messageLogger, filename) {}
 
     protected:
         /**
@@ -68,7 +67,7 @@ namespace NET_ASAM_OPENSCENARIO
          * @param indexedElement the element to be parsed
          * @param object the object that will be filled during the parsing process.
          */
-        void ParseAttributes(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr <T>& object)
+        void ParseAttributes(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr <BaseImpl> object)
         {
             _attributeNameToAttributeParser = GetAttributeNameToAttributeParserMap();
             const auto kElement = indexedElement->GetElement();
@@ -87,7 +86,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 std::string attributeName = attribute->Name();
                 std::string attributeValue = attribute->Value();
-                std::shared_ptr<IAttributeParser<T>> parser;
+                std::shared_ptr<IAttributeParser> parser;
                 const auto kIt = _attributeNameToAttributeParser.find(attributeName);
                 if (kIt != _attributeNameToAttributeParser.end())
                     parser = kIt->second;
@@ -124,7 +123,7 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
     public:
-        void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr <ParserContext>& parserContext, std::shared_ptr <T>& object) override
+        void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr <ParserContext>& parserContext, std::shared_ptr <BaseImpl> object) override
         {
             // The element was requested before, so it cannot be null
             const auto kPosition = indexedElement->GetStartElementLocation();
@@ -178,7 +177,7 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
     public:
-        void ParseSubElements(std::vector<std::shared_ptr<IndexedElement>>& indexedElements, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<T>& object) override
+        void ParseSubElements(std::vector<std::shared_ptr<IndexedElement>>& indexedElements, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override
         {
             _subElementParser->ParseSubElements(indexedElements, parserContext, object);
         }

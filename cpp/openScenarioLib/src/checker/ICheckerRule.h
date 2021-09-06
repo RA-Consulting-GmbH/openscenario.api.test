@@ -44,7 +44,7 @@ namespace NET_ASAM_OPENSCENARIO
         ICheckerRule() = default;
         virtual  ~ICheckerRule() = default;
 		virtual void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<T> object) = 0;
-			virtual void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<T> object) = 0;
+		virtual void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<T> object) = 0;
     };
 
 }

@@ -35,8 +35,7 @@ namespace NET_ASAM_OPENSCENARIO
     * Parser for a XSD:all model group (arbitrary order of elements).
     */
 
-    template <class T>
-    class XmlAllParser: public virtual BaseImpl, public XmlModelGroupParser<T>
+    class XmlAllParser: public virtual BaseImpl, public XmlModelGroupParser
     {
     public:
         /**
@@ -44,10 +43,10 @@ namespace NET_ASAM_OPENSCENARIO
          * @param messageLogger to log messages during parsing process
          * @param filename of the file the parser is operating on.
          */
-        XmlAllParser(IParserMessageLogger& messageLogger, std::string& filename) : XmlModelGroupParser<T>(messageLogger, filename) {}
+        XmlAllParser(IParserMessageLogger& messageLogger, std::string& filename) : XmlModelGroupParser(messageLogger, filename) {}
 
 
-        void ParseSubElementsInternal(std::vector<std::shared_ptr<IndexedElement>>& indexedElements, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<T>& object) override
+        void ParseSubElementsInternal(std::vector<std::shared_ptr<IndexedElement>>& indexedElements, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override
         {
             unsigned int currentListIndex = 0;
             std::shared_ptr<IndexedElement> lastElementParsed = nullptr;
@@ -68,7 +67,7 @@ namespace NET_ASAM_OPENSCENARIO
                 else
                 {
                     parser->Parse(indexedElement, parserContext, object);
-                    currentListIndex = XmlModelGroupParser<T>::MoveForwardToLastElementParsed(indexedElements, currentListIndex, parserContext->GetLastElementParsed());
+                    currentListIndex = XmlModelGroupParser::MoveForwardToLastElementParsed(indexedElements, currentListIndex, parserContext->GetLastElementParsed());
                     lastElementParsed = parserContext->GetLastElementParsed();
                     // remove from the set 
                     const auto kIt = std::find(this->GetParsers().begin(), this->GetParsers().end(), parser);

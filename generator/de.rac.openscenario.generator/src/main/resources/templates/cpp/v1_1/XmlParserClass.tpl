@@ -24,6 +24,7 @@
 #include "OscConstants<%=fileSuffix%>.h"
 #include "IndexedElement.h"
 #include "ParserContext.h"
+#include "BaseImpl.h"
 #include <vector>
 #include "ApiClassImpl<%=fileSuffix%>.h"
 #include "XmlAllParser.h"
@@ -47,27 +48,27 @@ namespace NET_ASAM_OPENSCENARIO
 
     <%- if (element.isComplexType()){-%>
 <%= helper.makeClassJavaDoc(element, oscVersion, "        ")%>
-        class <%=element.name.toClassName()%>XmlParser: public XmlComplexTypeParser<<%=element.name.toClassName()%>Impl>
+        class <%=element.name.toClassName()%>XmlParser: public XmlComplexTypeParser
         {
     <%-}else if (element.isGroup()){-%>
 
 <%= helper.makeClassJavaDoc(element, oscVersion, "        ")%>
-        class <%=element.name.toClassName()%>XmlParser: public XmlGroupParser<<%=element.name.toClassName()%>Impl> 
+        class <%=element.name.toClassName()%>XmlParser: public XmlGroupParser
         {
     <%-}else if (element.isSimpleContent()){-%>
 
 <%= helper.makeClassJavaDoc(element, oscVersion, "        ")%>
-        class <%=element.name.toClassName()%>XmlParser: public XmlSimpleContentParser<<%=element.name.toClassName()%>Impl> 
+        class <%=element.name.toClassName()%>XmlParser: public XmlSimpleContentParser
         {
     <%-}-%>
 
     <%- if (element.isComplexType() || element.isSimpleContent()){-%>
         protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser<<%=element.name.toClassName()%>Impl>>> GetAttributeNameToAttributeParserMap() override;
+            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
     <%-}-%>
     <%-if (element.isSimpleContent()){-%>
         protected:
-            void SetContentProperty(const std::string content, std::shared_ptr<<%=element.name.toClassName()%>Impl>& object) override;
+            void SetContentProperty(const std::string content, std::shared_ptr<BaseImpl> object) override;
             bool IsContentRequired() override;
      <%-}else{-%>
         private:
@@ -75,7 +76,7 @@ namespace NET_ASAM_OPENSCENARIO
             * Parser for all subelements
             */
         <%- if (element.isModelGroupAll()){-%>
-            class SubElementParser: public XmlAllParser<<%=element.name.toClassName()%>Impl>
+            class SubElementParser: public XmlAllParser
             {
             public:
                 /**
@@ -86,7 +87,7 @@ namespace NET_ASAM_OPENSCENARIO
                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
         <%-}else if (element.isModelGroupChoice()){-%>
-            class SubElementParser: public XmlChoiceParser<<%=element.name.toClassName()%>Impl>
+            class SubElementParser: public XmlChoiceParser
             {
             public:
                 /**
@@ -97,7 +98,7 @@ namespace NET_ASAM_OPENSCENARIO
                  SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
 
         <%-}else if (element.isModelGroupSequence()){-%>
-            class SubElementParser: public XmlSequenceParser<<%=element.name.toClassName()%>Impl>
+            class SubElementParser: public XmlSequenceParser
             {
             public:
                 /**
@@ -111,7 +112,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /*
                 * Creates a list of parser
                 */
-                std::vector<std::shared_ptr<IElementParser<<%=element.name.toClassName()%>Impl>>> CreateParserList() override;
+                std::vector<std::shared_ptr<IElementParser>> CreateParserList() override;
             };
     	<%-}-%>
 
@@ -120,7 +121,7 @@ namespace NET_ASAM_OPENSCENARIO
             /**
             * A parser for subelement <%=property.name.toMemberName()%>
             */
-            class SubElement<%=property.name.toClassName()%>Parser: public IElementParser<<%=element.name.toClassName()%>Impl> 
+            class SubElement<%=property.name.toClassName()%>Parser: public IElementParser
             {
             private:
                 std::shared_ptr<<%=property.type.name.toClassName()%>XmlParser> _<%=property.type.name.toMemberName()%>XmlParser;
@@ -131,7 +132,7 @@ namespace NET_ASAM_OPENSCENARIO
                 */
                 SubElement<%=property.name.toClassName()%>Parser(IParserMessageLogger& messageLogger, std::string& filename);
 
-                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<<%=element.name.toClassName()%>Impl>& object) override;
+                void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
                 int GetMinOccur() override;
 

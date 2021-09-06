@@ -19,6 +19,7 @@
 #include "IParserMessageLogger.h"
 #include "IndexedElement.h"
 #include "XmlParserBase.h"
+#include "BaseImpl.h"
 #include <vector>
 #include "MemLeakDetection.h"
 
@@ -27,16 +28,15 @@ namespace NET_ASAM_OPENSCENARIO
     /**
     * A generic parser for model groups (sequence, all, choice)
     */
-    template <class T>
-    class XmlModelGroupParser: public virtual BaseImpl, public XmlParserBase<T> 
+    class XmlModelGroupParser: public virtual BaseImpl, public XmlParserBase
     {
     protected:
-        std::vector<std::shared_ptr<IElementParser<T>>> _parsers;
+        std::vector<std::shared_ptr<IElementParser>> _parsers;
         /**
          * Creates a list of parsers for the elements of the model group.
          * @return the list of parsers.
          */
-        virtual std::vector<std::shared_ptr<IElementParser<T>>> CreateParserList()
+        virtual std::vector<std::shared_ptr<IElementParser>> CreateParserList()
         {
             return {};
         }
@@ -47,7 +47,7 @@ namespace NET_ASAM_OPENSCENARIO
          * @param messageLogger to log messages during parsing process
          * @param filename of the file the parser is operationg on.
          */
-        XmlModelGroupParser(IParserMessageLogger& messageLogger, std::string filename) :XmlParserBase<T>(messageLogger, filename) {}
+        XmlModelGroupParser(IParserMessageLogger& messageLogger, std::string filename) :XmlParserBase(messageLogger, filename) {}
         virtual ~XmlModelGroupParser() = default;
 
     protected:
@@ -55,7 +55,7 @@ namespace NET_ASAM_OPENSCENARIO
          * The parsers for the elements in this model group.
          * @return the parsers
          */
-        std::vector<std::shared_ptr<IElementParser<T>>>& GetParsers()
+        std::vector<std::shared_ptr<IElementParser>>& GetParsers()
         {
             return _parsers;
         }
@@ -65,7 +65,7 @@ namespace NET_ASAM_OPENSCENARIO
          * @param tagName the tag name a given parser ahould be found for.
          * @return the appropriate parser for an element with this tag name.
          */
-        std::shared_ptr<IElementParser<T>> FindParser(std::string& tagName)
+        std::shared_ptr<IElementParser> FindParser(std::string& tagName)
         {
             for (auto parser : _parsers) 
             {
@@ -97,7 +97,7 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
     public:
-       void ParseSubElements(std::vector<std::shared_ptr<IndexedElement>>& indexedElements, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<T>& object) override
+       void ParseSubElements(std::vector<std::shared_ptr<IndexedElement>>& indexedElements, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override
         {
             _parsers.clear();
             _parsers = CreateParserList();
@@ -110,6 +110,6 @@ namespace NET_ASAM_OPENSCENARIO
          * @param parserContext a parser context to store dynamic information in.
          * @param object the object that will be filled during the parsing process.
          */
-        virtual void ParseSubElementsInternal(std::vector<std::shared_ptr<IndexedElement>>& indexedElements, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<T>& object) {}
+        virtual void ParseSubElementsInternal(std::vector<std::shared_ptr<IndexedElement>>& indexedElements, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) {}
     };
 }

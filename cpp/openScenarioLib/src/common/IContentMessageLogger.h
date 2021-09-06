@@ -30,7 +30,7 @@
 namespace NET_ASAM_OPENSCENARIO
 {
     template <class T>
-    class IContentMessageLogger: public ContentMessage
+    class IContentMessageLogger
     {
     public:
 
