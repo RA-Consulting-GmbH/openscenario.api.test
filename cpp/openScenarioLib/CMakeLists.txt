@@ -550,9 +550,25 @@ set( SOURCES_PARAMETER
 )
 
 set( SOURCES_PARSER
+	"src/parser/WrappedListParser.cpp"
+	"src/parser/XmlModelGroupParser.cpp"
 	"src/parser/ParserContext.cpp"
 	"src/parser/ParserHelper.cpp"
 	"src/parser/XmlParserException.cpp"
+)
+
+set( SOURCES_TYPE_PARSER
+	"src/parser/type/XmlComplexTypeParser.cpp"
+	"src/parser/type/XmlGroupParser.cpp"
+	"src/parser/type/XmlSimpleContentParser.cpp"
+	
+)
+
+set( SOURCES_MODELGROUP_PARSER
+	"src/parser/modelgroup/XmlAllParser.cpp"
+	"src/parser/modelgroup/XmlChoiceParser.cpp"
+	"src/parser/modelgroup/XmlSequenceParser.cpp"
+	
 )
 
 set( SOURCES_SIMPLE_STRUCT
@@ -660,6 +676,9 @@ if( MSVC )
   source_group( Sources\\Loader FILES ${SOURCES_LOADER})
   source_group( Sources\\Parameter FILES ${SOURCES_PARAMETER})
   source_group( Sources\\Parser FILES ${SOURCES_PARSER})
+  source_group( Sources\\Parser\\Type FILES ${SOURCES_TYPE_PARSER})
+  source_group( Sources\\Parser\\ModelGroup FILES ${SOURCES_MODELGROUP_PARSER})
+  
   source_group( Sources\\Simple\\Struct FILES ${SOURCES_SIMPLE_STRUCT})
   source_group( Sources\\V1_0\\Catalog FILES ${SOURCES_V1_0_CATALOG})
   source_group( Sources\\V1_0\\Checker FILES ${SOURCES_V1_0_CHECKER})
@@ -753,7 +772,7 @@ add_library ( ${PROJECT_NAME} # ${LIB_TYPE}
 			  ${SOURCES_API} ${SOURCES_CHECKER_TREE} ${SOURCES_COMMON} ${SOURCES_EXPORT} ${SOURCES_IMPL} ${SOURCES_LOADER} ${SOURCES_PARAMETER} 
 			  ${SOURCES_PARSER} ${SOURCES_SIMPLE_STRUCT} ${SOURCES_V1_0_CATALOG} ${SOURCES_V1_0_CHECKER} ${SOURCES_V1_0_LOADER} ${SOURCES_V1_0_PARAMETER} 
 			  ${SOURCES_V1_0_PARSER} ${SOURCES_V1_1_CATALOG} ${SOURCES_V1_1_CHECKER} ${SOURCES_V1_1_LOADER} ${SOURCES_V1_1_PARAMETER} ${SOURCES_V1_1_PARSER} 
-			  ${SOURCES_XMLINDEXER} 
+			  ${SOURCES_XMLINDEXER} ${SOURCES_TYPE_PARSER} ${SOURCES_MODELGROUP_PARSER}
 
 
 			  ${ANTLR_XMLLexer_CXX_OUTPUTS}

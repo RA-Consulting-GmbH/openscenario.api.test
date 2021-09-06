@@ -209,15 +209,13 @@ namespace NET_ASAM_OPENSCENARIO
          * @param attributeValue value of the attribute
          * @param object the model object to be filled during the parsing process
          */
-        virtual void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) {}
+		virtual void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) = 0;
 
         /**
          * The defined min accur of the element 0 for optional 1 for required
          * @return the defined min occur value (0 or 1)
          */
-        virtual int GetMinOccur()
-        {
-            return 0;
-        }
+		virtual int GetMinOccur() = 0;
+       
     };
 }
