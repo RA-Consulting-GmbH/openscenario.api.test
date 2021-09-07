@@ -58,12 +58,14 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void ParameterDeclarationChecker::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IParameterDeclaration > object)
+        void ParameterDeclarationChecker::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement > object)
         {
             // Check whether the value is validatable:
             if (!object) return;
-            auto value = object->GetValue();
-            const auto kParameterType = object->GetParameterType();
+			auto typedObject = std::dynamic_pointer_cast <IParameterDeclaration> (object);
+
+            auto value = typedObject->GetValue();
+            const auto kParameterType = typedObject->GetParameterType();
             try 
             {
                 ValidateParsing(value, kParameterType);
@@ -81,11 +83,13 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void ParameterDeclarationChecker::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger > messageLogger, std::shared_ptr<IParameterDeclaration> object)
+        void ParameterDeclarationChecker::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger > messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             if (!object) return;
-            auto value = object->GetValue();
-            const auto kParameterType = object->GetParameterType();
+			auto typedObject = std::dynamic_pointer_cast <IParameterDeclaration> (object);
+
+            auto value = typedObject->GetValue();
+            const auto kParameterType = typedObject->GetParameterType();
             try
             {
                 ValidateParsing(value, kParameterType);

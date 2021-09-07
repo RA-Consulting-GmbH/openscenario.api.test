@@ -52,10 +52,10 @@ namespace NET_ASAM_OPENSCENARIO
              * @param openScenario the root of the tree
             */
 
-            virtual void CheckScenarioInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenario> openScenario) = 0;
+            virtual void CheckScenarioInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenario> openScenario)  = 0;
 
     <%- element.each{ umlClass ->-%>
-            virtual void Add<%=umlClass.name.toClassName()%>CheckerRule(std::shared_ptr<ICheckerRule<I<%=umlClass.name.toClassName()%>>> checkerRule) = 0;
+            virtual void Add<%=umlClass.name.toClassName()%>CheckerRule(std::shared_ptr<ICheckerRule> checkerRule) = 0;
     <%-}-%>
         };
     }

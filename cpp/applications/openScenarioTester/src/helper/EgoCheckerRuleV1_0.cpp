@@ -50,9 +50,11 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
-		void EgoCheckerRule::ApplyRuleInFileContext(std::shared_ptr<NET_ASAM_OPENSCENARIO::IParserMessageLogger> messageLogger, std::shared_ptr<IEntities> object)
+		void EgoCheckerRule::ApplyRuleInFileContext(std::shared_ptr<NET_ASAM_OPENSCENARIO::IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
 		{
-			if (!IsEgoDefined(object))
+			auto typedObject = std::dynamic_pointer_cast<IEntities>(object);
+
+			if (!IsEgoDefined(typedObject))
 			{
 				auto locator = std::static_pointer_cast<NET_ASAM_OPENSCENARIO::ILocator>(object->GetAdapter(typeid(NET_ASAM_OPENSCENARIO::ILocator).name()));
 				if (locator) 
@@ -64,9 +66,10 @@ namespace NET_ASAM_OPENSCENARIO
 			}
 		}
 
-		void EgoCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<NET_ASAM_OPENSCENARIO::ITreeMessageLogger> messageLogger, std::shared_ptr<IEntities> object)
+		void EgoCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<NET_ASAM_OPENSCENARIO::ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
 		{
-			if (!IsEgoDefined(object))
+			auto typedObject = std::dynamic_pointer_cast<IEntities>(object);
+			if (!IsEgoDefined(typedObject))
 			{
 				//const auto kLocator = std::static_pointer_cast<NET_ASAM_OPENSCENARIO::ILocator>(object->GetAdapter(typeid(NET_ASAM_OPENSCENARIO::ILocator).name()));
 				//if (kLocator)

@@ -58,37 +58,40 @@ namespace NET_ASAM_OPENSCENARIO
 
         <%=umlClass.name.toClassName()%>UnionCheckerRule::<%=umlClass.name.toClassName()%>UnionCheckerRule() = default;
 
-        void <%=umlClass.name.toClassName()%>UnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<I<%=umlClass.name.toClassName()%>> object)
+        void <%=umlClass.name.toClassName()%>UnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+        	auto typedObject = std::dynamic_pointer_cast<I<%=umlClass.name.toClassName()%>>(object);
+               
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(object));
+                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(typedObject));
                 messageLogger->LogMessage(msg);
             }
 			<%-if (!(properties.findAll(){property-> property.lower==0})){-%>
             // There must be one item set
             if (propertyNamesNotNull.size() == 0)
             {
-            auto msg = FileContentMessage(GetTooFewMessage(propertyNamesNotNull), ERROR, *GetTextmarker(object));
+            auto msg = FileContentMessage(GetTooFewMessage(propertyNamesNotNull), ERROR, *GetTextmarker(typedObject));
                 messageLogger->LogMessage(msg);
             }
 			<%-}-%>
         }
 
-        void <%=umlClass.name.toClassName()%>UnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<I<%=umlClass.name.toClassName()%>> object)
+        void <%=umlClass.name.toClassName()%>UnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+            auto typedObject = std::dynamic_pointer_cast<I<%=umlClass.name.toClassName()%>>(object);
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(object, propertyNamesNotNull));
+                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(typedObject, propertyNamesNotNull));
                 messageLogger->LogMessage(msg);
             }
 			<%-if (!(properties.findAll(){property-> property.lower==0})){-%>
             // There must be one item set
             if (propertyNamesNotNull.size() == 0)
             {
-                auto msg = TreeContentMessage(GetTooFewMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(object, GetAllChildren()));
+                auto msg = TreeContentMessage(GetTooFewMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(typedObject, GetAllChildren()));
                 messageLogger->LogMessage(msg);
             }
 			<%-}-%>

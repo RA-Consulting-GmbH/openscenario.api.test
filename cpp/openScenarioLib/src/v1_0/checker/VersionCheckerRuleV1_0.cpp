@@ -29,12 +29,14 @@ namespace NET_ASAM_OPENSCENARIO
     {
        
  
-        bool VersionCheckerRule::IsRevValid(std::shared_ptr<IFileHeader> object)
+        bool VersionCheckerRule::IsRevValid(std::shared_ptr<IOpenScenarioModelElement> object)
         {
             if (!object) return false;
 
-            const auto kRevMajor = object->GetRevMajor();
-            const auto kRevMinor = object->GetRevMinor();
+        	auto typedObject = std::dynamic_pointer_cast <IFileHeader> (object);
+
+            const auto kRevMajor = typedObject->GetRevMajor();
+            const auto kRevMinor = typedObject->GetRevMinor();
 
             return kRevMajor == _majorRev && kRevMinor == _minorRev;
         }
@@ -46,10 +48,9 @@ namespace NET_ASAM_OPENSCENARIO
 
 		VersionCheckerRule::VersionCheckerRule(const int majorRev, const int minorRev): _majorRev(majorRev), _minorRev(minorRev) {}
 
-        void VersionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IFileHeader> object)
+        void VersionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-
-            if (!IsRevValid(object))
+			if (!IsRevValid(object))
             {
                 auto locator = std::static_pointer_cast<ILocator>(object->GetAdapter(typeid(ILocator).name()));
 
@@ -61,7 +62,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void VersionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IFileHeader> object)
+        void VersionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             if (!IsRevValid(object)) 
             {

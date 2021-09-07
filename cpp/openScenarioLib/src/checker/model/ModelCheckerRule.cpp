@@ -15,31 +15,32 @@
  * limitations under the License.
  */
 
-#pragma once
+
+#include "ModelCheckerRule.h"
+#include "ILocator.h"
 
 
-#include "ICheckerRule.h"
-#include "TestBaseV1_0.h"
-#include "IParserMessageLogger.h"
-#include "ApiClassInterfacesV1_0.h"
-#undef ERROR
+/**
+ * A base class for model validation
+ * @param <T> the type to be checked
+ *
+ */
 namespace NET_ASAM_OPENSCENARIO
 {
-    namespace v1_0
+	ModelCheckerRule::ModelCheckerRule() = default;
+	ModelCheckerRule::~ModelCheckerRule() = default;
+
+	std::shared_ptr<Textmarker> ModelCheckerRule::GetTextmarker(std::shared_ptr<IOpenScenarioModelElement> object)
 	{
+		auto locator = std::static_pointer_cast<NET_ASAM_OPENSCENARIO::ILocator>(object->GetAdapter(typeid(ILocator).name()));
 
-
-		class EgoCheckerRule: public NET_ASAM_OPENSCENARIO::ICheckerRule 
+		if (locator) 
 		{
-		private:
-			bool IsEgoDefined(std::shared_ptr<IEntities> object) const;
-
-		public:
-
-			void ApplyRuleInFileContext(std::shared_ptr<NET_ASAM_OPENSCENARIO::IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
-
-			void ApplyRuleInTreeContext(std::shared_ptr<NET_ASAM_OPENSCENARIO::ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
-			
-		};
+			return std::make_shared<Textmarker>(locator->GetStartMarker());
+		}
+	
+		return nullptr;
 	}
+
+
 }

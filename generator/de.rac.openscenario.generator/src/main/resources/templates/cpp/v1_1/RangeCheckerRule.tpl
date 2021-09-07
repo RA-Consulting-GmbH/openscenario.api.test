@@ -33,14 +33,14 @@ namespace NET_ASAM_OPENSCENARIO
     {
     <%- model.getClasses().findAll(){element->rangeCheckerRules[element.name.toClassName()] != null}.each{ element->-%>
 <%= helper.makeClassJavaDoc(element, oscVersion, "        ")%>
-        class <%=element.name.toClassName()%>RangeCheckerRule: public RangeCheckerRule<I<%=element.name.toClassName()%>>
+        class <%=element.name.toClassName()%>RangeCheckerRule: public RangeCheckerRule
         {
         private:
-            void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<I<%=element.name.toClassName()%>> object) const;
+            void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<IOpenScenarioModelElement> object) const;
         public:
             <%=element.name.toClassName()%>RangeCheckerRule() = default;
-            OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<I<%=element.name.toClassName()%>> object) override;
-            OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<I<%=element.name.toClassName()%>> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
         };
 
     <%-}-%>

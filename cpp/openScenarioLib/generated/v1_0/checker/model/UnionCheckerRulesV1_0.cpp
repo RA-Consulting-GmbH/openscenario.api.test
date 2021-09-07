@@ -44,22 +44,25 @@ namespace NET_ASAM_OPENSCENARIO
 
         ActionUnionCheckerRule::ActionUnionCheckerRule() = default;
 
-        void ActionUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IAction> object)
+        void ActionUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+        	auto typedObject = std::dynamic_pointer_cast<IAction>(object);
+               
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(object));
+                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(typedObject));
                 messageLogger->LogMessage(msg);
             }
         }
 
-        void ActionUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IAction> object)
+        void ActionUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+            auto typedObject = std::dynamic_pointer_cast<IAction>(object);
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(object, propertyNamesNotNull));
+                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(typedObject, propertyNamesNotNull));
                 messageLogger->LogMessage(msg);
             }
         }
@@ -80,22 +83,25 @@ namespace NET_ASAM_OPENSCENARIO
 
         AssignControllerActionUnionCheckerRule::AssignControllerActionUnionCheckerRule() = default;
 
-        void AssignControllerActionUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IAssignControllerAction> object)
+        void AssignControllerActionUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+        	auto typedObject = std::dynamic_pointer_cast<IAssignControllerAction>(object);
+               
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(object));
+                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(typedObject));
                 messageLogger->LogMessage(msg);
             }
         }
 
-        void AssignControllerActionUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IAssignControllerAction> object)
+        void AssignControllerActionUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+            auto typedObject = std::dynamic_pointer_cast<IAssignControllerAction>(object);
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(object, propertyNamesNotNull));
+                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(typedObject, propertyNamesNotNull));
                 messageLogger->LogMessage(msg);
             }
         }
@@ -116,22 +122,25 @@ namespace NET_ASAM_OPENSCENARIO
 
         AssignRouteActionUnionCheckerRule::AssignRouteActionUnionCheckerRule() = default;
 
-        void AssignRouteActionUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IAssignRouteAction> object)
+        void AssignRouteActionUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+        	auto typedObject = std::dynamic_pointer_cast<IAssignRouteAction>(object);
+               
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(object));
+                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(typedObject));
                 messageLogger->LogMessage(msg);
             }
         }
 
-        void AssignRouteActionUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IAssignRouteAction> object)
+        void AssignRouteActionUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+            auto typedObject = std::dynamic_pointer_cast<IAssignRouteAction>(object);
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(object, propertyNamesNotNull));
+                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(typedObject, propertyNamesNotNull));
                 messageLogger->LogMessage(msg);
             }
         }
@@ -172,22 +181,25 @@ namespace NET_ASAM_OPENSCENARIO
 
         ByValueConditionUnionCheckerRule::ByValueConditionUnionCheckerRule() = default;
 
-        void ByValueConditionUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IByValueCondition> object)
+        void ByValueConditionUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+        	auto typedObject = std::dynamic_pointer_cast<IByValueCondition>(object);
+               
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(object));
+                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(typedObject));
                 messageLogger->LogMessage(msg);
             }
         }
 
-        void ByValueConditionUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IByValueCondition> object)
+        void ByValueConditionUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+            auto typedObject = std::dynamic_pointer_cast<IByValueCondition>(object);
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(object, propertyNamesNotNull));
+                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(typedObject, propertyNamesNotNull));
                 messageLogger->LogMessage(msg);
             }
         }
@@ -208,22 +220,25 @@ namespace NET_ASAM_OPENSCENARIO
 
         CollisionConditionUnionCheckerRule::CollisionConditionUnionCheckerRule() = default;
 
-        void CollisionConditionUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ICollisionCondition> object)
+        void CollisionConditionUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+        	auto typedObject = std::dynamic_pointer_cast<ICollisionCondition>(object);
+               
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(object));
+                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(typedObject));
                 messageLogger->LogMessage(msg);
             }
         }
 
-        void CollisionConditionUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ICollisionCondition> object)
+        void CollisionConditionUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+            auto typedObject = std::dynamic_pointer_cast<ICollisionCondition>(object);
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(object, propertyNamesNotNull));
+                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(typedObject, propertyNamesNotNull));
                 messageLogger->LogMessage(msg);
             }
         }
@@ -244,22 +259,25 @@ namespace NET_ASAM_OPENSCENARIO
 
         ConditionUnionCheckerRule::ConditionUnionCheckerRule() = default;
 
-        void ConditionUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ICondition> object)
+        void ConditionUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+        	auto typedObject = std::dynamic_pointer_cast<ICondition>(object);
+               
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(object));
+                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(typedObject));
                 messageLogger->LogMessage(msg);
             }
         }
 
-        void ConditionUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ICondition> object)
+        void ConditionUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+            auto typedObject = std::dynamic_pointer_cast<ICondition>(object);
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(object, propertyNamesNotNull));
+                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(typedObject, propertyNamesNotNull));
                 messageLogger->LogMessage(msg);
             }
         }
@@ -280,22 +298,25 @@ namespace NET_ASAM_OPENSCENARIO
 
         ControllerDistributionEntryUnionCheckerRule::ControllerDistributionEntryUnionCheckerRule() = default;
 
-        void ControllerDistributionEntryUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IControllerDistributionEntry> object)
+        void ControllerDistributionEntryUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+        	auto typedObject = std::dynamic_pointer_cast<IControllerDistributionEntry>(object);
+               
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(object));
+                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(typedObject));
                 messageLogger->LogMessage(msg);
             }
         }
 
-        void ControllerDistributionEntryUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IControllerDistributionEntry> object)
+        void ControllerDistributionEntryUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+            auto typedObject = std::dynamic_pointer_cast<IControllerDistributionEntry>(object);
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(object, propertyNamesNotNull));
+                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(typedObject, propertyNamesNotNull));
                 messageLogger->LogMessage(msg);
             }
         }
@@ -316,22 +337,25 @@ namespace NET_ASAM_OPENSCENARIO
 
         EntityActionUnionCheckerRule::EntityActionUnionCheckerRule() = default;
 
-        void EntityActionUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IEntityAction> object)
+        void EntityActionUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+        	auto typedObject = std::dynamic_pointer_cast<IEntityAction>(object);
+               
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(object));
+                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(typedObject));
                 messageLogger->LogMessage(msg);
             }
         }
 
-        void EntityActionUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IEntityAction> object)
+        void EntityActionUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+            auto typedObject = std::dynamic_pointer_cast<IEntityAction>(object);
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(object, propertyNamesNotNull));
+                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(typedObject, propertyNamesNotNull));
                 messageLogger->LogMessage(msg);
             }
         }
@@ -396,22 +420,25 @@ namespace NET_ASAM_OPENSCENARIO
 
         EntityConditionUnionCheckerRule::EntityConditionUnionCheckerRule() = default;
 
-        void EntityConditionUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IEntityCondition> object)
+        void EntityConditionUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+        	auto typedObject = std::dynamic_pointer_cast<IEntityCondition>(object);
+               
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(object));
+                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(typedObject));
                 messageLogger->LogMessage(msg);
             }
         }
 
-        void EntityConditionUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IEntityCondition> object)
+        void EntityConditionUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+            auto typedObject = std::dynamic_pointer_cast<IEntityCondition>(object);
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(object, propertyNamesNotNull));
+                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(typedObject, propertyNamesNotNull));
                 messageLogger->LogMessage(msg);
             }
         }
@@ -440,22 +467,25 @@ namespace NET_ASAM_OPENSCENARIO
 
         EntityObjectUnionCheckerRule::EntityObjectUnionCheckerRule() = default;
 
-        void EntityObjectUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IEntityObject> object)
+        void EntityObjectUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+        	auto typedObject = std::dynamic_pointer_cast<IEntityObject>(object);
+               
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(object));
+                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(typedObject));
                 messageLogger->LogMessage(msg);
             }
         }
 
-        void EntityObjectUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IEntityObject> object)
+        void EntityObjectUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+            auto typedObject = std::dynamic_pointer_cast<IEntityObject>(object);
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(object, propertyNamesNotNull));
+                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(typedObject, propertyNamesNotNull));
                 messageLogger->LogMessage(msg);
             }
         }
@@ -476,22 +506,25 @@ namespace NET_ASAM_OPENSCENARIO
 
         EnvironmentActionUnionCheckerRule::EnvironmentActionUnionCheckerRule() = default;
 
-        void EnvironmentActionUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IEnvironmentAction> object)
+        void EnvironmentActionUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+        	auto typedObject = std::dynamic_pointer_cast<IEnvironmentAction>(object);
+               
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(object));
+                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(typedObject));
                 messageLogger->LogMessage(msg);
             }
         }
 
-        void EnvironmentActionUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IEnvironmentAction> object)
+        void EnvironmentActionUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+            auto typedObject = std::dynamic_pointer_cast<IEnvironmentAction>(object);
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(object, propertyNamesNotNull));
+                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(typedObject, propertyNamesNotNull));
                 messageLogger->LogMessage(msg);
             }
         }
@@ -512,22 +545,25 @@ namespace NET_ASAM_OPENSCENARIO
 
         FinalSpeedUnionCheckerRule::FinalSpeedUnionCheckerRule() = default;
 
-        void FinalSpeedUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IFinalSpeed> object)
+        void FinalSpeedUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+        	auto typedObject = std::dynamic_pointer_cast<IFinalSpeed>(object);
+               
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(object));
+                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(typedObject));
                 messageLogger->LogMessage(msg);
             }
         }
 
-        void FinalSpeedUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IFinalSpeed> object)
+        void FinalSpeedUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+            auto typedObject = std::dynamic_pointer_cast<IFinalSpeed>(object);
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(object, propertyNamesNotNull));
+                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(typedObject, propertyNamesNotNull));
                 messageLogger->LogMessage(msg);
             }
         }
@@ -560,22 +596,25 @@ namespace NET_ASAM_OPENSCENARIO
 
         GlobalActionUnionCheckerRule::GlobalActionUnionCheckerRule() = default;
 
-        void GlobalActionUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IGlobalAction> object)
+        void GlobalActionUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+        	auto typedObject = std::dynamic_pointer_cast<IGlobalAction>(object);
+               
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(object));
+                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(typedObject));
                 messageLogger->LogMessage(msg);
             }
         }
 
-        void GlobalActionUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IGlobalAction> object)
+        void GlobalActionUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+            auto typedObject = std::dynamic_pointer_cast<IGlobalAction>(object);
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(object, propertyNamesNotNull));
+                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(typedObject, propertyNamesNotNull));
                 messageLogger->LogMessage(msg);
             }
         }
@@ -600,22 +639,25 @@ namespace NET_ASAM_OPENSCENARIO
 
         InRoutePositionUnionCheckerRule::InRoutePositionUnionCheckerRule() = default;
 
-        void InRoutePositionUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IInRoutePosition> object)
+        void InRoutePositionUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+        	auto typedObject = std::dynamic_pointer_cast<IInRoutePosition>(object);
+               
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(object));
+                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(typedObject));
                 messageLogger->LogMessage(msg);
             }
         }
 
-        void InRoutePositionUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IInRoutePosition> object)
+        void InRoutePositionUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+            auto typedObject = std::dynamic_pointer_cast<IInRoutePosition>(object);
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(object, propertyNamesNotNull));
+                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(typedObject, propertyNamesNotNull));
                 messageLogger->LogMessage(msg);
             }
         }
@@ -636,22 +678,25 @@ namespace NET_ASAM_OPENSCENARIO
 
         LaneChangeTargetUnionCheckerRule::LaneChangeTargetUnionCheckerRule() = default;
 
-        void LaneChangeTargetUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ILaneChangeTarget> object)
+        void LaneChangeTargetUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+        	auto typedObject = std::dynamic_pointer_cast<ILaneChangeTarget>(object);
+               
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(object));
+                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(typedObject));
                 messageLogger->LogMessage(msg);
             }
         }
 
-        void LaneChangeTargetUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ILaneChangeTarget> object)
+        void LaneChangeTargetUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+            auto typedObject = std::dynamic_pointer_cast<ILaneChangeTarget>(object);
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(object, propertyNamesNotNull));
+                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(typedObject, propertyNamesNotNull));
                 messageLogger->LogMessage(msg);
             }
         }
@@ -672,22 +717,25 @@ namespace NET_ASAM_OPENSCENARIO
 
         LaneOffsetTargetUnionCheckerRule::LaneOffsetTargetUnionCheckerRule() = default;
 
-        void LaneOffsetTargetUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ILaneOffsetTarget> object)
+        void LaneOffsetTargetUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+        	auto typedObject = std::dynamic_pointer_cast<ILaneOffsetTarget>(object);
+               
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(object));
+                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(typedObject));
                 messageLogger->LogMessage(msg);
             }
         }
 
-        void LaneOffsetTargetUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ILaneOffsetTarget> object)
+        void LaneOffsetTargetUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+            auto typedObject = std::dynamic_pointer_cast<ILaneOffsetTarget>(object);
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(object, propertyNamesNotNull));
+                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(typedObject, propertyNamesNotNull));
                 messageLogger->LogMessage(msg);
             }
         }
@@ -712,22 +760,25 @@ namespace NET_ASAM_OPENSCENARIO
 
         LateralActionUnionCheckerRule::LateralActionUnionCheckerRule() = default;
 
-        void LateralActionUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ILateralAction> object)
+        void LateralActionUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+        	auto typedObject = std::dynamic_pointer_cast<ILateralAction>(object);
+               
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(object));
+                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(typedObject));
                 messageLogger->LogMessage(msg);
             }
         }
 
-        void LateralActionUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ILateralAction> object)
+        void LateralActionUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+            auto typedObject = std::dynamic_pointer_cast<ILateralAction>(object);
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(object, propertyNamesNotNull));
+                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(typedObject, propertyNamesNotNull));
                 messageLogger->LogMessage(msg);
             }
         }
@@ -748,22 +799,25 @@ namespace NET_ASAM_OPENSCENARIO
 
         LongitudinalActionUnionCheckerRule::LongitudinalActionUnionCheckerRule() = default;
 
-        void LongitudinalActionUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ILongitudinalAction> object)
+        void LongitudinalActionUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+        	auto typedObject = std::dynamic_pointer_cast<ILongitudinalAction>(object);
+               
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(object));
+                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(typedObject));
                 messageLogger->LogMessage(msg);
             }
         }
 
-        void LongitudinalActionUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ILongitudinalAction> object)
+        void LongitudinalActionUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+            auto typedObject = std::dynamic_pointer_cast<ILongitudinalAction>(object);
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(object, propertyNamesNotNull));
+                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(typedObject, propertyNamesNotNull));
                 messageLogger->LogMessage(msg);
             }
         }
@@ -784,22 +838,25 @@ namespace NET_ASAM_OPENSCENARIO
 
         ModifyRuleUnionCheckerRule::ModifyRuleUnionCheckerRule() = default;
 
-        void ModifyRuleUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IModifyRule> object)
+        void ModifyRuleUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+        	auto typedObject = std::dynamic_pointer_cast<IModifyRule>(object);
+               
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(object));
+                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(typedObject));
                 messageLogger->LogMessage(msg);
             }
         }
 
-        void ModifyRuleUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IModifyRule> object)
+        void ModifyRuleUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+            auto typedObject = std::dynamic_pointer_cast<IModifyRule>(object);
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(object, propertyNamesNotNull));
+                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(typedObject, propertyNamesNotNull));
                 messageLogger->LogMessage(msg);
             }
         }
@@ -820,22 +877,25 @@ namespace NET_ASAM_OPENSCENARIO
 
         ObjectControllerUnionCheckerRule::ObjectControllerUnionCheckerRule() = default;
 
-        void ObjectControllerUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IObjectController> object)
+        void ObjectControllerUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+        	auto typedObject = std::dynamic_pointer_cast<IObjectController>(object);
+               
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(object));
+                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(typedObject));
                 messageLogger->LogMessage(msg);
             }
         }
 
-        void ObjectControllerUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IObjectController> object)
+        void ObjectControllerUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+            auto typedObject = std::dynamic_pointer_cast<IObjectController>(object);
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(object, propertyNamesNotNull));
+                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(typedObject, propertyNamesNotNull));
                 messageLogger->LogMessage(msg);
             }
         }
@@ -863,35 +923,37 @@ namespace NET_ASAM_OPENSCENARIO
 
         OpenScenarioCategoryUnionCheckerRule::OpenScenarioCategoryUnionCheckerRule() = default;
 
-        void OpenScenarioCategoryUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioCategory> object)
+        void OpenScenarioCategoryUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+        	auto typedObject = std::dynamic_pointer_cast<IOpenScenarioCategory>(object);
+               
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(object));
+                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(typedObject));
                 messageLogger->LogMessage(msg);
             }
             // There must be one item set
             if (propertyNamesNotNull.size() == 0)
             {
-            auto msg = FileContentMessage(GetTooFewMessage(propertyNamesNotNull), ERROR, *GetTextmarker(object));
+            auto msg = FileContentMessage(GetTooFewMessage(propertyNamesNotNull), ERROR, *GetTextmarker(typedObject));
                 messageLogger->LogMessage(msg);
             }
         }
 
-        void OpenScenarioCategoryUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioCategory> object)
+        void OpenScenarioCategoryUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+            auto typedObject = std::dynamic_pointer_cast<IOpenScenarioCategory>(object);
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(object, propertyNamesNotNull));
+                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(typedObject, propertyNamesNotNull));
                 messageLogger->LogMessage(msg);
             }
             // There must be one item set
             if (propertyNamesNotNull.size() == 0)
             {
-                auto allChildren = GetAllChildren();
-                auto msg = TreeContentMessage( GetTooFewMessage( propertyNamesNotNull ), ERROR, std::make_shared<PropertyTreeContext>( object, allChildren ) );
+                auto msg = TreeContentMessage(GetTooFewMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(typedObject, GetAllChildren()));
                 messageLogger->LogMessage(msg);
             }
         }
@@ -912,22 +974,25 @@ namespace NET_ASAM_OPENSCENARIO
 
         ParameterActionUnionCheckerRule::ParameterActionUnionCheckerRule() = default;
 
-        void ParameterActionUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IParameterAction> object)
+        void ParameterActionUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+        	auto typedObject = std::dynamic_pointer_cast<IParameterAction>(object);
+               
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(object));
+                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(typedObject));
                 messageLogger->LogMessage(msg);
             }
         }
 
-        void ParameterActionUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IParameterAction> object)
+        void ParameterActionUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+            auto typedObject = std::dynamic_pointer_cast<IParameterAction>(object);
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(object, propertyNamesNotNull));
+                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(typedObject, propertyNamesNotNull));
                 messageLogger->LogMessage(msg);
             }
         }
@@ -972,22 +1037,25 @@ namespace NET_ASAM_OPENSCENARIO
 
         PositionUnionCheckerRule::PositionUnionCheckerRule() = default;
 
-        void PositionUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IPosition> object)
+        void PositionUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+        	auto typedObject = std::dynamic_pointer_cast<IPosition>(object);
+               
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(object));
+                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(typedObject));
                 messageLogger->LogMessage(msg);
             }
         }
 
-        void PositionUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IPosition> object)
+        void PositionUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+            auto typedObject = std::dynamic_pointer_cast<IPosition>(object);
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(object, propertyNamesNotNull));
+                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(typedObject, propertyNamesNotNull));
                 messageLogger->LogMessage(msg);
             }
         }
@@ -1032,22 +1100,25 @@ namespace NET_ASAM_OPENSCENARIO
 
         PrivateActionUnionCheckerRule::PrivateActionUnionCheckerRule() = default;
 
-        void PrivateActionUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IPrivateAction> object)
+        void PrivateActionUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+        	auto typedObject = std::dynamic_pointer_cast<IPrivateAction>(object);
+               
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(object));
+                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(typedObject));
                 messageLogger->LogMessage(msg);
             }
         }
 
-        void PrivateActionUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IPrivateAction> object)
+        void PrivateActionUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+            auto typedObject = std::dynamic_pointer_cast<IPrivateAction>(object);
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(object, propertyNamesNotNull));
+                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(typedObject, propertyNamesNotNull));
                 messageLogger->LogMessage(msg);
             }
         }
@@ -1068,22 +1139,25 @@ namespace NET_ASAM_OPENSCENARIO
 
         RouteRefUnionCheckerRule::RouteRefUnionCheckerRule() = default;
 
-        void RouteRefUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IRouteRef> object)
+        void RouteRefUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+        	auto typedObject = std::dynamic_pointer_cast<IRouteRef>(object);
+               
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(object));
+                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(typedObject));
                 messageLogger->LogMessage(msg);
             }
         }
 
-        void RouteRefUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IRouteRef> object)
+        void RouteRefUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+            auto typedObject = std::dynamic_pointer_cast<IRouteRef>(object);
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(object, propertyNamesNotNull));
+                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(typedObject, propertyNamesNotNull));
                 messageLogger->LogMessage(msg);
             }
         }
@@ -1108,22 +1182,25 @@ namespace NET_ASAM_OPENSCENARIO
 
         RoutingActionUnionCheckerRule::RoutingActionUnionCheckerRule() = default;
 
-        void RoutingActionUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IRoutingAction> object)
+        void RoutingActionUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+        	auto typedObject = std::dynamic_pointer_cast<IRoutingAction>(object);
+               
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(object));
+                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(typedObject));
                 messageLogger->LogMessage(msg);
             }
         }
 
-        void RoutingActionUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IRoutingAction> object)
+        void RoutingActionUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+            auto typedObject = std::dynamic_pointer_cast<IRoutingAction>(object);
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(object, propertyNamesNotNull));
+                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(typedObject, propertyNamesNotNull));
                 messageLogger->LogMessage(msg);
             }
         }
@@ -1144,22 +1221,25 @@ namespace NET_ASAM_OPENSCENARIO
 
         SelectedEntitiesUnionCheckerRule::SelectedEntitiesUnionCheckerRule() = default;
 
-        void SelectedEntitiesUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ISelectedEntities> object)
+        void SelectedEntitiesUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+        	auto typedObject = std::dynamic_pointer_cast<ISelectedEntities>(object);
+               
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(object));
+                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(typedObject));
                 messageLogger->LogMessage(msg);
             }
         }
 
-        void SelectedEntitiesUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ISelectedEntities> object)
+        void SelectedEntitiesUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+            auto typedObject = std::dynamic_pointer_cast<ISelectedEntities>(object);
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(object, propertyNamesNotNull));
+                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(typedObject, propertyNamesNotNull));
                 messageLogger->LogMessage(msg);
             }
         }
@@ -1184,22 +1264,25 @@ namespace NET_ASAM_OPENSCENARIO
 
         ShapeUnionCheckerRule::ShapeUnionCheckerRule() = default;
 
-        void ShapeUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IShape> object)
+        void ShapeUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+        	auto typedObject = std::dynamic_pointer_cast<IShape>(object);
+               
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(object));
+                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(typedObject));
                 messageLogger->LogMessage(msg);
             }
         }
 
-        void ShapeUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IShape> object)
+        void ShapeUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+            auto typedObject = std::dynamic_pointer_cast<IShape>(object);
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(object, propertyNamesNotNull));
+                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(typedObject, propertyNamesNotNull));
                 messageLogger->LogMessage(msg);
             }
         }
@@ -1220,22 +1303,25 @@ namespace NET_ASAM_OPENSCENARIO
 
         SpeedActionTargetUnionCheckerRule::SpeedActionTargetUnionCheckerRule() = default;
 
-        void SpeedActionTargetUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ISpeedActionTarget> object)
+        void SpeedActionTargetUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+        	auto typedObject = std::dynamic_pointer_cast<ISpeedActionTarget>(object);
+               
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(object));
+                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(typedObject));
                 messageLogger->LogMessage(msg);
             }
         }
 
-        void SpeedActionTargetUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ISpeedActionTarget> object)
+        void SpeedActionTargetUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+            auto typedObject = std::dynamic_pointer_cast<ISpeedActionTarget>(object);
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(object, propertyNamesNotNull));
+                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(typedObject, propertyNamesNotNull));
                 messageLogger->LogMessage(msg);
             }
         }
@@ -1256,22 +1342,25 @@ namespace NET_ASAM_OPENSCENARIO
 
         TimeReferenceUnionCheckerRule::TimeReferenceUnionCheckerRule() = default;
 
-        void TimeReferenceUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITimeReference> object)
+        void TimeReferenceUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+        	auto typedObject = std::dynamic_pointer_cast<ITimeReference>(object);
+               
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(object));
+                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(typedObject));
                 messageLogger->LogMessage(msg);
             }
         }
 
-        void TimeReferenceUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITimeReference> object)
+        void TimeReferenceUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+            auto typedObject = std::dynamic_pointer_cast<ITimeReference>(object);
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(object, propertyNamesNotNull));
+                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(typedObject, propertyNamesNotNull));
                 messageLogger->LogMessage(msg);
             }
         }
@@ -1292,22 +1381,25 @@ namespace NET_ASAM_OPENSCENARIO
 
         TimeToCollisionConditionTargetUnionCheckerRule::TimeToCollisionConditionTargetUnionCheckerRule() = default;
 
-        void TimeToCollisionConditionTargetUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITimeToCollisionConditionTarget> object)
+        void TimeToCollisionConditionTargetUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+        	auto typedObject = std::dynamic_pointer_cast<ITimeToCollisionConditionTarget>(object);
+               
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(object));
+                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(typedObject));
                 messageLogger->LogMessage(msg);
             }
         }
 
-        void TimeToCollisionConditionTargetUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITimeToCollisionConditionTarget> object)
+        void TimeToCollisionConditionTargetUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+            auto typedObject = std::dynamic_pointer_cast<ITimeToCollisionConditionTarget>(object);
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(object, propertyNamesNotNull));
+                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(typedObject, propertyNamesNotNull));
                 messageLogger->LogMessage(msg);
             }
         }
@@ -1332,22 +1424,25 @@ namespace NET_ASAM_OPENSCENARIO
 
         TrafficActionUnionCheckerRule::TrafficActionUnionCheckerRule() = default;
 
-        void TrafficActionUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITrafficAction> object)
+        void TrafficActionUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+        	auto typedObject = std::dynamic_pointer_cast<ITrafficAction>(object);
+               
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(object));
+                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(typedObject));
                 messageLogger->LogMessage(msg);
             }
         }
 
-        void TrafficActionUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITrafficAction> object)
+        void TrafficActionUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+            auto typedObject = std::dynamic_pointer_cast<ITrafficAction>(object);
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(object, propertyNamesNotNull));
+                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(typedObject, propertyNamesNotNull));
                 messageLogger->LogMessage(msg);
             }
         }
@@ -1368,22 +1463,25 @@ namespace NET_ASAM_OPENSCENARIO
 
         TrafficSignalActionUnionCheckerRule::TrafficSignalActionUnionCheckerRule() = default;
 
-        void TrafficSignalActionUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITrafficSignalAction> object)
+        void TrafficSignalActionUnionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+        	auto typedObject = std::dynamic_pointer_cast<ITrafficSignalAction>(object);
+               
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(object));
+                auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(typedObject));
                 messageLogger->LogMessage(msg);
             }
         }
 
-        void TrafficSignalActionUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITrafficSignalAction> object)
+        void TrafficSignalActionUnionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto propertyNamesNotNull = GetNotNullChildren(object);
+            auto typedObject = std::dynamic_pointer_cast<ITrafficSignalAction>(object);
+            auto propertyNamesNotNull = GetNotNullChildren(typedObject);
             if (propertyNamesNotNull.size() > 1)
             {
-                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(object, propertyNamesNotNull));
+                auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(typedObject, propertyNamesNotNull));
                 messageLogger->LogMessage(msg);
             }
         }

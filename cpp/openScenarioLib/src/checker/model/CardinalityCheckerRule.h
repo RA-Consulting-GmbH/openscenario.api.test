@@ -17,61 +17,31 @@
 
 #pragma once
 
-#include "IOpenScenarioModelElement.h"
 #include "ModelCheckerRule.h"
 #include "MemLeakDetection.h"
-#include <memory>
-#include <sstream>
+
 
 /**
  * Checks the cardinalitiy of all properties that are not (0..1).
  * @author Andreas Hege - RA Consulting
- * @param <T> the type to check
  *
  */
 namespace NET_ASAM_OPENSCENARIO
 {
-    template <class T>
-    class CardinalityCheckerRule:  public ModelCheckerRule<T>
+    class CardinalityCheckerRule:  public ModelCheckerRule
     {
     public:
-        CardinalityCheckerRule() = default;
-        virtual  ~CardinalityCheckerRule() = default;
+        CardinalityCheckerRule();
+        virtual  ~CardinalityCheckerRule();
 
     protected:
-        std::string GetTooManyMessage(std::string& property, int expected, int actual)
-        {
-            std::stringstream ss;
-            ss << "Too many children children are set (";
-            ss << property;
-            ss << "). max defined: ";
-            ss << expected;
-            ss << ". actual size: ";
-            ss << actual;
-            return ss.str();
-        }
+        std::string GetTooManyMessage(std::string& property, int expected, int actual);
 
-        std::string GetTooFewMessage(std::string& property, int expected, int actual)
-        {
-            std::stringstream ss;
-            ss << "Too few children children are set (";
-            ss << property;
-            ss << "). min defined: ";
-            ss << expected;
-            ss << ". actual size: ";
-            ss << actual;
-            return ss.str();
-        }
+        std::string GetTooFewMessage(std::string& property, int expected, int actual);
 
-        std::string GetRequiredMessage(std::string& property)
-        {
-            return "This property is required (" + property + ").";
-        }
+        std::string GetRequiredMessage(std::string& property);
 
-        std::string GetRequiredContentMessage()
-        {
-            return "Content is required.";
-        }
+        std::string GetRequiredContentMessage();
 
        
 
@@ -92,8 +62,7 @@ namespace NET_ASAM_OPENSCENARIO
 		int actual;
 		VIOLATION_TYPE violationType;
 
-		CardinalityViolation(const std::string propertyName, const int expected, const int actual, const VIOLATION_TYPE violationType) :
-			propertyName(propertyName), expected(expected), actual(actual), violationType(violationType) {}
+		CardinalityViolation(const std::string propertyName, const int expected, const int actual, const VIOLATION_TYPE violationType);
 	};
 
 

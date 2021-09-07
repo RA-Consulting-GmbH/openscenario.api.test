@@ -36,7 +36,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ActionUnionCheckerRule: public UnionCheckerRule<IAction>
+        class ActionUnionCheckerRule: public UnionCheckerRule
         {
         private:
             std::vector<std::string> GetNotNullChildren(std::shared_ptr<IAction> object);
@@ -46,8 +46,8 @@ namespace NET_ASAM_OPENSCENARIO
         public:
             ActionUnionCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IAction> object) override;
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IAction> object);
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object);
 
     	};
         /**
@@ -57,7 +57,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class AssignControllerActionUnionCheckerRule: public UnionCheckerRule<IAssignControllerAction>
+        class AssignControllerActionUnionCheckerRule: public UnionCheckerRule
         {
         private:
             std::vector<std::string> GetNotNullChildren(std::shared_ptr<IAssignControllerAction> object);
@@ -67,8 +67,8 @@ namespace NET_ASAM_OPENSCENARIO
         public:
             AssignControllerActionUnionCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IAssignControllerAction> object) override;
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IAssignControllerAction> object);
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object);
 
     	};
         /**
@@ -78,7 +78,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class AssignRouteActionUnionCheckerRule: public UnionCheckerRule<IAssignRouteAction>
+        class AssignRouteActionUnionCheckerRule: public UnionCheckerRule
         {
         private:
             std::vector<std::string> GetNotNullChildren(std::shared_ptr<IAssignRouteAction> object);
@@ -88,8 +88,8 @@ namespace NET_ASAM_OPENSCENARIO
         public:
             AssignRouteActionUnionCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IAssignRouteAction> object) override;
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IAssignRouteAction> object);
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object);
 
     	};
         /**
@@ -99,7 +99,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ByValueConditionUnionCheckerRule: public UnionCheckerRule<IByValueCondition>
+        class ByValueConditionUnionCheckerRule: public UnionCheckerRule
         {
         private:
             std::vector<std::string> GetNotNullChildren(std::shared_ptr<IByValueCondition> object);
@@ -109,8 +109,8 @@ namespace NET_ASAM_OPENSCENARIO
         public:
             ByValueConditionUnionCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IByValueCondition> object) override;
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IByValueCondition> object);
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object);
 
     	};
         /**
@@ -120,7 +120,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class CollisionConditionUnionCheckerRule: public UnionCheckerRule<ICollisionCondition>
+        class CollisionConditionUnionCheckerRule: public UnionCheckerRule
         {
         private:
             std::vector<std::string> GetNotNullChildren(std::shared_ptr<ICollisionCondition> object);
@@ -130,8 +130,8 @@ namespace NET_ASAM_OPENSCENARIO
         public:
             CollisionConditionUnionCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ICollisionCondition> object) override;
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ICollisionCondition> object);
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object);
 
     	};
         /**
@@ -141,7 +141,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ConditionUnionCheckerRule: public UnionCheckerRule<ICondition>
+        class ConditionUnionCheckerRule: public UnionCheckerRule
         {
         private:
             std::vector<std::string> GetNotNullChildren(std::shared_ptr<ICondition> object);
@@ -151,8 +151,8 @@ namespace NET_ASAM_OPENSCENARIO
         public:
             ConditionUnionCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ICondition> object) override;
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ICondition> object);
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object);
 
     	};
         /**
@@ -162,7 +162,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ControllerDistributionEntryUnionCheckerRule: public UnionCheckerRule<IControllerDistributionEntry>
+        class ControllerDistributionEntryUnionCheckerRule: public UnionCheckerRule
         {
         private:
             std::vector<std::string> GetNotNullChildren(std::shared_ptr<IControllerDistributionEntry> object);
@@ -172,8 +172,8 @@ namespace NET_ASAM_OPENSCENARIO
         public:
             ControllerDistributionEntryUnionCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IControllerDistributionEntry> object) override;
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IControllerDistributionEntry> object);
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object);
 
     	};
         /**
@@ -183,7 +183,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class EntityActionUnionCheckerRule: public UnionCheckerRule<IEntityAction>
+        class EntityActionUnionCheckerRule: public UnionCheckerRule
         {
         private:
             std::vector<std::string> GetNotNullChildren(std::shared_ptr<IEntityAction> object);
@@ -193,8 +193,8 @@ namespace NET_ASAM_OPENSCENARIO
         public:
             EntityActionUnionCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IEntityAction> object) override;
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IEntityAction> object);
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object);
 
     	};
         /**
@@ -204,7 +204,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class EntityConditionUnionCheckerRule: public UnionCheckerRule<IEntityCondition>
+        class EntityConditionUnionCheckerRule: public UnionCheckerRule
         {
         private:
             std::vector<std::string> GetNotNullChildren(std::shared_ptr<IEntityCondition> object);
@@ -214,8 +214,8 @@ namespace NET_ASAM_OPENSCENARIO
         public:
             EntityConditionUnionCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IEntityCondition> object) override;
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IEntityCondition> object);
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object);
 
     	};
         /**
@@ -225,7 +225,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class EntityObjectUnionCheckerRule: public UnionCheckerRule<IEntityObject>
+        class EntityObjectUnionCheckerRule: public UnionCheckerRule
         {
         private:
             std::vector<std::string> GetNotNullChildren(std::shared_ptr<IEntityObject> object);
@@ -235,8 +235,8 @@ namespace NET_ASAM_OPENSCENARIO
         public:
             EntityObjectUnionCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IEntityObject> object) override;
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IEntityObject> object);
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object);
 
     	};
         /**
@@ -246,7 +246,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class EnvironmentActionUnionCheckerRule: public UnionCheckerRule<IEnvironmentAction>
+        class EnvironmentActionUnionCheckerRule: public UnionCheckerRule
         {
         private:
             std::vector<std::string> GetNotNullChildren(std::shared_ptr<IEnvironmentAction> object);
@@ -256,8 +256,8 @@ namespace NET_ASAM_OPENSCENARIO
         public:
             EnvironmentActionUnionCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IEnvironmentAction> object) override;
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IEnvironmentAction> object);
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object);
 
     	};
         /**
@@ -267,7 +267,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class FinalSpeedUnionCheckerRule: public UnionCheckerRule<IFinalSpeed>
+        class FinalSpeedUnionCheckerRule: public UnionCheckerRule
         {
         private:
             std::vector<std::string> GetNotNullChildren(std::shared_ptr<IFinalSpeed> object);
@@ -277,8 +277,8 @@ namespace NET_ASAM_OPENSCENARIO
         public:
             FinalSpeedUnionCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IFinalSpeed> object) override;
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IFinalSpeed> object);
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object);
 
     	};
         /**
@@ -288,7 +288,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class GlobalActionUnionCheckerRule: public UnionCheckerRule<IGlobalAction>
+        class GlobalActionUnionCheckerRule: public UnionCheckerRule
         {
         private:
             std::vector<std::string> GetNotNullChildren(std::shared_ptr<IGlobalAction> object);
@@ -298,8 +298,8 @@ namespace NET_ASAM_OPENSCENARIO
         public:
             GlobalActionUnionCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IGlobalAction> object) override;
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IGlobalAction> object);
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object);
 
     	};
         /**
@@ -309,7 +309,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class InRoutePositionUnionCheckerRule: public UnionCheckerRule<IInRoutePosition>
+        class InRoutePositionUnionCheckerRule: public UnionCheckerRule
         {
         private:
             std::vector<std::string> GetNotNullChildren(std::shared_ptr<IInRoutePosition> object);
@@ -319,8 +319,8 @@ namespace NET_ASAM_OPENSCENARIO
         public:
             InRoutePositionUnionCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IInRoutePosition> object) override;
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IInRoutePosition> object);
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object);
 
     	};
         /**
@@ -330,7 +330,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class LaneChangeTargetUnionCheckerRule: public UnionCheckerRule<ILaneChangeTarget>
+        class LaneChangeTargetUnionCheckerRule: public UnionCheckerRule
         {
         private:
             std::vector<std::string> GetNotNullChildren(std::shared_ptr<ILaneChangeTarget> object);
@@ -340,8 +340,8 @@ namespace NET_ASAM_OPENSCENARIO
         public:
             LaneChangeTargetUnionCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ILaneChangeTarget> object) override;
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ILaneChangeTarget> object);
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object);
 
     	};
         /**
@@ -351,7 +351,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class LaneOffsetTargetUnionCheckerRule: public UnionCheckerRule<ILaneOffsetTarget>
+        class LaneOffsetTargetUnionCheckerRule: public UnionCheckerRule
         {
         private:
             std::vector<std::string> GetNotNullChildren(std::shared_ptr<ILaneOffsetTarget> object);
@@ -361,8 +361,8 @@ namespace NET_ASAM_OPENSCENARIO
         public:
             LaneOffsetTargetUnionCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ILaneOffsetTarget> object) override;
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ILaneOffsetTarget> object);
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object);
 
     	};
         /**
@@ -372,7 +372,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class LateralActionUnionCheckerRule: public UnionCheckerRule<ILateralAction>
+        class LateralActionUnionCheckerRule: public UnionCheckerRule
         {
         private:
             std::vector<std::string> GetNotNullChildren(std::shared_ptr<ILateralAction> object);
@@ -382,8 +382,8 @@ namespace NET_ASAM_OPENSCENARIO
         public:
             LateralActionUnionCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ILateralAction> object) override;
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ILateralAction> object);
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object);
 
     	};
         /**
@@ -393,7 +393,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class LongitudinalActionUnionCheckerRule: public UnionCheckerRule<ILongitudinalAction>
+        class LongitudinalActionUnionCheckerRule: public UnionCheckerRule
         {
         private:
             std::vector<std::string> GetNotNullChildren(std::shared_ptr<ILongitudinalAction> object);
@@ -403,8 +403,8 @@ namespace NET_ASAM_OPENSCENARIO
         public:
             LongitudinalActionUnionCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ILongitudinalAction> object) override;
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ILongitudinalAction> object);
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object);
 
     	};
         /**
@@ -414,7 +414,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ModifyRuleUnionCheckerRule: public UnionCheckerRule<IModifyRule>
+        class ModifyRuleUnionCheckerRule: public UnionCheckerRule
         {
         private:
             std::vector<std::string> GetNotNullChildren(std::shared_ptr<IModifyRule> object);
@@ -424,8 +424,8 @@ namespace NET_ASAM_OPENSCENARIO
         public:
             ModifyRuleUnionCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IModifyRule> object) override;
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IModifyRule> object);
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object);
 
     	};
         /**
@@ -435,7 +435,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ObjectControllerUnionCheckerRule: public UnionCheckerRule<IObjectController>
+        class ObjectControllerUnionCheckerRule: public UnionCheckerRule
         {
         private:
             std::vector<std::string> GetNotNullChildren(std::shared_ptr<IObjectController> object);
@@ -445,8 +445,8 @@ namespace NET_ASAM_OPENSCENARIO
         public:
             ObjectControllerUnionCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IObjectController> object) override;
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IObjectController> object);
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object);
 
     	};
         /**
@@ -456,7 +456,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class OpenScenarioCategoryUnionCheckerRule: public UnionCheckerRule<IOpenScenarioCategory>
+        class OpenScenarioCategoryUnionCheckerRule: public UnionCheckerRule
         {
         private:
             std::vector<std::string> GetNotNullChildren(std::shared_ptr<IOpenScenarioCategory> object);
@@ -466,8 +466,8 @@ namespace NET_ASAM_OPENSCENARIO
         public:
             OpenScenarioCategoryUnionCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioCategory> object) override;
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioCategory> object);
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object);
 
     	};
         /**
@@ -477,7 +477,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ParameterActionUnionCheckerRule: public UnionCheckerRule<IParameterAction>
+        class ParameterActionUnionCheckerRule: public UnionCheckerRule
         {
         private:
             std::vector<std::string> GetNotNullChildren(std::shared_ptr<IParameterAction> object);
@@ -487,8 +487,8 @@ namespace NET_ASAM_OPENSCENARIO
         public:
             ParameterActionUnionCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IParameterAction> object) override;
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IParameterAction> object);
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object);
 
     	};
         /**
@@ -498,7 +498,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class PositionUnionCheckerRule: public UnionCheckerRule<IPosition>
+        class PositionUnionCheckerRule: public UnionCheckerRule
         {
         private:
             std::vector<std::string> GetNotNullChildren(std::shared_ptr<IPosition> object);
@@ -508,8 +508,8 @@ namespace NET_ASAM_OPENSCENARIO
         public:
             PositionUnionCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IPosition> object) override;
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IPosition> object);
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object);
 
     	};
         /**
@@ -519,7 +519,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class PrivateActionUnionCheckerRule: public UnionCheckerRule<IPrivateAction>
+        class PrivateActionUnionCheckerRule: public UnionCheckerRule
         {
         private:
             std::vector<std::string> GetNotNullChildren(std::shared_ptr<IPrivateAction> object);
@@ -529,8 +529,8 @@ namespace NET_ASAM_OPENSCENARIO
         public:
             PrivateActionUnionCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IPrivateAction> object) override;
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IPrivateAction> object);
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object);
 
     	};
         /**
@@ -540,7 +540,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class RouteRefUnionCheckerRule: public UnionCheckerRule<IRouteRef>
+        class RouteRefUnionCheckerRule: public UnionCheckerRule
         {
         private:
             std::vector<std::string> GetNotNullChildren(std::shared_ptr<IRouteRef> object);
@@ -550,8 +550,8 @@ namespace NET_ASAM_OPENSCENARIO
         public:
             RouteRefUnionCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IRouteRef> object) override;
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IRouteRef> object);
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object);
 
     	};
         /**
@@ -561,7 +561,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class RoutingActionUnionCheckerRule: public UnionCheckerRule<IRoutingAction>
+        class RoutingActionUnionCheckerRule: public UnionCheckerRule
         {
         private:
             std::vector<std::string> GetNotNullChildren(std::shared_ptr<IRoutingAction> object);
@@ -571,8 +571,8 @@ namespace NET_ASAM_OPENSCENARIO
         public:
             RoutingActionUnionCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IRoutingAction> object) override;
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IRoutingAction> object);
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object);
 
     	};
         /**
@@ -582,7 +582,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class SelectedEntitiesUnionCheckerRule: public UnionCheckerRule<ISelectedEntities>
+        class SelectedEntitiesUnionCheckerRule: public UnionCheckerRule
         {
         private:
             std::vector<std::string> GetNotNullChildren(std::shared_ptr<ISelectedEntities> object);
@@ -592,8 +592,8 @@ namespace NET_ASAM_OPENSCENARIO
         public:
             SelectedEntitiesUnionCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ISelectedEntities> object) override;
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ISelectedEntities> object);
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object);
 
     	};
         /**
@@ -603,7 +603,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ShapeUnionCheckerRule: public UnionCheckerRule<IShape>
+        class ShapeUnionCheckerRule: public UnionCheckerRule
         {
         private:
             std::vector<std::string> GetNotNullChildren(std::shared_ptr<IShape> object);
@@ -613,8 +613,8 @@ namespace NET_ASAM_OPENSCENARIO
         public:
             ShapeUnionCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IShape> object) override;
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IShape> object);
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object);
 
     	};
         /**
@@ -624,7 +624,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class SpeedActionTargetUnionCheckerRule: public UnionCheckerRule<ISpeedActionTarget>
+        class SpeedActionTargetUnionCheckerRule: public UnionCheckerRule
         {
         private:
             std::vector<std::string> GetNotNullChildren(std::shared_ptr<ISpeedActionTarget> object);
@@ -634,8 +634,8 @@ namespace NET_ASAM_OPENSCENARIO
         public:
             SpeedActionTargetUnionCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ISpeedActionTarget> object) override;
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ISpeedActionTarget> object);
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object);
 
     	};
         /**
@@ -645,7 +645,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TimeReferenceUnionCheckerRule: public UnionCheckerRule<ITimeReference>
+        class TimeReferenceUnionCheckerRule: public UnionCheckerRule
         {
         private:
             std::vector<std::string> GetNotNullChildren(std::shared_ptr<ITimeReference> object);
@@ -655,8 +655,8 @@ namespace NET_ASAM_OPENSCENARIO
         public:
             TimeReferenceUnionCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITimeReference> object) override;
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITimeReference> object);
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object);
 
     	};
         /**
@@ -666,7 +666,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TimeToCollisionConditionTargetUnionCheckerRule: public UnionCheckerRule<ITimeToCollisionConditionTarget>
+        class TimeToCollisionConditionTargetUnionCheckerRule: public UnionCheckerRule
         {
         private:
             std::vector<std::string> GetNotNullChildren(std::shared_ptr<ITimeToCollisionConditionTarget> object);
@@ -676,8 +676,8 @@ namespace NET_ASAM_OPENSCENARIO
         public:
             TimeToCollisionConditionTargetUnionCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITimeToCollisionConditionTarget> object) override;
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITimeToCollisionConditionTarget> object);
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object);
 
     	};
         /**
@@ -687,7 +687,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TrafficActionUnionCheckerRule: public UnionCheckerRule<ITrafficAction>
+        class TrafficActionUnionCheckerRule: public UnionCheckerRule
         {
         private:
             std::vector<std::string> GetNotNullChildren(std::shared_ptr<ITrafficAction> object);
@@ -697,8 +697,8 @@ namespace NET_ASAM_OPENSCENARIO
         public:
             TrafficActionUnionCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITrafficAction> object) override;
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITrafficAction> object);
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object);
 
     	};
         /**
@@ -708,7 +708,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TrafficSignalActionUnionCheckerRule: public UnionCheckerRule<ITrafficSignalAction>
+        class TrafficSignalActionUnionCheckerRule: public UnionCheckerRule
         {
         private:
             std::vector<std::string> GetNotNullChildren(std::shared_ptr<ITrafficSignalAction> object);
@@ -718,8 +718,8 @@ namespace NET_ASAM_OPENSCENARIO
         public:
             TrafficSignalActionUnionCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITrafficSignalAction> object) override;
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITrafficSignalAction> object);
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object);
 
     	};
 	}

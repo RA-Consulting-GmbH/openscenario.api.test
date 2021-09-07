@@ -35,7 +35,7 @@ namespace NET_ASAM_OPENSCENARIO
 
 <%- element.each{ umlClass ->-%>
 <%= helper.makeClassJavaDoc(umlClass, oscVersion, "        ")%>
-        class <%=umlClass.name.toClassName()%>CardinalityCheckerRule: public CardinalityCheckerRule<I<%=umlClass.name.toClassName()%>>
+        class <%=umlClass.name.toClassName()%>CardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 

@@ -32,14 +32,14 @@ namespace NET_ASAM_OPENSCENARIO
 {
     namespace v1_0
     {
-        class ParameterDeclarationChecker : public ICheckerRule<IParameterDeclaration>
+        class ParameterDeclarationChecker : public ICheckerRule
         {
         private:
 			void ValidateParsing(std::string& value, const ParameterType parameterType);
         public:
 
-			void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IParameterDeclaration > object) override;
-			void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger > messageLogger, std::shared_ptr<IParameterDeclaration> object) override;
+			void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement > object) override;
+			void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger > messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
         };
     }
 }

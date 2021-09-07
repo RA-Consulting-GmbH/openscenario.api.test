@@ -34,7 +34,7 @@ namespace NET_ASAM_OPENSCENARIO
 
 <%- element.each{ umlClass ->-%>
 <%= helper.makeClassJavaDoc(umlClass, oscVersion, "        ")%>
-        class <%=umlClass.name.toClassName()%>UnionCheckerRule: public UnionCheckerRule<I<%=umlClass.name.toClassName()%>>
+        class <%=umlClass.name.toClassName()%>UnionCheckerRule: public UnionCheckerRule
         {
         private:
             std::vector<std::string> GetNotNullChildren(std::shared_ptr<I<%=umlClass.name.toClassName()%>> object);
@@ -45,8 +45,8 @@ namespace NET_ASAM_OPENSCENARIO
         public:
             <%=umlClass.name.toClassName()%>UnionCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<I<%=umlClass.name.toClassName()%>> object) override;
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<I<%=umlClass.name.toClassName()%>> object);
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object);
 		<%-}-%> 
 
     	};

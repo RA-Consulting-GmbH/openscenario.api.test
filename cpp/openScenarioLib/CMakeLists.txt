@@ -519,6 +519,16 @@ set( SOURCES_CHECKER_TREE
 	"src/checker/tree/PropertyTreeContext.cpp"
 )
 
+set( SOURCES_CHECKER
+	"src/checker/RangeCheckerRule.cpp"
+)
+
+set( SOURCES_CHECKER_MODEL
+	"src/checker/model/CardinalityCheckerRule.cpp"
+	"src/checker/model/ModelCheckerRule.cpp"
+	"src/checker/model/UnionCheckerRule.cpp"
+)
+
 set( SOURCES_COMMON
 	"src/common/ContentMessage.cpp"
 	"src/common/DateTime.cpp"
@@ -669,6 +679,8 @@ if( MSVC )
   source_group( Sources\\v1_1\\Generated\\XmlParser FILES ${SOURCES_GENERATED_1_1_XMLEXPORTER} )
 
   source_group( Sources\\Api FILES ${SOURCES_API})
+  source_group( Sources\\Checker FILES ${SOURCES_CHECKER})
+  source_group( Sources\\Checker\\Model FILES ${SOURCES_CHECKER_MODEL})
   source_group( Sources\\Checker\\Tree FILES ${SOURCES_CHECKER_TREE})
   source_group( Sources\\Common FILES ${SOURCES_COMMON})
   source_group( Sources\\Export FILES ${SOURCES_EXPORT})
@@ -772,7 +784,7 @@ add_library ( ${PROJECT_NAME} # ${LIB_TYPE}
 			  ${SOURCES_API} ${SOURCES_CHECKER_TREE} ${SOURCES_COMMON} ${SOURCES_EXPORT} ${SOURCES_IMPL} ${SOURCES_LOADER} ${SOURCES_PARAMETER} 
 			  ${SOURCES_PARSER} ${SOURCES_SIMPLE_STRUCT} ${SOURCES_V1_0_CATALOG} ${SOURCES_V1_0_CHECKER} ${SOURCES_V1_0_LOADER} ${SOURCES_V1_0_PARAMETER} 
 			  ${SOURCES_V1_0_PARSER} ${SOURCES_V1_1_CATALOG} ${SOURCES_V1_1_CHECKER} ${SOURCES_V1_1_LOADER} ${SOURCES_V1_1_PARAMETER} ${SOURCES_V1_1_PARSER} 
-			  ${SOURCES_XMLINDEXER} ${SOURCES_TYPE_PARSER} ${SOURCES_MODELGROUP_PARSER}
+			  ${SOURCES_XMLINDEXER} ${SOURCES_TYPE_PARSER} ${SOURCES_MODELGROUP_PARSER} ${SOURCES_CHECKER} ${SOURCES_CHECKER_MODEL}
 
 
 			  ${ANTLR_XMLLexer_CXX_OUTPUTS}

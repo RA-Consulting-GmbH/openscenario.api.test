@@ -37,7 +37,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class AbsoluteSpeedCardinalityCheckerRule: public CardinalityCheckerRule<IAbsoluteSpeed>
+        class AbsoluteSpeedCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -58,7 +58,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class AbsoluteTargetLaneCardinalityCheckerRule: public CardinalityCheckerRule<IAbsoluteTargetLane>
+        class AbsoluteTargetLaneCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -79,7 +79,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class AbsoluteTargetLaneOffsetCardinalityCheckerRule: public CardinalityCheckerRule<IAbsoluteTargetLaneOffset>
+        class AbsoluteTargetLaneOffsetCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -100,7 +100,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class AbsoluteTargetSpeedCardinalityCheckerRule: public CardinalityCheckerRule<IAbsoluteTargetSpeed>
+        class AbsoluteTargetSpeedCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -121,7 +121,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class AccelerationConditionCardinalityCheckerRule: public CardinalityCheckerRule<IAccelerationCondition>
+        class AccelerationConditionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -142,7 +142,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class AcquirePositionActionCardinalityCheckerRule: public CardinalityCheckerRule<IAcquirePositionAction>
+        class AcquirePositionActionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -163,7 +163,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ActCardinalityCheckerRule: public CardinalityCheckerRule<IAct>
+        class ActCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -184,7 +184,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ActionCardinalityCheckerRule: public CardinalityCheckerRule<IAction>
+        class ActionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -205,7 +205,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ActorsCardinalityCheckerRule: public CardinalityCheckerRule<IActors>
+        class ActorsCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -226,7 +226,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class AddEntityActionCardinalityCheckerRule: public CardinalityCheckerRule<IAddEntityAction>
+        class AddEntityActionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -247,7 +247,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class AxleCardinalityCheckerRule: public CardinalityCheckerRule<IAxle>
+        class AxleCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -268,7 +268,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class AxlesCardinalityCheckerRule: public CardinalityCheckerRule<IAxles>
+        class AxlesCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -289,7 +289,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class BoundingBoxCardinalityCheckerRule: public CardinalityCheckerRule<IBoundingBox>
+        class BoundingBoxCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -310,7 +310,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ByEntityConditionCardinalityCheckerRule: public CardinalityCheckerRule<IByEntityCondition>
+        class ByEntityConditionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -331,7 +331,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ByObjectTypeCardinalityCheckerRule: public CardinalityCheckerRule<IByObjectType>
+        class ByObjectTypeCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -352,7 +352,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ByTypeCardinalityCheckerRule: public CardinalityCheckerRule<IByType>
+        class ByTypeCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -373,7 +373,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class CatalogDefinitionCardinalityCheckerRule: public CardinalityCheckerRule<ICatalogDefinition>
+        class CatalogDefinitionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -394,7 +394,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class CatalogReferenceCardinalityCheckerRule: public CardinalityCheckerRule<ICatalogReference>
+        class CatalogReferenceCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -415,7 +415,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class CenterCardinalityCheckerRule: public CardinalityCheckerRule<ICenter>
+        class CenterCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -436,7 +436,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class CentralSwarmObjectCardinalityCheckerRule: public CardinalityCheckerRule<ICentralSwarmObject>
+        class CentralSwarmObjectCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -457,7 +457,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ClothoidCardinalityCheckerRule: public CardinalityCheckerRule<IClothoid>
+        class ClothoidCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -478,7 +478,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ConditionCardinalityCheckerRule: public CardinalityCheckerRule<ICondition>
+        class ConditionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -499,7 +499,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ConditionGroupCardinalityCheckerRule: public CardinalityCheckerRule<IConditionGroup>
+        class ConditionGroupCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -520,7 +520,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ControlPointCardinalityCheckerRule: public CardinalityCheckerRule<IControlPoint>
+        class ControlPointCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -541,7 +541,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ControllerCardinalityCheckerRule: public CardinalityCheckerRule<IController>
+        class ControllerCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -562,7 +562,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ControllerActionCardinalityCheckerRule: public CardinalityCheckerRule<IControllerAction>
+        class ControllerActionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -583,7 +583,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ControllerCatalogLocationCardinalityCheckerRule: public CardinalityCheckerRule<IControllerCatalogLocation>
+        class ControllerCatalogLocationCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -604,7 +604,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ControllerDistributionCardinalityCheckerRule: public CardinalityCheckerRule<IControllerDistribution>
+        class ControllerDistributionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -625,7 +625,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ControllerDistributionEntryCardinalityCheckerRule: public CardinalityCheckerRule<IControllerDistributionEntry>
+        class ControllerDistributionEntryCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -646,7 +646,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class CustomCommandActionCardinalityCheckerRule: public CardinalityCheckerRule<ICustomCommandAction>
+        class CustomCommandActionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -667,7 +667,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class DimensionsCardinalityCheckerRule: public CardinalityCheckerRule<IDimensions>
+        class DimensionsCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -688,7 +688,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class DirectoryCardinalityCheckerRule: public CardinalityCheckerRule<IDirectory>
+        class DirectoryCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -709,7 +709,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class DistanceConditionCardinalityCheckerRule: public CardinalityCheckerRule<IDistanceCondition>
+        class DistanceConditionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -730,7 +730,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class EndOfRoadConditionCardinalityCheckerRule: public CardinalityCheckerRule<IEndOfRoadCondition>
+        class EndOfRoadConditionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -751,7 +751,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class EntityActionCardinalityCheckerRule: public CardinalityCheckerRule<IEntityAction>
+        class EntityActionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -772,7 +772,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class EntityRefCardinalityCheckerRule: public CardinalityCheckerRule<IEntityRef>
+        class EntityRefCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -793,7 +793,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class EntitySelectionCardinalityCheckerRule: public CardinalityCheckerRule<IEntitySelection>
+        class EntitySelectionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -814,7 +814,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class EnvironmentCardinalityCheckerRule: public CardinalityCheckerRule<IEnvironment>
+        class EnvironmentCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -835,7 +835,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class EnvironmentCatalogLocationCardinalityCheckerRule: public CardinalityCheckerRule<IEnvironmentCatalogLocation>
+        class EnvironmentCatalogLocationCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -856,7 +856,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class EventCardinalityCheckerRule: public CardinalityCheckerRule<IEvent>
+        class EventCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -877,7 +877,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class FileCardinalityCheckerRule: public CardinalityCheckerRule<IFile>
+        class FileCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -898,7 +898,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class FileHeaderCardinalityCheckerRule: public CardinalityCheckerRule<IFileHeader>
+        class FileHeaderCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -919,7 +919,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class FogCardinalityCheckerRule: public CardinalityCheckerRule<IFog>
+        class FogCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -940,7 +940,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class FollowTrajectoryActionCardinalityCheckerRule: public CardinalityCheckerRule<IFollowTrajectoryAction>
+        class FollowTrajectoryActionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -961,7 +961,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class InfrastructureActionCardinalityCheckerRule: public CardinalityCheckerRule<IInfrastructureAction>
+        class InfrastructureActionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -982,7 +982,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class InitCardinalityCheckerRule: public CardinalityCheckerRule<IInit>
+        class InitCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -1003,7 +1003,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class KnotCardinalityCheckerRule: public CardinalityCheckerRule<IKnot>
+        class KnotCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -1024,7 +1024,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class LaneChangeActionCardinalityCheckerRule: public CardinalityCheckerRule<ILaneChangeAction>
+        class LaneChangeActionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -1045,7 +1045,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class LaneOffsetActionCardinalityCheckerRule: public CardinalityCheckerRule<ILaneOffsetAction>
+        class LaneOffsetActionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -1066,7 +1066,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class LaneOffsetActionDynamicsCardinalityCheckerRule: public CardinalityCheckerRule<ILaneOffsetActionDynamics>
+        class LaneOffsetActionDynamicsCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -1087,7 +1087,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class LanePositionCardinalityCheckerRule: public CardinalityCheckerRule<ILanePosition>
+        class LanePositionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -1108,7 +1108,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class LateralDistanceActionCardinalityCheckerRule: public CardinalityCheckerRule<ILateralDistanceAction>
+        class LateralDistanceActionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -1129,7 +1129,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class LongitudinalDistanceActionCardinalityCheckerRule: public CardinalityCheckerRule<ILongitudinalDistanceAction>
+        class LongitudinalDistanceActionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -1150,7 +1150,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ManeuverCardinalityCheckerRule: public CardinalityCheckerRule<IManeuver>
+        class ManeuverCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -1171,7 +1171,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ManeuverCatalogLocationCardinalityCheckerRule: public CardinalityCheckerRule<IManeuverCatalogLocation>
+        class ManeuverCatalogLocationCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -1192,7 +1192,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ManeuverGroupCardinalityCheckerRule: public CardinalityCheckerRule<IManeuverGroup>
+        class ManeuverGroupCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -1213,7 +1213,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class MiscObjectCardinalityCheckerRule: public CardinalityCheckerRule<IMiscObject>
+        class MiscObjectCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -1234,7 +1234,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class MiscObjectCatalogLocationCardinalityCheckerRule: public CardinalityCheckerRule<IMiscObjectCatalogLocation>
+        class MiscObjectCatalogLocationCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -1255,7 +1255,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class NurbsCardinalityCheckerRule: public CardinalityCheckerRule<INurbs>
+        class NurbsCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -1276,7 +1276,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class OffroadConditionCardinalityCheckerRule: public CardinalityCheckerRule<IOffroadCondition>
+        class OffroadConditionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -1297,7 +1297,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class OpenScenarioCardinalityCheckerRule: public CardinalityCheckerRule<IOpenScenario>
+        class OpenScenarioCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -1318,7 +1318,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class OpenScenarioCategoryCardinalityCheckerRule: public CardinalityCheckerRule<IOpenScenarioCategory>
+        class OpenScenarioCategoryCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -1339,7 +1339,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class OverrideBrakeActionCardinalityCheckerRule: public CardinalityCheckerRule<IOverrideBrakeAction>
+        class OverrideBrakeActionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -1360,7 +1360,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class OverrideClutchActionCardinalityCheckerRule: public CardinalityCheckerRule<IOverrideClutchAction>
+        class OverrideClutchActionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -1381,7 +1381,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class OverrideControllerValueActionCardinalityCheckerRule: public CardinalityCheckerRule<IOverrideControllerValueAction>
+        class OverrideControllerValueActionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -1402,7 +1402,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class OverrideGearActionCardinalityCheckerRule: public CardinalityCheckerRule<IOverrideGearAction>
+        class OverrideGearActionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -1423,7 +1423,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class OverrideParkingBrakeActionCardinalityCheckerRule: public CardinalityCheckerRule<IOverrideParkingBrakeAction>
+        class OverrideParkingBrakeActionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -1444,7 +1444,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class OverrideSteeringWheelActionCardinalityCheckerRule: public CardinalityCheckerRule<IOverrideSteeringWheelAction>
+        class OverrideSteeringWheelActionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -1465,7 +1465,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class OverrideThrottleActionCardinalityCheckerRule: public CardinalityCheckerRule<IOverrideThrottleAction>
+        class OverrideThrottleActionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -1486,7 +1486,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ParameterActionCardinalityCheckerRule: public CardinalityCheckerRule<IParameterAction>
+        class ParameterActionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -1507,7 +1507,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ParameterAddValueRuleCardinalityCheckerRule: public CardinalityCheckerRule<IParameterAddValueRule>
+        class ParameterAddValueRuleCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -1528,7 +1528,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ParameterAssignmentCardinalityCheckerRule: public CardinalityCheckerRule<IParameterAssignment>
+        class ParameterAssignmentCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -1549,7 +1549,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ParameterConditionCardinalityCheckerRule: public CardinalityCheckerRule<IParameterCondition>
+        class ParameterConditionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -1570,7 +1570,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ParameterDeclarationCardinalityCheckerRule: public CardinalityCheckerRule<IParameterDeclaration>
+        class ParameterDeclarationCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -1591,7 +1591,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ParameterModifyActionCardinalityCheckerRule: public CardinalityCheckerRule<IParameterModifyAction>
+        class ParameterModifyActionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -1612,7 +1612,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ParameterMultiplyByValueRuleCardinalityCheckerRule: public CardinalityCheckerRule<IParameterMultiplyByValueRule>
+        class ParameterMultiplyByValueRuleCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -1633,7 +1633,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ParameterSetActionCardinalityCheckerRule: public CardinalityCheckerRule<IParameterSetAction>
+        class ParameterSetActionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -1654,7 +1654,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class PedestrianCardinalityCheckerRule: public CardinalityCheckerRule<IPedestrian>
+        class PedestrianCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -1675,7 +1675,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class PedestrianCatalogLocationCardinalityCheckerRule: public CardinalityCheckerRule<IPedestrianCatalogLocation>
+        class PedestrianCatalogLocationCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -1696,7 +1696,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class PerformanceCardinalityCheckerRule: public CardinalityCheckerRule<IPerformance>
+        class PerformanceCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -1717,7 +1717,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class PhaseCardinalityCheckerRule: public CardinalityCheckerRule<IPhase>
+        class PhaseCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -1738,7 +1738,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class PolylineCardinalityCheckerRule: public CardinalityCheckerRule<IPolyline>
+        class PolylineCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -1759,7 +1759,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class PositionInLaneCoordinatesCardinalityCheckerRule: public CardinalityCheckerRule<IPositionInLaneCoordinates>
+        class PositionInLaneCoordinatesCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -1780,7 +1780,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class PositionInRoadCoordinatesCardinalityCheckerRule: public CardinalityCheckerRule<IPositionInRoadCoordinates>
+        class PositionInRoadCoordinatesCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -1801,7 +1801,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class PositionOfCurrentEntityCardinalityCheckerRule: public CardinalityCheckerRule<IPositionOfCurrentEntity>
+        class PositionOfCurrentEntityCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -1822,7 +1822,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class PrecipitationCardinalityCheckerRule: public CardinalityCheckerRule<IPrecipitation>
+        class PrecipitationCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -1843,7 +1843,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class PrivateCardinalityCheckerRule: public CardinalityCheckerRule<IPrivate>
+        class PrivateCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -1864,7 +1864,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class PropertyCardinalityCheckerRule: public CardinalityCheckerRule<IProperty>
+        class PropertyCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -1885,7 +1885,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ReachPositionConditionCardinalityCheckerRule: public CardinalityCheckerRule<IReachPositionCondition>
+        class ReachPositionConditionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -1906,7 +1906,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class RelativeDistanceConditionCardinalityCheckerRule: public CardinalityCheckerRule<IRelativeDistanceCondition>
+        class RelativeDistanceConditionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -1927,7 +1927,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class RelativeLanePositionCardinalityCheckerRule: public CardinalityCheckerRule<IRelativeLanePosition>
+        class RelativeLanePositionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -1948,7 +1948,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class RelativeObjectPositionCardinalityCheckerRule: public CardinalityCheckerRule<IRelativeObjectPosition>
+        class RelativeObjectPositionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -1969,7 +1969,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class RelativeRoadPositionCardinalityCheckerRule: public CardinalityCheckerRule<IRelativeRoadPosition>
+        class RelativeRoadPositionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -1990,7 +1990,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class RelativeSpeedConditionCardinalityCheckerRule: public CardinalityCheckerRule<IRelativeSpeedCondition>
+        class RelativeSpeedConditionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -2011,7 +2011,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class RelativeSpeedToMasterCardinalityCheckerRule: public CardinalityCheckerRule<IRelativeSpeedToMaster>
+        class RelativeSpeedToMasterCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -2032,7 +2032,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class RelativeTargetLaneCardinalityCheckerRule: public CardinalityCheckerRule<IRelativeTargetLane>
+        class RelativeTargetLaneCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -2053,7 +2053,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class RelativeTargetLaneOffsetCardinalityCheckerRule: public CardinalityCheckerRule<IRelativeTargetLaneOffset>
+        class RelativeTargetLaneOffsetCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -2074,7 +2074,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class RelativeTargetSpeedCardinalityCheckerRule: public CardinalityCheckerRule<IRelativeTargetSpeed>
+        class RelativeTargetSpeedCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -2095,7 +2095,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class RelativeWorldPositionCardinalityCheckerRule: public CardinalityCheckerRule<IRelativeWorldPosition>
+        class RelativeWorldPositionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -2116,7 +2116,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class RoadConditionCardinalityCheckerRule: public CardinalityCheckerRule<IRoadCondition>
+        class RoadConditionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -2137,7 +2137,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class RoadPositionCardinalityCheckerRule: public CardinalityCheckerRule<IRoadPosition>
+        class RoadPositionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -2158,7 +2158,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class RouteCardinalityCheckerRule: public CardinalityCheckerRule<IRoute>
+        class RouteCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -2179,7 +2179,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class RouteCatalogLocationCardinalityCheckerRule: public CardinalityCheckerRule<IRouteCatalogLocation>
+        class RouteCatalogLocationCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -2200,7 +2200,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class RoutePositionCardinalityCheckerRule: public CardinalityCheckerRule<IRoutePosition>
+        class RoutePositionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -2221,7 +2221,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ScenarioDefinitionCardinalityCheckerRule: public CardinalityCheckerRule<IScenarioDefinition>
+        class ScenarioDefinitionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -2242,7 +2242,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class ScenarioObjectCardinalityCheckerRule: public CardinalityCheckerRule<IScenarioObject>
+        class ScenarioObjectCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -2263,7 +2263,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class SimulationTimeConditionCardinalityCheckerRule: public CardinalityCheckerRule<ISimulationTimeCondition>
+        class SimulationTimeConditionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -2284,7 +2284,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class SpeedActionCardinalityCheckerRule: public CardinalityCheckerRule<ISpeedAction>
+        class SpeedActionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -2305,7 +2305,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class SpeedConditionCardinalityCheckerRule: public CardinalityCheckerRule<ISpeedCondition>
+        class SpeedConditionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -2326,7 +2326,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class StandStillConditionCardinalityCheckerRule: public CardinalityCheckerRule<IStandStillCondition>
+        class StandStillConditionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -2347,7 +2347,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class StoryCardinalityCheckerRule: public CardinalityCheckerRule<IStory>
+        class StoryCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -2368,7 +2368,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class StoryboardCardinalityCheckerRule: public CardinalityCheckerRule<IStoryboard>
+        class StoryboardCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -2389,7 +2389,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class StoryboardElementStateConditionCardinalityCheckerRule: public CardinalityCheckerRule<IStoryboardElementStateCondition>
+        class StoryboardElementStateConditionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -2410,7 +2410,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class SunCardinalityCheckerRule: public CardinalityCheckerRule<ISun>
+        class SunCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -2431,7 +2431,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class SynchronizeActionCardinalityCheckerRule: public CardinalityCheckerRule<ISynchronizeAction>
+        class SynchronizeActionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -2452,7 +2452,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TeleportActionCardinalityCheckerRule: public CardinalityCheckerRule<ITeleportAction>
+        class TeleportActionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -2473,7 +2473,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TimeHeadwayConditionCardinalityCheckerRule: public CardinalityCheckerRule<ITimeHeadwayCondition>
+        class TimeHeadwayConditionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -2494,7 +2494,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TimeOfDayCardinalityCheckerRule: public CardinalityCheckerRule<ITimeOfDay>
+        class TimeOfDayCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -2515,7 +2515,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TimeOfDayConditionCardinalityCheckerRule: public CardinalityCheckerRule<ITimeOfDayCondition>
+        class TimeOfDayConditionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -2536,7 +2536,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TimeToCollisionConditionCardinalityCheckerRule: public CardinalityCheckerRule<ITimeToCollisionCondition>
+        class TimeToCollisionConditionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -2557,7 +2557,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TimingCardinalityCheckerRule: public CardinalityCheckerRule<ITiming>
+        class TimingCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -2578,7 +2578,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TrafficDefinitionCardinalityCheckerRule: public CardinalityCheckerRule<ITrafficDefinition>
+        class TrafficDefinitionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -2599,7 +2599,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TrafficSignalConditionCardinalityCheckerRule: public CardinalityCheckerRule<ITrafficSignalCondition>
+        class TrafficSignalConditionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -2620,7 +2620,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TrafficSignalControllerCardinalityCheckerRule: public CardinalityCheckerRule<ITrafficSignalController>
+        class TrafficSignalControllerCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -2641,7 +2641,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TrafficSignalControllerActionCardinalityCheckerRule: public CardinalityCheckerRule<ITrafficSignalControllerAction>
+        class TrafficSignalControllerActionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -2662,7 +2662,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TrafficSignalControllerConditionCardinalityCheckerRule: public CardinalityCheckerRule<ITrafficSignalControllerCondition>
+        class TrafficSignalControllerConditionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -2683,7 +2683,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TrafficSignalStateCardinalityCheckerRule: public CardinalityCheckerRule<ITrafficSignalState>
+        class TrafficSignalStateCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -2704,7 +2704,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TrafficSignalStateActionCardinalityCheckerRule: public CardinalityCheckerRule<ITrafficSignalStateAction>
+        class TrafficSignalStateActionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -2725,7 +2725,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TrafficSinkActionCardinalityCheckerRule: public CardinalityCheckerRule<ITrafficSinkAction>
+        class TrafficSinkActionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -2746,7 +2746,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TrafficSourceActionCardinalityCheckerRule: public CardinalityCheckerRule<ITrafficSourceAction>
+        class TrafficSourceActionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -2767,7 +2767,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TrafficSwarmActionCardinalityCheckerRule: public CardinalityCheckerRule<ITrafficSwarmAction>
+        class TrafficSwarmActionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -2788,7 +2788,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TrajectoryCardinalityCheckerRule: public CardinalityCheckerRule<ITrajectory>
+        class TrajectoryCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -2809,7 +2809,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TrajectoryCatalogLocationCardinalityCheckerRule: public CardinalityCheckerRule<ITrajectoryCatalogLocation>
+        class TrajectoryCatalogLocationCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -2830,7 +2830,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TrajectoryFollowingModeCardinalityCheckerRule: public CardinalityCheckerRule<ITrajectoryFollowingMode>
+        class TrajectoryFollowingModeCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -2851,7 +2851,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TransitionDynamicsCardinalityCheckerRule: public CardinalityCheckerRule<ITransitionDynamics>
+        class TransitionDynamicsCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -2872,7 +2872,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TraveledDistanceConditionCardinalityCheckerRule: public CardinalityCheckerRule<ITraveledDistanceCondition>
+        class TraveledDistanceConditionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -2893,7 +2893,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class TriggeringEntitiesCardinalityCheckerRule: public CardinalityCheckerRule<ITriggeringEntities>
+        class TriggeringEntitiesCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -2914,7 +2914,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class UserDefinedActionCardinalityCheckerRule: public CardinalityCheckerRule<IUserDefinedAction>
+        class UserDefinedActionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -2935,7 +2935,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class UserDefinedValueConditionCardinalityCheckerRule: public CardinalityCheckerRule<IUserDefinedValueCondition>
+        class UserDefinedValueConditionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -2956,7 +2956,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class VehicleCardinalityCheckerRule: public CardinalityCheckerRule<IVehicle>
+        class VehicleCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -2977,7 +2977,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class VehicleCatalogLocationCardinalityCheckerRule: public CardinalityCheckerRule<IVehicleCatalogLocation>
+        class VehicleCatalogLocationCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -2998,7 +2998,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class VehicleCategoryDistributionCardinalityCheckerRule: public CardinalityCheckerRule<IVehicleCategoryDistribution>
+        class VehicleCategoryDistributionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -3019,7 +3019,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class VehicleCategoryDistributionEntryCardinalityCheckerRule: public CardinalityCheckerRule<IVehicleCategoryDistributionEntry>
+        class VehicleCategoryDistributionEntryCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -3040,7 +3040,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class VertexCardinalityCheckerRule: public CardinalityCheckerRule<IVertex>
+        class VertexCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -3061,7 +3061,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class VisibilityActionCardinalityCheckerRule: public CardinalityCheckerRule<IVisibilityAction>
+        class VisibilityActionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -3082,7 +3082,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class WaypointCardinalityCheckerRule: public CardinalityCheckerRule<IWaypoint>
+        class WaypointCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -3103,7 +3103,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class WeatherCardinalityCheckerRule: public CardinalityCheckerRule<IWeather>
+        class WeatherCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 
@@ -3124,7 +3124,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class WorldPositionCardinalityCheckerRule: public CardinalityCheckerRule<IWorldPosition>
+        class WorldPositionCardinalityCheckerRule: public CardinalityCheckerRule
         {
         private:
 

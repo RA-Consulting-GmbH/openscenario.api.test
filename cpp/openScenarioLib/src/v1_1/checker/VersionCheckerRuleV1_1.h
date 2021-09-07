@@ -31,13 +31,13 @@ namespace NET_ASAM_OPENSCENARIO
 {
     namespace v1_1
     {
-        class VersionCheckerRule: public ICheckerRule<IFileHeader> 
+        class VersionCheckerRule: public ICheckerRule
         {
         private:
             int _majorRev;
             int _minorRev;
 
-			bool IsRevValid(std::shared_ptr<IFileHeader> object);
+			bool IsRevValid(std::shared_ptr<IOpenScenarioModelElement> object);
 
 			std::string GetMsg();
 
@@ -48,9 +48,9 @@ namespace NET_ASAM_OPENSCENARIO
              */
 			OPENSCENARIOLIB_EXP VersionCheckerRule(const int majorRev, const int minorRev);
 
-			void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IFileHeader> object) override;
+			void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
 
-			void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IFileHeader> object) override;
+			void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
         };
     }
 }

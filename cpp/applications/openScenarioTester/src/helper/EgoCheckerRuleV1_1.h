@@ -30,16 +30,16 @@ namespace NET_ASAM_OPENSCENARIO
 	{
 
 
-		class EgoCheckerRule: public NET_ASAM_OPENSCENARIO::ICheckerRule<IEntities> 
+		class EgoCheckerRule: public NET_ASAM_OPENSCENARIO::ICheckerRule
 		{
 		private:
 			bool IsEgoDefined(std::shared_ptr<IEntities> object) const;
 
 		public:
 
-			void ApplyRuleInFileContext(std::shared_ptr<NET_ASAM_OPENSCENARIO::IParserMessageLogger> messageLogger, std::shared_ptr<IEntities> object) override;
+			void ApplyRuleInFileContext(std::shared_ptr<NET_ASAM_OPENSCENARIO::IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
 
-			void ApplyRuleInTreeContext(std::shared_ptr<NET_ASAM_OPENSCENARIO::ITreeMessageLogger> messageLogger, std::shared_ptr<IEntities> object) override;
+			void ApplyRuleInTreeContext(std::shared_ptr<NET_ASAM_OPENSCENARIO::ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
 
 		};
 	}

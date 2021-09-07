@@ -17,40 +17,24 @@
 
 #pragma once
 
-#include "IOpenScenarioModelElement.h"
 #include "ICheckerRule.h"
-#include "ILocator.h"
-#include "Textmarker.h"
 #include "MemLeakDetection.h"
-#include <memory>
 
 
 /**
  * A base class for model validation
- * @param <T> the type to be checked
  *
  */
 namespace NET_ASAM_OPENSCENARIO
 {
-    template <class T>
-    class ModelCheckerRule: public IOpenScenarioModelElement, public ICheckerRule<T>
+    class ModelCheckerRule: public IOpenScenarioModelElement, public ICheckerRule
     {
     public:
-        ModelCheckerRule() = default;
-        virtual  ~ModelCheckerRule() = default;
+        ModelCheckerRule();
+        virtual  ~ModelCheckerRule();
 
     protected:
-        std::shared_ptr<Textmarker> GetTextmarker(std::shared_ptr<T> object)
-        {
-            auto locator = std::static_pointer_cast<NET_ASAM_OPENSCENARIO::ILocator>(object->GetAdapter(typeid(ILocator).name()));
-
-            if (locator) 
-            {
-                return std::make_shared<Textmarker>(locator->GetStartMarker());
-            }
-        
-            return nullptr;
-        }
+        std::shared_ptr<Textmarker> GetTextmarker(std::shared_ptr<IOpenScenarioModelElement> object);
     };
 
 }

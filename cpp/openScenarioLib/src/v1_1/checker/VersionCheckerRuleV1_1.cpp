@@ -20,59 +20,60 @@
 #include "PropertyTreeContext.h"
 
 
-/**
- * A checker rule for checking the version of the standard within a OpenSCENARIO file.
- */ 
+ /**
+  * A checker rule for checking the version of the standard within a OpenSCENARIO file.
+  */
 namespace NET_ASAM_OPENSCENARIO
 {
-    namespace v1_1
-    {
-       
- 
-        bool VersionCheckerRule::IsRevValid(std::shared_ptr<IFileHeader> object)
-        {
-            if (!object) return false;
+	namespace v1_1
+	{
 
-            const auto kRevMajor = object->GetRevMajor();
-            const auto kRevMinor = object->GetRevMinor();
 
-            return kRevMajor == _majorRev && kRevMinor == _minorRev;
-        }
+		bool VersionCheckerRule::IsRevValid(std::shared_ptr<IOpenScenarioModelElement> object)
+		{
+			if (!object) return false;
 
-        std::string VersionCheckerRule::GetMsg()
-        {
-            return "Major revision and minor revision are expected to be " + std::to_string(_majorRev) + " and " + std::to_string(_minorRev);
-        }
+			auto typedObject = std::dynamic_pointer_cast <IFileHeader> (object);
 
-		VersionCheckerRule::VersionCheckerRule(const int majorRev, const int minorRev): _majorRev(majorRev), _minorRev(minorRev) {}
+			const auto kRevMajor = typedObject->GetRevMajor();
+			const auto kRevMinor = typedObject->GetRevMinor();
 
-        void VersionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IFileHeader> object)
-        {
+			return kRevMajor == _majorRev && kRevMinor == _minorRev;
+		}
 
-            if (!IsRevValid(object))
-            {
-                auto locator = std::static_pointer_cast<ILocator>(object->GetAdapter(typeid(ILocator).name()));
+		std::string VersionCheckerRule::GetMsg()
+		{
+			return "Major revision and minor revision are expected to be " + std::to_string(_majorRev) + " and " + std::to_string(_minorRev);
+		}
 
-                if (locator) 
-                {
-                    auto msg = FileContentMessage(GetMsg(), WARNING, locator->GetStartMarker());
-                    messageLogger->LogMessage(msg);
-                }
-            }
-        }
+		VersionCheckerRule::VersionCheckerRule(const int majorRev, const int minorRev) : _majorRev(majorRev), _minorRev(minorRev) {}
 
-        void VersionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IFileHeader> object)
-        {
-            if (!IsRevValid(object)) 
-            {
-                std::vector<std::string> propertyNames;
-                propertyNames.push_back(OSC_CONSTANTS::ATTRIBUTE__REV_MINOR);
-                propertyNames.push_back(OSC_CONSTANTS::ATTRIBUTE__REV_MAJOR);
-                const auto kContext = std::make_shared<PropertyTreeContext>(object, propertyNames);
-                auto msg = TreeContentMessage(GetMsg(), WARNING, kContext);
-                messageLogger->LogMessage(msg);
-            }
+		void VersionCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
+		{
+			if (!IsRevValid(object))
+			{
+				auto locator = std::static_pointer_cast<ILocator>(object->GetAdapter(typeid(ILocator).name()));
 
-        }
-    }
+				if (locator)
+				{
+					auto msg = FileContentMessage(GetMsg(), WARNING, locator->GetStartMarker());
+					messageLogger->LogMessage(msg);
+				}
+			}
+		}
+
+		void VersionCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
+		{
+			if (!IsRevValid(object))
+			{
+				std::vector<std::string> propertyNames;
+				propertyNames.push_back(OSC_CONSTANTS::ATTRIBUTE__REV_MINOR);
+				propertyNames.push_back(OSC_CONSTANTS::ATTRIBUTE__REV_MAJOR);
+				const auto kContext = std::make_shared<PropertyTreeContext>(object, propertyNames);
+				auto msg = TreeContentMessage(GetMsg(), WARNING, kContext);
+				messageLogger->LogMessage(msg);
+			}
+
+		}
+	}
 }

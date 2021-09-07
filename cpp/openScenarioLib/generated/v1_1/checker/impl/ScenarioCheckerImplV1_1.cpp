@@ -31,1587 +31,1588 @@ namespace NET_ASAM_OPENSCENARIO
             ApplyOpenScenarioCheckerRules(std::dynamic_pointer_cast<IContentMessageLogger<TreeContentMessage>>(messageLogger), openScenario, MODE_TREE);
         }
 
-        void ScenarioCheckerImpl::AddAbsoluteSpeedCheckerRule(const std::shared_ptr<ICheckerRule<IAbsoluteSpeed>> checkerRule)
+        void ScenarioCheckerImpl::AddAbsoluteSpeedCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IAbsoluteSpeed).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IAbsoluteSpeed).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddAbsoluteTargetLaneCheckerRule(const std::shared_ptr<ICheckerRule<IAbsoluteTargetLane>> checkerRule)
+        void ScenarioCheckerImpl::AddAbsoluteTargetLaneCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IAbsoluteTargetLane).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IAbsoluteTargetLane).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddAbsoluteTargetLaneOffsetCheckerRule(const std::shared_ptr<ICheckerRule<IAbsoluteTargetLaneOffset>> checkerRule)
+        void ScenarioCheckerImpl::AddAbsoluteTargetLaneOffsetCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IAbsoluteTargetLaneOffset).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IAbsoluteTargetLaneOffset).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddAbsoluteTargetSpeedCheckerRule(const std::shared_ptr<ICheckerRule<IAbsoluteTargetSpeed>> checkerRule)
+        void ScenarioCheckerImpl::AddAbsoluteTargetSpeedCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IAbsoluteTargetSpeed).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IAbsoluteTargetSpeed).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddAccelerationConditionCheckerRule(const std::shared_ptr<ICheckerRule<IAccelerationCondition>> checkerRule)
+        void ScenarioCheckerImpl::AddAccelerationConditionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IAccelerationCondition).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IAccelerationCondition).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddAcquirePositionActionCheckerRule(const std::shared_ptr<ICheckerRule<IAcquirePositionAction>> checkerRule)
+        void ScenarioCheckerImpl::AddAcquirePositionActionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IAcquirePositionAction).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IAcquirePositionAction).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddActCheckerRule(const std::shared_ptr<ICheckerRule<IAct>> checkerRule)
+        void ScenarioCheckerImpl::AddActCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IAct).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IAct).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddActionCheckerRule(const std::shared_ptr<ICheckerRule<IAction>> checkerRule)
+        void ScenarioCheckerImpl::AddActionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IAction).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IAction).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddActivateControllerActionCheckerRule(const std::shared_ptr<ICheckerRule<IActivateControllerAction>> checkerRule)
+        void ScenarioCheckerImpl::AddActivateControllerActionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IActivateControllerAction).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IActivateControllerAction).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddActorsCheckerRule(const std::shared_ptr<ICheckerRule<IActors>> checkerRule)
+        void ScenarioCheckerImpl::AddActorsCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IActors).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IActors).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddAddEntityActionCheckerRule(const std::shared_ptr<ICheckerRule<IAddEntityAction>> checkerRule)
+        void ScenarioCheckerImpl::AddAddEntityActionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IAddEntityAction).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IAddEntityAction).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddAssignControllerActionCheckerRule(const std::shared_ptr<ICheckerRule<IAssignControllerAction>> checkerRule)
+        void ScenarioCheckerImpl::AddAssignControllerActionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IAssignControllerAction).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IAssignControllerAction).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddAssignRouteActionCheckerRule(const std::shared_ptr<ICheckerRule<IAssignRouteAction>> checkerRule)
+        void ScenarioCheckerImpl::AddAssignRouteActionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IAssignRouteAction).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IAssignRouteAction).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddAxleCheckerRule(const std::shared_ptr<ICheckerRule<IAxle>> checkerRule)
+        void ScenarioCheckerImpl::AddAxleCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IAxle).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IAxle).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddAxlesCheckerRule(const std::shared_ptr<ICheckerRule<IAxles>> checkerRule)
+        void ScenarioCheckerImpl::AddAxlesCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IAxles).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IAxles).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddBoundingBoxCheckerRule(const std::shared_ptr<ICheckerRule<IBoundingBox>> checkerRule)
+        void ScenarioCheckerImpl::AddBoundingBoxCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IBoundingBox).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IBoundingBox).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddByEntityConditionCheckerRule(const std::shared_ptr<ICheckerRule<IByEntityCondition>> checkerRule)
+        void ScenarioCheckerImpl::AddByEntityConditionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IByEntityCondition).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IByEntityCondition).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddByObjectTypeCheckerRule(const std::shared_ptr<ICheckerRule<IByObjectType>> checkerRule)
+        void ScenarioCheckerImpl::AddByObjectTypeCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IByObjectType).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IByObjectType).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddByTypeCheckerRule(const std::shared_ptr<ICheckerRule<IByType>> checkerRule)
+        void ScenarioCheckerImpl::AddByTypeCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IByType).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IByType).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddByValueConditionCheckerRule(const std::shared_ptr<ICheckerRule<IByValueCondition>> checkerRule)
+        void ScenarioCheckerImpl::AddByValueConditionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IByValueCondition).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IByValueCondition).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddCatalogCheckerRule(const std::shared_ptr<ICheckerRule<ICatalog>> checkerRule)
+        void ScenarioCheckerImpl::AddCatalogCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(ICatalog).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(ICatalog).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddCatalogDefinitionCheckerRule(const std::shared_ptr<ICheckerRule<ICatalogDefinition>> checkerRule)
+        void ScenarioCheckerImpl::AddCatalogDefinitionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(ICatalogDefinition).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(ICatalogDefinition).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddCatalogLocationsCheckerRule(const std::shared_ptr<ICheckerRule<ICatalogLocations>> checkerRule)
+        void ScenarioCheckerImpl::AddCatalogLocationsCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(ICatalogLocations).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(ICatalogLocations).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddCatalogReferenceCheckerRule(const std::shared_ptr<ICheckerRule<ICatalogReference>> checkerRule)
+        void ScenarioCheckerImpl::AddCatalogReferenceCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(ICatalogReference).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(ICatalogReference).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddCenterCheckerRule(const std::shared_ptr<ICheckerRule<ICenter>> checkerRule)
+        void ScenarioCheckerImpl::AddCenterCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(ICenter).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(ICenter).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddCentralSwarmObjectCheckerRule(const std::shared_ptr<ICheckerRule<ICentralSwarmObject>> checkerRule)
+        void ScenarioCheckerImpl::AddCentralSwarmObjectCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(ICentralSwarmObject).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(ICentralSwarmObject).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddClothoidCheckerRule(const std::shared_ptr<ICheckerRule<IClothoid>> checkerRule)
+        void ScenarioCheckerImpl::AddClothoidCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IClothoid).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IClothoid).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddCollisionConditionCheckerRule(const std::shared_ptr<ICheckerRule<ICollisionCondition>> checkerRule)
+        void ScenarioCheckerImpl::AddCollisionConditionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(ICollisionCondition).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(ICollisionCondition).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddConditionCheckerRule(const std::shared_ptr<ICheckerRule<ICondition>> checkerRule)
+        void ScenarioCheckerImpl::AddConditionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(ICondition).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(ICondition).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddConditionGroupCheckerRule(const std::shared_ptr<ICheckerRule<IConditionGroup>> checkerRule)
+        void ScenarioCheckerImpl::AddConditionGroupCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IConditionGroup).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IConditionGroup).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddControlPointCheckerRule(const std::shared_ptr<ICheckerRule<IControlPoint>> checkerRule)
+        void ScenarioCheckerImpl::AddControlPointCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IControlPoint).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IControlPoint).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddControllerCheckerRule(const std::shared_ptr<ICheckerRule<IController>> checkerRule)
+        void ScenarioCheckerImpl::AddControllerCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IController).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IController).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddControllerActionCheckerRule(const std::shared_ptr<ICheckerRule<IControllerAction>> checkerRule)
+        void ScenarioCheckerImpl::AddControllerActionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IControllerAction).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IControllerAction).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddControllerCatalogLocationCheckerRule(const std::shared_ptr<ICheckerRule<IControllerCatalogLocation>> checkerRule)
+        void ScenarioCheckerImpl::AddControllerCatalogLocationCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IControllerCatalogLocation).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IControllerCatalogLocation).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddControllerDistributionCheckerRule(const std::shared_ptr<ICheckerRule<IControllerDistribution>> checkerRule)
+        void ScenarioCheckerImpl::AddControllerDistributionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IControllerDistribution).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IControllerDistribution).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddControllerDistributionEntryCheckerRule(const std::shared_ptr<ICheckerRule<IControllerDistributionEntry>> checkerRule)
+        void ScenarioCheckerImpl::AddControllerDistributionEntryCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IControllerDistributionEntry).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IControllerDistributionEntry).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddCustomCommandActionCheckerRule(const std::shared_ptr<ICheckerRule<ICustomCommandAction>> checkerRule)
+        void ScenarioCheckerImpl::AddCustomCommandActionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(ICustomCommandAction).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(ICustomCommandAction).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddDeleteEntityActionCheckerRule(const std::shared_ptr<ICheckerRule<IDeleteEntityAction>> checkerRule)
+        void ScenarioCheckerImpl::AddDeleteEntityActionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IDeleteEntityAction).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IDeleteEntityAction).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddDeterministicCheckerRule(const std::shared_ptr<ICheckerRule<IDeterministic>> checkerRule)
+        void ScenarioCheckerImpl::AddDeterministicCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IDeterministic).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IDeterministic).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddDeterministicMultiParameterDistributionCheckerRule(const std::shared_ptr<ICheckerRule<IDeterministicMultiParameterDistribution>> checkerRule)
+        void ScenarioCheckerImpl::AddDeterministicMultiParameterDistributionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IDeterministicMultiParameterDistribution).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IDeterministicMultiParameterDistribution).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddDeterministicMultiParameterDistributionTypeCheckerRule(const std::shared_ptr<ICheckerRule<IDeterministicMultiParameterDistributionType>> checkerRule)
+        void ScenarioCheckerImpl::AddDeterministicMultiParameterDistributionTypeCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IDeterministicMultiParameterDistributionType).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IDeterministicMultiParameterDistributionType).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddDeterministicParameterDistributionCheckerRule(const std::shared_ptr<ICheckerRule<IDeterministicParameterDistribution>> checkerRule)
+        void ScenarioCheckerImpl::AddDeterministicParameterDistributionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IDeterministicParameterDistribution).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IDeterministicParameterDistribution).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddDeterministicSingleParameterDistributionCheckerRule(const std::shared_ptr<ICheckerRule<IDeterministicSingleParameterDistribution>> checkerRule)
+        void ScenarioCheckerImpl::AddDeterministicSingleParameterDistributionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IDeterministicSingleParameterDistribution).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IDeterministicSingleParameterDistribution).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddDeterministicSingleParameterDistributionTypeCheckerRule(const std::shared_ptr<ICheckerRule<IDeterministicSingleParameterDistributionType>> checkerRule)
+        void ScenarioCheckerImpl::AddDeterministicSingleParameterDistributionTypeCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IDeterministicSingleParameterDistributionType).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IDeterministicSingleParameterDistributionType).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddDimensionsCheckerRule(const std::shared_ptr<ICheckerRule<IDimensions>> checkerRule)
+        void ScenarioCheckerImpl::AddDimensionsCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IDimensions).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IDimensions).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddDirectoryCheckerRule(const std::shared_ptr<ICheckerRule<IDirectory>> checkerRule)
+        void ScenarioCheckerImpl::AddDirectoryCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IDirectory).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IDirectory).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddDistanceConditionCheckerRule(const std::shared_ptr<ICheckerRule<IDistanceCondition>> checkerRule)
+        void ScenarioCheckerImpl::AddDistanceConditionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IDistanceCondition).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IDistanceCondition).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddDistributionDefinitionCheckerRule(const std::shared_ptr<ICheckerRule<IDistributionDefinition>> checkerRule)
+        void ScenarioCheckerImpl::AddDistributionDefinitionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IDistributionDefinition).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IDistributionDefinition).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddDistributionRangeCheckerRule(const std::shared_ptr<ICheckerRule<IDistributionRange>> checkerRule)
+        void ScenarioCheckerImpl::AddDistributionRangeCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IDistributionRange).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IDistributionRange).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddDistributionSetCheckerRule(const std::shared_ptr<ICheckerRule<IDistributionSet>> checkerRule)
+        void ScenarioCheckerImpl::AddDistributionSetCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IDistributionSet).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IDistributionSet).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddDistributionSetElementCheckerRule(const std::shared_ptr<ICheckerRule<IDistributionSetElement>> checkerRule)
+        void ScenarioCheckerImpl::AddDistributionSetElementCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IDistributionSetElement).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IDistributionSetElement).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddDynamicConstraintsCheckerRule(const std::shared_ptr<ICheckerRule<IDynamicConstraints>> checkerRule)
+        void ScenarioCheckerImpl::AddDynamicConstraintsCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IDynamicConstraints).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IDynamicConstraints).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddEndOfRoadConditionCheckerRule(const std::shared_ptr<ICheckerRule<IEndOfRoadCondition>> checkerRule)
+        void ScenarioCheckerImpl::AddEndOfRoadConditionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IEndOfRoadCondition).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IEndOfRoadCondition).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddEntitiesCheckerRule(const std::shared_ptr<ICheckerRule<IEntities>> checkerRule)
+        void ScenarioCheckerImpl::AddEntitiesCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IEntities).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IEntities).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddEntityActionCheckerRule(const std::shared_ptr<ICheckerRule<IEntityAction>> checkerRule)
+        void ScenarioCheckerImpl::AddEntityActionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IEntityAction).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IEntityAction).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddEntityConditionCheckerRule(const std::shared_ptr<ICheckerRule<IEntityCondition>> checkerRule)
+        void ScenarioCheckerImpl::AddEntityConditionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IEntityCondition).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IEntityCondition).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddEntityObjectCheckerRule(const std::shared_ptr<ICheckerRule<IEntityObject>> checkerRule)
+        void ScenarioCheckerImpl::AddEntityObjectCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IEntityObject).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IEntityObject).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddEntityRefCheckerRule(const std::shared_ptr<ICheckerRule<IEntityRef>> checkerRule)
+        void ScenarioCheckerImpl::AddEntityRefCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IEntityRef).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IEntityRef).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddEntitySelectionCheckerRule(const std::shared_ptr<ICheckerRule<IEntitySelection>> checkerRule)
+        void ScenarioCheckerImpl::AddEntitySelectionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IEntitySelection).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IEntitySelection).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddEnvironmentCheckerRule(const std::shared_ptr<ICheckerRule<IEnvironment>> checkerRule)
+        void ScenarioCheckerImpl::AddEnvironmentCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IEnvironment).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IEnvironment).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddEnvironmentActionCheckerRule(const std::shared_ptr<ICheckerRule<IEnvironmentAction>> checkerRule)
+        void ScenarioCheckerImpl::AddEnvironmentActionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IEnvironmentAction).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IEnvironmentAction).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddEnvironmentCatalogLocationCheckerRule(const std::shared_ptr<ICheckerRule<IEnvironmentCatalogLocation>> checkerRule)
+        void ScenarioCheckerImpl::AddEnvironmentCatalogLocationCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IEnvironmentCatalogLocation).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IEnvironmentCatalogLocation).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddEventCheckerRule(const std::shared_ptr<ICheckerRule<IEvent>> checkerRule)
+        void ScenarioCheckerImpl::AddEventCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IEvent).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IEvent).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddExternalObjectReferenceCheckerRule(const std::shared_ptr<ICheckerRule<IExternalObjectReference>> checkerRule)
+        void ScenarioCheckerImpl::AddExternalObjectReferenceCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IExternalObjectReference).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IExternalObjectReference).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddFileCheckerRule(const std::shared_ptr<ICheckerRule<IFile>> checkerRule)
+        void ScenarioCheckerImpl::AddFileCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IFile).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IFile).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddFileHeaderCheckerRule(const std::shared_ptr<ICheckerRule<IFileHeader>> checkerRule)
+        void ScenarioCheckerImpl::AddFileHeaderCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IFileHeader).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IFileHeader).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddFinalSpeedCheckerRule(const std::shared_ptr<ICheckerRule<IFinalSpeed>> checkerRule)
+        void ScenarioCheckerImpl::AddFinalSpeedCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IFinalSpeed).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IFinalSpeed).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddFogCheckerRule(const std::shared_ptr<ICheckerRule<IFog>> checkerRule)
+        void ScenarioCheckerImpl::AddFogCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IFog).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IFog).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddFollowTrajectoryActionCheckerRule(const std::shared_ptr<ICheckerRule<IFollowTrajectoryAction>> checkerRule)
+        void ScenarioCheckerImpl::AddFollowTrajectoryActionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IFollowTrajectoryAction).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IFollowTrajectoryAction).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddGeoPositionCheckerRule(const std::shared_ptr<ICheckerRule<IGeoPosition>> checkerRule)
+        void ScenarioCheckerImpl::AddGeoPositionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IGeoPosition).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IGeoPosition).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddGlobalActionCheckerRule(const std::shared_ptr<ICheckerRule<IGlobalAction>> checkerRule)
+        void ScenarioCheckerImpl::AddGlobalActionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IGlobalAction).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IGlobalAction).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddHistogramCheckerRule(const std::shared_ptr<ICheckerRule<IHistogram>> checkerRule)
+        void ScenarioCheckerImpl::AddHistogramCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IHistogram).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IHistogram).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddHistogramBinCheckerRule(const std::shared_ptr<ICheckerRule<IHistogramBin>> checkerRule)
+        void ScenarioCheckerImpl::AddHistogramBinCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IHistogramBin).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IHistogramBin).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddInRoutePositionCheckerRule(const std::shared_ptr<ICheckerRule<IInRoutePosition>> checkerRule)
+        void ScenarioCheckerImpl::AddInRoutePositionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IInRoutePosition).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IInRoutePosition).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddInfrastructureActionCheckerRule(const std::shared_ptr<ICheckerRule<IInfrastructureAction>> checkerRule)
+        void ScenarioCheckerImpl::AddInfrastructureActionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IInfrastructureAction).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IInfrastructureAction).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddInitCheckerRule(const std::shared_ptr<ICheckerRule<IInit>> checkerRule)
+        void ScenarioCheckerImpl::AddInitCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IInit).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IInit).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddInitActionsCheckerRule(const std::shared_ptr<ICheckerRule<IInitActions>> checkerRule)
+        void ScenarioCheckerImpl::AddInitActionsCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IInitActions).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IInitActions).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddKnotCheckerRule(const std::shared_ptr<ICheckerRule<IKnot>> checkerRule)
+        void ScenarioCheckerImpl::AddKnotCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IKnot).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IKnot).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddLaneChangeActionCheckerRule(const std::shared_ptr<ICheckerRule<ILaneChangeAction>> checkerRule)
+        void ScenarioCheckerImpl::AddLaneChangeActionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(ILaneChangeAction).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(ILaneChangeAction).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddLaneChangeTargetCheckerRule(const std::shared_ptr<ICheckerRule<ILaneChangeTarget>> checkerRule)
+        void ScenarioCheckerImpl::AddLaneChangeTargetCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(ILaneChangeTarget).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(ILaneChangeTarget).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddLaneOffsetActionCheckerRule(const std::shared_ptr<ICheckerRule<ILaneOffsetAction>> checkerRule)
+        void ScenarioCheckerImpl::AddLaneOffsetActionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(ILaneOffsetAction).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(ILaneOffsetAction).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddLaneOffsetActionDynamicsCheckerRule(const std::shared_ptr<ICheckerRule<ILaneOffsetActionDynamics>> checkerRule)
+        void ScenarioCheckerImpl::AddLaneOffsetActionDynamicsCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(ILaneOffsetActionDynamics).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(ILaneOffsetActionDynamics).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddLaneOffsetTargetCheckerRule(const std::shared_ptr<ICheckerRule<ILaneOffsetTarget>> checkerRule)
+        void ScenarioCheckerImpl::AddLaneOffsetTargetCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(ILaneOffsetTarget).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(ILaneOffsetTarget).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddLanePositionCheckerRule(const std::shared_ptr<ICheckerRule<ILanePosition>> checkerRule)
+        void ScenarioCheckerImpl::AddLanePositionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(ILanePosition).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(ILanePosition).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddLateralActionCheckerRule(const std::shared_ptr<ICheckerRule<ILateralAction>> checkerRule)
+        void ScenarioCheckerImpl::AddLateralActionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(ILateralAction).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(ILateralAction).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddLateralDistanceActionCheckerRule(const std::shared_ptr<ICheckerRule<ILateralDistanceAction>> checkerRule)
+        void ScenarioCheckerImpl::AddLateralDistanceActionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(ILateralDistanceAction).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(ILateralDistanceAction).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddLicenseCheckerRule(const std::shared_ptr<ICheckerRule<ILicense>> checkerRule)
+        void ScenarioCheckerImpl::AddLicenseCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(ILicense).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(ILicense).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddLongitudinalActionCheckerRule(const std::shared_ptr<ICheckerRule<ILongitudinalAction>> checkerRule)
+        void ScenarioCheckerImpl::AddLongitudinalActionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(ILongitudinalAction).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(ILongitudinalAction).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddLongitudinalDistanceActionCheckerRule(const std::shared_ptr<ICheckerRule<ILongitudinalDistanceAction>> checkerRule)
+        void ScenarioCheckerImpl::AddLongitudinalDistanceActionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(ILongitudinalDistanceAction).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(ILongitudinalDistanceAction).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddManeuverCheckerRule(const std::shared_ptr<ICheckerRule<IManeuver>> checkerRule)
+        void ScenarioCheckerImpl::AddManeuverCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IManeuver).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IManeuver).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddManeuverCatalogLocationCheckerRule(const std::shared_ptr<ICheckerRule<IManeuverCatalogLocation>> checkerRule)
+        void ScenarioCheckerImpl::AddManeuverCatalogLocationCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IManeuverCatalogLocation).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IManeuverCatalogLocation).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddManeuverGroupCheckerRule(const std::shared_ptr<ICheckerRule<IManeuverGroup>> checkerRule)
+        void ScenarioCheckerImpl::AddManeuverGroupCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IManeuverGroup).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IManeuverGroup).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddMiscObjectCheckerRule(const std::shared_ptr<ICheckerRule<IMiscObject>> checkerRule)
+        void ScenarioCheckerImpl::AddMiscObjectCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IMiscObject).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IMiscObject).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddMiscObjectCatalogLocationCheckerRule(const std::shared_ptr<ICheckerRule<IMiscObjectCatalogLocation>> checkerRule)
+        void ScenarioCheckerImpl::AddMiscObjectCatalogLocationCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IMiscObjectCatalogLocation).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IMiscObjectCatalogLocation).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddModifyRuleCheckerRule(const std::shared_ptr<ICheckerRule<IModifyRule>> checkerRule)
+        void ScenarioCheckerImpl::AddModifyRuleCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IModifyRule).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IModifyRule).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddNoneCheckerRule(const std::shared_ptr<ICheckerRule<INone>> checkerRule)
+        void ScenarioCheckerImpl::AddNoneCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(INone).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(INone).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddNormalDistributionCheckerRule(const std::shared_ptr<ICheckerRule<INormalDistribution>> checkerRule)
+        void ScenarioCheckerImpl::AddNormalDistributionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(INormalDistribution).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(INormalDistribution).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddNurbsCheckerRule(const std::shared_ptr<ICheckerRule<INurbs>> checkerRule)
+        void ScenarioCheckerImpl::AddNurbsCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(INurbs).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(INurbs).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddObjectControllerCheckerRule(const std::shared_ptr<ICheckerRule<IObjectController>> checkerRule)
+        void ScenarioCheckerImpl::AddObjectControllerCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IObjectController).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IObjectController).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddOffroadConditionCheckerRule(const std::shared_ptr<ICheckerRule<IOffroadCondition>> checkerRule)
+        void ScenarioCheckerImpl::AddOffroadConditionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IOffroadCondition).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IOffroadCondition).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddOpenScenarioCheckerRule(const std::shared_ptr<ICheckerRule<IOpenScenario>> checkerRule)
+        void ScenarioCheckerImpl::AddOpenScenarioCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IOpenScenario).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IOpenScenario).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddOpenScenarioCategoryCheckerRule(const std::shared_ptr<ICheckerRule<IOpenScenarioCategory>> checkerRule)
+        void ScenarioCheckerImpl::AddOpenScenarioCategoryCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IOpenScenarioCategory).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IOpenScenarioCategory).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddOrientationCheckerRule(const std::shared_ptr<ICheckerRule<IOrientation>> checkerRule)
+        void ScenarioCheckerImpl::AddOrientationCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IOrientation).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IOrientation).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddOverrideBrakeActionCheckerRule(const std::shared_ptr<ICheckerRule<IOverrideBrakeAction>> checkerRule)
+        void ScenarioCheckerImpl::AddOverrideBrakeActionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IOverrideBrakeAction).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IOverrideBrakeAction).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddOverrideClutchActionCheckerRule(const std::shared_ptr<ICheckerRule<IOverrideClutchAction>> checkerRule)
+        void ScenarioCheckerImpl::AddOverrideClutchActionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IOverrideClutchAction).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IOverrideClutchAction).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddOverrideControllerValueActionCheckerRule(const std::shared_ptr<ICheckerRule<IOverrideControllerValueAction>> checkerRule)
+        void ScenarioCheckerImpl::AddOverrideControllerValueActionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IOverrideControllerValueAction).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IOverrideControllerValueAction).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddOverrideGearActionCheckerRule(const std::shared_ptr<ICheckerRule<IOverrideGearAction>> checkerRule)
+        void ScenarioCheckerImpl::AddOverrideGearActionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IOverrideGearAction).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IOverrideGearAction).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddOverrideParkingBrakeActionCheckerRule(const std::shared_ptr<ICheckerRule<IOverrideParkingBrakeAction>> checkerRule)
+        void ScenarioCheckerImpl::AddOverrideParkingBrakeActionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IOverrideParkingBrakeAction).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IOverrideParkingBrakeAction).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddOverrideSteeringWheelActionCheckerRule(const std::shared_ptr<ICheckerRule<IOverrideSteeringWheelAction>> checkerRule)
+        void ScenarioCheckerImpl::AddOverrideSteeringWheelActionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IOverrideSteeringWheelAction).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IOverrideSteeringWheelAction).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddOverrideThrottleActionCheckerRule(const std::shared_ptr<ICheckerRule<IOverrideThrottleAction>> checkerRule)
+        void ScenarioCheckerImpl::AddOverrideThrottleActionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IOverrideThrottleAction).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IOverrideThrottleAction).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddParameterActionCheckerRule(const std::shared_ptr<ICheckerRule<IParameterAction>> checkerRule)
+        void ScenarioCheckerImpl::AddParameterActionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IParameterAction).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IParameterAction).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddParameterAddValueRuleCheckerRule(const std::shared_ptr<ICheckerRule<IParameterAddValueRule>> checkerRule)
+        void ScenarioCheckerImpl::AddParameterAddValueRuleCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IParameterAddValueRule).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IParameterAddValueRule).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddParameterAssignmentCheckerRule(const std::shared_ptr<ICheckerRule<IParameterAssignment>> checkerRule)
+        void ScenarioCheckerImpl::AddParameterAssignmentCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IParameterAssignment).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IParameterAssignment).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddParameterConditionCheckerRule(const std::shared_ptr<ICheckerRule<IParameterCondition>> checkerRule)
+        void ScenarioCheckerImpl::AddParameterConditionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IParameterCondition).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IParameterCondition).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddParameterDeclarationCheckerRule(const std::shared_ptr<ICheckerRule<IParameterDeclaration>> checkerRule)
+        void ScenarioCheckerImpl::AddParameterDeclarationCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IParameterDeclaration).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IParameterDeclaration).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddParameterModifyActionCheckerRule(const std::shared_ptr<ICheckerRule<IParameterModifyAction>> checkerRule)
+        void ScenarioCheckerImpl::AddParameterModifyActionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IParameterModifyAction).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IParameterModifyAction).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddParameterMultiplyByValueRuleCheckerRule(const std::shared_ptr<ICheckerRule<IParameterMultiplyByValueRule>> checkerRule)
+        void ScenarioCheckerImpl::AddParameterMultiplyByValueRuleCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IParameterMultiplyByValueRule).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IParameterMultiplyByValueRule).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddParameterSetActionCheckerRule(const std::shared_ptr<ICheckerRule<IParameterSetAction>> checkerRule)
+        void ScenarioCheckerImpl::AddParameterSetActionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IParameterSetAction).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IParameterSetAction).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddParameterValueDistributionCheckerRule(const std::shared_ptr<ICheckerRule<IParameterValueDistribution>> checkerRule)
+        void ScenarioCheckerImpl::AddParameterValueDistributionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IParameterValueDistribution).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IParameterValueDistribution).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddParameterValueDistributionDefinitionCheckerRule(const std::shared_ptr<ICheckerRule<IParameterValueDistributionDefinition>> checkerRule)
+        void ScenarioCheckerImpl::AddParameterValueDistributionDefinitionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IParameterValueDistributionDefinition).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IParameterValueDistributionDefinition).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddParameterValueSetCheckerRule(const std::shared_ptr<ICheckerRule<IParameterValueSet>> checkerRule)
+        void ScenarioCheckerImpl::AddParameterValueSetCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IParameterValueSet).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IParameterValueSet).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddPedestrianCheckerRule(const std::shared_ptr<ICheckerRule<IPedestrian>> checkerRule)
+        void ScenarioCheckerImpl::AddPedestrianCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IPedestrian).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IPedestrian).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddPedestrianCatalogLocationCheckerRule(const std::shared_ptr<ICheckerRule<IPedestrianCatalogLocation>> checkerRule)
+        void ScenarioCheckerImpl::AddPedestrianCatalogLocationCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IPedestrianCatalogLocation).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IPedestrianCatalogLocation).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddPerformanceCheckerRule(const std::shared_ptr<ICheckerRule<IPerformance>> checkerRule)
+        void ScenarioCheckerImpl::AddPerformanceCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IPerformance).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IPerformance).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddPhaseCheckerRule(const std::shared_ptr<ICheckerRule<IPhase>> checkerRule)
+        void ScenarioCheckerImpl::AddPhaseCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IPhase).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IPhase).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddPoissonDistributionCheckerRule(const std::shared_ptr<ICheckerRule<IPoissonDistribution>> checkerRule)
+        void ScenarioCheckerImpl::AddPoissonDistributionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IPoissonDistribution).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IPoissonDistribution).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddPolylineCheckerRule(const std::shared_ptr<ICheckerRule<IPolyline>> checkerRule)
+        void ScenarioCheckerImpl::AddPolylineCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IPolyline).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IPolyline).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddPositionCheckerRule(const std::shared_ptr<ICheckerRule<IPosition>> checkerRule)
+        void ScenarioCheckerImpl::AddPositionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IPosition).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IPosition).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddPositionInLaneCoordinatesCheckerRule(const std::shared_ptr<ICheckerRule<IPositionInLaneCoordinates>> checkerRule)
+        void ScenarioCheckerImpl::AddPositionInLaneCoordinatesCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IPositionInLaneCoordinates).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IPositionInLaneCoordinates).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddPositionInRoadCoordinatesCheckerRule(const std::shared_ptr<ICheckerRule<IPositionInRoadCoordinates>> checkerRule)
+        void ScenarioCheckerImpl::AddPositionInRoadCoordinatesCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IPositionInRoadCoordinates).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IPositionInRoadCoordinates).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddPositionOfCurrentEntityCheckerRule(const std::shared_ptr<ICheckerRule<IPositionOfCurrentEntity>> checkerRule)
+        void ScenarioCheckerImpl::AddPositionOfCurrentEntityCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IPositionOfCurrentEntity).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IPositionOfCurrentEntity).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddPrecipitationCheckerRule(const std::shared_ptr<ICheckerRule<IPrecipitation>> checkerRule)
+        void ScenarioCheckerImpl::AddPrecipitationCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IPrecipitation).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IPrecipitation).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddPrivateCheckerRule(const std::shared_ptr<ICheckerRule<IPrivate>> checkerRule)
+        void ScenarioCheckerImpl::AddPrivateCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IPrivate).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IPrivate).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddPrivateActionCheckerRule(const std::shared_ptr<ICheckerRule<IPrivateAction>> checkerRule)
+        void ScenarioCheckerImpl::AddPrivateActionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IPrivateAction).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IPrivateAction).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddProbabilityDistributionSetCheckerRule(const std::shared_ptr<ICheckerRule<IProbabilityDistributionSet>> checkerRule)
+        void ScenarioCheckerImpl::AddProbabilityDistributionSetCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IProbabilityDistributionSet).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IProbabilityDistributionSet).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddProbabilityDistributionSetElementCheckerRule(const std::shared_ptr<ICheckerRule<IProbabilityDistributionSetElement>> checkerRule)
+        void ScenarioCheckerImpl::AddProbabilityDistributionSetElementCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IProbabilityDistributionSetElement).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IProbabilityDistributionSetElement).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddPropertiesCheckerRule(const std::shared_ptr<ICheckerRule<IProperties>> checkerRule)
+        void ScenarioCheckerImpl::AddPropertiesCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IProperties).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IProperties).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddPropertyCheckerRule(const std::shared_ptr<ICheckerRule<IProperty>> checkerRule)
+        void ScenarioCheckerImpl::AddPropertyCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IProperty).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IProperty).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddRangeCheckerRule(const std::shared_ptr<ICheckerRule<IRange>> checkerRule)
+        void ScenarioCheckerImpl::AddRangeCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRange).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IRange).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddReachPositionConditionCheckerRule(const std::shared_ptr<ICheckerRule<IReachPositionCondition>> checkerRule)
+        void ScenarioCheckerImpl::AddReachPositionConditionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IReachPositionCondition).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IReachPositionCondition).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddRelativeDistanceConditionCheckerRule(const std::shared_ptr<ICheckerRule<IRelativeDistanceCondition>> checkerRule)
+        void ScenarioCheckerImpl::AddRelativeDistanceConditionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRelativeDistanceCondition).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IRelativeDistanceCondition).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddRelativeLanePositionCheckerRule(const std::shared_ptr<ICheckerRule<IRelativeLanePosition>> checkerRule)
+        void ScenarioCheckerImpl::AddRelativeLanePositionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRelativeLanePosition).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IRelativeLanePosition).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddRelativeObjectPositionCheckerRule(const std::shared_ptr<ICheckerRule<IRelativeObjectPosition>> checkerRule)
+        void ScenarioCheckerImpl::AddRelativeObjectPositionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRelativeObjectPosition).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IRelativeObjectPosition).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddRelativeRoadPositionCheckerRule(const std::shared_ptr<ICheckerRule<IRelativeRoadPosition>> checkerRule)
+        void ScenarioCheckerImpl::AddRelativeRoadPositionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRelativeRoadPosition).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IRelativeRoadPosition).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddRelativeSpeedConditionCheckerRule(const std::shared_ptr<ICheckerRule<IRelativeSpeedCondition>> checkerRule)
+        void ScenarioCheckerImpl::AddRelativeSpeedConditionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRelativeSpeedCondition).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IRelativeSpeedCondition).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddRelativeSpeedToMasterCheckerRule(const std::shared_ptr<ICheckerRule<IRelativeSpeedToMaster>> checkerRule)
+        void ScenarioCheckerImpl::AddRelativeSpeedToMasterCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRelativeSpeedToMaster).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IRelativeSpeedToMaster).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddRelativeTargetLaneCheckerRule(const std::shared_ptr<ICheckerRule<IRelativeTargetLane>> checkerRule)
+        void ScenarioCheckerImpl::AddRelativeTargetLaneCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRelativeTargetLane).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IRelativeTargetLane).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddRelativeTargetLaneOffsetCheckerRule(const std::shared_ptr<ICheckerRule<IRelativeTargetLaneOffset>> checkerRule)
+        void ScenarioCheckerImpl::AddRelativeTargetLaneOffsetCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRelativeTargetLaneOffset).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IRelativeTargetLaneOffset).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddRelativeTargetSpeedCheckerRule(const std::shared_ptr<ICheckerRule<IRelativeTargetSpeed>> checkerRule)
+        void ScenarioCheckerImpl::AddRelativeTargetSpeedCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRelativeTargetSpeed).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IRelativeTargetSpeed).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddRelativeWorldPositionCheckerRule(const std::shared_ptr<ICheckerRule<IRelativeWorldPosition>> checkerRule)
+        void ScenarioCheckerImpl::AddRelativeWorldPositionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRelativeWorldPosition).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IRelativeWorldPosition).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddRoadConditionCheckerRule(const std::shared_ptr<ICheckerRule<IRoadCondition>> checkerRule)
+        void ScenarioCheckerImpl::AddRoadConditionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRoadCondition).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IRoadCondition).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddRoadNetworkCheckerRule(const std::shared_ptr<ICheckerRule<IRoadNetwork>> checkerRule)
+        void ScenarioCheckerImpl::AddRoadNetworkCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRoadNetwork).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IRoadNetwork).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddRoadPositionCheckerRule(const std::shared_ptr<ICheckerRule<IRoadPosition>> checkerRule)
+        void ScenarioCheckerImpl::AddRoadPositionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRoadPosition).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IRoadPosition).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddRouteCheckerRule(const std::shared_ptr<ICheckerRule<IRoute>> checkerRule)
+        void ScenarioCheckerImpl::AddRouteCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRoute).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IRoute).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddRouteCatalogLocationCheckerRule(const std::shared_ptr<ICheckerRule<IRouteCatalogLocation>> checkerRule)
+        void ScenarioCheckerImpl::AddRouteCatalogLocationCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRouteCatalogLocation).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IRouteCatalogLocation).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddRoutePositionCheckerRule(const std::shared_ptr<ICheckerRule<IRoutePosition>> checkerRule)
+        void ScenarioCheckerImpl::AddRoutePositionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRoutePosition).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IRoutePosition).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddRouteRefCheckerRule(const std::shared_ptr<ICheckerRule<IRouteRef>> checkerRule)
+        void ScenarioCheckerImpl::AddRouteRefCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRouteRef).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IRouteRef).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddRoutingActionCheckerRule(const std::shared_ptr<ICheckerRule<IRoutingAction>> checkerRule)
+        void ScenarioCheckerImpl::AddRoutingActionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRoutingAction).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IRoutingAction).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddScenarioDefinitionCheckerRule(const std::shared_ptr<ICheckerRule<IScenarioDefinition>> checkerRule)
+        void ScenarioCheckerImpl::AddScenarioDefinitionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IScenarioDefinition).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IScenarioDefinition).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddScenarioObjectCheckerRule(const std::shared_ptr<ICheckerRule<IScenarioObject>> checkerRule)
+        void ScenarioCheckerImpl::AddScenarioObjectCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IScenarioObject).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IScenarioObject).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddSelectedEntitiesCheckerRule(const std::shared_ptr<ICheckerRule<ISelectedEntities>> checkerRule)
+        void ScenarioCheckerImpl::AddSelectedEntitiesCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(ISelectedEntities).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(ISelectedEntities).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddShapeCheckerRule(const std::shared_ptr<ICheckerRule<IShape>> checkerRule)
+        void ScenarioCheckerImpl::AddShapeCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IShape).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IShape).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddSimulationTimeConditionCheckerRule(const std::shared_ptr<ICheckerRule<ISimulationTimeCondition>> checkerRule)
+        void ScenarioCheckerImpl::AddSimulationTimeConditionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(ISimulationTimeCondition).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(ISimulationTimeCondition).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddSpeedActionCheckerRule(const std::shared_ptr<ICheckerRule<ISpeedAction>> checkerRule)
+        void ScenarioCheckerImpl::AddSpeedActionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(ISpeedAction).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(ISpeedAction).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddSpeedActionTargetCheckerRule(const std::shared_ptr<ICheckerRule<ISpeedActionTarget>> checkerRule)
+        void ScenarioCheckerImpl::AddSpeedActionTargetCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(ISpeedActionTarget).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(ISpeedActionTarget).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddSpeedConditionCheckerRule(const std::shared_ptr<ICheckerRule<ISpeedCondition>> checkerRule)
+        void ScenarioCheckerImpl::AddSpeedConditionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(ISpeedCondition).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(ISpeedCondition).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddStandStillConditionCheckerRule(const std::shared_ptr<ICheckerRule<IStandStillCondition>> checkerRule)
+        void ScenarioCheckerImpl::AddStandStillConditionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IStandStillCondition).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IStandStillCondition).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddSteadyStateCheckerRule(const std::shared_ptr<ICheckerRule<ISteadyState>> checkerRule)
+        void ScenarioCheckerImpl::AddSteadyStateCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(ISteadyState).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(ISteadyState).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddStochasticCheckerRule(const std::shared_ptr<ICheckerRule<IStochastic>> checkerRule)
+        void ScenarioCheckerImpl::AddStochasticCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IStochastic).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IStochastic).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddStochasticDistributionCheckerRule(const std::shared_ptr<ICheckerRule<IStochasticDistribution>> checkerRule)
+        void ScenarioCheckerImpl::AddStochasticDistributionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IStochasticDistribution).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IStochasticDistribution).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddStochasticDistributionTypeCheckerRule(const std::shared_ptr<ICheckerRule<IStochasticDistributionType>> checkerRule)
+        void ScenarioCheckerImpl::AddStochasticDistributionTypeCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IStochasticDistributionType).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IStochasticDistributionType).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddStoryCheckerRule(const std::shared_ptr<ICheckerRule<IStory>> checkerRule)
+        void ScenarioCheckerImpl::AddStoryCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IStory).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IStory).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddStoryboardCheckerRule(const std::shared_ptr<ICheckerRule<IStoryboard>> checkerRule)
+        void ScenarioCheckerImpl::AddStoryboardCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IStoryboard).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IStoryboard).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddStoryboardElementStateConditionCheckerRule(const std::shared_ptr<ICheckerRule<IStoryboardElementStateCondition>> checkerRule)
+        void ScenarioCheckerImpl::AddStoryboardElementStateConditionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IStoryboardElementStateCondition).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IStoryboardElementStateCondition).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddSunCheckerRule(const std::shared_ptr<ICheckerRule<ISun>> checkerRule)
+        void ScenarioCheckerImpl::AddSunCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(ISun).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(ISun).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddSynchronizeActionCheckerRule(const std::shared_ptr<ICheckerRule<ISynchronizeAction>> checkerRule)
+        void ScenarioCheckerImpl::AddSynchronizeActionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(ISynchronizeAction).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(ISynchronizeAction).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddTargetDistanceSteadyStateCheckerRule(const std::shared_ptr<ICheckerRule<ITargetDistanceSteadyState>> checkerRule)
+        void ScenarioCheckerImpl::AddTargetDistanceSteadyStateCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITargetDistanceSteadyState).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(ITargetDistanceSteadyState).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddTargetTimeSteadyStateCheckerRule(const std::shared_ptr<ICheckerRule<ITargetTimeSteadyState>> checkerRule)
+        void ScenarioCheckerImpl::AddTargetTimeSteadyStateCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITargetTimeSteadyState).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(ITargetTimeSteadyState).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddTeleportActionCheckerRule(const std::shared_ptr<ICheckerRule<ITeleportAction>> checkerRule)
+        void ScenarioCheckerImpl::AddTeleportActionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITeleportAction).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(ITeleportAction).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddTimeHeadwayConditionCheckerRule(const std::shared_ptr<ICheckerRule<ITimeHeadwayCondition>> checkerRule)
+        void ScenarioCheckerImpl::AddTimeHeadwayConditionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITimeHeadwayCondition).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(ITimeHeadwayCondition).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddTimeOfDayCheckerRule(const std::shared_ptr<ICheckerRule<ITimeOfDay>> checkerRule)
+        void ScenarioCheckerImpl::AddTimeOfDayCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITimeOfDay).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(ITimeOfDay).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddTimeOfDayConditionCheckerRule(const std::shared_ptr<ICheckerRule<ITimeOfDayCondition>> checkerRule)
+        void ScenarioCheckerImpl::AddTimeOfDayConditionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITimeOfDayCondition).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(ITimeOfDayCondition).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddTimeReferenceCheckerRule(const std::shared_ptr<ICheckerRule<ITimeReference>> checkerRule)
+        void ScenarioCheckerImpl::AddTimeReferenceCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITimeReference).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(ITimeReference).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddTimeToCollisionConditionCheckerRule(const std::shared_ptr<ICheckerRule<ITimeToCollisionCondition>> checkerRule)
+        void ScenarioCheckerImpl::AddTimeToCollisionConditionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITimeToCollisionCondition).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(ITimeToCollisionCondition).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddTimeToCollisionConditionTargetCheckerRule(const std::shared_ptr<ICheckerRule<ITimeToCollisionConditionTarget>> checkerRule)
+        void ScenarioCheckerImpl::AddTimeToCollisionConditionTargetCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITimeToCollisionConditionTarget).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(ITimeToCollisionConditionTarget).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddTimingCheckerRule(const std::shared_ptr<ICheckerRule<ITiming>> checkerRule)
+        void ScenarioCheckerImpl::AddTimingCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITiming).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(ITiming).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddTrafficActionCheckerRule(const std::shared_ptr<ICheckerRule<ITrafficAction>> checkerRule)
+        void ScenarioCheckerImpl::AddTrafficActionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrafficAction).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(ITrafficAction).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddTrafficDefinitionCheckerRule(const std::shared_ptr<ICheckerRule<ITrafficDefinition>> checkerRule)
+        void ScenarioCheckerImpl::AddTrafficDefinitionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrafficDefinition).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(ITrafficDefinition).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddTrafficSignalActionCheckerRule(const std::shared_ptr<ICheckerRule<ITrafficSignalAction>> checkerRule)
+        void ScenarioCheckerImpl::AddTrafficSignalActionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrafficSignalAction).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(ITrafficSignalAction).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddTrafficSignalConditionCheckerRule(const std::shared_ptr<ICheckerRule<ITrafficSignalCondition>> checkerRule)
+        void ScenarioCheckerImpl::AddTrafficSignalConditionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrafficSignalCondition).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(ITrafficSignalCondition).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddTrafficSignalControllerCheckerRule(const std::shared_ptr<ICheckerRule<ITrafficSignalController>> checkerRule)
+        void ScenarioCheckerImpl::AddTrafficSignalControllerCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrafficSignalController).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(ITrafficSignalController).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddTrafficSignalControllerActionCheckerRule(const std::shared_ptr<ICheckerRule<ITrafficSignalControllerAction>> checkerRule)
+        void ScenarioCheckerImpl::AddTrafficSignalControllerActionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrafficSignalControllerAction).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(ITrafficSignalControllerAction).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddTrafficSignalControllerConditionCheckerRule(const std::shared_ptr<ICheckerRule<ITrafficSignalControllerCondition>> checkerRule)
+        void ScenarioCheckerImpl::AddTrafficSignalControllerConditionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrafficSignalControllerCondition).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(ITrafficSignalControllerCondition).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddTrafficSignalStateCheckerRule(const std::shared_ptr<ICheckerRule<ITrafficSignalState>> checkerRule)
+        void ScenarioCheckerImpl::AddTrafficSignalStateCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrafficSignalState).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(ITrafficSignalState).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddTrafficSignalStateActionCheckerRule(const std::shared_ptr<ICheckerRule<ITrafficSignalStateAction>> checkerRule)
+        void ScenarioCheckerImpl::AddTrafficSignalStateActionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrafficSignalStateAction).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(ITrafficSignalStateAction).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddTrafficSinkActionCheckerRule(const std::shared_ptr<ICheckerRule<ITrafficSinkAction>> checkerRule)
+        void ScenarioCheckerImpl::AddTrafficSinkActionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrafficSinkAction).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(ITrafficSinkAction).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddTrafficSourceActionCheckerRule(const std::shared_ptr<ICheckerRule<ITrafficSourceAction>> checkerRule)
+        void ScenarioCheckerImpl::AddTrafficSourceActionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrafficSourceAction).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(ITrafficSourceAction).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddTrafficStopActionCheckerRule(const std::shared_ptr<ICheckerRule<ITrafficStopAction>> checkerRule)
+        void ScenarioCheckerImpl::AddTrafficStopActionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrafficStopAction).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(ITrafficStopAction).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddTrafficSwarmActionCheckerRule(const std::shared_ptr<ICheckerRule<ITrafficSwarmAction>> checkerRule)
+        void ScenarioCheckerImpl::AddTrafficSwarmActionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrafficSwarmAction).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(ITrafficSwarmAction).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddTrajectoryCheckerRule(const std::shared_ptr<ICheckerRule<ITrajectory>> checkerRule)
+        void ScenarioCheckerImpl::AddTrajectoryCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrajectory).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(ITrajectory).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddTrajectoryCatalogLocationCheckerRule(const std::shared_ptr<ICheckerRule<ITrajectoryCatalogLocation>> checkerRule)
+        void ScenarioCheckerImpl::AddTrajectoryCatalogLocationCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrajectoryCatalogLocation).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(ITrajectoryCatalogLocation).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddTrajectoryFollowingModeCheckerRule(const std::shared_ptr<ICheckerRule<ITrajectoryFollowingMode>> checkerRule)
+        void ScenarioCheckerImpl::AddTrajectoryFollowingModeCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrajectoryFollowingMode).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(ITrajectoryFollowingMode).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddTrajectoryPositionCheckerRule(const std::shared_ptr<ICheckerRule<ITrajectoryPosition>> checkerRule)
+        void ScenarioCheckerImpl::AddTrajectoryPositionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrajectoryPosition).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(ITrajectoryPosition).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddTrajectoryRefCheckerRule(const std::shared_ptr<ICheckerRule<ITrajectoryRef>> checkerRule)
+        void ScenarioCheckerImpl::AddTrajectoryRefCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrajectoryRef).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(ITrajectoryRef).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddTransitionDynamicsCheckerRule(const std::shared_ptr<ICheckerRule<ITransitionDynamics>> checkerRule)
+        void ScenarioCheckerImpl::AddTransitionDynamicsCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITransitionDynamics).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(ITransitionDynamics).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddTraveledDistanceConditionCheckerRule(const std::shared_ptr<ICheckerRule<ITraveledDistanceCondition>> checkerRule)
+        void ScenarioCheckerImpl::AddTraveledDistanceConditionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITraveledDistanceCondition).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(ITraveledDistanceCondition).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddTriggerCheckerRule(const std::shared_ptr<ICheckerRule<ITrigger>> checkerRule)
+        void ScenarioCheckerImpl::AddTriggerCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrigger).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(ITrigger).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddTriggeringEntitiesCheckerRule(const std::shared_ptr<ICheckerRule<ITriggeringEntities>> checkerRule)
+        void ScenarioCheckerImpl::AddTriggeringEntitiesCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITriggeringEntities).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(ITriggeringEntities).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddUniformDistributionCheckerRule(const std::shared_ptr<ICheckerRule<IUniformDistribution>> checkerRule)
+        void ScenarioCheckerImpl::AddUniformDistributionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IUniformDistribution).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IUniformDistribution).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddUsedAreaCheckerRule(const std::shared_ptr<ICheckerRule<IUsedArea>> checkerRule)
+        void ScenarioCheckerImpl::AddUsedAreaCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IUsedArea).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IUsedArea).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddUserDefinedActionCheckerRule(const std::shared_ptr<ICheckerRule<IUserDefinedAction>> checkerRule)
+        void ScenarioCheckerImpl::AddUserDefinedActionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IUserDefinedAction).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IUserDefinedAction).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddUserDefinedDistributionCheckerRule(const std::shared_ptr<ICheckerRule<IUserDefinedDistribution>> checkerRule)
+        void ScenarioCheckerImpl::AddUserDefinedDistributionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IUserDefinedDistribution).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IUserDefinedDistribution).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddUserDefinedValueConditionCheckerRule(const std::shared_ptr<ICheckerRule<IUserDefinedValueCondition>> checkerRule)
+        void ScenarioCheckerImpl::AddUserDefinedValueConditionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IUserDefinedValueCondition).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IUserDefinedValueCondition).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddValueConstraintCheckerRule(const std::shared_ptr<ICheckerRule<IValueConstraint>> checkerRule)
+        void ScenarioCheckerImpl::AddValueConstraintCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IValueConstraint).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IValueConstraint).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddValueConstraintGroupCheckerRule(const std::shared_ptr<ICheckerRule<IValueConstraintGroup>> checkerRule)
+        void ScenarioCheckerImpl::AddValueConstraintGroupCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IValueConstraintGroup).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IValueConstraintGroup).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddValueSetDistributionCheckerRule(const std::shared_ptr<ICheckerRule<IValueSetDistribution>> checkerRule)
+        void ScenarioCheckerImpl::AddValueSetDistributionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IValueSetDistribution).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IValueSetDistribution).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddVehicleCheckerRule(const std::shared_ptr<ICheckerRule<IVehicle>> checkerRule)
+        void ScenarioCheckerImpl::AddVehicleCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IVehicle).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IVehicle).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddVehicleCatalogLocationCheckerRule(const std::shared_ptr<ICheckerRule<IVehicleCatalogLocation>> checkerRule)
+        void ScenarioCheckerImpl::AddVehicleCatalogLocationCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IVehicleCatalogLocation).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IVehicleCatalogLocation).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddVehicleCategoryDistributionCheckerRule(const std::shared_ptr<ICheckerRule<IVehicleCategoryDistribution>> checkerRule)
+        void ScenarioCheckerImpl::AddVehicleCategoryDistributionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IVehicleCategoryDistribution).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IVehicleCategoryDistribution).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddVehicleCategoryDistributionEntryCheckerRule(const std::shared_ptr<ICheckerRule<IVehicleCategoryDistributionEntry>> checkerRule)
+        void ScenarioCheckerImpl::AddVehicleCategoryDistributionEntryCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IVehicleCategoryDistributionEntry).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IVehicleCategoryDistributionEntry).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddVertexCheckerRule(const std::shared_ptr<ICheckerRule<IVertex>> checkerRule)
+        void ScenarioCheckerImpl::AddVertexCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IVertex).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IVertex).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddVisibilityActionCheckerRule(const std::shared_ptr<ICheckerRule<IVisibilityAction>> checkerRule)
+        void ScenarioCheckerImpl::AddVisibilityActionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IVisibilityAction).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IVisibilityAction).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddWaypointCheckerRule(const std::shared_ptr<ICheckerRule<IWaypoint>> checkerRule)
+        void ScenarioCheckerImpl::AddWaypointCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IWaypoint).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IWaypoint).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddWeatherCheckerRule(const std::shared_ptr<ICheckerRule<IWeather>> checkerRule)
+        void ScenarioCheckerImpl::AddWeatherCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IWeather).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IWeather).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddWindCheckerRule(const std::shared_ptr<ICheckerRule<IWind>> checkerRule)
+        void ScenarioCheckerImpl::AddWindCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IWind).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IWind).name()] = checkerRulesForType;
         }
 
-        void ScenarioCheckerImpl::AddWorldPositionCheckerRule(const std::shared_ptr<ICheckerRule<IWorldPosition>> checkerRule)
+        void ScenarioCheckerImpl::AddWorldPositionCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(IWorldPosition).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
             _typeToCheckerRuleList[typeid(IWorldPosition).name()] = checkerRulesForType;
         }
 
+  
     }
 }

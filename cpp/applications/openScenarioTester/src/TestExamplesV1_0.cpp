@@ -84,7 +84,7 @@ namespace NET_ASAM_OPENSCENARIO
 			// Using the adapter interface to get the checker
 			auto scenarioChecker = std::static_pointer_cast<IScenarioChecker>( openScenario->GetAdapter(typeid(IScenarioChecker).name()));
 
-			class CheckerRule: public NET_ASAM_OPENSCENARIO::ICheckerRule<IVehicle>
+			class CheckerRule: public NET_ASAM_OPENSCENARIO::ICheckerRule
 			{
 			private:
 				bool DoesNameMatches(std::shared_ptr<IVehicle> object) const
@@ -99,12 +99,13 @@ namespace NET_ASAM_OPENSCENARIO
 					return "Name must start with a capital letter";
 				}
 			public:
-				void ApplyRuleInFileContext(std::shared_ptr<NET_ASAM_OPENSCENARIO::IParserMessageLogger> messageLogger, std::shared_ptr<IVehicle> object) override
+				void ApplyRuleInFileContext(std::shared_ptr<NET_ASAM_OPENSCENARIO::IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override
 				{
-					const auto kName = object->GetName();
+					auto typedObject = std::dynamic_pointer_cast<IVehicle>(object);
+					const auto kName = typedObject->GetName();
 
 					// name must start with a capital letter
-					if(!DoesNameMatches(object))
+					if(!DoesNameMatches(typedObject))
 					{
 						// Get the textmarker at the error
 						auto locator = std::static_pointer_cast<NET_ASAM_OPENSCENARIO::ILocator>(object->GetAdapter(typeid(NET_ASAM_OPENSCENARIO::ILocator).name()));
@@ -116,9 +117,10 @@ namespace NET_ASAM_OPENSCENARIO
 					}
 				}
 
-				void ApplyRuleInTreeContext(std::shared_ptr<NET_ASAM_OPENSCENARIO::ITreeMessageLogger> messageLogger, std::shared_ptr<IVehicle> object) override
+				void ApplyRuleInTreeContext(std::shared_ptr<NET_ASAM_OPENSCENARIO::ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override
 				{
-					if (!DoesNameMatches(object)) 
+					auto typedObject = std::dynamic_pointer_cast<IVehicle>(object);
+					if (!DoesNameMatches(typedObject))
 					{
 
 						// Get the textmarker at the error
