@@ -46,8 +46,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             //string is typeid(class).name()
             std::map<std::string, std::vector<std::shared_ptr<CheckerRule>>> _typeToCheckerRuleList;
-    		template <class T>
-   	        void ApplyAbsoluteSpeedCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyAbsoluteSpeedCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IAbsoluteSpeed).name()];
 	            
@@ -75,8 +74,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplySteadyStateCheckerRules(messageLogger, kSteadyState, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyAbsoluteTargetLaneCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyAbsoluteTargetLaneCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IAbsoluteTargetLane).name()];
 	            
@@ -99,8 +97,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyAbsoluteTargetLaneOffsetCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyAbsoluteTargetLaneOffsetCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IAbsoluteTargetLaneOffset).name()];
 	            
@@ -123,8 +120,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyAbsoluteTargetSpeedCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyAbsoluteTargetSpeedCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IAbsoluteTargetSpeed).name()];
 	            
@@ -147,8 +143,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyAccelerationConditionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyAccelerationConditionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IAccelerationCondition).name()];
 	            
@@ -171,8 +166,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyAcquirePositionActionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyAcquirePositionActionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IAcquirePositionAction).name()];
 	            
@@ -200,8 +194,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyPositionCheckerRules(messageLogger, kPosition, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyActCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyActCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IAct).name()];
 	            
@@ -240,8 +233,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyTriggerCheckerRules(messageLogger, kStopTrigger, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyActionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyActionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IAction).name()];
 	            
@@ -279,8 +271,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyPrivateActionCheckerRules(messageLogger, kPrivateAction, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyActivateControllerActionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyActivateControllerActionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IActivateControllerAction).name()];
 	            
@@ -303,8 +294,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyActorsCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyActorsCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IActors).name()];
 	            
@@ -333,8 +323,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                    ApplyEntityRefCheckerRules(messageLogger, kListItem, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyAddEntityActionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyAddEntityActionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IAddEntityAction).name()];
 	            
@@ -362,8 +351,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyPositionCheckerRules(messageLogger, kPosition, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyAssignControllerActionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyAssignControllerActionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IAssignControllerAction).name()];
 	            
@@ -396,8 +384,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyCatalogReferenceCheckerRules(messageLogger, kCatalogReference, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyAssignRouteActionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyAssignRouteActionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IAssignRouteAction).name()];
 	            
@@ -430,8 +417,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyCatalogReferenceCheckerRules(messageLogger, kCatalogReference, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyAxleCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyAxleCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IAxle).name()];
 	            
@@ -454,8 +440,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyAxlesCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyAxlesCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IAxles).name()];
 	            
@@ -494,8 +479,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                    ApplyAxleCheckerRules(messageLogger, kListItem, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyBoundingBoxCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyBoundingBoxCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IBoundingBox).name()];
 	            
@@ -528,8 +512,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyDimensionsCheckerRules(messageLogger, kDimensions, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyByEntityConditionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyByEntityConditionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IByEntityCondition).name()];
 	            
@@ -562,8 +545,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyEntityConditionCheckerRules(messageLogger, kEntityCondition, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyByObjectTypeCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyByObjectTypeCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IByObjectType).name()];
 	            
@@ -586,8 +568,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyByTypeCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyByTypeCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IByType).name()];
 	            
@@ -610,8 +591,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyByValueConditionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyByValueConditionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IByValueCondition).name()];
 	            
@@ -669,8 +649,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyTrafficSignalControllerConditionCheckerRules(messageLogger, kTrafficSignalControllerCondition, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyCatalogCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyCatalogCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(ICatalog).name()];
 	            
@@ -741,8 +720,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                    ApplyRouteCheckerRules(messageLogger, kListItem, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyCatalogDefinitionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyCatalogDefinitionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(ICatalogDefinition).name()];
 	            
@@ -770,8 +748,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyCatalogCheckerRules(messageLogger, kCatalog, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyCatalogLocationsCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyCatalogLocationsCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(ICatalogLocations).name()];
 	            
@@ -834,8 +811,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyRouteCatalogLocationCheckerRules(messageLogger, kRouteCatalog, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyCatalogReferenceCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyCatalogReferenceCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(ICatalogReference).name()];
 	            
@@ -864,8 +840,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                    ApplyParameterAssignmentCheckerRules(messageLogger, kListItem, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyCenterCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyCenterCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(ICenter).name()];
 	            
@@ -888,8 +863,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyCentralSwarmObjectCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyCentralSwarmObjectCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(ICentralSwarmObject).name()];
 	            
@@ -912,8 +886,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyClothoidCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyClothoidCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IClothoid).name()];
 	            
@@ -941,8 +914,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyPositionCheckerRules(messageLogger, kPosition, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyCollisionConditionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyCollisionConditionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(ICollisionCondition).name()];
 	            
@@ -975,8 +947,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyByObjectTypeCheckerRules(messageLogger, kByType, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyConditionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyConditionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(ICondition).name()];
 	            
@@ -1009,8 +980,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyByValueConditionCheckerRules(messageLogger, kByValueCondition, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyConditionGroupCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyConditionGroupCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IConditionGroup).name()];
 	            
@@ -1039,8 +1009,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                    ApplyConditionCheckerRules(messageLogger, kListItem, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyControlPointCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyControlPointCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IControlPoint).name()];
 	            
@@ -1068,8 +1037,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyPositionCheckerRules(messageLogger, kPosition, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyControllerCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyControllerCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IController).name()];
 	            
@@ -1103,8 +1071,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyPropertiesCheckerRules(messageLogger, kProperties, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyControllerActionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyControllerActionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IControllerAction).name()];
 	            
@@ -1142,8 +1109,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyActivateControllerActionCheckerRules(messageLogger, kActivateControllerAction, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyControllerCatalogLocationCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyControllerCatalogLocationCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IControllerCatalogLocation).name()];
 	            
@@ -1171,8 +1137,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyDirectoryCheckerRules(messageLogger, kDirectory, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyControllerDistributionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyControllerDistributionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IControllerDistribution).name()];
 	            
@@ -1201,8 +1166,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                    ApplyControllerDistributionEntryCheckerRules(messageLogger, kListItem, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyControllerDistributionEntryCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyControllerDistributionEntryCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IControllerDistributionEntry).name()];
 	            
@@ -1235,8 +1199,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyCatalogReferenceCheckerRules(messageLogger, kCatalogReference, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyCustomCommandActionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyCustomCommandActionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(ICustomCommandAction).name()];
 	            
@@ -1259,8 +1222,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyDeleteEntityActionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyDeleteEntityActionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IDeleteEntityAction).name()];
 	            
@@ -1283,8 +1245,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyDeterministicCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyDeterministicCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IDeterministic).name()];
 	            
@@ -1313,8 +1274,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                    ApplyDeterministicParameterDistributionCheckerRules(messageLogger, kListItem, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyDeterministicMultiParameterDistributionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyDeterministicMultiParameterDistributionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IDeterministicMultiParameterDistribution).name()];
 	            
@@ -1342,8 +1302,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyDeterministicMultiParameterDistributionTypeCheckerRules(messageLogger, kDeterministicMultiParameterDistributionType, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyDeterministicMultiParameterDistributionTypeCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyDeterministicMultiParameterDistributionTypeCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IDeterministicMultiParameterDistributionType).name()];
 	            
@@ -1371,8 +1330,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyValueSetDistributionCheckerRules(messageLogger, kValueSetDistribution, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyDeterministicParameterDistributionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyDeterministicParameterDistributionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IDeterministicParameterDistribution).name()];
 	            
@@ -1405,8 +1363,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyDeterministicSingleParameterDistributionCheckerRules(messageLogger, kDeterministicSingleParameterDistribution, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyDeterministicSingleParameterDistributionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyDeterministicSingleParameterDistributionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IDeterministicSingleParameterDistribution).name()];
 	            
@@ -1434,8 +1391,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyDeterministicSingleParameterDistributionTypeCheckerRules(messageLogger, kDeterministicSingleParameterDistributionType, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyDeterministicSingleParameterDistributionTypeCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyDeterministicSingleParameterDistributionTypeCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IDeterministicSingleParameterDistributionType).name()];
 	            
@@ -1473,8 +1429,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyUserDefinedDistributionCheckerRules(messageLogger, kUserDefinedDistribution, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyDimensionsCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyDimensionsCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IDimensions).name()];
 	            
@@ -1497,8 +1452,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyDirectoryCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyDirectoryCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IDirectory).name()];
 	            
@@ -1521,8 +1475,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyDistanceConditionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyDistanceConditionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IDistanceCondition).name()];
 	            
@@ -1550,8 +1503,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyPositionCheckerRules(messageLogger, kPosition, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyDistributionDefinitionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyDistributionDefinitionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IDistributionDefinition).name()];
 	            
@@ -1584,8 +1536,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyStochasticCheckerRules(messageLogger, kStochastic, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyDistributionRangeCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyDistributionRangeCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IDistributionRange).name()];
 	            
@@ -1613,8 +1564,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyRangeCheckerRules(messageLogger, kRange, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyDistributionSetCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyDistributionSetCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IDistributionSet).name()];
 	            
@@ -1643,8 +1593,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                    ApplyDistributionSetElementCheckerRules(messageLogger, kListItem, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyDistributionSetElementCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyDistributionSetElementCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IDistributionSetElement).name()];
 	            
@@ -1667,8 +1616,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyDynamicConstraintsCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyDynamicConstraintsCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IDynamicConstraints).name()];
 	            
@@ -1691,8 +1639,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyEndOfRoadConditionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyEndOfRoadConditionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IEndOfRoadCondition).name()];
 	            
@@ -1715,8 +1662,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyEntitiesCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyEntitiesCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IEntities).name()];
 	            
@@ -1751,8 +1697,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                    ApplyEntitySelectionCheckerRules(messageLogger, kListItem, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyEntityActionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyEntityActionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IEntityAction).name()];
 	            
@@ -1785,8 +1730,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyDeleteEntityActionCheckerRules(messageLogger, kDeleteEntityAction, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyEntityConditionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyEntityConditionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IEntityCondition).name()];
 	            
@@ -1874,8 +1818,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyRelativeDistanceConditionCheckerRules(messageLogger, kRelativeDistanceCondition, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyEntityObjectCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyEntityObjectCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IEntityObject).name()];
 	            
@@ -1923,8 +1866,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyExternalObjectReferenceCheckerRules(messageLogger, kExternalObjectReference, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyEntityRefCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyEntityRefCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IEntityRef).name()];
 	            
@@ -1947,8 +1889,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyEntitySelectionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyEntitySelectionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IEntitySelection).name()];
 	            
@@ -1976,8 +1917,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplySelectedEntitiesCheckerRules(messageLogger, kMembers, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyEnvironmentCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyEnvironmentCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IEnvironment).name()];
 	            
@@ -2021,8 +1961,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyRoadConditionCheckerRules(messageLogger, kRoadCondition, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyEnvironmentActionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyEnvironmentActionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IEnvironmentAction).name()];
 	            
@@ -2055,8 +1994,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyCatalogReferenceCheckerRules(messageLogger, kCatalogReference, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyEnvironmentCatalogLocationCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyEnvironmentCatalogLocationCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IEnvironmentCatalogLocation).name()];
 	            
@@ -2084,8 +2022,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyDirectoryCheckerRules(messageLogger, kDirectory, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyEventCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyEventCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IEvent).name()];
 	            
@@ -2119,8 +2056,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyTriggerCheckerRules(messageLogger, kStartTrigger, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyExternalObjectReferenceCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyExternalObjectReferenceCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IExternalObjectReference).name()];
 	            
@@ -2143,8 +2079,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyFileCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyFileCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IFile).name()];
 	            
@@ -2167,8 +2102,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyFileHeaderCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyFileHeaderCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IFileHeader).name()];
 	            
@@ -2196,8 +2130,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyLicenseCheckerRules(messageLogger, kLicense, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyFinalSpeedCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyFinalSpeedCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IFinalSpeed).name()];
 	            
@@ -2230,8 +2163,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyRelativeSpeedToMasterCheckerRules(messageLogger, kRelativeSpeedToMaster, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyFogCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyFogCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IFog).name()];
 	            
@@ -2259,8 +2191,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyBoundingBoxCheckerRules(messageLogger, kBoundingBox, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyFollowTrajectoryActionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyFollowTrajectoryActionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IFollowTrajectoryAction).name()];
 	            
@@ -2308,8 +2239,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyTrajectoryRefCheckerRules(messageLogger, kTrajectoryRef, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyGeoPositionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyGeoPositionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IGeoPosition).name()];
 	            
@@ -2337,8 +2267,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyOrientationCheckerRules(messageLogger, kOrientation, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyGlobalActionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyGlobalActionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IGlobalAction).name()];
 	            
@@ -2386,8 +2315,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyTrafficActionCheckerRules(messageLogger, kTrafficAction, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyHistogramCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyHistogramCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IHistogram).name()];
 	            
@@ -2416,8 +2344,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                    ApplyHistogramBinCheckerRules(messageLogger, kListItem, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyHistogramBinCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyHistogramBinCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IHistogramBin).name()];
 	            
@@ -2445,8 +2372,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyRangeCheckerRules(messageLogger, kRange, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyInRoutePositionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyInRoutePositionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IInRoutePosition).name()];
 	            
@@ -2484,8 +2410,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyPositionInLaneCoordinatesCheckerRules(messageLogger, kFromLaneCoordinates, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyInfrastructureActionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyInfrastructureActionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IInfrastructureAction).name()];
 	            
@@ -2513,8 +2438,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyTrafficSignalActionCheckerRules(messageLogger, kTrafficSignalAction, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyInitCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyInitCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IInit).name()];
 	            
@@ -2542,8 +2466,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyInitActionsCheckerRules(messageLogger, kActions, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyInitActionsCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyInitActionsCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IInitActions).name()];
 	            
@@ -2584,8 +2507,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                    ApplyPrivateCheckerRules(messageLogger, kListItem, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyKnotCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyKnotCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IKnot).name()];
 	            
@@ -2608,8 +2530,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyLaneChangeActionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyLaneChangeActionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(ILaneChangeAction).name()];
 	            
@@ -2642,8 +2563,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyLaneChangeTargetCheckerRules(messageLogger, kLaneChangeTarget, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyLaneChangeTargetCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyLaneChangeTargetCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(ILaneChangeTarget).name()];
 	            
@@ -2676,8 +2596,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyAbsoluteTargetLaneCheckerRules(messageLogger, kAbsoluteTargetLane, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyLaneOffsetActionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyLaneOffsetActionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(ILaneOffsetAction).name()];
 	            
@@ -2710,8 +2629,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyLaneOffsetTargetCheckerRules(messageLogger, kLaneOffsetTarget, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyLaneOffsetActionDynamicsCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyLaneOffsetActionDynamicsCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(ILaneOffsetActionDynamics).name()];
 	            
@@ -2734,8 +2652,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyLaneOffsetTargetCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyLaneOffsetTargetCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(ILaneOffsetTarget).name()];
 	            
@@ -2768,8 +2685,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyAbsoluteTargetLaneOffsetCheckerRules(messageLogger, kAbsoluteTargetLaneOffset, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyLanePositionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyLanePositionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(ILanePosition).name()];
 	            
@@ -2797,8 +2713,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyOrientationCheckerRules(messageLogger, kOrientation, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyLateralActionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyLateralActionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(ILateralAction).name()];
 	            
@@ -2836,8 +2751,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyLateralDistanceActionCheckerRules(messageLogger, kLateralDistanceAction, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyLateralDistanceActionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyLateralDistanceActionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(ILateralDistanceAction).name()];
 	            
@@ -2865,8 +2779,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyDynamicConstraintsCheckerRules(messageLogger, kDynamicConstraints, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyLicenseCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyLicenseCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(ILicense).name()];
 	            
@@ -2889,8 +2802,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyLongitudinalActionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyLongitudinalActionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(ILongitudinalAction).name()];
 	            
@@ -2923,8 +2835,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyLongitudinalDistanceActionCheckerRules(messageLogger, kLongitudinalDistanceAction, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyLongitudinalDistanceActionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyLongitudinalDistanceActionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(ILongitudinalDistanceAction).name()];
 	            
@@ -2952,8 +2863,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyDynamicConstraintsCheckerRules(messageLogger, kDynamicConstraints, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyManeuverCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyManeuverCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IManeuver).name()];
 	            
@@ -2988,8 +2898,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                    ApplyEventCheckerRules(messageLogger, kListItem, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyManeuverCatalogLocationCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyManeuverCatalogLocationCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IManeuverCatalogLocation).name()];
 	            
@@ -3017,8 +2926,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyDirectoryCheckerRules(messageLogger, kDirectory, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyManeuverGroupCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyManeuverGroupCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IManeuverGroup).name()];
 	            
@@ -3058,8 +2966,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                    ApplyManeuverCheckerRules(messageLogger, kListItem, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyMiscObjectCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyMiscObjectCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IMiscObject).name()];
 	            
@@ -3098,8 +3005,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyPropertiesCheckerRules(messageLogger, kProperties, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyMiscObjectCatalogLocationCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyMiscObjectCatalogLocationCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IMiscObjectCatalogLocation).name()];
 	            
@@ -3127,8 +3033,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyDirectoryCheckerRules(messageLogger, kDirectory, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyModifyRuleCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyModifyRuleCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IModifyRule).name()];
 	            
@@ -3161,8 +3066,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyParameterMultiplyByValueRuleCheckerRules(messageLogger, kMultiplyByValue, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyNoneCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyNoneCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(INone).name()];
 	            
@@ -3185,8 +3089,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyNormalDistributionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyNormalDistributionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(INormalDistribution).name()];
 	            
@@ -3214,8 +3117,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyRangeCheckerRules(messageLogger, kRange, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyNurbsCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyNurbsCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(INurbs).name()];
 	            
@@ -3250,8 +3152,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                    ApplyKnotCheckerRules(messageLogger, kListItem, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyObjectControllerCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyObjectControllerCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IObjectController).name()];
 	            
@@ -3284,8 +3185,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyControllerCheckerRules(messageLogger, kController, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyOffroadConditionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyOffroadConditionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IOffroadCondition).name()];
 	            
@@ -3308,8 +3208,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyOpenScenarioCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyOpenScenarioCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IOpenScenario).name()];
 	            
@@ -3342,8 +3241,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyOpenScenarioCategoryCheckerRules(messageLogger, kOpenScenarioCategory, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyOpenScenarioCategoryCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyOpenScenarioCategoryCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IOpenScenarioCategory).name()];
 	            
@@ -3381,8 +3279,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyParameterValueDistributionDefinitionCheckerRules(messageLogger, kParameterValueDistributionDefinition, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyOrientationCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyOrientationCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IOrientation).name()];
 	            
@@ -3405,8 +3302,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyOverrideBrakeActionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyOverrideBrakeActionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IOverrideBrakeAction).name()];
 	            
@@ -3429,8 +3325,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyOverrideClutchActionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyOverrideClutchActionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IOverrideClutchAction).name()];
 	            
@@ -3453,8 +3348,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyOverrideControllerValueActionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyOverrideControllerValueActionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IOverrideControllerValueAction).name()];
 	            
@@ -3507,8 +3401,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyOverrideGearActionCheckerRules(messageLogger, kGear, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyOverrideGearActionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyOverrideGearActionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IOverrideGearAction).name()];
 	            
@@ -3531,8 +3424,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyOverrideParkingBrakeActionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyOverrideParkingBrakeActionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IOverrideParkingBrakeAction).name()];
 	            
@@ -3555,8 +3447,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyOverrideSteeringWheelActionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyOverrideSteeringWheelActionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IOverrideSteeringWheelAction).name()];
 	            
@@ -3579,8 +3470,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyOverrideThrottleActionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyOverrideThrottleActionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IOverrideThrottleAction).name()];
 	            
@@ -3603,8 +3493,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyParameterActionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyParameterActionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IParameterAction).name()];
 	            
@@ -3637,8 +3526,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyParameterModifyActionCheckerRules(messageLogger, kModifyAction, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyParameterAddValueRuleCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyParameterAddValueRuleCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IParameterAddValueRule).name()];
 	            
@@ -3661,8 +3549,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyParameterAssignmentCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyParameterAssignmentCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IParameterAssignment).name()];
 	            
@@ -3685,8 +3572,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyParameterConditionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyParameterConditionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IParameterCondition).name()];
 	            
@@ -3709,8 +3595,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyParameterDeclarationCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyParameterDeclarationCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IParameterDeclaration).name()];
 	            
@@ -3739,8 +3624,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                    ApplyValueConstraintGroupCheckerRules(messageLogger, kListItem, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyParameterModifyActionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyParameterModifyActionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IParameterModifyAction).name()];
 	            
@@ -3768,8 +3652,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyModifyRuleCheckerRules(messageLogger, kRule, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyParameterMultiplyByValueRuleCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyParameterMultiplyByValueRuleCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IParameterMultiplyByValueRule).name()];
 	            
@@ -3792,8 +3675,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyParameterSetActionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyParameterSetActionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IParameterSetAction).name()];
 	            
@@ -3816,8 +3698,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyParameterValueDistributionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyParameterValueDistributionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IParameterValueDistribution).name()];
 	            
@@ -3850,8 +3731,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyDistributionDefinitionCheckerRules(messageLogger, kDistributionDefinition, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyParameterValueDistributionDefinitionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyParameterValueDistributionDefinitionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IParameterValueDistributionDefinition).name()];
 	            
@@ -3879,8 +3759,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyParameterValueDistributionCheckerRules(messageLogger, kParameterValueDistribution, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyParameterValueSetCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyParameterValueSetCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IParameterValueSet).name()];
 	            
@@ -3909,8 +3788,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                    ApplyParameterAssignmentCheckerRules(messageLogger, kListItem, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyPedestrianCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyPedestrianCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IPedestrian).name()];
 	            
@@ -3949,8 +3827,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyPropertiesCheckerRules(messageLogger, kProperties, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyPedestrianCatalogLocationCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyPedestrianCatalogLocationCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IPedestrianCatalogLocation).name()];
 	            
@@ -3978,8 +3855,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyDirectoryCheckerRules(messageLogger, kDirectory, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyPerformanceCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyPerformanceCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IPerformance).name()];
 	            
@@ -4002,8 +3878,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyPhaseCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyPhaseCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IPhase).name()];
 	            
@@ -4032,8 +3907,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                    ApplyTrafficSignalStateCheckerRules(messageLogger, kListItem, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyPoissonDistributionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyPoissonDistributionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IPoissonDistribution).name()];
 	            
@@ -4061,8 +3935,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyRangeCheckerRules(messageLogger, kRange, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyPolylineCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyPolylineCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IPolyline).name()];
 	            
@@ -4091,8 +3964,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                    ApplyVertexCheckerRules(messageLogger, kListItem, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyPositionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyPositionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IPosition).name()];
 	            
@@ -4165,8 +4037,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyTrajectoryPositionCheckerRules(messageLogger, kTrajectoryPosition, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyPositionInLaneCoordinatesCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyPositionInLaneCoordinatesCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IPositionInLaneCoordinates).name()];
 	            
@@ -4189,8 +4060,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyPositionInRoadCoordinatesCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyPositionInRoadCoordinatesCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IPositionInRoadCoordinates).name()];
 	            
@@ -4213,8 +4083,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyPositionOfCurrentEntityCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyPositionOfCurrentEntityCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IPositionOfCurrentEntity).name()];
 	            
@@ -4237,8 +4106,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyPrecipitationCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyPrecipitationCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IPrecipitation).name()];
 	            
@@ -4261,8 +4129,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyPrivateCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyPrivateCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IPrivate).name()];
 	            
@@ -4291,8 +4158,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                    ApplyPrivateActionCheckerRules(messageLogger, kListItem, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyPrivateActionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyPrivateActionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IPrivateAction).name()];
 	            
@@ -4355,8 +4221,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyRoutingActionCheckerRules(messageLogger, kRoutingAction, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyProbabilityDistributionSetCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyProbabilityDistributionSetCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IProbabilityDistributionSet).name()];
 	            
@@ -4385,8 +4250,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                    ApplyProbabilityDistributionSetElementCheckerRules(messageLogger, kListItem, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyProbabilityDistributionSetElementCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyProbabilityDistributionSetElementCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IProbabilityDistributionSetElement).name()];
 	            
@@ -4409,8 +4273,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyPropertiesCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyPropertiesCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IProperties).name()];
 	            
@@ -4445,8 +4308,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                    ApplyFileCheckerRules(messageLogger, kListItem, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyPropertyCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyPropertyCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IProperty).name()];
 	            
@@ -4469,8 +4331,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyRangeCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyRangeCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRange).name()];
 	            
@@ -4493,8 +4354,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyReachPositionConditionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyReachPositionConditionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IReachPositionCondition).name()];
 	            
@@ -4522,8 +4382,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyPositionCheckerRules(messageLogger, kPosition, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyRelativeDistanceConditionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyRelativeDistanceConditionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRelativeDistanceCondition).name()];
 	            
@@ -4546,8 +4405,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyRelativeLanePositionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyRelativeLanePositionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRelativeLanePosition).name()];
 	            
@@ -4575,8 +4433,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyOrientationCheckerRules(messageLogger, kOrientation, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyRelativeObjectPositionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyRelativeObjectPositionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRelativeObjectPosition).name()];
 	            
@@ -4604,8 +4461,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyOrientationCheckerRules(messageLogger, kOrientation, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyRelativeRoadPositionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyRelativeRoadPositionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRelativeRoadPosition).name()];
 	            
@@ -4633,8 +4489,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyOrientationCheckerRules(messageLogger, kOrientation, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyRelativeSpeedConditionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyRelativeSpeedConditionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRelativeSpeedCondition).name()];
 	            
@@ -4657,8 +4512,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyRelativeSpeedToMasterCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyRelativeSpeedToMasterCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRelativeSpeedToMaster).name()];
 	            
@@ -4686,8 +4540,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplySteadyStateCheckerRules(messageLogger, kSteadyState, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyRelativeTargetLaneCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyRelativeTargetLaneCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRelativeTargetLane).name()];
 	            
@@ -4710,8 +4563,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyRelativeTargetLaneOffsetCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyRelativeTargetLaneOffsetCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRelativeTargetLaneOffset).name()];
 	            
@@ -4734,8 +4586,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyRelativeTargetSpeedCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyRelativeTargetSpeedCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRelativeTargetSpeed).name()];
 	            
@@ -4758,8 +4609,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyRelativeWorldPositionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyRelativeWorldPositionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRelativeWorldPosition).name()];
 	            
@@ -4787,8 +4637,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyOrientationCheckerRules(messageLogger, kOrientation, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyRoadConditionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyRoadConditionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRoadCondition).name()];
 	            
@@ -4816,8 +4665,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyPropertiesCheckerRules(messageLogger, kProperties, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyRoadNetworkCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyRoadNetworkCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRoadNetwork).name()];
 	            
@@ -4861,8 +4709,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyUsedAreaCheckerRules(messageLogger, kUsedArea, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyRoadPositionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyRoadPositionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRoadPosition).name()];
 	            
@@ -4890,8 +4737,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyOrientationCheckerRules(messageLogger, kOrientation, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyRouteCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyRouteCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRoute).name()];
 	            
@@ -4926,8 +4772,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                    ApplyWaypointCheckerRules(messageLogger, kListItem, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyRouteCatalogLocationCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyRouteCatalogLocationCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRouteCatalogLocation).name()];
 	            
@@ -4955,8 +4800,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyDirectoryCheckerRules(messageLogger, kDirectory, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyRoutePositionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyRoutePositionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRoutePosition).name()];
 	            
@@ -4994,8 +4838,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyInRoutePositionCheckerRules(messageLogger, kInRoutePosition, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyRouteRefCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyRouteRefCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRouteRef).name()];
 	            
@@ -5028,8 +4871,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyCatalogReferenceCheckerRules(messageLogger, kCatalogReference, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyRoutingActionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyRoutingActionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IRoutingAction).name()];
 	            
@@ -5067,8 +4909,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyAcquirePositionActionCheckerRules(messageLogger, kAcquirePositionAction, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyScenarioDefinitionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyScenarioDefinitionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IScenarioDefinition).name()];
 	            
@@ -5117,8 +4958,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyStoryboardCheckerRules(messageLogger, kStoryboard, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyScenarioObjectCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyScenarioObjectCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IScenarioObject).name()];
 	            
@@ -5151,8 +4991,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyObjectControllerCheckerRules(messageLogger, kObjectController, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplySelectedEntitiesCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplySelectedEntitiesCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(ISelectedEntities).name()];
 	            
@@ -5187,8 +5026,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                    ApplyByTypeCheckerRules(messageLogger, kListItem, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyShapeCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyShapeCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IShape).name()];
 	            
@@ -5226,8 +5064,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyNurbsCheckerRules(messageLogger, kNurbs, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplySimulationTimeConditionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplySimulationTimeConditionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(ISimulationTimeCondition).name()];
 	            
@@ -5250,8 +5087,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplySpeedActionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplySpeedActionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(ISpeedAction).name()];
 	            
@@ -5284,8 +5120,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplySpeedActionTargetCheckerRules(messageLogger, kSpeedActionTarget, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplySpeedActionTargetCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplySpeedActionTargetCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(ISpeedActionTarget).name()];
 	            
@@ -5318,8 +5153,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyAbsoluteTargetSpeedCheckerRules(messageLogger, kAbsoluteTargetSpeed, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplySpeedConditionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplySpeedConditionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(ISpeedCondition).name()];
 	            
@@ -5342,8 +5176,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyStandStillConditionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyStandStillConditionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IStandStillCondition).name()];
 	            
@@ -5366,8 +5199,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplySteadyStateCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplySteadyStateCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(ISteadyState).name()];
 	            
@@ -5400,8 +5232,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyTargetTimeSteadyStateCheckerRules(messageLogger, kTargetTimeSteadyState, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyStochasticCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyStochasticCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IStochastic).name()];
 	            
@@ -5430,8 +5261,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                    ApplyStochasticDistributionCheckerRules(messageLogger, kListItem, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyStochasticDistributionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyStochasticDistributionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IStochasticDistribution).name()];
 	            
@@ -5459,8 +5289,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyStochasticDistributionTypeCheckerRules(messageLogger, kStochasticDistributionType, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyStochasticDistributionTypeCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyStochasticDistributionTypeCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IStochasticDistributionType).name()];
 	            
@@ -5513,8 +5342,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyUserDefinedDistributionCheckerRules(messageLogger, kUserDefinedDistribution, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyStoryCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyStoryCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IStory).name()];
 	            
@@ -5549,8 +5377,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                    ApplyActCheckerRules(messageLogger, kListItem, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyStoryboardCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyStoryboardCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IStoryboard).name()];
 	            
@@ -5589,8 +5416,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyTriggerCheckerRules(messageLogger, kStopTrigger, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyStoryboardElementStateConditionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyStoryboardElementStateConditionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IStoryboardElementStateCondition).name()];
 	            
@@ -5613,8 +5439,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplySunCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplySunCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(ISun).name()];
 	            
@@ -5637,8 +5462,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplySynchronizeActionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplySynchronizeActionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(ISynchronizeAction).name()];
 	            
@@ -5676,8 +5500,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyFinalSpeedCheckerRules(messageLogger, kFinalSpeed, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyTargetDistanceSteadyStateCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyTargetDistanceSteadyStateCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITargetDistanceSteadyState).name()];
 	            
@@ -5700,8 +5523,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyTargetTimeSteadyStateCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyTargetTimeSteadyStateCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITargetTimeSteadyState).name()];
 	            
@@ -5724,8 +5546,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyTeleportActionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyTeleportActionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITeleportAction).name()];
 	            
@@ -5753,8 +5574,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyPositionCheckerRules(messageLogger, kPosition, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyTimeHeadwayConditionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyTimeHeadwayConditionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITimeHeadwayCondition).name()];
 	            
@@ -5777,8 +5597,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyTimeOfDayCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyTimeOfDayCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITimeOfDay).name()];
 	            
@@ -5801,8 +5620,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyTimeOfDayConditionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyTimeOfDayConditionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITimeOfDayCondition).name()];
 	            
@@ -5825,8 +5643,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyTimeReferenceCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyTimeReferenceCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITimeReference).name()];
 	            
@@ -5859,8 +5676,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyTimingCheckerRules(messageLogger, kTiming, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyTimeToCollisionConditionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyTimeToCollisionConditionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITimeToCollisionCondition).name()];
 	            
@@ -5888,8 +5704,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyTimeToCollisionConditionTargetCheckerRules(messageLogger, kTimeToCollisionConditionTarget, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyTimeToCollisionConditionTargetCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyTimeToCollisionConditionTargetCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITimeToCollisionConditionTarget).name()];
 	            
@@ -5922,8 +5737,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyEntityRefCheckerRules(messageLogger, kEntityRef, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyTimingCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyTimingCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITiming).name()];
 	            
@@ -5946,8 +5760,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyTrafficActionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyTrafficActionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrafficAction).name()];
 	            
@@ -5990,8 +5803,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyTrafficStopActionCheckerRules(messageLogger, kTrafficStopAction, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyTrafficDefinitionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyTrafficDefinitionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrafficDefinition).name()];
 	            
@@ -6024,8 +5836,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyControllerDistributionCheckerRules(messageLogger, kControllerDistribution, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyTrafficSignalActionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyTrafficSignalActionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrafficSignalAction).name()];
 	            
@@ -6058,8 +5869,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyTrafficSignalStateActionCheckerRules(messageLogger, kTrafficSignalStateAction, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyTrafficSignalConditionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyTrafficSignalConditionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrafficSignalCondition).name()];
 	            
@@ -6082,8 +5892,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyTrafficSignalControllerCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyTrafficSignalControllerCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrafficSignalController).name()];
 	            
@@ -6112,8 +5921,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                    ApplyPhaseCheckerRules(messageLogger, kListItem, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyTrafficSignalControllerActionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyTrafficSignalControllerActionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrafficSignalControllerAction).name()];
 	            
@@ -6136,8 +5944,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyTrafficSignalControllerConditionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyTrafficSignalControllerConditionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrafficSignalControllerCondition).name()];
 	            
@@ -6160,8 +5967,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyTrafficSignalStateCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyTrafficSignalStateCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrafficSignalState).name()];
 	            
@@ -6184,8 +5990,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyTrafficSignalStateActionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyTrafficSignalStateActionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrafficSignalStateAction).name()];
 	            
@@ -6208,8 +6013,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyTrafficSinkActionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyTrafficSinkActionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrafficSinkAction).name()];
 	            
@@ -6242,8 +6046,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyTrafficDefinitionCheckerRules(messageLogger, kTrafficDefinition, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyTrafficSourceActionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyTrafficSourceActionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrafficSourceAction).name()];
 	            
@@ -6276,8 +6079,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyTrafficDefinitionCheckerRules(messageLogger, kTrafficDefinition, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyTrafficStopActionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyTrafficStopActionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrafficStopAction).name()];
 	            
@@ -6300,8 +6102,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyTrafficSwarmActionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyTrafficSwarmActionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrafficSwarmAction).name()];
 	            
@@ -6334,8 +6135,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyTrafficDefinitionCheckerRules(messageLogger, kTrafficDefinition, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyTrajectoryCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyTrajectoryCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrajectory).name()];
 	            
@@ -6369,8 +6169,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyShapeCheckerRules(messageLogger, kShape, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyTrajectoryCatalogLocationCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyTrajectoryCatalogLocationCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrajectoryCatalogLocation).name()];
 	            
@@ -6398,8 +6197,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyDirectoryCheckerRules(messageLogger, kDirectory, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyTrajectoryFollowingModeCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyTrajectoryFollowingModeCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrajectoryFollowingMode).name()];
 	            
@@ -6422,8 +6220,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyTrajectoryPositionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyTrajectoryPositionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrajectoryPosition).name()];
 	            
@@ -6456,8 +6253,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyTrajectoryRefCheckerRules(messageLogger, kTrajectoryRef, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyTrajectoryRefCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyTrajectoryRefCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrajectoryRef).name()];
 	            
@@ -6490,8 +6286,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyCatalogReferenceCheckerRules(messageLogger, kCatalogReference, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyTransitionDynamicsCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyTransitionDynamicsCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITransitionDynamics).name()];
 	            
@@ -6514,8 +6309,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyTraveledDistanceConditionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyTraveledDistanceConditionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITraveledDistanceCondition).name()];
 	            
@@ -6538,8 +6332,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyTriggerCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyTriggerCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITrigger).name()];
 	            
@@ -6568,8 +6361,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                    ApplyConditionGroupCheckerRules(messageLogger, kListItem, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyTriggeringEntitiesCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyTriggeringEntitiesCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(ITriggeringEntities).name()];
 	            
@@ -6598,8 +6390,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                    ApplyEntityRefCheckerRules(messageLogger, kListItem, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyUniformDistributionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyUniformDistributionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IUniformDistribution).name()];
 	            
@@ -6627,8 +6418,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyRangeCheckerRules(messageLogger, kRange, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyUsedAreaCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyUsedAreaCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IUsedArea).name()];
 	            
@@ -6657,8 +6447,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                    ApplyPositionCheckerRules(messageLogger, kListItem, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyUserDefinedActionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyUserDefinedActionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IUserDefinedAction).name()];
 	            
@@ -6686,8 +6475,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyCustomCommandActionCheckerRules(messageLogger, kCustomCommandAction, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyUserDefinedDistributionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyUserDefinedDistributionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IUserDefinedDistribution).name()];
 	            
@@ -6710,8 +6498,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyUserDefinedValueConditionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyUserDefinedValueConditionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IUserDefinedValueCondition).name()];
 	            
@@ -6734,8 +6521,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyValueConstraintCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyValueConstraintCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IValueConstraint).name()];
 	            
@@ -6758,8 +6544,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyValueConstraintGroupCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyValueConstraintGroupCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IValueConstraintGroup).name()];
 	            
@@ -6788,8 +6573,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                    ApplyValueConstraintCheckerRules(messageLogger, kListItem, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyValueSetDistributionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyValueSetDistributionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IValueSetDistribution).name()];
 	            
@@ -6818,8 +6602,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                    ApplyParameterValueSetCheckerRules(messageLogger, kListItem, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyVehicleCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyVehicleCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IVehicle).name()];
 	            
@@ -6868,8 +6651,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyPropertiesCheckerRules(messageLogger, kProperties, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyVehicleCatalogLocationCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyVehicleCatalogLocationCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IVehicleCatalogLocation).name()];
 	            
@@ -6897,8 +6679,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyDirectoryCheckerRules(messageLogger, kDirectory, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyVehicleCategoryDistributionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyVehicleCategoryDistributionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IVehicleCategoryDistribution).name()];
 	            
@@ -6927,8 +6708,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                    ApplyVehicleCategoryDistributionEntryCheckerRules(messageLogger, kListItem, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyVehicleCategoryDistributionEntryCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyVehicleCategoryDistributionEntryCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IVehicleCategoryDistributionEntry).name()];
 	            
@@ -6951,8 +6731,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyVertexCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyVertexCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IVertex).name()];
 	            
@@ -6980,8 +6759,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyPositionCheckerRules(messageLogger, kPosition, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyVisibilityActionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyVisibilityActionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IVisibilityAction).name()];
 	            
@@ -7004,8 +6782,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyWaypointCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyWaypointCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IWaypoint).name()];
 	            
@@ -7033,8 +6810,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyPositionCheckerRules(messageLogger, kPosition, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyWeatherCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyWeatherCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IWeather).name()];
 	            
@@ -7077,8 +6853,7 @@ namespace NET_ASAM_OPENSCENARIO
 	                ApplyWindCheckerRules(messageLogger, kWind, contextMode);
 	            }
 	        }
-    		template <class T>
-   	        void ApplyWindCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyWindCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IWind).name()];
 	            
@@ -7101,8 +6876,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 	            // getChildren
 	        }
-    		template <class T>
-   	        void ApplyWorldPositionCheckerRules(std::shared_ptr<IContentMessageLogger<T>> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
+   	        void ApplyWorldPositionCheckerRules(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenarioModelElement> object, const ContextMode contextMode)
 	        {
 	            auto checkerRulesForType = _typeToCheckerRuleList[typeid(IWorldPosition).name()];
 	            
@@ -7127,8 +6901,8 @@ namespace NET_ASAM_OPENSCENARIO
 	        }
 
         public:
-            OPENSCENARIOLIB_EXP void CheckScenarioInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenario> openScenario) override;
-            OPENSCENARIOLIB_EXP void CheckScenarioInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenario> openScenario) override;
+            OPENSCENARIOLIB_EXP void CheckScenarioInFileContext(std::shared_ptr<IContentMessageLogger> messageLogger, std::shared_ptr<IOpenScenario> openScenario) override;
+            OPENSCENARIOLIB_EXP void CheckScenarioInTreeContext(std::shared_ptr<IContentMessageLogger> messageLogger, std::shared_ptr<IOpenScenario> openScenario) override;
             OPENSCENARIOLIB_EXP void AddAbsoluteSpeedCheckerRule(std::shared_ptr<ICheckerRule> checkerRule) override;
             OPENSCENARIOLIB_EXP void AddAbsoluteTargetLaneCheckerRule(std::shared_ptr<ICheckerRule> checkerRule) override;
             OPENSCENARIOLIB_EXP void AddAbsoluteTargetLaneOffsetCheckerRule(std::shared_ptr<ICheckerRule> checkerRule) override;

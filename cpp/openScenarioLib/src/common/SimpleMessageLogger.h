@@ -33,20 +33,20 @@ namespace NET_ASAM_OPENSCENARIO
         BaseMessageLogger<FileContentMessage> _baseMessageLogger;
 
     public:
-		OPENSCENARIOLIB_EXP SimpleMessageLogger(const ErrorLevel logLevel);
+		OPENSCENARIOLIB_EXP SimpleMessageLogger(const ErrorLevel logLevel) ;
 
-		OPENSCENARIOLIB_EXP void LogMessage(FileContentMessage& message) override;
+		OPENSCENARIOLIB_EXP virtual void LogMessage(FileContentMessage& message) override;
 
-		OPENSCENARIOLIB_EXP void LogAllMessages(std::vector<FileContentMessage>& messages) override;
+		OPENSCENARIOLIB_EXP virtual void LogAllMessages(std::vector<FileContentMessage>& messages) override;
 
         /**
         * The message that have been picked up and >= log level.
         * @return the messages picked up
         */
-		OPENSCENARIOLIB_EXP std::vector<FileContentMessage> GetMessages();
+		OPENSCENARIOLIB_EXP virtual std::vector<FileContentMessage> GetMessages();
 
-		OPENSCENARIOLIB_EXP std::vector<FileContentMessage> GetMessagesFilteredByErrorLevel(const ErrorLevel errorLevel)  override;
+		OPENSCENARIOLIB_EXP virtual std::vector<FileContentMessage> GetMessagesFilteredByErrorLevel(const ErrorLevel errorLevel)  override;
 
-		OPENSCENARIOLIB_EXP std::vector<FileContentMessage> GetMessagesFilteredByWorseOrEqualToErrorLevel(const ErrorLevel errorLevel) override;
+		OPENSCENARIOLIB_EXP virtual std::vector<FileContentMessage> GetMessagesFilteredByWorseOrEqualToErrorLevel(const ErrorLevel errorLevel) override;
     };
 }

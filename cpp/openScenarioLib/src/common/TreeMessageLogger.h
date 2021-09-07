@@ -41,18 +41,18 @@ namespace NET_ASAM_OPENSCENARIO
          */
 		OPENSCENARIOLIB_EXP TreeMessageLogger(const ErrorLevel logLevel);
 
-		void LogMessage(TreeContentMessage& message) override;
+		OPENSCENARIOLIB_EXP virtual void LogMessage(TreeContentMessage& message) override;
 
-		void LogAllMessages(std::vector<TreeContentMessage>& messages) override;
+		OPENSCENARIOLIB_EXP virtual void LogAllMessages(std::vector<TreeContentMessage>& messages) override;
 
-         /**
-         * The message that have been picked up and >= log level.
-         * @return the messages picked up
-         */
-         std::vector<TreeContentMessage> GetMessages();
+		/**
+		* The message that have been picked up and >= log level.
+		* @return the messages picked up
+		*/
+		OPENSCENARIOLIB_EXP virtual std::vector<TreeContentMessage> GetMessages();
 
-		 std::vector<TreeContentMessage> GetMessagesFilteredByErrorLevel(const ErrorLevel errorLevel)  override;
+		OPENSCENARIOLIB_EXP virtual std::vector<TreeContentMessage> GetMessagesFilteredByErrorLevel(const ErrorLevel errorLevel)  override;
 
-		 std::vector<TreeContentMessage> GetMessagesFilteredByWorseOrEqualToErrorLevel(const ErrorLevel errorLevel) override;
+		OPENSCENARIOLIB_EXP virtual std::vector<TreeContentMessage> GetMessagesFilteredByWorseOrEqualToErrorLevel(const ErrorLevel errorLevel) override;
     };
 }

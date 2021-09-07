@@ -19,6 +19,7 @@
 #include "FileContentMessage.h"
 #include "IContentMessageLogger.h"
 #include "MemLeakDetection.h"
+#include "TreeContentMessage.h"
 
 namespace NET_ASAM_OPENSCENARIO
 {
@@ -26,7 +27,7 @@ namespace NET_ASAM_OPENSCENARIO
      * An interface that logs parser messages in a file context.
      *
      */
-    class IParserMessageLogger : public IContentMessageLogger<FileContentMessage>
+    class IParserMessageLogger : public IContentMessageLogger
     {
     public:
         IParserMessageLogger() = default;
@@ -35,5 +36,18 @@ namespace NET_ASAM_OPENSCENARIO
         /*
         * This is empty for compatibility reasons to checker framework and with parsing
         */
+		virtual void LogMessage(FileContentMessage& message) = 0;
+
+		virtual void LogAllMessages(std::vector<FileContentMessage>& messages) = 0;
+
+		/**
+		* The message that have been picked up and >= log level.
+		* @return the messages picked up
+		*/
+		virtual  std::vector<FileContentMessage> GetMessages() = 0;
+
+		virtual  std::vector<FileContentMessage> GetMessagesFilteredByErrorLevel(const ErrorLevel errorLevel) = 0;
+
+		virtual  std::vector<FileContentMessage> GetMessagesFilteredByWorseOrEqualToErrorLevel(const ErrorLevel errorLevel) = 0;
     };
 }

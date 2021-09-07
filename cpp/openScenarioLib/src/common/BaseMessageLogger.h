@@ -24,7 +24,7 @@
 namespace NET_ASAM_OPENSCENARIO
 {
     template <class T>
-    class BaseMessageLogger: public IContentMessageLogger<T>
+    class BaseMessageLogger: public IContentMessageLogger
     {
 
     private :
@@ -40,7 +40,7 @@ namespace NET_ASAM_OPENSCENARIO
          */
          BaseMessageLogger(const ErrorLevel logLevel): _logLevel(logLevel) {}
 
-        void LogMessage(T& message) override
+        void LogMessage(T& message)
         {
             if (message.GetErrorLevel() >= _logLevel) 
             {
@@ -48,7 +48,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void LogAllMessages(std::vector<T>& messages) override
+        void LogAllMessages(std::vector<T>& messages)
         {
             for (T fileContentMessage : messages) 
             {
@@ -66,7 +66,7 @@ namespace NET_ASAM_OPENSCENARIO
             return _messages;
         }
 
-        std::vector<T> GetMessagesFilteredByErrorLevel(const ErrorLevel errorLevel) override
+        std::vector<T> GetMessagesFilteredByErrorLevel(const ErrorLevel errorLevel)
         {
 
             std::vector<T> result;
@@ -84,7 +84,7 @@ namespace NET_ASAM_OPENSCENARIO
             return result;
         }
 
-        std::vector<T> GetMessagesFilteredByWorseOrEqualToErrorLevel(const ErrorLevel errorLevel) override
+        std::vector<T> GetMessagesFilteredByWorseOrEqualToErrorLevel(const ErrorLevel errorLevel)
         {
             std::vector<T> result;
             for (auto&& message : _messages)
