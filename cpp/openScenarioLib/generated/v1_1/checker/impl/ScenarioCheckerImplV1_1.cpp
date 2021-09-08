@@ -21,14 +21,14 @@ namespace NET_ASAM_OPENSCENARIO
 {
     namespace v1_1
     {
-        void ScenarioCheckerImpl::CheckScenarioInFileContext(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenario> openScenario)
+        void ScenarioCheckerImpl::CheckScenarioInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, const std::shared_ptr<IOpenScenario> openScenario)
         {
-            ApplyOpenScenarioCheckerRules(messageLogger, openScenario, MODE_FILE);
+            ApplyOpenScenarioCheckerRules(std::dynamic_pointer_cast<IContentMessageLogger>(messageLogger), openScenario, MODE_FILE);
         }
 
-        void ScenarioCheckerImpl::CheckScenarioInTreeContext(std::shared_ptr<IContentMessageLogger> messageLogger, const std::shared_ptr<IOpenScenario> openScenario)
+        void ScenarioCheckerImpl::CheckScenarioInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, const std::shared_ptr<IOpenScenario> openScenario)
         {
-            ApplyOpenScenarioCheckerRules(messageLogger, openScenario, MODE_TREE);
+            ApplyOpenScenarioCheckerRules(std::dynamic_pointer_cast<IContentMessageLogger>(messageLogger), openScenario, MODE_TREE);
         }
 
         void ScenarioCheckerImpl::AddAbsoluteSpeedCheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
