@@ -16,7 +16,7 @@
  */
 
 #include "XmlComplexTypeParser.h"
-
+#include <regex>
 
 namespace NET_ASAM_OPENSCENARIO
 {
@@ -103,12 +103,21 @@ namespace NET_ASAM_OPENSCENARIO
         const auto kEndPosition = indexedElement->GetEndElementLocation();
         object->SetEndMarker(Textmarker(kEndPosition.GetLine(), kEndPosition.GetColumn(), this->_filename));
     }
-
+	
     bool XmlComplexTypeParser::IsParametrized(std::string& value)
     {
         // Only Dollar will result in "$"
         return value[0] == '$' && value.length() > 1;
     }
+
+	bool XmlComplexTypeParser::IsExpression(std::string& value)
+	{
+		// Only Dollar will result in "$"
+		std::smatch base_match;
+		const std::regex base_regex("^\\s*\\$\\s*\\{");
+		return std::regex_match(value,base_match, base_regex);
+	}
+	
     /**
      * Stripes the '$' from a name when the value starts with '$'
      * @param value value that might start with a '$'

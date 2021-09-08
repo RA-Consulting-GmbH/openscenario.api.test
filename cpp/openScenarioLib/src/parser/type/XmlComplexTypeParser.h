@@ -65,9 +65,15 @@ namespace NET_ASAM_OPENSCENARIO
         /**
          * Checks for paramterized value ($-notation)
          * @param value value
-         * @return tue if the attribute has a prameter instead of a literal value
+         * @return true if the attribute represents a parameter rather than a literal value
          */
 		static bool IsParametrized(std::string& value);
+		/**
+		 * Checks for expression value ('${'-notation)
+		 * @param value value
+		 * @return true if the attribute represents an expression rather than a literal value
+		 */
+		static bool IsExpression(std::string& value);
         /**
          * Stripes the '$' from a name when the value starts with '$'
          * @param value value that might start with a '$'

@@ -55,6 +55,11 @@ namespace NET_ASAM_OPENSCENARIO
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, StripDollarSign(attributeValue), startMarker); 
                     }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype double
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
+                    }
                     else
                     {
                     	
@@ -218,6 +223,11 @@ namespace NET_ASAM_OPENSCENARIO
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, StripDollarSign(attributeValue), startMarker); 
                     }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype double
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
+                    }
                     else
                     {
                     	
@@ -278,6 +288,11 @@ namespace NET_ASAM_OPENSCENARIO
                     if (IsParametrized(attributeValue))
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, StripDollarSign(attributeValue), startMarker); 
+                    }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype double
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -380,6 +395,11 @@ namespace NET_ASAM_OPENSCENARIO
                     if (IsParametrized(attributeValue))
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, StripDollarSign(attributeValue), startMarker); 
+                    }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype double
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -1414,6 +1434,11 @@ namespace NET_ASAM_OPENSCENARIO
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAX_STEERING, StripDollarSign(attributeValue), startMarker); 
                     }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype double
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__MAX_STEERING, attributeValue, startMarker); 
+                    }
                     else
                     {
                     	
@@ -1445,6 +1470,11 @@ namespace NET_ASAM_OPENSCENARIO
                     if (IsParametrized(attributeValue))
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__POSITION_X, StripDollarSign(attributeValue), startMarker); 
+                    }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype double
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__POSITION_X, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -1478,6 +1508,11 @@ namespace NET_ASAM_OPENSCENARIO
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__POSITION_Z, StripDollarSign(attributeValue), startMarker); 
                     }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype double
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__POSITION_Z, attributeValue, startMarker); 
+                    }
                     else
                     {
                     	
@@ -1510,6 +1545,11 @@ namespace NET_ASAM_OPENSCENARIO
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TRACK_WIDTH, StripDollarSign(attributeValue), startMarker); 
                     }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype double
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__TRACK_WIDTH, attributeValue, startMarker); 
+                    }
                     else
                     {
                     	
@@ -1541,6 +1581,11 @@ namespace NET_ASAM_OPENSCENARIO
                     if (IsParametrized(attributeValue))
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__WHEEL_DIAMETER, StripDollarSign(attributeValue), startMarker); 
+                    }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype double
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__WHEEL_DIAMETER, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -3324,6 +3369,11 @@ namespace NET_ASAM_OPENSCENARIO
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__X, StripDollarSign(attributeValue), startMarker); 
                     }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype double
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__X, attributeValue, startMarker); 
+                    }
                     else
                     {
                     	
@@ -3356,6 +3406,11 @@ namespace NET_ASAM_OPENSCENARIO
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__Y, StripDollarSign(attributeValue), startMarker); 
                     }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype double
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__Y, attributeValue, startMarker); 
+                    }
                     else
                     {
                     	
@@ -3387,6 +3442,11 @@ namespace NET_ASAM_OPENSCENARIO
                     if (IsParametrized(attributeValue))
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__Z, StripDollarSign(attributeValue), startMarker); 
+                    }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype double
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__Z, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -3512,6 +3572,11 @@ namespace NET_ASAM_OPENSCENARIO
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__CURVATURE, StripDollarSign(attributeValue), startMarker); 
                     }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype double
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__CURVATURE, attributeValue, startMarker); 
+                    }
                     else
                     {
                     	
@@ -3543,6 +3608,11 @@ namespace NET_ASAM_OPENSCENARIO
                     if (IsParametrized(attributeValue))
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__CURVATURE_DOT, StripDollarSign(attributeValue), startMarker); 
+                    }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype double
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__CURVATURE_DOT, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -3576,6 +3646,11 @@ namespace NET_ASAM_OPENSCENARIO
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__CURVATURE_PRIME, StripDollarSign(attributeValue), startMarker); 
                     }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype double
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__CURVATURE_PRIME, attributeValue, startMarker); 
+                    }
                     else
                     {
                     	
@@ -3607,6 +3682,11 @@ namespace NET_ASAM_OPENSCENARIO
                     if (IsParametrized(attributeValue))
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__LENGTH, StripDollarSign(attributeValue), startMarker); 
+                    }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype double
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__LENGTH, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -3640,6 +3720,11 @@ namespace NET_ASAM_OPENSCENARIO
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__START_TIME, StripDollarSign(attributeValue), startMarker); 
                     }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype double
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__START_TIME, attributeValue, startMarker); 
+                    }
                     else
                     {
                     	
@@ -3671,6 +3756,11 @@ namespace NET_ASAM_OPENSCENARIO
                     if (IsParametrized(attributeValue))
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__STOP_TIME, StripDollarSign(attributeValue), startMarker); 
+                    }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype double
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__STOP_TIME, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -3922,6 +4012,11 @@ namespace NET_ASAM_OPENSCENARIO
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DELAY, StripDollarSign(attributeValue), startMarker); 
                     }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype double
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__DELAY, attributeValue, startMarker); 
+                    }
                     else
                     {
                     	
@@ -4162,6 +4257,11 @@ namespace NET_ASAM_OPENSCENARIO
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TIME, StripDollarSign(attributeValue), startMarker); 
                     }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype double
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__TIME, attributeValue, startMarker); 
+                    }
                     else
                     {
                     	
@@ -4193,6 +4293,11 @@ namespace NET_ASAM_OPENSCENARIO
                     if (IsParametrized(attributeValue))
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__WEIGHT, StripDollarSign(attributeValue), startMarker); 
+                    }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype double
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__WEIGHT, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -4717,6 +4822,11 @@ namespace NET_ASAM_OPENSCENARIO
                     if (IsParametrized(attributeValue))
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__WEIGHT, StripDollarSign(attributeValue), startMarker); 
+                    }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype double
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__WEIGHT, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -5494,6 +5604,11 @@ namespace NET_ASAM_OPENSCENARIO
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__HEIGHT, StripDollarSign(attributeValue), startMarker); 
                     }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype double
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__HEIGHT, attributeValue, startMarker); 
+                    }
                     else
                     {
                     	
@@ -5526,6 +5641,11 @@ namespace NET_ASAM_OPENSCENARIO
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__LENGTH, StripDollarSign(attributeValue), startMarker); 
                     }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype double
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__LENGTH, attributeValue, startMarker); 
+                    }
                     else
                     {
                     	
@@ -5557,6 +5677,11 @@ namespace NET_ASAM_OPENSCENARIO
                     if (IsParametrized(attributeValue))
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__WIDTH, StripDollarSign(attributeValue), startMarker); 
+                    }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype double
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__WIDTH, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -5868,6 +5993,11 @@ namespace NET_ASAM_OPENSCENARIO
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, StripDollarSign(attributeValue), startMarker); 
                     }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype double
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
+                    }
                     else
                     {
                     	
@@ -6070,6 +6200,11 @@ namespace NET_ASAM_OPENSCENARIO
                     if (IsParametrized(attributeValue))
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__STEP_WIDTH, StripDollarSign(attributeValue), startMarker); 
+                    }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype double
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__STEP_WIDTH, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -6302,6 +6437,11 @@ namespace NET_ASAM_OPENSCENARIO
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAX_ACCELERATION, StripDollarSign(attributeValue), startMarker); 
                     }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype double
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__MAX_ACCELERATION, attributeValue, startMarker); 
+                    }
                     else
                     {
                     	
@@ -6334,6 +6474,11 @@ namespace NET_ASAM_OPENSCENARIO
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAX_DECELERATION, StripDollarSign(attributeValue), startMarker); 
                     }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype double
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__MAX_DECELERATION, attributeValue, startMarker); 
+                    }
                     else
                     {
                     	
@@ -6365,6 +6510,11 @@ namespace NET_ASAM_OPENSCENARIO
                     if (IsParametrized(attributeValue))
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAX_SPEED, StripDollarSign(attributeValue), startMarker); 
+                    }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype double
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__MAX_SPEED, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -6426,6 +6576,11 @@ namespace NET_ASAM_OPENSCENARIO
                     if (IsParametrized(attributeValue))
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DURATION, StripDollarSign(attributeValue), startMarker); 
+                    }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype double
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__DURATION, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -8053,6 +8208,11 @@ namespace NET_ASAM_OPENSCENARIO
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAXIMUM_EXECUTION_COUNT, StripDollarSign(attributeValue), startMarker); 
                     }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype unsignedInt
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__MAXIMUM_EXECUTION_COUNT, attributeValue, startMarker); 
+                    }
                     else
                     {
                     	
@@ -8485,6 +8645,11 @@ namespace NET_ASAM_OPENSCENARIO
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__REV_MAJOR, StripDollarSign(attributeValue), startMarker); 
                     }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype unsignedShort
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__REV_MAJOR, attributeValue, startMarker); 
+                    }
                     else
                     {
                     	
@@ -8516,6 +8681,11 @@ namespace NET_ASAM_OPENSCENARIO
                     if (IsParametrized(attributeValue))
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__REV_MINOR, StripDollarSign(attributeValue), startMarker); 
+                    }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype unsignedShort
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__REV_MINOR, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -8726,6 +8896,11 @@ namespace NET_ASAM_OPENSCENARIO
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VISUAL_RANGE, StripDollarSign(attributeValue), startMarker); 
                     }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype double
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__VISUAL_RANGE, attributeValue, startMarker); 
+                    }
                     else
                     {
                     	
@@ -8826,6 +9001,11 @@ namespace NET_ASAM_OPENSCENARIO
                     if (IsParametrized(attributeValue))
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__INITIAL_DISTANCE_OFFSET, StripDollarSign(attributeValue), startMarker); 
+                    }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype double
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__INITIAL_DISTANCE_OFFSET, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -9085,6 +9265,11 @@ namespace NET_ASAM_OPENSCENARIO
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__HEIGHT, StripDollarSign(attributeValue), startMarker); 
                     }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype double
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__HEIGHT, attributeValue, startMarker); 
+                    }
                     else
                     {
                     	
@@ -9117,6 +9302,11 @@ namespace NET_ASAM_OPENSCENARIO
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__LATITUDE, StripDollarSign(attributeValue), startMarker); 
                     }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype double
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__LATITUDE, attributeValue, startMarker); 
+                    }
                     else
                     {
                     	
@@ -9148,6 +9338,11 @@ namespace NET_ASAM_OPENSCENARIO
                     if (IsParametrized(attributeValue))
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__LONGITUDE, StripDollarSign(attributeValue), startMarker); 
+                    }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype double
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__LONGITUDE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -9542,6 +9737,11 @@ namespace NET_ASAM_OPENSCENARIO
                     if (IsParametrized(attributeValue))
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__WEIGHT, StripDollarSign(attributeValue), startMarker); 
+                    }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype double
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__WEIGHT, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -10076,6 +10276,11 @@ namespace NET_ASAM_OPENSCENARIO
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, StripDollarSign(attributeValue), startMarker); 
                     }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype double
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
+                    }
                     else
                     {
                     	
@@ -10137,6 +10342,11 @@ namespace NET_ASAM_OPENSCENARIO
                     if (IsParametrized(attributeValue))
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TARGET_LANE_OFFSET, StripDollarSign(attributeValue), startMarker); 
+                    }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype double
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__TARGET_LANE_OFFSET, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -10566,6 +10776,11 @@ namespace NET_ASAM_OPENSCENARIO
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAX_LATERAL_ACC, StripDollarSign(attributeValue), startMarker); 
                     }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype double
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__MAX_LATERAL_ACC, attributeValue, startMarker); 
+                    }
                     else
                     {
                     	
@@ -10768,6 +10983,11 @@ namespace NET_ASAM_OPENSCENARIO
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__OFFSET, StripDollarSign(attributeValue), startMarker); 
                     }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype double
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__OFFSET, attributeValue, startMarker); 
+                    }
                     else
                     {
                     	
@@ -10831,6 +11051,11 @@ namespace NET_ASAM_OPENSCENARIO
                     if (IsParametrized(attributeValue))
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__S, StripDollarSign(attributeValue), startMarker); 
+                    }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype double
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__S, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -11193,6 +11418,11 @@ namespace NET_ASAM_OPENSCENARIO
                     if (IsParametrized(attributeValue))
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DISTANCE, StripDollarSign(attributeValue), startMarker); 
+                    }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype double
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__DISTANCE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -11706,6 +11936,11 @@ namespace NET_ASAM_OPENSCENARIO
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DISTANCE, StripDollarSign(attributeValue), startMarker); 
                     }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype double
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__DISTANCE, attributeValue, startMarker); 
+                    }
                     else
                     {
                     	
@@ -11803,6 +12038,11 @@ namespace NET_ASAM_OPENSCENARIO
                     if (IsParametrized(attributeValue))
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TIME_GAP, StripDollarSign(attributeValue), startMarker); 
+                    }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype double
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__TIME_GAP, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -12111,6 +12351,11 @@ namespace NET_ASAM_OPENSCENARIO
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAXIMUM_EXECUTION_COUNT, StripDollarSign(attributeValue), startMarker); 
                     }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype unsignedInt
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__MAXIMUM_EXECUTION_COUNT, attributeValue, startMarker); 
+                    }
                     else
                     {
                     	
@@ -12324,6 +12569,11 @@ namespace NET_ASAM_OPENSCENARIO
                     if (IsParametrized(attributeValue))
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MASS, StripDollarSign(attributeValue), startMarker); 
+                    }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype double
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__MASS, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -12812,6 +13062,11 @@ namespace NET_ASAM_OPENSCENARIO
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__EXPECTED_VALUE, StripDollarSign(attributeValue), startMarker); 
                     }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype double
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__EXPECTED_VALUE, attributeValue, startMarker); 
+                    }
                     else
                     {
                     	
@@ -12843,6 +13098,11 @@ namespace NET_ASAM_OPENSCENARIO
                     if (IsParametrized(attributeValue))
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VARIANCE, StripDollarSign(attributeValue), startMarker); 
+                    }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype double
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__VARIANCE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -12943,6 +13203,11 @@ namespace NET_ASAM_OPENSCENARIO
                     if (IsParametrized(attributeValue))
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ORDER, StripDollarSign(attributeValue), startMarker); 
+                    }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype unsignedInt
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__ORDER, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -13193,6 +13458,11 @@ namespace NET_ASAM_OPENSCENARIO
                     if (IsParametrized(attributeValue))
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DURATION, StripDollarSign(attributeValue), startMarker); 
+                    }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype double
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__DURATION, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -13511,6 +13781,11 @@ namespace NET_ASAM_OPENSCENARIO
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__H, StripDollarSign(attributeValue), startMarker); 
                     }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype double
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__H, attributeValue, startMarker); 
+                    }
                     else
                     {
                     	
@@ -13543,6 +13818,11 @@ namespace NET_ASAM_OPENSCENARIO
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__P, StripDollarSign(attributeValue), startMarker); 
                     }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype double
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__P, attributeValue, startMarker); 
+                    }
                     else
                     {
                     	
@@ -13574,6 +13854,11 @@ namespace NET_ASAM_OPENSCENARIO
                     if (IsParametrized(attributeValue))
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__R, StripDollarSign(attributeValue), startMarker); 
+                    }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype double
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__R, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -13709,6 +13994,11 @@ namespace NET_ASAM_OPENSCENARIO
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, StripDollarSign(attributeValue), startMarker); 
                     }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype double
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
+                    }
                     else
                     {
                     	
@@ -13801,6 +14091,11 @@ namespace NET_ASAM_OPENSCENARIO
                     if (IsParametrized(attributeValue))
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, StripDollarSign(attributeValue), startMarker); 
+                    }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype double
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -14159,6 +14454,11 @@ namespace NET_ASAM_OPENSCENARIO
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NUMBER, StripDollarSign(attributeValue), startMarker); 
                     }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype double
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__NUMBER, attributeValue, startMarker); 
+                    }
                     else
                     {
                     	
@@ -14251,6 +14551,11 @@ namespace NET_ASAM_OPENSCENARIO
                     if (IsParametrized(attributeValue))
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, StripDollarSign(attributeValue), startMarker); 
+                    }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype double
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -14345,6 +14650,11 @@ namespace NET_ASAM_OPENSCENARIO
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, StripDollarSign(attributeValue), startMarker); 
                     }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype double
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
+                    }
                     else
                     {
                     	
@@ -14437,6 +14747,11 @@ namespace NET_ASAM_OPENSCENARIO
                     if (IsParametrized(attributeValue))
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, StripDollarSign(attributeValue), startMarker); 
+                    }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype double
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -14641,6 +14956,11 @@ namespace NET_ASAM_OPENSCENARIO
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, StripDollarSign(attributeValue), startMarker); 
                     }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype double
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
+                    }
                     else
                     {
                     	
@@ -14724,6 +15044,11 @@ namespace NET_ASAM_OPENSCENARIO
                     if (IsParametrized(attributeValue))
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, StripDollarSign(attributeValue), startMarker); 
+                    }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype string
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
                     }
                     else
                     {

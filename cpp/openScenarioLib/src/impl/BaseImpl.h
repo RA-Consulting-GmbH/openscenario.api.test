@@ -26,6 +26,7 @@
 #include "IParserMessageLogger.h"
 #include "Textmarker.h"
 #include "IParameterizedObject.h"
+#include "IExpressionObject.h"
 #include "ParameterValue.h"
 #include "DateTime.h"
 #include <cassert>
@@ -40,7 +41,7 @@
  */
 namespace NET_ASAM_OPENSCENARIO
 {
-    class BaseImpl : public IParameterizedObject, public virtual IOpenScenarioModelElement, public virtual IOpenScenarioFlexElement
+    class BaseImpl :  public IExpressionObject, public virtual IOpenScenarioModelElement, public virtual IOpenScenarioFlexElement
     {
     private:
         /**
@@ -54,6 +55,18 @@ namespace NET_ASAM_OPENSCENARIO
 
 			ParameterizedAttribute(const std::string parameterName, Textmarker& textMarker);
         };
+
+		/**
+		 * An attribute that is an expression.
+		 */
+		class ExpressionAttribute
+		{
+		public:
+			Textmarker textMarker;
+			std::string expression;
+
+			ExpressionAttribute(const std::string expression, Textmarker& textMarker);
+		};
 
         class BaseImplIlocator : public ILocator
         {
@@ -75,8 +88,10 @@ namespace NET_ASAM_OPENSCENARIO
 			Textmarker GetEndMarker() override;
         };
 
-        std::map<std::string, std::shared_ptr<ParameterizedAttribute>> _attributeKeyToParameterName{};
-        std::vector<std::string> _resolvedAttributes{};
+		std::map<std::string, std::shared_ptr<ParameterizedAttribute>> _attributeKeyToParameterName{};
+		std::map<std::string, std::shared_ptr<ExpressionAttribute>> _attributeKeyToExpression{};
+    	
+		std::vector<std::string> _resolvedAttributes{};
         std::map<std::string, std::shared_ptr<Textmarker>> _attributeKeyToStartMarker{};
         std::map<std::string, std::shared_ptr<Textmarker>> _attributeKeyToEndMarker{};
         std::map<std::string, std::shared_ptr<void>> _adapters{};
@@ -114,11 +129,17 @@ namespace NET_ASAM_OPENSCENARIO
          */
 		void CloneAttributeKeyToEndMarker(BaseImpl& baseImpl) const;
 
-        /**
-         * Clones the attributeKeyToParameterName property of this class into the cloned object.
-         * @param baseImpl  the cloned object to copy this object's attributeKeyToParameterName into.
-         */
+		/**
+		 * Clones the attributeKeyToParameterName property of this class into the cloned object.
+		 * @param baseImpl  the cloned object to copy this object's attributeKeyToParameterName into.
+		 */
 		void CloneAttributeKeyToParameterNameMap(BaseImpl& baseImpl);
+    	
+		/**
+		* Clones the attributeKeyToExpression property of this class into the cloned object.
+		* @param baseImpl  the cloned object to copy this object's attributeKeyToExpression into.
+		*/
+		void CloneAttributeKeyToExpressionMap(BaseImpl& baseImpl);
 
         /**
          * Sets an attribute that is represented by a parameter instead of a real value.
@@ -129,11 +150,26 @@ namespace NET_ASAM_OPENSCENARIO
 		void SetAttributeParameter(const std::string attributeKey, const std::string parameterName, Textmarker& textMarker);
 
         /**
-         * Removes a parameter from a attribute.
+         * Removes a parameter from an attribute.
          *
          * @param attributeKey the key of this attribute.
          */
 		void RemoveAttributeParameter(const std::string attributeKey);
+
+		/**
+		 * Sets an attribute that is represented by an expression instead of a real value.
+		 * @param attributeKey the key of this attribute.
+		 * @param expression the expression.
+		 * @param textMarker The text marker for this object.
+		 */
+		void SetAttributeExpression(const std::string attributeKey, const std::string expression, Textmarker& textMarker);
+
+		/**
+		 * Removes a expression from an attribute.
+		 *
+		 * @param attributeKey the key of this attribute.
+		 */
+		void RemoveAttributeExpression(const std::string attributeKey);
 
         /**
          * Adds the resolved attribute value to the list of resolved parameters.
@@ -157,7 +193,15 @@ namespace NET_ASAM_OPENSCENARIO
          * @param value the string representation of the value that should be assigned to the property
          */
 		virtual void ResolveParameterInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& value);
-    	
+
+		/**
+		 * Resolve a expression internally
+		 * @param logger to log messages during the resolving process (e.g. format errors)
+		 * @param attributeKey the key of the property the expression should be assigned to
+		 * @param expression the string representation of the expression that should be assigned to the property
+		 */
+		virtual void ResolveExpressionInternal(IParserMessageLogger& logger, std::string& attributeKey, std::string& expression, std::shared_ptr<std::map<std::string, std::shared_ptr<OscExpression::ExprValue>>> definedParameters);
+
         /**
          * Constructor
          */
@@ -246,5 +290,13 @@ namespace NET_ASAM_OPENSCENARIO
          * @param parent the parent of the object in the model tree.
          */
 		void SetParent(const std::weak_ptr<IOpenScenarioModelElement> parent);
+
+		virtual std::vector<std::string> GetExpressionAttributeKeys() const  override;
+
+		virtual void ResolveExpression(std::shared_ptr<IParserMessageLogger>& logger, std::string& attributeKey, std::string& expression, std::shared_ptr<std::map<std::string, std::shared_ptr<OscExpression::ExprValue>>> definedParameters) override;
+
+		virtual std::string GetExpressionFromAttribute(std::string& attributeKey) const override;
+
+
     };
 }

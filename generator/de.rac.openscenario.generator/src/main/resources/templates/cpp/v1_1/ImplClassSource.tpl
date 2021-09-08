@@ -341,6 +341,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             <%-properties = element.getXmlAttributeProperties();-%>

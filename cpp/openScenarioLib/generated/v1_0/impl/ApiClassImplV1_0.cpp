@@ -194,6 +194,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -388,6 +389,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -600,6 +602,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -803,6 +806,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -1054,6 +1058,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Enumeration Type
@@ -1243,6 +1248,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -1526,6 +1532,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -1844,6 +1851,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -2142,6 +2150,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -2385,6 +2394,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -2583,6 +2593,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -2791,6 +2802,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -3012,6 +3024,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -3415,6 +3428,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -3652,6 +3666,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -3896,6 +3911,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -4115,6 +4131,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -4346,6 +4363,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Enumeration Type
@@ -4563,6 +4581,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Enumeration Type
@@ -4900,6 +4919,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -5491,6 +5511,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -5838,6 +5859,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -6152,6 +6174,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -6538,6 +6561,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -6867,6 +6891,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -7066,6 +7091,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Proxy
@@ -7484,6 +7510,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -7702,6 +7729,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -8058,6 +8086,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Enumeration Type
@@ -8308,6 +8337,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -8595,6 +8625,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -8884,6 +8915,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -9125,6 +9157,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -9326,6 +9359,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -9534,6 +9568,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -9798,6 +9833,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -10061,6 +10097,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -10230,6 +10267,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -10517,6 +10555,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -10715,6 +10754,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -11084,6 +11124,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -11410,6 +11451,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -11617,6 +11659,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -11848,6 +11891,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -12124,6 +12168,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Proxy
@@ -12724,6 +12769,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -13134,6 +13180,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -13383,6 +13430,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Proxy
@@ -13620,6 +13668,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -13952,6 +14001,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -14221,6 +14271,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -14422,6 +14473,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -14783,6 +14835,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -15046,6 +15099,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -15427,6 +15481,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -15642,6 +15697,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -15891,6 +15947,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -16135,6 +16192,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -16454,6 +16512,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -16736,6 +16795,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -16950,6 +17010,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -17138,6 +17199,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -17422,6 +17484,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -17688,6 +17751,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -17927,6 +17991,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -18150,6 +18215,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -18417,6 +18483,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -18698,6 +18765,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Enumeration Type
@@ -18907,6 +18975,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -19277,6 +19346,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -19529,6 +19599,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -19922,6 +19993,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -20163,6 +20235,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -20586,6 +20659,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -20926,6 +21000,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -21152,6 +21227,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -21503,6 +21579,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -21960,6 +22037,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -22214,6 +22292,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -22422,6 +22501,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -22605,6 +22685,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -22882,6 +22963,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -23120,6 +23202,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -23351,6 +23434,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -23542,6 +23626,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -23763,6 +23848,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -24128,6 +24214,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -24399,6 +24486,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -24652,6 +24740,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -24917,6 +25006,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -25248,6 +25338,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -25501,6 +25592,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -25754,6 +25846,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -26007,6 +26100,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -26242,6 +26336,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Proxy
@@ -26500,6 +26595,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -26704,6 +26800,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Proxy
@@ -27018,6 +27115,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Proxy
@@ -27318,6 +27416,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -27523,6 +27622,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -27741,6 +27841,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -27935,6 +28036,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -28367,6 +28469,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -28628,6 +28731,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -28932,6 +29036,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -29216,6 +29321,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -29445,6 +29551,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -29823,6 +29930,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -30214,6 +30322,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -30473,6 +30582,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -30670,6 +30780,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Proxy
@@ -30946,6 +31057,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -31195,6 +31307,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Proxy
@@ -31600,6 +31713,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -31937,6 +32051,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -32213,6 +32328,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -32450,6 +32566,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -32854,6 +32971,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Proxy
@@ -33262,6 +33380,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -33657,6 +33776,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -34009,6 +34129,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -34346,6 +34467,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Proxy
@@ -34640,6 +34762,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Enumeration Type
@@ -34899,6 +35022,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Proxy
@@ -35169,6 +35293,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Proxy
@@ -35535,6 +35660,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -35927,6 +36053,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -36196,6 +36323,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -36442,6 +36570,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -36797,6 +36926,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -37165,6 +37295,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -37393,6 +37524,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -37617,6 +37749,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -37851,6 +37984,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -38094,6 +38228,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -38420,6 +38555,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -38728,6 +38864,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -39000,6 +39137,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -39258,6 +39396,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -39550,6 +39689,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Enumeration Type
@@ -39757,6 +39897,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -39978,6 +40119,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -40257,6 +40399,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Enumeration Type
@@ -40476,6 +40619,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -40766,6 +40910,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -41048,6 +41193,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -41392,6 +41538,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Enumeration Type
@@ -41733,6 +41880,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -41986,6 +42134,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Proxy
@@ -42227,6 +42376,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -42624,6 +42774,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -42922,6 +43073,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -43175,6 +43327,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -43384,6 +43537,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -43772,6 +43926,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -44002,6 +44157,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -44324,6 +44480,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Enumeration Type
@@ -44557,6 +44714,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -44828,6 +44986,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -45060,6 +45219,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -45321,6 +45481,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -45656,6 +45817,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -45959,6 +46121,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -46251,6 +46414,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -46516,6 +46680,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -46765,6 +46930,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -47063,6 +47229,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -47420,6 +47587,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -47913,6 +48081,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -48271,6 +48440,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -48496,6 +48666,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -48714,6 +48885,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Enumeration Type
@@ -49027,6 +49199,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Enumeration Type
@@ -49257,6 +49430,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -49450,6 +49624,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -49714,6 +49889,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Enumeration Type
@@ -49926,6 +50102,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -50222,6 +50399,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -50626,6 +50804,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -50904,6 +51083,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -51112,6 +51292,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // clone children
@@ -51386,6 +51567,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Enumeration Type
@@ -51623,6 +51805,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -51929,6 +52112,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type
@@ -52154,6 +52338,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Enumeration Type
@@ -52442,6 +52627,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Enumeration Type
@@ -52917,6 +53103,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToExpressionMap(*clonedObject);
 
             // clone attributes;
             // Simple type

@@ -73,6 +73,13 @@ namespace NET_ASAM_OPENSCENARIO
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>, StripDollarSign(attributeValue), startMarker); 
                     }
+                    <%-if(helper.isExpressionAllowed(property.type, element.name.toClassName(), property.name.toMemberName())){-%>
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype <%=property.type.name%>
+                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>, attributeValue, startMarker); 
+                    }
+                    <%-}-%>
                     else
                     {
                     	
