@@ -23,12 +23,26 @@
 #include "ScenarioCheckerImplV1_1.h"
 #include "XmlParsersV1_1.h"
 #include "CatalogReferenceParserContextV1_1.h"
-
+#include "ScenarioLoaderException.h"
+#include "XmlToSimpleNodeConverter.h"
 
 namespace NET_ASAM_OPENSCENARIO
 {
     namespace v1_1
     {
+		XmlScenarioLoader::XmlScenarioLoader(std::string& filename, std::shared_ptr<IResourceLocator>& resourceLocator) : _filename(filename), _resourceLocator(resourceLocator) {}
+
+		XmlScenarioLoader::~XmlScenarioLoader() = default;
+
+		std::shared_ptr<IResourceLocator> XmlScenarioLoader::GetResourceLocator() const
+		{
+			return _resourceLocator;
+		}
+
+		std::string XmlScenarioLoader::GetFilename() const
+		{
+			return _filename;
+		}
         std::shared_ptr<IOpenScenarioModelElement> XmlScenarioLoader::Load(std::shared_ptr<IParserMessageLogger> messageLogger)
         {
             std::map<std::string, std::string> injectedParameters;
@@ -133,18 +147,7 @@ namespace NET_ASAM_OPENSCENARIO
 
                 return openScenarioImpl;
             }
-            //catch (ParserConfigurationException | IOException e)
-            //{
-            //    throw new ScenarioLoaderException("Internal Parser Exception", e);
-            //}
-            //catch (SAXParseException e) 
-            //{
-            //    messageLogger.logMessage(new FileContentMessage(e.getMessage(), ErrorLevel.FATAL, new Textmarker(e.getLineNumber() - 1, e.getColumnNumber() - 1, filename)));
-            //}
-            //catch (SAXException e) 
-            //{
-            //    throw new ScenarioLoaderException("Severe parser exception", e);
-            //}
+            
             catch (ResourceNotFoundException& e)
             {
                 auto msg = FileContentMessage(std::string(e.what()), ERROR, Textmarker(-1, -1, _filename));

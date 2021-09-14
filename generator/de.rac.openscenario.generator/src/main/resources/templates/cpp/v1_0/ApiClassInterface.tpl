@@ -49,21 +49,12 @@ namespace NET_ASAM_OPENSCENARIO
 
 <%=helper.makeGetterCppDoc(element, property, "            ")%>
 <%-if (property.isList()) {-%>
-            virtual std::vector<<%=property.type.toCppName()%>> Get<%=property.name.toClassName()%>() const
-            {
-                return std::vector<<%=property.type.toCppName()%>>();
-            }
+            virtual std::vector<<%=property.type.toCppName()%>> Get<%=property.name.toClassName()%>() const = 0;
 <%}else if (property.isProxy()){-%>
-            virtual std::shared_ptr<INamedReference<<%=property.type.toCppTemplateName()%>>> Get<%=property.name.toClassName()%>() const
-            {
-                return std::make_shared<INamedReference<<%=property.type.toCppTemplateName()%>>>();
-            }
+            virtual std::shared_ptr<INamedReference<<%=property.type.toCppTemplateName()%>>> Get<%=property.name.toClassName()%>() const = 0;
 <%}else{-%>
-            virtual <%=property.type.toCppName()%> Get<%=property.name.toClassName()%>() const
-            {
-                return <%=property.type.toCppDefaultValue()%>;
-            }
-<%}}-%>
+            virtual <%=property.type.toCppName()%> Get<%=property.name.toClassName()%>() const = 0;
+ <%}}-%>
 
 <%-properties.each{ property ->-%>
 <%-if (property.isList()) {-%>
@@ -71,17 +62,14 @@ namespace NET_ASAM_OPENSCENARIO
             * Retrieves the size of the list
             * @return the size of the list
             */
-            virtual int Get<%=property.name.toClassName()%>Size() const { return 0; }
+            virtual int Get<%=property.name.toClassName()%>Size() const  = 0;
 
             /**
             * The element at specific index
             * @param index the index of the list
             * @return the element at index
             */
-            virtual <%=property.type.toCppName()%> Get<%=property.name.toClassName()%>AtIndex(const unsigned int index) const
-            {
-                return <%=property.type.toCppDefaultValue()%>;
-            }
+            virtual <%=property.type.toCppName()%> Get<%=property.name.toClassName()%>AtIndex(const unsigned int index) const = 0;
 <%-}}-%>
 
         };

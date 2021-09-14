@@ -17,7 +17,6 @@
 
 #pragma once
 #include <exception>
-#include <string>
 #include "MemLeakDetection.h"
 
 namespace NET_ASAM_OPENSCENARIO
@@ -31,13 +30,13 @@ namespace NET_ASAM_OPENSCENARIO
         /**
          * Serial ID, default
          */
-        static const long kSerialVersionUid = 1L;
+		static const long kSerialVersionUid = 1L;
 
     public:
         /**
          * Constructor
          */
-        KeyNotSupportedException() = default;
+        KeyNotSupportedException();
 
 
     };

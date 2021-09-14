@@ -18,7 +18,6 @@
 #pragma once
 #include <string>
 #include "Textmarker.h"
-#include "IOpenScenarioModelElement.h"
 #include "MemLeakDetection.h"
 
 namespace NET_ASAM_OPENSCENARIO

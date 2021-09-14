@@ -17,10 +17,8 @@
 
 #pragma once
 #include "TestBaseV1_0.h"
-#include "RangeCheckerHelperV1_0.h"
-#include "ScenarioCheckerImplV1_0.h"
-#include "VersionCheckerRuleV1_0.h"
 #include "TreeMessageLogger.h"
+
 namespace NET_ASAM_OPENSCENARIO
 {
     namespace v1_0
@@ -29,65 +27,15 @@ namespace NET_ASAM_OPENSCENARIO
 		class TestVersionChecker : public TestBase
 		{
 		private:
-			void ApplyCheckerRulesFileContext(std::shared_ptr<IOpenScenario> openScenario, int majorRev, int minorRev) const
-			{
-				ScenarioCheckerImpl scenarioChecker;
-				scenarioChecker.AddFileHeaderCheckerRule(std::make_shared<VersionCheckerRule>(majorRev, minorRev));
-				scenarioChecker.CheckScenarioInFileContext(_messageLogger, openScenario);
-			}
+			void ApplyCheckerRulesFileContext(std::shared_ptr<IOpenScenario> openScenario, int majorRev, int minorRev) const;
 
-			void ApplyCheckerRulesTreeContext(std::shared_ptr<IOpenScenario> openScenario, int majorRev, int minorRev, std::shared_ptr<NET_ASAM_OPENSCENARIO::TreeMessageLogger> messageLogger) const
-			{
-				ScenarioCheckerImpl scenarioChecker;
-				scenarioChecker.AddFileHeaderCheckerRule(std::make_shared<VersionCheckerRule>(majorRev, minorRev));
-				scenarioChecker.CheckScenarioInTreeContext(messageLogger, openScenario);
-			}
+			void ApplyCheckerRulesTreeContext(std::shared_ptr<IOpenScenario> openScenario, int majorRev, int minorRev, std::shared_ptr<NET_ASAM_OPENSCENARIO::TreeMessageLogger> messageLogger) const;
 
 		public:
 
-			TestVersionChecker(std::string& executablePath) : TestBase(executablePath) {}
+			TestVersionChecker(std::string& executablePath);
 
-			bool TestSuccess() 
-			{
-				try 
-				{
-					std::string filename = _executablePath + "/" + kInputDir + "DoubleLaneChanger.xosc";
-					auto openScenario = std::dynamic_pointer_cast<IOpenScenario>(ExecuteParsing(filename));
-					auto treeMessageLogger = std::make_shared<NET_ASAM_OPENSCENARIO::TreeMessageLogger>(NET_ASAM_OPENSCENARIO::ErrorLevel::WARNING);
-
-					// File Context
-					ApplyCheckerRulesFileContext(openScenario, 0, 9);
-					std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage> messages;
-					auto res = Assert(AssertMessages(messages, NET_ASAM_OPENSCENARIO::ErrorLevel::WARNING, _messageLogger), ASSERT_LOCATION);
-
-					// Tree Context
-					ApplyCheckerRulesTreeContext(openScenario, 0, 9, treeMessageLogger);
-					res = res && Assert(treeMessageLogger->GetMessagesFilteredByWorseOrEqualToErrorLevel(NET_ASAM_OPENSCENARIO::ErrorLevel::ERROR).size()==0, ASSERT_LOCATION);
-
-					// File Context
-					ApplyCheckerRulesFileContext(openScenario, 1, 0);
-					auto msg = NET_ASAM_OPENSCENARIO::FileContentMessage("Major revision and minor revision are expected to be 1 and 0",
-																	NET_ASAM_OPENSCENARIO::ErrorLevel::WARNING,
-																			NET_ASAM_OPENSCENARIO::Textmarker(20, 2, filename));
-					messages.push_back(msg);
-
-					res = res && Assert(AssertMessages(messages, NET_ASAM_OPENSCENARIO::ErrorLevel::WARNING, _messageLogger), ASSERT_LOCATION);
-
-					// Tree Context
-					treeMessageLogger = std::make_shared<NET_ASAM_OPENSCENARIO::TreeMessageLogger>(NET_ASAM_OPENSCENARIO::ErrorLevel::WARNING);
-					ApplyCheckerRulesTreeContext(openScenario, 1, 0, treeMessageLogger);
-					res = res && Assert(_messageLogger->GetMessagesFilteredByErrorLevel(NET_ASAM_OPENSCENARIO::ErrorLevel::WARNING)[0].GetMsg() == 
-						treeMessageLogger->GetMessagesFilteredByErrorLevel(NET_ASAM_OPENSCENARIO::ErrorLevel::WARNING)[0].GetMsg(), ASSERT_LOCATION);
-
-					return res;
-
-				}
-				catch ( NET_ASAM_OPENSCENARIO::ScenarioLoaderException& e) 
-				{
-					(void)e;
-					return Assert(false, ASSERT_LOCATION);
-				}
-			}
+			bool TestSuccess();
 		};
 	}
 }

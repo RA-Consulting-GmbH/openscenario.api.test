@@ -18,9 +18,11 @@
 #pragma once
 #include <string>
 #include "MemLeakDetection.h"
-#undef ERROR
-#undef ABSOLUTE
-#undef RELATIVE
+#include "ExportDefinitions.h"
+
+//#undef ERROR
+//#undef ABSOLUTE
+//#undef RELATIVE
 
 namespace NET_ASAM_OPENSCENARIO
 {
@@ -46,27 +48,10 @@ namespace NET_ASAM_OPENSCENARIO
         FATAL
     };
 
-    class ErrorLevelString
-    {
-    public:
-        static std::string ToString(const ErrorLevel error)
-        {
-            switch (error)
-            {
-                case FATAL:
-                    return "FATAL";
-                case ERROR: 
-                    return "ERROR";
-                case WARNING:
-                    return "WARNING";
-                case INFO:
-                    return "INFO";
-                case DEBUG:
-                    return "DEBUG";
-                default: 
-                    return "UNKNOWN";
-            }
-        }
-    };
+	class ErrorLevelString
+	{
+	public:
+		OPENSCENARIOLIB_EXP static std::string ToString(const ErrorLevel error);
+	};
 
 }

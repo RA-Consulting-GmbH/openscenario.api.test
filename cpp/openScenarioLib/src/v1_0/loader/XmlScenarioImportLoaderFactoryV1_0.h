@@ -18,7 +18,6 @@
 #pragma once
 
 #include "IParserMessageLogger.h"
-#include "XmlScenarioLoaderV1_0.h"
 #include "XmlScenarioImportLoaderV1_0.h"
 #include "MemLeakDetection.h"
 
@@ -45,13 +44,9 @@ namespace NET_ASAM_OPENSCENARIO
             * @param filename
             *            base directory
             */
-            XmlScenarioImportLoaderFactory(const std::shared_ptr<IParserMessageLogger> catalogMessageLogger, const std::string filename) :_catalogMessageLogger(catalogMessageLogger), _filename(filename) {}
+			OPENSCENARIOLIB_EXP XmlScenarioImportLoaderFactory(const std::shared_ptr<IParserMessageLogger> catalogMessageLogger, const std::string filename);
 
-            std::shared_ptr<IScenarioLoader> CreateLoader(std::shared_ptr<IResourceLocator> resourceLocator) override
-            {
-                auto innerScenarioLoader = std::make_shared<XmlScenarioLoader>(_filename, resourceLocator);
-                return std::make_shared<XmlScenarioImportLoader>(innerScenarioLoader, _catalogMessageLogger);
-            }
+			OPENSCENARIOLIB_EXP std::shared_ptr<IScenarioLoader> CreateLoader(std::shared_ptr<IResourceLocator> resourceLocator) override;
         };
     }
 }

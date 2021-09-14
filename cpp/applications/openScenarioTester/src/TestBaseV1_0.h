@@ -16,21 +16,9 @@
  */
 
 #pragma once
-//#include "MessageLogger.h"
 #include "SimpleMessageLogger.h"
-#include "IScenarioLoaderFactory.h"
-#include "XmlScenarioLoaderFactoryV1_0.h"
-#include "IOpenScenarioWriterFactoryV1_0.h"
-#include "FileResourceLocator.h"
 #include "XmlScenarioImportLoaderFactoryV1_0.h"
-#include "ErrorLevel.h"
-#include <algorithm>
-#include <fstream>
 #include <string>
-#include <iostream>
-#include "ApiClassImplV1_0.h"
-
-#undef ERROR
 
 #define ASSERT_LOCATION __FILE__, __func__, __LINE__
 namespace NET_ASAM_OPENSCENARIO
@@ -49,103 +37,24 @@ namespace NET_ASAM_OPENSCENARIO
 
 		public:
 
-			TestBase(std::string& executablePath) : _executablePath(executablePath) {}
+			TestBase(std::string& executablePath);
 
-			std::shared_ptr<NET_ASAM_OPENSCENARIO::IOpenScenarioModelElement> ExecuteParsing(std::string filename, std::map<std::string, std::string> injectedProperties) const
-			{
-				auto loaderFactory = NET_ASAM_OPENSCENARIO::v1_0::XmlScenarioLoaderFactory(filename);
-				auto loader = loaderFactory.CreateLoader(std::make_shared<NET_ASAM_OPENSCENARIO::FileResourceLocator>());
-				auto ptr = loader->Load(_messageLogger, injectedProperties);
-				if (ptr != nullptr)
-					return std::static_pointer_cast<NET_ASAM_OPENSCENARIO::v1_0::OpenScenarioImpl>(ptr->GetAdapter(typeid(NET_ASAM_OPENSCENARIO::v1_0::OpenScenarioImpl).name()));
-				return nullptr;
-			}
+			std::shared_ptr<NET_ASAM_OPENSCENARIO::IOpenScenarioModelElement> ExecuteParsing(std::string filename, std::map<std::string, std::string> injectedProperties) const;
 
-			std::shared_ptr<NET_ASAM_OPENSCENARIO::IOpenScenarioModelElement> ExecuteParsing(std::string filename) const
-			{
-			   std::map<std::string, std::string> emptyMap;
-			   return ExecuteParsing(filename, emptyMap);
-			}
+			std::shared_ptr<NET_ASAM_OPENSCENARIO::IOpenScenarioModelElement> ExecuteParsing(std::string filename) const;
 
 
-			std::shared_ptr<NET_ASAM_OPENSCENARIO::IOpenScenarioModelElement> ExecuteImportParsing(const std::string filename, std::shared_ptr<NET_ASAM_OPENSCENARIO::IParserMessageLogger> catalogMessageLogger) const
-			{
-				auto loaderFactory = NET_ASAM_OPENSCENARIO::v1_0::XmlScenarioImportLoaderFactory(catalogMessageLogger, filename);
-				auto loader = loaderFactory.CreateLoader(std::make_shared<NET_ASAM_OPENSCENARIO::FileResourceLocator>());
-				auto ptr = loader->Load(_messageLogger);
-				if (ptr != nullptr)
-					return std::static_pointer_cast<NET_ASAM_OPENSCENARIO::v1_0::OpenScenarioImpl>(ptr->GetAdapter(typeid(NET_ASAM_OPENSCENARIO::v1_0::OpenScenarioImpl).name()));
-				else
-					return nullptr;
-			}
+			std::shared_ptr<NET_ASAM_OPENSCENARIO::IOpenScenarioModelElement> ExecuteImportParsing(const std::string filename, std::shared_ptr<NET_ASAM_OPENSCENARIO::IParserMessageLogger> catalogMessageLogger) const;
 
-			void ClearMessageLogger()
-			{
-				_messageLogger =  std::make_shared<NET_ASAM_OPENSCENARIO::SimpleMessageLogger>(NET_ASAM_OPENSCENARIO::ErrorLevel::INFO);
-			}
+			void ClearMessageLogger();
 
-			static bool Assert(const bool condition, const std::string fileName, const std::string function, const int lineNumber)
-			{
-				if (!condition)
-					std::cout << "Assert failed in file " << fileName << " at line " << lineNumber << " " << function << std::endl;
-				return condition;
-			}
+			static bool Assert(const bool condition, const std::string fileName, const std::string function, const int lineNumber);
 
 		protected:
 
-			bool AssertMessages(std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage>& messages, NET_ASAM_OPENSCENARIO::ErrorLevel errorLevel, std::shared_ptr<NET_ASAM_OPENSCENARIO::IParserMessageLogger> logger)
-			{
-				auto kFilterByErrorLevelMessages = FilterByErrorLevel(messages, errorLevel);
-				auto filterByErrorLevelLogger = logger->GetMessagesFilteredByErrorLevel(errorLevel);
-				std::sort(filterByErrorLevelLogger.begin(), filterByErrorLevelLogger.end(), []( NET_ASAM_OPENSCENARIO::FileContentMessage& lhs, NET_ASAM_OPENSCENARIO::FileContentMessage& rhs) {
-					return lhs.GetMsg() < rhs.GetMsg();
-				});
-				return kFilterByErrorLevelMessages.size() == filterByErrorLevelLogger.size() &&
-					   std::equal(kFilterByErrorLevelMessages.begin(), kFilterByErrorLevelMessages.end(), filterByErrorLevelLogger.begin(),
-					[](NET_ASAM_OPENSCENARIO::FileContentMessage & l, NET_ASAM_OPENSCENARIO::FileContentMessage & r) {return l.ToString() == r.ToString(); });
-			}
-
-			std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage> FilterByErrorLevel(std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage> messages, NET_ASAM_OPENSCENARIO::ErrorLevel& errorLevel)
-			{
-				std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage> result;
-				for (auto&& message : messages) 
-				{
-					if (errorLevel == message.GetErrorLevel()) 
-					{
-						result.push_back(message);
-					}
-				}
-
-				std::sort(result.begin(), result.end(), []( NET_ASAM_OPENSCENARIO::FileContentMessage& lhs, NET_ASAM_OPENSCENARIO::FileContentMessage& rhs) {
-					return lhs.GetMsg() < rhs.GetMsg();
-				});
-				return result;
-			}
-
-			std::string GetLine(const std::string fileName, const int lineNum) const
-			{
-				std::ifstream file(_executablePath + "/" + kInputDir + fileName);
-				std::string line;
-
-				if (file.bad() || file.fail())
-				{
-					return "";
-				}
-
-				int counter = 0;
-
-				while (std::getline(file, line))
-				{
-					counter++;
-					if (counter == lineNum)
-					{
-						file.close();
-						return line;
-					}
-				}
-				file.close();
-				return "";
-			}
+			bool AssertMessages(std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage>& messages, NET_ASAM_OPENSCENARIO::ErrorLevel errorLevel, std::shared_ptr<NET_ASAM_OPENSCENARIO::IParserMessageLogger> logger);
+			std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage> FilterByErrorLevel(std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage> messages, NET_ASAM_OPENSCENARIO::ErrorLevel& errorLevel);
+			std::string GetLine(const std::string fileName, const int lineNum) const;
 
 		};
 	}

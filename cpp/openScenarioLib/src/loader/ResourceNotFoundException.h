@@ -28,7 +28,7 @@ namespace NET_ASAM_OPENSCENARIO
         /**
          * Serial ID, default
          */
-        static const long kSerialVersionUid = 1L;
+		static const long kSerialVersionUid = 1L;
         std::string _msg;
 
     public:
@@ -36,12 +36,9 @@ namespace NET_ASAM_OPENSCENARIO
          * Constructor
          * @param fileName
          */
-        ResourceNotFoundException(std::string& fileName) :_msg("Resource not found '" + fileName + "'") {}
+		ResourceNotFoundException(std::string& fileName);
 
-        const char* what() const throw() override
-        {
-            return _msg.c_str();
-        }
+		const char* what() const throw() override;
 
     };
 

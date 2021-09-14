@@ -28,11 +28,11 @@ option( BUILD_SHARED_LIBS "Build shared libraries" ON )
 
 
 if (${BUILD_SHARED_LIBS})
-    set(ANTLR4_WITH_STATIC_CRT OFF)
+	set(ANTLR4_WITH_STATIC_CRT OFF)
 else()
-    # required if linking to static library
-    add_definitions(-DANTLR4CPP_STATIC)
-    set(ANTLR4_WITH_STATIC_CRT ON)
+	# required if linking to static library
+	add_definitions(-DANTLR4CPP_STATIC)
+	set(ANTLR4_WITH_STATIC_CRT ON)
 endif()
 
 # compiler must be 11 or 14
@@ -53,6 +53,12 @@ find_package(ANTLR REQUIRED)
 
 ################################################################
 # Build as static or shared lib, Debug or Release, for Linux or Windows
+if( UNIX )
+    if(NOT CMAKE_BUILD_TYPE)
+        set(CMAKE_BUILD_TYPE "Debug" CACHE STRING "Debug, Release" FORCE)
+    endif(NOT CMAKE_BUILD_TYPE)
+    set(BUILD_TARGET_PARAM ${CMAKE_BUILD_TYPE})
+endif( UNIX )
 if( ${BUILD_SHARED_LIBS} )
     set(osc_extra_static_compile_flags "")
 else()
@@ -62,12 +68,12 @@ else()
         set(osc_extra_static_compile_flags "-DANTLR4CPP_STATIC")
     endif()
 endif()
-if( UNIX )
-    if(NOT CMAKE_BUILD_TYPE)
-        set(CMAKE_BUILD_TYPE "Debug" CACHE STRING "Debug, Release" FORCE)
-    endif(NOT CMAKE_BUILD_TYPE)
-    set(BUILD_TARGET_PARAM ${CMAKE_BUILD_TYPE})
-endif( UNIX )
+          
+                            
+                                                                         
+                               
+                                               
+             
 if(NOT PLATFORM_PARAM)
     set(PLATFORM_PARAM "${CMAKE_SYSTEM_NAME}" CACHE STRING "Linux, Windows, etc" FORCE)
 endif(NOT PLATFORM_PARAM)
@@ -99,14 +105,16 @@ message("Subprojects:")
 unset(CMAKE_BUILD_TYPE CACHE)
 RAC_SET_FOLDERS()
 message ("Building all into: ${CMAKE_BINARY_DIR}")
-    
+	
 # CoreLibraries
 add_subdirectory( openScenarioLib ${PROJECT_BINARY_DIR}/openScenarioLib )
+add_subdirectory( expressionsLib ${PROJECT_BINARY_DIR}/expressionsLib )
 
 # Applications
 add_subdirectory( applications/openScenarioReader ${PROJECT_BINARY_DIR}/applications/openScenarioReader )
 add_subdirectory( applications/openScenarioTester ${PROJECT_BINARY_DIR}/applications/openScenarioTester)
 add_subdirectory( applications/indexerTester ${PROJECT_BINARY_DIR}/applications/indexerTester)
+add_subdirectory( applications/expressionsTester ${PROJECT_BINARY_DIR}/applications/expressionsTester)
 
 
 ################################################################

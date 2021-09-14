@@ -26,16 +26,16 @@ namespace NET_ASAM_OPENSCENARIO
     {
         void ScenarioCheckerImpl::CheckScenarioInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, const std::shared_ptr<IOpenScenario> openScenario)
         {
-            ApplyOpenScenarioCheckerRules(std::dynamic_pointer_cast<IContentMessageLogger<FileContentMessage>>(messageLogger), openScenario, MODE_FILE);
+            ApplyOpenScenarioCheckerRules(std::dynamic_pointer_cast<IContentMessageLogger>(messageLogger), openScenario, MODE_FILE);
         }
 
         void ScenarioCheckerImpl::CheckScenarioInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, const std::shared_ptr<IOpenScenario> openScenario)
         {
-            ApplyOpenScenarioCheckerRules(std::dynamic_pointer_cast<IContentMessageLogger<TreeContentMessage>>(messageLogger), openScenario, MODE_TREE);
+            ApplyOpenScenarioCheckerRules(std::dynamic_pointer_cast<IContentMessageLogger>(messageLogger), openScenario, MODE_TREE);
         }
 
     <%- element.each{ umlClass ->-%>
-        void ScenarioCheckerImpl::Add<%=umlClass.name.toClassName()%>CheckerRule(const std::shared_ptr<ICheckerRule<I<%=umlClass.name.toClassName()%>>> checkerRule)
+        void ScenarioCheckerImpl::Add<%=umlClass.name.toClassName()%>CheckerRule(const std::shared_ptr<ICheckerRule> checkerRule)
         {
             auto checkerRulesForType = _typeToCheckerRuleList[typeid(I<%=umlClass.name.toClassName()%>).name()];
             checkerRulesForType.push_back(std::static_pointer_cast<CheckerRule> (checkerRule));
@@ -43,5 +43,6 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
     <%-}-%>
+  
     }
 }

@@ -17,8 +17,8 @@
 
 #pragma once
 #include "IScenarioLoaderFactory.h"
-#include "XmlScenarioLoaderV1_0.h"
 #include "MemLeakDetection.h"
+#include "ExportDefinitions.h"
 
 namespace NET_ASAM_OPENSCENARIO
 {
@@ -38,12 +38,8 @@ namespace NET_ASAM_OPENSCENARIO
              * Constructor
              * @param filename for the created loader
              */
-            XmlScenarioLoaderFactory(const std::string filename) : _filename(filename) {}
-
-            std::shared_ptr<IScenarioLoader> CreateLoader(std::shared_ptr<IResourceLocator> resourceLocator) override
-            {
-                return std::make_shared<XmlScenarioLoader>(_filename, resourceLocator);
-            }
+			OPENSCENARIOLIB_EXP XmlScenarioLoaderFactory(const std::string filename);
+			OPENSCENARIOLIB_EXP std::shared_ptr<IScenarioLoader> CreateLoader(std::shared_ptr<IResourceLocator> resourceLocator) override;
 
         };
     }

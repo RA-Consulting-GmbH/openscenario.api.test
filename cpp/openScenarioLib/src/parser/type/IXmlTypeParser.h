@@ -26,7 +26,6 @@ namespace NET_ASAM_OPENSCENARIO
     /**
     * Parser interface for types (XSD:group, XSD:complexType, XSD:simpleContent)
     */
-    template <class T>
     class IXmlTypeParser 
     {
     public:
@@ -41,7 +40,7 @@ namespace NET_ASAM_OPENSCENARIO
          * @throws XmlParserException if an exception occurs.
          */
         //TODO: discuss with Dieter if this should be avoided as usually its suggested not to specify exceptions
-        virtual void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr <ParserContext>& parserContext, std::shared_ptr <T>& object) {} //throw(XmlParserException) {}
+		virtual void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr <ParserContext>& parserContext, std::shared_ptr <BaseImpl> object) = 0;
 
     };
 

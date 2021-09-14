@@ -17,8 +17,8 @@
 
 #pragma once
 #include "IParserMessageLogger.h"
-#include "IndexedElement.h"
 #include "XmlParserBase.h"
+#include "BaseImpl.h"
 #include <vector>
 #include "MemLeakDetection.h"
 
@@ -27,19 +27,15 @@ namespace NET_ASAM_OPENSCENARIO
     /**
     * A generic parser for model groups (sequence, all, choice)
     */
-    template <class T>
-    class XmlModelGroupParser: public virtual BaseImpl, public XmlParserBase<T> 
+    class XmlModelGroupParser: public virtual BaseImpl, public XmlParserBase
     {
     protected:
-        std::vector<std::shared_ptr<IElementParser<T>>> _parsers;
+        std::vector<std::shared_ptr<IElementParser>> _parsers;
         /**
          * Creates a list of parsers for the elements of the model group.
          * @return the list of parsers.
          */
-        virtual std::vector<std::shared_ptr<IElementParser<T>>> CreateParserList()
-        {
-            return {};
-        }
+		virtual std::vector<std::shared_ptr<IElementParser>> CreateParserList();
 
     public:
         /**
@@ -47,35 +43,22 @@ namespace NET_ASAM_OPENSCENARIO
          * @param messageLogger to log messages during parsing process
          * @param filename of the file the parser is operationg on.
          */
-        XmlModelGroupParser(IParserMessageLogger& messageLogger, std::string filename) :XmlParserBase<T>(messageLogger, filename) {}
-        virtual ~XmlModelGroupParser() = default;
+		XmlModelGroupParser(IParserMessageLogger& messageLogger, std::string filename);
+		virtual ~XmlModelGroupParser();
 
     protected:
         /**
          * The parsers for the elements in this model group.
          * @return the parsers
          */
-        std::vector<std::shared_ptr<IElementParser<T>>>& GetParsers()
-        {
-            return _parsers;
-        }
+		std::vector<std::shared_ptr<IElementParser>>& GetParsers();
 
         /**
          * Find the right parser for a given tag name
          * @param tagName the tag name a given parser ahould be found for.
          * @return the appropriate parser for an element with this tag name.
          */
-        std::shared_ptr<IElementParser<T>> FindParser(std::string& tagName)
-        {
-            for (auto parser : _parsers) 
-            {
-                if (parser->DoesMatch(tagName))
-                {
-                    return parser;
-                }
-            }
-            return nullptr;
-        }
+		std::shared_ptr<IElementParser> FindParser(std::string& tagName);
 
         /**
          * Moves the current index to the elemtn
@@ -84,32 +67,17 @@ namespace NET_ASAM_OPENSCENARIO
          * @param lastParsedElement the last element that was parsed
          * @return the new list index or the size of the indexed elements list
          */
-        static int MoveForwardToLastElementParsed(std::vector<std::shared_ptr<IndexedElement>>& indexedElements, const int currentIndex, std::shared_ptr<IndexedElement> lastParsedElement)
-        {
-            for (unsigned int i = currentIndex; i < indexedElements.size(); i++)
-            {
-                if (indexedElements[i] == lastParsedElement)
-                {
-                    return i;
-                }
-            }
-            return static_cast<int>(indexedElements.size());
-        }
+		static int MoveForwardToLastElementParsed(std::vector<std::shared_ptr<IndexedElement>>& indexedElements, const int currentIndex, std::shared_ptr<IndexedElement> lastParsedElement);
 
     public:
-       void ParseSubElements(std::vector<std::shared_ptr<IndexedElement>>& indexedElements, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<T>& object) override
-        {
-            _parsers.clear();
-            _parsers = CreateParserList();
-            ParseSubElementsInternal(indexedElements, parserContext, object);
-        }
-
+		void ParseSubElements(std::vector<std::shared_ptr<IndexedElement>>& indexedElements, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
+        
         /**
          * Parsing the sub elements
          * @param indexedElements all sub elements
          * @param parserContext a parser context to store dynamic information in.
          * @param object the object that will be filled during the parsing process.
          */
-        virtual void ParseSubElementsInternal(std::vector<std::shared_ptr<IndexedElement>>& indexedElements, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<T>& object) {}
+		virtual void ParseSubElementsInternal(std::vector<std::shared_ptr<IndexedElement>>& indexedElements, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) = 0;
     };
 }
