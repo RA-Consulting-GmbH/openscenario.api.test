@@ -31,7 +31,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         public:
 <%- element.each{ umlClass ->-%>
-            virtual std::shared_ptr<I<%=umlClass.name.toClassName()%>Writer> Create<%=umlClass.name.toClassName()%>Writer() { return nullptr;}
+            virtual std::shared_ptr<I<%=umlClass.name.toClassName()%>Writer> Create<%=umlClass.name.toClassName()%>Writer() = 0;
 <%-}-%>
 
         };

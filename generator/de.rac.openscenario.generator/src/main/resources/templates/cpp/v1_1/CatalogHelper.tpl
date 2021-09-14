@@ -21,6 +21,7 @@
 #pragma once
 #include "ApiClassInterfaces<%=fileSuffix%>.h"
 #include "MemLeakDetection.h"
+#include "ExportDefinitions.h"
 
 namespace NET_ASAM_OPENSCENARIO
 {
@@ -36,10 +37,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @param catalogElement the catalog element
             * @return true if the catalog element is of type I<%=umlClass.name.toClassName()%>
             */
-            static bool Is<%=umlClass.name.toClassName()%>(std::shared_ptr<ICatalogElement>& catalogElement)
-            {
-                return std::dynamic_pointer_cast<I<%=umlClass.name.toClassName()%>>(catalogElement) != nullptr;
-            }
+            OPENSCENARIOLIB_EXP static bool Is<%=umlClass.name.toClassName()%>(std::shared_ptr<ICatalogElement>& catalogElement);
 
     <%-}-%>
     <%- element.each{ umlClass ->-%>
@@ -49,12 +47,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @return converted value of type I<%=umlClass.name.toClassName()%> or null if the catalogElement 
             * cannot be converted
             */
-            static std::shared_ptr<I<%=umlClass.name.toClassName()%>> As<%=umlClass.name.toClassName()%>(std::shared_ptr<ICatalogElement>& catalogElement)
-            {
-                if (Is<%=umlClass.name.toClassName()%>(catalogElement))
-                    return std::dynamic_pointer_cast<I<%=umlClass.name.toClassName()%>>(catalogElement);
-                return std::shared_ptr<I<%=umlClass.name.toClassName()%>>(nullptr);
-            }
+            OPENSCENARIOLIB_EXP static std::shared_ptr<I<%=umlClass.name.toClassName()%>> As<%=umlClass.name.toClassName()%>(std::shared_ptr<ICatalogElement>& catalogElement);
 
     <%-}-%>
             /**
@@ -63,14 +56,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @return the name of the catalogElement 
             * cannot be converted
             */
-            static std::string GetName(std::shared_ptr<ICatalogElement>& catalogElement)
-            {
-            <%- element.each{ umlClass ->-%>
-                if (Is<%=umlClass.name.toClassName()%>(catalogElement))
-                    return std::dynamic_pointer_cast<I<%=umlClass.name.toClassName()%>>(catalogElement)->GetName();
-            <%-}-%>
-                return "";
-            }
+            OPENSCENARIOLIB_EXP static std::string GetName(std::shared_ptr<ICatalogElement>& catalogElement);
         };
     }
 }

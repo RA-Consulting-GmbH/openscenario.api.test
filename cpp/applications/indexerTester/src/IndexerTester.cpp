@@ -31,7 +31,6 @@
 #include "MemLeakDetection.h"
 #include "PositionIndex.h"
 #include "XMLLexer.h"
-#include "../../../openScenarioLib/src/loader/ResourceNotFoundException.h"
 #include "XMLParser.h"
 
 void Dump(PositionIndex& positionIndex, int& index)
@@ -53,7 +52,7 @@ void TestBooks()
         if (infile.bad() || infile.fail())
         {
             auto msg = "File " + filePath + " not found. Current Path: '" + currentPath + "'";
-            throw ResourceNotFoundException(msg);
+            throw std::runtime_error(msg);
         }
 
         // read data as a block:
@@ -80,7 +79,7 @@ void TestBooks()
         }
 
     }
-    catch ( ResourceNotFoundException& e) 
+    catch (std::runtime_error & e)
     {
         std::cout << e.what();
     }

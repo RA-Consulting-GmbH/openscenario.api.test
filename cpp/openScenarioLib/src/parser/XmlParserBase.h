@@ -18,6 +18,7 @@
 #pragma once
 #include "DateTime.h"
 #include "IParserMessageLogger.h"
+#include "BaseImpl.h"
 #include "Textmarker.h"
 #include "IndexedElement.h"
 #include "Position.h"
@@ -31,7 +32,7 @@ namespace NET_ASAM_OPENSCENARIO
     /**
     * Base class for all parsers
     */
-    template <class T>
+
     class XmlParserBase
     {
     public:
@@ -54,7 +55,7 @@ namespace NET_ASAM_OPENSCENARIO
          * @param parserContext a parser context to store dynamic information in.
          * @param object model object to be filled by the parsing process
          */
-        virtual void ParseSubElements(std::vector<std::shared_ptr<IndexedElement>>& parentElements, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<T>& object) {};
+        virtual void ParseSubElements(std::vector<std::shared_ptr<IndexedElement>>& parentElements, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) {};
 
         /**
          * Parsing a string value
@@ -137,7 +138,7 @@ namespace NET_ASAM_OPENSCENARIO
     /**
      * A parser for a indexed element
      */
-    template <class T>
+
     class IElementParser
     {
     public:
@@ -150,7 +151,7 @@ namespace NET_ASAM_OPENSCENARIO
          * @param parserContext a parser context to store dynamic information in.
          * @param object the model object to be filled during the parsing process
          */
-        virtual void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr <ParserContext>& parserContext, std::shared_ptr <T>& object) {}
+        virtual void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr <ParserContext>& parserContext, std::shared_ptr <BaseImpl> object) {}
 
         /**
          * The defined min accur of the element
@@ -194,7 +195,6 @@ namespace NET_ASAM_OPENSCENARIO
     /**
     * Interface for parsing attributes
     */
-    template <class T>
     class IAttributeParser
     {
     public:
@@ -209,15 +209,13 @@ namespace NET_ASAM_OPENSCENARIO
          * @param attributeValue value of the attribute
          * @param object the model object to be filled during the parsing process
          */
-        virtual void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<T>& object) {}
+		virtual void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) = 0;
 
         /**
          * The defined min accur of the element 0 for optional 1 for required
          * @return the defined min occur value (0 or 1)
          */
-        virtual int GetMinOccur()
-        {
-            return 0;
-        }
+		virtual int GetMinOccur() = 0;
+       
     };
 }

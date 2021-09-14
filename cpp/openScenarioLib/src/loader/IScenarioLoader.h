@@ -18,7 +18,6 @@
 #pragma once
 #include "IParserMessageLogger.h"
 #include "ApiClassInterfacesV1_0.h"
-#include "ScenarioLoaderException.h"
 #include "MemLeakDetection.h"
 
 namespace NET_ASAM_OPENSCENARIO

@@ -28,15 +28,28 @@ namespace NET_ASAM_OPENSCENARIO
      * An interface that logs messages in a tree context.
      *
      */
-    class ITreeMessageLogger: public IContentMessageLogger<TreeContentMessage>
+    class ITreeMessageLogger: public IContentMessageLogger
     {
     public:
         ITreeMessageLogger() = default;
         virtual  ~ITreeMessageLogger() = default;
 
-        /*
-         * This is empty for compatibility reasons to checker framework and with parsing
-         */
+		/*
+		* This is empty for compatibility reasons to checker framework and with parsing
+		*/
+		virtual void LogMessage(TreeContentMessage& message) = 0;
+
+		virtual void LogAllMessages(std::vector<TreeContentMessage>& messages) = 0;
+
+		/**
+		* The message that have been picked up and >= log level.
+		* @return the messages picked up
+		*/
+		virtual  std::vector<TreeContentMessage> GetMessages() = 0;
+
+		virtual  std::vector<TreeContentMessage> GetMessagesFilteredByErrorLevel(const ErrorLevel errorLevel) = 0;
+
+		virtual  std::vector<TreeContentMessage> GetMessagesFilteredByWorseOrEqualToErrorLevel(const ErrorLevel errorLevel) = 0;
 
     };
 }

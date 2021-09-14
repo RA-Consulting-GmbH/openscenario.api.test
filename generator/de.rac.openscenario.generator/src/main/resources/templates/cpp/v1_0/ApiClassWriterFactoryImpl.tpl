@@ -22,6 +22,7 @@
 #include "ApiClassImpl<%=fileSuffix%>.h"
 #include "IOpenScenarioWriterFactory<%=fileSuffix%>.h"
 #include "MemLeakDetection.h"
+#include "ExportDefinitions.h"
 
 namespace NET_ASAM_OPENSCENARIO
 {
@@ -33,10 +34,7 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 <%- element.each{ umlClass ->-%>
 
-            std::shared_ptr<I<%=umlClass.name.toClassName()%>Writer> Create<%=umlClass.name.toClassName()%>Writer() override
-            {
-                return std::make_shared<<%=umlClass.name.toClassName()%>Impl>();
-            }
+            OPENSCENARIOLIB_EXP std::shared_ptr<I<%=umlClass.name.toClassName()%>Writer> Create<%=umlClass.name.toClassName()%>Writer() override;
 <%-}-%>
         };
     }

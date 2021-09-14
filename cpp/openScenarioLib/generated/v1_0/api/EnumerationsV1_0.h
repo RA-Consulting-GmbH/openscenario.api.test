@@ -76,70 +76,35 @@ namespace NET_ASAM_OPENSCENARIO
             /**
              * Default Constructor
              */
-            CloudState()
-            {
-                _literal = kCloudStateEnumString[0];
-                _cloudStateEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP CloudState();
 
-            CloudState(CloudStateEnum& cloudState)
-            {
-                _literal = kCloudStateEnumString[cloudState+1];
-                _cloudStateEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP CloudState(CloudStateEnum& cloudState);
 
-            CloudState(const CloudStateEnum cloudState)
-            {
-                _literal = kCloudStateEnumString[cloudState+1];
-                _cloudStateEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP CloudState(const CloudStateEnum cloudState);
 
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO
              */
-            CloudState(std::string& literal_):_literal(literal_) 
-            {
-                _cloudStateEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP CloudState(std::string& literal_);
 
             /**
              * The literal from this enumeration value.
              * @return the literal as defined in OpenSCENARIO
              */
-            std::string GetLiteral() const { return _literal;}
+            OPENSCENARIOLIB_EXP std::string GetLiteral() const;
 
-            CloudState& operator= (const CloudStateEnum &rhs)
-            {
-                _cloudStateEnum = rhs;
-                _literal = kCloudStateEnumString[_cloudStateEnum+1];
-                return *this;
-            }
+            OPENSCENARIOLIB_EXP CloudState& operator= (const CloudStateEnum &rhs);
 
-            CloudState& operator= (const CloudState &rhs ) 
-            { 
-                _literal = rhs._literal;
-                _cloudStateEnum = rhs._cloudStateEnum;
-                return *this;
-            }
+            OPENSCENARIOLIB_EXP CloudState& operator= (const CloudState &rhs );
 
-            bool operator== (const CloudStateEnum &rhs) const
-            {
-                return _cloudStateEnum == rhs;
-            }
-
+            OPENSCENARIOLIB_EXP bool operator== (const CloudStateEnum &rhs) const;
             /**
              * The enumeration value from the literal
              * @param literal_ as defined in OpenSCENARIO
              * @return the enumeration value
              */
-            static CloudStateEnum GetFromLiteral(const std::string literal_)
-            {
-                const auto kIt = _stringToEnum.find(literal_);
-                if (kIt != _stringToEnum.end())
-                    return kIt->second;
-                return UNKNOWN;
-            }
+            OPENSCENARIOLIB_EXP static CloudStateEnum GetFromLiteral(const std::string literal_);
 
         };
 
@@ -195,70 +160,35 @@ namespace NET_ASAM_OPENSCENARIO
             /**
              * Default Constructor
              */
-            ConditionEdge()
-            {
-                _literal = kConditionEdgeEnumString[0];
-                _conditionEdgeEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP ConditionEdge();
 
-            ConditionEdge(ConditionEdgeEnum& conditionEdge)
-            {
-                _literal = kConditionEdgeEnumString[conditionEdge+1];
-                _conditionEdgeEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP ConditionEdge(ConditionEdgeEnum& conditionEdge);
 
-            ConditionEdge(const ConditionEdgeEnum conditionEdge)
-            {
-                _literal = kConditionEdgeEnumString[conditionEdge+1];
-                _conditionEdgeEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP ConditionEdge(const ConditionEdgeEnum conditionEdge);
 
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO
              */
-            ConditionEdge(std::string& literal_):_literal(literal_) 
-            {
-                _conditionEdgeEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP ConditionEdge(std::string& literal_);
 
             /**
              * The literal from this enumeration value.
              * @return the literal as defined in OpenSCENARIO
              */
-            std::string GetLiteral() const { return _literal;}
+            OPENSCENARIOLIB_EXP std::string GetLiteral() const;
 
-            ConditionEdge& operator= (const ConditionEdgeEnum &rhs)
-            {
-                _conditionEdgeEnum = rhs;
-                _literal = kConditionEdgeEnumString[_conditionEdgeEnum+1];
-                return *this;
-            }
+            OPENSCENARIOLIB_EXP ConditionEdge& operator= (const ConditionEdgeEnum &rhs);
 
-            ConditionEdge& operator= (const ConditionEdge &rhs ) 
-            { 
-                _literal = rhs._literal;
-                _conditionEdgeEnum = rhs._conditionEdgeEnum;
-                return *this;
-            }
+            OPENSCENARIOLIB_EXP ConditionEdge& operator= (const ConditionEdge &rhs );
 
-            bool operator== (const ConditionEdgeEnum &rhs) const
-            {
-                return _conditionEdgeEnum == rhs;
-            }
-
+            OPENSCENARIOLIB_EXP bool operator== (const ConditionEdgeEnum &rhs) const;
             /**
              * The enumeration value from the literal
              * @param literal_ as defined in OpenSCENARIO
              * @return the enumeration value
              */
-            static ConditionEdgeEnum GetFromLiteral(const std::string literal_)
-            {
-                const auto kIt = _stringToEnum.find(literal_);
-                if (kIt != _stringToEnum.end())
-                    return kIt->second;
-                return UNKNOWN;
-            }
+            OPENSCENARIOLIB_EXP static ConditionEdgeEnum GetFromLiteral(const std::string literal_);
 
         };
 
@@ -306,70 +236,35 @@ namespace NET_ASAM_OPENSCENARIO
             /**
              * Default Constructor
              */
-            DynamicsDimension()
-            {
-                _literal = kDynamicsDimensionEnumString[0];
-                _dynamicsDimensionEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP DynamicsDimension();
 
-            DynamicsDimension(DynamicsDimensionEnum& dynamicsDimension)
-            {
-                _literal = kDynamicsDimensionEnumString[dynamicsDimension+1];
-                _dynamicsDimensionEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP DynamicsDimension(DynamicsDimensionEnum& dynamicsDimension);
 
-            DynamicsDimension(const DynamicsDimensionEnum dynamicsDimension)
-            {
-                _literal = kDynamicsDimensionEnumString[dynamicsDimension+1];
-                _dynamicsDimensionEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP DynamicsDimension(const DynamicsDimensionEnum dynamicsDimension);
 
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO
              */
-            DynamicsDimension(std::string& literal_):_literal(literal_) 
-            {
-                _dynamicsDimensionEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP DynamicsDimension(std::string& literal_);
 
             /**
              * The literal from this enumeration value.
              * @return the literal as defined in OpenSCENARIO
              */
-            std::string GetLiteral() const { return _literal;}
+            OPENSCENARIOLIB_EXP std::string GetLiteral() const;
 
-            DynamicsDimension& operator= (const DynamicsDimensionEnum &rhs)
-            {
-                _dynamicsDimensionEnum = rhs;
-                _literal = kDynamicsDimensionEnumString[_dynamicsDimensionEnum+1];
-                return *this;
-            }
+            OPENSCENARIOLIB_EXP DynamicsDimension& operator= (const DynamicsDimensionEnum &rhs);
 
-            DynamicsDimension& operator= (const DynamicsDimension &rhs ) 
-            { 
-                _literal = rhs._literal;
-                _dynamicsDimensionEnum = rhs._dynamicsDimensionEnum;
-                return *this;
-            }
+            OPENSCENARIOLIB_EXP DynamicsDimension& operator= (const DynamicsDimension &rhs );
 
-            bool operator== (const DynamicsDimensionEnum &rhs) const
-            {
-                return _dynamicsDimensionEnum == rhs;
-            }
-
+            OPENSCENARIOLIB_EXP bool operator== (const DynamicsDimensionEnum &rhs) const;
             /**
              * The enumeration value from the literal
              * @param literal_ as defined in OpenSCENARIO
              * @return the enumeration value
              */
-            static DynamicsDimensionEnum GetFromLiteral(const std::string literal_)
-            {
-                const auto kIt = _stringToEnum.find(literal_);
-                if (kIt != _stringToEnum.end())
-                    return kIt->second;
-                return UNKNOWN;
-            }
+            OPENSCENARIOLIB_EXP static DynamicsDimensionEnum GetFromLiteral(const std::string literal_);
 
         };
 
@@ -420,70 +315,35 @@ namespace NET_ASAM_OPENSCENARIO
             /**
              * Default Constructor
              */
-            DynamicsShape()
-            {
-                _literal = kDynamicsShapeEnumString[0];
-                _dynamicsShapeEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP DynamicsShape();
 
-            DynamicsShape(DynamicsShapeEnum& dynamicsShape)
-            {
-                _literal = kDynamicsShapeEnumString[dynamicsShape+1];
-                _dynamicsShapeEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP DynamicsShape(DynamicsShapeEnum& dynamicsShape);
 
-            DynamicsShape(const DynamicsShapeEnum dynamicsShape)
-            {
-                _literal = kDynamicsShapeEnumString[dynamicsShape+1];
-                _dynamicsShapeEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP DynamicsShape(const DynamicsShapeEnum dynamicsShape);
 
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO
              */
-            DynamicsShape(std::string& literal_):_literal(literal_) 
-            {
-                _dynamicsShapeEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP DynamicsShape(std::string& literal_);
 
             /**
              * The literal from this enumeration value.
              * @return the literal as defined in OpenSCENARIO
              */
-            std::string GetLiteral() const { return _literal;}
+            OPENSCENARIOLIB_EXP std::string GetLiteral() const;
 
-            DynamicsShape& operator= (const DynamicsShapeEnum &rhs)
-            {
-                _dynamicsShapeEnum = rhs;
-                _literal = kDynamicsShapeEnumString[_dynamicsShapeEnum+1];
-                return *this;
-            }
+            OPENSCENARIOLIB_EXP DynamicsShape& operator= (const DynamicsShapeEnum &rhs);
 
-            DynamicsShape& operator= (const DynamicsShape &rhs ) 
-            { 
-                _literal = rhs._literal;
-                _dynamicsShapeEnum = rhs._dynamicsShapeEnum;
-                return *this;
-            }
+            OPENSCENARIOLIB_EXP DynamicsShape& operator= (const DynamicsShape &rhs );
 
-            bool operator== (const DynamicsShapeEnum &rhs) const
-            {
-                return _dynamicsShapeEnum == rhs;
-            }
-
+            OPENSCENARIOLIB_EXP bool operator== (const DynamicsShapeEnum &rhs) const;
             /**
              * The enumeration value from the literal
              * @param literal_ as defined in OpenSCENARIO
              * @return the enumeration value
              */
-            static DynamicsShapeEnum GetFromLiteral(const std::string literal_)
-            {
-                const auto kIt = _stringToEnum.find(literal_);
-                if (kIt != _stringToEnum.end())
-                    return kIt->second;
-                return UNKNOWN;
-            }
+            OPENSCENARIOLIB_EXP static DynamicsShapeEnum GetFromLiteral(const std::string literal_);
 
         };
 
@@ -528,70 +388,35 @@ namespace NET_ASAM_OPENSCENARIO
             /**
              * Default Constructor
              */
-            FollowingMode()
-            {
-                _literal = kFollowingModeEnumString[0];
-                _followingModeEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP FollowingMode();
 
-            FollowingMode(FollowingModeEnum& followingMode)
-            {
-                _literal = kFollowingModeEnumString[followingMode+1];
-                _followingModeEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP FollowingMode(FollowingModeEnum& followingMode);
 
-            FollowingMode(const FollowingModeEnum followingMode)
-            {
-                _literal = kFollowingModeEnumString[followingMode+1];
-                _followingModeEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP FollowingMode(const FollowingModeEnum followingMode);
 
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO
              */
-            FollowingMode(std::string& literal_):_literal(literal_) 
-            {
-                _followingModeEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP FollowingMode(std::string& literal_);
 
             /**
              * The literal from this enumeration value.
              * @return the literal as defined in OpenSCENARIO
              */
-            std::string GetLiteral() const { return _literal;}
+            OPENSCENARIOLIB_EXP std::string GetLiteral() const;
 
-            FollowingMode& operator= (const FollowingModeEnum &rhs)
-            {
-                _followingModeEnum = rhs;
-                _literal = kFollowingModeEnumString[_followingModeEnum+1];
-                return *this;
-            }
+            OPENSCENARIOLIB_EXP FollowingMode& operator= (const FollowingModeEnum &rhs);
 
-            FollowingMode& operator= (const FollowingMode &rhs ) 
-            { 
-                _literal = rhs._literal;
-                _followingModeEnum = rhs._followingModeEnum;
-                return *this;
-            }
+            OPENSCENARIOLIB_EXP FollowingMode& operator= (const FollowingMode &rhs );
 
-            bool operator== (const FollowingModeEnum &rhs) const
-            {
-                return _followingModeEnum == rhs;
-            }
-
+            OPENSCENARIOLIB_EXP bool operator== (const FollowingModeEnum &rhs) const;
             /**
              * The enumeration value from the literal
              * @param literal_ as defined in OpenSCENARIO
              * @return the enumeration value
              */
-            static FollowingModeEnum GetFromLiteral(const std::string literal_)
-            {
-                const auto kIt = _stringToEnum.find(literal_);
-                if (kIt != _stringToEnum.end())
-                    return kIt->second;
-                return UNKNOWN;
-            }
+            OPENSCENARIOLIB_EXP static FollowingModeEnum GetFromLiteral(const std::string literal_);
 
         };
 
@@ -681,70 +506,35 @@ namespace NET_ASAM_OPENSCENARIO
             /**
              * Default Constructor
              */
-            MiscObjectCategory()
-            {
-                _literal = kMiscObjectCategoryEnumString[0];
-                _miscObjectCategoryEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP MiscObjectCategory();
 
-            MiscObjectCategory(MiscObjectCategoryEnum& miscObjectCategory)
-            {
-                _literal = kMiscObjectCategoryEnumString[miscObjectCategory+1];
-                _miscObjectCategoryEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP MiscObjectCategory(MiscObjectCategoryEnum& miscObjectCategory);
 
-            MiscObjectCategory(const MiscObjectCategoryEnum miscObjectCategory)
-            {
-                _literal = kMiscObjectCategoryEnumString[miscObjectCategory+1];
-                _miscObjectCategoryEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP MiscObjectCategory(const MiscObjectCategoryEnum miscObjectCategory);
 
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO
              */
-            MiscObjectCategory(std::string& literal_):_literal(literal_) 
-            {
-                _miscObjectCategoryEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP MiscObjectCategory(std::string& literal_);
 
             /**
              * The literal from this enumeration value.
              * @return the literal as defined in OpenSCENARIO
              */
-            std::string GetLiteral() const { return _literal;}
+            OPENSCENARIOLIB_EXP std::string GetLiteral() const;
 
-            MiscObjectCategory& operator= (const MiscObjectCategoryEnum &rhs)
-            {
-                _miscObjectCategoryEnum = rhs;
-                _literal = kMiscObjectCategoryEnumString[_miscObjectCategoryEnum+1];
-                return *this;
-            }
+            OPENSCENARIOLIB_EXP MiscObjectCategory& operator= (const MiscObjectCategoryEnum &rhs);
 
-            MiscObjectCategory& operator= (const MiscObjectCategory &rhs ) 
-            { 
-                _literal = rhs._literal;
-                _miscObjectCategoryEnum = rhs._miscObjectCategoryEnum;
-                return *this;
-            }
+            OPENSCENARIOLIB_EXP MiscObjectCategory& operator= (const MiscObjectCategory &rhs );
 
-            bool operator== (const MiscObjectCategoryEnum &rhs) const
-            {
-                return _miscObjectCategoryEnum == rhs;
-            }
-
+            OPENSCENARIOLIB_EXP bool operator== (const MiscObjectCategoryEnum &rhs) const;
             /**
              * The enumeration value from the literal
              * @param literal_ as defined in OpenSCENARIO
              * @return the enumeration value
              */
-            static MiscObjectCategoryEnum GetFromLiteral(const std::string literal_)
-            {
-                const auto kIt = _stringToEnum.find(literal_);
-                if (kIt != _stringToEnum.end())
-                    return kIt->second;
-                return UNKNOWN;
-            }
+            OPENSCENARIOLIB_EXP static MiscObjectCategoryEnum GetFromLiteral(const std::string literal_);
 
         };
 
@@ -792,70 +582,35 @@ namespace NET_ASAM_OPENSCENARIO
             /**
              * Default Constructor
              */
-            ObjectType()
-            {
-                _literal = kObjectTypeEnumString[0];
-                _objectTypeEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP ObjectType();
 
-            ObjectType(ObjectTypeEnum& objectType)
-            {
-                _literal = kObjectTypeEnumString[objectType+1];
-                _objectTypeEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP ObjectType(ObjectTypeEnum& objectType);
 
-            ObjectType(const ObjectTypeEnum objectType)
-            {
-                _literal = kObjectTypeEnumString[objectType+1];
-                _objectTypeEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP ObjectType(const ObjectTypeEnum objectType);
 
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO
              */
-            ObjectType(std::string& literal_):_literal(literal_) 
-            {
-                _objectTypeEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP ObjectType(std::string& literal_);
 
             /**
              * The literal from this enumeration value.
              * @return the literal as defined in OpenSCENARIO
              */
-            std::string GetLiteral() const { return _literal;}
+            OPENSCENARIOLIB_EXP std::string GetLiteral() const;
 
-            ObjectType& operator= (const ObjectTypeEnum &rhs)
-            {
-                _objectTypeEnum = rhs;
-                _literal = kObjectTypeEnumString[_objectTypeEnum+1];
-                return *this;
-            }
+            OPENSCENARIOLIB_EXP ObjectType& operator= (const ObjectTypeEnum &rhs);
 
-            ObjectType& operator= (const ObjectType &rhs ) 
-            { 
-                _literal = rhs._literal;
-                _objectTypeEnum = rhs._objectTypeEnum;
-                return *this;
-            }
+            OPENSCENARIOLIB_EXP ObjectType& operator= (const ObjectType &rhs );
 
-            bool operator== (const ObjectTypeEnum &rhs) const
-            {
-                return _objectTypeEnum == rhs;
-            }
-
+            OPENSCENARIOLIB_EXP bool operator== (const ObjectTypeEnum &rhs) const;
             /**
              * The enumeration value from the literal
              * @param literal_ as defined in OpenSCENARIO
              * @return the enumeration value
              */
-            static ObjectTypeEnum GetFromLiteral(const std::string literal_)
-            {
-                const auto kIt = _stringToEnum.find(literal_);
-                if (kIt != _stringToEnum.end())
-                    return kIt->second;
-                return UNKNOWN;
-            }
+            OPENSCENARIOLIB_EXP static ObjectTypeEnum GetFromLiteral(const std::string literal_);
 
         };
 
@@ -915,70 +670,35 @@ namespace NET_ASAM_OPENSCENARIO
             /**
              * Default Constructor
              */
-            ParameterType()
-            {
-                _literal = kParameterTypeEnumString[0];
-                _parameterTypeEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP ParameterType();
 
-            ParameterType(ParameterTypeEnum& parameterType)
-            {
-                _literal = kParameterTypeEnumString[parameterType+1];
-                _parameterTypeEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP ParameterType(ParameterTypeEnum& parameterType);
 
-            ParameterType(const ParameterTypeEnum parameterType)
-            {
-                _literal = kParameterTypeEnumString[parameterType+1];
-                _parameterTypeEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP ParameterType(const ParameterTypeEnum parameterType);
 
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO
              */
-            ParameterType(std::string& literal_):_literal(literal_) 
-            {
-                _parameterTypeEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP ParameterType(std::string& literal_);
 
             /**
              * The literal from this enumeration value.
              * @return the literal as defined in OpenSCENARIO
              */
-            std::string GetLiteral() const { return _literal;}
+            OPENSCENARIOLIB_EXP std::string GetLiteral() const;
 
-            ParameterType& operator= (const ParameterTypeEnum &rhs)
-            {
-                _parameterTypeEnum = rhs;
-                _literal = kParameterTypeEnumString[_parameterTypeEnum+1];
-                return *this;
-            }
+            OPENSCENARIOLIB_EXP ParameterType& operator= (const ParameterTypeEnum &rhs);
 
-            ParameterType& operator= (const ParameterType &rhs ) 
-            { 
-                _literal = rhs._literal;
-                _parameterTypeEnum = rhs._parameterTypeEnum;
-                return *this;
-            }
+            OPENSCENARIOLIB_EXP ParameterType& operator= (const ParameterType &rhs );
 
-            bool operator== (const ParameterTypeEnum &rhs) const
-            {
-                return _parameterTypeEnum == rhs;
-            }
-
+            OPENSCENARIOLIB_EXP bool operator== (const ParameterTypeEnum &rhs) const;
             /**
              * The enumeration value from the literal
              * @param literal_ as defined in OpenSCENARIO
              * @return the enumeration value
              */
-            static ParameterTypeEnum GetFromLiteral(const std::string literal_)
-            {
-                const auto kIt = _stringToEnum.find(literal_);
-                if (kIt != _stringToEnum.end())
-                    return kIt->second;
-                return UNKNOWN;
-            }
+            OPENSCENARIOLIB_EXP static ParameterTypeEnum GetFromLiteral(const std::string literal_);
 
         };
 
@@ -1026,70 +746,35 @@ namespace NET_ASAM_OPENSCENARIO
             /**
              * Default Constructor
              */
-            PedestrianCategory()
-            {
-                _literal = kPedestrianCategoryEnumString[0];
-                _pedestrianCategoryEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP PedestrianCategory();
 
-            PedestrianCategory(PedestrianCategoryEnum& pedestrianCategory)
-            {
-                _literal = kPedestrianCategoryEnumString[pedestrianCategory+1];
-                _pedestrianCategoryEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP PedestrianCategory(PedestrianCategoryEnum& pedestrianCategory);
 
-            PedestrianCategory(const PedestrianCategoryEnum pedestrianCategory)
-            {
-                _literal = kPedestrianCategoryEnumString[pedestrianCategory+1];
-                _pedestrianCategoryEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP PedestrianCategory(const PedestrianCategoryEnum pedestrianCategory);
 
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO
              */
-            PedestrianCategory(std::string& literal_):_literal(literal_) 
-            {
-                _pedestrianCategoryEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP PedestrianCategory(std::string& literal_);
 
             /**
              * The literal from this enumeration value.
              * @return the literal as defined in OpenSCENARIO
              */
-            std::string GetLiteral() const { return _literal;}
+            OPENSCENARIOLIB_EXP std::string GetLiteral() const;
 
-            PedestrianCategory& operator= (const PedestrianCategoryEnum &rhs)
-            {
-                _pedestrianCategoryEnum = rhs;
-                _literal = kPedestrianCategoryEnumString[_pedestrianCategoryEnum+1];
-                return *this;
-            }
+            OPENSCENARIOLIB_EXP PedestrianCategory& operator= (const PedestrianCategoryEnum &rhs);
 
-            PedestrianCategory& operator= (const PedestrianCategory &rhs ) 
-            { 
-                _literal = rhs._literal;
-                _pedestrianCategoryEnum = rhs._pedestrianCategoryEnum;
-                return *this;
-            }
+            OPENSCENARIOLIB_EXP PedestrianCategory& operator= (const PedestrianCategory &rhs );
 
-            bool operator== (const PedestrianCategoryEnum &rhs) const
-            {
-                return _pedestrianCategoryEnum == rhs;
-            }
-
+            OPENSCENARIOLIB_EXP bool operator== (const PedestrianCategoryEnum &rhs) const;
             /**
              * The enumeration value from the literal
              * @param literal_ as defined in OpenSCENARIO
              * @return the enumeration value
              */
-            static PedestrianCategoryEnum GetFromLiteral(const std::string literal_)
-            {
-                const auto kIt = _stringToEnum.find(literal_);
-                if (kIt != _stringToEnum.end())
-                    return kIt->second;
-                return UNKNOWN;
-            }
+            OPENSCENARIOLIB_EXP static PedestrianCategoryEnum GetFromLiteral(const std::string literal_);
 
         };
 
@@ -1137,70 +822,35 @@ namespace NET_ASAM_OPENSCENARIO
             /**
              * Default Constructor
              */
-            PrecipitationType()
-            {
-                _literal = kPrecipitationTypeEnumString[0];
-                _precipitationTypeEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP PrecipitationType();
 
-            PrecipitationType(PrecipitationTypeEnum& precipitationType)
-            {
-                _literal = kPrecipitationTypeEnumString[precipitationType+1];
-                _precipitationTypeEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP PrecipitationType(PrecipitationTypeEnum& precipitationType);
 
-            PrecipitationType(const PrecipitationTypeEnum precipitationType)
-            {
-                _literal = kPrecipitationTypeEnumString[precipitationType+1];
-                _precipitationTypeEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP PrecipitationType(const PrecipitationTypeEnum precipitationType);
 
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO
              */
-            PrecipitationType(std::string& literal_):_literal(literal_) 
-            {
-                _precipitationTypeEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP PrecipitationType(std::string& literal_);
 
             /**
              * The literal from this enumeration value.
              * @return the literal as defined in OpenSCENARIO
              */
-            std::string GetLiteral() const { return _literal;}
+            OPENSCENARIOLIB_EXP std::string GetLiteral() const;
 
-            PrecipitationType& operator= (const PrecipitationTypeEnum &rhs)
-            {
-                _precipitationTypeEnum = rhs;
-                _literal = kPrecipitationTypeEnumString[_precipitationTypeEnum+1];
-                return *this;
-            }
+            OPENSCENARIOLIB_EXP PrecipitationType& operator= (const PrecipitationTypeEnum &rhs);
 
-            PrecipitationType& operator= (const PrecipitationType &rhs ) 
-            { 
-                _literal = rhs._literal;
-                _precipitationTypeEnum = rhs._precipitationTypeEnum;
-                return *this;
-            }
+            OPENSCENARIOLIB_EXP PrecipitationType& operator= (const PrecipitationType &rhs );
 
-            bool operator== (const PrecipitationTypeEnum &rhs) const
-            {
-                return _precipitationTypeEnum == rhs;
-            }
-
+            OPENSCENARIOLIB_EXP bool operator== (const PrecipitationTypeEnum &rhs) const;
             /**
              * The enumeration value from the literal
              * @param literal_ as defined in OpenSCENARIO
              * @return the enumeration value
              */
-            static PrecipitationTypeEnum GetFromLiteral(const std::string literal_)
-            {
-                const auto kIt = _stringToEnum.find(literal_);
-                if (kIt != _stringToEnum.end())
-                    return kIt->second;
-                return UNKNOWN;
-            }
+            OPENSCENARIOLIB_EXP static PrecipitationTypeEnum GetFromLiteral(const std::string literal_);
 
         };
 
@@ -1250,70 +900,35 @@ namespace NET_ASAM_OPENSCENARIO
             /**
              * Default Constructor
              */
-            Priority()
-            {
-                _literal = kPriorityEnumString[0];
-                _priorityEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP Priority();
 
-            Priority(PriorityEnum& priority)
-            {
-                _literal = kPriorityEnumString[priority+1];
-                _priorityEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP Priority(PriorityEnum& priority);
 
-            Priority(const PriorityEnum priority)
-            {
-                _literal = kPriorityEnumString[priority+1];
-                _priorityEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP Priority(const PriorityEnum priority);
 
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO
              */
-            Priority(std::string& literal_):_literal(literal_) 
-            {
-                _priorityEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP Priority(std::string& literal_);
 
             /**
              * The literal from this enumeration value.
              * @return the literal as defined in OpenSCENARIO
              */
-            std::string GetLiteral() const { return _literal;}
+            OPENSCENARIOLIB_EXP std::string GetLiteral() const;
 
-            Priority& operator= (const PriorityEnum &rhs)
-            {
-                _priorityEnum = rhs;
-                _literal = kPriorityEnumString[_priorityEnum+1];
-                return *this;
-            }
+            OPENSCENARIOLIB_EXP Priority& operator= (const PriorityEnum &rhs);
 
-            Priority& operator= (const Priority &rhs ) 
-            { 
-                _literal = rhs._literal;
-                _priorityEnum = rhs._priorityEnum;
-                return *this;
-            }
+            OPENSCENARIOLIB_EXP Priority& operator= (const Priority &rhs );
 
-            bool operator== (const PriorityEnum &rhs) const
-            {
-                return _priorityEnum == rhs;
-            }
-
+            OPENSCENARIOLIB_EXP bool operator== (const PriorityEnum &rhs) const;
             /**
              * The enumeration value from the literal
              * @param literal_ as defined in OpenSCENARIO
              * @return the enumeration value
              */
-            static PriorityEnum GetFromLiteral(const std::string literal_)
-            {
-                const auto kIt = _stringToEnum.find(literal_);
-                if (kIt != _stringToEnum.end())
-                    return kIt->second;
-                return UNKNOWN;
-            }
+            OPENSCENARIOLIB_EXP static PriorityEnum GetFromLiteral(const std::string literal_);
 
         };
 
@@ -1358,70 +973,35 @@ namespace NET_ASAM_OPENSCENARIO
             /**
              * Default Constructor
              */
-            ReferenceContext()
-            {
-                _literal = kReferenceContextEnumString[0];
-                _referenceContextEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP ReferenceContext();
 
-            ReferenceContext(ReferenceContextEnum& referenceContext)
-            {
-                _literal = kReferenceContextEnumString[referenceContext+1];
-                _referenceContextEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP ReferenceContext(ReferenceContextEnum& referenceContext);
 
-            ReferenceContext(const ReferenceContextEnum referenceContext)
-            {
-                _literal = kReferenceContextEnumString[referenceContext+1];
-                _referenceContextEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP ReferenceContext(const ReferenceContextEnum referenceContext);
 
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO
              */
-            ReferenceContext(std::string& literal_):_literal(literal_) 
-            {
-                _referenceContextEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP ReferenceContext(std::string& literal_);
 
             /**
              * The literal from this enumeration value.
              * @return the literal as defined in OpenSCENARIO
              */
-            std::string GetLiteral() const { return _literal;}
+            OPENSCENARIOLIB_EXP std::string GetLiteral() const;
 
-            ReferenceContext& operator= (const ReferenceContextEnum &rhs)
-            {
-                _referenceContextEnum = rhs;
-                _literal = kReferenceContextEnumString[_referenceContextEnum+1];
-                return *this;
-            }
+            OPENSCENARIOLIB_EXP ReferenceContext& operator= (const ReferenceContextEnum &rhs);
 
-            ReferenceContext& operator= (const ReferenceContext &rhs ) 
-            { 
-                _literal = rhs._literal;
-                _referenceContextEnum = rhs._referenceContextEnum;
-                return *this;
-            }
+            OPENSCENARIOLIB_EXP ReferenceContext& operator= (const ReferenceContext &rhs );
 
-            bool operator== (const ReferenceContextEnum &rhs) const
-            {
-                return _referenceContextEnum == rhs;
-            }
-
+            OPENSCENARIOLIB_EXP bool operator== (const ReferenceContextEnum &rhs) const;
             /**
              * The enumeration value from the literal
              * @param literal_ as defined in OpenSCENARIO
              * @return the enumeration value
              */
-            static ReferenceContextEnum GetFromLiteral(const std::string literal_)
-            {
-                const auto kIt = _stringToEnum.find(literal_);
-                if (kIt != _stringToEnum.end())
-                    return kIt->second;
-                return UNKNOWN;
-            }
+            OPENSCENARIOLIB_EXP static ReferenceContextEnum GetFromLiteral(const std::string literal_);
 
         };
 
@@ -1469,70 +1049,35 @@ namespace NET_ASAM_OPENSCENARIO
             /**
              * Default Constructor
              */
-            RelativeDistanceType()
-            {
-                _literal = kRelativeDistanceTypeEnumString[0];
-                _relativeDistanceTypeEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP RelativeDistanceType();
 
-            RelativeDistanceType(RelativeDistanceTypeEnum& relativeDistanceType)
-            {
-                _literal = kRelativeDistanceTypeEnumString[relativeDistanceType+1];
-                _relativeDistanceTypeEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP RelativeDistanceType(RelativeDistanceTypeEnum& relativeDistanceType);
 
-            RelativeDistanceType(const RelativeDistanceTypeEnum relativeDistanceType)
-            {
-                _literal = kRelativeDistanceTypeEnumString[relativeDistanceType+1];
-                _relativeDistanceTypeEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP RelativeDistanceType(const RelativeDistanceTypeEnum relativeDistanceType);
 
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO
              */
-            RelativeDistanceType(std::string& literal_):_literal(literal_) 
-            {
-                _relativeDistanceTypeEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP RelativeDistanceType(std::string& literal_);
 
             /**
              * The literal from this enumeration value.
              * @return the literal as defined in OpenSCENARIO
              */
-            std::string GetLiteral() const { return _literal;}
+            OPENSCENARIOLIB_EXP std::string GetLiteral() const;
 
-            RelativeDistanceType& operator= (const RelativeDistanceTypeEnum &rhs)
-            {
-                _relativeDistanceTypeEnum = rhs;
-                _literal = kRelativeDistanceTypeEnumString[_relativeDistanceTypeEnum+1];
-                return *this;
-            }
+            OPENSCENARIOLIB_EXP RelativeDistanceType& operator= (const RelativeDistanceTypeEnum &rhs);
 
-            RelativeDistanceType& operator= (const RelativeDistanceType &rhs ) 
-            { 
-                _literal = rhs._literal;
-                _relativeDistanceTypeEnum = rhs._relativeDistanceTypeEnum;
-                return *this;
-            }
+            OPENSCENARIOLIB_EXP RelativeDistanceType& operator= (const RelativeDistanceType &rhs );
 
-            bool operator== (const RelativeDistanceTypeEnum &rhs) const
-            {
-                return _relativeDistanceTypeEnum == rhs;
-            }
-
+            OPENSCENARIOLIB_EXP bool operator== (const RelativeDistanceTypeEnum &rhs) const;
             /**
              * The enumeration value from the literal
              * @param literal_ as defined in OpenSCENARIO
              * @return the enumeration value
              */
-            static RelativeDistanceTypeEnum GetFromLiteral(const std::string literal_)
-            {
-                const auto kIt = _stringToEnum.find(literal_);
-                if (kIt != _stringToEnum.end())
-                    return kIt->second;
-                return UNKNOWN;
-            }
+            OPENSCENARIOLIB_EXP static RelativeDistanceTypeEnum GetFromLiteral(const std::string literal_);
 
         };
 
@@ -1583,70 +1128,35 @@ namespace NET_ASAM_OPENSCENARIO
             /**
              * Default Constructor
              */
-            RouteStrategy()
-            {
-                _literal = kRouteStrategyEnumString[0];
-                _routeStrategyEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP RouteStrategy();
 
-            RouteStrategy(RouteStrategyEnum& routeStrategy)
-            {
-                _literal = kRouteStrategyEnumString[routeStrategy+1];
-                _routeStrategyEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP RouteStrategy(RouteStrategyEnum& routeStrategy);
 
-            RouteStrategy(const RouteStrategyEnum routeStrategy)
-            {
-                _literal = kRouteStrategyEnumString[routeStrategy+1];
-                _routeStrategyEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP RouteStrategy(const RouteStrategyEnum routeStrategy);
 
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO
              */
-            RouteStrategy(std::string& literal_):_literal(literal_) 
-            {
-                _routeStrategyEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP RouteStrategy(std::string& literal_);
 
             /**
              * The literal from this enumeration value.
              * @return the literal as defined in OpenSCENARIO
              */
-            std::string GetLiteral() const { return _literal;}
+            OPENSCENARIOLIB_EXP std::string GetLiteral() const;
 
-            RouteStrategy& operator= (const RouteStrategyEnum &rhs)
-            {
-                _routeStrategyEnum = rhs;
-                _literal = kRouteStrategyEnumString[_routeStrategyEnum+1];
-                return *this;
-            }
+            OPENSCENARIOLIB_EXP RouteStrategy& operator= (const RouteStrategyEnum &rhs);
 
-            RouteStrategy& operator= (const RouteStrategy &rhs ) 
-            { 
-                _literal = rhs._literal;
-                _routeStrategyEnum = rhs._routeStrategyEnum;
-                return *this;
-            }
+            OPENSCENARIOLIB_EXP RouteStrategy& operator= (const RouteStrategy &rhs );
 
-            bool operator== (const RouteStrategyEnum &rhs) const
-            {
-                return _routeStrategyEnum == rhs;
-            }
-
+            OPENSCENARIOLIB_EXP bool operator== (const RouteStrategyEnum &rhs) const;
             /**
              * The enumeration value from the literal
              * @param literal_ as defined in OpenSCENARIO
              * @return the enumeration value
              */
-            static RouteStrategyEnum GetFromLiteral(const std::string literal_)
-            {
-                const auto kIt = _stringToEnum.find(literal_);
-                if (kIt != _stringToEnum.end())
-                    return kIt->second;
-                return UNKNOWN;
-            }
+            OPENSCENARIOLIB_EXP static RouteStrategyEnum GetFromLiteral(const std::string literal_);
 
         };
 
@@ -1694,70 +1204,35 @@ namespace NET_ASAM_OPENSCENARIO
             /**
              * Default Constructor
              */
-            Rule()
-            {
-                _literal = kRuleEnumString[0];
-                _ruleEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP Rule();
 
-            Rule(RuleEnum& rule)
-            {
-                _literal = kRuleEnumString[rule+1];
-                _ruleEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP Rule(RuleEnum& rule);
 
-            Rule(const RuleEnum rule)
-            {
-                _literal = kRuleEnumString[rule+1];
-                _ruleEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP Rule(const RuleEnum rule);
 
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO
              */
-            Rule(std::string& literal_):_literal(literal_) 
-            {
-                _ruleEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP Rule(std::string& literal_);
 
             /**
              * The literal from this enumeration value.
              * @return the literal as defined in OpenSCENARIO
              */
-            std::string GetLiteral() const { return _literal;}
+            OPENSCENARIOLIB_EXP std::string GetLiteral() const;
 
-            Rule& operator= (const RuleEnum &rhs)
-            {
-                _ruleEnum = rhs;
-                _literal = kRuleEnumString[_ruleEnum+1];
-                return *this;
-            }
+            OPENSCENARIOLIB_EXP Rule& operator= (const RuleEnum &rhs);
 
-            Rule& operator= (const Rule &rhs ) 
-            { 
-                _literal = rhs._literal;
-                _ruleEnum = rhs._ruleEnum;
-                return *this;
-            }
+            OPENSCENARIOLIB_EXP Rule& operator= (const Rule &rhs );
 
-            bool operator== (const RuleEnum &rhs) const
-            {
-                return _ruleEnum == rhs;
-            }
-
+            OPENSCENARIOLIB_EXP bool operator== (const RuleEnum &rhs) const;
             /**
              * The enumeration value from the literal
              * @param literal_ as defined in OpenSCENARIO
              * @return the enumeration value
              */
-            static RuleEnum GetFromLiteral(const std::string literal_)
-            {
-                const auto kIt = _stringToEnum.find(literal_);
-                if (kIt != _stringToEnum.end())
-                    return kIt->second;
-                return UNKNOWN;
-            }
+            OPENSCENARIOLIB_EXP static RuleEnum GetFromLiteral(const std::string literal_);
 
         };
 
@@ -1804,70 +1279,35 @@ namespace NET_ASAM_OPENSCENARIO
             /**
              * Default Constructor
              */
-            SpeedTargetValueType()
-            {
-                _literal = kSpeedTargetValueTypeEnumString[0];
-                _speedTargetValueTypeEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP SpeedTargetValueType();
 
-            SpeedTargetValueType(SpeedTargetValueTypeEnum& speedTargetValueType)
-            {
-                _literal = kSpeedTargetValueTypeEnumString[speedTargetValueType+1];
-                _speedTargetValueTypeEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP SpeedTargetValueType(SpeedTargetValueTypeEnum& speedTargetValueType);
 
-            SpeedTargetValueType(const SpeedTargetValueTypeEnum speedTargetValueType)
-            {
-                _literal = kSpeedTargetValueTypeEnumString[speedTargetValueType+1];
-                _speedTargetValueTypeEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP SpeedTargetValueType(const SpeedTargetValueTypeEnum speedTargetValueType);
 
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO
              */
-            SpeedTargetValueType(std::string& literal_):_literal(literal_) 
-            {
-                _speedTargetValueTypeEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP SpeedTargetValueType(std::string& literal_);
 
             /**
              * The literal from this enumeration value.
              * @return the literal as defined in OpenSCENARIO
              */
-            std::string GetLiteral() const { return _literal;}
+            OPENSCENARIOLIB_EXP std::string GetLiteral() const;
 
-            SpeedTargetValueType& operator= (const SpeedTargetValueTypeEnum &rhs)
-            {
-                _speedTargetValueTypeEnum = rhs;
-                _literal = kSpeedTargetValueTypeEnumString[_speedTargetValueTypeEnum+1];
-                return *this;
-            }
+            OPENSCENARIOLIB_EXP SpeedTargetValueType& operator= (const SpeedTargetValueTypeEnum &rhs);
 
-            SpeedTargetValueType& operator= (const SpeedTargetValueType &rhs ) 
-            { 
-                _literal = rhs._literal;
-                _speedTargetValueTypeEnum = rhs._speedTargetValueTypeEnum;
-                return *this;
-            }
+            OPENSCENARIOLIB_EXP SpeedTargetValueType& operator= (const SpeedTargetValueType &rhs );
 
-            bool operator== (const SpeedTargetValueTypeEnum &rhs) const
-            {
-                return _speedTargetValueTypeEnum == rhs;
-            }
-
+            OPENSCENARIOLIB_EXP bool operator== (const SpeedTargetValueTypeEnum &rhs) const;
             /**
              * The enumeration value from the literal
              * @param literal_ as defined in OpenSCENARIO
              * @return the enumeration value
              */
-            static SpeedTargetValueTypeEnum GetFromLiteral(const std::string literal_)
-            {
-                const auto kIt = _stringToEnum.find(literal_);
-                if (kIt != _stringToEnum.end())
-                    return kIt->second;
-                return UNKNOWN;
-            }
+            OPENSCENARIOLIB_EXP static SpeedTargetValueTypeEnum GetFromLiteral(const std::string literal_);
 
         };
 
@@ -1932,70 +1372,35 @@ namespace NET_ASAM_OPENSCENARIO
             /**
              * Default Constructor
              */
-            StoryboardElementState()
-            {
-                _literal = kStoryboardElementStateEnumString[0];
-                _storyboardElementStateEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP StoryboardElementState();
 
-            StoryboardElementState(StoryboardElementStateEnum& storyboardElementState)
-            {
-                _literal = kStoryboardElementStateEnumString[storyboardElementState+1];
-                _storyboardElementStateEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP StoryboardElementState(StoryboardElementStateEnum& storyboardElementState);
 
-            StoryboardElementState(const StoryboardElementStateEnum storyboardElementState)
-            {
-                _literal = kStoryboardElementStateEnumString[storyboardElementState+1];
-                _storyboardElementStateEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP StoryboardElementState(const StoryboardElementStateEnum storyboardElementState);
 
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO
              */
-            StoryboardElementState(std::string& literal_):_literal(literal_) 
-            {
-                _storyboardElementStateEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP StoryboardElementState(std::string& literal_);
 
             /**
              * The literal from this enumeration value.
              * @return the literal as defined in OpenSCENARIO
              */
-            std::string GetLiteral() const { return _literal;}
+            OPENSCENARIOLIB_EXP std::string GetLiteral() const;
 
-            StoryboardElementState& operator= (const StoryboardElementStateEnum &rhs)
-            {
-                _storyboardElementStateEnum = rhs;
-                _literal = kStoryboardElementStateEnumString[_storyboardElementStateEnum+1];
-                return *this;
-            }
+            OPENSCENARIOLIB_EXP StoryboardElementState& operator= (const StoryboardElementStateEnum &rhs);
 
-            StoryboardElementState& operator= (const StoryboardElementState &rhs ) 
-            { 
-                _literal = rhs._literal;
-                _storyboardElementStateEnum = rhs._storyboardElementStateEnum;
-                return *this;
-            }
+            OPENSCENARIOLIB_EXP StoryboardElementState& operator= (const StoryboardElementState &rhs );
 
-            bool operator== (const StoryboardElementStateEnum &rhs) const
-            {
-                return _storyboardElementStateEnum == rhs;
-            }
-
+            OPENSCENARIOLIB_EXP bool operator== (const StoryboardElementStateEnum &rhs) const;
             /**
              * The enumeration value from the literal
              * @param literal_ as defined in OpenSCENARIO
              * @return the enumeration value
              */
-            static StoryboardElementStateEnum GetFromLiteral(const std::string literal_)
-            {
-                const auto kIt = _stringToEnum.find(literal_);
-                if (kIt != _stringToEnum.end())
-                    return kIt->second;
-                return UNKNOWN;
-            }
+            OPENSCENARIOLIB_EXP static StoryboardElementStateEnum GetFromLiteral(const std::string literal_);
 
         };
 
@@ -2052,70 +1457,35 @@ namespace NET_ASAM_OPENSCENARIO
             /**
              * Default Constructor
              */
-            StoryboardElementType()
-            {
-                _literal = kStoryboardElementTypeEnumString[0];
-                _storyboardElementTypeEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP StoryboardElementType();
 
-            StoryboardElementType(StoryboardElementTypeEnum& storyboardElementType)
-            {
-                _literal = kStoryboardElementTypeEnumString[storyboardElementType+1];
-                _storyboardElementTypeEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP StoryboardElementType(StoryboardElementTypeEnum& storyboardElementType);
 
-            StoryboardElementType(const StoryboardElementTypeEnum storyboardElementType)
-            {
-                _literal = kStoryboardElementTypeEnumString[storyboardElementType+1];
-                _storyboardElementTypeEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP StoryboardElementType(const StoryboardElementTypeEnum storyboardElementType);
 
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO
              */
-            StoryboardElementType(std::string& literal_):_literal(literal_) 
-            {
-                _storyboardElementTypeEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP StoryboardElementType(std::string& literal_);
 
             /**
              * The literal from this enumeration value.
              * @return the literal as defined in OpenSCENARIO
              */
-            std::string GetLiteral() const { return _literal;}
+            OPENSCENARIOLIB_EXP std::string GetLiteral() const;
 
-            StoryboardElementType& operator= (const StoryboardElementTypeEnum &rhs)
-            {
-                _storyboardElementTypeEnum = rhs;
-                _literal = kStoryboardElementTypeEnumString[_storyboardElementTypeEnum+1];
-                return *this;
-            }
+            OPENSCENARIOLIB_EXP StoryboardElementType& operator= (const StoryboardElementTypeEnum &rhs);
 
-            StoryboardElementType& operator= (const StoryboardElementType &rhs ) 
-            { 
-                _literal = rhs._literal;
-                _storyboardElementTypeEnum = rhs._storyboardElementTypeEnum;
-                return *this;
-            }
+            OPENSCENARIOLIB_EXP StoryboardElementType& operator= (const StoryboardElementType &rhs );
 
-            bool operator== (const StoryboardElementTypeEnum &rhs) const
-            {
-                return _storyboardElementTypeEnum == rhs;
-            }
-
+            OPENSCENARIOLIB_EXP bool operator== (const StoryboardElementTypeEnum &rhs) const;
             /**
              * The enumeration value from the literal
              * @param literal_ as defined in OpenSCENARIO
              * @return the enumeration value
              */
-            static StoryboardElementTypeEnum GetFromLiteral(const std::string literal_)
-            {
-                const auto kIt = _stringToEnum.find(literal_);
-                if (kIt != _stringToEnum.end())
-                    return kIt->second;
-                return UNKNOWN;
-            }
+            OPENSCENARIOLIB_EXP static StoryboardElementTypeEnum GetFromLiteral(const std::string literal_);
 
         };
 
@@ -2160,70 +1530,35 @@ namespace NET_ASAM_OPENSCENARIO
             /**
              * Default Constructor
              */
-            TriggeringEntitiesRule()
-            {
-                _literal = kTriggeringEntitiesRuleEnumString[0];
-                _triggeringEntitiesRuleEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP TriggeringEntitiesRule();
 
-            TriggeringEntitiesRule(TriggeringEntitiesRuleEnum& triggeringEntitiesRule)
-            {
-                _literal = kTriggeringEntitiesRuleEnumString[triggeringEntitiesRule+1];
-                _triggeringEntitiesRuleEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP TriggeringEntitiesRule(TriggeringEntitiesRuleEnum& triggeringEntitiesRule);
 
-            TriggeringEntitiesRule(const TriggeringEntitiesRuleEnum triggeringEntitiesRule)
-            {
-                _literal = kTriggeringEntitiesRuleEnumString[triggeringEntitiesRule+1];
-                _triggeringEntitiesRuleEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP TriggeringEntitiesRule(const TriggeringEntitiesRuleEnum triggeringEntitiesRule);
 
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO
              */
-            TriggeringEntitiesRule(std::string& literal_):_literal(literal_) 
-            {
-                _triggeringEntitiesRuleEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP TriggeringEntitiesRule(std::string& literal_);
 
             /**
              * The literal from this enumeration value.
              * @return the literal as defined in OpenSCENARIO
              */
-            std::string GetLiteral() const { return _literal;}
+            OPENSCENARIOLIB_EXP std::string GetLiteral() const;
 
-            TriggeringEntitiesRule& operator= (const TriggeringEntitiesRuleEnum &rhs)
-            {
-                _triggeringEntitiesRuleEnum = rhs;
-                _literal = kTriggeringEntitiesRuleEnumString[_triggeringEntitiesRuleEnum+1];
-                return *this;
-            }
+            OPENSCENARIOLIB_EXP TriggeringEntitiesRule& operator= (const TriggeringEntitiesRuleEnum &rhs);
 
-            TriggeringEntitiesRule& operator= (const TriggeringEntitiesRule &rhs ) 
-            { 
-                _literal = rhs._literal;
-                _triggeringEntitiesRuleEnum = rhs._triggeringEntitiesRuleEnum;
-                return *this;
-            }
+            OPENSCENARIOLIB_EXP TriggeringEntitiesRule& operator= (const TriggeringEntitiesRule &rhs );
 
-            bool operator== (const TriggeringEntitiesRuleEnum &rhs) const
-            {
-                return _triggeringEntitiesRuleEnum == rhs;
-            }
-
+            OPENSCENARIOLIB_EXP bool operator== (const TriggeringEntitiesRuleEnum &rhs) const;
             /**
              * The enumeration value from the literal
              * @param literal_ as defined in OpenSCENARIO
              * @return the enumeration value
              */
-            static TriggeringEntitiesRuleEnum GetFromLiteral(const std::string literal_)
-            {
-                const auto kIt = _stringToEnum.find(literal_);
-                if (kIt != _stringToEnum.end())
-                    return kIt->second;
-                return UNKNOWN;
-            }
+            OPENSCENARIOLIB_EXP static TriggeringEntitiesRuleEnum GetFromLiteral(const std::string literal_);
 
         };
 
@@ -2292,70 +1627,35 @@ namespace NET_ASAM_OPENSCENARIO
             /**
              * Default Constructor
              */
-            VehicleCategory()
-            {
-                _literal = kVehicleCategoryEnumString[0];
-                _vehicleCategoryEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP VehicleCategory();
 
-            VehicleCategory(VehicleCategoryEnum& vehicleCategory)
-            {
-                _literal = kVehicleCategoryEnumString[vehicleCategory+1];
-                _vehicleCategoryEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP VehicleCategory(VehicleCategoryEnum& vehicleCategory);
 
-            VehicleCategory(const VehicleCategoryEnum vehicleCategory)
-            {
-                _literal = kVehicleCategoryEnumString[vehicleCategory+1];
-                _vehicleCategoryEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP VehicleCategory(const VehicleCategoryEnum vehicleCategory);
 
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO
              */
-            VehicleCategory(std::string& literal_):_literal(literal_) 
-            {
-                _vehicleCategoryEnum = GetFromLiteral(_literal);
-            }
+            OPENSCENARIOLIB_EXP VehicleCategory(std::string& literal_);
 
             /**
              * The literal from this enumeration value.
              * @return the literal as defined in OpenSCENARIO
              */
-            std::string GetLiteral() const { return _literal;}
+            OPENSCENARIOLIB_EXP std::string GetLiteral() const;
 
-            VehicleCategory& operator= (const VehicleCategoryEnum &rhs)
-            {
-                _vehicleCategoryEnum = rhs;
-                _literal = kVehicleCategoryEnumString[_vehicleCategoryEnum+1];
-                return *this;
-            }
+            OPENSCENARIOLIB_EXP VehicleCategory& operator= (const VehicleCategoryEnum &rhs);
 
-            VehicleCategory& operator= (const VehicleCategory &rhs ) 
-            { 
-                _literal = rhs._literal;
-                _vehicleCategoryEnum = rhs._vehicleCategoryEnum;
-                return *this;
-            }
+            OPENSCENARIOLIB_EXP VehicleCategory& operator= (const VehicleCategory &rhs );
 
-            bool operator== (const VehicleCategoryEnum &rhs) const
-            {
-                return _vehicleCategoryEnum == rhs;
-            }
-
+            OPENSCENARIOLIB_EXP bool operator== (const VehicleCategoryEnum &rhs) const;
             /**
              * The enumeration value from the literal
              * @param literal_ as defined in OpenSCENARIO
              * @return the enumeration value
              */
-            static VehicleCategoryEnum GetFromLiteral(const std::string literal_)
-            {
-                const auto kIt = _stringToEnum.find(literal_);
-                if (kIt != _stringToEnum.end())
-                    return kIt->second;
-                return UNKNOWN;
-            }
+            OPENSCENARIOLIB_EXP static VehicleCategoryEnum GetFromLiteral(const std::string literal_);
 
         };
 

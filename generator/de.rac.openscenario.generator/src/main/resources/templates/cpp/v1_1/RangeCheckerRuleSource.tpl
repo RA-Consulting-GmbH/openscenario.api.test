@@ -28,17 +28,17 @@ namespace NET_ASAM_OPENSCENARIO
     namespace <%=versionNamespace%>
     {
     <%- model.getClasses().findAll(){element->rangeCheckerRules[element.name.toClassName()] != null}.each{ element->-%>
-        void <%=element.name.toClassName()%>RangeCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<I<%=element.name.toClassName()%>> object)
+        void <%=element.name.toClassName()%>RangeCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             Apply(messageLogger, nullptr, object);
         }
 
-        void <%=element.name.toClassName()%>RangeCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<I<%=element.name.toClassName()%>> object)
+        void <%=element.name.toClassName()%>RangeCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             Apply(nullptr, messageLogger, object);
         }
 
-        void <%=element.name.toClassName()%>RangeCheckerRule::Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<I<%=element.name.toClassName()%>> object) const
+        void <%=element.name.toClassName()%>RangeCheckerRule::Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<IOpenScenarioModelElement> object) const
         {
             <%-Map propertyMap = rangeCheckerRules[element.name.toClassName()];-%>
             <%-List properties = element.getXmlAttributeProperties().findAll(){property-> propertyMap[property.name.toMemberName()] != null};-%>
@@ -46,17 +46,18 @@ namespace NET_ASAM_OPENSCENARIO
             <%-Map rangeMap = propertyMap[property.name.toMemberName()]-%>
             if (object)
             {
-                const auto k<%=property.name.toClassName()%> = object->Get<%=property.name.toClassName()%>();
+            	auto typedObject = std::dynamic_pointer_cast<I<%=element.name.toClassName()%>>(object);
+                const auto k<%=property.name.toClassName()%> = typedObject->Get<%=property.name.toClassName()%>();
                 <%-if (rangeMap["upperBoundValue"]){-%>
                 if (!(k<%=property.name.toClassName()%> <%=rangeMap["upperBoundOperator"]%> <%=rangeMap["upperBoundValue"].replaceFirst("java.lang.Math.PI", "M_PI")%>))
                 {
                     if (fileMessageLogger) 
                     {
-                        LogFileContentMessage(object, fileMessageLogger, OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>,std::to_string(object->Get<%=property.name.toClassName()%>()), "<%=rangeMap["upperBoundOperator"]%>", "<%=rangeMap["upperBoundValueDisplay"]%>", OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>);
+                        LogFileContentMessage(typedObject, fileMessageLogger, OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>,std::to_string(typedObject->Get<%=property.name.toClassName()%>()), "<%=rangeMap["upperBoundOperator"]%>", "<%=rangeMap["upperBoundValueDisplay"]%>", OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>);
                     } 
                     else 
                     {
-                        LogTreeContentMessage(object, treeMessageLogger, OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>,std::to_string(object->Get<%=property.name.toClassName()%>()), "<%=rangeMap["upperBoundOperator"]%>", "<%=rangeMap["upperBoundValueDisplay"]%>", OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>);
+                        LogTreeContentMessage(typedObject, treeMessageLogger, OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>,std::to_string(typedObject->Get<%=property.name.toClassName()%>()), "<%=rangeMap["upperBoundOperator"]%>", "<%=rangeMap["upperBoundValueDisplay"]%>", OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>);
                     }
                 }
                 <%-}-%>
@@ -65,11 +66,11 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     if (fileMessageLogger) 
                     {
-                        LogFileContentMessage(object,  fileMessageLogger,  OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%> , std::to_string(object->Get<%=property.name.toClassName()%>()), "<%=rangeMap["lowerBoundOperator"]%>", "<%=rangeMap["lowerBoundValueDisplay"]%>", OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>);
+                        LogFileContentMessage(typedObject,  fileMessageLogger,  OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%> , std::to_string(typedObject->Get<%=property.name.toClassName()%>()), "<%=rangeMap["lowerBoundOperator"]%>", "<%=rangeMap["lowerBoundValueDisplay"]%>", OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>);
                     } 
                     else 
                     {
-                        LogTreeContentMessage(object,  treeMessageLogger,  OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%> , std::to_string(object->Get<%=property.name.toClassName()%>()), "<%=rangeMap["lowerBoundOperator"]%>", "<%=rangeMap["lowerBoundValueDisplay"]%>", OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>);
+                        LogTreeContentMessage(typedObject,  treeMessageLogger,  OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%> , std::to_string(typedObject->Get<%=property.name.toClassName()%>()), "<%=rangeMap["lowerBoundOperator"]%>", "<%=rangeMap["lowerBoundValueDisplay"]%>", OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>);
                     }
                 }
                 <%-}-%>

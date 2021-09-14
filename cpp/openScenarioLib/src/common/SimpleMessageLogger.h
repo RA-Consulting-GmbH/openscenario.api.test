@@ -19,6 +19,7 @@
 #include "BaseMessageLogger.h"
 #include "FileContentMessage.h"
 #include "IParserMessageLogger.h"
+
 #include "MemLeakDetection.h"
 
 namespace NET_ASAM_OPENSCENARIO
@@ -32,35 +33,20 @@ namespace NET_ASAM_OPENSCENARIO
         BaseMessageLogger<FileContentMessage> _baseMessageLogger;
 
     public:
-        SimpleMessageLogger(const ErrorLevel logLevel):_baseMessageLogger(logLevel) {}
+		OPENSCENARIOLIB_EXP SimpleMessageLogger(const ErrorLevel logLevel) ;
 
-        void LogMessage(FileContentMessage& message) override
-        {
-            _baseMessageLogger.LogMessage(message);
-        }
+		OPENSCENARIOLIB_EXP virtual void LogMessage(FileContentMessage& message) override;
 
-        void LogAllMessages(std::vector<FileContentMessage>& messages) override
-        {
-            _baseMessageLogger.LogAllMessages(messages);
-        }
+		OPENSCENARIOLIB_EXP virtual void LogAllMessages(std::vector<FileContentMessage>& messages) override;
 
         /**
         * The message that have been picked up and >= log level.
         * @return the messages picked up
         */
-        std::vector<FileContentMessage> GetMessages()
-        {
-            return _baseMessageLogger.GetMessages();
-        }
+		OPENSCENARIOLIB_EXP virtual std::vector<FileContentMessage> GetMessages();
 
-        std::vector<FileContentMessage> GetMessagesFilteredByErrorLevel(const ErrorLevel errorLevel)  override
-        {
-            return _baseMessageLogger.GetMessagesFilteredByErrorLevel(errorLevel);
-        }
+		OPENSCENARIOLIB_EXP virtual std::vector<FileContentMessage> GetMessagesFilteredByErrorLevel(const ErrorLevel errorLevel)  override;
 
-        std::vector<FileContentMessage> GetMessagesFilteredByWorseOrEqualToErrorLevel(const ErrorLevel errorLevel) override
-        {
-            return _baseMessageLogger.GetMessagesFilteredByWorseOrEqualToErrorLevel(errorLevel);
-        }
+		OPENSCENARIOLIB_EXP virtual std::vector<FileContentMessage> GetMessagesFilteredByWorseOrEqualToErrorLevel(const ErrorLevel errorLevel) override;
     };
 }

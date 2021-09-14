@@ -124,6 +124,7 @@ public class GeneratorCpp {
 			 */
 
 			Template template = null;
+			
 			System.out.println("-- Class Interface for ${key}");
 			binding["helper"] = new ApiClassInterfaceHelper();
 			template = templateProcessor.getTemplate('ApiClassInterface');
@@ -132,20 +133,24 @@ public class GeneratorCpp {
 				return templateApplication(template, null);
 			}
 
-			System.out.println("-- Enumerations for ${key}");
+
+			System.out.println("-- Enumerations headers for ${key}");
 			binding["helper"] = new ApiEnumerationHelper();
-			template = templateProcessor.getTemplate('ApiEnumeration');
+			template = templateProcessor.getTemplate('ApiEnumerationHeader');
 			processor("api", "Enumerations${versionProperties["fileSuffix"]}.h")
 			{
 				return templateApplication(template, null);
 			}
-
-			template = templateProcessor.getTemplate('ApiEnumerationSourceFile');
+			
+			System.out.println("-- Enumerations sources for ${key}");
+			binding["helper"] = new ApiEnumerationHelper();
+			template = templateProcessor.getTemplate('ApiEnumerationSource');
 			processor("api", "Enumerations${versionProperties["fileSuffix"]}.cpp")
 			{
 				return templateApplication(template, null);
 			}
-
+			
+			
 			System.out.println("-- Osc Interfaces for ${key}");
 			binding["helper"] = new ApiInterfaceHelper();
 			template = templateProcessor.getTemplate('ApiInterface');
@@ -160,11 +165,13 @@ public class GeneratorCpp {
 			processor("impl", "ApiClassImpl${versionProperties["fileSuffix"]}.h"){
 				return templateApplication(template, null);
 			}
+			
 			template = templateProcessor.getTemplate('ImplClassSource');
 			processor("impl", "ApiClassImpl${versionProperties["fileSuffix"]}.cpp"){
 				return templateApplication(template, null);
 			}
 
+			//TODO Separate
 			System.out.println("-- Xml Parser Classes for ${key}");
 			binding["helper"] = new XmlParserClassHelper();
 			def all = umlModel.getClasses();
@@ -177,17 +184,20 @@ public class GeneratorCpp {
 			processor("xmlParser", "XmlParsers1${versionProperties["fileSuffix"]}.cpp"){
 				return templateApplication(template, sublist[0]);
 			}
+			
 			processor("xmlParser", "XmlParsers2${versionProperties["fileSuffix"]}.cpp"){
 				return templateApplication(template, sublist[1]);
 			}
 
+			// OK (template classes)
 			System.out.println("-- Constant Class for ${key}");
 			binding["helper"] = new ConstantClassHelper();
 			template = templateProcessor.getTemplate('ConstantClass');
 			processor("common", "OscConstants${versionProperties["fileSuffix"]}.h"){
 				return templateApplication(template, getConstants(umlModel.getClasses()));
 			}
-
+			
+			// TODO set virtual = 0;
 			System.out.println("-- CheckerInterfaceTemplate for ${key}");
 			binding["helper"] = new ScenarioCheckerInterfaceHelper();
 			template = templateProcessor.getTemplate('ScenarioCheckerInterface');
@@ -195,54 +205,90 @@ public class GeneratorCpp {
 				return templateApplication(template, umlModel.getClasses());
 			}
 
+		
 			System.out.println("-- CheckerImplTemplate for ${key}");
 			binding["helper"] = new ScenarioCheckerImplHelper();
 			template = templateProcessor.getTemplate('ScenarioCheckerImpl');
 			processor("checker/impl", "ScenarioCheckerImpl${versionProperties["fileSuffix"]}.h"){
 				return templateApplication(template, umlModel.getClasses());
 			}
+			
+				
 			template = templateProcessor.getTemplate('ScenarioCheckerImplSource');
 			processor("checker/impl", "ScenarioCheckerImpl${versionProperties["fileSuffix"]}.cpp"){
 				return templateApplication(template, umlModel.getClasses());
 			}
-
-			System.out.println("-- RangeCheckerHelper Class for ${key}");
+			
+			System.out.println("-- RangeCheckerHelper Header for ${key}");
 			binding["helper"] = new RangeCheckerHelper();
 			template = templateProcessor.getTemplate('RangeCheckerHelper');
 			processor("checker/range", "RangeCheckerHelper${versionProperties["fileSuffix"]}.h"){
 				return templateApplication(template,umlModel.getClasses().findAll(){element->rangeCheckerRules[element.name.toClassName()] != null});
 			}
+			
+			System.out.println("-- RangeCheckerHelper Class for ${key}");
+			binding["helper"] = new RangeCheckerHelper();
+			template = templateProcessor.getTemplate('RangeCheckerHelperSource');
+			processor("checker/range", "RangeCheckerHelper${versionProperties["fileSuffix"]}.cpp"){
+				return templateApplication(template,umlModel.getClasses().findAll(){element->rangeCheckerRules[element.name.toClassName()] != null});
+			}
 
-			System.out.println("-- Range Checker Helper for ${key}");
+			// OK
+			System.out.println("-- Range Checker Rules Header for ${key}");
 			binding["rangeCheckerRules"] = rangeCheckerRules;
 			binding["helper"] = new RangeCheckerRuleHelper();
 			template = templateProcessor.getTemplate('RangeCheckerRule');
 			processor("checker/range", "RangeCheckerRules${versionProperties["fileSuffix"]}.h"){
 				return templateApplication(template, null);
 			}
+			System.out.println("-- Range Checker Rules Source for ${key}");
 			template = templateProcessor.getTemplate('RangeCheckerRuleSource');
 			processor("checker/range", "RangeCheckerRules${versionProperties["fileSuffix"]}.cpp"){
 				return templateApplication(template, null);
 			}
 
-			System.out.println("-- CatalogHelper for ${key}");
+
+			System.out.println("-- CatalogHelper Header for ${key}");
 			binding["helper"] = new CatalogHelperHelper();
 			template = templateProcessor.getTemplate('CatalogHelper');
 			processor("catalog", "CatalogHelper${versionProperties["fileSuffix"]}.h"){
 				return templateApplication(template, umlModel.getCatalogElementClasses());
 			}
+			
+			System.out.println("-- CatalogHelper Source for ${key}");
+			binding["helper"] = new CatalogHelperHelper();
+			template = templateProcessor.getTemplate('CatalogHelperSource');
+			processor("catalog", "CatalogHelper${versionProperties["fileSuffix"]}.cpp"){
+				return templateApplication(template, umlModel.getCatalogElementClasses());
+			}
 
-			System.out.println("-- Union Checker Rule for ${key}");
+			//TODO Separate
+			System.out.println("-- Union Checker Rule Header for ${key}");
 			binding["helper"] = new UnionCheckerRuleHelper()
 			template = templateProcessor.getTemplate('UnionCheckerRule');
 			processor("checker/model", "UnionCheckerRules${versionProperties["fileSuffix"]}.h"){
 				return templateApplication(template, umlModel.getClasses().findAll(){ UmlClass umlClass ->umlClass.appliedStereotypes.find(){Stereotype s -> s.name == "union"}});
 			}
+			
+			System.out.println("-- Union Checker Rule Source for ${key}");
+			binding["helper"] = new UnionCheckerRuleHelper()
+			template = templateProcessor.getTemplate('UnionCheckerRuleSource');
+			processor("checker/model", "UnionCheckerRules${versionProperties["fileSuffix"]}.cpp"){
+				return templateApplication(template, umlModel.getClasses().findAll(){ UmlClass umlClass ->umlClass.appliedStereotypes.find(){Stereotype s -> s.name == "union"}});
+			}
 
-			System.out.println("-- Cardinality Checker Rule for ${key}");
+
+			System.out.println("-- Cardinality Checker Rule Header for ${key}");
 			binding["helper"] = new CardinalityCheckerRuleHelper()
 			template = templateProcessor.getTemplate('CardinalityCheckerRule');
 			processor("checker/model", "CardinalityCheckerRules${versionProperties["fileSuffix"]}.h"){
+				return templateApplication(template, umlModel.getClasses().findAll(){  UmlClass umlClass-> !umlClass.umlProperties.findAll(){UmlProperty p -> !p.isOptional() && !p.isOptionalUnboundList()}.isEmpty()});
+			}
+			
+			System.out.println("-- Cardinality Checker Rule Source for ${key}");
+			binding["helper"] = new CardinalityCheckerRuleHelper()
+			template = templateProcessor.getTemplate('CardinalityCheckerRuleSource');
+			processor("checker/model", "CardinalityCheckerRules${versionProperties["fileSuffix"]}.cpp"){
 				return templateApplication(template, umlModel.getClasses().findAll(){  UmlClass umlClass-> !umlClass.umlProperties.findAll(){UmlProperty p -> !p.isOptional() && !p.isOptionalUnboundList()}.isEmpty()});
 			}
 
@@ -253,6 +299,7 @@ public class GeneratorCpp {
 			{
 				return templateApplication(template, null);
 			}
+
 
 			System.out.println("-- Writer Interface for ${key}");
 			binding["helper"] = new ApiClassWriterInterfaceHelper();
@@ -270,18 +317,34 @@ public class GeneratorCpp {
 				return templateApplication(template, umlModel.getClasses());
 			}
 
-			System.out.println("-- Writer Factory Impl for ${key}");
+			System.out.println("-- Writer Factory Impl Header for ${key}");
 			binding["helper"] = new ApiClassWriterFactoryImplHelper();
 			template = templateProcessor.getTemplate('ApiClassWriterFactoryImpl');
 			processor("impl", "OpenScenarioWriterFactoryImpl${versionProperties["fileSuffix"]}.h")
 			{
 				return templateApplication(template, umlModel.getClasses());
 			}
-
-			System.out.println("-- Xml Exporter for ${key}");
+			
+			System.out.println("-- Writer Factory Impl Source for ${key}");
+			binding["helper"] = new ApiClassWriterFactoryImplHelper();
+			template = templateProcessor.getTemplate('ApiClassWriterFactoryImplSource');
+			processor("impl", "OpenScenarioWriterFactoryImpl${versionProperties["fileSuffix"]}.cpp")
+			{
+				return templateApplication(template, umlModel.getClasses());
+			}
+			
+			System.out.println("-- Xml Exporter Header for ${key}");
 			binding["helper"] = new XmlExporterClassHelper();
 			template = templateProcessor.getTemplate('XmlExporterClass');
 			processor("export/xml", "OpenScenarioXmlExporter${versionProperties["fileSuffix"]}.h")
+			{
+				return templateApplication(template, umlModel);
+			}
+			
+			System.out.println("-- Xml Exporter Source for  ${key}");
+			binding["helper"] = new XmlExporterClassHelper();
+			template = templateProcessor.getTemplate('XmlExporterClassSource');
+			processor("export/xml", "OpenScenarioXmlExporter${versionProperties["fileSuffix"]}.cpp")
 			{
 				return templateApplication(template, umlModel);
 			}

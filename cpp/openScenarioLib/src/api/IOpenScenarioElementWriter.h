@@ -16,10 +16,7 @@
  */
 
 #pragma once
-#include <string>
 #include "MemLeakDetection.h"
-#include "IOpenScenarioModelElement.h"
-#include <memory>
 
 namespace NET_ASAM_OPENSCENARIO
 {

@@ -11,7 +11,7 @@ endmacro (RAC_SET_COMMON_PARAM)
 ################################################################
 # Set C++ params
 macro (RAC_SET_CPP_PARAM)
-    set(CMAKE_CXX_STANDARD 11)
+    set(CMAKE_CXX_STANDARD 14)
     set(CMAKE_CXX_STANDARD_REQUIRED ON)
     set(CMAKE_CXX_EXTENSIONS OFF)
     set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS})
@@ -52,7 +52,7 @@ macro (RAC_SET_BUILD_PARAM)
         if( APPLE )
             set( NO_PSABI "" )
         endif()
-        add_definitions( -Wall -fPIC -Wno-attributes -Wno-unknown-pragmas -Wno-unused-result ${NO_PSABI} )
+        add_definitions( -Wall -fPIC -Wno-unknown-pragmas -Wno-unused-result ${NO_PSABI} )
         message( STATUS "Platform: ${PLATFORM_PARAM}; Shared lib: ${BUILD_SHARED_LIBS}" )
     endif()
 

@@ -17,12 +17,8 @@
 
 #pragma once
 
-#include "IOpenScenarioModelElement.h"
-#include <vector>
-#include <string>
 #include "MemLeakDetection.h"
 #include "ModelCheckerRule.h"
-#include <memory>
 
 /**
  * Checks the xor constraints of all children.
@@ -31,44 +27,20 @@
  * <li>if more than one children is not null
  * <li>if all are null and one must be present. (all have minOccur &gt; 0)
  * </ul>
- * @param <T> the type to check
  *
  */
 namespace NET_ASAM_OPENSCENARIO
 {
-    template <class T>
-    class UnionCheckerRule:  public IOpenScenarioModelElement, public ModelCheckerRule<T>
+    class UnionCheckerRule:  public ModelCheckerRule
     {
     public:
-        UnionCheckerRule() = default;
-        virtual  ~UnionCheckerRule() = default;
+        UnionCheckerRule();
+        virtual  ~UnionCheckerRule();
 
     protected:
-        std::string GetTooManyMessage(std::vector<std::string>& properties)
-        {
-            std::string returnString = "Multiple children are set (";
+        std::string GetTooManyMessage(std::vector<std::string>& properties);
 
-            for (auto&& property : properties)
-            {
-                returnString += property + ", ";
-            }
-
-            returnString += ")";
-            return returnString;
-        }
-
-        std::string GetTooFewMessage(std::vector<std::string>& properties)
-        {
-            std::string returnString = "One of these children must be set (";
-
-            for (auto&& property : properties)
-            {
-                returnString += property + ", ";
-            }
-
-            returnString += ")";
-            return returnString;
-        }
+        std::string GetTooFewMessage(std::vector<std::string>& properties);
     };
 
 }

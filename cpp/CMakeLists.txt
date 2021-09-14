@@ -4,6 +4,11 @@ cmake_minimum_required( VERSION 3.8.2 )
 project( OpenScenario-Cpp )
 message("${PROJECT_NAME}")
 
+################################################################
+# Write msbuild.exe for Windows build
+if( MSVC )
+    write_file("${CMAKE_SOURCE_DIR}/buildArtifact/msbuildcmd.txt" "cmd,${CMAKE_VS_MSBUILD_COMMAND}")
+endif( MSVC )
 
 ################################################################
 # Add a module path for cmake modules
@@ -48,6 +53,12 @@ find_package(ANTLR REQUIRED)
 
 ################################################################
 # Build as static or shared lib, Debug or Release, for Linux or Windows
+if( UNIX )
+    if(NOT CMAKE_BUILD_TYPE)
+        set(CMAKE_BUILD_TYPE "Debug" CACHE STRING "Debug, Release" FORCE)
+    endif(NOT CMAKE_BUILD_TYPE)
+    set(BUILD_TARGET_PARAM ${CMAKE_BUILD_TYPE})
+endif( UNIX )
 if( ${BUILD_SHARED_LIBS} )
     set(osc_extra_static_compile_flags "")
 else()
@@ -57,12 +68,6 @@ else()
         set(osc_extra_static_compile_flags "-DANTLR4CPP_STATIC")
     endif()
 endif()
-if( UNIX )
-    if(NOT CMAKE_BUILD_TYPE)
-        set(CMAKE_BUILD_TYPE "Debug" CACHE STRING "Debug, Release" FORCE)
-    endif(NOT CMAKE_BUILD_TYPE)
-    set(BUILD_TARGET_PARAM ${CMAKE_BUILD_TYPE})
-endif( UNIX )
 if(NOT PLATFORM_PARAM)
     set(PLATFORM_PARAM "${CMAKE_SYSTEM_NAME}" CACHE STRING "Linux, Windows, etc" FORCE)
 endif(NOT PLATFORM_PARAM)
@@ -97,11 +102,13 @@ message ("Building all into: ${CMAKE_BINARY_DIR}")
 	
 # CoreLibraries
 add_subdirectory( openScenarioLib ${PROJECT_BINARY_DIR}/openScenarioLib )
+add_subdirectory( expressionsLib ${PROJECT_BINARY_DIR}/expressionsLib )
 
 # Applications
 add_subdirectory( applications/openScenarioReader ${PROJECT_BINARY_DIR}/applications/openScenarioReader )
 add_subdirectory( applications/openScenarioTester ${PROJECT_BINARY_DIR}/applications/openScenarioTester)
 add_subdirectory( applications/indexerTester ${PROJECT_BINARY_DIR}/applications/indexerTester)
+add_subdirectory( applications/expressionsTester ${PROJECT_BINARY_DIR}/applications/expressionsTester)
 
 
 ################################################################

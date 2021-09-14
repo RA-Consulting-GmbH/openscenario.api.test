@@ -18,8 +18,8 @@
 #pragma once
 
 #include "MemLeakDetection.h"
-#include <memory>
 #include "ErrorLevel.h"
+#include "ExportDefinitions.h"
 
 /**
  * An interface that logs a single message or a list of messages to a log target.
@@ -41,27 +41,22 @@ namespace NET_ASAM_OPENSCENARIO
          * @param message the message text
          * @param errorLevel the error level of the message
          */
-        ContentMessage(const std::string message = "", const ErrorLevel errorLevel = INFO): _message(message), _errorLevel(errorLevel) {}
-
+		OPENSCENARIOLIB_EXP ContentMessage(const std::string message = "", const ErrorLevel errorLevel = INFO);
+		OPENSCENARIOLIB_EXP virtual ~ContentMessage() = default;
+    	
         /**
          * The text of a message
          *
          * @return the message text
          */
-        std::string GetMsg()
-        {
-            return _message;
-        }
+		OPENSCENARIOLIB_EXP std::string GetMsg();
 
         /**
          * The error level of the message.
          *
          * @return the error level
          */
-        ErrorLevel GetErrorLevel()
-        {
-            return _errorLevel;
-        }
+		OPENSCENARIOLIB_EXP ErrorLevel GetErrorLevel();
 
     };
 }

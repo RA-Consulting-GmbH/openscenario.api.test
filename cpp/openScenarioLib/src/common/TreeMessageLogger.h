@@ -17,9 +17,9 @@
 #pragma once
 
 #include "MemLeakDetection.h"
-#include <memory>
 #include "BaseMessageLogger.h"
 #include "ITreeMessageLogger.h"
+#include "ExportDefinitions.h"
 
 /**
  * An simple class that logs messages.
@@ -39,36 +39,20 @@ namespace NET_ASAM_OPENSCENARIO
          * @param logLevel the log level treshhold. Messages with this log level
          * and worse log levels are logged
          */
-         TreeMessageLogger(const ErrorLevel logLevel): _baseMessageLogger(logLevel) {}
+		OPENSCENARIOLIB_EXP TreeMessageLogger(const ErrorLevel logLevel);
 
-         void LogMessage(TreeContentMessage& message) override
-         {
-             _baseMessageLogger.LogMessage(message);
-         }
+		OPENSCENARIOLIB_EXP virtual void LogMessage(TreeContentMessage& message) override;
 
-         void LogAllMessages(std::vector<TreeContentMessage>& messages) override
-         {
-             _baseMessageLogger.LogAllMessages(messages);
-         }
+		OPENSCENARIOLIB_EXP virtual void LogAllMessages(std::vector<TreeContentMessage>& messages) override;
 
-         /**
-         * The message that have been picked up and >= log level.
-         * @return the messages picked up
-         */
-         std::vector<TreeContentMessage> GetMessages()
-         {
-             return _baseMessageLogger.GetMessages();
-         }
+		/**
+		* The message that have been picked up and >= log level.
+		* @return the messages picked up
+		*/
+		OPENSCENARIOLIB_EXP virtual std::vector<TreeContentMessage> GetMessages();
 
-         std::vector<TreeContentMessage> GetMessagesFilteredByErrorLevel(const ErrorLevel errorLevel)  override
-         {
-             return _baseMessageLogger.GetMessagesFilteredByErrorLevel(errorLevel);
-         }
+		OPENSCENARIOLIB_EXP virtual std::vector<TreeContentMessage> GetMessagesFilteredByErrorLevel(const ErrorLevel errorLevel)  override;
 
-         std::vector<TreeContentMessage> GetMessagesFilteredByWorseOrEqualToErrorLevel(const ErrorLevel errorLevel) override
-         {
-             return _baseMessageLogger.GetMessagesFilteredByWorseOrEqualToErrorLevel(errorLevel);
-         }
-
+		OPENSCENARIOLIB_EXP virtual std::vector<TreeContentMessage> GetMessagesFilteredByWorseOrEqualToErrorLevel(const ErrorLevel errorLevel) override;
     };
 }

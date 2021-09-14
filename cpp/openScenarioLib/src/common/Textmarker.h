@@ -18,6 +18,7 @@
 #pragma once
 #include <string>
 #include "MemLeakDetection.h"
+#include "ExportDefinitions.h"
 
 namespace NET_ASAM_OPENSCENARIO
 {
@@ -34,33 +35,30 @@ namespace NET_ASAM_OPENSCENARIO
         std::string _filename;
 
     public:
-        Textmarker(const int line, const int column, const std::string filename): _column(column), _line(line), _filename(filename) {}
+		OPENSCENARIOLIB_EXP Textmarker(const int line, const int column, const std::string filename);
 
         /**
          * The column in a line
          * @return the column (starting with 0)
          */
-        int GetColumn() const { return _column; }
+		OPENSCENARIOLIB_EXP int GetColumn() const;
 
         /**
          * The line in a file.
          * @return The line number (starting with 0)
          */
-        int GetLine() const { return _line; }
+		OPENSCENARIOLIB_EXP int GetLine() const;
 
         /**
          * The filename
          * @return the name of the file.
          */
-        std::string GetFilename() const { return _filename; }
+		OPENSCENARIOLIB_EXP std::string GetFilename() const;
 
-        bool operator==(const Textmarker& rhs) const
-        {
-            return rhs._filename == this->_filename && rhs._line == this->_line && rhs._column == this->_column;
-        }
+		OPENSCENARIOLIB_EXP bool operator==(const Textmarker& rhs) const;
 
-        size_t HashCode() const { return std::hash<std::string>{}(this->ToString()); }
+		OPENSCENARIOLIB_EXP size_t HashCode() const;
 
-        std::string ToString() const { return _filename + "(" + std::to_string(_line) + "," + std::to_string(_column) + ")"; }
+		OPENSCENARIOLIB_EXP std::string ToString() const;
     };
 }

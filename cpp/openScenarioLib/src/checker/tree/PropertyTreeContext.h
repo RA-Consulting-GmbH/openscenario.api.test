@@ -20,7 +20,7 @@
 #include "BaseTreeContext.h"
 #include "MemLeakDetection.h"
 #include <memory>
-
+#include "ExportDefinitions.h"
 
 namespace NET_ASAM_OPENSCENARIO
 {
@@ -36,19 +36,12 @@ namespace NET_ASAM_OPENSCENARIO
          * @param treeObjectContext a model element as the parent of the properties.
          * @param propertyNames the names of the properties as you would use it in the IOpenScenarioFlexElement
          */
-        PropertyTreeContext(std::shared_ptr<IOpenScenarioModelElement> treeObjectContext, std::vector<std::string>&  propertyNames): BaseTreeContext(treeObjectContext)
-        {
-            if (!propertyNames.empty())
-                _propertyNames = propertyNames;
-        }
-
+		PropertyTreeContext(std::shared_ptr<IOpenScenarioModelElement> treeObjectContext, std::vector<std::string>&  propertyNames);
+		virtual ~PropertyTreeContext() = default;
         /**
          * @return the property names
          */
-        std::vector<std::string> GetPropertyNames()
-        {
-            return _propertyNames;
-        }
+		std::vector<std::string> GetPropertyNames();
 
         /**
          * Creates a PropertyTreeContext from a object and a single property name (convenience factory method)
@@ -56,12 +49,7 @@ namespace NET_ASAM_OPENSCENARIO
          * @param propertyName the name of the property
          * @return a property tree context
          */
-        static std::shared_ptr<PropertyTreeContext> Create(std::shared_ptr<IOpenScenarioModelElement> treeObjectContext, const std::string propertyName)
-        {
-            std::vector<std::string> propertyNames;
-            propertyNames.push_back(propertyName);
-            return std::make_shared<PropertyTreeContext>(treeObjectContext, propertyNames);
-        }
+		OPENSCENARIOLIB_EXP static std::shared_ptr<PropertyTreeContext> Create(std::shared_ptr<IOpenScenarioModelElement> treeObjectContext, const std::string propertyName);
 
     };
 }

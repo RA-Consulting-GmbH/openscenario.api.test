@@ -17,7 +17,6 @@
 
 #pragma once
 #include "IndexedElement.h"
-#include <vector>
 #include "MemLeakDetection.h"
 
 namespace NET_ASAM_OPENSCENARIO
@@ -34,24 +33,18 @@ namespace NET_ASAM_OPENSCENARIO
         std::shared_ptr<IndexedElement> _lastElementParsed;
 
     public:
-        virtual ~ParserContext() = default;
+		virtual ~ParserContext();
         /**
          * The last element that has been parsed
          * @return the lasz indexed element that has been parsed
          */
-        std::shared_ptr<IndexedElement> GetLastElementParsed() const
-        {
-            return _lastElementParsed;
-        }
+		std::shared_ptr<IndexedElement> GetLastElementParsed() const;
 
         /**
          * Sets the last element that has been parsed
          * @param lastElementParsed the last element that has been parsed
          */
-        void SetLastElementParsed(const std::shared_ptr<IndexedElement>& lastElementParsed)
-        {
-            _lastElementParsed = lastElementParsed;
-        }
+		void SetLastElementParsed(const std::shared_ptr<IndexedElement>& lastElementParsed);
 
     };
 

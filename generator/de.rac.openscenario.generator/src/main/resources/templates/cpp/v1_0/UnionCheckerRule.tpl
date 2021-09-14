@@ -17,18 +17,13 @@
  */
 -%>
 <%=JavaLicenseHelper.getApache2License()%>
-#pragma once
 
 #include <string>
 #include <vector>
 #include "UnionCheckerRule.h"
 #include "IParserMessageLogger.h"
 #include "ITreeMessageLogger.h"
-#include "OscConstants<%=fileSuffix%>.h"
-#include "ErrorLevel.h"
 #include "ApiClassInterfaces<%=fileSuffix%>.h"
-#include "FileContentMessage.h"
-#include "TreeContentMessage.h"
 #include "PropertyTreeContext.h"
 #include "MemLeakDetection.h"
 
@@ -39,79 +34,23 @@ namespace NET_ASAM_OPENSCENARIO
 
 <%- element.each{ umlClass ->-%>
 <%= helper.makeClassJavaDoc(umlClass, oscVersion, "        ")%>
-        class <%=umlClass.name.toClassName()%>UnionCheckerRule: public UnionCheckerRule<I<%=umlClass.name.toClassName()%>>
+        class <%=umlClass.name.toClassName()%>UnionCheckerRule: public UnionCheckerRule
         {
         private:
-            std::vector<std::string> GetNotNullChildren(std::shared_ptr<I<%=umlClass.name.toClassName()%>> object)
-            {
-                std::vector<std::string> propertyNamesNotNull;
-<%-properties = umlClass.getXmlElementProperties();-%>
-<%-properties.each{ property -> -%>
-<%-if (!property.isList()){-%>
-                if (object->Get<%=property.name.toClassName()%>())
-<%-}else{-%>
-                if (object->Get<%=property.name.toClassName()%>Size() != 0)
-<%-}-%>
-                {
-                    propertyNamesNotNull.push_back(OSC_CONSTANTS::ELEMENT__<%=property.name.toUpperNameFromMemberName()%>);
-                }
-<%-}-%>
-                return propertyNamesNotNull;
-            }
+            std::vector<std::string> GetNotNullChildren(std::shared_ptr<I<%=umlClass.name.toClassName()%>> object);
 
-<%-if (!(properties.findAll(){property-> property.lower==0})){-%>
-            std::vector<std::string> GetAllChildren()
-            {
-                std::vector<std::string> propertyNamesNotNull;
-<%-properties = umlClass.getXmlElementProperties();-%>
-<%-properties.each{ property -> -%>
-                propertyNamesNotNull.push_back(OSC_CONSTANTS::ELEMENT__<%=property.name.toUpperNameFromMemberName()%>);
-<%-}-%>
-                return propertyNamesNotNull;
-            }
-<%-}-%>
+		<%-if (!(properties.findAll(){property-> property.lower==0})){-%>
+            std::vector<std::string> GetAllChildren();
 
         public:
-            <%=umlClass.name.toClassName()%>UnionCheckerRule() = default;
+            <%=umlClass.name.toClassName()%>UnionCheckerRule();
 
-            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<I<%=umlClass.name.toClassName()%>> object) override
-            {
-                auto propertyNamesNotNull = GetNotNullChildren(object);
-                if (propertyNamesNotNull.size() > 1)
-                {
-                    auto msg = FileContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-<%-if (!(properties.findAll(){property-> property.lower==0})){-%>
-                // There must be one item set
-                if (propertyNamesNotNull.size() == 0)
-                {
-                auto msg = FileContentMessage(GetTooFewMessage(propertyNamesNotNull), ERROR, *GetTextmarker(object));
-                    messageLogger->LogMessage(msg);
-                }
-<%-}-%>
-            }
+            void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object);
+		<%-}-%> 
 
-            void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<I<%=umlClass.name.toClassName()%>> object)
-            {
-                auto propertyNamesNotNull = GetNotNullChildren(object);
-                if (propertyNamesNotNull.size() > 1)
-                {
-                    auto msg = TreeContentMessage(GetTooManyMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(object, propertyNamesNotNull));
-                    messageLogger->LogMessage(msg);
-                }
-<%-if (!(properties.findAll(){property-> property.lower==0})){-%>
-                // There must be one item set
-                if (propertyNamesNotNull.size() == 0)
-                {
-                    auto msg = TreeContentMessage(GetTooFewMessage(propertyNamesNotNull), ERROR, std::make_shared<PropertyTreeContext>(object, GetAllChildren()));
-                    messageLogger->LogMessage(msg);
-                }
-<%-}-%>
-            }
-        };
+    	};
 <%-}-%> 
-    }
+	}
 }
-
 

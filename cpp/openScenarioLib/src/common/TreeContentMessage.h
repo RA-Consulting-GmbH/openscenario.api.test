@@ -21,6 +21,7 @@
 #include <memory>
 #include "ContentMessage.h"
 #include "ITreeContext.h"
+#include "ExportDefinitions.h"
 
 namespace NET_ASAM_OPENSCENARIO
 {
@@ -42,17 +43,16 @@ namespace NET_ASAM_OPENSCENARIO
          * @param errorLevel the error level of the message
          * @param treeContext the context from the tree.
          */
-         TreeContentMessage(const std::string message, const ErrorLevel errorLevel, std::shared_ptr<ITreeContext> treeContext):ContentMessage(message, errorLevel), _treeContext(treeContext) {}
-        
-        /**
-         * The text marker that enables the user to trace the message back to a file location
-         *
-         * @return the text marker
-         */
-         std::shared_ptr<ITreeContext> GetTreeContext()
-        {
-            return _treeContext;
-        }
+		OPENSCENARIOLIB_EXP TreeContentMessage(const std::string message, const ErrorLevel errorLevel, std::shared_ptr<ITreeContext> treeContext);
+		
+
+
+		/**
+		 * The text marker that enables the user to trace the message back to a file location
+		 *
+		 * @return the text marker
+		 */
+		std::shared_ptr<ITreeContext> GetTreeContext();
 
     };
 }

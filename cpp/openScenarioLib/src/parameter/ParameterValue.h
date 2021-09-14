@@ -39,43 +39,31 @@ namespace NET_ASAM_OPENSCENARIO
          * @param type the type of a parameter as a SimpleType enumeration
          * @param value the value of a parameter
          */
-        ParameterValue(const std::string name, const SimpleType type, const std::string value) : _name(name), _type(type), _value(value) {}
+		ParameterValue(const std::string name, const SimpleType type, const std::string value);
 
         /**
          * The name of the parameter
          * @return the name
          */
-        std::string GetName() const
-        {
-            return _name;
-        }
+		std::string GetName() const;
 
         /**
          * The type of a parameter as SimpleType enum
          * @return the type 
          */
-        SimpleType GetType() const
-        {
-            return _type;
-        }
+		SimpleType GetType() const;
 
         /**
          * The value of a parameter
          * @return the value
          */
-        std::string GetValue() const
-        {
-            return _value;
-        }
+		std::string GetValue() const;
 
         /**
          * Sets the value of a parameter
          * @param value the value of a parameter
          */
-        void SetValue(const std::string value) 
-        {
-            _value = value;
-        }
+		void SetValue(const std::string value);
 
     };
 }

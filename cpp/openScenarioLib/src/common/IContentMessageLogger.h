@@ -29,42 +29,12 @@
  */
 namespace NET_ASAM_OPENSCENARIO
 {
-    template <class T>
-    class IContentMessageLogger: public ContentMessage
+    class IContentMessageLogger
     {
     public:
 
         IContentMessageLogger() = default;
         virtual  ~IContentMessageLogger() = default;
 
-        /**
-         * Logging a single message to a log target.
-         *
-         * @param message the message to log.
-         */
-        virtual void LogMessage(T& message) {}
-
-        /**
-         * Logging a list of messages to a log target.
-         *
-         * @param messages the list of messages.
-         */
-        virtual void LogAllMessages(std::vector<T>& messages) {}
-
-        /**
-         * The message that have been picked up filtered by a specific error level.
-         *
-         * @param errorLevel the error level to filter the messages.
-         * @return the filtered messages
-         */
-        virtual std::vector<T> GetMessagesFilteredByErrorLevel(const ErrorLevel errorLevel) { return {}; }
-
-        /**
-         * The message that have been picked up filtered by a specific error level.
-         *
-         * @param errorLevel the error level to filter for worse or equal.
-         * @return the filtered messages
-         */
-        virtual std::vector<T> GetMessagesFilteredByWorseOrEqualToErrorLevel(const ErrorLevel errorLevel) { return {}; }
     };
 }

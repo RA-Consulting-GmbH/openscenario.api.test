@@ -18,6 +18,7 @@
 #pragma once
 #include "ApiClassInterfacesV1_0.h"
 #include "MemLeakDetection.h"
+#include "ExportDefinitions.h"
 
 namespace NET_ASAM_OPENSCENARIO
 {
@@ -39,80 +40,56 @@ namespace NET_ASAM_OPENSCENARIO
             * @param catalogElement the catalog element
             * @return true if the catalog element is of type IController
             */
-            static bool IsController(std::shared_ptr<ICatalogElement>& catalogElement)
-            {
-                return std::dynamic_pointer_cast<IController>(catalogElement) != nullptr;
-            }
+            OPENSCENARIOLIB_EXP static bool IsController(std::shared_ptr<ICatalogElement>& catalogElement);
 
             /**
             * Tests for the type IEnvironment
             * @param catalogElement the catalog element
             * @return true if the catalog element is of type IEnvironment
             */
-            static bool IsEnvironment(std::shared_ptr<ICatalogElement>& catalogElement)
-            {
-                return std::dynamic_pointer_cast<IEnvironment>(catalogElement) != nullptr;
-            }
+            OPENSCENARIOLIB_EXP static bool IsEnvironment(std::shared_ptr<ICatalogElement>& catalogElement);
 
             /**
             * Tests for the type IManeuver
             * @param catalogElement the catalog element
             * @return true if the catalog element is of type IManeuver
             */
-            static bool IsManeuver(std::shared_ptr<ICatalogElement>& catalogElement)
-            {
-                return std::dynamic_pointer_cast<IManeuver>(catalogElement) != nullptr;
-            }
+            OPENSCENARIOLIB_EXP static bool IsManeuver(std::shared_ptr<ICatalogElement>& catalogElement);
 
             /**
             * Tests for the type IMiscObject
             * @param catalogElement the catalog element
             * @return true if the catalog element is of type IMiscObject
             */
-            static bool IsMiscObject(std::shared_ptr<ICatalogElement>& catalogElement)
-            {
-                return std::dynamic_pointer_cast<IMiscObject>(catalogElement) != nullptr;
-            }
+            OPENSCENARIOLIB_EXP static bool IsMiscObject(std::shared_ptr<ICatalogElement>& catalogElement);
 
             /**
             * Tests for the type IPedestrian
             * @param catalogElement the catalog element
             * @return true if the catalog element is of type IPedestrian
             */
-            static bool IsPedestrian(std::shared_ptr<ICatalogElement>& catalogElement)
-            {
-                return std::dynamic_pointer_cast<IPedestrian>(catalogElement) != nullptr;
-            }
+            OPENSCENARIOLIB_EXP static bool IsPedestrian(std::shared_ptr<ICatalogElement>& catalogElement);
 
             /**
             * Tests for the type IRoute
             * @param catalogElement the catalog element
             * @return true if the catalog element is of type IRoute
             */
-            static bool IsRoute(std::shared_ptr<ICatalogElement>& catalogElement)
-            {
-                return std::dynamic_pointer_cast<IRoute>(catalogElement) != nullptr;
-            }
+            OPENSCENARIOLIB_EXP static bool IsRoute(std::shared_ptr<ICatalogElement>& catalogElement);
 
             /**
             * Tests for the type ITrajectory
             * @param catalogElement the catalog element
             * @return true if the catalog element is of type ITrajectory
             */
-            static bool IsTrajectory(std::shared_ptr<ICatalogElement>& catalogElement)
-            {
-                return std::dynamic_pointer_cast<ITrajectory>(catalogElement) != nullptr;
-            }
+            OPENSCENARIOLIB_EXP static bool IsTrajectory(std::shared_ptr<ICatalogElement>& catalogElement);
 
             /**
             * Tests for the type IVehicle
             * @param catalogElement the catalog element
             * @return true if the catalog element is of type IVehicle
             */
-            static bool IsVehicle(std::shared_ptr<ICatalogElement>& catalogElement)
-            {
-                return std::dynamic_pointer_cast<IVehicle>(catalogElement) != nullptr;
-            }
+            OPENSCENARIOLIB_EXP static bool IsVehicle(std::shared_ptr<ICatalogElement>& catalogElement);
 
             /**
             * Conversion to type IController
@@ -120,12 +97,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @return converted value of type IController or null if the catalogElement 
             * cannot be converted
             */
-            static std::shared_ptr<IController> AsController(std::shared_ptr<ICatalogElement>& catalogElement)
-            {
-                if (IsController(catalogElement))
-                    return std::dynamic_pointer_cast<IController>(catalogElement);
-                return std::shared_ptr<IController>(nullptr);
-            }
+            OPENSCENARIOLIB_EXP static std::shared_ptr<IController> AsController(std::shared_ptr<ICatalogElement>& catalogElement);
 
             /**
             * Conversion to type IEnvironment
@@ -133,12 +105,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @return converted value of type IEnvironment or null if the catalogElement 
             * cannot be converted
             */
-            static std::shared_ptr<IEnvironment> AsEnvironment(std::shared_ptr<ICatalogElement>& catalogElement)
-            {
-                if (IsEnvironment(catalogElement))
-                    return std::dynamic_pointer_cast<IEnvironment>(catalogElement);
-                return std::shared_ptr<IEnvironment>(nullptr);
-            }
+            OPENSCENARIOLIB_EXP static std::shared_ptr<IEnvironment> AsEnvironment(std::shared_ptr<ICatalogElement>& catalogElement);
 
             /**
             * Conversion to type IManeuver
@@ -146,12 +113,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @return converted value of type IManeuver or null if the catalogElement 
             * cannot be converted
             */
-            static std::shared_ptr<IManeuver> AsManeuver(std::shared_ptr<ICatalogElement>& catalogElement)
-            {
-                if (IsManeuver(catalogElement))
-                    return std::dynamic_pointer_cast<IManeuver>(catalogElement);
-                return std::shared_ptr<IManeuver>(nullptr);
-            }
+            OPENSCENARIOLIB_EXP static std::shared_ptr<IManeuver> AsManeuver(std::shared_ptr<ICatalogElement>& catalogElement);
 
             /**
             * Conversion to type IMiscObject
@@ -159,12 +121,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @return converted value of type IMiscObject or null if the catalogElement 
             * cannot be converted
             */
-            static std::shared_ptr<IMiscObject> AsMiscObject(std::shared_ptr<ICatalogElement>& catalogElement)
-            {
-                if (IsMiscObject(catalogElement))
-                    return std::dynamic_pointer_cast<IMiscObject>(catalogElement);
-                return std::shared_ptr<IMiscObject>(nullptr);
-            }
+            OPENSCENARIOLIB_EXP static std::shared_ptr<IMiscObject> AsMiscObject(std::shared_ptr<ICatalogElement>& catalogElement);
 
             /**
             * Conversion to type IPedestrian
@@ -172,12 +129,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @return converted value of type IPedestrian or null if the catalogElement 
             * cannot be converted
             */
-            static std::shared_ptr<IPedestrian> AsPedestrian(std::shared_ptr<ICatalogElement>& catalogElement)
-            {
-                if (IsPedestrian(catalogElement))
-                    return std::dynamic_pointer_cast<IPedestrian>(catalogElement);
-                return std::shared_ptr<IPedestrian>(nullptr);
-            }
+            OPENSCENARIOLIB_EXP static std::shared_ptr<IPedestrian> AsPedestrian(std::shared_ptr<ICatalogElement>& catalogElement);
 
             /**
             * Conversion to type IRoute
@@ -185,12 +137,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @return converted value of type IRoute or null if the catalogElement 
             * cannot be converted
             */
-            static std::shared_ptr<IRoute> AsRoute(std::shared_ptr<ICatalogElement>& catalogElement)
-            {
-                if (IsRoute(catalogElement))
-                    return std::dynamic_pointer_cast<IRoute>(catalogElement);
-                return std::shared_ptr<IRoute>(nullptr);
-            }
+            OPENSCENARIOLIB_EXP static std::shared_ptr<IRoute> AsRoute(std::shared_ptr<ICatalogElement>& catalogElement);
 
             /**
             * Conversion to type ITrajectory
@@ -198,12 +145,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @return converted value of type ITrajectory or null if the catalogElement 
             * cannot be converted
             */
-            static std::shared_ptr<ITrajectory> AsTrajectory(std::shared_ptr<ICatalogElement>& catalogElement)
-            {
-                if (IsTrajectory(catalogElement))
-                    return std::dynamic_pointer_cast<ITrajectory>(catalogElement);
-                return std::shared_ptr<ITrajectory>(nullptr);
-            }
+            OPENSCENARIOLIB_EXP static std::shared_ptr<ITrajectory> AsTrajectory(std::shared_ptr<ICatalogElement>& catalogElement);
 
             /**
             * Conversion to type IVehicle
@@ -211,12 +153,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @return converted value of type IVehicle or null if the catalogElement 
             * cannot be converted
             */
-            static std::shared_ptr<IVehicle> AsVehicle(std::shared_ptr<ICatalogElement>& catalogElement)
-            {
-                if (IsVehicle(catalogElement))
-                    return std::dynamic_pointer_cast<IVehicle>(catalogElement);
-                return std::shared_ptr<IVehicle>(nullptr);
-            }
+            OPENSCENARIOLIB_EXP static std::shared_ptr<IVehicle> AsVehicle(std::shared_ptr<ICatalogElement>& catalogElement);
 
             /**
             * Provides the name of the catalogElement
@@ -224,26 +161,7 @@ namespace NET_ASAM_OPENSCENARIO
             * @return the name of the catalogElement 
             * cannot be converted
             */
-            static std::string GetName(std::shared_ptr<ICatalogElement>& catalogElement)
-            {
-                if (IsController(catalogElement))
-                    return std::dynamic_pointer_cast<IController>(catalogElement)->GetName();
-                if (IsEnvironment(catalogElement))
-                    return std::dynamic_pointer_cast<IEnvironment>(catalogElement)->GetName();
-                if (IsManeuver(catalogElement))
-                    return std::dynamic_pointer_cast<IManeuver>(catalogElement)->GetName();
-                if (IsMiscObject(catalogElement))
-                    return std::dynamic_pointer_cast<IMiscObject>(catalogElement)->GetName();
-                if (IsPedestrian(catalogElement))
-                    return std::dynamic_pointer_cast<IPedestrian>(catalogElement)->GetName();
-                if (IsRoute(catalogElement))
-                    return std::dynamic_pointer_cast<IRoute>(catalogElement)->GetName();
-                if (IsTrajectory(catalogElement))
-                    return std::dynamic_pointer_cast<ITrajectory>(catalogElement)->GetName();
-                if (IsVehicle(catalogElement))
-                    return std::dynamic_pointer_cast<IVehicle>(catalogElement)->GetName();
-                return "";
-            }
+            OPENSCENARIOLIB_EXP static std::string GetName(std::shared_ptr<ICatalogElement>& catalogElement);
         };
     }
 }

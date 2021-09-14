@@ -21,8 +21,8 @@
 #pragma once
 
 #include "IScenarioChecker<%=fileSuffix%>.h"
-#include "RangeCheckerRules<%=fileSuffix%>.h"
 #include "MemLeakDetection.h"
+#include "ExportDefinitions.h"
 
 namespace NET_ASAM_OPENSCENARIO
 {
@@ -36,12 +36,7 @@ namespace NET_ASAM_OPENSCENARIO
             * Connects all range checker rules to a global scenarioChecker
             * @param scenarioChecker the global scenarioChecker
             */
-            static void AddAllRangeCheckerRules(std::shared_ptr<IScenarioChecker> scenarioChecker)
-            {
-                <%- element.each{ umlClass ->-%>
-                scenarioChecker->Add<%=umlClass.name.toClassName()%>CheckerRule(std::shared_ptr<<%=umlClass.name.toClassName()%>RangeCheckerRule>(new <%=umlClass.name.toClassName()%>RangeCheckerRule()));
-                <%-}-%>
-            }
+            OPENSCENARIOLIB_EXP static void AddAllRangeCheckerRules(std::shared_ptr<IScenarioChecker> scenarioChecker);
         };
 
     }

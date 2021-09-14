@@ -22,6 +22,7 @@
 #include "Textmarker.h"
 #include "ErrorLevel.h"
 #include "MemLeakDetection.h"
+#include "ExportDefinitions.h"
 
 namespace NET_ASAM_OPENSCENARIO
 {
@@ -42,35 +43,20 @@ namespace NET_ASAM_OPENSCENARIO
          * @param errorLevel the error level of the message
          * @param textmarker the text marker that enables the user to trace the message back to a file location.
          */
-        FileContentMessage(const std::string message, const ErrorLevel errorLevel, const Textmarker textmarker) : ContentMessage(message, errorLevel), _textmarker(textmarker) {}
+		OPENSCENARIOLIB_EXP FileContentMessage(const std::string message, const ErrorLevel errorLevel, const Textmarker textmarker);
 
         /**
          * The text marker that enables the user to trace the message back to a file location
          * @return the text marker
          */
-        Textmarker GetTextmarker() const
-        {
-            return _textmarker;
-        }
+		OPENSCENARIOLIB_EXP Textmarker GetTextmarker() const;
 
-        bool operator==(FileContentMessage& rhs)
-        {
-            return rhs.ToString() == this->ToString();
-        }
+		OPENSCENARIOLIB_EXP bool operator==(FileContentMessage& rhs);
 
-        size_t HashCode() { return std::hash<std::string>{}(this->ToString()); }
+		OPENSCENARIOLIB_EXP size_t HashCode();
 
-        std::string ToString()
-        {
-            return  "Message: '" + GetMsg() + "'" +
-                " ErrorLevel: " + ErrorLevelString::ToString(GetErrorLevel()) +
-                " Textmarker: '" + _textmarker.ToString() + "'";
-        }
+		OPENSCENARIOLIB_EXP std::string ToString();
 
-        int CompareTo( FileContentMessage& rhs)
-        {
-            //not exactly the java equivalent 
-            return rhs.ToString() == this->ToString();
-        };
+		OPENSCENARIOLIB_EXP int CompareTo(FileContentMessage& rhs);
     };
 }

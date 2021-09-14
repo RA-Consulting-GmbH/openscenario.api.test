@@ -17,24 +17,11 @@
 
 #pragma once
 #include <iostream>
-#include <fstream>
-#include "ApiClassInterfacesV1_0.h"
-#include "ICatalogReferenceProviderV1_0.h"
-#include "IScenarioCheckerV1_0.h"
-#include "ErrorLevel.h"
-#include "FileContentMessage.h"
 #include "IParserMessageLogger.h"
-#include "Textmarker.h"
-#include "ParserContext.h"
- //#include "XmlParsersV1_0.h"
-#include "IndexedElement.h"
-#include "XmlToSimpleNodeConverter.h"
-#include "PositionIndex.h"
 #include "OpenScenarioProcessingHelperV1_0.h"
 #include "ScenarioCheckerImplV1_0.h"
 #include "IScenarioLoader.h"
 #include "IResourceLocator.h"
-#include "MemLeakDetection.h"
 #include "ExportDefinitions.h"
 #include "ParameterDeclarationCheckerV1_0.h"
 
@@ -58,26 +45,20 @@ namespace NET_ASAM_OPENSCENARIO
              * @param filename symbolic filename of the scenario
              * @param resourceLocator locator abstracting from storage.
              */
-            XmlScenarioLoader(std::string& filename, std::shared_ptr<IResourceLocator>& resourceLocator) : _filename(filename), _resourceLocator(resourceLocator) {}
-            virtual ~XmlScenarioLoader() = default;
+			XmlScenarioLoader(std::string& filename, std::shared_ptr<IResourceLocator>& resourceLocator);
+            virtual ~XmlScenarioLoader();
 
             /**
              * The resource locator of the loader
              * @return the resource locator
              */
-            std::shared_ptr<IResourceLocator> GetResourceLocator() const
-            {
-                return _resourceLocator;
-            }
+			std::shared_ptr<IResourceLocator> GetResourceLocator() const;
 
             /**
              * The filename od the loader
              * @return the filename
              */
-            std::string GetFilename() const
-            {
-                return _filename;
-            }
+			std::string GetFilename() const;
 
             OPENSCENARIOLIB_EXP std::shared_ptr<IOpenScenarioModelElement> Load(std::shared_ptr<IParserMessageLogger> messageLogger) override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IOpenScenarioModelElement> Load(std::shared_ptr<IParserMessageLogger> messageLogger, std::map<std::string, std::string>& injectedParameters) override;

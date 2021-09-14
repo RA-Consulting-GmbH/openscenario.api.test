@@ -16,15 +16,9 @@
  */
 
 #pragma once
-#include "IParserMessageLogger.h"
-#include "Textmarker.h"
-#include "BaseImpl.h"
-#include "ParserContext.h"
 #include "XmlModelGroupParser.h"
 #include "IXmlTypeParser.h"
 #include "XmlParserBase.h"
-#include "IndexedElement.h"
-#include "Position.h"
 #include <vector>
 #include "MemLeakDetection.h"
 
@@ -33,13 +27,12 @@ namespace NET_ASAM_OPENSCENARIO
     /**
     * Parser for XSD:group types
     */
-    template <class T>
-    class XmlGroupParser:public BaseImpl, public XmlParserBase<T>, public IXmlTypeParser<T> 
+    class XmlGroupParser:public BaseImpl, public XmlParserBase, public IXmlTypeParser 
     {
 
     protected:
         std::string _elementName;
-        std::shared_ptr<XmlModelGroupParser<T>> _subElementParser = nullptr;
+        std::shared_ptr<XmlModelGroupParser> _subElementParser = nullptr;
 
     public:
         /**
@@ -47,34 +40,11 @@ namespace NET_ASAM_OPENSCENARIO
          * @param messageLogger to log messages during parsing process
          * @param filename of the file the parser is operating on.
          */
-        XmlGroupParser(IParserMessageLogger& messageLogger, std::string& filename): XmlParserBase<T>(messageLogger, filename) {}
+		XmlGroupParser(IParserMessageLogger& messageLogger, std::string& filename);
+		virtual ~XmlGroupParser();
 
-        void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr <ParserContext>& parserContext, std::shared_ptr <T>& object) override
-        {
-            const auto kStartPosition = indexedElement->GetStartElementLocation();
-            object->SetStartMarker(Textmarker(kStartPosition.GetLine(), kStartPosition.GetColumn(), this->_filename));
-
-            // Prepare a list
-            auto parentSubElements = indexedElement->GetParent().lock()->GetSubElements();
-            const auto kIt = std::find(parentSubElements.begin(), parentSubElements.end(), indexedElement);
-            int index = 0;
-            if (kIt != parentSubElements.end())
-                index = static_cast<int>(std::distance(parentSubElements.begin(), kIt));
-
-            std::vector<std::shared_ptr<IndexedElement>> elementsToParse;
-            for (unsigned int i = index; i < parentSubElements.size(); i++)
-            {
-                elementsToParse.push_back(parentSubElements[i]);
-            }
-
-            ParseSubElements(elementsToParse, parserContext, object);
-            const auto kEndPosition = parserContext->GetLastElementParsed()->GetEndElementLocation();
-            object->SetEndMarker(Textmarker(kEndPosition.GetLine(), kEndPosition.GetColumn(), this->_filename));
-        }
-
-        void ParseSubElements(std::vector<std::shared_ptr<IndexedElement>>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<T>& object) override
-        {
-            _subElementParser->ParseSubElements(indexedElement, parserContext, object);
-        }
+		void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr <ParserContext>& parserContext, std::shared_ptr <BaseImpl> object) override;
+		void ParseSubElements(std::vector<std::shared_ptr<IndexedElement>>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
+       
     };
 }
