@@ -565,7 +565,7 @@
             "description": "",
             "displayName": "",
             "configurePreset": "Linux-shared-release",
-			"hidden": true
+            "hidden": true
         }
     ]
 }

@@ -68,6 +68,12 @@ else()
         set(osc_extra_static_compile_flags "-DANTLR4CPP_STATIC")
     endif()
 endif()
+          
+                            
+                                                                         
+                               
+                                               
+             
 if(NOT PLATFORM_PARAM)
     set(PLATFORM_PARAM "${CMAKE_SYSTEM_NAME}" CACHE STRING "Linux, Windows, etc" FORCE)
 endif(NOT PLATFORM_PARAM)

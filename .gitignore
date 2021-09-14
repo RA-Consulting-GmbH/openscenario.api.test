@@ -1,5 +1,6 @@
 /.vs
 /.vscode
+/cpp/.vs
 /cpp/.vscode
 /cpp/build
 /cpp/buildArtifact/openSCENARIO*

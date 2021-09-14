@@ -11,7 +11,7 @@ endmacro (RAC_SET_COMMON_PARAM)
 ################################################################
 # Set C++ params
 macro (RAC_SET_CPP_PARAM)
-    set(CMAKE_CXX_STANDARD 14)
+    set(CMAKE_CXX_STANDARD 11)
     set(CMAKE_CXX_STANDARD_REQUIRED ON)
     set(CMAKE_CXX_EXTENSIONS OFF)
     set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS})
@@ -153,4 +153,3 @@ function (RAC_GET_PRODUCT_INFO productInfoFilepath)
     string(REGEX MATCH "FILE_DESCRIPTION=([^\r\n]*)[ \t\r\n]+" _ ${productInfo_txt})
     set(FILE_DESCRIPTION ${CMAKE_MATCH_1} PARENT_SCOPE)
 endfunction (RAC_GET_PRODUCT_INFO)
-

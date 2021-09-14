@@ -24,7 +24,7 @@ compiled C++ binary
 
 `/cpp/build/output/Linux_shared/Release/OpenScenarioReader`. 
 
-See the section <<BuildingTheBinaries,Building the binaries>> for building instructions.
+See section <<BuildingTheBinaries,Building the binaries>> for building instructions.
 
 For example the binary is located in the following directory, dependent
 on your development platform: 
@@ -752,13 +752,20 @@ For systems with terminal / console access only, cmake provides a ncurses termin
 In this document we focus on building the OpenSCENARIO binaries from its C++ source code using `cmake`, `cmake-gui`, and `ccmake`.
 A great starting point for more information on `cmake` is the http://https://cmake.org/overview/[cmake website].
 
+=== A note to cmake prior to version 3.19
+As cmake experienced a dramatic change from version \<= 3.18 to >= 3.19 where presets were introduced we have two sections for building with cmake:
+
+* <<BuildingWithCmakeVersionLe3.18,Building with cmake version \<= 3.18>>
+* <<BuildingWithCmakeVersionGe3.19,Building with cmake version >= 3.19>>
+
 === System requirements
 In order to build OpenSCENARIO on your system the following requirements have to be fulfilled:
 
 ==== All systems
 * Disk space available >= 4 GB
 * Main memory >= 8 GB
-* cmake >= 3.19
+* cmake \<= 3.18 (build via command line and restricted cmake-gui)
+* cmake >= 3.19 (comfortable build via command line and cmake-gui)
 * a working copy of the OpenSCENARIO sources
 
 ==== Linux
@@ -772,6 +779,77 @@ $ sudo apt install uuid-dev
 
 ==== Windows
 * Visual Studio 2015 or later (2022 is supported, too)
+
+[[BuildingWithCmakeVersionLe3.18]]
+== Building with cmake version \<= 3.18
+
+If your cmake version is older than 3.19 then cmake does not know the concept of "presets" and consequently cmake-gui is missing the "Preset" entry as seen in the two images below.
+
+.cmake-gui missing the "Preset" element.
+image:images/oscCgNoPreset.png[cmake_gui,width=720,float="center",align="center"]
+
+.cmake-gui with "Preset" element.
+image:images/oscCgPreset.png[cmake_gui,width=720,float="center",align="center"]
+
+=== Build scripts for Linux and Windows
+You still can use older versions of cmake but in order to work properly you have to build the project files manually using our command line tool ```generateLinux.sh``` for Linux and ```generateWindows.bat``` for Windows.
+Both scripts are located in ```openscenario.api.test/cpp/buildArtifact```.
+
+==== Build script for Linux
+The script has to be executed in the folder ```openscenario.api.test/cpp/buildArtifact```.
+For example the commands for building and compiling shared objects and binaries will look like that:
+[source,bash]
+----
+$ cd openscenario.api.test/cpp/buildArtifact
+$ ./generateLinux.sh shared release make
+----
+This will create in the ```openscenario.api.test/cpp/build``` folder the following two directories:
+
+* ```cgReleaseMakeShared``` containing the Linux Makefiles for building the binaries and
+* ```output/Linux_Shared/Release``` where the compiled libraries and executables are located.
+
+The general command has the following options:
+[source,bash]
+----
+$ ./generateLinux.sh (all [release] [parallel]) | ([release|debug] [shared|static] [make [parallel]])
+----
+
+Option ```all [release] [parallel]``` builds and compiles static and shared as well as release and optional debug versions of OpenSCENARIO in parallel.
+On the other hand you can build and optionally compile individual versions of OpenSCENARIO, e.g.:
+[source,bash]
+----
+$ ./generateLinux.sh release shared
+----
+
+This command for example creates only the Makefiles for the release and dynamically linked version.
+
+==== Build script for Windows
+The Windows version of the script is similar to the Linux version with some changes in the options.
+For example the commands for build project files for Visual Studio 2019 x64 shared release look like this:
+[source,bash]
+----
+> cd openscenario.api.test\cpp\build
+> generateWindows.bat VS2019 x64 shared release
+----
+The general command has the following options:
+[source,bash]
+----
+$ ./generateWindows.sh (all (VS2010|...|VS2022) [release] [shared|static] [Win32|x64]) |
+((VS2010|...|VS2022) [release|debug] [shared|static] [Win32|x64] [make])
+----
+Option ```all [VS2019] [release]``` builds project files for Visual Studio 2019 and compiles static and shared as well as release and optional debug versions of OpenSCENARIO in parallel.
+On the other hand you can build and optionally compile individual versions of OpenSCENARIO, e.g.:
+[source,bash]
+----
+> generateWindows.bat VS2019 x64 shared release
+----
+
+[NOTE]
+Supported are VS2010 up to VS2022 and all editions like Community or Enterprise etc.
+
+[[BuildingWithCmakeVersionGe3.19]]
+== Building with cmake version >= 3.19
+
 
 === Building on Windows with cmake-gui target Visual Studio
 Start the `cmake-gui` application then a similar window like the one shown below will show up:
@@ -896,7 +974,7 @@ XML_ERROR_PARSING
 XML_ERROR_MISMATCHED_ELEMENT
 Ego has 2 axles (front, rear)
 ----
-
+[[BuildingOnConsoleTerminal]]
 === Building on console / terminal
 You can also easily build OpenSCENARIO on systems with console access only.
 But before we dive into that we will have a short excursion to cmake's `presets` as we will need them on the command line.
@@ -1163,7 +1241,8 @@ According to our example you may go now to the folder `cpp/build/cgDebugMakeStat
 [NOTE]
 You cannot use the build preset as you modified the settings and when using the presets your settings will be overwritten.
 
-==== command line steps condensed
+[[CommandLineStepsCondensed]]
+==== Command line steps condensed
 The necessary steps to setup the OpenSCENARIO build environment for console / terminal are shown in short form as follows:
 
 [source,bash]
@@ -1175,7 +1254,7 @@ $ cmake --build --list-presets              # List available build presets for l
 $ cmake --build --preset="<build-preset>"   # Select a preset and compile the sources
 $ ccmake <path project files folder>        # Bring up ncurses frontend, to re-configure
                                             # and re-generate project files
-
+ 
 $ cd <your project files folder>            # Go to the re-generated project files
 $ make                                      # Manually compile the sources
 ----
