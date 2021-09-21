@@ -286,6 +286,7 @@ set( HEADERS_COMMON_PARSER_TYPE
 )
 
 set( HEADERS_COMMON_XMLINDEXER
+  "src/xmlIndexer/AttributeInfo.h"
   "src/xmlIndexer/AttributeNode.h"
   "src/xmlIndexer/ElementNode.h"
   "src/xmlIndexer/Position.h"
@@ -597,6 +598,7 @@ set( SOURCES_V1_1_PARSER
 )
 
 set( SOURCES_XMLINDEXER
+	"src/xmlIndexer/AttributeInfo.cpp"
 	"src/xmlIndexer/AttributeNode.cpp"
 	"src/xmlIndexer/ElementNode.cpp"
 	"src/xmlIndexer/Position.cpp"

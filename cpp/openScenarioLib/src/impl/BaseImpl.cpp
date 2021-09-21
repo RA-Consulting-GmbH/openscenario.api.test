@@ -24,9 +24,9 @@ namespace NET_ASAM_OPENSCENARIO
 	BaseImpl::ParameterizedAttribute::ParameterizedAttribute(const std::string parameterName, Textmarker& textMarker) : textMarker(textMarker), parameterName(parameterName) {}
 
 
-    BaseImpl::BaseImplIlocator::BaseImplIlocator(std::map<std::string, std::shared_ptr<Textmarker>>& attributeKeyToStartMarker, std::map<std::string, std::shared_ptr<Textmarker>>& attributeKeyToEndMarker, std::map<std::string, std::shared_ptr<Textmarker>>&attributeKeyToStartValueMarker,
+    BaseImpl::BaseImplIlocator::BaseImplIlocator(std::map<std::string, std::shared_ptr<Textmarker>>& attributeKeyToStartMarker, std::map<std::string, std::shared_ptr<Textmarker>>& attributeKeyToEndMarker, 
                          Textmarker& startMarker, Textmarker& endMarker): _attributeKeyToStartMarker(attributeKeyToStartMarker),
-                                                                          _attributeKeyToEndMarker(attributeKeyToEndMarker), _attributeKeyToStartValueMarker(attributeKeyToStartValueMarker), _startMarker(startMarker), _endMarker(endMarker)
+                                                                          _attributeKeyToEndMarker(attributeKeyToEndMarker), _startMarker(startMarker), _endMarker(endMarker)
     {
     }
 
@@ -36,13 +36,6 @@ namespace NET_ASAM_OPENSCENARIO
             return *_attributeKeyToStartMarker[propertyKey];
         return Textmarker(-1,-1,"");
     }
-
-	Textmarker BaseImpl::BaseImplIlocator::GetValueStartMarkerOfProperty(const std::string &propertyKey)
-	{
-		if (_attributeKeyToStartValueMarker[propertyKey] != nullptr)
-			return *_attributeKeyToStartValueMarker[propertyKey];
-		return Textmarker(-1, -1, "");
-	}
 
 	Textmarker BaseImpl::BaseImplIlocator::GetStartMarker()
     {
@@ -144,7 +137,7 @@ namespace NET_ASAM_OPENSCENARIO
 	BaseImpl::BaseImpl(): _startMarker(0, 0, ""), _endMarker(0, 0, "")
     {
         _adapters.emplace(std::make_pair(typeid(ILocator).name(), std::make_shared<BaseImplIlocator>(_attributeKeyToStartMarker,
-                                                                                                     _attributeKeyToEndMarker, _attributeKeyToStartValueMarker, _startMarker, _endMarker)));
+                                                                                                     _attributeKeyToEndMarker, _startMarker, _endMarker)));
     }
 
     std::shared_ptr<void> BaseImpl::GetAdapter(const std::string classifier)
@@ -170,10 +163,7 @@ namespace NET_ASAM_OPENSCENARIO
         _attributeKeyToEndMarker.emplace(std::make_pair(propertyKey, endMarker));
     }
 	
-	void BaseImpl::PutPropertyStartValueMarker(std::string propertyKey, std::shared_ptr<Textmarker> startValueMarker)
-	{
-		_attributeKeyToStartValueMarker.emplace(std::make_pair(propertyKey, startValueMarker));
-	}
+	
 
     std::vector<std::shared_ptr<ParameterValue>> BaseImpl::GetParameterDefinitions() const
     {
@@ -192,6 +182,8 @@ namespace NET_ASAM_OPENSCENARIO
             return std::make_shared<Textmarker>(kIt->second->textMarker);
         return nullptr;
     }
+
+	
 
     std::vector<std::string> BaseImpl::GetParameterizedAttributeKeys() const
     {

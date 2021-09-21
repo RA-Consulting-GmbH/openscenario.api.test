@@ -111,54 +111,54 @@ namespace NET_ASAM_OPENSCENARIO
 				std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage> messages;
 				messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
 					"Value '65536.000000' cannot be converted to type 'unsignedShort'",
-					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(19, 14, kFilename)));
+					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(19, 23, kFilename)));
 
 				messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
 					"Division by zero",
-					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(85, 58, kFilename)));
+					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(85, 64, kFilename)));
 
 				messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
 					"Division by zero",
-					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(95, 31, kFilename)));
+					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(95, 33, kFilename)));
 
 				messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
 					"Cannot calculate square root from a negative value.",
-					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(95, 71, kFilename)));
+					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(95, 73, kFilename)));
 				messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
 					"Raising the value 0 to an exponent < 0 is not allowed",
-					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(95, 52, kFilename)));
+					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(95, 54, kFilename)));
 				messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
 					"Raising a negative basis to an exponent that is not 0 or 1 or -1 is not allowed",
-					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(95, 87, kFilename)));
+					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(95, 89, kFilename)));
 				messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
 					"Raising a negative basis to an exponent that is not 0 or 1 or -1 is not allowed",
-					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(95, 107, kFilename)));
+					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(95, 109, kFilename)));
 
 				messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
 					"Internal Overflow (limits of internal 64 byte double value exceeded)",
-					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(95, 126, kFilename)));
+					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(95, 128, kFilename)));
 				messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
 					"Internal Overflow (limits of internal 64 byte double value exceeded)",
-					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(106, 39, kFilename)));
+					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(106, 45, kFilename)));
 
 				messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
 					"Internal Overflow (limits of internal 64 byte double value exceeded)",
-					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(114, 31, kFilename)));
+					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(114, 33, kFilename)));
 				messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
 					"Syntax error in expression",
-					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(114, 91, kFilename)));
+					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(114, 93, kFilename)));
 				messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
 					"Syntax error in expression near '}'",
-					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(114, 101, kFilename)));
+					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(114, 103, kFilename)));
 				messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
 					"Expressions are exclusively supported for numeric types. Parameter '$timeParam' is of not supported type 'dateTime'",
-					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(125, 39, kFilename)));
+					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(125, 45, kFilename)));
 				messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
 					"Expressions are exclusively supported for numeric types. Parameter '$stringParam' is of not supported type 'string'",
-					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(133, 31, kFilename)));
+					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(133, 33, kFilename)));
 				messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
 					"Expressions are exclusively supported for numeric types. Parameter '$boolParam' is of not supported type 'boolean'",
-					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(133, 55, kFilename)));
+					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(133, 57, kFilename)));
 
 
 				bool result =  Assert(AssertMessages(messages, NET_ASAM_OPENSCENARIO::ERROR, _messageLogger), ASSERT_LOCATION);
@@ -191,13 +191,20 @@ namespace NET_ASAM_OPENSCENARIO
 					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(21, 37, kFilename)));
 				messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
 					"Parameter '$UnknownParameter' is not defined.",
-					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(49, 17, kFilename)));
+					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(49, 22, kFilename)));
 				messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
 					"Value 'wrongDouble' cannot be converted to type 'double'",
-					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(85, 39, kFilename)));
+					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(85, 45, kFilename)));
 
-				return Assert(AssertMessages(messages, NET_ASAM_OPENSCENARIO::ERROR, _messageLogger), ASSERT_LOCATION);
-
+				bool result = Assert(AssertMessages(messages, NET_ASAM_OPENSCENARIO::ERROR, _messageLogger), ASSERT_LOCATION);
+				if (!result)
+				{
+					auto filterByErrorLevelLogger = _messageLogger->GetMessagesFilteredByErrorLevel(NET_ASAM_OPENSCENARIO::ERROR);
+					for (auto it = filterByErrorLevelLogger.begin(); it != filterByErrorLevelLogger.end(); ++it) {
+						std::cout << it->ToString() << "\n";
+					}
+				}
+				return result;
 			}
 			catch (NET_ASAM_OPENSCENARIO::ScenarioLoaderException& e)
 			{
@@ -216,27 +223,34 @@ namespace NET_ASAM_OPENSCENARIO
 				std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage> messages;
 				messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
 					"Parameter type (int) does not match expected type (string). Value '23' of parameter 'testString' was converted.",
-					NET_ASAM_OPENSCENARIO::INFO, NET_ASAM_OPENSCENARIO::Textmarker(56, 15, kFilename)));
+					NET_ASAM_OPENSCENARIO::INFO, NET_ASAM_OPENSCENARIO::Textmarker(56, 24, kFilename)));
 				messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
 					"Parameter type (string) does not match expected type (boolean). Value 'false' of parameter 'testBoolean' was converted.",
-					NET_ASAM_OPENSCENARIO::INFO, NET_ASAM_OPENSCENARIO::Textmarker(147, 18, kFilename)));
+					NET_ASAM_OPENSCENARIO::INFO, NET_ASAM_OPENSCENARIO::Textmarker(147, 43, kFilename)));
 				messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
 					"Parameter type (unsignedShort) does not match expected type (unsignedInt). Value '1' of parameter 'testUnsignedInt' was converted.",
-					NET_ASAM_OPENSCENARIO::INFO, NET_ASAM_OPENSCENARIO::Textmarker(151, 70, kFilename)));
+					NET_ASAM_OPENSCENARIO::INFO, NET_ASAM_OPENSCENARIO::Textmarker(151, 92, kFilename)));
 				messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
 					"Parameter type (string) does not match expected type (double). Value '1.1' of parameter 'testDouble' was converted.",
-					NET_ASAM_OPENSCENARIO::INFO, NET_ASAM_OPENSCENARIO::Textmarker(156, 75, kFilename)));
+					NET_ASAM_OPENSCENARIO::INFO, NET_ASAM_OPENSCENARIO::Textmarker(156, 81, kFilename)));
 				messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
 					"Parameter type (unsignedInt) does not match expected type (int). Value '1' of parameter 'testInteger' was converted.",
-					NET_ASAM_OPENSCENARIO::INFO, NET_ASAM_OPENSCENARIO::Textmarker(158, 63, kFilename)));
+					NET_ASAM_OPENSCENARIO::INFO, NET_ASAM_OPENSCENARIO::Textmarker(158, 69, kFilename)));
 				messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
 					"Parameter type (string) does not match expected type (dateTime). Value '2017-02-24T10:00:00' of parameter 'testDateTime' was converted.",
-					NET_ASAM_OPENSCENARIO::INFO, NET_ASAM_OPENSCENARIO::Textmarker(179, 25, kFilename)));
+					NET_ASAM_OPENSCENARIO::INFO, NET_ASAM_OPENSCENARIO::Textmarker(179, 49, kFilename)));
 				messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
 					"Parameter type (unsignedInt) does not match expected type (int). Value '1' of parameter 'testInteger' was converted.",
-					NET_ASAM_OPENSCENARIO::INFO, NET_ASAM_OPENSCENARIO::Textmarker(192, 63, kFilename)));
+					NET_ASAM_OPENSCENARIO::INFO, NET_ASAM_OPENSCENARIO::Textmarker(192, 69, kFilename)));
 
-				return Assert(AssertMessages(messages, NET_ASAM_OPENSCENARIO::INFO, _messageLogger), ASSERT_LOCATION);
+				bool result = Assert(AssertMessages(messages, NET_ASAM_OPENSCENARIO::ERROR, _messageLogger), ASSERT_LOCATION);
+				if (!result)
+				{
+					auto filterByErrorLevelLogger = _messageLogger->GetMessagesFilteredByErrorLevel(NET_ASAM_OPENSCENARIO::ERROR);
+					for (auto it = filterByErrorLevelLogger.begin(); it != filterByErrorLevelLogger.end(); ++it) {
+						std::cout << it->ToString() << "\n";
+					}
+				}
 
 			}
 			catch (NET_ASAM_OPENSCENARIO::ScenarioLoaderException& e)
@@ -259,22 +273,29 @@ namespace NET_ASAM_OPENSCENARIO
 					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(21, 44, kFilename)));
 				messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
 					"Parameter type (int) does not match expected type (boolean). Value 'false' of parameter 'testBoolean' was converted.",
-					NET_ASAM_OPENSCENARIO::INFO, NET_ASAM_OPENSCENARIO::Textmarker(147, 18, kFilename)));
+					NET_ASAM_OPENSCENARIO::INFO, NET_ASAM_OPENSCENARIO::Textmarker(147, 43, kFilename)));
 				messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
 					"Parameter type (int) does not match expected type (unsignedInt). Value '-1' of parameter 'testUnsignedInt' cannot be converted.",
-					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(151, 70, kFilename)));
+					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(151, 92, kFilename)));
 				messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
 					"Parameter type (string) does not match expected type (double). Value 'RRR1.1' of parameter 'testDouble' cannot be converted.",
-					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(156, 75, kFilename)));
+					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(156, 81, kFilename)));
 				messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
 					"Parameter type (unsignedInt) does not match expected type (int). Value '4294967295' of parameter 'testInteger' cannot be converted.",
-					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(158, 63, kFilename)));
+					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(158, 69, kFilename)));
 				messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
 					"Parameter type (unsignedInt) does not match expected type (int). Value '4294967295' of parameter 'testInteger' cannot be converted.",
-					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(192, 63, kFilename)));
+					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(192, 69, kFilename)));
 
 				auto res = Assert(AssertMessages(messages, NET_ASAM_OPENSCENARIO::INFO, _messageLogger), ASSERT_LOCATION);
 				res = res && Assert(AssertMessages(messages, NET_ASAM_OPENSCENARIO::ERROR, _messageLogger), ASSERT_LOCATION);
+				if (!res)
+				{
+					auto filterByErrorLevelLogger = _messageLogger->GetMessagesFilteredByErrorLevel(NET_ASAM_OPENSCENARIO::ERROR);
+					for (auto it = filterByErrorLevelLogger.begin(); it != filterByErrorLevelLogger.end(); ++it) {
+						std::cout << it->ToString() << "\n";
+					}
+				}
 				return res;
 
 			}

@@ -60,17 +60,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
             std::map<std::string, std::shared_ptr<Textmarker>>& _attributeKeyToStartMarker;
 			std::map<std::string, std::shared_ptr<Textmarker>>& _attributeKeyToEndMarker;
-			std::map<std::string, std::shared_ptr<Textmarker>>& _attributeKeyToStartValueMarker;
 			Textmarker& _startMarker;
             Textmarker& _endMarker;
 
         public:
-			BaseImplIlocator(std::map<std::string, std::shared_ptr<Textmarker>>& attributeKeyToStartMarker, std::map<std::string, std::shared_ptr<Textmarker>>& attributeKeyToEndMarker, std::map<std::string, std::shared_ptr<Textmarker>>& attributeKeyToStartValueMarker,
+			BaseImplIlocator(std::map<std::string, std::shared_ptr<Textmarker>>& attributeKeyToStartMarker, std::map<std::string, std::shared_ptr<Textmarker>>& attributeKeyToEndMarker, 
 				Textmarker& startMarker, Textmarker& endMarker);
 
 			virtual Textmarker GetStartMarkerOfProperty(const std::string& propertyKey) override;
-
-			virtual Textmarker GetValueStartMarkerOfProperty(const std::string &propertyKey) override;
 
 			virtual Textmarker GetStartMarker() override;
 
@@ -84,7 +81,6 @@ namespace NET_ASAM_OPENSCENARIO
 		std::vector<std::string> _resolvedAttributes{};
         std::map<std::string, std::shared_ptr<Textmarker>> _attributeKeyToStartMarker{};
 		std::map<std::string, std::shared_ptr<Textmarker>> _attributeKeyToEndMarker{};
-		std::map<std::string, std::shared_ptr<Textmarker>> _attributeKeyToStartValueMarker{};
 		std::map<std::string, std::shared_ptr<void>> _adapters{};
         Textmarker _startMarker;
         Textmarker _endMarker;
@@ -126,12 +122,6 @@ namespace NET_ASAM_OPENSCENARIO
 		 */
 		void CloneAttributeKeyToParameterNameMap(BaseImpl& baseImpl);
     	
-		/**
-		* Clones the attributeKeyToExpression property of this class into the cloned object.
-		* @param baseImpl  the cloned object to copy this object's attributeKeyToExpression into.
-		*/
-		void CloneAttributeKeyToExpressionMap(BaseImpl& baseImpl);
-
         /**
          * Sets an attribute that is represented by a parameter instead of a real value.
          * @param attributeKey the key of this attribute.
@@ -146,21 +136,6 @@ namespace NET_ASAM_OPENSCENARIO
          * @param attributeKey the key of this attribute.
          */
 		void RemoveAttributeParameter(const std::string attributeKey);
-
-		/**
-		 * Sets an attribute that is represented by an expression instead of a real value.
-		 * @param attributeKey the key of this attribute.
-		 * @param expression the expression.
-		 * @param textMarker The text marker for this object.
-		 */
-		void SetAttributeExpression(const std::string attributeKey, const std::string expression, Textmarker& textMarker);
-
-		/**
-		 * Removes a expression from an attribute.
-		 *
-		 * @param attributeKey the key of this attribute.
-		 */
-		void RemoveAttributeExpression(const std::string attributeKey);
 
         /**
          * Adds the resolved attribute value to the list of resolved parameters.
@@ -220,13 +195,7 @@ namespace NET_ASAM_OPENSCENARIO
 		 * @param endMarker the end marker
 		 */
 		void PutPropertyEndMarker(std::string propertyKey, std::shared_ptr<Textmarker> endMarker);
-		/**
-		  * Puts an startValue marker for a specific property
-		  * @param propertyKey the key of the property
-		  * @param startValueMarker the start value marker
-		  */
-		void PutPropertyStartValueMarker(std::string propertyKey, std::shared_ptr<Textmarker> startValueMarker);
-
+		
 		std::vector<std::shared_ptr<ParameterValue>> GetParameterDefinitions() const override;
 
 		bool HasParameterDefinitions() override;

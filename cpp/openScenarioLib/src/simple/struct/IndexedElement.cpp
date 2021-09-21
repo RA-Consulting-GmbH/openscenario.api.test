@@ -79,6 +79,14 @@ namespace NET_ASAM_OPENSCENARIO
 			return kAttributeNode->GetEndPosition();
 		return { -1,-1 };
 	}
+
+	Position IndexedElement::GetAttributeStartValuePosition(std::string& attributeName) const
+	{
+		const auto kAttributeNode = _elementNode->GetAttributeNode(attributeName);
+		if (kAttributeNode)
+			return kAttributeNode->GetStartValuePosition();
+		return { -1,-1 };
+	}
 	bool IndexedElement::IsMixedNode() const
 	{
 		return _isMixedNode;

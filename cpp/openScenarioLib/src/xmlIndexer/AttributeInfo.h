@@ -25,24 +25,25 @@ namespace NET_ASAM_OPENSCENARIO
     /**
     * Every osc model element does implement this interface
     */
-    class AttributeNode: public PositionNode 
+    class AttributeInfo
     {
     private:
         std::string  _name;
 		Position _startValuePosition;;
 
     public:
-        /**
+		/**
+		 * Constructor
+		 */
+		AttributeInfo();
+
+    	/**
          * Constructor
          * @param name name of the attribute
-         * @param startLine line of the start position
-         * @param startColumn column of the stat position
-         * @param endLine line of the end position
-         * @param endColumn column of the end position
          * @param startValueLine start line of the value
          * @param startValueColumn start column of the value
          */
-		AttributeNode(std::string& name, const size_t startLine, const size_t startColumn, const size_t endLine, const size_t endColumn, const size_t startValueLine, const size_t startValueColumn);
+		AttributeInfo(std::string& name, const size_t startValueLine, const size_t startValueColumn);
 
 		/**
 		 * The name of the attribute

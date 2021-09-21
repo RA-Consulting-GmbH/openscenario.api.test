@@ -46,19 +46,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeValue(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<AbsoluteSpeedImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<AbsoluteSpeedImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -69,7 +70,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -153,14 +154,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeValue(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<AbsoluteTargetLaneImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<AbsoluteTargetLaneImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -171,7 +173,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -214,19 +216,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeValue(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<AbsoluteTargetLaneOffsetImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<AbsoluteTargetLaneOffsetImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -237,7 +240,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -280,19 +283,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeValue(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<AbsoluteTargetSpeedImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<AbsoluteTargetSpeedImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -303,7 +307,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -346,14 +350,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeRule(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<AccelerationConditionImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<AccelerationConditionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RULE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RULE, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -373,7 +378,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__RULE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__RULE, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -387,19 +392,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeValue(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<AccelerationConditionImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<AccelerationConditionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -410,7 +416,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -522,14 +528,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeName(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<ActImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<ActImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -540,7 +547,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -702,14 +709,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeName(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<ActionImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<ActionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -720,7 +728,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -880,14 +888,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeLateral(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<ActivateControllerActionImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<ActivateControllerActionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__LATERAL, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__LATERAL, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -898,7 +907,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__LATERAL, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__LATERAL, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -912,14 +921,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeLongitudinal(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<ActivateControllerActionImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<ActivateControllerActionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__LONGITUDINAL, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__LONGITUDINAL, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -930,7 +940,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__LONGITUDINAL, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__LONGITUDINAL, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -973,14 +983,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeSelectTriggeringEntities(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<ActorsImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<ActorsImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__SELECT_TRIGGERING_ENTITIES, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__SELECT_TRIGGERING_ENTITIES, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -991,7 +1002,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__SELECT_TRIGGERING_ENTITIES, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__SELECT_TRIGGERING_ENTITIES, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -1144,14 +1155,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeActivateLateral(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<AssignControllerActionImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<AssignControllerActionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ACTIVATE_LATERAL, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ACTIVATE_LATERAL, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -1162,7 +1174,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__ACTIVATE_LATERAL, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__ACTIVATE_LATERAL, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -1176,14 +1188,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeActivateLongitudinal(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<AssignControllerActionImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<AssignControllerActionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ACTIVATE_LONGITUDINAL, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ACTIVATE_LONGITUDINAL, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -1194,7 +1207,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__ACTIVATE_LONGITUDINAL, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__ACTIVATE_LONGITUDINAL, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -1425,19 +1438,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeMaxSteering(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<AxleImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<AxleImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAX_STEERING, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAX_STEERING, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAX_STEERING, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAX_STEERING, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -1448,7 +1462,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__MAX_STEERING, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__MAX_STEERING, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -1462,19 +1476,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributePositionX(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<AxleImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<AxleImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__POSITION_X, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__POSITION_X, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__POSITION_X, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__POSITION_X, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -1485,7 +1500,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__POSITION_X, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__POSITION_X, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -1499,19 +1514,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributePositionZ(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<AxleImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<AxleImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__POSITION_Z, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__POSITION_Z, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__POSITION_Z, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__POSITION_Z, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -1522,7 +1538,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__POSITION_Z, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__POSITION_Z, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -1536,19 +1552,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeTrackWidth(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<AxleImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<AxleImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TRACK_WIDTH, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TRACK_WIDTH, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TRACK_WIDTH, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TRACK_WIDTH, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -1559,7 +1576,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__TRACK_WIDTH, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__TRACK_WIDTH, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -1573,19 +1590,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeWheelDiameter(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<AxleImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<AxleImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__WHEEL_DIAMETER, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__WHEEL_DIAMETER, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__WHEEL_DIAMETER, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__WHEEL_DIAMETER, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -1596,7 +1614,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__WHEEL_DIAMETER, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__WHEEL_DIAMETER, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -2002,14 +2020,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeType(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<ByObjectTypeImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<ByObjectTypeImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TYPE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TYPE, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -2029,7 +2048,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__TYPE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__TYPE, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -2072,14 +2091,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeObjectType(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<ByTypeImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<ByTypeImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__OBJECT_TYPE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__OBJECT_TYPE, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -2099,7 +2119,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__OBJECT_TYPE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__OBJECT_TYPE, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -2445,14 +2465,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeName(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<CatalogImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<CatalogImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -2463,7 +2484,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -3230,14 +3251,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeCatalogName(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<CatalogReferenceImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<CatalogReferenceImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__CATALOG_NAME, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__CATALOG_NAME, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -3248,7 +3270,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__CATALOG_NAME, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__CATALOG_NAME, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -3262,14 +3284,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeEntryName(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<CatalogReferenceImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<CatalogReferenceImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ENTRY_NAME, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ENTRY_NAME, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -3280,7 +3303,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__ENTRY_NAME, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__ENTRY_NAME, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -3360,19 +3383,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeX(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<CenterImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<CenterImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__X, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__X, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__X, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__X, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -3383,7 +3407,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__X, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__X, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -3397,19 +3421,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeY(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<CenterImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<CenterImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__Y, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__Y, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__Y, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__Y, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -3420,7 +3445,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__Y, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__Y, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -3434,19 +3459,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeZ(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<CenterImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<CenterImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__Z, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__Z, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__Z, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__Z, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -3457,7 +3483,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__Z, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__Z, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -3500,14 +3526,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeEntityRef(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<CentralSwarmObjectImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<CentralSwarmObjectImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -3520,7 +3547,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -3563,19 +3590,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeCurvature(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<ClothoidImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<ClothoidImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__CURVATURE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__CURVATURE, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__CURVATURE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__CURVATURE, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -3586,7 +3614,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__CURVATURE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__CURVATURE, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -3600,19 +3628,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeCurvatureDot(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<ClothoidImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<ClothoidImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__CURVATURE_DOT, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__CURVATURE_DOT, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__CURVATURE_DOT, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__CURVATURE_DOT, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -3623,7 +3652,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__CURVATURE_DOT, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__CURVATURE_DOT, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -3637,19 +3666,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeCurvaturePrime(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<ClothoidImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<ClothoidImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__CURVATURE_PRIME, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__CURVATURE_PRIME, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__CURVATURE_PRIME, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__CURVATURE_PRIME, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -3660,7 +3690,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__CURVATURE_PRIME, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__CURVATURE_PRIME, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -3674,19 +3704,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeLength(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<ClothoidImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<ClothoidImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__LENGTH, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__LENGTH, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__LENGTH, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__LENGTH, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -3697,7 +3728,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__LENGTH, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__LENGTH, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -3711,19 +3742,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeStartTime(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<ClothoidImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<ClothoidImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__START_TIME, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__START_TIME, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__START_TIME, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__START_TIME, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -3734,7 +3766,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__START_TIME, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__START_TIME, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -3748,19 +3780,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeStopTime(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<ClothoidImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<ClothoidImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__STOP_TIME, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__STOP_TIME, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__STOP_TIME, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__STOP_TIME, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -3771,7 +3804,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__STOP_TIME, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__STOP_TIME, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -3962,14 +3995,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeConditionEdge(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<ConditionImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<ConditionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__CONDITION_EDGE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__CONDITION_EDGE, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -3989,7 +4023,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__CONDITION_EDGE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__CONDITION_EDGE, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -4003,19 +4037,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeDelay(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<ConditionImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<ConditionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DELAY, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DELAY, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DELAY, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DELAY, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -4026,7 +4061,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__DELAY, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__DELAY, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -4040,14 +4075,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeName(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<ConditionImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<ConditionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -4058,7 +4094,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -4248,19 +4284,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeTime(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<ControlPointImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<ControlPointImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TIME, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TIME, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TIME, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TIME, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -4271,7 +4308,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__TIME, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__TIME, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -4285,19 +4322,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeWeight(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<ControlPointImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<ControlPointImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__WEIGHT, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__WEIGHT, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__WEIGHT, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__WEIGHT, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -4308,7 +4346,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__WEIGHT, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__WEIGHT, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -4391,14 +4429,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeName(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<ControllerImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<ControllerImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -4409,7 +4448,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -4814,19 +4853,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeWeight(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<ControllerDistributionEntryImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<ControllerDistributionEntryImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__WEIGHT, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__WEIGHT, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__WEIGHT, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__WEIGHT, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -4837,7 +4877,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__WEIGHT, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__WEIGHT, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -4962,14 +5002,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeType(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<CustomCommandActionImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<CustomCommandActionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TYPE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TYPE, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -4980,7 +5021,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__TYPE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__TYPE, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -5350,14 +5391,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeParameterName(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<DeterministicSingleParameterDistributionImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<DeterministicSingleParameterDistributionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_NAME, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_NAME, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -5368,7 +5410,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_NAME, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_NAME, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -5595,19 +5637,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeHeight(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<DimensionsImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<DimensionsImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__HEIGHT, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__HEIGHT, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__HEIGHT, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__HEIGHT, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -5618,7 +5661,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__HEIGHT, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__HEIGHT, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -5632,19 +5675,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeLength(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<DimensionsImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<DimensionsImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__LENGTH, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__LENGTH, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__LENGTH, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__LENGTH, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -5655,7 +5699,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__LENGTH, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__LENGTH, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -5669,19 +5713,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeWidth(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<DimensionsImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<DimensionsImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__WIDTH, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__WIDTH, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__WIDTH, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__WIDTH, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -5692,7 +5737,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__WIDTH, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__WIDTH, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -5735,14 +5780,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributePath(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<DirectoryImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<DirectoryImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__PATH, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__PATH, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -5753,7 +5799,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__PATH, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__PATH, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -5797,14 +5843,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeAlongRoute(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<DistanceConditionImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<DistanceConditionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ALONG_ROUTE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ALONG_ROUTE, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -5815,7 +5862,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__ALONG_ROUTE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__ALONG_ROUTE, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -5829,14 +5876,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeCoordinateSystem(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<DistanceConditionImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<DistanceConditionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__COORDINATE_SYSTEM, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__COORDINATE_SYSTEM, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -5856,7 +5904,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__COORDINATE_SYSTEM, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__COORDINATE_SYSTEM, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -5870,14 +5918,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeFreespace(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<DistanceConditionImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<DistanceConditionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -5888,7 +5937,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -5902,14 +5951,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeRelativeDistanceType(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<DistanceConditionImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<DistanceConditionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RELATIVE_DISTANCE_TYPE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RELATIVE_DISTANCE_TYPE, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -5929,7 +5979,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__RELATIVE_DISTANCE_TYPE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__RELATIVE_DISTANCE_TYPE, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -5943,14 +5993,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeRule(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<DistanceConditionImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<DistanceConditionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RULE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RULE, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -5970,7 +6021,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__RULE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__RULE, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -5984,19 +6035,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeValue(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<DistanceConditionImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<DistanceConditionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -6007,7 +6059,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -6192,19 +6244,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeStepWidth(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<DistributionRangeImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<DistributionRangeImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__STEP_WIDTH, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__STEP_WIDTH, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__STEP_WIDTH, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__STEP_WIDTH, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -6215,7 +6268,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__STEP_WIDTH, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__STEP_WIDTH, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -6367,14 +6420,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeValue(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<DistributionSetElementImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<DistributionSetElementImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -6385,7 +6439,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -6428,19 +6482,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeMaxAcceleration(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<DynamicConstraintsImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<DynamicConstraintsImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAX_ACCELERATION, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAX_ACCELERATION, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAX_ACCELERATION, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAX_ACCELERATION, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -6451,7 +6506,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__MAX_ACCELERATION, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__MAX_ACCELERATION, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -6465,19 +6520,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeMaxDeceleration(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<DynamicConstraintsImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<DynamicConstraintsImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAX_DECELERATION, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAX_DECELERATION, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAX_DECELERATION, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAX_DECELERATION, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -6488,7 +6544,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__MAX_DECELERATION, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__MAX_DECELERATION, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -6502,19 +6558,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeMaxSpeed(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<DynamicConstraintsImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<DynamicConstraintsImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAX_SPEED, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAX_SPEED, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAX_SPEED, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAX_SPEED, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -6525,7 +6582,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__MAX_SPEED, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__MAX_SPEED, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -6568,19 +6625,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeDuration(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<EndOfRoadConditionImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<EndOfRoadConditionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DURATION, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DURATION, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DURATION, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DURATION, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -6591,7 +6649,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__DURATION, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__DURATION, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -6744,14 +6802,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeEntityRef(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<EntityActionImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<EntityActionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -6764,7 +6823,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -7642,14 +7701,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeEntityRef(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<EntityRefImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<EntityRefImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -7662,7 +7722,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -7705,14 +7765,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeName(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<EntitySelectionImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<EntitySelectionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -7723,7 +7784,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -7806,14 +7867,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeName(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<EnvironmentImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<EnvironmentImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -7824,7 +7886,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -8199,19 +8261,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeMaximumExecutionCount(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<EventImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<EventImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAXIMUM_EXECUTION_COUNT, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAXIMUM_EXECUTION_COUNT, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype unsignedInt
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAXIMUM_EXECUTION_COUNT, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAXIMUM_EXECUTION_COUNT, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -8222,7 +8285,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__MAXIMUM_EXECUTION_COUNT, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__MAXIMUM_EXECUTION_COUNT, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -8236,14 +8299,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeName(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<EventImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<EventImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -8254,7 +8318,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -8268,14 +8332,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributePriority(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<EventImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<EventImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__PRIORITY, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__PRIORITY, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -8295,7 +8360,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__PRIORITY, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__PRIORITY, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -8418,14 +8483,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeName(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<ExternalObjectReferenceImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<ExternalObjectReferenceImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -8436,7 +8502,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -8479,14 +8545,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeFilepath(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<FileImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<FileImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__FILEPATH, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__FILEPATH, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -8497,7 +8564,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__FILEPATH, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__FILEPATH, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -8540,14 +8607,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeAuthor(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<FileHeaderImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<FileHeaderImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__AUTHOR, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__AUTHOR, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -8558,7 +8626,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__AUTHOR, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__AUTHOR, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -8572,14 +8640,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeDate(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<FileHeaderImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<FileHeaderImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DATE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DATE, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -8590,7 +8659,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__DATE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__DATE, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -8604,14 +8673,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeDescription(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<FileHeaderImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<FileHeaderImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DESCRIPTION, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DESCRIPTION, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -8622,7 +8692,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__DESCRIPTION, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__DESCRIPTION, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -8636,19 +8706,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeRevMajor(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<FileHeaderImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<FileHeaderImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__REV_MAJOR, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__REV_MAJOR, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype unsignedShort
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__REV_MAJOR, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__REV_MAJOR, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -8659,7 +8730,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__REV_MAJOR, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__REV_MAJOR, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -8673,19 +8744,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeRevMinor(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<FileHeaderImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<FileHeaderImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__REV_MINOR, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__REV_MINOR, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype unsignedShort
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__REV_MINOR, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__REV_MINOR, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -8696,7 +8768,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__REV_MINOR, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__REV_MINOR, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -8887,19 +8959,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeVisualRange(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<FogImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<FogImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VISUAL_RANGE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VISUAL_RANGE, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VISUAL_RANGE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VISUAL_RANGE, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -8910,7 +8983,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__VISUAL_RANGE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__VISUAL_RANGE, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -8993,19 +9066,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeInitialDistanceOffset(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<FollowTrajectoryActionImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<FollowTrajectoryActionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__INITIAL_DISTANCE_OFFSET, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__INITIAL_DISTANCE_OFFSET, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__INITIAL_DISTANCE_OFFSET, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__INITIAL_DISTANCE_OFFSET, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -9016,7 +9090,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__INITIAL_DISTANCE_OFFSET, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__INITIAL_DISTANCE_OFFSET, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -9256,19 +9330,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeHeight(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<GeoPositionImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<GeoPositionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__HEIGHT, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__HEIGHT, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__HEIGHT, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__HEIGHT, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -9279,7 +9354,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__HEIGHT, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__HEIGHT, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -9293,19 +9368,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeLatitude(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<GeoPositionImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<GeoPositionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__LATITUDE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__LATITUDE, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__LATITUDE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__LATITUDE, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -9316,7 +9392,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__LATITUDE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__LATITUDE, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -9330,19 +9406,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeLongitude(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<GeoPositionImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<GeoPositionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__LONGITUDE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__LONGITUDE, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__LONGITUDE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__LONGITUDE, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -9353,7 +9430,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__LONGITUDE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__LONGITUDE, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -9729,19 +9806,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeWeight(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<HistogramBinImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<HistogramBinImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__WEIGHT, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__WEIGHT, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__WEIGHT, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__WEIGHT, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -9752,7 +9830,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__WEIGHT, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__WEIGHT, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -10267,19 +10345,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeValue(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<KnotImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<KnotImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -10290,7 +10369,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -10334,19 +10413,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeTargetLaneOffset(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<LaneChangeActionImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<LaneChangeActionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TARGET_LANE_OFFSET, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TARGET_LANE_OFFSET, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TARGET_LANE_OFFSET, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TARGET_LANE_OFFSET, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -10357,7 +10437,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__TARGET_LANE_OFFSET, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__TARGET_LANE_OFFSET, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -10587,14 +10667,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeContinuous(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<LaneOffsetActionImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<LaneOffsetActionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -10605,7 +10686,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -10726,14 +10807,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeDynamicsShape(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<LaneOffsetActionDynamicsImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<LaneOffsetActionDynamicsImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DYNAMICS_SHAPE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DYNAMICS_SHAPE, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -10753,7 +10835,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__DYNAMICS_SHAPE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__DYNAMICS_SHAPE, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -10767,19 +10849,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeMaxLateralAcc(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<LaneOffsetActionDynamicsImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<LaneOffsetActionDynamicsImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAX_LATERAL_ACC, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAX_LATERAL_ACC, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAX_LATERAL_ACC, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAX_LATERAL_ACC, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -10790,7 +10873,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__MAX_LATERAL_ACC, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__MAX_LATERAL_ACC, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -10942,14 +11025,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeLaneId(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<LanePositionImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<LanePositionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__LANE_ID, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__LANE_ID, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -10960,7 +11044,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__LANE_ID, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__LANE_ID, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -10974,19 +11058,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeOffset(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<LanePositionImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<LanePositionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__OFFSET, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__OFFSET, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__OFFSET, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__OFFSET, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -10997,7 +11082,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__OFFSET, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__OFFSET, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -11011,14 +11096,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeRoadId(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<LanePositionImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<LanePositionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ROAD_ID, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ROAD_ID, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -11029,7 +11115,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__ROAD_ID, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__ROAD_ID, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -11043,19 +11129,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeS(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<LanePositionImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<LanePositionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__S, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__S, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__S, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__S, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -11066,7 +11153,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__S, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__S, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -11296,14 +11383,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeContinuous(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<LateralDistanceActionImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<LateralDistanceActionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -11314,7 +11402,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -11328,14 +11416,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeCoordinateSystem(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<LateralDistanceActionImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<LateralDistanceActionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__COORDINATE_SYSTEM, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__COORDINATE_SYSTEM, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -11355,7 +11444,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__COORDINATE_SYSTEM, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__COORDINATE_SYSTEM, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -11369,14 +11458,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeDisplacement(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<LateralDistanceActionImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<LateralDistanceActionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DISPLACEMENT, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DISPLACEMENT, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -11396,7 +11486,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__DISPLACEMENT, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__DISPLACEMENT, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -11410,19 +11500,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeDistance(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<LateralDistanceActionImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<LateralDistanceActionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DISTANCE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DISTANCE, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DISTANCE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DISTANCE, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -11433,7 +11524,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__DISTANCE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__DISTANCE, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -11447,14 +11538,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeEntityRef(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<LateralDistanceActionImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<LateralDistanceActionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -11467,7 +11559,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -11481,14 +11573,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeFreespace(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<LateralDistanceActionImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<LateralDistanceActionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -11499,7 +11592,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -11584,14 +11677,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeName(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<LicenseImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<LicenseImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -11602,7 +11696,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -11616,14 +11710,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeResource(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<LicenseImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<LicenseImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RESOURCE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RESOURCE, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -11634,7 +11729,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__RESOURCE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__RESOURCE, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -11648,14 +11743,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeSpdxId(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<LicenseImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<LicenseImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__SPDX_ID, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__SPDX_ID, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -11666,7 +11762,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__SPDX_ID, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__SPDX_ID, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -11813,14 +11909,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeContinuous(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<LongitudinalDistanceActionImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<LongitudinalDistanceActionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -11831,7 +11928,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -11845,14 +11942,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeCoordinateSystem(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<LongitudinalDistanceActionImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<LongitudinalDistanceActionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__COORDINATE_SYSTEM, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__COORDINATE_SYSTEM, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -11872,7 +11970,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__COORDINATE_SYSTEM, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__COORDINATE_SYSTEM, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -11886,14 +11984,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeDisplacement(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<LongitudinalDistanceActionImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<LongitudinalDistanceActionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DISPLACEMENT, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DISPLACEMENT, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -11913,7 +12012,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__DISPLACEMENT, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__DISPLACEMENT, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -11927,19 +12026,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeDistance(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<LongitudinalDistanceActionImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<LongitudinalDistanceActionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DISTANCE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DISTANCE, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DISTANCE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DISTANCE, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -11950,7 +12050,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__DISTANCE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__DISTANCE, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -11964,14 +12064,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeEntityRef(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<LongitudinalDistanceActionImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<LongitudinalDistanceActionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -11984,7 +12085,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -11998,14 +12099,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeFreespace(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<LongitudinalDistanceActionImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<LongitudinalDistanceActionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -12016,7 +12118,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -12030,19 +12132,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeTimeGap(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<LongitudinalDistanceActionImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<LongitudinalDistanceActionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TIME_GAP, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TIME_GAP, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TIME_GAP, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TIME_GAP, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -12053,7 +12156,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__TIME_GAP, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__TIME_GAP, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -12135,14 +12238,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeName(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<ManeuverImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<ManeuverImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -12153,7 +12257,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -12342,19 +12446,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeMaximumExecutionCount(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<ManeuverGroupImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<ManeuverGroupImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAXIMUM_EXECUTION_COUNT, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAXIMUM_EXECUTION_COUNT, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype unsignedInt
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAXIMUM_EXECUTION_COUNT, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAXIMUM_EXECUTION_COUNT, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -12365,7 +12470,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__MAXIMUM_EXECUTION_COUNT, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__MAXIMUM_EXECUTION_COUNT, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -12379,14 +12484,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeName(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<ManeuverGroupImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<ManeuverGroupImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -12397,7 +12503,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -12561,19 +12667,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeMass(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<MiscObjectImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<MiscObjectImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MASS, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MASS, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MASS, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MASS, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -12584,7 +12691,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__MASS, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__MASS, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -12598,14 +12705,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeMiscObjectCategory(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<MiscObjectImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<MiscObjectImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MISC_OBJECT_CATEGORY, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MISC_OBJECT_CATEGORY, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -12625,7 +12733,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__MISC_OBJECT_CATEGORY, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__MISC_OBJECT_CATEGORY, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -12639,14 +12747,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeModel3d(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<MiscObjectImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<MiscObjectImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MODEL3D, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MODEL3D, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -12657,7 +12766,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__MODEL3D, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__MODEL3D, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -12671,14 +12780,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeName(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<MiscObjectImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<MiscObjectImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -12689,7 +12799,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -13053,19 +13163,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeExpectedValue(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<NormalDistributionImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<NormalDistributionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__EXPECTED_VALUE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__EXPECTED_VALUE, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__EXPECTED_VALUE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__EXPECTED_VALUE, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -13076,7 +13187,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__EXPECTED_VALUE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__EXPECTED_VALUE, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -13090,19 +13201,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeVariance(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<NormalDistributionImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<NormalDistributionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VARIANCE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VARIANCE, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VARIANCE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VARIANCE, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -13113,7 +13225,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__VARIANCE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__VARIANCE, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -13195,19 +13307,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeOrder(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<NurbsImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<NurbsImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ORDER, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ORDER, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype unsignedInt
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ORDER, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ORDER, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -13218,7 +13331,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__ORDER, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__ORDER, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -13450,19 +13563,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeDuration(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<OffroadConditionImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<OffroadConditionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DURATION, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DURATION, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DURATION, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DURATION, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -13473,7 +13587,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__DURATION, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__DURATION, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -13772,19 +13886,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeH(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<OrientationImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<OrientationImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__H, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__H, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__H, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__H, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -13795,7 +13910,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__H, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__H, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -13809,19 +13924,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeP(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<OrientationImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<OrientationImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__P, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__P, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__P, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__P, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -13832,7 +13948,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__P, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__P, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -13846,19 +13962,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeR(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<OrientationImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<OrientationImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__R, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__R, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__R, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__R, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -13869,7 +13986,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__R, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__R, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -13883,14 +14000,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeType(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<OrientationImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<OrientationImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TYPE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TYPE, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -13910,7 +14028,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__TYPE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__TYPE, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -13953,14 +14071,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeActive(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<OverrideBrakeActionImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<OverrideBrakeActionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -13971,7 +14090,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -13985,19 +14104,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeValue(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<OverrideBrakeActionImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<OverrideBrakeActionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -14008,7 +14128,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -14051,14 +14171,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeActive(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<OverrideClutchActionImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<OverrideClutchActionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -14069,7 +14190,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -14083,19 +14204,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeValue(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<OverrideClutchActionImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<OverrideClutchActionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -14106,7 +14228,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -14413,14 +14535,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeActive(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<OverrideGearActionImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<OverrideGearActionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -14431,7 +14554,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -14445,19 +14568,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeNumber(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<OverrideGearActionImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<OverrideGearActionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NUMBER, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NUMBER, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NUMBER, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NUMBER, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -14468,7 +14592,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__NUMBER, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__NUMBER, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -14511,14 +14635,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeActive(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<OverrideParkingBrakeActionImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<OverrideParkingBrakeActionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -14529,7 +14654,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -14543,19 +14668,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeValue(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<OverrideParkingBrakeActionImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<OverrideParkingBrakeActionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -14566,7 +14692,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -14609,14 +14735,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeActive(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<OverrideSteeringWheelActionImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<OverrideSteeringWheelActionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -14627,7 +14754,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -14641,19 +14768,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeValue(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<OverrideSteeringWheelActionImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<OverrideSteeringWheelActionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -14664,7 +14792,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -14707,14 +14835,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeActive(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<OverrideThrottleActionImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<OverrideThrottleActionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -14725,7 +14854,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -14739,19 +14868,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeValue(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<OverrideThrottleActionImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<OverrideThrottleActionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -14762,7 +14892,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -14806,14 +14936,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeParameterRef(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<ParameterActionImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<ParameterActionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_REF, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_REF, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -14826,7 +14957,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_REF, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_REF, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -14947,19 +15078,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeValue(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<ParameterAddValueRuleImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<ParameterAddValueRuleImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -14970,7 +15102,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -15013,11 +15145,12 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeParameterRef(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<ParameterAssignmentImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<ParameterAssignmentImpl>(object);
                     // This is a special case for ParameterDeclaration.name or ParamterAssignment.parameterRef
                     // Proxy
                     auto proxy = std::make_shared<NamedReferenceProxy<IParameterDeclaration>>(StripDollarSign(attributeValue));
@@ -15036,19 +15169,20 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeValue(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<ParameterAssignmentImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<ParameterAssignmentImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startValueMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype string
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -15059,7 +15193,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -15102,14 +15236,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeParameterRef(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<ParameterConditionImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<ParameterConditionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_REF, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_REF, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -15122,7 +15257,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_REF, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_REF, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -15136,14 +15271,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeRule(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<ParameterConditionImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<ParameterConditionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RULE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RULE, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -15163,7 +15299,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__RULE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__RULE, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override
@@ -15177,14 +15313,15 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 AttributeValue(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<ParameterConditionImpl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<ParameterConditionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startValueMarker); 
                     }
                     else
                     {
@@ -15195,7 +15332,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                 }
 
                 int GetMinOccur() override

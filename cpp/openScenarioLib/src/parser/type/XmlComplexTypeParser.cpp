@@ -54,7 +54,8 @@ namespace NET_ASAM_OPENSCENARIO
                 parser = kIt->second;
 
             auto attributeStartPosition = indexedElement->GetAttributeStartPosition(attributeName);
-            auto attributeEndPosition = indexedElement->GetAttributeEndPosition(attributeName);
+			auto attributeEndPosition = indexedElement->GetAttributeEndPosition(attributeName);
+			auto attributeStartValuePosition = indexedElement->GetAttributeStartValuePosition(attributeName);
 
             if (attributeName.find(":") != std::string::npos)
             {
@@ -68,7 +69,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
             else
             {
-                parser->Parse(attributeStartPosition, attributeEndPosition, attributeName, attributeValue, object);
+                parser->Parse(attributeStartPosition, attributeEndPosition, attributeStartValuePosition, attributeName, attributeValue, object);
                 // Remove 
                _attributeNameToAttributeParser.erase(attributeName);
             }

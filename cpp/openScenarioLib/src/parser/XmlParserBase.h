@@ -203,13 +203,14 @@ namespace NET_ASAM_OPENSCENARIO
 
         /**
          * parse an attribute
-         * @param startPosition of the textual representation of the attribute
-         * @param endPosition of the textual representation of the attribute
-         * @param attributeName name of the attribute
+		 * @param startPosition of the textual representation of the attribute
+		 * @param endPosition of the textual representation of the attribute
+		 * @param startValuePosition start position of the textual representation of attribute's value
+		 * @param attributeName name of the attribute
          * @param attributeValue value of the attribute
          * @param object the model object to be filled during the parsing process
          */
-		virtual void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) = 0;
+		virtual void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) = 0;
 
         /**
          * The defined min accur of the element 0 for optional 1 for required

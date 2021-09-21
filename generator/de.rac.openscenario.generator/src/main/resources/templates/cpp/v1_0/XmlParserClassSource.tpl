@@ -63,10 +63,11 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 Attribute<%=property.name.toClassName()%>(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
                     auto typedObject = std::static_pointer_cast<<%=element.name.toClassName()%>Impl>(object);
                     <%-if (property.isParameterizableProperty()){-%>
                     if (IsParametrized(attributeValue))

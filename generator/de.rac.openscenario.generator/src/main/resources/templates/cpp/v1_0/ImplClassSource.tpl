@@ -340,6 +340,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneEndMarker(*clonedObject);
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
+            CloneAttributeKeyToStartValueMarker(*clonedObject);
             CloneAttributeKeyToParameterNameMap(*clonedObject);
 
             // clone attributes;

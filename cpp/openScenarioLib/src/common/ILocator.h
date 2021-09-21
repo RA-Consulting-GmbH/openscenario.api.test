@@ -57,11 +57,5 @@ namespace NET_ASAM_OPENSCENARIO
 		  * @return the end marker
 		  */
 		 virtual Textmarker GetEndMarkerOfProperty(const std::string &propertyKey) = 0;
-		 /**
-		 * Locates the start of an property's value that belongs to an object in a text file
-		 * @param propertyKey the property (attribute) in xml
-		 * @return the start value marker
-		 */
-		 virtual Textmarker GetValueStartMarkerOfProperty(const std::string &propertyKey) = 0;
 	 };
 }

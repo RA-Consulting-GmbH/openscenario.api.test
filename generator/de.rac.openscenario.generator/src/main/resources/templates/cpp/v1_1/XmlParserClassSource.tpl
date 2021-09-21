@@ -63,21 +63,22 @@ namespace NET_ASAM_OPENSCENARIO
             public:
                 Attribute<%=property.name.toClassName()%>(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
 
-                void Parse(Position& startPosition, Position& endPosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
+                void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
                     Textmarker startMarker(startPosition.GetLine(), startPosition.GetColumn(), _filename);
                     Textmarker endMarker(endPosition.GetLine(), endPosition.GetColumn(), _filename);
-                    auto typedObject = std::static_pointer_cast<<%=element.name.toClassName()%>Impl>(object);
+                    Textmarker startValueMarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), _filename);
+					auto typedObject = std::static_pointer_cast<<%=element.name.toClassName()%>Impl>(object);
                     <%-if (property.isParameterizableProperty()){-%>
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>, attributeValue, startValueMarker); 
                     }
                     <%-if(helper.isExpressionAllowed(property.type, element.name.toClassName(), property.name.toMemberName())){-%>
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype <%=property.type.name%>
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>, attributeValue, startValueMarker); 
                     }
                     <%-}-%>
                     else
@@ -108,7 +109,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>, std::make_shared<Textmarker>(endMarker));
-                    
+                     
                     <%-} else {-%>
                     // This is a special case for ParameterDeclaration.name or ParamterAssignment.parameterRef
                         <%-if (property.isProxy()){-%>

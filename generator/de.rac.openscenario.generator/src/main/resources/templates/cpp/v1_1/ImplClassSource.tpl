@@ -340,7 +340,7 @@ namespace NET_ASAM_OPENSCENARIO
             CloneEndMarker(*clonedObject);
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
-            CloneAttributeKeyToParameterNameMap(*clonedObject);
+			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
             <%-properties = element.getXmlAttributeProperties();-%>

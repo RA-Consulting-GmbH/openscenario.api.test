@@ -121,7 +121,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             if (IsController(catalogElement))
                 return std::dynamic_pointer_cast<IController>(catalogElement);
-            return nullptr;
+            return std::shared_ptr<IController>(nullptr);
         }
 
         /**
@@ -134,7 +134,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             if (IsEnvironment(catalogElement))
                 return std::dynamic_pointer_cast<IEnvironment>(catalogElement);
-            return nullptr;
+            return std::shared_ptr<IEnvironment>(nullptr);
         }
 
         /**
@@ -147,7 +147,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             if (IsManeuver(catalogElement))
                 return std::dynamic_pointer_cast<IManeuver>(catalogElement);
-            return nullptr;
+            return std::shared_ptr<IManeuver>(nullptr);
         }
 
         /**
@@ -160,7 +160,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             if (IsMiscObject(catalogElement))
                 return std::dynamic_pointer_cast<IMiscObject>(catalogElement);
-            return nullptr;
+            return std::shared_ptr<IMiscObject>(nullptr);
         }
 
         /**
@@ -173,7 +173,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             if (IsPedestrian(catalogElement))
                 return std::dynamic_pointer_cast<IPedestrian>(catalogElement);
-            return nullptr;
+            return std::shared_ptr<IPedestrian>(nullptr);
         }
 
         /**
@@ -186,7 +186,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             if (IsRoute(catalogElement))
                 return std::dynamic_pointer_cast<IRoute>(catalogElement);
-            return nullptr;
+            return std::shared_ptr<IRoute>(nullptr);
         }
 
         /**
@@ -199,7 +199,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             if (IsTrajectory(catalogElement))
                 return std::dynamic_pointer_cast<ITrajectory>(catalogElement);
-            return nullptr;
+            return std::shared_ptr<ITrajectory>(nullptr);
         }
 
         /**
@@ -212,7 +212,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             if (IsVehicle(catalogElement))
                 return std::dynamic_pointer_cast<IVehicle>(catalogElement);
-            return nullptr;
+            return std::shared_ptr<IVehicle>(nullptr);
         }
 
         /**

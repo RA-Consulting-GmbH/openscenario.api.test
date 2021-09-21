@@ -15,29 +15,34 @@
  * limitations under the License.
  */
 
-#include "AttributeNode.h"
+#include "AttributeInfo.h"
 #include <string>
 #include "MemLeakDetection.h"
 
 namespace NET_ASAM_OPENSCENARIO
 {
-    
-		AttributeNode::AttributeNode(std::string& name, const size_t startLine, const size_t startColumn, const size_t endLine, const size_t endColumn, const size_t startValueLine, const size_t startValueColumn) :
-			PositionNode(static_cast<int>(startLine), static_cast<int>(startColumn), static_cast<int>(endLine), static_cast<int>(endColumn)), _name(name)
+
+
+		AttributeInfo::AttributeInfo()
+		{
+		}
+	
+		AttributeInfo::AttributeInfo(std::string& name, const size_t startValueLine, const size_t startValueColumn)
 		{
 			_startValuePosition = Position(startValueLine, startValueColumn);
+			_name = name;
 		}
 
         /**
          * The name of the attribute
          * @return the name
          */
-        std::string AttributeNode::GetName() const
+        std::string AttributeInfo::GetName() const
         {
             return _name;
         }
 
-		Position AttributeNode::GetStartValuePosition() const
+		Position AttributeInfo::GetStartValuePosition() const
 		{
 			return _startValuePosition;
 		}
