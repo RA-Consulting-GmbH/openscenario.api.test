@@ -51,7 +51,6 @@ namespace NET_ASAM_OPENSCENARIO
 
         public:
         	/**
-             * @param expectedParameterType expected type
              * @param parameterName  name of the parameter the value is looked up
              * @return the string representation of the value.
              */

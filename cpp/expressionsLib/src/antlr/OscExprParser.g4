@@ -6,9 +6,12 @@ options {
 
 
 /** The start rule; begin parsing here. */
-prog:   OPEN_PROG expr CLOSE_PROG EOF; 
+prog:   (OPEN_PROG expr CLOSE_PROG) EOF
+	|   (parameterExpr) EOF; 
+	
+parameterExpr: ID # ParamExpr;
 
-expr:   func=POW OPEN_BRACKET expr COLON expr CLOSE_BRACKET # FunctionTwoArguments
+expr: func=POW OPEN_BRACKET expr COLON expr CLOSE_BRACKET # FunctionTwoArguments
     | func=SQRT OPEN_BRACKET expr CLOSE_BRACKET # FunctionOneArgument
     | func=CEIL OPEN_BRACKET expr CLOSE_BRACKET # FunctionOneArgument
     | func=FLOOR OPEN_BRACKET expr CLOSE_BRACKET # FunctionOneArgument

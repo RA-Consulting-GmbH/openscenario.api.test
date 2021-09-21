@@ -60,6 +60,14 @@ namespace NET_ASAM_OPENSCENARIO
 <%-}}-%>
         public:
 
+<%-addResolveFunction(element, "unsignedInt", "unsigned int")-%>
+<%-addResolveFunction(element, "unsignedShort", "unsigned short")-%>
+<%-addResolveFunction(element, "boolean", "bool")-%>
+<%-addResolveFunction(element, "string", "std::string")-%>
+<%-addResolveFunction(element, "double", "double")-%>
+<%-addResolveFunction(element, "int", "int")-%>
+<%-addResolveFunction(element, "dateTime", "DateTime")-%>
+		
             OPENSCENARIOLIB_EXP <%=element.name.toClassName()%>Impl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -178,3 +186,10 @@ namespace NET_ASAM_OPENSCENARIO
 
     }
 }
+
+<%-def addResolveFunction(element, primitiveType, cTypeString){-%>
+ <%- def attributes = element.getParametrizableAttributes().findAll(){property -> property.type.name == primitiveType};-%>
+ <%- if(!attributes.isEmpty()){-%>
+			virtual void <%=element.name.toClassName()%>Impl::Resolve<%=primitiveType.toClassName()%>Expression(std::string& attributeKey, <%=cTypeString%>& value) override;		
+<%-}-%>	
+<%-}-%>	

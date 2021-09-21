@@ -33,27 +33,44 @@ namespace OscExpression
 		return ruleContext->getStart()->getCharPositionInLine();
 	}
 
-	std::shared_ptr<ExprValue> EvaluatorListener::convert(std::shared_ptr<ExprValue> valueToConvert,
-		std::string typeCastString, int column)
+	bool  EvaluatorListener::IsConvertible(std::shared_ptr<ExprValue> valueToConvert,
+		std::shared_ptr <OscExpression::ExprType> type, int column)
 	{
-		std::shared_ptr<ExprValue> result = nullptr;
-		if (typeCastString == "int") {
-			result = valueToConvert->ConvertToInt();
+		bool result = false;
+		std::shared_ptr<ExprValue> convertedType = nullptr;
+		if (valueToConvert->IsSimpleParameter()) {
+			convertedType = valueToConvert->ConvertSimpleParameterToTargetType(type);
+			if (convertedType == nullptr && valueToConvert->GetExprType()->GetLiteral() != type->GetLiteral())
+			{
+				std::ostringstream stringStream;
+				stringStream << "Parameter type (" + valueToConvert->GetExprType()->GetLiteral() +
+					") does not match expected type (" + type->GetLiteral() + "). Value '" + valueToConvert->ToString() +
+					"' of parameter '" + valueToConvert->GetParameterName() + "' cannot be converted.";
+				throw  SemanticException(stringStream.str(), column);
+				
+			}
 		}
-		else if (typeCastString == "unsignedInt") {
-			result = valueToConvert->ConvertToUnsignedInt();
+		else if (type == OscExpression::ExprType::INT) {
+			convertedType = valueToConvert->ConvertToInt();
 		}
-		else if (typeCastString == "unsignedShort") {
-			result = valueToConvert->ConvertToUnsignedShort();
+		else if (type == OscExpression::ExprType::UNSIGNED_INT) {
+			convertedType = valueToConvert->ConvertToUnsignedInt();
 		}
-		else if (typeCastString == "double") {
-			result = valueToConvert->ConvertToDouble();
+		else if (type == OscExpression::ExprType::UNSIGNED_SHORT) {
+			convertedType = valueToConvert->ConvertToUnsignedShort();
 		}
-		if (result == nullptr) {
+		else if (type == OscExpression::ExprType::DOUBLE) {
+			convertedType = valueToConvert->ConvertToDouble();
+		}
+		if (convertedType == nullptr) {
 			std::ostringstream stringStream;
-			stringStream << "Value '" << valueToConvert->ToString() << "' cannot be converted to type '" << typeCastString << "'";
+			stringStream << "Value '" << valueToConvert->ToString() << "' cannot be converted to type '" << type->GetLiteral() << "'";
 			throw  SemanticException(stringStream.str(), column);
+		}else
+		{
+			result = true;
 		}
+		
 		return result;
 	}
 
@@ -122,31 +139,66 @@ namespace OscExpression
 	}
 
 
-
 	void EvaluatorListener::exitIdExpr(OscExprParser::IdExprContext *ctx)
 	{
+		evaluateId(ctx);
+	}
+
+	void EvaluatorListener::exitParamExpr(OscExprParser::ParamExprContext* ctx)
+	{
 		// Put the value on the stack or throw an error
-		std::string id = ctx->getText();
+		std::string id = ctx->getText().substr(1);
 		const auto kIt = definedParameters->find(id);
-			
+
 		if (kIt == definedParameters->end()) {
 			std::ostringstream stringStream;
-			stringStream << "Parameter '" << id.c_str() << "' is not defined.";
+			stringStream << "Parameter '$" << id.c_str() << "' is not defined.";
 			throw  SemanticException(stringStream.str(), GetColumn(ctx));
-		}else
-		{ 
-			std::shared_ptr<ExprValue> exprValue = kIt->second;
-			if (exprValue->IsOfType({ ExprType::BOOLEAN, ExprType::STRING, ExprType::DATE_TIME })) {
-
-				std::ostringstream stringStream;
-				stringStream <<"Expressions are exclusively supported for numeric types. Paramter type '"<< exprValue->ToString() <<"' is not supported";
-				throw  SemanticException(stringStream.str(), GetColumn(ctx));
-			}
+		}
+		else if (kIt->second == nullptr)
+		{
+			std::ostringstream stringStream;
+			stringStream << "Parameter '$" << id.c_str() << "' could not be resolved correctly. See definition of '$" << id.c_str() << "'.";
+			throw  SemanticException(stringStream.str(), GetColumn(ctx));
+		}
+		else
+		{
+			std::shared_ptr<ExprValue> exprValue = ExprValue::CreateSimpleParameterValue(id, kIt->second->ToString(), kIt->second->GetExprType());
 			this->valueStack.push(exprValue);
 		}
 	}
 
 
+	void EvaluatorListener::evaluateId(antlr4::ParserRuleContext* ctx)
+	{
+
+		// Put the value on the stack or throw an error
+		std::string id = ctx->getText().substr(1);
+		const auto kIt = definedParameters->find(id);
+
+		if (kIt == definedParameters->end()) {
+			std::ostringstream stringStream;
+			stringStream << "Parameter '$" << id.c_str() << "' is not defined.";
+			throw  SemanticException(stringStream.str(), GetColumn(ctx));
+		}
+		else if (kIt->second == nullptr)
+		{
+			std::ostringstream stringStream;
+			stringStream << "Parameter '$" << id.c_str() << "' could not be resolved correctly. See definition of '$" << id.c_str() << "'.";
+			throw  SemanticException(stringStream.str(), GetColumn(ctx));
+		}
+		else
+		{
+			std::shared_ptr<ExprValue> exprValue = kIt->second;
+			if (exprValue->IsOfType({ ExprType::BOOLEAN, ExprType::STRING, ExprType::DATE_TIME })) {
+
+				std::ostringstream stringStream;
+				stringStream << "Expressions are exclusively supported for numeric types. Parameter '$" << id << "' is of not supported type '" << exprValue->GetExprType()->GetLiteral() << "'";
+				throw  SemanticException(stringStream.str(), GetColumn(ctx));
+			}
+			this->valueStack.push(ExprValue::CreateDoubleValueFromString(exprValue->ToString()));
+		}
+	}
 
 	void EvaluatorListener::exitFunctionOneArgument(OscExprParser::FunctionOneArgumentContext *ctx)
 	{
@@ -236,7 +288,7 @@ namespace OscExpression
 			double secondValue = secondExprValue->getDoubleValue();
 			if (secondValue == 0.0) {
 				auto list = ctx->getRuleContexts<antlr4::ParserRuleContext>();
-				throw  SemanticException("Divison by zero", GetColumn(list[1]));
+				throw  SemanticException("Division by zero", GetColumn(list[1]));
 			}
 			PrepareOverflowUnderflowDetection();
 			double rawResult = firstValue / secondValue;

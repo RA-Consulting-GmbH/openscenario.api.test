@@ -85,7 +85,7 @@ attributeList  returns [std::vector<AttributeNode> result]
     $result = std::vector<AttributeNode> {};
 }
 	:
-		(attribute {$result.emplace_back(AttributeNode($attribute.result,$attribute.start->getLine(), $attribute.start->getCharPositionInLine(), $attribute.stop->getLine(), $attribute.stop->getCharPositionInLine()));})*
+		(attribute {$result.emplace_back(AttributeNode($attribute.result,$attribute.start->getLine(), $attribute.start->getCharPositionInLine(), $attribute.stop->getLine(), $attribute.stop->getCharPositionInLine(),0,0));})*
 ;
 
 reference   :   EntityRef | CharRef ;

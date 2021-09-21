@@ -40,44 +40,25 @@ namespace NET_ASAM_OPENSCENARIO
          * @param column start column of the element node
          * @param attributeNodes the attribute nodes of the element node.
          */
-        void PushElementNode(const size_t line, const size_t column, std::vector<AttributeNode> attributeNodes)
-        {
-            auto node = std::make_shared<ElementNode>(static_cast<int>(line), static_cast<int>(column));
-            node->AddAttributes(attributeNodes);
-            _dictionary.emplace(std::make_pair(_counter++, node));
-            _stack.push(node);
-        }
+		void PushElementNode(const size_t line, const size_t column, std::vector<AttributeNode> attributeNodes);
         /**
          * Sets the end position
          * @param line end line of the element node
          * @param column end column of the element node
          */
-        void SetEndPosition(const size_t line, const size_t column)
-        {
-            auto node = _stack.top();
-            node->AddEndPosition(static_cast<int>(line), static_cast<int>(column));
-            _stack.pop();
-        }
+		void SetEndPosition(const size_t line, const size_t column);
 
         /**
          * Getter facadse for the index
          * @param index the requested index
          * @return the found element node or null if not not found
          */
-        std::shared_ptr<ElementNode> GetElementNode(const unsigned int index)
-        {
-            if (index > _dictionary.size())
-                return nullptr;
-            return _dictionary[index];
-        }
+		std::shared_ptr<ElementNode> GetElementNode(const unsigned int index);
 
         /**
          * Size of the index
          * @return the size
          */
-        int GetSize() const
-        {
-            return _counter;
-        }
+		int GetSize() const;
     };
 }

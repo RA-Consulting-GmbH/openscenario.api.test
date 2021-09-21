@@ -19,6 +19,9 @@
 #include <set>
 #include <map>
 #include "ExpressionResolverV1_1.h"
+
+#include <iostream>
+
 #include "ErrorLevel.h"
 #include "FileContentMessage.h"
 #include "IParserMessageLogger.h"
@@ -26,138 +29,148 @@
 #include "ApiClassImplV1_1.h"
 #include "SimpleType.h"
 #include "MemLeakDetection.h"
+#include "OscExprEvaluatorFactory.h"
+#include "SemanticException.h"
 
 namespace NET_ASAM_OPENSCENARIO
 {
     namespace v1_1
     {
-        bool ExpressionResolver::DoesExpectedTypeMatchWithConversions(SimpleType& expectedSimpleType, SimpleType& actualSimpleType, std::string& value)
+	    std::shared_ptr<OscExpression::ExprValue> ExpressionResolver::CreateExprValueFromParameterValue(
+		    std::shared_ptr<ParameterValue> paramterValue)
+	    {
+			std::shared_ptr<OscExpression::ExprValue> result = nullptr;
+			SimpleType targetType = paramterValue->GetType();
+			return OscExpression::ExprValue::CreateSimpleParameterValue(paramterValue->GetName(), paramterValue->GetValue(), CreateExprTypeFromSimpleType(targetType));
+	    }
+
+	
+	    std::shared_ptr<OscExpression::ExprType> ExpressionResolver::CreateExprTypeFromSimpleType(
+		    SimpleType& actualSimpleType)
+	    {
+			std::shared_ptr<OscExpression::ExprType> result = nullptr;
+			switch (actualSimpleType)
+			{
+			case STRING:
+				result = OscExpression::ExprType::GetStringType();
+				break;
+
+			case DOUBLE:
+
+				result = OscExpression::ExprType::GetDoubleType();
+				break;
+
+			case INT:
+
+				result = OscExpression::ExprType::GetIntType();
+				break;
+
+			case UNSIGNED_INT:
+
+				result = OscExpression::ExprType::GetUnsignedIntType();
+				break;
+
+			case UNSIGNED_SHORT:
+
+				result = OscExpression::ExprType::GetUnsignedShortType();
+				break;
+
+			case BOOLEAN:
+
+				result = OscExpression::ExprType::GetBooleanType();
+				break;
+
+			case DATE_TIME:
+				result = OscExpression::ExprType::GetDateTimeType();
+				break;
+				
+			case ENUM_TYPE:
+				result = OscExpression::ExprType::GetStringType();
+				break;
+
+			default:
+				break;
+			}
+			return result;
+	    }
+
+	    void ExpressionResolver::ResolveInternal(std::shared_ptr<IParserMessageLogger>& logger, std::shared_ptr<IExpressionObject> expressionObject, const bool logUnresolvableParameter)
         {
-            auto result = false;
-            try {
-
-                switch( expectedSimpleType )
-                {
-                    case STRING:
-                        // Everything can be converted into String
-                        result = true;
-                    break;
-
-                    case DOUBLE:
-                        if (actualSimpleType == SimpleType::INT || actualSimpleType == SimpleType::UNSIGNED_INT
-                            || actualSimpleType == SimpleType::UNSIGNED_SHORT || actualSimpleType == SimpleType::STRING)
-                        {
-                            ParserHelper::ValidateDouble(value);
-                            result = true;
-                        }
-                    break;
-
-                    case INT:
-                        if (actualSimpleType == SimpleType::DOUBLE || actualSimpleType == SimpleType::UNSIGNED_INT
-                            || actualSimpleType == SimpleType::UNSIGNED_SHORT || actualSimpleType == SimpleType::STRING)
-                        {
-                            ParserHelper::ValidateInt(value);
-                            result = true;
-                        }
-                    break;
-
-                    case UNSIGNED_INT:
-                        if (actualSimpleType == SimpleType::DOUBLE || actualSimpleType == SimpleType::INT
-                            || actualSimpleType == SimpleType::UNSIGNED_SHORT || actualSimpleType == SimpleType::STRING)
-                        {
-                            ParserHelper::ValidateUnsignedInt(value);
-                            result = true;
-                        }
-                    break;
-
-                    case UNSIGNED_SHORT:
-                        if (actualSimpleType == SimpleType::DOUBLE || actualSimpleType == SimpleType::INT
-                            || actualSimpleType == SimpleType::UNSIGNED_INT || actualSimpleType == SimpleType::STRING)
-                        {
-                            ParserHelper::ValidateUnsignedShort(value);
-                            result = true;
-                        }
-                    break;
-
-                    case BOOLEAN:
-                        if (actualSimpleType == SimpleType::DOUBLE || actualSimpleType == SimpleType::INT
-                            || actualSimpleType == SimpleType::UNSIGNED_INT || actualSimpleType == SimpleType::STRING)
-                        {
-                            ParserHelper::ValidateBoolean(value);
-                            result = true;
-                        }
-                    break;
-
-                    case DATE_TIME:
-                        if (actualSimpleType == SimpleType::STRING)
-                        {
-                            ParserHelper::ValidateDateTime(value);
-                            result = true;
-                        }
-                    break;
-
-                    default:
-                    break;
-                }
-            }
-            catch (std::exception& e) 
-            {
-                (void)e;
-                // Do nothing. result is still false;
-            }
-            return result;
-        }
-
-        void ExpressionResolver::ResolveInternal(std::shared_ptr<IParserMessageLogger>& logger, std::shared_ptr<IParameterizedObject> parameterizedObject, const bool logUnresolvableParameter)
-        {
-            auto attributeKeys = parameterizedObject->GetParameterizedAttributeKeys();
+            auto attributeKeys = expressionObject->GetParameterizedAttributeKeys();
 
             for (auto&& attributeKey : attributeKeys)
             {
-                auto parameterName = parameterizedObject->GetParameterNameFromAttribute(attributeKey);
+                auto expression = expressionObject->GetParameterNameFromAttribute(attributeKey);
 
+				SimpleType targetType = expressionObject->GetTypeFromAttributeName(attributeKey);
+            	
+				std::shared_ptr<OscExpression::OscExprEvaluator> evaluator = OscExpression::OscExprEvaluatorFactory::CreateOscExprEvaluator(_flatParameterValueSet, CreateExprTypeFromSimpleType(targetType));
+				try {
+					std::shared_ptr<OscExpression::ExprValue> value = evaluator->Evaluate(expression);
+					
+					if (value->IsSimpleParameter())
+					{
+						if (CreateExprTypeFromSimpleType(targetType) != value->GetExprType())
+						{
+							// add Matching Info
+							auto msg = FileContentMessage("Parameter type (" + value->GetExprType()->GetLiteral() +
+								") does not match expected type (" + SimpleTypeString::ToString(targetType) + "). Value '" + value->ToString() +
+								"' of parameter '" + value->GetParameterName() + "' was converted.", INFO, *expressionObject->GetTextmarker(attributeKey).get());
+							logger->LogMessage(msg);
+						}
+						expressionObject->ResolveParameter(logger, attributeKey, value->ToString());
+					}
+					else
+					{
 
-                auto paramValue = FindValue(parameterName);
-                if (paramValue) 
-                {
+						switch (targetType)
+						{
+							case DOUBLE:
+							{
+								double doubleValue = value->getDoubleValue();
+								expressionObject->ResolveDoubleExpression(attributeKey, doubleValue);
+								break;
+							}
+							case INT:
+							{
 
-                    auto expectedSimpleType = parameterizedObject->GetTypeFromAttributeName(attributeKey);
-                    auto actualSimpleType = paramValue->GetType();
-                    auto value = paramValue->GetValue();
-                    if (expectedSimpleType == actualSimpleType || (expectedSimpleType == SimpleType::ENUM_TYPE && actualSimpleType == SimpleType::STRING)) 
-                    {
-                        parameterizedObject->ResolveParameter(logger, attributeKey, value);
-                    }
-                    else if (DoesExpectedTypeMatchWithConversions(expectedSimpleType, actualSimpleType, value)) 
-                    {
-                        parameterizedObject->ResolveParameter(logger, attributeKey, value);
-                        // add Matching Info
-                        auto msg = FileContentMessage("Parameter type (" + SimpleTypeString::ToString(expectedSimpleType) +
-                                                      ") does not match expected type (" + SimpleTypeString::ToString(actualSimpleType) + "). Value '" + value +
-                                                      "' of parameter '" + parameterName + "' was converted.", INFO, *parameterizedObject->GetTextmarker(attributeKey).get());
-                        logger->LogMessage(msg);
-                    }
-                    else 
-                    {
-                        // add Error
-                        auto msg = FileContentMessage("Parameter type (" + SimpleTypeString::ToString(expectedSimpleType) +
-                                                      ") does not match expected type (" + SimpleTypeString::ToString(actualSimpleType) + "). Value '" + value +
-                                                      "' of parameter '" + parameterName + "' cannot be converted.", ERROR, *parameterizedObject->GetTextmarker(attributeKey).get());
-                        logger->LogMessage(msg);
-                    }
-                }
-                else
-                {
-                    if (logUnresolvableParameter)
-                    {
-                        auto msg = FileContentMessage("Cannot resolve parameter '" + parameterName + "'", ERROR, *parameterizedObject->GetTextmarker(attributeKey).get());
-                        logger->LogMessage(msg);
-                    }
-                }
+								int intValue = (int)value->getDoubleValue();
+								expressionObject->ResolveIntExpression(attributeKey, intValue);
+								break;
+							}
+							case UNSIGNED_INT:
+							{
+								unsigned int unsignedIntValue = (unsigned int)value->getDoubleValue();
+								expressionObject->ResolveUnsignedIntExpression(attributeKey, unsignedIntValue);
+								break;
+							}
+							case UNSIGNED_SHORT:
+							{
+								unsigned short unsignedShortValue = (unsigned short)value->getDoubleValue();
+								expressionObject->ResolveUnsignedShortExpression(attributeKey, unsignedShortValue);
+								break;
+							}
+						}
+					}
+					
+				} catch (OscExpression::SemanticException& s)
+				{
+					std::shared_ptr<Textmarker>  textMarker = expressionObject->GetTextmarker(attributeKey);
+					Textmarker newTextmarker = Textmarker(textMarker->GetLine(), textMarker->GetColumn(), textMarker->GetFilename());
+					// Add log Message
+					auto msg = FileContentMessage(s.GetErrorMessage(), ERROR, newTextmarker);
+					logger->LogMessage(msg);
+					
+				}
             }
         }
 
-        std::shared_ptr<ParameterValue> ExpressionResolver::FindValue(std::string& parameterName)
+	    ExpressionResolver::ExpressionResolver()
+	    {
+			_flatParameterValueSet = std::make_shared<std::map<std::string, std::shared_ptr<OscExpression::ExprValue>>>(std::map<std::string, std::shared_ptr<OscExpression::ExprValue>>{});
+	    }
+
+	    std::shared_ptr<ParameterValue> ExpressionResolver::FindValue(std::string& parameterName)
         {
             // Search from the top of the stack (which is the end of the underlying
             // list)
@@ -174,10 +187,15 @@ namespace NET_ASAM_OPENSCENARIO
 
         void ExpressionResolver::PushParameterValueSet(std::vector<std::shared_ptr<ParameterValue>> parameterValues)
         {
-            std::map<std::string, std::shared_ptr<ParameterValue>> table;
-            for (auto&& parameterValue : parameterValues)
+			std::map<std::string, std::shared_ptr<ParameterValue>> table;
+	
+			for (auto&& parameterValue : parameterValues)
             {
                 table.emplace(std::make_pair(parameterValue->GetName(), parameterValue));
+				std::shared_ptr<OscExpression::ExprValue> exprValue = CreateExprValueFromParameterValue(parameterValue);
+				// Insert it and potentially override it
+				_flatParameterValueSet->insert(std::pair<std::string, std::shared_ptr<OscExpression::ExprValue>>(parameterValue->GetName(), exprValue));
+				
             }
             _parameterValueSets.insert(_parameterValueSets.begin(), table);
         }
@@ -187,8 +205,29 @@ namespace NET_ASAM_OPENSCENARIO
          */
         void ExpressionResolver::PopParameterValueSet()
         {
+			auto table = _parameterValueSets.front();
+
+	    	
             if (!_parameterValueSets.empty())
                 _parameterValueSets.erase(_parameterValueSets.begin());
+
+			for (auto it = table.begin(); it != table.end(); it++)
+			{
+				// Erase all parameters from _flatParameterValueSet.
+				
+				auto parameterName = it->first;
+				std::shared_ptr<ParameterValue> parameterValue = FindValue(parameterName);
+				if (parameterValue != nullptr)
+				{
+					// Set it to the new value
+					_flatParameterValueSet->insert(std::pair<std::string, std::shared_ptr<OscExpression::ExprValue>>(parameterValue->GetName(), CreateExprValueFromParameterValue(parameterValue)));
+				}else
+				{
+					// Erase it from the flat list.
+					_flatParameterValueSet->erase(parameterName);
+				}
+			}
+
         }
 
 
@@ -275,9 +314,10 @@ namespace NET_ASAM_OPENSCENARIO
 
          void ExpressionResolver::Resolve(std::shared_ptr<IParserMessageLogger>& logger, std::shared_ptr<BaseImpl> baseImpl, std::map<std::string, std::string>& injectedParameters, bool logUnresolvableParameter)
         {
-            const auto kHasParameterDefinitions = baseImpl->HasParameterDefinitions();
+			const auto kHasParameterDefinitions = baseImpl->HasParameterDefinitions();
             if (kHasParameterDefinitions)
             {
+            	
                 const auto kParameterDefinitions = baseImpl->GetParameterDefinitions();
                 if (!injectedParameters.empty() && std::dynamic_pointer_cast<IScenarioDefinition>(baseImpl)  != nullptr) 
                 {
@@ -285,6 +325,7 @@ namespace NET_ASAM_OPENSCENARIO
                     OverrideGlobalParametersWithInjectedParameters(kParameterDefinitions, logger, injectedParameters, std::dynamic_pointer_cast<IScenarioDefinition>(baseImpl));
                 }
                 PushParameterValueSet(kParameterDefinitions);
+				
             }
 
             ResolveInternal(logger, baseImpl, logUnresolvableParameter);
@@ -357,5 +398,6 @@ namespace NET_ASAM_OPENSCENARIO
                 PopParameterValueSet();
             }
         }
+    	
     }
 }

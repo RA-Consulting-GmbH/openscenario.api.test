@@ -70,18 +70,44 @@ public:
 					try {
 						std::shared_ptr<OscExpression::ExprValue> resultExprValue = evaluator->Evaluate(test->GetExpr());
 
-						if (resultExprValue->IsFloatingPointNumeric()) {
+						if (resultExprValue->IsSimpleParameter()) {
+							if (test->GetExpectedValue()->ToString()
+								!= resultExprValue->ToString()) {
+
+								std::ostringstream stringStream;
+								stringStream << "Expected Value: " << test->GetExpectedValue()->ToString() << "\n";
+								stringStream << "Actual value: " << resultExprValue->ToString() << "\n";
+
+								issueError(test->getId(), stringStream.str(), logger);
+								isSuccessfull = false;
+							}
+
+						}
+						else if (resultExprValue->IsFloatingPointNumeric()) {
 							if (test->GetExpectedValue()->getDoubleValue()
 								!= resultExprValue->getDoubleValue()) {
 
 								std::ostringstream stringStream;
 								stringStream << "Expected Value: " << test->GetExpectedValue()->getDoubleValue() << "\n";
-								stringStream << "Actual value: " << resultExprValue->getDoubleValue()<< "\n";
-								
+								stringStream << "Actual value: " << resultExprValue->getDoubleValue() << "\n";
+
 								issueError(test->getId(), stringStream.str(), logger);
 								isSuccessfull = false;
 							}
 
+						}
+						else
+						{
+							if (test->GetExpectedValue()->ToString() != resultExprValue->ToString())
+							{
+
+								std::ostringstream stringStream;
+								stringStream << "Expected Value: " << test->GetExpectedValue()->ToString() << "\n";
+								stringStream << "Actual value: " << resultExprValue->ToString() << "\n";
+
+								issueError(test->getId(), stringStream.str(), logger);
+								isSuccessfull = false;
+							}
 						}
 					}
 					catch (OscExpression::SemanticException e) {
@@ -110,6 +136,9 @@ public:
 
 						std::ostringstream stringStream;
 						stringStream << "Expected error: " << test->GetExpectedError() << "\n";
+						issueError(test->getId(), stringStream.str(), logger);
+						isSuccessfull = false;
+						result = 1;
 
 					}
 					catch (OscExpression::SemanticException error) {

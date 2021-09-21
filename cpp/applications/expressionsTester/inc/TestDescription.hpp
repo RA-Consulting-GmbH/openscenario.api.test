@@ -42,12 +42,12 @@ const std::string TestDescription::json = R"json(
 	"expr": "${$testShort +1}",
 	"expectedDatatype": "unsignedShort",
 	"expectedError": {
-		"message": "Value '65536.0' cannot be converted to type 'unsignedShort'",
-		"column": 2
+		"message": "Value '65536.000000' cannot be converted to type 'unsignedShort'",
+		"column": 0
 	}
 },{
 	"id" : 2,
-	"comment" : "Calculate a complex formuls (Tested in Excel to verify)",
+	"comment" : "Calculate a complex formula (Tested in Excel to verify)",
 	"parameterDefinitions": ["double delay=23.1;",
 	"double speed= 4.333;",
 	"int x0= 1;",
@@ -67,8 +67,8 @@ const std::string TestDescription::json = R"json(
 	"expr": "${66000}",
 	"expectedDatatype": "unsignedShort",
 	"expectedError": {
-		"message": "Value '66000.0' cannot be converted to type 'unsignedShort'",
-		"column": 2
+		"message": "Value '66000.000000' cannot be converted to type 'unsignedShort'",
+		"column": 0
 	}
 },{
 	"id" : 5,
@@ -96,7 +96,7 @@ const std::string TestDescription::json = R"json(
 	"parameterDefinitions": ["double value= 0.0;"],
 	"expr": "${25/$value}",
 	"expectedError": {
-		"message": "Divison by zero",
+		"message": "Division by zero",
 		"column": 5
 	}
 },{
@@ -228,13 +228,13 @@ const std::string TestDescription::json = R"json(
 },{
 	"id" : 29,
 	"comment": "Parsing a floating point value that exceeds internal limits ",
-	"expr": "${1.7976931348623158E308}",
+	"expr": "${1.80E308}",
 	"expectedError": {
 		"message": "Internal Overflow (limits of internal 64 byte double value exceeded)",
 		"column": 2
 	}
 },{
-	"id" : 29,
+	"id" : 30,
 	"comment": "Parsing a floating point value that exceeds internal limits ",
 	"expr": "${1.7976931348623157E308 + 1E308}",
 	"expectedError": {
@@ -242,23 +242,7 @@ const std::string TestDescription::json = R"json(
 		"column": 25
 	}
 },{
-	"id" : 30,
-	"comment": "Parsing a floating point value that exceeds internal limits ",
-	"expr": "${-1.7976931348623157E308 -1}",
-	"expectedError": {
-		"message": "Internal Overflow (limits of internal 64 byte double value exceeded)",
-		"column": 26
-	}
-},{
-	"id" : 31,
-	"comment": "Parsing a floating point value that exceeds internal limits ",
-	"expr": "${4.89E-324}",
-	"expectedError": {
-		"message": "Internal Overflow (limits of internal 64 byte double value exceeded)",
-		"column": 2
-	}
-},{
-	"id" : 32,
+	"id" : 33,
 	"comment": "Parsing a floating point value that exceeds internal limits ",
 	"expr": "${4.9E-324 -1E-324 }",
 	"expectedError": {
@@ -266,7 +250,7 @@ const std::string TestDescription::json = R"json(
 		"column": 12
 	}
 },{
-	"id" : 32,
+	"id" : 34,
 	"comment": "Parsing a floating point value that exceeds internal limits ",
 	"expr": "${-4.9E-324 +1E-324 }",
 	"expectedError": {
@@ -274,19 +258,19 @@ const std::string TestDescription::json = R"json(
 		"column": 13
 	}
 },{
-	"id" : 33,
+	"id" : 35,
 	"comment": "Minmal double value",
 	"expr": "${4.9E-324}",
 	"expectedValue": 4.9E-324
 },
 {
-	"id" : 33,
+	"id" : 36,
 	"comment": "Minmal double value",
 	"expr": "${-4.9E-324}",
 	"expectedValue": -4.9E-324
 },
 {
-	"id" : 34,
+	"id" : 37,
 	"comment": "Pow over Double limits",
 	"expr": "${pow(1.7976931348623157E308 , 1.7976931348623157E308)}",
 	"expectedError": {
@@ -295,7 +279,7 @@ const std::string TestDescription::json = R"json(
 	}
 },
 {
-	"id" : 35,
+	"id" : 38,
 	"comment": "Syntax error",
 	"expr": "${5f}",
 	"expectedError": {
@@ -304,14 +288,122 @@ const std::string TestDescription::json = R"json(
 	}
 },
 {
-	"id" : 36,
+	"id" : 39,
 	"comment": "Syntax error in Parser",
 	"expr": "${5}}",
 	"expectedError": {
 		"message": "Syntax error in expression near '}'",
 		"column": 4
 	}
+},
+{
+	"id" : 40,
+	"comment" : "Simple parameter",
+	"parameterDefinitions": [
+	"double speed= 4.333;"],
+	"expr": "$speed",
+	"expectedValue": 4.333
+},
+{
+	"id" : 41,
+	"comment" : "Simple string parameter",
+	"parameterDefinitions": [
+	"string speed= 'test';"],
+	"expr": "$speed",
+	"expectedValue": "test"
+},
+{
+	"id" : 42,
+	"comment" : "Simple boolean parameter",
+	"parameterDefinitions": [
+	"boolean isSpeed= 'false';"],
+	"expr": "$isSpeed",
+	"expectedValue": "false"
+},
+{
+	"id" : 43,
+	"comment" : "Simple dateTime parameter",
+	"parameterDefinitions": [
+	"dateTime testDateTime= 'TestDateTime';"],
+	"expr": "$testDateTime",
+	"expectedValue": "TestDateTime"
+},
+{
+	"id" : 44,
+	"comment": "dateTime is not allowed in expression calculation",
+	"parameterDefinitions": [
+	"dateTime testDateTime= 'TestDateTime';"],
+	"expr": "${$testDateTime + 1}",
+	"expectedError": {
+		"message": "Expressions are exclusively supported for numeric types. Parameter '$testDateTime' is of not supported type 'dateTime'",
+		"column": 2
+	}
+},
+{
+	"id" : 45,
+	"comment": "string is not allowed in expression calculation",
+	"parameterDefinitions": [
+	"string testString= 'TestString';"],
+	"expr": "${$testString + 1}",
+	"expectedError": {
+		"message": "Expressions are exclusively supported for numeric types. Parameter '$testString' is of not supported type 'string'",
+		"column": 2
+	}
+},
+{
+	"id" : 46,
+	"comment": "boolean is not allowed in expression calculation",
+	"parameterDefinitions": [
+	"boolean testBoolean= 'TestBoolean';"],
+	"expr": "${$testBoolean + 1}",
+	"expectedError": {
+		"message": "Expressions are exclusively supported for numeric types. Parameter '$testBoolean' is of not supported type 'boolean'",
+		"column": 2
+	}
+},
+{
+	"id" : 47,
+	"comment": "Not a Boolean String",
+	"parameterDefinitions": [
+	"boolean testBoolean= 'TestBoolean';"],
+	"expr": "$testBoolean",
+	"expectedDatatype": "boolean",	
+	"expectedError": {
+		"message": "Value 'TestBoolean' cannot be converted to type 'boolean'",
+		"column": 0
+	}
+},
+{
+	"id" : 48,
+	"comment": "A boolean String",
+	"parameterDefinitions": [
+	"boolean testBoolean= 'false';"],
+	"expr": "$testBoolean",
+	"expectedDatatype": "boolean",	
+	"expectedValue": "false"
+},
+{
+	"id" : 49,
+	"comment": "Not a dateTime String",
+	"parameterDefinitions": [
+	"dateTime testDateTime= 'testDateTime';"],
+	"expr": "$testDateTime",
+	"expectedDatatype": "dateTime",	
+	"expectedError": {
+		"message": "Value 'testDateTime' cannot be converted to type 'dateTime'",
+		"column": 0
+	}
+},
+{
+	"id" : 50,
+	"comment": "Not a dateTime String",
+	"parameterDefinitions": [
+	"dateTime testDateTime= '2001-10-26T21:32:52';"],
+	"expr": "$testDateTime",
+	"expectedDatatype": "dateTime",	
+	"expectedValue": "2001-10-26T21:32:52"
 }
+
 
 ]
 )json";

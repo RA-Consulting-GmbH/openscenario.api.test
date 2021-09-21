@@ -101,12 +101,12 @@ namespace NET_ASAM_OPENSCENARIO
 							const auto kAdditionalAxlesSize = axles->GetAdditionalAxlesSize();
 							if ( kAdditionalAxlesSize == 0)
 							{
-								std::cout << "Ego has 2 axles (front, rear)";
+								std::cout << "Ego has 2 axles (front, rear)\n";
 							}
 							else 
 							{
 								std::cout << "Ego has " << 2 + kAdditionalAxlesSize << " axles (front, rear and "
-									<< kAdditionalAxlesSize << " addtional axles";
+									<< kAdditionalAxlesSize << " addtional axles\n";
 							}
 						}
 					}

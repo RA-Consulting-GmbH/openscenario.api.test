@@ -31,7 +31,7 @@ namespace OscExpression
 		std::shared_ptr<OscExpression::ExprType> expectedDatatype)
 	{
 		this->evaluatorListener = std::make_shared<EvaluatorListener>(definedParameters, expectedDatatype);
-		
+		this->expectedDatatype = expectedDatatype;
 	}
 
 	
@@ -53,12 +53,12 @@ namespace OscExpression
 		
 		antlr4::tree::ParseTree* tree= parser.prog();
 
+		antlr4::tree::ParseTreeWalker::DEFAULT.walk(&*this->evaluatorListener, tree);
+		if (this->expectedDatatype != nullptr)
 		{
-			antlr4::tree::ParseTreeWalker::DEFAULT.walk(&*this->evaluatorListener, tree);
-			return this->evaluatorListener->GetResult();
-		}
-
-		return nullptr;
+			EvaluatorListener::IsConvertible(this->evaluatorListener->GetResult(), this->expectedDatatype,0);
+		} 
+		return this->evaluatorListener->GetResult();
 	}
 
 

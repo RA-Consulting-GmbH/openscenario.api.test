@@ -39,43 +39,71 @@ std::shared_ptr<std::map<std::string, std::shared_ptr<ExprValue>>> ParamDefReade
 
 	  auto paramDefContexts = parser.paramDefs()->defs;
 	  for (OscParamDefParser::ParamDefContext* paramDef: paramDefContexts) {
-		  std::string type = paramDef->type->getText();
-		  std::string literal = paramDef->literal->getText();
-		  std::string id = "$" + paramDef->id->getText();
-		  std::shared_ptr<double> doubleResult = ExprValue::CreatePrimitiveDouble(literal);
-	  	
-	  	  if (doubleResult == nullptr)
-	  	  {
-			  throw std::runtime_error("Error in Parameter definition: '" + literal + "' is not a valid double value");
-	  	  }
-		  std::shared_ptr<ExprValue> doubleValue = ExprValue::CreateDoubleValue(*doubleResult);
-	  	
-	      if (type == "int") {
-			  std::shared_ptr<ExprValue> typedValue = doubleValue->ConvertToInt();
-	      	  if (typedValue == nullptr)
-	      	  {
-				  throw std::runtime_error("Error in Parameter definition: '" + literal + "' cannot be converted to '"+type+"'");
-	      	  }
-			  result->insert(std::pair<std::string, std::shared_ptr<ExprValue>>(id, typedValue));
-	      } else if (type == "unsignedInt") {
-			  std::shared_ptr<ExprValue> typedValue = doubleValue->ConvertToUnsignedInt();
-			  if (typedValue == nullptr)
-			  {
-				  throw std::runtime_error("Error in Parameter definition: '" + literal + "' cannot be converted to '" + type + "'");
-			  }
-			  result->insert(std::pair<std::string, std::shared_ptr<ExprValue>>(id, typedValue));
-		  } else if (type == "unsignedShort") {
-			  std::shared_ptr<ExprValue> typedValue = doubleValue->ConvertToUnsignedShort();
-			  if (typedValue == nullptr)
-			  {
-				  throw std::runtime_error("Error in Parameter definition: '" + literal + "' cannot be converted to '" + type + "'");
-			  }
-			  result->insert(std::pair<std::string, std::shared_ptr<ExprValue>>(id, typedValue));
 
-	      } else if (type == "double") {
-			  result->insert(std::pair<std::string, std::shared_ptr<ExprValue>>(id, doubleValue));
+	  	  if (paramDef->numericParamDef() != 0)
+		  {
+			  OscParamDefParser::NumericParamDefContext* numericParamDef = paramDef->numericParamDef();
+			  std::string type = numericParamDef->type->getText();
+			  std::string literal = numericParamDef->literal->getText();
+			  std::string id =  numericParamDef->id->getText();
+			  std::shared_ptr<double> doubleResult = ExprValue::CreatePrimitiveDouble(literal);
+	  		
+	  		  if (doubleResult == nullptr)
+	  		  {
+				  throw std::runtime_error("Error in Parameter definition: '" + literal + "' is not a valid double value");
+	  		  }
+			  std::shared_ptr<ExprValue> doubleValue = ExprValue::CreateDoubleValue(*doubleResult);
+	  		
+		      if (type == "int") {
+				  std::shared_ptr<ExprValue> typedValue = doubleValue->ConvertToInt();
+	      		  if (typedValue == nullptr)
+	      		  {
+					  throw std::runtime_error("Error in Parameter definition: '" + literal + "' cannot be converted to '"+type+"'");
+	      		  }
+				  result->insert(std::pair<std::string, std::shared_ptr<ExprValue>>(id, typedValue));
+		      } else if (type == "unsignedInt") {
+				  std::shared_ptr<ExprValue> typedValue = doubleValue->ConvertToUnsignedInt();
+				  if (typedValue == nullptr)
+				  {
+					  throw std::runtime_error("Error in Parameter definition: '" + literal + "' cannot be converted to '" + type + "'");
+				  }
+				  result->insert(std::pair<std::string, std::shared_ptr<ExprValue>>(id, typedValue));
+			  } else if (type == "unsignedShort") {
+				  std::shared_ptr<ExprValue> typedValue = doubleValue->ConvertToUnsignedShort();
+				  if (typedValue == nullptr)
+				  {
+					  throw std::runtime_error("Error in Parameter definition: '" + literal + "' cannot be converted to '" + type + "'");
+				  }
+				  result->insert(std::pair<std::string, std::shared_ptr<ExprValue>>(id, typedValue));
 
-	      }
+		      } else if (type == "double") {
+				  result->insert(std::pair<std::string, std::shared_ptr<ExprValue>>(id, doubleValue));
+
+		      }
+		  }else if (paramDef->stringParamDef() != 0)
+		  {
+			  // String type;
+			  OscParamDefParser::StringParamDefContext* stringParamDef = paramDef->stringParamDef();
+			  std::string type = stringParamDef->type->getText();
+			  std::string literal = stringParamDef->literal->getText();
+			  literal.erase(0, 1); // removes first character;
+			  literal.erase(std::prev(literal.end())); // removes last character; 
+			  std::string id =  stringParamDef->id->getText();
+
+			  if (type == "string") {
+				  std::shared_ptr<ExprValue> typedValue = ExprValue::CreateStringValue(literal);
+				  result->insert(std::pair<std::string, std::shared_ptr<ExprValue>>(id, typedValue));
+			  }
+			  else if (type == "dateTime") {
+				  std::shared_ptr<ExprValue> typedValue = ExprValue::CreateDateTimeValue(literal);
+				  result->insert(std::pair<std::string, std::shared_ptr<ExprValue>>(id, typedValue));
+			  }
+			  else if (type == "boolean") {
+				  std::shared_ptr<ExprValue> typedValue = ExprValue::CreateBooleanValue(literal);
+				  result->insert(std::pair<std::string, std::shared_ptr<ExprValue>>(id, typedValue));
+
+			  }			
+		  }
     }
 	  return result;
   }

@@ -98,9 +98,17 @@ public:
 		std::string expr = testObject["expr"].get<std::string>();
 		if (testObject.contains("expectedValue")) {
 		  json object = testObject["expectedValue"];
-		  expectedExprValue = ExprValue::CreateDoubleValue(testObject["expectedValue"].get<double>());
-		  std::shared_ptr<ExprType> exprType = getExpectedDatatype(testObject);
-		  result->insert(result->end(),std::shared_ptr<TestSpecification>(new TestSpecification(id, expr, expectedExprValue, definedParameters, exprType)));
+		  if (object.type() == detail::value_t::string)
+		  {
+			  expectedExprValue = ExprValue::CreateStringValue(testObject["expectedValue"].get<std::string>());
+			  std::shared_ptr<ExprType> exprType = getExpectedDatatype(testObject);
+			  result->insert(result->end(), std::shared_ptr<TestSpecification>(new TestSpecification(id, expr, expectedExprValue, definedParameters, exprType)));
+		  }else
+		  {
+			  expectedExprValue = ExprValue::CreateDoubleValue(testObject["expectedValue"].get<double>());
+			  std::shared_ptr<ExprType> exprType = getExpectedDatatype(testObject);
+			  result->insert(result->end(), std::shared_ptr<TestSpecification>(new TestSpecification(id, expr, expectedExprValue, definedParameters, exprType)));
+		  }
 
 		}
 	    else 

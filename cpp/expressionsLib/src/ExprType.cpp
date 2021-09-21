@@ -64,6 +64,38 @@ namespace OscExpression
 		: _literal(literal)
 	{}
 
+	std::shared_ptr<ExprType> ExprType::GetUnsignedIntType()
+	{
+		return  ExprType::UNSIGNED_INT;
+	}
+
+	std::shared_ptr<ExprType> ExprType::GetIntType()
+	{
+		return  ExprType::INT;
+	}
+
+	std::shared_ptr<ExprType> ExprType::GetUnsignedShortType()
+	{
+		return  ExprType::UNSIGNED_SHORT;
+	}
+	std::shared_ptr<ExprType> ExprType::GetDoubleType()
+	{
+		return  ExprType::DOUBLE;
+	}
+	std::shared_ptr<ExprType> ExprType::GetStringType()
+	{
+		return  ExprType::STRING;
+	}
+	std::shared_ptr<ExprType> ExprType::GetBooleanType()
+	{
+		return  ExprType::BOOLEAN;
+	}
+	std::shared_ptr<ExprType> ExprType::GetDateTimeType()
+	{
+		return  ExprType::DATE_TIME;
+	}
+	
+
 	std::shared_ptr<ExprType> ExprType::GetFromLiteral(const std::string& literal)
 	{
 		const auto kIt = _literalToInstance.find(literal);
@@ -73,6 +105,7 @@ namespace OscExpression
 		}
 		return nullptr;
 	}
+
 
 	std::string ExprType::GetLiteral() const
 	{
@@ -99,4 +132,7 @@ namespace OscExpression
 	{
 		return (this == INT.get() || this == UNSIGNED_INT.get() || this == UNSIGNED_SHORT.get());
 	}
+	
+
+	
 }

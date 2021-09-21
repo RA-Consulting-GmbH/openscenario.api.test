@@ -29,6 +29,7 @@ namespace NET_ASAM_OPENSCENARIO
     {
     private:
         std::string  _name;
+		Position _startValuePosition;;
 
     public:
         /**
@@ -38,17 +39,21 @@ namespace NET_ASAM_OPENSCENARIO
          * @param startColumn column of the stat position
          * @param endLine line of the end position
          * @param endColumn column of the end position
+         * @param startValueLine start line of the value
+         * @param startValueColumn start column of the value
          */
-        AttributeNode(std::string& name, const size_t startLine, const size_t startColumn, const size_t endLine, const size_t endColumn):
-            PositionNode(static_cast<int>(startLine), static_cast<int>(startColumn), static_cast<int>(endLine), static_cast<int>(endColumn)), _name(name) {}
+		AttributeNode(std::string& name, const size_t startLine, const size_t startColumn, const size_t endLine, const size_t endColumn, const size_t startValueLine, const size_t startValueColumn);
 
-        /**
-         * The name of the attribute
-         * @return the name
-         */
-        std::string GetName() const
-        {
-            return _name;
-        }
+		/**
+		 * The name of the attribute
+		 * @return the name
+		 */
+		std::string GetName() const;
+
+		/**
+		 * The start Position of the value
+		 * @return the start position of the value
+		 */
+		Position GetValueStartPosition() const;
     };
 }

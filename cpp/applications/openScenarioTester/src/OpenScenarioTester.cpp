@@ -61,6 +61,8 @@ bool TestV1_1(std::string basePath )
 
 	result = testFiles.TestSimpleSuccess() && result;
 	result = testFiles.TestParamsSuccess() && result;
+	result = testFiles.TestExpressionsSuccess() && result;
+	result = testFiles.TestExpressionsFailure() && result;
 	result = testFiles.TestBomFile() && result;
 	result = testFiles.TestParamsFailure() && result;
 	result = testFiles.TestParamsConversionInfo() && result;
@@ -193,8 +195,8 @@ int main(int argc, char** argv)
 
 	
 
-	auto result = TestV1_0(basePath);
-	result = TestV1_1(basePath) && result;
+	auto result = TestV1_1(basePath);
+	result = TestV1_0(basePath) && result;
 
 	 if (result)
         return 0;

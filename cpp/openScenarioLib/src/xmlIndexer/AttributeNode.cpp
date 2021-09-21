@@ -15,39 +15,30 @@
  * limitations under the License.
  */
 
-#include "PositionNode.h"
+#include "AttributeNode.h"
 #include <string>
 #include "MemLeakDetection.h"
 
 namespace NET_ASAM_OPENSCENARIO
 {
-    /**
-    * Every osc model element does implement this interface
-    */
-    class AttributeNode: public PositionNode 
-    {
-    private:
-        std::string  _name;
-
-    public:
-        /**
-         * Constructor
-         * @param name name of the attribute
-         * @param startLine line of the start position
-         * @param startColumn column of the stat position
-         * @param endLine line of the end position
-         * @param endColumn column of the end position
-         */
-        AttributeNode(std::string& name, const size_t startLine, const size_t startColumn, const size_t endLine, const size_t endColumn):
-            PositionNode(static_cast<int>(startLine), static_cast<int>(startColumn), static_cast<int>(endLine), static_cast<int>(endColumn)), _name(name) {}
+    
+		AttributeNode::AttributeNode(std::string& name, const size_t startLine, const size_t startColumn, const size_t endLine, const size_t endColumn, const size_t startValueLine, const size_t startValueColumn) :
+			PositionNode(static_cast<int>(startLine), static_cast<int>(startColumn), static_cast<int>(endLine), static_cast<int>(endColumn)), _name(name)
+		{
+			_startValuePosition = Position(startValueLine, startValueColumn);
+		}
 
         /**
          * The name of the attribute
          * @return the name
          */
-        std::string GetName() const
+        std::string AttributeNode::GetName() const
         {
             return _name;
         }
-    };
+
+		Position AttributeNode::GetValueStartPosition() const
+		{
+			return _startValuePosition;
+		}
 }

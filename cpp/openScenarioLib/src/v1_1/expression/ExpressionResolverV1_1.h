@@ -37,21 +37,44 @@ namespace NET_ASAM_OPENSCENARIO
         {
 
         private:
-            std::vector<std::map<std::string, std::shared_ptr<ParameterValue>>> _parameterValueSets;
+			std::vector<std::map<std::string, std::shared_ptr<ParameterValue>>> _parameterValueSets;
+			std::shared_ptr < std::map<std::string, std::shared_ptr<OscExpression::ExprValue>>> _flatParameterValueSet;
 
-			bool DoesExpectedTypeMatchWithConversions(SimpleType& expectedSimpleType, SimpleType& actualSimpleType, std::string& value);
+			/**
+			 * Adapter function that creates a ExprValue for a ParameterValue.
+			 * @param paramterValue to log messages
+			 * @return the created ExprValue
+			 */
+			std::shared_ptr<OscExpression::ExprValue> CreateExprValueFromParameterValue(std::shared_ptr<ParameterValue> paramterValue);
 
-            /**
+			/**
+			 * Adapter function that creates a ExprValue for a ParameterValue.
+			 * @param actualSimpleType to log messages
+			 * @return the created ExprValue
+			 */
+			std::shared_ptr<OscExpression::ExprType> CreateExprTypeFromSimpleType(SimpleType& actualSimpleType);
+
+        	/**
              * Resolves all parameters of a parameterized object.
              * @param logger to log messages
-             * @param parameterizedObject the parameterized object
+             * @param expressionObject the expression object
              * @param logUnresolvableParameter a flag whether unresolvable parameters should be logged.
              */
-			void ResolveInternal(std::shared_ptr<IParserMessageLogger>& logger, std::shared_ptr<IParameterizedObject> parameterizedObject, const bool logUnresolvableParameter);
+			void ResolveInternal(std::shared_ptr<IParserMessageLogger>& logger, std::shared_ptr<IExpressionObject> expressionObject, const bool logUnresolvableParameter);
 
         public:
+
+			/**
+			 * Constructor
+			 */
+        	ExpressionResolver();
+
+			/**
+			 * Default Destructor
+			 */
+			virtual ~ExpressionResolver() = default;
+        	
         	/**
-             * @param expectedParameterType expected type
              * @param parameterName  name of the parameter the value is looked up
              * @return the string representation of the value.
              */
@@ -105,7 +128,6 @@ namespace NET_ASAM_OPENSCENARIO
              * @param parameterAssignments the parameter assignments that provide the parameter names and values
              */
 			void ResolveWithParameterAssignments(std::shared_ptr<IParserMessageLogger>& logger, std::shared_ptr<ICatalogElement>& catalogElement, const std::map<std::string, std::string> parameterAssignments);
-    
         };
     }
 }

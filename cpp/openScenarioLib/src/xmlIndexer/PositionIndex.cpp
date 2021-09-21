@@ -15,68 +15,36 @@
  * limitations under the License.
  */
 
-#include "ElementNode.h"
+#include "PositionIndex.h"
 #include <map>
 #include <stack>
 #include "MemLeakDetection.h"
 
 namespace NET_ASAM_OPENSCENARIO
 {
-    /**
-     * Index of element nodes that is filled during reading
-     */
-    class PositionIndex 
+    void PositionIndex::PushElementNode(const size_t line, const size_t column, std::vector<AttributeNode> attributeNodes)
     {
-    private:
-        int _counter = 0;
-        std::map<int, std::shared_ptr<ElementNode>> _dictionary;
-        std::stack<std::shared_ptr<ElementNode>> _stack;
+        auto node = std::make_shared<ElementNode>(static_cast<int>(line), static_cast<int>(column));
+        node->AddAttributes(attributeNodes);
+        _dictionary.emplace(std::make_pair(_counter++, node));
+        _stack.push(node);
+    }
+    void PositionIndex::SetEndPosition(const size_t line, const size_t column)
+    {
+        auto node = _stack.top();
+        node->AddEndPosition(static_cast<int>(line), static_cast<int>(column));
+        _stack.pop();
+    }
+   std::shared_ptr<ElementNode> PositionIndex::GetElementNode(const unsigned int index)
+    {
+        if (index > _dictionary.size())
+            return nullptr;
+        return _dictionary[index];
+    }
 
-    public:
-        /**
-         * Pushing a element node
-         * @param line start line of the element node
-         * @param column start column of the element node
-         * @param attributeNodes the attribute nodes of the element node.
-         */
-        void PushElementNode(const size_t line, const size_t column, std::vector<AttributeNode> attributeNodes)
-        {
-            auto node = std::make_shared<ElementNode>(static_cast<int>(line), static_cast<int>(column));
-            node->AddAttributes(attributeNodes);
-            _dictionary.emplace(std::make_pair(_counter++, node));
-            _stack.push(node);
-        }
-        /**
-         * Sets the end position
-         * @param line end line of the element node
-         * @param column end column of the element node
-         */
-        void SetEndPosition(const size_t line, const size_t column)
-        {
-            auto node = _stack.top();
-            node->AddEndPosition(static_cast<int>(line), static_cast<int>(column));
-            _stack.pop();
-        }
-
-        /**
-         * Getter facadse for the index
-         * @param index the requested index
-         * @return the found element node or null if not not found
-         */
-        std::shared_ptr<ElementNode> GetElementNode(const unsigned int index)
-        {
-            if (index > _dictionary.size())
-                return nullptr;
-            return _dictionary[index];
-        }
-
-        /**
-         * Size of the index
-         * @return the size
-         */
-        int GetSize() const
-        {
-            return _counter;
-        }
-    };
+    int PositionIndex::GetSize() const
+    {
+        return _counter;
+    }
+;
 }

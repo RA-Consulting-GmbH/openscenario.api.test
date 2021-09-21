@@ -23,12 +23,10 @@ namespace NET_ASAM_OPENSCENARIO
 
 	BaseImpl::ParameterizedAttribute::ParameterizedAttribute(const std::string parameterName, Textmarker& textMarker) : textMarker(textMarker), parameterName(parameterName) {}
 
-	BaseImpl::ExpressionAttribute::ExpressionAttribute(const std::string expression, Textmarker& textMarker) : textMarker(textMarker), expression(expression) {}
 
-
-   BaseImpl::BaseImplIlocator::BaseImplIlocator(std::map<std::string, std::shared_ptr<Textmarker>>& attributeKeyToStartMarker, std::map<std::string, std::shared_ptr<Textmarker>>& attributeKeyToEndMarker,
+    BaseImpl::BaseImplIlocator::BaseImplIlocator(std::map<std::string, std::shared_ptr<Textmarker>>& attributeKeyToStartMarker, std::map<std::string, std::shared_ptr<Textmarker>>& attributeKeyToEndMarker, std::map<std::string, std::shared_ptr<Textmarker>>&attributeKeyToStartValueMarker,
                          Textmarker& startMarker, Textmarker& endMarker): _attributeKeyToStartMarker(attributeKeyToStartMarker),
-                                                                          _attributeKeyToEndMarker(attributeKeyToEndMarker), _startMarker(startMarker), _endMarker(endMarker)
+                                                                          _attributeKeyToEndMarker(attributeKeyToEndMarker), _attributeKeyToStartValueMarker(attributeKeyToStartValueMarker), _startMarker(startMarker), _endMarker(endMarker)
     {
     }
 
@@ -39,12 +37,19 @@ namespace NET_ASAM_OPENSCENARIO
         return Textmarker(-1,-1,"");
     }
 
-    Textmarker BaseImpl::BaseImplIlocator::GetStartMarker()
+	Textmarker BaseImpl::BaseImplIlocator::GetValueStartMarkerOfProperty(const std::string &propertyKey)
+	{
+		if (_attributeKeyToStartValueMarker[propertyKey] != nullptr)
+			return *_attributeKeyToStartValueMarker[propertyKey];
+		return Textmarker(-1, -1, "");
+	}
+
+	Textmarker BaseImpl::BaseImplIlocator::GetStartMarker()
     {
         return _startMarker;
     }
 
-    Textmarker BaseImpl::BaseImplIlocator::GetEndMarkerOfProperty(std::string& propertyKey)
+    Textmarker BaseImpl::BaseImplIlocator::GetEndMarkerOfProperty(const std::string& propertyKey)
     {
         return *_attributeKeyToEndMarker[propertyKey];
     }
@@ -88,14 +93,7 @@ namespace NET_ASAM_OPENSCENARIO
         }
     }
 
-	void BaseImpl::CloneAttributeKeyToExpressionMap(BaseImpl& baseImpl)
-	{
-		for (auto&& pair : _attributeKeyToExpression)
-		{
-			auto expressionAttribute = pair.second;
-			baseImpl._attributeKeyToExpression.emplace(pair.first, std::make_shared<ExpressionAttribute>(expressionAttribute->expression, expressionAttribute->textMarker));
-		}
-	}
+	
 
 	void BaseImpl::SetAttributeParameter(const std::string attributeKey, const std::string parameterName, Textmarker& textMarker)
     {
@@ -106,17 +104,6 @@ namespace NET_ASAM_OPENSCENARIO
     {
         _attributeKeyToParameterName.erase(attributeKey);
     }
-
-	void BaseImpl::SetAttributeExpression(const std::string attributeKey, const std::string expression,
-		Textmarker& textMarker)
-	{
-		_attributeKeyToExpression.emplace(attributeKey, std::make_shared<ExpressionAttribute>(expression, textMarker));
-	}
-	
-	void BaseImpl::RemoveAttributeExpression(const std::string attributeKey)
-	{
-		_attributeKeyToExpression.erase(attributeKey);
-	}
 	
 	void BaseImpl::AddResolvedParameter(std::string& attributeKey)
     {
@@ -157,7 +144,7 @@ namespace NET_ASAM_OPENSCENARIO
 	BaseImpl::BaseImpl(): _startMarker(0, 0, ""), _endMarker(0, 0, "")
     {
         _adapters.emplace(std::make_pair(typeid(ILocator).name(), std::make_shared<BaseImplIlocator>(_attributeKeyToStartMarker,
-                                                                                                     _attributeKeyToEndMarker, _startMarker, _endMarker)));
+                                                                                                     _attributeKeyToEndMarker, _attributeKeyToStartValueMarker, _startMarker, _endMarker)));
     }
 
     std::shared_ptr<void> BaseImpl::GetAdapter(const std::string classifier)
@@ -182,6 +169,11 @@ namespace NET_ASAM_OPENSCENARIO
     {
         _attributeKeyToEndMarker.emplace(std::make_pair(propertyKey, endMarker));
     }
+	
+	void BaseImpl::PutPropertyStartValueMarker(std::string propertyKey, std::shared_ptr<Textmarker> startValueMarker)
+	{
+		_attributeKeyToStartValueMarker.emplace(std::make_pair(propertyKey, startValueMarker));
+	}
 
     std::vector<std::shared_ptr<ParameterValue>> BaseImpl::GetParameterDefinitions() const
     {
@@ -267,30 +259,31 @@ namespace NET_ASAM_OPENSCENARIO
         _parent = parent;
     }
 
-	std::vector<std::string> BaseImpl::GetExpressionAttributeKeys() const
+	void BaseImpl::ResolveUnsignedIntExpression(std::string & attributeKey, unsigned int & value)
 	{
-		std::vector<std::string> keys;
-		for (auto&& element : _attributeKeyToExpression)
-		{
-			keys.push_back(element.first);
-		}
-		return keys;
 	}
 
-	void BaseImpl::ResolveExpression(std::shared_ptr<IParserMessageLogger>& logger, std::string& attributeKey,
-		std::string& expression, std::shared_ptr<std::map<std::string, std::shared_ptr<OscExpression::ExprValue>>> definedParameters)
+	void BaseImpl::ResolveIntExpression(std::string& attributeKey, int& value)
 	{
-		// make sure it is a parameterized attribute
-		const auto kTargetClass = GetTypeFromAttributeName(attributeKey);
-		assert(kTargetClass != SimpleType::UNKNOWN);
-		ResolveExpressionInternal(*logger.get(), attributeKey, expression, definedParameters);
 	}
 
-	std::string BaseImpl::GetExpressionFromAttribute(std::string& attributeKey) const
+	void BaseImpl::ResolveBooleanExpression(std::string& attributeKey, bool& value)
 	{
-		const auto kIt = _attributeKeyToExpression.find(attributeKey);
-		if (kIt != _attributeKeyToExpression.end())
-			return kIt->second->expression;
-		return "";
+	}
+
+	void BaseImpl::ResolveStringExpression(std::string& attributeKey, std::string& value)
+	{
+	}
+
+	void BaseImpl::ResolveUnsignedShortExpression(std::string& attributeKey, unsigned short& value)
+	{
+	}
+
+	void BaseImpl::ResolveDateTimeExpression(std::string& attributeKey, DateTime& value)
+	{
+	}
+
+	void BaseImpl::ResolveDoubleExpression(std::string& attributeKey, double& value)
+	{
 	}
 }

@@ -74,7 +74,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<ParameterDeclarationImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_TYPE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_TYPE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -115,12 +115,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<ParameterDeclarationImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype string
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -290,12 +290,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<ParameterMultiplyByValueRuleImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -356,7 +356,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<ParameterSetActionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -658,12 +658,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<PedestrianImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MASS, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MASS, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__MASS, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MASS, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -695,7 +695,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<PedestrianImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MODEL, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MODEL, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -727,7 +727,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<PedestrianImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MODEL3D, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MODEL3D, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -759,7 +759,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<PedestrianImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -791,7 +791,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<PedestrianImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__PEDESTRIAN_CATEGORY, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__PEDESTRIAN_CATEGORY, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -1045,12 +1045,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<PerformanceImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAX_ACCELERATION, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAX_ACCELERATION, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__MAX_ACCELERATION, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAX_ACCELERATION, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -1082,12 +1082,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<PerformanceImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAX_DECELERATION, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAX_DECELERATION, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__MAX_DECELERATION, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAX_DECELERATION, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -1119,12 +1119,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<PerformanceImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAX_SPEED, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAX_SPEED, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__MAX_SPEED, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAX_SPEED, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -1185,12 +1185,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<PhaseImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DURATION, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DURATION, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__DURATION, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DURATION, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -1222,7 +1222,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<PhaseImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -1323,12 +1323,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<PoissonDistributionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__EXPECTED_VALUE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__EXPECTED_VALUE, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__EXPECTED_VALUE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__EXPECTED_VALUE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -1917,7 +1917,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<PositionInLaneCoordinatesImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__LANE_ID, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__LANE_ID, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -1949,12 +1949,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<PositionInLaneCoordinatesImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__LANE_OFFSET, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__LANE_OFFSET, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__LANE_OFFSET, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__LANE_OFFSET, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -1986,12 +1986,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<PositionInLaneCoordinatesImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__PATH_S, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__PATH_S, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__PATH_S, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__PATH_S, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -2052,12 +2052,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<PositionInRoadCoordinatesImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__PATH_S, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__PATH_S, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__PATH_S, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__PATH_S, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -2089,12 +2089,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<PositionInRoadCoordinatesImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__T, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__T, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__T, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__T, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -2155,7 +2155,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<PositionOfCurrentEntityImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -2218,12 +2218,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<PrecipitationImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__INTENSITY, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__INTENSITY, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__INTENSITY, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__INTENSITY, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -2255,12 +2255,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<PrecipitationImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__PRECIPITATION_INTENSITY, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__PRECIPITATION_INTENSITY, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__PRECIPITATION_INTENSITY, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__PRECIPITATION_INTENSITY, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -2292,7 +2292,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<PrecipitationImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__PRECIPITATION_TYPE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__PRECIPITATION_TYPE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -2362,7 +2362,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<PrivateImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -2877,7 +2877,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<ProbabilityDistributionSetElementImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -2909,12 +2909,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<ProbabilityDistributionSetElementImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__WEIGHT, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__WEIGHT, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__WEIGHT, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__WEIGHT, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -3084,7 +3084,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<PropertyImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -3116,7 +3116,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<PropertyImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -3177,12 +3177,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<RangeImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__LOWER_LIMIT, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__LOWER_LIMIT, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__LOWER_LIMIT, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__LOWER_LIMIT, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -3214,12 +3214,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<RangeImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__UPPER_LIMIT, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__UPPER_LIMIT, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__UPPER_LIMIT, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__UPPER_LIMIT, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -3281,12 +3281,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<ReachPositionConditionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TOLERANCE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TOLERANCE, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__TOLERANCE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TOLERANCE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -3386,7 +3386,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<RelativeDistanceConditionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__COORDINATE_SYSTEM, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__COORDINATE_SYSTEM, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -3427,7 +3427,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<RelativeDistanceConditionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -3461,7 +3461,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<RelativeDistanceConditionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -3493,7 +3493,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<RelativeDistanceConditionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RELATIVE_DISTANCE_TYPE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RELATIVE_DISTANCE_TYPE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -3534,7 +3534,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<RelativeDistanceConditionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RULE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RULE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -3575,12 +3575,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<RelativeDistanceConditionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -3642,12 +3642,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<RelativeLanePositionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__D_LANE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__D_LANE, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype int
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__D_LANE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__D_LANE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -3679,12 +3679,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<RelativeLanePositionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DS, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DS, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__DS, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DS, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -3716,12 +3716,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<RelativeLanePositionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DS_LANE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DS_LANE, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__DS_LANE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DS_LANE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -3753,7 +3753,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<RelativeLanePositionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -3787,12 +3787,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<RelativeLanePositionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__OFFSET, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__OFFSET, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__OFFSET, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__OFFSET, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -3893,12 +3893,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<RelativeObjectPositionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DX, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DX, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__DX, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DX, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -3930,12 +3930,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<RelativeObjectPositionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DY, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DY, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__DY, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DY, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -3967,12 +3967,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<RelativeObjectPositionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DZ, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DZ, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__DZ, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DZ, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -4004,7 +4004,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<RelativeObjectPositionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -4107,12 +4107,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<RelativeRoadPositionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DS, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DS, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__DS, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DS, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -4144,12 +4144,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<RelativeRoadPositionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DT, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DT, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__DT, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DT, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -4181,7 +4181,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<RelativeRoadPositionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -4283,7 +4283,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<RelativeSpeedConditionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -4317,7 +4317,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<RelativeSpeedConditionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RULE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RULE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -4358,12 +4358,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<RelativeSpeedConditionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -4424,7 +4424,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<RelativeSpeedToMasterImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__SPEED_TARGET_VALUE_TYPE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__SPEED_TARGET_VALUE_TYPE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -4465,12 +4465,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<RelativeSpeedToMasterImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -4572,7 +4572,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<RelativeTargetLaneImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -4606,12 +4606,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<RelativeTargetLaneImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype int
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -4672,7 +4672,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<RelativeTargetLaneOffsetImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -4706,12 +4706,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<RelativeTargetLaneOffsetImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -4772,7 +4772,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<RelativeTargetSpeedImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -4804,7 +4804,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<RelativeTargetSpeedImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -4838,7 +4838,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<RelativeTargetSpeedImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__SPEED_TARGET_VALUE_TYPE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__SPEED_TARGET_VALUE_TYPE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -4879,12 +4879,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<RelativeTargetSpeedImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -4946,12 +4946,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<RelativeWorldPositionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DX, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DX, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__DX, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DX, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -4983,12 +4983,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<RelativeWorldPositionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DY, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DY, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__DY, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DY, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -5020,12 +5020,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<RelativeWorldPositionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DZ, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DZ, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__DZ, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DZ, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -5057,7 +5057,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<RelativeWorldPositionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -5159,12 +5159,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<RoadConditionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__FRICTION_SCALE_FACTOR, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__FRICTION_SCALE_FACTOR, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__FRICTION_SCALE_FACTOR, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__FRICTION_SCALE_FACTOR, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -5448,7 +5448,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<RoadPositionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ROAD_ID, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ROAD_ID, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -5480,12 +5480,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<RoadPositionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__S, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__S, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__S, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__S, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -5517,12 +5517,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<RoadPositionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__T, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__T, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__T, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__T, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -5622,7 +5622,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<RouteImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__CLOSED, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__CLOSED, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -5654,7 +5654,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<RouteImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -6480,7 +6480,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<ScenarioObjectImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -6884,7 +6884,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<SimulationTimeConditionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RULE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RULE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -6925,12 +6925,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<SimulationTimeConditionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -7207,7 +7207,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<SpeedConditionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RULE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RULE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -7248,12 +7248,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<SpeedConditionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -7314,12 +7314,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<StandStillConditionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DURATION, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DURATION, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__DURATION, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DURATION, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -7482,12 +7482,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<StochasticImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NUMBER_OF_TEST_RUNS, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NUMBER_OF_TEST_RUNS, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype unsignedInt
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__NUMBER_OF_TEST_RUNS, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NUMBER_OF_TEST_RUNS, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -7519,12 +7519,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<StochasticImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RANDOM_SEED, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RANDOM_SEED, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__RANDOM_SEED, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RANDOM_SEED, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -7625,7 +7625,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<StochasticDistributionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_NAME, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_NAME, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -7993,7 +7993,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<StoryImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -8278,7 +8278,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<StoryboardElementStateConditionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__STATE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__STATE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -8319,7 +8319,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<StoryboardElementStateConditionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__STORYBOARD_ELEMENT_REF, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__STORYBOARD_ELEMENT_REF, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -8353,7 +8353,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<StoryboardElementStateConditionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__STORYBOARD_ELEMENT_TYPE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__STORYBOARD_ELEMENT_TYPE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -8423,12 +8423,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<SunImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__AZIMUTH, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__AZIMUTH, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__AZIMUTH, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__AZIMUTH, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -8460,12 +8460,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<SunImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ELEVATION, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ELEVATION, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__ELEVATION, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ELEVATION, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -8497,12 +8497,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<SunImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__INTENSITY, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__INTENSITY, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__INTENSITY, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__INTENSITY, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -8564,7 +8564,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<SynchronizeActionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MASTER_ENTITY_REF, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MASTER_ENTITY_REF, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -8598,12 +8598,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<SynchronizeActionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TARGET_TOLERANCE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TARGET_TOLERANCE, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__TARGET_TOLERANCE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TARGET_TOLERANCE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -8635,12 +8635,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<SynchronizeActionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TARGET_TOLERANCE_MASTER, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TARGET_TOLERANCE_MASTER, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__TARGET_TOLERANCE_MASTER, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TARGET_TOLERANCE_MASTER, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -8819,12 +8819,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<TargetDistanceSteadyStateImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DISTANCE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DISTANCE, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__DISTANCE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DISTANCE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -8886,12 +8886,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<TargetTimeSteadyStateImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TIME, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TIME, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__TIME, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TIME, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -9020,7 +9020,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<TimeHeadwayConditionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ALONG_ROUTE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ALONG_ROUTE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -9052,7 +9052,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<TimeHeadwayConditionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__COORDINATE_SYSTEM, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__COORDINATE_SYSTEM, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -9093,7 +9093,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<TimeHeadwayConditionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -9127,7 +9127,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<TimeHeadwayConditionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -9159,7 +9159,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<TimeHeadwayConditionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RELATIVE_DISTANCE_TYPE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RELATIVE_DISTANCE_TYPE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -9200,7 +9200,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<TimeHeadwayConditionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RULE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RULE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -9241,12 +9241,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<TimeHeadwayConditionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -9307,7 +9307,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<TimeOfDayImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ANIMATION, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ANIMATION, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -9339,7 +9339,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<TimeOfDayImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DATE_TIME, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DATE_TIME, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -9400,7 +9400,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<TimeOfDayConditionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DATE_TIME, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DATE_TIME, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -9432,7 +9432,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<TimeOfDayConditionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RULE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RULE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -9611,7 +9611,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<TimeToCollisionConditionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ALONG_ROUTE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ALONG_ROUTE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -9643,7 +9643,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<TimeToCollisionConditionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__COORDINATE_SYSTEM, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__COORDINATE_SYSTEM, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -9684,7 +9684,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<TimeToCollisionConditionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -9716,7 +9716,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<TimeToCollisionConditionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RELATIVE_DISTANCE_TYPE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RELATIVE_DISTANCE_TYPE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -9757,7 +9757,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<TimeToCollisionConditionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RULE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RULE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -9798,12 +9798,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<TimeToCollisionConditionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -10011,7 +10011,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<TimingImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DOMAIN_ABSOLUTE_RELATIVE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DOMAIN_ABSOLUTE_RELATIVE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -10052,12 +10052,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<TimingImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__OFFSET, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__OFFSET, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__OFFSET, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__OFFSET, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -10089,12 +10089,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<TimingImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__SCALE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__SCALE, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__SCALE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__SCALE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -10156,7 +10156,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<TrafficActionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TRAFFIC_NAME, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TRAFFIC_NAME, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -10374,7 +10374,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<TrafficDefinitionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -10621,7 +10621,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<TrafficSignalConditionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -10653,7 +10653,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<TrafficSignalConditionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__STATE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__STATE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -10714,12 +10714,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<TrafficSignalControllerImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DELAY, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DELAY, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__DELAY, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DELAY, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -10751,7 +10751,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<TrafficSignalControllerImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -10783,7 +10783,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<TrafficSignalControllerImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__REFERENCE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__REFERENCE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -10884,7 +10884,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<TrafficSignalControllerActionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__PHASE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__PHASE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -10916,7 +10916,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<TrafficSignalControllerActionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TRAFFIC_SIGNAL_CONTROLLER_REF, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TRAFFIC_SIGNAL_CONTROLLER_REF, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -10979,7 +10979,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<TrafficSignalControllerConditionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__PHASE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__PHASE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -11011,7 +11011,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<TrafficSignalControllerConditionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TRAFFIC_SIGNAL_CONTROLLER_REF, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TRAFFIC_SIGNAL_CONTROLLER_REF, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -11074,7 +11074,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<TrafficSignalStateImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__STATE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__STATE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -11106,7 +11106,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<TrafficSignalStateImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TRAFFIC_SIGNAL_ID, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TRAFFIC_SIGNAL_ID, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -11167,7 +11167,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<TrafficSignalStateActionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -11199,7 +11199,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<TrafficSignalStateActionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__STATE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__STATE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -11261,12 +11261,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<TrafficSinkActionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RADIUS, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RADIUS, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__RADIUS, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RADIUS, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -11298,12 +11298,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<TrafficSinkActionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RATE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RATE, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__RATE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RATE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -11443,12 +11443,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<TrafficSourceActionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RADIUS, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RADIUS, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__RADIUS, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RADIUS, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -11480,12 +11480,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<TrafficSourceActionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RATE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RATE, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__RATE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RATE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -11517,12 +11517,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<TrafficSourceActionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VELOCITY, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VELOCITY, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__VELOCITY, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VELOCITY, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -11691,12 +11691,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<TrafficSwarmActionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__INNER_RADIUS, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__INNER_RADIUS, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__INNER_RADIUS, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__INNER_RADIUS, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -11728,12 +11728,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<TrafficSwarmActionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NUMBER_OF_VEHICLES, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NUMBER_OF_VEHICLES, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype unsignedInt
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__NUMBER_OF_VEHICLES, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NUMBER_OF_VEHICLES, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -11765,12 +11765,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<TrafficSwarmActionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__OFFSET, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__OFFSET, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__OFFSET, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__OFFSET, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -11802,12 +11802,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<TrafficSwarmActionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__SEMI_MAJOR_AXIS, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__SEMI_MAJOR_AXIS, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__SEMI_MAJOR_AXIS, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__SEMI_MAJOR_AXIS, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -11839,12 +11839,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<TrafficSwarmActionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__SEMI_MINOR_AXIS, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__SEMI_MINOR_AXIS, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__SEMI_MINOR_AXIS, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__SEMI_MINOR_AXIS, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -11876,12 +11876,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<TrafficSwarmActionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VELOCITY, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VELOCITY, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__VELOCITY, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VELOCITY, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -12020,7 +12020,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<TrajectoryImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__CLOSED, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__CLOSED, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -12052,7 +12052,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<TrajectoryImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -12258,7 +12258,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<TrajectoryFollowingModeImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__FOLLOWING_MODE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__FOLLOWING_MODE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -12329,12 +12329,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<TrajectoryPositionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__S, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__S, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__S, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__S, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -12366,12 +12366,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<TrajectoryPositionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__T, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__T, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__T, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__T, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -12619,7 +12619,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<TransitionDynamicsImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DYNAMICS_DIMENSION, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DYNAMICS_DIMENSION, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -12660,7 +12660,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<TransitionDynamicsImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DYNAMICS_SHAPE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DYNAMICS_SHAPE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -12701,12 +12701,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<TransitionDynamicsImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -12767,12 +12767,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<TraveledDistanceConditionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -12902,7 +12902,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<TriggeringEntitiesImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TRIGGERING_ENTITIES_RULE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TRIGGERING_ENTITIES_RULE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -13220,7 +13220,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<UserDefinedDistributionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TYPE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TYPE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -13276,7 +13276,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<UserDefinedValueConditionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -13308,7 +13308,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<UserDefinedValueConditionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RULE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RULE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -13349,7 +13349,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<UserDefinedValueConditionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -13411,7 +13411,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<ValueConstraintImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RULE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RULE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -13452,7 +13452,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<ValueConstraintImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -13652,12 +13652,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<VehicleImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MASS, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MASS, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__MASS, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MASS, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -13689,7 +13689,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<VehicleImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MODEL3D, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MODEL3D, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -13721,7 +13721,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<VehicleImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -13753,7 +13753,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<VehicleImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VEHICLE_CATEGORY, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VEHICLE_CATEGORY, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -14154,7 +14154,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<VehicleCategoryDistributionEntryImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__CATEGORY, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__CATEGORY, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -14195,12 +14195,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<VehicleCategoryDistributionEntryImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__WEIGHT, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__WEIGHT, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__WEIGHT, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__WEIGHT, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -14261,12 +14261,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<VertexImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TIME, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TIME, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__TIME, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TIME, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -14366,7 +14366,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<VisibilityActionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__GRAPHICS, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__GRAPHICS, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -14398,7 +14398,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<VisibilityActionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__SENSORS, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__SENSORS, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -14430,7 +14430,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<VisibilityActionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TRAFFIC, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TRAFFIC, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -14491,7 +14491,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<WaypointImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ROUTE_STRATEGY, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ROUTE_STRATEGY, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -14601,12 +14601,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<WeatherImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ATMOSPHERIC_PRESSURE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ATMOSPHERIC_PRESSURE, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__ATMOSPHERIC_PRESSURE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ATMOSPHERIC_PRESSURE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -14638,7 +14638,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<WeatherImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__CLOUD_STATE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__CLOUD_STATE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -14679,12 +14679,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<WeatherImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TEMPERATURE, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TEMPERATURE, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__TEMPERATURE, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TEMPERATURE, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -14901,12 +14901,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<WindImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DIRECTION, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DIRECTION, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__DIRECTION, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DIRECTION, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -14938,12 +14938,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<WindImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__SPEED, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__SPEED, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__SPEED, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__SPEED, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -15004,12 +15004,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<WorldPositionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__H, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__H, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__H, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__H, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -15041,12 +15041,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<WorldPositionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__P, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__P, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__P, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__P, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -15078,12 +15078,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<WorldPositionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__R, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__R, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__R, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__R, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -15115,12 +15115,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<WorldPositionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__X, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__X, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__X, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__X, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -15152,12 +15152,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<WorldPositionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__Y, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__Y, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__Y, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__Y, attributeValue, startMarker); 
                     }
                     else
                     {
@@ -15189,12 +15189,12 @@ namespace NET_ASAM_OPENSCENARIO
                     auto typedObject = std::static_pointer_cast<WorldPositionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__Z, StripDollarSign(attributeValue), startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__Z, attributeValue, startMarker); 
                     }
 					else if (IsExpression(attributeValue))
                     {
                     	// Expressions allowed for datatype double
-                        typedObject->SetAttributeExpression(OSC_CONSTANTS::ATTRIBUTE__Z, attributeValue, startMarker); 
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__Z, attributeValue, startMarker); 
                     }
                     else
                     {
