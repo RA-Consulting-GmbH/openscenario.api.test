@@ -98,7 +98,7 @@ attribute   returns [AttributeInfo result]
  
 }
 
-:   Name EQUALS STRING {$result = AttributeInfo($Name->getText(),$STRING->getLine(),$STRING->getCharPositionInLine());} ; // Our STRING is AttValue in spec
+:   Name EQUALS STRING {$result = AttributeInfo($Name->getText(),$STRING->getLine(),$STRING->getCharPositionInLine()+1);} ; // coorect the included '"' with '+1'
 
 /** ``All text that is not markup constitutes the character data of
  *  the document.''
