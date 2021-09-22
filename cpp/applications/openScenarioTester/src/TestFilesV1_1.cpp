@@ -115,50 +115,50 @@ namespace NET_ASAM_OPENSCENARIO
 
 				messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
 					"Division by zero",
-					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(85, 64, kFilename)));
+					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(85, 68, kFilename)));
 
 				messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
 					"Division by zero",
-					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(95, 33, kFilename)));
+					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(95, 38, kFilename)));
 
 				messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
 					"Cannot calculate square root from a negative value.",
-					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(95, 73, kFilename)));
+					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(95, 80, kFilename)));
 				messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
 					"Raising the value 0 to an exponent < 0 is not allowed",
-					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(95, 54, kFilename)));
+					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(95, 60, kFilename)));
 				messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
 					"Raising a negative basis to an exponent that is not 0 or 1 or -1 is not allowed",
-					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(95, 89, kFilename)));
+					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(95, 95, kFilename)));
 				messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
 					"Raising a negative basis to an exponent that is not 0 or 1 or -1 is not allowed",
-					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(95, 109, kFilename)));
+					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(95, 115, kFilename)));
 
 				messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
 					"Internal Overflow (limits of internal 64 byte double value exceeded)",
-					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(95, 128, kFilename)));
+					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(95, 130, kFilename)));
 				messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
 					"Internal Overflow (limits of internal 64 byte double value exceeded)",
-					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(106, 45, kFilename)));
+					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(106, 70, kFilename)));
 
 				messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
 					"Internal Overflow (limits of internal 64 byte double value exceeded)",
-					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(114, 33, kFilename)));
+					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(114, 39, kFilename)));
 				messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
 					"Syntax error in expression",
-					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(114, 93, kFilename)));
+					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(114, 96, kFilename)));
 				messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
 					"Syntax error in expression near '}'",
-					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(114, 103, kFilename)));
+					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(114, 107, kFilename)));
 				messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
 					"Expressions are exclusively supported for numeric types. Parameter '$timeParam' is of not supported type 'dateTime'",
-					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(125, 45, kFilename)));
+					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(125, 47, kFilename)));
 				messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
 					"Expressions are exclusively supported for numeric types. Parameter '$stringParam' is of not supported type 'string'",
-					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(133, 33, kFilename)));
+					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(133, 35, kFilename)));
 				messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
 					"Expressions are exclusively supported for numeric types. Parameter '$boolParam' is of not supported type 'boolean'",
-					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(133, 57, kFilename)));
+					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(133, 59, kFilename)));
 
 
 				bool result =  Assert(AssertMessages(messages, NET_ASAM_OPENSCENARIO::ERROR, _messageLogger), ASSERT_LOCATION);
