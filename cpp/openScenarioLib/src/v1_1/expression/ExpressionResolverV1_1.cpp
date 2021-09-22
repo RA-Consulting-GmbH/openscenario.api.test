@@ -171,114 +171,88 @@ namespace NET_ASAM_OPENSCENARIO
 
 	
 
-        void ExpressionResolver::OverrideValue(std::vector<std::shared_ptr<ParameterValue>> parameterValues, std::string& name, std::string& value)
-        {
-            for (auto parameterValue : parameterValues)
-            {
-                if (parameterValue->GetName() == name) 
-                {
-                    parameterValue->SetValue(value);
-                    break;
-                }
-            }
-        }
-        void ExpressionResolver::OverrideGlobalParametersWithInjectedParameters(std::vector<std::shared_ptr<ParameterValue>> parameterDefinitions, std::shared_ptr<IParserMessageLogger> logger, std::map<std::string, std::string>& injectedParameters, std::shared_ptr<IScenarioDefinition> scenarioDefinition)
-        {
-            std::set<std::string> notUsedInjectedParameters;
-            for (auto&& elm : injectedParameters)
-            {
-                notUsedInjectedParameters.insert(elm.first);
-            }
+        
+		bool ExpressionResolver::OverrideGlobalParameterWithInjectedParameter(std::shared_ptr<ParameterValue> parameterValue, std::shared_ptr<IParserMessageLogger> logger, std::map<std::string, std::string>& injectedParameters, std::shared_ptr<IParameterDeclaration> parameterDeclaration)
+		{
+			bool result = false;
+			std::set<std::string> notUsedInjectedParameters;
+			for (auto&& elm : injectedParameters)
+			{
+				notUsedInjectedParameters.insert(elm.first);
+			}
+			auto locator = std::static_pointer_cast<ILocator>(parameterDeclaration->GetAdapter(typeid(ILocator).name()));
+			if (!locator)
+			{
+				return false;
+			}
+			
+			//auto temp = locator->
+			Textmarker textmarker = locator->GetStartMarker();
+			
+			auto name = parameterDeclaration->GetName();
+			auto injectedValue = injectedParameters[name];
+			if (!injectedValue.empty())
+			{
+				auto typeName = parameterDeclaration->GetParameterType();
+				try
+				{
+					notUsedInjectedParameters.erase(name);
+					if (typeName == ParameterType::UNSIGNED_INT)
+					{
+						ParserHelper::ValidateUnsignedInt(injectedValue);
+					}
+					else if (typeName == ParameterType::INTEGER)
+					{
+						ParserHelper::ValidateInt(injectedValue);
+					}
+					else if (typeName == ParameterType::UNSIGNED_SHORT)
+					{
+						ParserHelper::ValidateUnsignedShort(injectedValue);
+					}
+					else if (typeName == ParameterType::DATE_TIME)
+					{
+						ParserHelper::ValidateDateTime(injectedValue);
+					}
+					else if (typeName == ParameterType::BOOLEAN)
+					{
+						ParserHelper::ValidateBoolean(injectedValue);
+					}
+					else if (typeName == ParameterType::DOUBLE)
+					{
+						ParserHelper::ValidateDouble(injectedValue);
+					}
+					parameterValue->SetValue(injectedValue);
+					result = true;
+				}
+				catch (std::exception& e)
+				{
+					auto msg = FileContentMessage("Injected parameter '" + name + "': " + e.what() + " Injected parameter is ignored.", ERROR, textmarker);
+					logger->LogMessage(msg);
+					result = false;
+				}
+				
+			}
+			return result;
+		}
 
-            auto parameterDeclarations = scenarioDefinition->GetParameterDeclarations();
-            auto locator = std::static_pointer_cast<ILocator>(scenarioDefinition->GetAdapter(typeid(ILocator).name()));
-            if (!locator) 
-            {
-                return;
-            }
-            //auto temp = locator->
-            Textmarker textmarker = locator->GetStartMarker();
-            for (auto&& parameterDeclaration : parameterDeclarations)
-            {
-                auto name = parameterDeclaration->GetName();
-                auto injectedValue = injectedParameters[name];
-                if (!injectedValue.empty())
-                {
-                    auto typeName = parameterDeclaration->GetParameterType();
-                    try
-                    {
-                        notUsedInjectedParameters.erase(name);
-                        if (typeName == ParameterType::UNSIGNED_INT)
-                        {
-                            ParserHelper::ValidateUnsignedInt(injectedValue);
-                        }
-                        else if (typeName == ParameterType::INTEGER)
-                        {
-                            ParserHelper::ValidateInt(injectedValue);
-                        }
-                        else if (typeName == ParameterType::UNSIGNED_SHORT)
-                        {
-                            ParserHelper::ValidateUnsignedShort(injectedValue);
-                        }
-                        else if (typeName == ParameterType::DATE_TIME)
-                        {
-                            ParserHelper::ValidateDateTime(injectedValue);
-                        }
-                        else if (typeName == ParameterType::BOOLEAN)
-                        {
-                            ParserHelper::ValidateBoolean(injectedValue);
-                        }
-                        else if (typeName == ParameterType::DOUBLE)
-                        {
-                            ParserHelper::ValidateDouble(injectedValue);
-                        }
-
-                        OverrideValue(parameterDefinitions, name, injectedValue);
-                    }
-                    catch (std::exception& e)
-                    {
-                        auto msg = FileContentMessage("Injected parameter '" + name + "': " + e.what() + " Injected parameter is ignored.", ERROR, textmarker);
-                        logger->LogMessage(msg);
-                    }
-                }
-            }
-
-            // Now, only the injected paramters are in the set that are not declared in
-            // the global parameters.
-            for (std::string name : notUsedInjectedParameters) 
-            {
-                auto msg = FileContentMessage("Injected parameter '" + name + "' must be declared as a global parameter. Injected parameter is ignored.", WARNING, textmarker);
-                logger->LogMessage(msg);
-            }
-        }
-
-         void ExpressionResolver::Resolve(std::shared_ptr<IParserMessageLogger>& logger, std::shared_ptr<BaseImpl> baseImpl, std::map<std::string, std::string>& injectedParameters, bool logUnresolvableParameter)
+        void ExpressionResolver::Resolve(std::shared_ptr<IParserMessageLogger>& logger, std::shared_ptr<BaseImpl> baseImpl, std::map<std::string, std::string>& injectedParameters, bool logUnresolvableParameter)
         {
 			//Resolve the object's attribute BEFORE evaluating the possible ParameterDeclarations
 
 	    	ResolveInternal(logger, baseImpl, logUnresolvableParameter);
+			std::set<std::string> notUsedInjectedParameters;
+	    	
+			if (std::dynamic_pointer_cast<IScenarioDefinition>(baseImpl) != nullptr)
+			{
+				// track the injected parameters
+				for (auto&& elm : injectedParameters)
+				{
+					notUsedInjectedParameters.insert(elm.first);
+				}
+			}
 
 	    	const auto kHasParameterDefinitions = baseImpl->HasParameterDefinitions();
 			size_t paramsDefinitionSize = 0;
-            if (kHasParameterDefinitions)
-            {
-            	
-                const auto kParameterDefinitions = baseImpl->GetParameterDefinitions();
-				paramsDefinitionSize = kParameterDefinitions.size();
-                if (!injectedParameters.empty() && std::dynamic_pointer_cast<IScenarioDefinition>(baseImpl)  != nullptr) 
-                {
-                    // override parameter values with injected parameters
-                    OverrideGlobalParametersWithInjectedParameters(kParameterDefinitions, logger, injectedParameters, std::dynamic_pointer_cast<IScenarioDefinition>(baseImpl));
-                }
-				for (auto&& parameterValue : kParameterDefinitions)
-				{
-					std::shared_ptr<OscExpression::ExprValue> exprValue = CreateExprValueFromParameterValue(parameterValue);
-					// Insert it and potentially override it
-					_expressionResolverStack.PushExpression(parameterValue->GetName(), exprValue);
-
-				}
-				
-            }
 
             auto children = baseImpl->GetChildren();
             if (std::dynamic_pointer_cast<CatalogReferenceImpl>(baseImpl) != nullptr)
@@ -297,11 +271,46 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     std::map<std::string, std::string> emptyMap;
 
-                    if (std::dynamic_pointer_cast<IScenarioDefinition>(baseImpl) != nullptr)
-                        Resolve(logger, child, emptyMap, logUnresolvableParameter);
-                    else
-                        Resolve(logger, child, injectedParameters, logUnresolvableParameter);
+					Resolve(logger, child, injectedParameters, logUnresolvableParameter);
+                	
+					if (child->GetModelType() == OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION)
+					{
+						// Resolve the value if value is an expression
+						auto parameterDeclaration = std::dynamic_pointer_cast<IParameterDeclaration>(child);
+						auto parameterType = parameterDeclaration->GetParameterType().GetLiteral();
+						auto parameterValue = std::make_shared<ParameterValue>(parameterDeclaration->GetName(), child->GetParameterType(parameterType), parameterDeclaration->GetValue());
+
+						if (!injectedParameters.empty() && std::dynamic_pointer_cast<IScenarioDefinition>(baseImpl) != nullptr)
+						{
+							// override parameter values with injected parameters
+							if (OverrideGlobalParameterWithInjectedParameter(parameterValue, logger, injectedParameters, parameterDeclaration))
+							{
+								notUsedInjectedParameters.erase(parameterValue->GetName());
+							}
+						}
+						
+						std::shared_ptr<OscExpression::ExprValue> exprValue = CreateExprValueFromParameterValue(parameterValue);
+						// Insert it and potentially override it
+						_expressionResolverStack.PushExpression(parameterValue->GetName(), exprValue);
+						paramsDefinitionSize++;
+						
+					}
+						
                 }
+				if (std::dynamic_pointer_cast<IScenarioDefinition>(baseImpl) != nullptr)
+				{
+					// not used Parameters
+					for (std::string name : notUsedInjectedParameters)
+					{
+						auto locator = std::static_pointer_cast<ILocator>(baseImpl->GetAdapter(typeid(ILocator).name()));
+						if (locator)
+						{
+							Textmarker textmarker = locator->GetStartMarker();
+							auto msg = FileContentMessage("Injected parameter '" + name + "' must be declared as a global parameter. Injected parameter is ignored.", WARNING, textmarker);
+							logger->LogMessage(msg);
+						}
+					}
+				}
             }
 
             _expressionResolverStack.PopExpression(paramsDefinitionSize);
@@ -316,23 +325,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             const auto kHasParameterDefinitions = baseImpl->HasParameterDefinitions();
 			size_t paramsDefinitionSize = 0;
-            if (kHasParameterDefinitions)
-            {
-                auto parameterDefinitions = baseImpl->GetParameterDefinitions();
-				paramsDefinitionSize = parameterDefinitions.size();
-                for (auto&& parameterValue : parameterDefinitions)
-                {
-                    const auto kIt = parameterAssignments.find(parameterValue->GetName());
-                    if (kIt != parameterAssignments.end())
-                    {
-                        parameterValue->SetValue(kIt->second);
-                    }
-					std::shared_ptr<OscExpression::ExprValue> exprValue = CreateExprValueFromParameterValue(parameterValue);
-					// Insert it and potentially override it
-					_expressionResolverStack.PushExpression(parameterValue->GetName(), exprValue);
-                }
-            }
-
+  
             ResolveInternal(logger, baseImpl, false);
             auto children = baseImpl->GetChildren();
             if (!children.empty())
@@ -341,6 +334,25 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     std::map<std::string, std::string> emptyMap;
                     Resolve(logger, child, emptyMap,false);
+                	// if ParameterDefinition type
+                	if (child->GetModelType() == OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION)
+                	{
+                		// Resolve the value if value is an expression
+						auto parameterDeclaration = std::dynamic_pointer_cast<IParameterDeclaration>(child);
+						auto parameterType = parameterDeclaration->GetParameterType().GetLiteral();
+						auto parameterValue = std::make_shared<ParameterValue>(parameterDeclaration->GetName(), child->GetParameterType(parameterType), parameterDeclaration->GetValue());
+
+                		const auto kIt = parameterAssignments.find(parameterValue->GetName());
+						if (kIt != parameterAssignments.end())
+						{
+							parameterValue->SetValue(kIt->second);
+						}
+                		
+						std::shared_ptr<OscExpression::ExprValue> exprValue = CreateExprValueFromParameterValue(parameterValue);
+						// Insert it and potentially override it
+						_expressionResolverStack.PushExpression(parameterValue->GetName(), exprValue);
+						paramsDefinitionSize++;
+                	}
                 }
             }
 

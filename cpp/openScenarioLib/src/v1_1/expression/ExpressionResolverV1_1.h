@@ -79,24 +79,20 @@ namespace NET_ASAM_OPENSCENARIO
         private:
 
             /**
-             * Overrides the value of a paramterValue in a List of paramter values
-             *
-             * @param parameterValues list of parameter values.
-             * @param name name of the parameter to override
-             * @param value value of the parameter to override
-             */
-			void OverrideValue(std::vector<std::shared_ptr<ParameterValue>> parameterValues, std::string& name, std::string& value);
-            /**
              * Checks the data type and overrides the values in the parametervalues.
              *
-             * @param parameterDefinitions the parameter values to override
+             * @param parameterDefinition the parameter value to override
              * @param logger the logger to pick up the errors and warnings
              * @param injectedParameters the injected parameters
-             * @param scenarioDefinition the scenario definition with the global parameter declarations
+             * @param parameterDeclaration the parameterDefinition with the global parameter declarations
+             * @return true if an injected parameter overrides the parameter definition 
              */
-			void OverrideGlobalParametersWithInjectedParameters(std::vector<std::shared_ptr<ParameterValue>> parameterDefinitions, std::shared_ptr<IParserMessageLogger> logger, std::map<std::string, std::string>& injectedParameters, std::shared_ptr<IScenarioDefinition> scenarioDefinition);
+			bool OverrideGlobalParameterWithInjectedParameter(std::shared_ptr<ParameterValue> parameterDefinition,
+			                                                  std::shared_ptr<IParserMessageLogger> logger,
+			                                                  std::map<std::string, std::string>& injectedParameters,
+			                                                  std::shared_ptr<IParameterDeclaration> parameterDeclaration);
 
-        public:
+		public:
         	/**
              *
              * @param logger logger to log messages
