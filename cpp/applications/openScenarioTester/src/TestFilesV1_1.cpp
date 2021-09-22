@@ -251,7 +251,7 @@ namespace NET_ASAM_OPENSCENARIO
 						std::cout << it->ToString() << "\n";
 					}
 				}
-
+				return result;
 			}
 			catch (NET_ASAM_OPENSCENARIO::ScenarioLoaderException& e)
 			{

@@ -51,20 +51,34 @@ include_directories( ${ANTLR_OscParamDefParser_OUTPUT_DIR} )
 
 ################################################################
 # Specify all header and source files
-set ( TEST_HEADERS
-    ${TEST_HEADERS}
-	"inc/TestSpecification.hpp"
-	"inc/TestSpecificationReader.hpp"
-	"inc/ParamDefReader.h"
-	"inc/TestDescription.hpp"
-	"inc/TestSpecificationRunner.hpp"
+set ( HEADERS
+	"src/test/TestSpecification.h"
+	"src/test/TestSpecificationReader.h"
+	"src/test/ParamDefReader.h"
+	"src/test/TestDescription.h"
+	"src/test/TestSpecificationRunner.h"
 	"thirdParty/nlohmann/inc/json.hpp"
 )
 
-set( TEST_SOURCES
-    ${TEST_SOURCES}
+set( SOURCES
     "src/test/OpenScenarioExpressionsTest.cpp"
 	"src/test/ParamDefReader.cpp"
+	"src/test/TestSpecification.cpp"
+	"src/test/TestSpecificationReader.cpp"
+	"src/test/TestDescription.cpp"
+	"src/test/TestSpecificationRunner.cpp"
+
+)
+
+set( ANTLR_SOURCE_FILES
+    "src/antlr/OscParamDefParser.g4"
+	"src/antlr/OscParamDefLexer.g4"
+
+)
+
+set( ANTLR_GENERATED
+    ${ANTLR_OscParamDefLexer_CXX_OUTPUTS}
+	${ANTLR_OscParamDefParser_CXX_OUTPUTS}
 )
 
 ################################################################
@@ -77,10 +91,25 @@ if( MSVC )
   set( VS_RESOURCE_FILE ${CMAKE_CURRENT_SOURCE_DIR}/rc/${PROJECT_NAME}.rc )
 endif()
 
+################################################################
+# Create groups for VS
+if( MSVC )
+  # Groups for source files
+  source_group( Sources FILES ${SOURCES})
+  # Groups for antlr source files
 
+  # Groups for antlr generated files
+  source_group( Antlr FILES ${ANTLR_GENERATED})
+  
+  # Groups for header files
+  source_group( Headers FILES ${HEADERS} )
+    
+  # Groups for resource files
+  source_group( Resources FILES ${RESOURCE_FILES} )
+endif()
 ################################################################
 # Add the executable by using cmake's var \${PROJECT_NAME}
-add_executable( ${PROJECT_NAME} ${TEST_SOURCES} ${TEST_HEADERS} 
+add_executable( ${PROJECT_NAME} ${SOURCES} ${HEADERS} 
 				${ANTLR_OscParamDefLexer_CXX_OUTPUTS}
                 ${ANTLR_OscParamDefParser_CXX_OUTPUTS}
 				${RESOURCE_FILES})
