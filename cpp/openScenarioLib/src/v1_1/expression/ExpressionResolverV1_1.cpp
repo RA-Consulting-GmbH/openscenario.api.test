@@ -104,7 +104,7 @@ namespace NET_ASAM_OPENSCENARIO
 
 				SimpleType targetType = expressionObject->GetTypeFromAttributeName(attributeKey);
             	
-				std::shared_ptr<OscExpression::OscExprEvaluator> evaluator = OscExpression::OscExprEvaluatorFactory::CreateOscExprEvaluator(_flatParameterValueSet, CreateExprTypeFromSimpleType(targetType));
+				std::shared_ptr<OscExpression::OscExprEvaluator> evaluator = OscExpression::OscExprEvaluatorFactory::CreateOscExprEvaluator(_expressionResolverStack.GetCurrentMap(), CreateExprTypeFromSimpleType(targetType));
 				try {
 					std::shared_ptr<OscExpression::ExprValue> value = evaluator->Evaluate(expression);
 					
@@ -167,69 +167,9 @@ namespace NET_ASAM_OPENSCENARIO
 
 	    ExpressionResolver::ExpressionResolver()
 	    {
-			_flatParameterValueSet = std::make_shared<std::map<std::string, std::shared_ptr<OscExpression::ExprValue>>>(std::map<std::string, std::shared_ptr<OscExpression::ExprValue>>{});
 	    }
 
-	    std::shared_ptr<ParameterValue> ExpressionResolver::FindValue(std::string& parameterName)
-        {
-            // Search from the top of the stack (which is the end of the underlying
-            // list)
-            for (auto parameterNameToParameterValue : _parameterValueSets)
-            {
-                const auto kIt = parameterNameToParameterValue.find(parameterName);
-                if (kIt != parameterNameToParameterValue.end())
-                {
-                    return kIt->second;
-                }
-            }
-            return nullptr;
-        }
-
-        void ExpressionResolver::PushParameterValueSet(std::vector<std::shared_ptr<ParameterValue>> parameterValues)
-        {
-			std::map<std::string, std::shared_ptr<ParameterValue>> table;
 	
-			for (auto&& parameterValue : parameterValues)
-            {
-                table.emplace(std::make_pair(parameterValue->GetName(), parameterValue));
-				std::shared_ptr<OscExpression::ExprValue> exprValue = CreateExprValueFromParameterValue(parameterValue);
-				// Insert it and potentially override it
-				_flatParameterValueSet->insert(std::pair<std::string, std::shared_ptr<OscExpression::ExprValue>>(parameterValue->GetName(), exprValue));
-				
-            }
-            _parameterValueSets.insert(_parameterValueSets.begin(), table);
-        }
-
-        /**
-         * Remove the head of the stack
-         */
-        void ExpressionResolver::PopParameterValueSet()
-        {
-			auto table = _parameterValueSets.front();
-
-	    	
-            if (!_parameterValueSets.empty())
-                _parameterValueSets.erase(_parameterValueSets.begin());
-
-			for (auto it = table.begin(); it != table.end(); it++)
-			{
-				// Erase all parameters from _flatParameterValueSet.
-				
-				auto parameterName = it->first;
-				std::shared_ptr<ParameterValue> parameterValue = FindValue(parameterName);
-				if (parameterValue != nullptr)
-				{
-					// Set it to the new value
-					_flatParameterValueSet->insert(std::pair<std::string, std::shared_ptr<OscExpression::ExprValue>>(parameterValue->GetName(), CreateExprValueFromParameterValue(parameterValue)));
-				}else
-				{
-					// Erase it from the flat list.
-					_flatParameterValueSet->erase(parameterName);
-				}
-			}
-
-        }
-
 
         void ExpressionResolver::OverrideValue(std::vector<std::shared_ptr<ParameterValue>> parameterValues, std::string& name, std::string& value)
         {
@@ -314,21 +254,32 @@ namespace NET_ASAM_OPENSCENARIO
 
          void ExpressionResolver::Resolve(std::shared_ptr<IParserMessageLogger>& logger, std::shared_ptr<BaseImpl> baseImpl, std::map<std::string, std::string>& injectedParameters, bool logUnresolvableParameter)
         {
-			const auto kHasParameterDefinitions = baseImpl->HasParameterDefinitions();
+			//Resolve the object's attribute BEFORE evaluating the possible ParameterDeclarations
+
+	    	ResolveInternal(logger, baseImpl, logUnresolvableParameter);
+
+	    	const auto kHasParameterDefinitions = baseImpl->HasParameterDefinitions();
+			size_t paramsDefinitionSize = 0;
             if (kHasParameterDefinitions)
             {
             	
                 const auto kParameterDefinitions = baseImpl->GetParameterDefinitions();
+				paramsDefinitionSize = kParameterDefinitions.size();
                 if (!injectedParameters.empty() && std::dynamic_pointer_cast<IScenarioDefinition>(baseImpl)  != nullptr) 
                 {
                     // override parameter values with injected parameters
                     OverrideGlobalParametersWithInjectedParameters(kParameterDefinitions, logger, injectedParameters, std::dynamic_pointer_cast<IScenarioDefinition>(baseImpl));
                 }
-                PushParameterValueSet(kParameterDefinitions);
+				for (auto&& parameterValue : kParameterDefinitions)
+				{
+					std::shared_ptr<OscExpression::ExprValue> exprValue = CreateExprValueFromParameterValue(parameterValue);
+					// Insert it and potentially override it
+					_expressionResolverStack.PushExpression(parameterValue->GetName(), exprValue);
+
+				}
 				
             }
 
-            ResolveInternal(logger, baseImpl, logUnresolvableParameter);
             auto children = baseImpl->GetChildren();
             if (std::dynamic_pointer_cast<CatalogReferenceImpl>(baseImpl) != nullptr)
             {
@@ -353,10 +304,7 @@ namespace NET_ASAM_OPENSCENARIO
                 }
             }
 
-            if (kHasParameterDefinitions)
-            {
-                PopParameterValueSet();
-            }
+            _expressionResolverStack.PopExpression(paramsDefinitionSize);
 
         }
         void ExpressionResolver::ResolveWithParameterAssignments(std::shared_ptr<IParserMessageLogger>& logger, std::shared_ptr<ICatalogElement>& catalogElement, const std::map<std::string, std::string> parameterAssignments)
@@ -367,10 +315,11 @@ namespace NET_ASAM_OPENSCENARIO
                 return;
 
             const auto kHasParameterDefinitions = baseImpl->HasParameterDefinitions();
+			size_t paramsDefinitionSize = 0;
             if (kHasParameterDefinitions)
             {
                 auto parameterDefinitions = baseImpl->GetParameterDefinitions();
-
+				paramsDefinitionSize = parameterDefinitions.size();
                 for (auto&& parameterValue : parameterDefinitions)
                 {
                     const auto kIt = parameterAssignments.find(parameterValue->GetName());
@@ -378,8 +327,10 @@ namespace NET_ASAM_OPENSCENARIO
                     {
                         parameterValue->SetValue(kIt->second);
                     }
+					std::shared_ptr<OscExpression::ExprValue> exprValue = CreateExprValueFromParameterValue(parameterValue);
+					// Insert it and potentially override it
+					_expressionResolverStack.PushExpression(parameterValue->GetName(), exprValue);
                 }
-                PushParameterValueSet(parameterDefinitions);
             }
 
             ResolveInternal(logger, baseImpl, false);
@@ -393,10 +344,8 @@ namespace NET_ASAM_OPENSCENARIO
                 }
             }
 
-            if (kHasParameterDefinitions)
-            {
-                PopParameterValueSet();
-            }
+            _expressionResolverStack.PopExpression(paramsDefinitionSize);
+
         }
     	
     }

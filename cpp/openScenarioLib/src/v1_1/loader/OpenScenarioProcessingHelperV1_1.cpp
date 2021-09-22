@@ -21,7 +21,6 @@
 
 #include "ExpressionResolverV1_1.h"
 #include "MemLeakDetection.h"
-#include "ParameterResolverV1_1.h"
 
 namespace NET_ASAM_OPENSCENARIO
 {

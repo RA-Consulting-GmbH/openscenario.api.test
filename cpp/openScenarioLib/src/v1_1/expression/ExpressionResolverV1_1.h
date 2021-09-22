@@ -24,6 +24,7 @@
 #include "ApiClassImplV1_1.h"
 #include "BaseImpl.h"
 #include "SimpleType.h"
+#include "ExpressionResolverStackV1_1.h"
 
 
 namespace NET_ASAM_OPENSCENARIO
@@ -37,9 +38,8 @@ namespace NET_ASAM_OPENSCENARIO
         {
 
         private:
-			std::vector<std::map<std::string, std::shared_ptr<ParameterValue>>> _parameterValueSets;
-			std::shared_ptr < std::map<std::string, std::shared_ptr<OscExpression::ExprValue>>> _flatParameterValueSet;
-
+			ExpressionResolverStack _expressionResolverStack;;
+	
 			/**
 			 * Adapter function that creates a ExprValue for a ParameterValue.
 			 * @param paramterValue to log messages
@@ -74,23 +74,7 @@ namespace NET_ASAM_OPENSCENARIO
 			 */
 			virtual ~ExpressionResolver() = default;
         	
-        	/**
-             * @param parameterName  name of the parameter the value is looked up
-             * @return the string representation of the value.
-             */
-			std::shared_ptr<ParameterValue> FindValue(std::string& parameterName);
         	
-            /**
-             * Pushes a parameter value set on the stack. Implementing scopes of values.
-             * The values are always looked up in the head of the stack first.
-             * @param parameterValues set of parameter values
-             */
-			void PushParameterValueSet(std::vector<std::shared_ptr<ParameterValue>> parameterValues);
-        	
-            /**
-             * Remove the head of the stack
-             */
-			void PopParameterValueSet();
             
         private:
 
