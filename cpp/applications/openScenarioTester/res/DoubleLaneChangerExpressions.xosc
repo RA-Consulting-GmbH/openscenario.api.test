@@ -28,6 +28,7 @@
 	  <ParameterDeclaration parameterType="integer" name="x1" value="2"/>
 	 <ParameterDeclaration parameterType="integer" name="y0" value="3"/>
 	 <ParameterDeclaration parameterType="integer" name="y1" value="4"/>
+	 <ParameterDeclaration parameterType="double" name="expressionParamDouble" value="${$doubleVal+14}"/>
   </ParameterDeclarations>
   <CatalogLocations>
     <VehicleCatalog>
@@ -96,7 +97,7 @@
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <WorldPosition x="${$test2+3.4}" y="${$delay + ((($x1 - $x0)* 2 + ($y1 - $y0)*2 )*0.5 / $speed) + sqrt(9)}" z="0.0000000000000000e+00" h="1.5707963267948966e+00" p="0.0000000000000000e+00" r="0.0000000000000000e+00"/>
+                <WorldPosition x="${$test2+3.4}" y="${$delay + ((($x1 - $x0)* 2 + ($y1 - $y0)*2 )*0.5 / $speed) + sqrt(9)}" z="$expressionParamDouble" h="${$expressionParamDouble+1}" p="0.0000000000000000e+00" r="0.0000000000000000e+00"/>
               </Position>
             </TeleportAction>
           </PrivateAction>
@@ -144,7 +145,8 @@
     <Story name="MyStory">
       <ParameterDeclarations>
         <ParameterDeclaration parameterType="string" name="$owner" value="A1"/>
-         <ParameterDeclaration parameterType="double" name="doubleVal" value="21"/>
+        <ParameterDeclaration parameterType="double" name="doubleVal" value="21"/>
+        <ParameterDeclaration parameterType="double" name="expressionParamDouble" value="${40+1}"/>
       </ParameterDeclarations>
       <Act name="$owner">
         <ManeuverGroup maximumExecutionCount="1" name="MySequence">
@@ -173,7 +175,7 @@
                         <EntityRef entityRef="$owner"/>
                       </TriggeringEntities>
                       <EntityCondition>
-                        <DistanceCondition value="5.0000000000000000e+00" freespace="false" alongRoute="false" rule="greaterThan">
+                        <DistanceCondition value="$expressionParamDouble" freespace="false" alongRoute="false" rule="greaterThan">
                           <Position>
                             <RelativeObjectPosition entityRef="Ego" dx="0.0000000000000000e+00" dy="0.0000000000000000e+00"/>
                           </Position>

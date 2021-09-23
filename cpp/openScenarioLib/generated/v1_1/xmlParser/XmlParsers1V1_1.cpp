@@ -15179,11 +15179,6 @@ namespace NET_ASAM_OPENSCENARIO
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startValueMarker); 
                     }
-					else if (IsExpression(attributeValue))
-                    {
-                    	// Expressions allowed for datatype string
-                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startValueMarker); 
-                    }
                     else
                     {
                     	

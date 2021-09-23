@@ -16,6 +16,7 @@
  */
 
 #include "XmlComplexTypeParser.h"
+#include "ParserHelper.h"
 #include <regex>
 
 namespace NET_ASAM_OPENSCENARIO
@@ -107,16 +108,13 @@ namespace NET_ASAM_OPENSCENARIO
 	
     bool XmlComplexTypeParser::IsParametrized(std::string& value)
     {
-        // Only Dollar will result in "$"
-        return value[0] == '$' && value.length() > 1;
+		return ParserHelper::IsParametrized(value);
+
     }
 
 	bool XmlComplexTypeParser::IsExpression(std::string& value)
 	{
-		// Only Dollar will result in "$"
-		std::smatch base_match;
-		const std::regex base_regex("^\\s*\\$\\s*\\{");
-		return std::regex_match(value,base_match, base_regex);
+		return ParserHelper::IsExpression(value);
 	}
 	
     /**

@@ -66,17 +66,36 @@ namespace NET_ASAM_OPENSCENARIO
 				ClearMessageLogger();
 				auto openScenario = std::dynamic_pointer_cast<IOpenScenario>(ExecuteParsing(_executablePath + "/" + kInputDir + "DoubleLaneChangerExpressions.xosc"));
 				bool res = Assert(_messageLogger->GetMessagesFilteredByWorseOrEqualToErrorLevel(NET_ASAM_OPENSCENARIO::ERROR).empty(), ASSERT_LOCATION);
+				if (!res)
+				{
+					auto filterByErrorLevelLogger = _messageLogger->GetMessagesFilteredByErrorLevel(NET_ASAM_OPENSCENARIO::ERROR);
+					for (auto it = filterByErrorLevelLogger.begin(); it != filterByErrorLevelLogger.end(); ++it) {
+						std::cout << it->ToString() << "\n";
+					}
+				}
 				auto privates = openScenario->GetOpenScenarioCategory()->GetScenarioDefinition()->GetStoryboard()->GetInit()->GetActions()->GetPrivates()[0];
 				double value = privates->GetPrivateActions()[0]->GetLongitudinalAction()->GetSpeedAction()->GetSpeedActionTarget()->GetAbsoluteTargetSpeed()->GetValue();
 				res = res && Assert(std::abs(value - 1.0) < epsilon, ASSERT_LOCATION);
-				double xPosition = privates->GetPrivateActions()[1]->GetTeleportAction()->GetPosition()->GetWorldPosition()->GetX();
-				res = res && Assert(std::abs(xPosition - 65538.4) < epsilon , ASSERT_LOCATION);
 				unsigned short revMajor = openScenario->GetFileHeader()->GetRevMajor();
 				res = res && Assert(revMajor == 36, ASSERT_LOCATION);
 				unsigned short revMinor = openScenario->GetFileHeader()->GetRevMinor();
 				res = res && Assert(revMinor == 37, ASSERT_LOCATION);
-				double yPosition = privates->GetPrivateActions()[1]->GetTeleportAction()->GetPosition()->GetWorldPosition()->GetY();
+				auto worldPosition = privates->GetPrivateActions()[1]->GetTeleportAction()->GetPosition()->GetWorldPosition();
+				double yPosition = worldPosition->GetY();
 				res = res && Assert(std::abs(yPosition - 26.56157396722825) < epsilon, ASSERT_LOCATION);
+				double xPosition = worldPosition->GetX();
+				res = res && Assert(std::abs(xPosition - 65538.4) < epsilon, ASSERT_LOCATION);
+				double zPosition = worldPosition->GetZ();
+				res = res && Assert(std::abs(zPosition - 34) < epsilon, ASSERT_LOCATION);
+				double hPosition = worldPosition->GetH();
+				res = res && Assert(std::abs(hPosition - 35) < epsilon, ASSERT_LOCATION);
+				auto condition = openScenario->GetOpenScenarioCategory()->GetScenarioDefinition()->GetStoryboard()
+					->GetStories()[0]->GetActs()[0]->GetManeuverGroups()[0]->GetManeuvers()[0]->GetEvents()[0]->GetStartTrigger()->GetConditionGroups()[0]
+					->GetConditions()[0];
+				res = res && Assert(std::abs(condition->GetDelay() - 21) < epsilon, ASSERT_LOCATION);
+				auto distanceCondition = condition->GetByEntityCondition()->GetEntityCondition()->GetDistanceCondition();
+				res = res && Assert(std::abs(distanceCondition->GetValue() - 41) < epsilon, ASSERT_LOCATION);
+
 				return res;
 			}
 			catch (NET_ASAM_OPENSCENARIO::ScenarioLoaderException& e)

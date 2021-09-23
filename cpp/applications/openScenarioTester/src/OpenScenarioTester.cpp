@@ -55,12 +55,12 @@ bool TestV1_1(std::string basePath )
 
 	auto result = true;
 	
-	result = testExamples.TestExample() && result;
+	/*result = testExamples.TestExample() && result;
 
 	result = testRangeChecker.TestParamsFailure() && result;
 
 	result = testFiles.TestSimpleSuccess() && result;
-	result = testFiles.TestParamsSuccess() && result;
+	result = testFiles.TestParamsSuccess() && result;*/
 	result = testFiles.TestExpressionsSuccess() && result;
 	result = testFiles.TestExpressionsFailure() && result;
 	result = testFiles.TestBomFile() && result;

@@ -101,7 +101,13 @@ namespace NET_ASAM_OPENSCENARIO
              * @param logUnresolvableParameter a flag whether unresolvable parameters should be logged.
              */
 			void Resolve(std::shared_ptr<IParserMessageLogger>& logger, std::shared_ptr<BaseImpl> baseImpl, std::map<std::string, std::string>& injectedParameters, bool logUnresolvableParameter);
-            /**
+			/**
+			 * Resolves the expression when value attribute has a expression
+			 * @param parameterDeclaration
+			 * @return nullptr if the value cannot be resolved or value is not an expression.
+			 */
+			std::shared_ptr<OscExpression::ExprValue> ResolveValueOfParameterDeclaration(std::shared_ptr<IParserMessageLogger>& logger, std::shared_ptr<IParameterDeclaration> parameterDeclaration);
+			/**
              * Resolve all parameters with parameter assignments, instead of parameter definitions
              * @param logger to log messages
              * @param catalogElement a catalogElement the parameters will be resolved.

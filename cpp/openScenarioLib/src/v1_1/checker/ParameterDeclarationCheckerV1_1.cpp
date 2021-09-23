@@ -29,7 +29,7 @@ namespace NET_ASAM_OPENSCENARIO
 	{
 		void ParameterDeclarationChecker::ValidateParsing(std::string& value, const ParameterType parameterType)
 		{
-			if (!value.empty())
+			if (!value.empty() && !ParserHelper::IsExpression(value) && !ParserHelper::IsParametrized(value))
 			{
 				if (parameterType == ParameterType::INTEGER)
 				{

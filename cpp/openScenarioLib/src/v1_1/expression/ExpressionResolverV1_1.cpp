@@ -169,17 +169,9 @@ namespace NET_ASAM_OPENSCENARIO
 	    {
 	    }
 
-	
-
-        
 		bool ExpressionResolver::OverrideGlobalParameterWithInjectedParameter(std::shared_ptr<ParameterValue> parameterValue, std::shared_ptr<IParserMessageLogger> logger, std::map<std::string, std::string>& injectedParameters, std::shared_ptr<IParameterDeclaration> parameterDeclaration)
 		{
 			bool result = false;
-			std::set<std::string> notUsedInjectedParameters;
-			for (auto&& elm : injectedParameters)
-			{
-				notUsedInjectedParameters.insert(elm.first);
-			}
 			auto locator = std::static_pointer_cast<ILocator>(parameterDeclaration->GetAdapter(typeid(ILocator).name()));
 			if (!locator)
 			{
@@ -196,7 +188,6 @@ namespace NET_ASAM_OPENSCENARIO
 				auto typeName = parameterDeclaration->GetParameterType();
 				try
 				{
-					notUsedInjectedParameters.erase(name);
 					if (typeName == ParameterType::UNSIGNED_INT)
 					{
 						ParserHelper::ValidateUnsignedInt(injectedValue);
@@ -238,8 +229,8 @@ namespace NET_ASAM_OPENSCENARIO
         void ExpressionResolver::Resolve(std::shared_ptr<IParserMessageLogger>& logger, std::shared_ptr<BaseImpl> baseImpl, std::map<std::string, std::string>& injectedParameters, bool logUnresolvableParameter)
         {
 			//Resolve the object's attribute BEFORE evaluating the possible ParameterDeclarations
-
 	    	ResolveInternal(logger, baseImpl, logUnresolvableParameter);
+	    	
 			std::set<std::string> notUsedInjectedParameters;
 	    	
 			if (std::dynamic_pointer_cast<IScenarioDefinition>(baseImpl) != nullptr)
@@ -251,8 +242,7 @@ namespace NET_ASAM_OPENSCENARIO
 				}
 			}
 
-	    	const auto kHasParameterDefinitions = baseImpl->HasParameterDefinitions();
-			size_t paramsDefinitionSize = 0;
+	    	size_t paramsDefinitionSize = 0;
 
             auto children = baseImpl->GetChildren();
             if (std::dynamic_pointer_cast<CatalogReferenceImpl>(baseImpl) != nullptr)
@@ -269,14 +259,21 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 for (auto&& child : children)
                 {
+                	if (child->GetModelType() == OSC_CONSTANTS::ELEMENT__CONDITION)
+                	{
+						std::string  parameterName;;
+                	}
                     std::map<std::string, std::string> emptyMap;
 
+                	// Resolve the child element
 					Resolve(logger, child, injectedParameters, logUnresolvableParameter);
                 	
 					if (child->GetModelType() == OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION)
 					{
-						// Resolve the value if value is an expression
 						auto parameterDeclaration = std::dynamic_pointer_cast<IParameterDeclaration>(child);
+						std::shared_ptr<OscExpression::ExprValue> exprValue = nullptr;
+						std::string  parameterName = parameterDeclaration->GetName();
+						
 						auto parameterType = parameterDeclaration->GetParameterType().GetLiteral();
 						auto parameterValue = std::make_shared<ParameterValue>(parameterDeclaration->GetName(), child->GetParameterType(parameterType), parameterDeclaration->GetValue());
 
@@ -285,18 +282,50 @@ namespace NET_ASAM_OPENSCENARIO
 							// override parameter values with injected parameters
 							if (OverrideGlobalParameterWithInjectedParameter(parameterValue, logger, injectedParameters, parameterDeclaration))
 							{
+								// Is overriden
 								notUsedInjectedParameters.erase(parameterValue->GetName());
+								exprValue = CreateExprValueFromParameterValue(parameterValue);
+							}
+							else
+							{
+								// Is not overridden, Resolve potential expression in paramterDeclaration's value attribute
+								std::shared_ptr<OscExpression::ExprValue> resultValue = ResolveValueOfParameterDeclaration(logger, parameterDeclaration);
+								if (resultValue != nullptr)
+								{
+									exprValue = resultValue;
+								}
+								else
+								{
+									exprValue = CreateExprValueFromParameterValue(parameterValue);
+								}
+
+							}
+						}else
+						{
+							std::shared_ptr<OscExpression::ExprValue> resultValue = ResolveValueOfParameterDeclaration(logger, parameterDeclaration);
+							if (resultValue != nullptr)
+							{
+								exprValue = resultValue;
+							}
+							else
+							{
+								exprValue = CreateExprValueFromParameterValue(parameterValue);
 							}
 						}
-						
-						std::shared_ptr<OscExpression::ExprValue> exprValue = CreateExprValueFromParameterValue(parameterValue);
+							
 						// Insert it and potentially override it
-						_expressionResolverStack.PushExpression(parameterValue->GetName(), exprValue);
+						_expressionResolverStack.PushExpression(parameterDeclaration->GetName(), exprValue);
 						paramsDefinitionSize++;
 						
 					}
+					if (child->GetModelType() == OSC_CONSTANTS::ELEMENT__CONDITION)
+					{
+						child->Clone();
+						assert(true);
+					}
 						
                 }
+            	
 				if (std::dynamic_pointer_cast<IScenarioDefinition>(baseImpl) != nullptr)
 				{
 					// not used Parameters
@@ -316,6 +345,41 @@ namespace NET_ASAM_OPENSCENARIO
             _expressionResolverStack.PopExpression(paramsDefinitionSize);
 
         }
+
+		std::shared_ptr<OscExpression::ExprValue> ExpressionResolver::ResolveValueOfParameterDeclaration(std::shared_ptr<IParserMessageLogger>& logger, std::shared_ptr<IParameterDeclaration> parameterDeclaration)
+		{
+			// Only Dollar will result in "$"
+			std::smatch base_match;
+			const std::regex base_regex("^\\s*\\$\\s*\\{");
+			std::string& value = parameterDeclaration->GetValue();
+			std::string& parameterType = parameterDeclaration->GetParameterType().GetLiteral();
+			if (! std::regex_search(value, base_match, base_regex))
+			{
+				return nullptr;
+			}else
+			{
+				try {
+					// Resolve the value
+					std::shared_ptr<OscExpression::ExprType> targetType = OscExpression::ExprType::GetFromLiteral(parameterType);
+					std::shared_ptr<OscExpression::OscExprEvaluator> evaluator = OscExpression::OscExprEvaluatorFactory::CreateOscExprEvaluator(_expressionResolverStack.GetCurrentMap(), targetType);
+					std::shared_ptr<OscExpression::ExprValue> resultValue = evaluator->Evaluate(value);
+					return resultValue;
+				}
+				catch (OscExpression::SemanticException& s)
+				{
+					auto locator = std::static_pointer_cast<ILocator>(parameterDeclaration->GetAdapter(typeid(ILocator).name()));
+					if (locator)
+					{
+						Textmarker textmarker = locator->GetStartMarker();
+						// Add log Message
+						auto msg = FileContentMessage(s.GetErrorMessage(), ERROR, textmarker);
+						logger->LogMessage(msg);
+					}
+				}
+			}
+			return nullptr;
+		}
+    	
         void ExpressionResolver::ResolveWithParameterAssignments(std::shared_ptr<IParserMessageLogger>& logger, std::shared_ptr<ICatalogElement>& catalogElement, const std::map<std::string, std::string> parameterAssignments)
         {
             auto baseImpl = std::dynamic_pointer_cast<BaseImpl>(catalogElement);
@@ -323,8 +387,7 @@ namespace NET_ASAM_OPENSCENARIO
             if (baseImpl == nullptr)
                 return;
 
-            const auto kHasParameterDefinitions = baseImpl->HasParameterDefinitions();
-			size_t paramsDefinitionSize = 0;
+            size_t paramsDefinitionSize = 0;
   
             ResolveInternal(logger, baseImpl, false);
             auto children = baseImpl->GetChildren();
@@ -333,6 +396,7 @@ namespace NET_ASAM_OPENSCENARIO
                 for (auto&& child : children)
                 {
                     std::map<std::string, std::string> emptyMap;
+                	
                     Resolve(logger, child, emptyMap,false);
                 	// if ParameterDefinition type
                 	if (child->GetModelType() == OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION)

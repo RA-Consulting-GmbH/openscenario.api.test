@@ -163,8 +163,15 @@ namespace OscExpression
 		}
 		else
 		{
-			std::shared_ptr<ExprValue> exprValue = ExprValue::CreateSimpleParameterValue(id, kIt->second->ToString(), kIt->second->GetExprType());
-			this->valueStack.push(exprValue);
+			std::shared_ptr<ExprValue> exprValue = kIt->second;
+			if (exprValue->IsSimpleParameter())
+			{
+				this->valueStack.push(ExprValue::CreateSimpleParameterValue(id, kIt->second->ToString(), kIt->second->GetExprType()));
+			}
+			else
+			{
+				this->valueStack.push(exprValue);
+			}
 		}
 	}
 
@@ -195,8 +202,17 @@ namespace OscExpression
 				std::ostringstream stringStream;
 				stringStream << "Expressions are exclusively supported for numeric types. Parameter '$" << id << "' is of not supported type '" << exprValue->GetExprType()->GetLiteral() << "'";
 				throw  SemanticException(stringStream.str(), GetColumn(ctx));
+			}else {
+				if (exprValue->IsSimpleParameter())
+				{
+					this->valueStack.push(ExprValue::CreateDoubleValueFromString(exprValue->ToString()));
+				}
+				else
+				{
+					this->valueStack.push(exprValue);
+				}
 			}
-			this->valueStack.push(ExprValue::CreateDoubleValueFromString(exprValue->ToString()));
+
 		}
 	}
 

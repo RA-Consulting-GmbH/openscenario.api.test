@@ -57,6 +57,7 @@ namespace NET_ASAM_OPENSCENARIO
 			if (kIt != _parameterValueLists.end())
 			{
 				expressionVector =  kIt->second;
+				_flatParameterValueSet->erase(name);
 			}else
 			{
 				// insert into list
