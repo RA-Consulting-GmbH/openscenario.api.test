@@ -259,10 +259,6 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 for (auto&& child : children)
                 {
-                	if (child->GetModelType() == OSC_CONSTANTS::ELEMENT__CONDITION)
-                	{
-						std::string  parameterName;;
-                	}
                     std::map<std::string, std::string> emptyMap;
 
                 	// Resolve the child element
@@ -318,11 +314,6 @@ namespace NET_ASAM_OPENSCENARIO
 						paramsDefinitionSize++;
 						
 					}
-					if (child->GetModelType() == OSC_CONSTANTS::ELEMENT__CONDITION)
-					{
-						child->Clone();
-						assert(true);
-					}
 						
                 }
             	
@@ -349,11 +340,9 @@ namespace NET_ASAM_OPENSCENARIO
 		std::shared_ptr<OscExpression::ExprValue> ExpressionResolver::ResolveValueOfParameterDeclaration(std::shared_ptr<IParserMessageLogger>& logger, std::shared_ptr<IParameterDeclaration> parameterDeclaration)
 		{
 			// Only Dollar will result in "$"
-			std::smatch base_match;
-			const std::regex base_regex("^\\s*\\$\\s*\\{");
 			std::string& value = parameterDeclaration->GetValue();
 			std::string& parameterType = parameterDeclaration->GetParameterType().GetLiteral();
-			if (! std::regex_search(value, base_match, base_regex))
+			if (! ParserHelper::IsExpression(value))
 			{
 				return nullptr;
 			}else
