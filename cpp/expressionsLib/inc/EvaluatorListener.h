@@ -47,6 +47,10 @@ namespace OscExpression {
 
 		static std::unique_ptr <SemanticException> CreateOverFlowUnderFlowException(size_t column);
 		
+		static std::unique_ptr <SemanticException> CreateNotABooleanException(size_t column);
+		
+		static std::unique_ptr <SemanticException> CreateNotANumericException(size_t column);
+
 	public:
 		OSC_EXPR_EXP static bool IsConvertible(std::shared_ptr <ExprValue> valueToConvert, std::shared_ptr <OscExpression::ExprType> type, int column);
 
@@ -70,6 +74,17 @@ namespace OscExpression {
 		OSC_EXPR_EXP void exitMultiDivMod(OscExprParser::MultiDivModContext *ctx) override;
 
 		OSC_EXPR_EXP void exitFunctionTwoArguments(OscExprParser::FunctionTwoArgumentsContext *ctx) override;
+		
+		OSC_EXPR_EXP void exitNot(OscExprParser::NotContext *ctx) override;
+		
+		OSC_EXPR_EXP void exitAnd(OscExprParser::AndContext *ctx) override;
+
+		OSC_EXPR_EXP void exitOr(OscExprParser::OrContext *ctx) override;
+		
+		
+		OSC_EXPR_EXP void exitFalseLiteral(OscExprParser::FalseLiteralContext *ctx) override;
+		
+		OSC_EXPR_EXP void exitTrueLiteral(OscExprParser::TrueLiteralContext *ctx) override;
 
 		OSC_EXPR_EXP std::shared_ptr<ExprValue> GetResult();
 

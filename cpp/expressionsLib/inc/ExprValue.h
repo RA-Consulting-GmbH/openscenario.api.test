@@ -36,6 +36,7 @@ namespace OscExpression
 		private:
 			double doubleValue;
 			std::string stringValue;
+			bool boolValue;
 
 			std::shared_ptr<ExprType> exprType;
 			bool isSimpleParameter = false;
@@ -104,6 +105,11 @@ namespace OscExpression
 			 * @return the created ExprValue
 			 */
 			OSC_EXPR_EXP static std::shared_ptr<ExprValue> CreateBooleanValue(std::string boolStringValue);
+
+			/**
+			 * @param boolValue boolean value
+			 * @return the created ExprValue
+			 */OSC_EXPR_EXP static std::shared_ptr<ExprValue> CreateBooleanValue(bool boolValue);
 
 			/**
 			 * Returns the value in double
@@ -188,6 +194,12 @@ namespace OscExpression
 			 * @return the parameter name
 			 */
 			OSC_EXPR_EXP std::string GetParameterName();
+			
+			/**
+			 * for non BOOLEAN type this will return false
+			 * @return boolean Value
+			 */
+			OSC_EXPR_EXP bool GetBoolValue();
 
 			/**
 			 * Converts a SimpleParameterType to a target type. Throws an exception if not possible

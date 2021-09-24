@@ -19,6 +19,14 @@
 
 const std::string TestDescription::json = R"json(
 [{
+	"id" : 41,
+	"comment" : "Simple string parameter",
+	"parameterDefinitions": [
+	"string speed= 'test';"],
+	"expr": "$speed",
+	"expectedValue": "test"
+},
+{
 	"id" : 0,
 	"comment" : "test internal calculation maximal value for unsignedShort +1 (65535+1)",
 	"parameterDefinitions": ["unsignedShort testShort = 65535;"],
@@ -95,7 +103,7 @@ const std::string TestDescription::json = R"json(
 	"parameterDefinitions": ["unsignedInt value= 0;"],
 	"expr": "${25/$value}",
 	"expectedError": {
-		"message": "Divison by zero",
+		"message": "Division by zero",
 		"column": 5
 	}
 },{
@@ -104,7 +112,7 @@ const std::string TestDescription::json = R"json(
 	"parameterDefinitions": ["int value= 0;"],
 	"expr": "${25/$value}",
 	"expectedError": {
-		"message": "Divison by zero",
+		"message": "Division by zero",
 		"column": 5
 	}
 },{
@@ -113,7 +121,7 @@ const std::string TestDescription::json = R"json(
 	"parameterDefinitions": ["unsignedShort value= 0;"],
 	"expr": "${25/$value}",
 	"expectedError": {
-		"message": "Divison by zero",
+		"message": "Division by zero",
 		"column": 5
 	}
 },{
@@ -292,7 +300,8 @@ const std::string TestDescription::json = R"json(
 	"parameterDefinitions": [
 	"double speed= 4.333;"],
 	"expr": "$speed",
-	"expectedValue": 4.333
+	"expectedValue": 4.333,
+	"expectedDatatype": "double"	
 },
 {
 	"id" : 41,
@@ -309,14 +318,6 @@ const std::string TestDescription::json = R"json(
 	"boolean isSpeed= 'false';"],
 	"expr": "$isSpeed",
 	"expectedValue": "false"
-},
-{
-	"id" : 43,
-	"comment" : "Simple dateTime parameter",
-	"parameterDefinitions": [
-	"dateTime testDateTime= 'TestDateTime';"],
-	"expr": "$testDateTime",
-	"expectedValue": "TestDateTime"
 },
 {
 	"id" : 44,

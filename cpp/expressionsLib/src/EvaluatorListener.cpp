@@ -91,6 +91,18 @@ namespace OscExpression
 		return std::unique_ptr<SemanticException>( new SemanticException( "Internal Overflow (limits of internal 64 byte double value exceeded)", column ) );
 	}
 
+	std::unique_ptr <SemanticException> EvaluatorListener::CreateNotABooleanException(size_t column)
+	{
+		std::unique_ptr<SemanticException> blub = std::unique_ptr<SemanticException>();
+		return std::unique_ptr<SemanticException>(new SemanticException("Value must be of type boolean", column));
+	}
+
+	std::unique_ptr <SemanticException> EvaluatorListener::CreateNotANumericException(size_t column)
+	{
+		std::unique_ptr<SemanticException> blub = std::unique_ptr<SemanticException>();
+		return std::unique_ptr<SemanticException>(new SemanticException("Value must be numeric", column));
+	}
+
 	EvaluatorListener::EvaluatorListener(
 		std::shared_ptr<std::map<std::string, std::shared_ptr<OscExpression::ExprValue>>> definedParameters,
 		std::shared_ptr<OscExpression::ExprType> expectedDatatype)
@@ -100,13 +112,25 @@ namespace OscExpression
 	}
 
 
-
 	void EvaluatorListener::exitPlusMinus(OscExprParser::PlusMinusContext *ctx)
 	{
 		std::shared_ptr<ExprValue> secondExprValue = this->valueStack.top();
 		this->valueStack.pop();
+		
 		std::shared_ptr<ExprValue> firstExprValue = this->valueStack.top();
 		this->valueStack.pop();
+
+		if(!firstExprValue->IsTypeNumeric())
+		{
+			auto list = ctx->getRuleContexts<antlr4::ParserRuleContext>();
+			throw  *CreateNotANumericException(GetColumn(list[0]));
+		}
+		if (!secondExprValue->IsTypeNumeric())
+		{
+			auto list = ctx->getRuleContexts<antlr4::ParserRuleContext>();
+			throw  *CreateNotANumericException(GetColumn(list[1]));
+		}
+
 		std::shared_ptr<ExprValue> result = nullptr;
 
 		if (ctx->op->getType() == OscExprParser::PLUS) {
@@ -137,8 +161,84 @@ namespace OscExpression
 
 		
 	}
+	
+	void EvaluatorListener::exitNot(OscExprParser::NotContext *ctx)
+	{
+		std::shared_ptr<ExprValue> firstExprValue = this->valueStack.top();
+		this->valueStack.pop();
+		
+		if (firstExprValue->GetExprType() != ExprType::BOOLEAN)
+		{
+			auto list = ctx->getRuleContexts<antlr4::ParserRuleContext>();
+			throw  *CreateNotABooleanException(GetColumn(list[0]));
+		}
+		else
+		{
+			this->valueStack.push(ExprValue::CreateBooleanValue(!firstExprValue->GetBoolValue()));
+		}
 
+	}
 
+	void EvaluatorListener::exitAnd(OscExprParser::AndContext *ctx)
+	{
+		std::shared_ptr<ExprValue> secondExprValue = this->valueStack.top();
+		this->valueStack.pop();
+		std::shared_ptr<ExprValue> firstExprValue = this->valueStack.top();
+		this->valueStack.pop();
+
+		if (firstExprValue->GetExprType() != ExprType::BOOLEAN)
+		{
+			auto list = ctx->getRuleContexts<antlr4::ParserRuleContext>();
+			throw  *CreateNotABooleanException(GetColumn(list[0]));
+		}else if (secondExprValue->GetExprType() != ExprType::BOOLEAN)
+		{
+			auto list = ctx->getRuleContexts<antlr4::ParserRuleContext>();
+			throw  *CreateNotABooleanException(GetColumn(list[1]));
+		}
+		else
+		{
+			this->valueStack.push(ExprValue::CreateBooleanValue(firstExprValue->GetBoolValue() && secondExprValue->GetBoolValue()));
+		}
+	}
+
+	void EvaluatorListener::exitOr(OscExprParser::OrContext *ctx)
+	{
+		std::shared_ptr<ExprValue> secondExprValue = this->valueStack.top();
+		this->valueStack.pop();
+		std::shared_ptr<ExprValue> firstExprValue = this->valueStack.top();
+		this->valueStack.pop();
+
+		if (firstExprValue->GetExprType() != ExprType::BOOLEAN)
+		{
+			auto list = ctx->getRuleContexts<antlr4::ParserRuleContext>();
+			throw  *CreateNotABooleanException(GetColumn(list[0]));
+		}
+		else if (secondExprValue->GetExprType() != ExprType::BOOLEAN)
+		{
+			auto list = ctx->getRuleContexts<antlr4::ParserRuleContext>();
+			throw  *CreateNotABooleanException(GetColumn(list[1]));
+		}
+		else
+		{
+			this->valueStack.push(ExprValue::CreateBooleanValue(firstExprValue->GetBoolValue() || secondExprValue->GetBoolValue()));
+		}
+	}
+
+	void EvaluatorListener::exitFalseLiteral(OscExprParser::FalseLiteralContext *ctx)
+	{
+		std::string text = ctx->getText();
+		// Push Double to stack
+		this->valueStack.push(ExprValue::CreateBooleanValue(text));
+	}
+
+	void EvaluatorListener::exitTrueLiteral(OscExprParser::TrueLiteralContext *ctx)
+	{
+		std::string text = ctx->getText();
+		// Push Double to stack
+		this->valueStack.push(ExprValue::CreateBooleanValue(text));
+	}
+
+	
 	void EvaluatorListener::exitIdExpr(OscExprParser::IdExprContext *ctx)
 	{
 		evaluateId(ctx);
@@ -222,6 +322,12 @@ namespace OscExpression
 		std::shared_ptr<ExprValue> firstExprValue = this->valueStack.top();
 		// Remove the top of the stack
 		this->valueStack.pop();
+		if (!firstExprValue->IsTypeNumeric())
+		{
+			auto list = ctx->getRuleContexts<antlr4::ParserRuleContext>();
+			throw  *CreateNotANumericException(GetColumn(list[0]));
+		}
+		
 		std::shared_ptr<ExprValue> result = nullptr;
 		// If for future use with more functions
 		if (ctx->func->getType() == OscExprLexer::SQRT) {
@@ -275,6 +381,11 @@ namespace OscExpression
 		// get Value From Stack
 		std::shared_ptr<ExprValue> exprValue = this->valueStack.top();
 		this->valueStack.pop();
+		if (!exprValue->IsTypeNumeric())
+		{
+			auto list = ctx->getRuleContexts<antlr4::ParserRuleContext>();
+			throw  *CreateNotANumericException(GetColumn(list[0]));
+		}
 		this->valueStack.push(ExprValue::CreateDoubleValue((-1) * exprValue->getDoubleValue()));
 	}
 
@@ -286,6 +397,18 @@ namespace OscExpression
 		this->valueStack.pop();
 		std::shared_ptr<ExprValue> firstExprValue = this->valueStack.top();
 		this->valueStack.pop();
+
+		if (!firstExprValue->IsTypeNumeric())
+		{
+			auto list = ctx->getRuleContexts<antlr4::ParserRuleContext>();
+			throw  *CreateNotANumericException(GetColumn(list[0]));
+		}
+		if (!secondExprValue->IsTypeNumeric())
+		{
+			auto list = ctx->getRuleContexts<antlr4::ParserRuleContext>();
+			throw  *CreateNotANumericException(GetColumn(list[1]));
+		}
+		
 		std::shared_ptr<ExprValue> result = nullptr;
 
 		if (ctx->op->getType() == OscExprParser::MULTIPLY) {
@@ -343,6 +466,18 @@ namespace OscExpression
 		this->valueStack.pop();
 		std::shared_ptr<ExprValue> firstExprValue = this->valueStack.top();
 		this->valueStack.pop();
+		
+		if (!firstExprValue->IsTypeNumeric())
+		{
+			auto list = ctx->getRuleContexts<antlr4::ParserRuleContext>();
+			throw  *CreateNotANumericException(GetColumn(list[0]));
+		}
+		if (!secondExprValue->IsTypeNumeric())
+		{
+			auto list = ctx->getRuleContexts<antlr4::ParserRuleContext>();
+			throw  *CreateNotANumericException(GetColumn(list[1]));
+		}
+		
 		std::shared_ptr<ExprValue> result = nullptr;
 		// If for future use with more functions
 		if (ctx->func->getType() == OscExprLexer::POW) {

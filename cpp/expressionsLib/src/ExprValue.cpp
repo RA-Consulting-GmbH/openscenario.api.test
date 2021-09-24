@@ -129,6 +129,22 @@ namespace OscExpression
 			std::shared_ptr <ExprValue> result = std::shared_ptr <ExprValue>(new ExprValue());
 			result->exprType = ExprType::BOOLEAN;
 			result->stringValue = boolStringValue;
+			if (boolStringValue == "true" || boolStringValue == "1")
+			{
+				result->boolValue = true;
+				
+			} else 
+			{
+				result->boolValue = false;
+			}
+			return result;
+		}
+		std::shared_ptr<ExprValue> ExprValue::CreateBooleanValue(bool boolValue)
+		{
+			std::shared_ptr <ExprValue> result = std::shared_ptr <ExprValue>(new ExprValue());
+			result->exprType = ExprType::BOOLEAN;
+			result->stringValue = boolValue ? "true" : "false";
+			result->boolValue = boolValue;
 			return result;
 		}
 
@@ -297,7 +313,12 @@ namespace OscExpression
 		{
 			return parameterName;
 		}
-	
+
+		bool ExprValue::GetBoolValue()
+		{
+			return boolValue;
+		}
+
 		std::shared_ptr<OscExpression::ExprValue>  ExprValue::ConvertSimpleParameterToTargetType(std::shared_ptr<OscExpression::ExprType> targetType)
 		{
 			std::shared_ptr<OscExpression::ExprValue> result = nullptr;
