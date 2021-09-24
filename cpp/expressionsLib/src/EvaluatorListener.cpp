@@ -62,6 +62,9 @@ namespace OscExpression
 		else if (type == OscExpression::ExprType::DOUBLE) {
 			convertedType = valueToConvert->ConvertToDouble();
 		}
+		else if (type == OscExpression::ExprType::BOOLEAN) {
+			convertedType = valueToConvert->ConvertToBoolean();
+		}
 		if (convertedType == nullptr) {
 			std::ostringstream stringStream;
 			stringStream << "Value '" << valueToConvert->ToString() << "' cannot be converted to type '" << type->GetLiteral() << "'";
@@ -297,13 +300,16 @@ namespace OscExpression
 		else
 		{
 			std::shared_ptr<ExprValue> exprValue = kIt->second;
-			if (exprValue->IsOfType({ ExprType::BOOLEAN, ExprType::STRING, ExprType::DATE_TIME })) {
+			if (exprValue->IsOfType({ExprType::STRING, ExprType::DATE_TIME })) {
 
 				std::ostringstream stringStream;
-				stringStream << "Expressions are exclusively supported for numeric types. Parameter '$" << id << "' is of not supported type '" << exprValue->GetExprType()->GetLiteral() << "'";
+				stringStream << "Expressions are exclusively supported for numeric types or boolean type. Parameter '$" << id << "' is of not supported type '" << exprValue->GetExprType()->GetLiteral() << "'";
 				throw  SemanticException(stringStream.str(), GetColumn(ctx));
 			}else {
-				if (exprValue->IsSimpleParameter())
+				if (exprValue->IsSimpleParameter() && exprValue->GetExprType() == ExprType::BOOLEAN)
+				{
+					this->valueStack.push(ExprValue::CreateBooleanValue(exprValue->ToString()));
+				}else if (exprValue->IsSimpleParameter())
 				{
 					this->valueStack.push(ExprValue::CreateDoubleValueFromString(exprValue->ToString()));
 				}

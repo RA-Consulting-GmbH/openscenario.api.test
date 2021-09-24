@@ -315,7 +315,7 @@ const std::string TestDescription::json = R"json(
 	"id" : 42,
 	"comment" : "Simple boolean parameter",
 	"parameterDefinitions": [
-	"boolean isSpeed= 'false';"],
+	"boolean isSpeed= false;"],
 	"expr": "$isSpeed",
 	"expectedValue": "false"
 },
@@ -326,7 +326,7 @@ const std::string TestDescription::json = R"json(
 	"dateTime testDateTime= 'TestDateTime';"],
 	"expr": "${$testDateTime + 1}",
 	"expectedError": {
-		"message": "Expressions are exclusively supported for numeric types. Parameter '$testDateTime' is of not supported type 'dateTime'",
+		"message": "Expressions are exclusively supported for numeric types or boolean type. Parameter '$testDateTime' is of not supported type 'dateTime'",
 		"column": 2
 	}
 },
@@ -337,38 +337,15 @@ const std::string TestDescription::json = R"json(
 	"string testString= 'TestString';"],
 	"expr": "${$testString + 1}",
 	"expectedError": {
-		"message": "Expressions are exclusively supported for numeric types. Parameter '$testString' is of not supported type 'string'",
+		"message": "Expressions are exclusively supported for numeric types or boolean type. Parameter '$testString' is of not supported type 'string'",
 		"column": 2
-	}
-},
-{
-	"id" : 46,
-	"comment": "boolean is not allowed in expression calculation",
-	"parameterDefinitions": [
-	"boolean testBoolean= 'TestBoolean';"],
-	"expr": "${$testBoolean + 1}",
-	"expectedError": {
-		"message": "Expressions are exclusively supported for numeric types. Parameter '$testBoolean' is of not supported type 'boolean'",
-		"column": 2
-	}
-},
-{
-	"id" : 47,
-	"comment": "Not a Boolean String",
-	"parameterDefinitions": [
-	"boolean testBoolean= 'TestBoolean';"],
-	"expr": "$testBoolean",
-	"expectedDatatype": "boolean",	
-	"expectedError": {
-		"message": "Value 'TestBoolean' cannot be converted to type 'boolean'",
-		"column": 0
 	}
 },
 {
 	"id" : 48,
 	"comment": "A boolean String",
 	"parameterDefinitions": [
-	"boolean testBoolean= 'false';"],
+	"boolean testBoolean= false;"],
 	"expr": "$testBoolean",
 	"expectedDatatype": "boolean",	
 	"expectedValue": "false"
@@ -393,6 +370,156 @@ const std::string TestDescription::json = R"json(
 	"expr": "$testDateTime",
 	"expectedDatatype": "dateTime",	
 	"expectedValue": "2001-10-26T21:32:52"
+},
+{
+	"id" : 51,
+	"comment": "Simple Boolean (false)",
+	"expr": "${false}",
+	"expectedDatatype": "boolean",	
+	"expectedValue": "false"
+},
+{
+	"id" : 52,
+	"comment": "Simple Boolean (true)",
+	"expr": "${true}",
+	"expectedDatatype": "boolean",	
+	"expectedValue": "true"
+},
+{
+	"id" : 52,
+	"comment": "Simple not",
+	"expr": "${not true}",
+	"expectedDatatype": "boolean",	
+	"expectedValue": "false"
+},
+{
+	"id" : 52,
+	"comment": "Simple true and true",
+	"expr": "${true and true}",
+	"expectedDatatype": "boolean",	
+	"expectedValue": "true"
+},
+{
+	"id" : 52,
+	"comment": "Simple true and false",
+	"expr": "${true and false}",
+	"expectedDatatype": "boolean",	
+	"expectedValue": "false"
+},
+{
+	"id" : 52,
+	"comment": "Simple false and false",
+	"expr": "${false and false}",
+	"expectedDatatype": "boolean",	
+	"expectedValue": "false"
+},
+{
+	"id" : 52,
+	"comment": "Simple false and true",
+	"expr": "${false and true}",
+	"expectedDatatype": "boolean",	
+	"expectedValue": "false"
+},
+{
+	"id" : 52,
+	"comment": "Simple true or true",
+	"expr": "${true or true}",
+	"expectedDatatype": "boolean",	
+	"expectedValue": "true"
+},
+{
+	"id" : 52,
+	"comment":  "Simple true or false",
+	"expr": "${true or false}",
+	"expectedDatatype": "boolean",	
+	"expectedValue": "true"
+},
+{
+	"id" : 52,
+	"comment":  "Simple false or false",
+	"expr": "${false or false}",
+	"expectedDatatype": "boolean",	
+	"expectedValue": "false"
+},
+{
+	"id" : 52,
+	"comment":  "Simple false or true",
+	"expr": "${false or true}",
+	"expectedDatatype": "boolean",	
+	"expectedValue": "true"
+},
+{
+	"id" : 52,
+	"comment": "Simple not brackets",
+	"expr": "${not(false)}",
+	"expectedDatatype": "boolean",	
+	"expectedValue": "true"
+},
+{
+	"id" : 52,
+	"comment": "Precedence and, or",
+	"expr": "${false or true and false}",
+	"expectedDatatype": "boolean",	
+	"expectedValue": "false"
+},
+{
+	"id" : 52,
+	"comment": "No Precedence with brackets",
+	"expr": "${(false or true) and true}",
+	"expectedDatatype": "boolean",	
+	"expectedValue": "true"
+},
+{
+	"id" : 52,
+	"comment": "consecutive not: not not true",
+	"expr": "${not not true}",
+	"expectedDatatype": "boolean",	
+	"expectedValue": "true"
+},
+{
+	"id" : 48,
+	"comment": "Parameter and (first)",
+	"parameterDefinitions": [
+	"boolean testBoolean= true;"],
+	"expr": "${$testBoolean and false}",
+	"expectedDatatype": "boolean",	
+	"expectedValue": "false"
+},
+{
+	"id" : 48,
+	"comment": "Parameter and (second)",
+	"parameterDefinitions": [
+	"boolean testBoolean= true;"],
+	"expr": "${false and $testBoolean}",
+	"expectedDatatype": "boolean",	
+	"expectedValue": "false"
+},
+{
+	"id" : 48,
+	"comment": "Parameter or (first)",
+	"parameterDefinitions": [
+	"boolean testBoolean= true;"],
+	"expr": "${$testBoolean or false}",
+	"expectedDatatype": "boolean",	
+	"expectedValue": "true"
+},
+{
+	"id" : 48,
+	"comment": "Parameter or (second)",
+	"parameterDefinitions": [
+	"boolean testBoolean= true;"],
+	"expr": "${false or $testBoolean}",
+	"expectedDatatype": "boolean",	
+	"expectedValue": "true"
+},
+{
+	"id" : 48,
+	"comment": "Parameter not",
+	"parameterDefinitions": [
+	"boolean testBoolean= true;"],
+	"expr": "${not($testBoolean)}",
+	"expectedDatatype": "boolean",	
+	"expectedValue": "false"
 }
 
 

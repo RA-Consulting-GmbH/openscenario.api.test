@@ -108,6 +108,20 @@ std::shared_ptr<std::map<std::string, std::shared_ptr<ExprValue>>> ParamDefReade
 
 			  }			
 		  }
+		  else if (paramDef->booleanParamDef() != 0)
+		  {
+			  // String type;
+			  OscParamDefParser::BooleanParamDefContext* booleanParamDef = paramDef->booleanParamDef();
+			  std::string type = booleanParamDef->type->getText();
+			  std::string literal = booleanParamDef->literal->getText();
+			  std::string id = booleanParamDef->id->getText();
+			  std::shared_ptr <ExprValue> simpleValue = ExprValue::CreateSimpleParameterValue(id, literal, ExprType::GetFromLiteral(type));
+
+
+			  std::shared_ptr<ExprValue> typedValue = ExprValue::CreateBooleanValue(literal);
+			  result->insert(std::pair<std::string, std::shared_ptr<ExprValue>>(id, simpleValue));
+
+		  }
     }
 	  return result;
   }

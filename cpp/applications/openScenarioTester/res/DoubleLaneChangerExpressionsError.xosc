@@ -130,7 +130,7 @@
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <WorldPosition x="${$stringParam + 1}" y="${$boolParam + 1}" z="0.0000000000000000e+00" h="1.5707963267948966e+00" p="0.0000000000000000e+00" r="0.0000000000000000e+00"/>
+                <WorldPosition x="${$stringParam + 1}" y="1.0" z="0.0000000000000000e+00" h="1.5707963267948966e+00" p="0.0000000000000000e+00" r="0.0000000000000000e+00"/>
               </Position>
             </TeleportAction>
           </PrivateAction>

@@ -3,7 +3,10 @@ lexer grammar OscParamDefLexer;
 EQUAL: '=';
 SEMICOLON: ';';
 NUMERIC_TYPECAST :  ('int'|'double'| 'unsignedInt' | 'unsignedShort');
-STRING_TYPECAST :  ( 'string' | 'dateTime' | 'boolean');
+STRING_TYPECAST :  ( 'string' | 'dateTime' );
+BOOLEAN_TYPECAST :  'boolean';
+TRUE_LITERAL :  'true';
+FALSE_LITERAL :  'false';
 ID  :   [a-zA-Z_][a-zA-Z0-9_]* ;
 
 STRING:  '\'' ( ~('\\'|'\'') )* '\'';

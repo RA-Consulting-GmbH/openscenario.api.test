@@ -170,14 +170,12 @@ namespace NET_ASAM_OPENSCENARIO
 					"Syntax error in expression near '}'",
 					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(114, 108, kFilename)));
 				messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
-					"Expressions are exclusively supported for numeric types. Parameter '$timeParam' is of not supported type 'dateTime'",
+					"Expressions are exclusively supported for numeric types or boolean type. Parameter '$timeParam' is of not supported type 'dateTime'",
 					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(125, 48, kFilename)));
 				messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
-					"Expressions are exclusively supported for numeric types. Parameter '$stringParam' is of not supported type 'string'",
+					"Expressions are exclusively supported for numeric types or boolean type. Parameter '$stringParam' is of not supported type 'string'",
 					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(133, 36, kFilename)));
-				messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
-					"Expressions are exclusively supported for numeric types. Parameter '$boolParam' is of not supported type 'boolean'",
-					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(133, 60, kFilename)));
+
 
 
 				bool result =  Assert(AssertMessages(messages, NET_ASAM_OPENSCENARIO::ERROR, _messageLogger), ASSERT_LOCATION);
