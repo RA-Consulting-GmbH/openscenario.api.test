@@ -24,6 +24,7 @@
 #include <string>
 #include <cfenv>
 #include <math.h>
+#include <cmath>
 
 
 namespace OscExpression

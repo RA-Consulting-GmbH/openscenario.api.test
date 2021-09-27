@@ -20,6 +20,7 @@
 //#include <math.h>
 #include <climits>
 #include <regex>
+#include <cmath>
 
 namespace OscExpression
 {
