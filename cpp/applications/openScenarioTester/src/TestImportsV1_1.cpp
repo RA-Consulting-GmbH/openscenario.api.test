@@ -23,6 +23,8 @@ namespace NET_ASAM_OPENSCENARIO
 {
     namespace v1_1
 	{
+		double TestImports::epsilon = 0.001;
+    	
 		std::shared_ptr<ICatalogReference> TestImports::GetVehicleImport(std::shared_ptr<IOpenScenario> openScenario, const std::string scenarioObjectName, const std::string entryName)
 		{
 			auto scenarioObjects = openScenario->GetOpenScenarioCategory()->GetScenarioDefinition()->GetEntities()->GetScenarioObjects();
@@ -99,10 +101,18 @@ namespace NET_ASAM_OPENSCENARIO
 				auto catalogMessageLogger = std::make_shared<NET_ASAM_OPENSCENARIO::SimpleMessageLogger>(NET_ASAM_OPENSCENARIO::ERROR);
 				// ReSharper disable once CppLocalVariableMayBeConst
 				auto openScenario = std::dynamic_pointer_cast<IOpenScenario>(ExecuteImportParsing(_executablePath + "/" + kInputDir + "simpleImportWithParameters/importWithParameters.xosc", catalogMessageLogger));
-
+				bool res = Assert(_messageLogger->GetMessagesFilteredByWorseOrEqualToErrorLevel(NET_ASAM_OPENSCENARIO::ERROR).empty(), ASSERT_LOCATION);
+				if (!res)
+				{
+					auto filterByErrorLevelLogger = _messageLogger->GetMessagesFilteredByErrorLevel(NET_ASAM_OPENSCENARIO::ERROR);
+					for (auto it = filterByErrorLevelLogger.begin(); it != filterByErrorLevelLogger.end(); ++it) {
+						std::cout << it->ToString() << "\n";
+					}
+				}
+				
 				// Ego parameterAssignement for maxSpeed
 				auto catalogReference = GetVehicleImport(openScenario, "Ego", "car_white");
-				auto res = Assert(catalogReference != nullptr, ASSERT_LOCATION);
+				res = Assert(catalogReference != nullptr, ASSERT_LOCATION);
 				res = res && Assert(catalogReference->GetRef() != nullptr, ASSERT_LOCATION);
 				auto ref = catalogReference->GetRef();
 				auto vehicleImportEgo = CatalogHelper::AsVehicle(ref);
@@ -139,6 +149,65 @@ namespace NET_ASAM_OPENSCENARIO
 				return Assert(false, ASSERT_LOCATION);
 			}
 		}
+		bool TestImports::TestImportWithExpressionsSuccess()
+		{
+			try
+			{
+				// ReSharper disable once CppLocalVariableMayBeConst
+				auto catalogMessageLogger = std::make_shared<NET_ASAM_OPENSCENARIO::SimpleMessageLogger>(NET_ASAM_OPENSCENARIO::ERROR);
+				// ReSharper disable once CppLocalVariableMayBeConst
+				auto openScenario = std::dynamic_pointer_cast<IOpenScenario>(ExecuteImportParsing(_executablePath + "/" + kInputDir + "simpleImportWithExpressions/simpleImportWithExpressions.xosc", catalogMessageLogger));
+				bool res = Assert(_messageLogger->GetMessagesFilteredByWorseOrEqualToErrorLevel(NET_ASAM_OPENSCENARIO::ERROR).empty(), ASSERT_LOCATION);
+				if (!res)
+				{
+					auto filterByErrorLevelLogger = _messageLogger->GetMessagesFilteredByErrorLevel(NET_ASAM_OPENSCENARIO::ERROR);
+					for (auto it = filterByErrorLevelLogger.begin(); it != filterByErrorLevelLogger.end(); ++it) {
+						std::cout << it->ToString() << "\n";
+					}
+				}
 
+				// Ego parameterAssignement for maxSpeed
+				auto catalogReference = GetVehicleImport(openScenario, "Ego", "car_white");
+				res = Assert(catalogReference != nullptr, ASSERT_LOCATION);
+				res = res && Assert(catalogReference->GetRef() != nullptr, ASSERT_LOCATION);
+				auto ref = catalogReference->GetRef();
+				auto vehicleImportEgo = CatalogHelper::AsVehicle(ref);
+				res = res && Assert(vehicleImportEgo != nullptr, ASSERT_LOCATION);
+				auto temp = vehicleImportEgo->GetPerformance()->GetMaxSpeed();
+				res = res && Assert((vehicleImportEgo->GetPerformance()->GetMaxSpeed() - 70.0)< epsilon, ASSERT_LOCATION);
+				temp = vehicleImportEgo->GetPerformance()->GetMaxAcceleration();
+				res = res && Assert((vehicleImportEgo->GetPerformance()->GetMaxAcceleration() - 72.0) < epsilon, ASSERT_LOCATION);
+				temp = vehicleImportEgo->GetPerformance()->GetMaxDeceleration();
+				res = res && Assert((vehicleImportEgo->GetPerformance()->GetMaxDeceleration() - 63.0) < epsilon, ASSERT_LOCATION);
+
+				// Overtaker: Same import, different ParamterAssignements for maxSpeed
+				catalogReference = GetVehicleImport(openScenario, "OverTaker", "car_white");
+				res = res && Assert(catalogReference != nullptr, ASSERT_LOCATION);
+				res = res && Assert(catalogReference->GetRef() != nullptr, ASSERT_LOCATION);
+				ref = catalogReference->GetRef();
+				auto vehicleImportOvertaker = CatalogHelper::AsVehicle(ref);
+				res = res && Assert(vehicleImportOvertaker != nullptr, ASSERT_LOCATION);
+				res = res && Assert(vehicleImportOvertaker->GetPerformance()->GetMaxSpeed() == 31.0, ASSERT_LOCATION);
+				res = res && Assert(vehicleImportOvertaker != vehicleImportEgo, ASSERT_LOCATION);
+
+				// ThirdEntity: No ParameterAssignements => Default Value for maxSpeed
+				catalogReference = GetVehicleImport(openScenario, "ThirdEntity", "car_white");
+				res = res && Assert(catalogReference != nullptr, ASSERT_LOCATION);
+				res = res && Assert(catalogReference->GetRef() != nullptr, ASSERT_LOCATION);
+				ref = catalogReference->GetRef();
+				auto vehicleImportThirdVehicle = CatalogHelper::AsVehicle(ref);
+				res = res && Assert(vehicleImportThirdVehicle != nullptr, ASSERT_LOCATION);
+				res = res && Assert(vehicleImportThirdVehicle->GetPerformance()->GetMaxSpeed() == 60.0, ASSERT_LOCATION);
+
+				res = res && Assert(_messageLogger->GetMessagesFilteredByWorseOrEqualToErrorLevel(NET_ASAM_OPENSCENARIO::ERROR).empty(), ASSERT_LOCATION);
+
+				return res;
+			}
+			catch (NET_ASAM_OPENSCENARIO::ScenarioLoaderException& e)
+			{
+				std::cout << e.what();
+				return Assert(false, ASSERT_LOCATION);
+			}
+		}
 	}
 }

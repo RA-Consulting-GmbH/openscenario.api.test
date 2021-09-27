@@ -229,62 +229,31 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 		void ExpressionResolver::ResolveCatalogElement(std::shared_ptr<IParserMessageLogger>& logger, std::shared_ptr<CatalogReferenceImpl> catalogReferenceImpl)
 	    {
-			std::map<std::string, std::string> assignedParameters;
-			auto kReferencedCatalogElement = catalogReferenceImpl->GetRef();
-			if (kReferencedCatalogElement != nullptr)
+			if (catalogReferenceImpl != nullptr)
 			{
-				auto   catalogElement = std::dynamic_pointer_cast<BaseImpl>(kReferencedCatalogElement);
-				if (catalogElement != nullptr)
+				auto parameterAssignments = catalogReferenceImpl->GetParameterAssignments();
+				// if parameterDeclarations are emtpy, there is no need to resolve the assigned parameters,
+
+				for (auto parameterAssignment : parameterAssignments)
 				{
-					auto parameterAssignments = catalogReferenceImpl->GetParameterAssignments();
-					auto parameterDefinitions = catalogElement->GetParameterDefinitions();
-					std::map<std::string, std::shared_ptr<OscExpression::ExprType>> paramDefNameToType;
+					std::string parameterAssignmentName = parameterAssignment->GetParameterRef()->GetNameRef();
+					
+					// Parameter is  relevant. There is a ParameterDeclaration with this name.
 
-					auto parameterDeclarations = CatalogHelper::GetParameterDeclarations(kReferencedCatalogElement);
-					// Fill the data types
-					for (auto parameterDeclaration : parameterDeclarations)
+					auto parmeterAssignmentImpl = std::dynamic_pointer_cast<ParameterAssignmentImpl>(parameterAssignment);
+					// Resolve value of Parameter Assignment
+					if (ParserHelper::IsExpression(parameterAssignment->GetValue()))
 					{
-						paramDefNameToType[parameterDeclaration->GetName()] = OscExpression::ExprType::GetFromLiteral(parameterDeclaration->GetParameterType().GetLiteral());
-					}
-					if (parameterDeclarations.empty())
-					{
-						// if parameterDeclarations are emtpy, there is no need to resolve the assigned parameters,
-
-						for (auto parameterAssignment : parameterAssignments)
+						std::shared_ptr<OscExpression::ExprValue> value = ResolveValueOfParameterAsignment(logger, parameterAssignment);
+						if (value != nullptr)
 						{
-							std::string parameterAssignmentName = parameterAssignment->GetParameterRef()->GetNameRef();
-							std::shared_ptr<OscExpression::ExprType> targetType = paramDefNameToType[parameterAssignmentName];
-							if (targetType != nullptr)
-							{
-								// Parameter is  relevant. There is a ParameterDeclaration with this name.
-
-								// Resolve value of Parameter Assignment
-								if (ParserHelper::IsExpression(parameterAssignment->GetValue()))
-								{
-									std::shared_ptr<OscExpression::ExprValue> value = ResolveValueOfParameterAsignment(logger, parameterAssignment, targetType);
-									if (value != nullptr)
-									{
-										// Can be resolved
-										assignedParameters[parameterAssignmentName] = value->ToString();
-									}
-								}
-								else
-								{
-									assignedParameters[parameterAssignmentName] = parameterAssignment->GetValue();
-								}
-							}
+							// Can be resolved
+							parmeterAssignmentImpl->SetValue(value->ToString());
 						}
-					}
-					// Then resolve catalog Element with own stack
-					// Save the global Stack
-					std::shared_ptr<ExpressionResolverStack> globalStack = _expressionResolverStack;
-					// Resolve the imported catalog element with a new stack
-					_expressionResolverStack = std::make_shared<ExpressionResolverStack>();
-					Resolve(logger, catalogElement, assignedParameters, true);
-					// Switch back to the global stack.
-					_expressionResolverStack = globalStack;
+					}					
 				}
 			}
+			
 	    }
         void ExpressionResolver::Resolve(std::shared_ptr<IParserMessageLogger>& logger, std::shared_ptr<BaseImpl> baseImpl, std::map<std::string, std::string>& injectedParameters, bool logUnresolvableParameter)
         {
@@ -422,7 +391,7 @@ namespace NET_ASAM_OPENSCENARIO
 			return nullptr;
 		}
 
-		std::shared_ptr<OscExpression::ExprValue> ExpressionResolver::ResolveValueOfParameterAsignment(std::shared_ptr<IParserMessageLogger>& logger, std::shared_ptr<IParameterAssignment> parameterAssignment, std::shared_ptr<OscExpression::ExprType> targetType)
+		std::shared_ptr<OscExpression::ExprValue> ExpressionResolver::ResolveValueOfParameterAsignment(std::shared_ptr<IParserMessageLogger>& logger, std::shared_ptr<IParameterAssignment> parameterAssignment)
 		{
 			std::string& value = parameterAssignment->GetValue();
 			if (!ParserHelper::IsExpression(value))
@@ -433,7 +402,7 @@ namespace NET_ASAM_OPENSCENARIO
 			{
 				try {
 					// Resolve the value
-					std::shared_ptr<OscExpression::OscExprEvaluator> evaluator = OscExpression::OscExprEvaluatorFactory::CreateOscExprEvaluator(_expressionResolverStack->GetCurrentMap(), targetType);
+					std::shared_ptr<OscExpression::OscExprEvaluator> evaluator = OscExpression::OscExprEvaluatorFactory::CreateOscExprEvaluator(_expressionResolverStack->GetCurrentMap(), nullptr);
 					std::shared_ptr<OscExpression::ExprValue> resultValue = evaluator->Evaluate(value);
 					return resultValue;
 				}

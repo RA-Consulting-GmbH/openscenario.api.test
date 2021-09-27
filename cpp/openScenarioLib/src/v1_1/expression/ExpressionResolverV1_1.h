@@ -111,8 +111,7 @@ namespace NET_ASAM_OPENSCENARIO
 			std::shared_ptr<OscExpression::ExprValue> ResolveValueOfParameterDeclaration(std::shared_ptr<IParserMessageLogger>& logger, std::shared_ptr<IParameterDeclaration> parameterDeclaration);
 			std::shared_ptr<OscExpression::ExprValue> ResolveValueOfParameterAsignment(
 				std::shared_ptr<IParserMessageLogger>& logger,
-				std::shared_ptr<IParameterAssignment> parameterAssignment,
-				std::shared_ptr<OscExpression::ExprType> targetType);
+				std::shared_ptr<IParameterAssignment> parameterAssignment);
 
 			/**
              * Resolve all parameters with parameter assignments, instead of parameter definitions

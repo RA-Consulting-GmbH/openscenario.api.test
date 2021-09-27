@@ -77,6 +77,7 @@ bool TestV1_1(std::string basePath )
 	result = testImports.TestImportSuccess() && result;
 
 	result = testImports.TestImportWithParametersSuccess() && result;
+	result = testImports.TestImportWithExpressionsSuccess() && result;
 
 	result = testReader.TestImportSuccess() && result;
 	result = testReader.TestDirectorySuccess() && result;
