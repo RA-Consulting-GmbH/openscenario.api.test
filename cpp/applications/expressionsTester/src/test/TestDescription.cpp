@@ -386,98 +386,98 @@ const std::string TestDescription::json = R"json(
 	"expectedValue": "true"
 },
 {
-	"id" : 52,
+	"id" : 53,
 	"comment": "Simple not",
 	"expr": "${not true}",
 	"expectedDatatype": "boolean",	
 	"expectedValue": "false"
 },
 {
-	"id" : 52,
+	"id" : 54,
 	"comment": "Simple true and true",
 	"expr": "${true and true}",
 	"expectedDatatype": "boolean",	
 	"expectedValue": "true"
 },
 {
-	"id" : 52,
+	"id" : 55,
 	"comment": "Simple true and false",
 	"expr": "${true and false}",
 	"expectedDatatype": "boolean",	
 	"expectedValue": "false"
 },
 {
-	"id" : 52,
+	"id" : 56,
 	"comment": "Simple false and false",
 	"expr": "${false and false}",
 	"expectedDatatype": "boolean",	
 	"expectedValue": "false"
 },
 {
-	"id" : 52,
+	"id" : 57,
 	"comment": "Simple false and true",
 	"expr": "${false and true}",
 	"expectedDatatype": "boolean",	
 	"expectedValue": "false"
 },
 {
-	"id" : 52,
+	"id" : 58,
 	"comment": "Simple true or true",
 	"expr": "${true or true}",
 	"expectedDatatype": "boolean",	
 	"expectedValue": "true"
 },
 {
-	"id" : 52,
+	"id" : 59,
 	"comment":  "Simple true or false",
 	"expr": "${true or false}",
 	"expectedDatatype": "boolean",	
 	"expectedValue": "true"
 },
 {
-	"id" : 52,
+	"id" : 60,
 	"comment":  "Simple false or false",
 	"expr": "${false or false}",
 	"expectedDatatype": "boolean",	
 	"expectedValue": "false"
 },
 {
-	"id" : 52,
+	"id" : 61,
 	"comment":  "Simple false or true",
 	"expr": "${false or true}",
 	"expectedDatatype": "boolean",	
 	"expectedValue": "true"
 },
 {
-	"id" : 52,
+	"id" : 62,
 	"comment": "Simple not brackets",
 	"expr": "${not(false)}",
 	"expectedDatatype": "boolean",	
 	"expectedValue": "true"
 },
 {
-	"id" : 52,
+	"id" : 63,
 	"comment": "Precedence and, or",
 	"expr": "${false or true and false}",
 	"expectedDatatype": "boolean",	
 	"expectedValue": "false"
 },
 {
-	"id" : 52,
+	"id" : 64,
 	"comment": "No Precedence with brackets",
 	"expr": "${(false or true) and true}",
 	"expectedDatatype": "boolean",	
 	"expectedValue": "true"
 },
 {
-	"id" : 52,
+	"id" : 65,
 	"comment": "consecutive not: not not true",
 	"expr": "${not not true}",
 	"expectedDatatype": "boolean",	
 	"expectedValue": "true"
 },
 {
-	"id" : 48,
+	"id" : 66,
 	"comment": "Parameter and (first)",
 	"parameterDefinitions": [
 	"boolean testBoolean= true;"],
@@ -486,7 +486,7 @@ const std::string TestDescription::json = R"json(
 	"expectedValue": "false"
 },
 {
-	"id" : 48,
+	"id" : 67,
 	"comment": "Parameter and (second)",
 	"parameterDefinitions": [
 	"boolean testBoolean= true;"],
@@ -495,7 +495,7 @@ const std::string TestDescription::json = R"json(
 	"expectedValue": "false"
 },
 {
-	"id" : 48,
+	"id" : 68,
 	"comment": "Parameter or (first)",
 	"parameterDefinitions": [
 	"boolean testBoolean= true;"],
@@ -504,7 +504,7 @@ const std::string TestDescription::json = R"json(
 	"expectedValue": "true"
 },
 {
-	"id" : 48,
+	"id" : 69,
 	"comment": "Parameter or (second)",
 	"parameterDefinitions": [
 	"boolean testBoolean= true;"],
@@ -513,7 +513,7 @@ const std::string TestDescription::json = R"json(
 	"expectedValue": "true"
 },
 {
-	"id" : 48,
+	"id" : 70,
 	"comment": "Parameter not",
 	"parameterDefinitions": [
 	"boolean testBoolean= true;"],

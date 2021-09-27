@@ -27,6 +27,7 @@
 #include "IParserMessageLogger.h"
 #include "BaseImpl.h"
 #include "ApiClassImplV1_1.h"
+#include "CatalogHelperV1_1.h"
 #include "SimpleType.h"
 #include "MemLeakDetection.h"
 #include "OscExprEvaluatorFactory.h"
@@ -104,7 +105,7 @@ namespace NET_ASAM_OPENSCENARIO
 
 				SimpleType targetType = expressionObject->GetTypeFromAttributeName(attributeKey);
             	
-				std::shared_ptr<OscExpression::OscExprEvaluator> evaluator = OscExpression::OscExprEvaluatorFactory::CreateOscExprEvaluator(_expressionResolverStack.GetCurrentMap(), CreateExprTypeFromSimpleType(targetType));
+				std::shared_ptr<OscExpression::OscExprEvaluator> evaluator = OscExpression::OscExprEvaluatorFactory::CreateOscExprEvaluator(_expressionResolverStack->GetCurrentMap(), CreateExprTypeFromSimpleType(targetType));
 				try {
 					std::shared_ptr<OscExpression::ExprValue> value = evaluator->Evaluate(expression);
 					
@@ -167,6 +168,7 @@ namespace NET_ASAM_OPENSCENARIO
 
 	    ExpressionResolver::ExpressionResolver()
 	    {
+			_expressionResolverStack = std::make_shared<ExpressionResolverStack>();
 	    }
 
 		bool ExpressionResolver::OverrideGlobalParameterWithInjectedParameter(std::shared_ptr<ParameterValue> parameterValue, std::shared_ptr<IParserMessageLogger> logger, std::map<std::string, std::string>& injectedParameters, std::shared_ptr<IParameterDeclaration> parameterDeclaration)
@@ -225,9 +227,69 @@ namespace NET_ASAM_OPENSCENARIO
 			}
 			return result;
 		}
+		void ExpressionResolver::ResolveCatalogElement(std::shared_ptr<IParserMessageLogger>& logger, std::shared_ptr<CatalogReferenceImpl> catalogReferenceImpl)
+	    {
+			std::map<std::string, std::string> assignedParameters;
+			auto kReferencedCatalogElement = catalogReferenceImpl->GetRef();
+			if (kReferencedCatalogElement != nullptr)
+			{
+				auto   catalogElement = std::dynamic_pointer_cast<BaseImpl>(kReferencedCatalogElement);
+				if (catalogElement != nullptr)
+				{
+					auto parameterAssignments = catalogReferenceImpl->GetParameterAssignments();
+					auto parameterDefinitions = catalogElement->GetParameterDefinitions();
+					std::map<std::string, std::shared_ptr<OscExpression::ExprType>> paramDefNameToType;
 
+					auto parameterDeclarations = CatalogHelper::GetParameterDeclarations(kReferencedCatalogElement);
+					// Fill the data types
+					for (auto parameterDeclaration : parameterDeclarations)
+					{
+						paramDefNameToType[parameterDeclaration->GetName()] = OscExpression::ExprType::GetFromLiteral(parameterDeclaration->GetParameterType().GetLiteral());
+					}
+					if (parameterDeclarations.empty())
+					{
+						// if parameterDeclarations are emtpy, there is no need to resolve the assigned parameters,
+
+						for (auto parameterAssignment : parameterAssignments)
+						{
+							std::string parameterAssignmentName = parameterAssignment->GetParameterRef()->GetNameRef();
+							std::shared_ptr<OscExpression::ExprType> targetType = paramDefNameToType[parameterAssignmentName];
+							if (targetType != nullptr)
+							{
+								// Parameter is  relevant. There is a ParameterDeclaration with this name.
+
+								// Resolve value of Parameter Assignment
+								if (ParserHelper::IsExpression(parameterAssignment->GetValue()))
+								{
+									std::shared_ptr<OscExpression::ExprValue> value = ResolveValueOfParameterAsignment(logger, parameterAssignment, targetType);
+									if (value != nullptr)
+									{
+										// Can be resolved
+										assignedParameters[parameterAssignmentName] = value->ToString();
+									}
+								}
+								else
+								{
+									assignedParameters[parameterAssignmentName] = parameterAssignment->GetValue();
+								}
+							}
+						}
+					}
+					// Then resolve catalog Element with own stack
+					// Save the global Stack
+					std::shared_ptr<ExpressionResolverStack> globalStack = _expressionResolverStack;
+					// Resolve the imported catalog element with a new stack
+					_expressionResolverStack = std::make_shared<ExpressionResolverStack>();
+					Resolve(logger, catalogElement, assignedParameters, true);
+					// Switch back to the global stack.
+					_expressionResolverStack = globalStack;
+				}
+			}
+	    }
         void ExpressionResolver::Resolve(std::shared_ptr<IParserMessageLogger>& logger, std::shared_ptr<BaseImpl> baseImpl, std::map<std::string, std::string>& injectedParameters, bool logUnresolvableParameter)
         {
+			std::map<std::string, std::string> emptyMap;
+	    	
 			//Resolve the object's attribute BEFORE evaluating the possible ParameterDeclarations
 	    	ResolveInternal(logger, baseImpl, logUnresolvableParameter);
 	    	
@@ -243,27 +305,19 @@ namespace NET_ASAM_OPENSCENARIO
 			}
 
 	    	size_t paramsDefinitionSize = 0;
-
             auto children = baseImpl->GetChildren();
+	    	
             if (std::dynamic_pointer_cast<CatalogReferenceImpl>(baseImpl) != nullptr)
             {
-                const auto kReferencedCatalogElement = std::dynamic_pointer_cast<CatalogReferenceImpl>(baseImpl)->GetRef();
-                if (kReferencedCatalogElement)
-                {
-                    if (std::dynamic_pointer_cast<BaseImpl>(kReferencedCatalogElement) != nullptr)
-                        children.push_back(std::dynamic_pointer_cast<BaseImpl>(kReferencedCatalogElement));
-                }
-
+				auto catalogReferenceImpl = std::dynamic_pointer_cast<CatalogReferenceImpl>(baseImpl);
+				ResolveCatalogElement(logger, catalogReferenceImpl);
             }
-            if (!children.empty())
+            else if (!children.empty())
             {
                 for (auto&& child : children)
                 {
-                    std::map<std::string, std::string> emptyMap;
-
                 	// Resolve the child element
-					Resolve(logger, child, injectedParameters, logUnresolvableParameter);
-                	
+					Resolve(logger, child, injectedParameters, logUnresolvableParameter);               	
 					if (child->GetModelType() == OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION)
 					{
 						auto parameterDeclaration = std::dynamic_pointer_cast<IParameterDeclaration>(child);
@@ -273,7 +327,7 @@ namespace NET_ASAM_OPENSCENARIO
 						auto parameterType = parameterDeclaration->GetParameterType().GetLiteral();
 						auto parameterValue = std::make_shared<ParameterValue>(parameterDeclaration->GetName(), child->GetParameterType(parameterType), parameterDeclaration->GetValue());
 
-						if (!injectedParameters.empty() && std::dynamic_pointer_cast<IScenarioDefinition>(baseImpl) != nullptr)
+						if (!injectedParameters.empty() && std::dynamic_pointer_cast<IScenarioDefinition>(baseImpl) != nullptr || std::dynamic_pointer_cast<ICatalogElement>(baseImpl) != nullptr)
 						{
 							// override parameter values with injected parameters
 							if (OverrideGlobalParameterWithInjectedParameter(parameterValue, logger, injectedParameters, parameterDeclaration))
@@ -310,7 +364,7 @@ namespace NET_ASAM_OPENSCENARIO
 						}
 							
 						// Insert it and potentially override it
-						_expressionResolverStack.PushExpression(parameterDeclaration->GetName(), exprValue);
+						_expressionResolverStack->PushExpression(parameterDeclaration->GetName(), exprValue);
 						paramsDefinitionSize++;
 						
 					}
@@ -333,13 +387,12 @@ namespace NET_ASAM_OPENSCENARIO
 				}
             }
 
-            _expressionResolverStack.PopExpression(paramsDefinitionSize);
+            _expressionResolverStack->PopExpression(paramsDefinitionSize);
 
         }
 
 		std::shared_ptr<OscExpression::ExprValue> ExpressionResolver::ResolveValueOfParameterDeclaration(std::shared_ptr<IParserMessageLogger>& logger, std::shared_ptr<IParameterDeclaration> parameterDeclaration)
 		{
-			// Only Dollar will result in "$"
 			std::string& value = parameterDeclaration->GetValue();
 			std::string& parameterType = parameterDeclaration->GetParameterType().GetLiteral();
 			if (! ParserHelper::IsExpression(value))
@@ -350,7 +403,7 @@ namespace NET_ASAM_OPENSCENARIO
 				try {
 					// Resolve the value
 					std::shared_ptr<OscExpression::ExprType> targetType = OscExpression::ExprType::GetFromLiteral(parameterType);
-					std::shared_ptr<OscExpression::OscExprEvaluator> evaluator = OscExpression::OscExprEvaluatorFactory::CreateOscExprEvaluator(_expressionResolverStack.GetCurrentMap(), targetType);
+					std::shared_ptr<OscExpression::OscExprEvaluator> evaluator = OscExpression::OscExprEvaluatorFactory::CreateOscExprEvaluator(_expressionResolverStack->GetCurrentMap(), targetType);
 					std::shared_ptr<OscExpression::ExprValue> resultValue = evaluator->Evaluate(value);
 					return resultValue;
 				}
@@ -368,7 +421,37 @@ namespace NET_ASAM_OPENSCENARIO
 			}
 			return nullptr;
 		}
-    	
+
+		std::shared_ptr<OscExpression::ExprValue> ExpressionResolver::ResolveValueOfParameterAsignment(std::shared_ptr<IParserMessageLogger>& logger, std::shared_ptr<IParameterAssignment> parameterAssignment, std::shared_ptr<OscExpression::ExprType> targetType)
+		{
+			std::string& value = parameterAssignment->GetValue();
+			if (!ParserHelper::IsExpression(value))
+			{
+				return nullptr;
+			}
+			else
+			{
+				try {
+					// Resolve the value
+					std::shared_ptr<OscExpression::OscExprEvaluator> evaluator = OscExpression::OscExprEvaluatorFactory::CreateOscExprEvaluator(_expressionResolverStack->GetCurrentMap(), targetType);
+					std::shared_ptr<OscExpression::ExprValue> resultValue = evaluator->Evaluate(value);
+					return resultValue;
+				}
+				catch (OscExpression::SemanticException& s)
+				{
+					auto locator = std::static_pointer_cast<ILocator>(parameterAssignment->GetAdapter(typeid(ILocator).name()));
+					if (locator)
+					{
+						Textmarker textmarker = locator->GetStartMarker();
+						// Add log Message
+						auto msg = FileContentMessage(s.GetErrorMessage(), ERROR, textmarker);
+						logger->LogMessage(msg);
+					}
+				}
+			}
+			return nullptr;
+		}
+		
         void ExpressionResolver::ResolveWithParameterAssignments(std::shared_ptr<IParserMessageLogger>& logger, std::shared_ptr<ICatalogElement>& catalogElement, const std::map<std::string, std::string> parameterAssignments)
         {
             auto baseImpl = std::dynamic_pointer_cast<BaseImpl>(catalogElement);
@@ -403,13 +486,13 @@ namespace NET_ASAM_OPENSCENARIO
                 		
 						std::shared_ptr<OscExpression::ExprValue> exprValue = CreateExprValueFromParameterValue(parameterValue);
 						// Insert it and potentially override it
-						_expressionResolverStack.PushExpression(parameterValue->GetName(), exprValue);
+						_expressionResolverStack->PushExpression(parameterValue->GetName(), exprValue);
 						paramsDefinitionSize++;
                 	}
                 }
             }
 
-            _expressionResolverStack.PopExpression(paramsDefinitionSize);
+            _expressionResolverStack->PopExpression(paramsDefinitionSize);
 
         }
     	

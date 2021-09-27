@@ -68,6 +68,19 @@ namespace NET_ASAM_OPENSCENARIO
         <%-}-%>
             return "";
         }
+        /**
+        * Provides the ParameterDeclarations of the catalogElement
+        * @param catalogElement the catalog element
+        * @return The list with the parameter declarations
+        */
+        std::vector<std::shared_ptr<IParameterDeclaration>> CatalogHelper::GetParameterDeclarations(std::shared_ptr<ICatalogElement>& catalogElement)
+        {
+        <%- element.each{ umlClass ->-%>
+            if (Is<%=umlClass.name.toClassName()%>(catalogElement))
+                return std::dynamic_pointer_cast<I<%=umlClass.name.toClassName()%>>(catalogElement)->GetParameterDeclarations();
+        <%-}-%>
+            return std::vector<std::shared_ptr<IParameterDeclaration>>();
+        }
  
     }
 }

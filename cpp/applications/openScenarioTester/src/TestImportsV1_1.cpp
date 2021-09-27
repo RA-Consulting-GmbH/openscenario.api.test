@@ -47,13 +47,24 @@ namespace NET_ASAM_OPENSCENARIO
 		
 			try 
 			{
+				
 				// ReSharper disable once CppLocalVariableMayBeConst
 				auto catalogMessageLogger = std::make_shared<NET_ASAM_OPENSCENARIO::SimpleMessageLogger>(NET_ASAM_OPENSCENARIO::INFO);
 				// ReSharper disable once CppLocalVariableMayBeConst
 				auto openScenario = std::dynamic_pointer_cast<IOpenScenario>(ExecuteImportParsing(_executablePath + "/" + kInputDir + "simpleImport/simpleImport.xosc", catalogMessageLogger));
+
+				bool res = Assert(_messageLogger->GetMessagesFilteredByWorseOrEqualToErrorLevel(NET_ASAM_OPENSCENARIO::ERROR).empty(), ASSERT_LOCATION);
+				if (!res)
+				{
+					auto filterByErrorLevelLogger = _messageLogger->GetMessagesFilteredByErrorLevel(NET_ASAM_OPENSCENARIO::ERROR);
+					for (auto it = filterByErrorLevelLogger.begin(); it != filterByErrorLevelLogger.end(); ++it) {
+						std::cout << it->ToString() << "\n";
+					}
+				}
+				
 				// Ego parameterAssignement for maxSpeed
 				auto catalogReference = GetVehicleImport(openScenario, "Ego", "car_white");
-				auto res = Assert(catalogReference != nullptr, ASSERT_LOCATION);
+				res = Assert(catalogReference != nullptr, ASSERT_LOCATION);
 				res = res && Assert(catalogReference->GetRef() != nullptr, ASSERT_LOCATION);
 				auto ref = catalogReference->GetRef();
 				auto vehicleImportEgo = CatalogHelper::AsVehicle(ref);

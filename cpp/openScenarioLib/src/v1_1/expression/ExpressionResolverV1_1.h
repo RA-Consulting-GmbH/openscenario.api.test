@@ -38,7 +38,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
 
         private:
-			ExpressionResolverStack _expressionResolverStack;;
+			std::shared_ptr<ExpressionResolverStack> _expressionResolverStack;;
 	
 			/**
 			 * Adapter function that creates a ExprValue for a ParameterValue.
@@ -91,6 +91,8 @@ namespace NET_ASAM_OPENSCENARIO
 			                                                  std::shared_ptr<IParserMessageLogger> logger,
 			                                                  std::map<std::string, std::string>& injectedParameters,
 			                                                  std::shared_ptr<IParameterDeclaration> parameterDeclaration);
+			void ResolveCatalogElement(std::shared_ptr<IParserMessageLogger>& logger,
+			                           std::shared_ptr<CatalogReferenceImpl> catalogReferenceImpl);
 
 		public:
         	/**
@@ -107,6 +109,11 @@ namespace NET_ASAM_OPENSCENARIO
 			 * @return nullptr if the value cannot be resolved or value is not an expression.
 			 */
 			std::shared_ptr<OscExpression::ExprValue> ResolveValueOfParameterDeclaration(std::shared_ptr<IParserMessageLogger>& logger, std::shared_ptr<IParameterDeclaration> parameterDeclaration);
+			std::shared_ptr<OscExpression::ExprValue> ResolveValueOfParameterAsignment(
+				std::shared_ptr<IParserMessageLogger>& logger,
+				std::shared_ptr<IParameterAssignment> parameterAssignment,
+				std::shared_ptr<OscExpression::ExprType> targetType);
+
 			/**
              * Resolve all parameters with parameter assignments, instead of parameter definitions
              * @param logger to log messages
