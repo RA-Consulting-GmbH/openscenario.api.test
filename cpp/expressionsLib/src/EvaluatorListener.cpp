@@ -97,7 +97,7 @@ namespace OscExpression
 	std::unique_ptr <SemanticException> EvaluatorListener::CreateNotABooleanException(size_t column)
 	{
 		std::unique_ptr<SemanticException> blub = std::unique_ptr<SemanticException>();
-		return std::unique_ptr<SemanticException>(new SemanticException("Value must be of type boolean", column));
+		return std::unique_ptr<SemanticException>(new SemanticException("Value must be of type 'boolean'", column));
 	}
 
 	std::unique_ptr <SemanticException> EvaluatorListener::CreateNotANumericException(size_t column)
@@ -229,14 +229,14 @@ namespace OscExpression
 
 	void EvaluatorListener::exitFalseLiteral(OscExprParser::FalseLiteralContext *ctx)
 	{
-		std::string text = ctx->getText();
+		std::string text = "false";
 		// Push Double to stack
 		this->valueStack.push(ExprValue::CreateBooleanValue(text));
 	}
 
 	void EvaluatorListener::exitTrueLiteral(OscExprParser::TrueLiteralContext *ctx)
 	{
-		std::string text = ctx->getText();
+		std::string text = "true";
 		// Push Double to stack
 		this->valueStack.push(ExprValue::CreateBooleanValue(text));
 	}

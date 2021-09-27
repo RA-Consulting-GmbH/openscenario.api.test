@@ -520,6 +520,150 @@ const std::string TestDescription::json = R"json(
 	"expr": "${not($testBoolean)}",
 	"expectedDatatype": "boolean",	
 	"expectedValue": "false"
+},
+{
+	"id" : 71,
+	"comment": "Pow first operand is not numeric",
+	"expr": "${pow(false, 20)}",
+	"expectedError": {
+		"message": "Value must be numeric",
+		"column": 6
+	}
+},
+{
+	"id" : 72,
+	"comment": "Pow second operand is not numeric",
+	"expr": "${pow(20, false)}",
+	"expectedError": {
+		"message": "Value must be numeric",
+		"column": 10
+	}
+},
+{
+	"id" : 73,
+	"comment": "Sqrt operand is not numeric",
+	"expr": "${sqrt(false)}",
+	"expectedError": {
+		"message": "Value must be numeric",
+		"column": 7
+	}
+},
+{
+	"id" : 74,
+	"comment": "Unary minus operand is not numeric",
+	"expr": "${-false}",
+	"expectedError": {
+		"message": "Value must be numeric",
+		"column": 3
+	}
+},
+{
+	"id" : 75,
+	"comment": "Ceil operand is not numeric",
+	"expr": "${ceil(false)}",
+	"expectedError": {
+		"message": "Value must be numeric",
+		"column": 7
+	}
+},
+{
+	"id" : 76,
+	"comment": "Round operand is not numeric",
+	"expr": "${round(false)}",
+	"expectedError": {
+		"message": "Value must be numeric",
+		"column": 8
+	}
+},
+{
+	"id" : 77,
+	"comment": "Floor operand is not numeric",
+	"expr": "${floor(false)}",
+	"expectedError": {
+		"message": "Value must be numeric",
+		"column": 8
+	}
+},
+{
+	"id" : 78,
+	"comment": "Plus first operand is not numeric",
+	"expr": "${false + 20}",
+	"expectedError": {
+		"message": "Value must be numeric",
+		"column": 2
+	}
+},
+{
+	"id" : 79,
+	"comment": "Minus second operand is not numeric",
+	"expr": "${20 - false}",
+	"expectedError": {
+		"message": "Value must be numeric",
+		"column": 7
+	}
+},
+{
+	"id" : 79,
+	"comment": "Multiplication first operand is not numeric",
+	"expr": "${false * 20}",
+	"expectedError": {
+		"message": "Value must be numeric",
+		"column": 2
+	}
+},
+{
+	"id" : 80,
+	"comment": "Division second operand is not numeric",
+	"expr": "${20 / false}",
+	"expectedError": {
+		"message": "Value must be numeric",
+		"column": 7
+	}
+},
+{
+	"id" : 81,
+	"comment": "Not operand is not boolean",
+	"expr": "${not 20}",
+	"expectedError": {
+		"message": "Value must be of type 'boolean'",
+		"column": 6
+	}
+},
+{
+	"id" : 82,
+	"comment": "And first operand is not boolean",
+	"expr": "${20 and 20}",
+	"expectedError": {
+		"message": "Value must be of type 'boolean'",
+		"column": 2
+	}
+},
+{
+	"id" : 83,
+	"comment": "And second operand is not boolean",
+	"expr": "${false and 20}",
+	"expectedError": {
+		"message": "Value must be of type 'boolean'",
+		"column": 12
+	}
+},
+{
+	"id" : 84,
+	"comment": "Or first operand is not boolean",
+	"expr": "${20 or 20}",
+	"expectedError": {
+		"message": "Value must be of type 'boolean'",
+		"column": 2
+	}
+},
+{
+	"id" : 85,
+	"comment": "Or second operand is not boolean",
+	"expr": "${false or 20}",
+	"expectedError": {
+		"message": "Value must be of type 'boolean'",
+		"column": 11
+	}
 }
 
 
