@@ -350,7 +350,7 @@ namespace OscExpression
 			this->valueStack.push(result);
 		}
 		else if (ctx->func->getType() == OscExprLexer::CEIL) {
-			result = ExprValue::CreateDoubleValue(ceil(firstExprValue->getDoubleValue()));
+			result = ExprValue::CreateDoubleValue(std::ceil(firstExprValue->getDoubleValue()));
 			this->valueStack.push(result);
 		}
 		else if (ctx->func->getType() == OscExprLexer::FLOOR) {

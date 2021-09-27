@@ -196,7 +196,7 @@ namespace OscExpression
 			
 			if (IsTypeNumeric())
 			{
-				if (doubleValue >= INT_MIN && doubleValue <= INT_MAX && ceil(doubleValue) == doubleValue)
+				if (doubleValue >= INT_MIN && doubleValue <= INT_MAX &&std::ceil(doubleValue) == doubleValue)
 				{
 					result = CreateIntValue(doubleValue);
 				}
@@ -253,7 +253,7 @@ namespace OscExpression
 
 			if (IsTypeNumeric())
 			{
-				if (doubleValue >= 0 && doubleValue <= UINT_MAX && ceil(doubleValue) == doubleValue)
+				if (doubleValue >= 0 && doubleValue <= UINT_MAX && std::ceil(doubleValue) == doubleValue)
 				{
 					result = ExprValue::CreateUnsignedIntValue(doubleValue);
 				}
@@ -268,7 +268,7 @@ namespace OscExpression
 			
 			if (IsTypeNumeric())
 			{
-				if (doubleValue >= 0 && doubleValue <= USHRT_MAX && ceil(doubleValue) == doubleValue)
+				if (doubleValue >= 0 && doubleValue <= USHRT_MAX && std::ceil(doubleValue) == doubleValue)
 				{
 					result = ExprValue::CreateUnsignedShortValue(doubleValue);
 				}
