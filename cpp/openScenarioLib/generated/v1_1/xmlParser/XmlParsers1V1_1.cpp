@@ -71,6 +71,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -103,6 +104,8 @@ namespace NET_ASAM_OPENSCENARIO
             _steadyStateXmlParser->ParseElement(indexedElement, parserContext, steadyState);
 
             typedObject->SetSteadyState(steadyState);
+            
+            
         }
         
         int AbsoluteSpeedXmlParser::SubElementSteadyStateParser::GetMinOccur() 
@@ -174,6 +177,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -241,6 +245,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -308,6 +313,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -375,10 +381,16 @@ namespace NET_ASAM_OPENSCENARIO
                             auto msg = FileContentMessage("Value '" + attributeValue + "' is not allowed.", ERROR, startMarker);
                             _messageLogger.LogMessage(msg);
                         }
+                        if (Rule::IsDeprecated(kResult))
+				    	{
+							auto msg = FileContentMessage("Enumeration literal '" + attributeValue + "' is deprecated since standard version '" +  Rule::GetDeprecatedVersion(kResult) +"'. " + Rule::GetDeprecatedComment(kResult) + "'.", WARNING, Textmarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), this->_filename));
+							this->_messageLogger.LogMessage(msg);
+				    	}
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__RULE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__RULE, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -417,6 +429,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -479,6 +492,8 @@ namespace NET_ASAM_OPENSCENARIO
             _positionXmlParser->ParseElement(indexedElement, parserContext, position);
 
             typedObject->SetPosition(position);
+            
+            
         }
         
         int AcquirePositionActionXmlParser::SubElementPositionParser::GetMinOccur() 
@@ -548,6 +563,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -583,6 +599,8 @@ namespace NET_ASAM_OPENSCENARIO
             auto maneuverGroupsList = typedObject->GetWriterManeuverGroups();
             maneuverGroupsList.push_back(maneuverGroups);
             typedObject->SetManeuverGroups(maneuverGroupsList);
+            
+            
         }
         
         int ActXmlParser::SubElementManeuverGroupsParser::GetMinOccur() 
@@ -621,6 +639,8 @@ namespace NET_ASAM_OPENSCENARIO
             _triggerXmlParser->ParseElement(indexedElement, parserContext, startTrigger);
 
             typedObject->SetStartTrigger(startTrigger);
+            
+            
         }
         
         int ActXmlParser::SubElementStartTriggerParser::GetMinOccur() 
@@ -659,6 +679,8 @@ namespace NET_ASAM_OPENSCENARIO
             _triggerXmlParser->ParseElement(indexedElement, parserContext, stopTrigger);
 
             typedObject->SetStopTrigger(stopTrigger);
+            
+            
         }
         
         int ActXmlParser::SubElementStopTriggerParser::GetMinOccur() 
@@ -729,6 +751,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -763,6 +786,8 @@ namespace NET_ASAM_OPENSCENARIO
             _globalActionXmlParser->ParseElement(indexedElement, parserContext, globalAction);
 
             typedObject->SetGlobalAction(globalAction);
+            
+            
         }
         
         int ActionXmlParser::SubElementGlobalActionParser::GetMinOccur() 
@@ -801,6 +826,8 @@ namespace NET_ASAM_OPENSCENARIO
             _userDefinedActionXmlParser->ParseElement(indexedElement, parserContext, userDefinedAction);
 
             typedObject->SetUserDefinedAction(userDefinedAction);
+            
+            
         }
         
         int ActionXmlParser::SubElementUserDefinedActionParser::GetMinOccur() 
@@ -839,6 +866,8 @@ namespace NET_ASAM_OPENSCENARIO
             _privateActionXmlParser->ParseElement(indexedElement, parserContext, privateAction);
 
             typedObject->SetPrivateAction(privateAction);
+            
+            
         }
         
         int ActionXmlParser::SubElementPrivateActionParser::GetMinOccur() 
@@ -908,6 +937,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__LATERAL, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__LATERAL, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -941,6 +971,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__LONGITUDINAL, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__LONGITUDINAL, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -1003,6 +1034,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__SELECT_TRIGGERING_ENTITIES, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__SELECT_TRIGGERING_ENTITIES, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -1036,6 +1068,8 @@ namespace NET_ASAM_OPENSCENARIO
             auto entityRefsList = typedObject->GetWriterEntityRefs();
             entityRefsList.push_back(entityRefs);
             typedObject->SetEntityRefs(entityRefsList);
+            
+            
         }
         
         int ActorsXmlParser::SubElementEntityRefsParser::GetMinOccur() 
@@ -1105,6 +1139,8 @@ namespace NET_ASAM_OPENSCENARIO
             _positionXmlParser->ParseElement(indexedElement, parserContext, position);
 
             typedObject->SetPosition(position);
+            
+            
         }
         
         int AddEntityActionXmlParser::SubElementPositionParser::GetMinOccur() 
@@ -1175,6 +1211,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__ACTIVATE_LATERAL, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__ACTIVATE_LATERAL, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -1208,6 +1245,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__ACTIVATE_LONGITUDINAL, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__ACTIVATE_LONGITUDINAL, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -1241,6 +1279,8 @@ namespace NET_ASAM_OPENSCENARIO
             _controllerXmlParser->ParseElement(indexedElement, parserContext, controller);
 
             typedObject->SetController(controller);
+            
+            
         }
         
         int AssignControllerActionXmlParser::SubElementControllerParser::GetMinOccur() 
@@ -1280,6 +1320,8 @@ namespace NET_ASAM_OPENSCENARIO
 
             typedObject->SetCatalogReference(catalogReference);
             std::dynamic_pointer_cast<CatalogReferenceParserContext>(parserContext)->AddCatalogReference(std::dynamic_pointer_cast<ICatalogReference>(catalogReference));
+            
+            
         }
         
         int AssignControllerActionXmlParser::SubElementCatalogReferenceParser::GetMinOccur() 
@@ -1350,6 +1392,8 @@ namespace NET_ASAM_OPENSCENARIO
             _routeXmlParser->ParseElement(indexedElement, parserContext, route);
 
             typedObject->SetRoute(route);
+            
+            
         }
         
         int AssignRouteActionXmlParser::SubElementRouteParser::GetMinOccur() 
@@ -1389,6 +1433,8 @@ namespace NET_ASAM_OPENSCENARIO
 
             typedObject->SetCatalogReference(catalogReference);
             std::dynamic_pointer_cast<CatalogReferenceParserContext>(parserContext)->AddCatalogReference(std::dynamic_pointer_cast<ICatalogReference>(catalogReference));
+            
+            
         }
         
         int AssignRouteActionXmlParser::SubElementCatalogReferenceParser::GetMinOccur() 
@@ -1463,6 +1509,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__MAX_STEERING, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__MAX_STEERING, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -1501,6 +1548,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__POSITION_X, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__POSITION_X, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -1539,6 +1587,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__POSITION_Z, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__POSITION_Z, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -1577,6 +1626,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__TRACK_WIDTH, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__TRACK_WIDTH, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -1615,6 +1665,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__WHEEL_DIAMETER, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__WHEEL_DIAMETER, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -1678,6 +1729,8 @@ namespace NET_ASAM_OPENSCENARIO
             _axleXmlParser->ParseElement(indexedElement, parserContext, frontAxle);
 
             typedObject->SetFrontAxle(frontAxle);
+            
+            
         }
         
         int AxlesXmlParser::SubElementFrontAxleParser::GetMinOccur() 
@@ -1716,6 +1769,8 @@ namespace NET_ASAM_OPENSCENARIO
             _axleXmlParser->ParseElement(indexedElement, parserContext, rearAxle);
 
             typedObject->SetRearAxle(rearAxle);
+            
+            
         }
         
         int AxlesXmlParser::SubElementRearAxleParser::GetMinOccur() 
@@ -1755,6 +1810,8 @@ namespace NET_ASAM_OPENSCENARIO
             auto additionalAxlesList = typedObject->GetWriterAdditionalAxles();
             additionalAxlesList.push_back(additionalAxles);
             typedObject->SetAdditionalAxles(additionalAxlesList);
+            
+            
         }
         
         int AxlesXmlParser::SubElementAdditionalAxlesParser::GetMinOccur() 
@@ -1825,6 +1882,8 @@ namespace NET_ASAM_OPENSCENARIO
             _centerXmlParser->ParseElement(indexedElement, parserContext, center);
 
             typedObject->SetCenter(center);
+            
+            
         }
         
         int BoundingBoxXmlParser::SubElementCenterParser::GetMinOccur() 
@@ -1863,6 +1922,8 @@ namespace NET_ASAM_OPENSCENARIO
             _dimensionsXmlParser->ParseElement(indexedElement, parserContext, dimensions);
 
             typedObject->SetDimensions(dimensions);
+            
+            
         }
         
         int BoundingBoxXmlParser::SubElementDimensionsParser::GetMinOccur() 
@@ -1933,6 +1994,8 @@ namespace NET_ASAM_OPENSCENARIO
             _triggeringEntitiesXmlParser->ParseElement(indexedElement, parserContext, triggeringEntities);
 
             typedObject->SetTriggeringEntities(triggeringEntities);
+            
+            
         }
         
         int ByEntityConditionXmlParser::SubElementTriggeringEntitiesParser::GetMinOccur() 
@@ -1971,6 +2034,8 @@ namespace NET_ASAM_OPENSCENARIO
             _entityConditionXmlParser->ParseElement(indexedElement, parserContext, entityCondition);
 
             typedObject->SetEntityCondition(entityCondition);
+            
+            
         }
         
         int ByEntityConditionXmlParser::SubElementEntityConditionParser::GetMinOccur() 
@@ -2045,10 +2110,16 @@ namespace NET_ASAM_OPENSCENARIO
                             auto msg = FileContentMessage("Value '" + attributeValue + "' is not allowed.", ERROR, startMarker);
                             _messageLogger.LogMessage(msg);
                         }
+                        if (ObjectType::IsDeprecated(kResult))
+				    	{
+							auto msg = FileContentMessage("Enumeration literal '" + attributeValue + "' is deprecated since standard version '" +  ObjectType::GetDeprecatedVersion(kResult) +"'. " + ObjectType::GetDeprecatedComment(kResult) + "'.", WARNING, Textmarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), this->_filename));
+							this->_messageLogger.LogMessage(msg);
+				    	}
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__TYPE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__TYPE, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -2116,10 +2187,16 @@ namespace NET_ASAM_OPENSCENARIO
                             auto msg = FileContentMessage("Value '" + attributeValue + "' is not allowed.", ERROR, startMarker);
                             _messageLogger.LogMessage(msg);
                         }
+                        if (ObjectType::IsDeprecated(kResult))
+				    	{
+							auto msg = FileContentMessage("Enumeration literal '" + attributeValue + "' is deprecated since standard version '" +  ObjectType::GetDeprecatedVersion(kResult) +"'. " + ObjectType::GetDeprecatedComment(kResult) + "'.", WARNING, Textmarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), this->_filename));
+							this->_messageLogger.LogMessage(msg);
+				    	}
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__OBJECT_TYPE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__OBJECT_TYPE, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -2188,6 +2265,8 @@ namespace NET_ASAM_OPENSCENARIO
             _parameterConditionXmlParser->ParseElement(indexedElement, parserContext, parameterCondition);
 
             typedObject->SetParameterCondition(parameterCondition);
+            
+            
         }
         
         int ByValueConditionXmlParser::SubElementParameterConditionParser::GetMinOccur() 
@@ -2226,6 +2305,8 @@ namespace NET_ASAM_OPENSCENARIO
             _timeOfDayConditionXmlParser->ParseElement(indexedElement, parserContext, timeOfDayCondition);
 
             typedObject->SetTimeOfDayCondition(timeOfDayCondition);
+            
+            
         }
         
         int ByValueConditionXmlParser::SubElementTimeOfDayConditionParser::GetMinOccur() 
@@ -2264,6 +2345,8 @@ namespace NET_ASAM_OPENSCENARIO
             _simulationTimeConditionXmlParser->ParseElement(indexedElement, parserContext, simulationTimeCondition);
 
             typedObject->SetSimulationTimeCondition(simulationTimeCondition);
+            
+            
         }
         
         int ByValueConditionXmlParser::SubElementSimulationTimeConditionParser::GetMinOccur() 
@@ -2302,6 +2385,8 @@ namespace NET_ASAM_OPENSCENARIO
             _storyboardElementStateConditionXmlParser->ParseElement(indexedElement, parserContext, storyboardElementStateCondition);
 
             typedObject->SetStoryboardElementStateCondition(storyboardElementStateCondition);
+            
+            
         }
         
         int ByValueConditionXmlParser::SubElementStoryboardElementStateConditionParser::GetMinOccur() 
@@ -2340,6 +2425,8 @@ namespace NET_ASAM_OPENSCENARIO
             _userDefinedValueConditionXmlParser->ParseElement(indexedElement, parserContext, userDefinedValueCondition);
 
             typedObject->SetUserDefinedValueCondition(userDefinedValueCondition);
+            
+            
         }
         
         int ByValueConditionXmlParser::SubElementUserDefinedValueConditionParser::GetMinOccur() 
@@ -2378,6 +2465,8 @@ namespace NET_ASAM_OPENSCENARIO
             _trafficSignalConditionXmlParser->ParseElement(indexedElement, parserContext, trafficSignalCondition);
 
             typedObject->SetTrafficSignalCondition(trafficSignalCondition);
+            
+            
         }
         
         int ByValueConditionXmlParser::SubElementTrafficSignalConditionParser::GetMinOccur() 
@@ -2416,6 +2505,8 @@ namespace NET_ASAM_OPENSCENARIO
             _trafficSignalControllerConditionXmlParser->ParseElement(indexedElement, parserContext, trafficSignalControllerCondition);
 
             typedObject->SetTrafficSignalControllerCondition(trafficSignalControllerCondition);
+            
+            
         }
         
         int ByValueConditionXmlParser::SubElementTrafficSignalControllerConditionParser::GetMinOccur() 
@@ -2485,6 +2576,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -2525,6 +2617,8 @@ namespace NET_ASAM_OPENSCENARIO
             auto vehiclesList = typedObject->GetWriterVehicles();
             vehiclesList.push_back(vehicles);
             typedObject->SetVehicles(vehiclesList);
+            
+            
         }
         
         int CatalogXmlParser::SubElementVehiclesParser::GetMinOccur() 
@@ -2564,6 +2658,8 @@ namespace NET_ASAM_OPENSCENARIO
             auto controllersList = typedObject->GetWriterControllers();
             controllersList.push_back(controllers);
             typedObject->SetControllers(controllersList);
+            
+            
         }
         
         int CatalogXmlParser::SubElementControllersParser::GetMinOccur() 
@@ -2603,6 +2699,8 @@ namespace NET_ASAM_OPENSCENARIO
             auto pedestriansList = typedObject->GetWriterPedestrians();
             pedestriansList.push_back(pedestrians);
             typedObject->SetPedestrians(pedestriansList);
+            
+            
         }
         
         int CatalogXmlParser::SubElementPedestriansParser::GetMinOccur() 
@@ -2642,6 +2740,8 @@ namespace NET_ASAM_OPENSCENARIO
             auto miscObjectsList = typedObject->GetWriterMiscObjects();
             miscObjectsList.push_back(miscObjects);
             typedObject->SetMiscObjects(miscObjectsList);
+            
+            
         }
         
         int CatalogXmlParser::SubElementMiscObjectsParser::GetMinOccur() 
@@ -2681,6 +2781,8 @@ namespace NET_ASAM_OPENSCENARIO
             auto environmentsList = typedObject->GetWriterEnvironments();
             environmentsList.push_back(environments);
             typedObject->SetEnvironments(environmentsList);
+            
+            
         }
         
         int CatalogXmlParser::SubElementEnvironmentsParser::GetMinOccur() 
@@ -2720,6 +2822,8 @@ namespace NET_ASAM_OPENSCENARIO
             auto maneuversList = typedObject->GetWriterManeuvers();
             maneuversList.push_back(maneuvers);
             typedObject->SetManeuvers(maneuversList);
+            
+            
         }
         
         int CatalogXmlParser::SubElementManeuversParser::GetMinOccur() 
@@ -2759,6 +2863,8 @@ namespace NET_ASAM_OPENSCENARIO
             auto trajectoriesList = typedObject->GetWriterTrajectories();
             trajectoriesList.push_back(trajectories);
             typedObject->SetTrajectories(trajectoriesList);
+            
+            
         }
         
         int CatalogXmlParser::SubElementTrajectoriesParser::GetMinOccur() 
@@ -2798,6 +2904,8 @@ namespace NET_ASAM_OPENSCENARIO
             auto routesList = typedObject->GetWriterRoutes();
             routesList.push_back(routes);
             typedObject->SetRoutes(routesList);
+            
+            
         }
         
         int CatalogXmlParser::SubElementRoutesParser::GetMinOccur() 
@@ -2860,6 +2968,8 @@ namespace NET_ASAM_OPENSCENARIO
             _catalogXmlParser->ParseElement(indexedElement, parserContext, catalog);
 
             typedObject->SetCatalog(catalog);
+            
+            
         }
         
         int CatalogDefinitionXmlParser::SubElementCatalogParser::GetMinOccur() 
@@ -2936,6 +3046,8 @@ namespace NET_ASAM_OPENSCENARIO
             _vehicleCatalogLocationXmlParser->ParseElement(indexedElement, parserContext, vehicleCatalog);
 
             typedObject->SetVehicleCatalog(vehicleCatalog);
+            
+            
         }
         
         int CatalogLocationsXmlParser::SubElementVehicleCatalogParser::GetMinOccur() 
@@ -2974,6 +3086,8 @@ namespace NET_ASAM_OPENSCENARIO
             _controllerCatalogLocationXmlParser->ParseElement(indexedElement, parserContext, controllerCatalog);
 
             typedObject->SetControllerCatalog(controllerCatalog);
+            
+            
         }
         
         int CatalogLocationsXmlParser::SubElementControllerCatalogParser::GetMinOccur() 
@@ -3012,6 +3126,8 @@ namespace NET_ASAM_OPENSCENARIO
             _pedestrianCatalogLocationXmlParser->ParseElement(indexedElement, parserContext, pedestrianCatalog);
 
             typedObject->SetPedestrianCatalog(pedestrianCatalog);
+            
+            
         }
         
         int CatalogLocationsXmlParser::SubElementPedestrianCatalogParser::GetMinOccur() 
@@ -3050,6 +3166,8 @@ namespace NET_ASAM_OPENSCENARIO
             _miscObjectCatalogLocationXmlParser->ParseElement(indexedElement, parserContext, miscObjectCatalog);
 
             typedObject->SetMiscObjectCatalog(miscObjectCatalog);
+            
+            
         }
         
         int CatalogLocationsXmlParser::SubElementMiscObjectCatalogParser::GetMinOccur() 
@@ -3088,6 +3206,8 @@ namespace NET_ASAM_OPENSCENARIO
             _environmentCatalogLocationXmlParser->ParseElement(indexedElement, parserContext, environmentCatalog);
 
             typedObject->SetEnvironmentCatalog(environmentCatalog);
+            
+            
         }
         
         int CatalogLocationsXmlParser::SubElementEnvironmentCatalogParser::GetMinOccur() 
@@ -3126,6 +3246,8 @@ namespace NET_ASAM_OPENSCENARIO
             _maneuverCatalogLocationXmlParser->ParseElement(indexedElement, parserContext, maneuverCatalog);
 
             typedObject->SetManeuverCatalog(maneuverCatalog);
+            
+            
         }
         
         int CatalogLocationsXmlParser::SubElementManeuverCatalogParser::GetMinOccur() 
@@ -3164,6 +3286,8 @@ namespace NET_ASAM_OPENSCENARIO
             _trajectoryCatalogLocationXmlParser->ParseElement(indexedElement, parserContext, trajectoryCatalog);
 
             typedObject->SetTrajectoryCatalog(trajectoryCatalog);
+            
+            
         }
         
         int CatalogLocationsXmlParser::SubElementTrajectoryCatalogParser::GetMinOccur() 
@@ -3202,6 +3326,8 @@ namespace NET_ASAM_OPENSCENARIO
             _routeCatalogLocationXmlParser->ParseElement(indexedElement, parserContext, routeCatalog);
 
             typedObject->SetRouteCatalog(routeCatalog);
+            
+            
         }
         
         int CatalogLocationsXmlParser::SubElementRouteCatalogParser::GetMinOccur() 
@@ -3271,6 +3397,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__CATALOG_NAME, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__CATALOG_NAME, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -3304,6 +3431,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__ENTRY_NAME, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__ENTRY_NAME, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -3337,6 +3465,8 @@ namespace NET_ASAM_OPENSCENARIO
             auto parameterAssignmentsList = typedObject->GetWriterParameterAssignments();
             parameterAssignmentsList.push_back(parameterAssignments);
             typedObject->SetParameterAssignments(parameterAssignmentsList);
+            
+            
         }
         
         int CatalogReferenceXmlParser::SubElementParameterAssignmentsParser::GetMinOccur() 
@@ -3408,6 +3538,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__X, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__X, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -3446,6 +3577,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__Y, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__Y, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -3484,6 +3616,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__Z, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__Z, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -3548,6 +3681,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -3615,6 +3749,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__CURVATURE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__CURVATURE, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -3653,6 +3788,10 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__CURVATURE_DOT, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__CURVATURE_DOT, std::make_shared<Textmarker>(endMarker));
                      
+                    
+                    // This element is deprecated
+					auto msg = FileContentMessage("Attribute '" + attributeName + "' is deprecated since standard version '1.1'. Comment: 'Use instead curvaturePrime.'.", WARNING, Textmarker(startPosition.GetLine(), startPosition.GetColumn(), this->_filename));
+					this->_messageLogger.LogMessage(msg);
                 }
 
                 int GetMinOccur() override
@@ -3691,6 +3830,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__CURVATURE_PRIME, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__CURVATURE_PRIME, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -3729,6 +3869,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__LENGTH, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__LENGTH, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -3767,6 +3908,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__START_TIME, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__START_TIME, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -3805,6 +3947,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__STOP_TIME, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__STOP_TIME, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -3837,6 +3980,8 @@ namespace NET_ASAM_OPENSCENARIO
             _positionXmlParser->ParseElement(indexedElement, parserContext, position);
 
             typedObject->SetPosition(position);
+            
+            
         }
         
         int ClothoidXmlParser::SubElementPositionParser::GetMinOccur() 
@@ -3907,6 +4052,8 @@ namespace NET_ASAM_OPENSCENARIO
             _entityRefXmlParser->ParseElement(indexedElement, parserContext, entityRef);
 
             typedObject->SetEntityRef(entityRef);
+            
+            
         }
         
         int CollisionConditionXmlParser::SubElementEntityRefParser::GetMinOccur() 
@@ -3945,6 +4092,8 @@ namespace NET_ASAM_OPENSCENARIO
             _byObjectTypeXmlParser->ParseElement(indexedElement, parserContext, byType);
 
             typedObject->SetByType(byType);
+            
+            
         }
         
         int CollisionConditionXmlParser::SubElementByTypeParser::GetMinOccur() 
@@ -4020,10 +4169,16 @@ namespace NET_ASAM_OPENSCENARIO
                             auto msg = FileContentMessage("Value '" + attributeValue + "' is not allowed.", ERROR, startMarker);
                             _messageLogger.LogMessage(msg);
                         }
+                        if (ConditionEdge::IsDeprecated(kResult))
+				    	{
+							auto msg = FileContentMessage("Enumeration literal '" + attributeValue + "' is deprecated since standard version '" +  ConditionEdge::GetDeprecatedVersion(kResult) +"'. " + ConditionEdge::GetDeprecatedComment(kResult) + "'.", WARNING, Textmarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), this->_filename));
+							this->_messageLogger.LogMessage(msg);
+				    	}
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__CONDITION_EDGE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__CONDITION_EDGE, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -4062,6 +4217,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__DELAY, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__DELAY, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -4095,6 +4251,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -4128,6 +4285,8 @@ namespace NET_ASAM_OPENSCENARIO
             _byEntityConditionXmlParser->ParseElement(indexedElement, parserContext, byEntityCondition);
 
             typedObject->SetByEntityCondition(byEntityCondition);
+            
+            
         }
         
         int ConditionXmlParser::SubElementByEntityConditionParser::GetMinOccur() 
@@ -4166,6 +4325,8 @@ namespace NET_ASAM_OPENSCENARIO
             _byValueConditionXmlParser->ParseElement(indexedElement, parserContext, byValueCondition);
 
             typedObject->SetByValueCondition(byValueCondition);
+            
+            
         }
         
         int ConditionXmlParser::SubElementByValueConditionParser::GetMinOccur() 
@@ -4235,6 +4396,8 @@ namespace NET_ASAM_OPENSCENARIO
             auto conditionsList = typedObject->GetWriterConditions();
             conditionsList.push_back(conditions);
             typedObject->SetConditions(conditionsList);
+            
+            
         }
         
         int ConditionGroupXmlParser::SubElementConditionsParser::GetMinOccur() 
@@ -4309,6 +4472,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__TIME, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__TIME, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -4347,6 +4511,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__WEIGHT, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__WEIGHT, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -4379,6 +4544,8 @@ namespace NET_ASAM_OPENSCENARIO
             _positionXmlParser->ParseElement(indexedElement, parserContext, position);
 
             typedObject->SetPosition(position);
+            
+            
         }
         
         int ControlPointXmlParser::SubElementPositionParser::GetMinOccur() 
@@ -4449,6 +4616,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -4483,6 +4651,8 @@ namespace NET_ASAM_OPENSCENARIO
             auto parameterDeclarationsList = typedObject->GetWriterParameterDeclarations();
             parameterDeclarationsList.push_back(parameterDeclarations);
             typedObject->SetParameterDeclarations(parameterDeclarationsList);
+            
+            
         }
         
         int ControllerXmlParser::SubElementParameterDeclarationsParser::GetMinOccur() 
@@ -4518,6 +4688,8 @@ namespace NET_ASAM_OPENSCENARIO
             _propertiesXmlParser->ParseElement(indexedElement, parserContext, properties);
 
             typedObject->SetProperties(properties);
+            
+            
         }
         
         int ControllerXmlParser::SubElementPropertiesParser::GetMinOccur() 
@@ -4589,6 +4761,8 @@ namespace NET_ASAM_OPENSCENARIO
             _assignControllerActionXmlParser->ParseElement(indexedElement, parserContext, assignControllerAction);
 
             typedObject->SetAssignControllerAction(assignControllerAction);
+            
+            
         }
         
         int ControllerActionXmlParser::SubElementAssignControllerActionParser::GetMinOccur() 
@@ -4627,6 +4801,8 @@ namespace NET_ASAM_OPENSCENARIO
             _overrideControllerValueActionXmlParser->ParseElement(indexedElement, parserContext, overrideControllerValueAction);
 
             typedObject->SetOverrideControllerValueAction(overrideControllerValueAction);
+            
+            
         }
         
         int ControllerActionXmlParser::SubElementOverrideControllerValueActionParser::GetMinOccur() 
@@ -4665,6 +4841,8 @@ namespace NET_ASAM_OPENSCENARIO
             _activateControllerActionXmlParser->ParseElement(indexedElement, parserContext, activateControllerAction);
 
             typedObject->SetActivateControllerAction(activateControllerAction);
+            
+            
         }
         
         int ControllerActionXmlParser::SubElementActivateControllerActionParser::GetMinOccur() 
@@ -4734,6 +4912,8 @@ namespace NET_ASAM_OPENSCENARIO
             _directoryXmlParser->ParseElement(indexedElement, parserContext, directory);
 
             typedObject->SetDirectory(directory);
+            
+            
         }
         
         int ControllerCatalogLocationXmlParser::SubElementDirectoryParser::GetMinOccur() 
@@ -4803,6 +4983,8 @@ namespace NET_ASAM_OPENSCENARIO
             auto controllerDistributionEntriesList = typedObject->GetWriterControllerDistributionEntries();
             controllerDistributionEntriesList.push_back(controllerDistributionEntries);
             typedObject->SetControllerDistributionEntries(controllerDistributionEntriesList);
+            
+            
         }
         
         int ControllerDistributionXmlParser::SubElementControllerDistributionEntriesParser::GetMinOccur() 
@@ -4878,6 +5060,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__WEIGHT, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__WEIGHT, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -4911,6 +5094,8 @@ namespace NET_ASAM_OPENSCENARIO
             _controllerXmlParser->ParseElement(indexedElement, parserContext, controller);
 
             typedObject->SetController(controller);
+            
+            
         }
         
         int ControllerDistributionEntryXmlParser::SubElementControllerParser::GetMinOccur() 
@@ -4950,6 +5135,8 @@ namespace NET_ASAM_OPENSCENARIO
 
             typedObject->SetCatalogReference(catalogReference);
             std::dynamic_pointer_cast<CatalogReferenceParserContext>(parserContext)->AddCatalogReference(std::dynamic_pointer_cast<ICatalogReference>(catalogReference));
+            
+            
         }
         
         int ControllerDistributionEntryXmlParser::SubElementCatalogReferenceParser::GetMinOccur() 
@@ -5022,6 +5209,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__TYPE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__TYPE, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -5108,6 +5296,8 @@ namespace NET_ASAM_OPENSCENARIO
             auto deterministicParameterDistributionsList = typedObject->GetWriterDeterministicParameterDistributions();
             deterministicParameterDistributionsList.push_back(deterministicParameterDistributions);
             typedObject->SetDeterministicParameterDistributions(deterministicParameterDistributionsList);
+            
+            
         }
         
         int DeterministicXmlParser::SubElementDeterministicParameterDistributionsParser::GetMinOccur() 
@@ -5178,6 +5368,8 @@ namespace NET_ASAM_OPENSCENARIO
             _deterministicMultiParameterDistributionTypeXmlParser->ParseElement(indexedElement, parserContext, deterministicMultiParameterDistributionType);
 
             typedObject->SetDeterministicMultiParameterDistributionType(deterministicMultiParameterDistributionType);
+            
+            
         }
         
         int DeterministicMultiParameterDistributionXmlParser::SubElementDeterministicMultiParameterDistributionTypeParser::GetMinOccur() 
@@ -5240,6 +5432,8 @@ namespace NET_ASAM_OPENSCENARIO
             _valueSetDistributionXmlParser->ParseElement(indexedElement, parserContext, valueSetDistribution);
 
             typedObject->SetValueSetDistribution(valueSetDistribution);
+            
+            
         }
         
         int DeterministicMultiParameterDistributionTypeXmlParser::SubElementValueSetDistributionParser::GetMinOccur() 
@@ -5304,6 +5498,8 @@ namespace NET_ASAM_OPENSCENARIO
             _deterministicMultiParameterDistributionXmlParser->ParseElement(indexedElement, parserContext, deterministicMultiParameterDistribution);
 
             typedObject->SetDeterministicMultiParameterDistribution(deterministicMultiParameterDistribution);
+            
+            
         }
         
         int DeterministicParameterDistributionXmlParser::SubElementDeterministicMultiParameterDistributionParser::GetMinOccur() 
@@ -5342,6 +5538,8 @@ namespace NET_ASAM_OPENSCENARIO
             _deterministicSingleParameterDistributionXmlParser->ParseElement(indexedElement, parserContext, deterministicSingleParameterDistribution);
 
             typedObject->SetDeterministicSingleParameterDistribution(deterministicSingleParameterDistribution);
+            
+            
         }
         
         int DeterministicParameterDistributionXmlParser::SubElementDeterministicSingleParameterDistributionParser::GetMinOccur() 
@@ -5411,6 +5609,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_NAME, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_NAME, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -5443,6 +5642,8 @@ namespace NET_ASAM_OPENSCENARIO
             _deterministicSingleParameterDistributionTypeXmlParser->ParseElement(indexedElement, parserContext, deterministicSingleParameterDistributionType);
 
             typedObject->SetDeterministicSingleParameterDistributionType(deterministicSingleParameterDistributionType);
+            
+            
         }
         
         int DeterministicSingleParameterDistributionXmlParser::SubElementDeterministicSingleParameterDistributionTypeParser::GetMinOccur() 
@@ -5512,6 +5713,8 @@ namespace NET_ASAM_OPENSCENARIO
             _distributionSetXmlParser->ParseElement(indexedElement, parserContext, distributionSet);
 
             typedObject->SetDistributionSet(distributionSet);
+            
+            
         }
         
         int DeterministicSingleParameterDistributionTypeXmlParser::SubElementDistributionSetParser::GetMinOccur() 
@@ -5550,6 +5753,8 @@ namespace NET_ASAM_OPENSCENARIO
             _distributionRangeXmlParser->ParseElement(indexedElement, parserContext, distributionRange);
 
             typedObject->SetDistributionRange(distributionRange);
+            
+            
         }
         
         int DeterministicSingleParameterDistributionTypeXmlParser::SubElementDistributionRangeParser::GetMinOccur() 
@@ -5588,6 +5793,8 @@ namespace NET_ASAM_OPENSCENARIO
             _userDefinedDistributionXmlParser->ParseElement(indexedElement, parserContext, userDefinedDistribution);
 
             typedObject->SetUserDefinedDistribution(userDefinedDistribution);
+            
+            
         }
         
         int DeterministicSingleParameterDistributionTypeXmlParser::SubElementUserDefinedDistributionParser::GetMinOccur() 
@@ -5662,6 +5869,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__HEIGHT, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__HEIGHT, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -5700,6 +5908,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__LENGTH, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__LENGTH, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -5738,6 +5947,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__WIDTH, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__WIDTH, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -5800,6 +6010,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__PATH, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__PATH, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -5863,6 +6074,10 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__ALONG_ROUTE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__ALONG_ROUTE, std::make_shared<Textmarker>(endMarker));
                      
+                    
+                    // This element is deprecated
+					auto msg = FileContentMessage("Attribute '" + attributeName + "' is deprecated since standard version '1.1'. Comment: 'Use \"coordinateSystem\" and \"relativeDistanceType\"'.", WARNING, Textmarker(startPosition.GetLine(), startPosition.GetColumn(), this->_filename));
+					this->_messageLogger.LogMessage(msg);
                 }
 
                 int GetMinOccur() override
@@ -5901,10 +6116,16 @@ namespace NET_ASAM_OPENSCENARIO
                             auto msg = FileContentMessage("Value '" + attributeValue + "' is not allowed.", ERROR, startMarker);
                             _messageLogger.LogMessage(msg);
                         }
+                        if (CoordinateSystem::IsDeprecated(kResult))
+				    	{
+							auto msg = FileContentMessage("Enumeration literal '" + attributeValue + "' is deprecated since standard version '" +  CoordinateSystem::GetDeprecatedVersion(kResult) +"'. " + CoordinateSystem::GetDeprecatedComment(kResult) + "'.", WARNING, Textmarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), this->_filename));
+							this->_messageLogger.LogMessage(msg);
+				    	}
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__COORDINATE_SYSTEM, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__COORDINATE_SYSTEM, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -5938,6 +6159,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -5976,10 +6198,16 @@ namespace NET_ASAM_OPENSCENARIO
                             auto msg = FileContentMessage("Value '" + attributeValue + "' is not allowed.", ERROR, startMarker);
                             _messageLogger.LogMessage(msg);
                         }
+                        if (RelativeDistanceType::IsDeprecated(kResult))
+				    	{
+							auto msg = FileContentMessage("Enumeration literal '" + attributeValue + "' is deprecated since standard version '" +  RelativeDistanceType::GetDeprecatedVersion(kResult) +"'. " + RelativeDistanceType::GetDeprecatedComment(kResult) + "'.", WARNING, Textmarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), this->_filename));
+							this->_messageLogger.LogMessage(msg);
+				    	}
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__RELATIVE_DISTANCE_TYPE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__RELATIVE_DISTANCE_TYPE, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -6018,10 +6246,16 @@ namespace NET_ASAM_OPENSCENARIO
                             auto msg = FileContentMessage("Value '" + attributeValue + "' is not allowed.", ERROR, startMarker);
                             _messageLogger.LogMessage(msg);
                         }
+                        if (Rule::IsDeprecated(kResult))
+				    	{
+							auto msg = FileContentMessage("Enumeration literal '" + attributeValue + "' is deprecated since standard version '" +  Rule::GetDeprecatedVersion(kResult) +"'. " + Rule::GetDeprecatedComment(kResult) + "'.", WARNING, Textmarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), this->_filename));
+							this->_messageLogger.LogMessage(msg);
+				    	}
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__RULE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__RULE, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -6060,6 +6294,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -6092,6 +6327,8 @@ namespace NET_ASAM_OPENSCENARIO
             _positionXmlParser->ParseElement(indexedElement, parserContext, position);
 
             typedObject->SetPosition(position);
+            
+            
         }
         
         int DistanceConditionXmlParser::SubElementPositionParser::GetMinOccur() 
@@ -6156,6 +6393,8 @@ namespace NET_ASAM_OPENSCENARIO
             _deterministicXmlParser->ParseElement(indexedElement, parserContext, deterministic);
 
             typedObject->SetDeterministic(deterministic);
+            
+            
         }
         
         int DistributionDefinitionXmlParser::SubElementDeterministicParser::GetMinOccur() 
@@ -6194,6 +6433,8 @@ namespace NET_ASAM_OPENSCENARIO
             _stochasticXmlParser->ParseElement(indexedElement, parserContext, stochastic);
 
             typedObject->SetStochastic(stochastic);
+            
+            
         }
         
         int DistributionDefinitionXmlParser::SubElementStochasticParser::GetMinOccur() 
@@ -6269,6 +6510,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__STEP_WIDTH, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__STEP_WIDTH, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -6301,6 +6543,8 @@ namespace NET_ASAM_OPENSCENARIO
             _rangeXmlParser->ParseElement(indexedElement, parserContext, range);
 
             typedObject->SetRange(range);
+            
+            
         }
         
         int DistributionRangeXmlParser::SubElementRangeParser::GetMinOccur() 
@@ -6370,6 +6614,8 @@ namespace NET_ASAM_OPENSCENARIO
             auto elementsList = typedObject->GetWriterElements();
             elementsList.push_back(elements);
             typedObject->SetElements(elementsList);
+            
+            
         }
         
         int DistributionSetXmlParser::SubElementElementsParser::GetMinOccur() 
@@ -6440,6 +6686,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -6507,6 +6754,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__MAX_ACCELERATION, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__MAX_ACCELERATION, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -6545,6 +6793,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__MAX_DECELERATION, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__MAX_DECELERATION, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -6583,6 +6832,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__MAX_SPEED, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__MAX_SPEED, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -6650,6 +6900,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__DURATION, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__DURATION, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -6713,6 +6964,8 @@ namespace NET_ASAM_OPENSCENARIO
             auto scenarioObjectsList = typedObject->GetWriterScenarioObjects();
             scenarioObjectsList.push_back(scenarioObjects);
             typedObject->SetScenarioObjects(scenarioObjectsList);
+            
+            
         }
         
         int EntitiesXmlParser::SubElementScenarioObjectsParser::GetMinOccur() 
@@ -6752,6 +7005,8 @@ namespace NET_ASAM_OPENSCENARIO
             auto entitySelectionsList = typedObject->GetWriterEntitySelections();
             entitySelectionsList.push_back(entitySelections);
             typedObject->SetEntitySelections(entitySelectionsList);
+            
+            
         }
         
         int EntitiesXmlParser::SubElementEntitySelectionsParser::GetMinOccur() 
@@ -6824,6 +7079,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -6857,6 +7113,8 @@ namespace NET_ASAM_OPENSCENARIO
             _addEntityActionXmlParser->ParseElement(indexedElement, parserContext, addEntityAction);
 
             typedObject->SetAddEntityAction(addEntityAction);
+            
+            
         }
         
         int EntityActionXmlParser::SubElementAddEntityActionParser::GetMinOccur() 
@@ -6895,6 +7153,8 @@ namespace NET_ASAM_OPENSCENARIO
             _deleteEntityActionXmlParser->ParseElement(indexedElement, parserContext, deleteEntityAction);
 
             typedObject->SetDeleteEntityAction(deleteEntityAction);
+            
+            
         }
         
         int EntityActionXmlParser::SubElementDeleteEntityActionParser::GetMinOccur() 
@@ -6976,6 +7236,8 @@ namespace NET_ASAM_OPENSCENARIO
             _endOfRoadConditionXmlParser->ParseElement(indexedElement, parserContext, endOfRoadCondition);
 
             typedObject->SetEndOfRoadCondition(endOfRoadCondition);
+            
+            
         }
         
         int EntityConditionXmlParser::SubElementEndOfRoadConditionParser::GetMinOccur() 
@@ -7014,6 +7276,8 @@ namespace NET_ASAM_OPENSCENARIO
             _collisionConditionXmlParser->ParseElement(indexedElement, parserContext, collisionCondition);
 
             typedObject->SetCollisionCondition(collisionCondition);
+            
+            
         }
         
         int EntityConditionXmlParser::SubElementCollisionConditionParser::GetMinOccur() 
@@ -7052,6 +7316,8 @@ namespace NET_ASAM_OPENSCENARIO
             _offroadConditionXmlParser->ParseElement(indexedElement, parserContext, offroadCondition);
 
             typedObject->SetOffroadCondition(offroadCondition);
+            
+            
         }
         
         int EntityConditionXmlParser::SubElementOffroadConditionParser::GetMinOccur() 
@@ -7090,6 +7356,8 @@ namespace NET_ASAM_OPENSCENARIO
             _timeHeadwayConditionXmlParser->ParseElement(indexedElement, parserContext, timeHeadwayCondition);
 
             typedObject->SetTimeHeadwayCondition(timeHeadwayCondition);
+            
+            
         }
         
         int EntityConditionXmlParser::SubElementTimeHeadwayConditionParser::GetMinOccur() 
@@ -7128,6 +7396,8 @@ namespace NET_ASAM_OPENSCENARIO
             _timeToCollisionConditionXmlParser->ParseElement(indexedElement, parserContext, timeToCollisionCondition);
 
             typedObject->SetTimeToCollisionCondition(timeToCollisionCondition);
+            
+            
         }
         
         int EntityConditionXmlParser::SubElementTimeToCollisionConditionParser::GetMinOccur() 
@@ -7166,6 +7436,8 @@ namespace NET_ASAM_OPENSCENARIO
             _accelerationConditionXmlParser->ParseElement(indexedElement, parserContext, accelerationCondition);
 
             typedObject->SetAccelerationCondition(accelerationCondition);
+            
+            
         }
         
         int EntityConditionXmlParser::SubElementAccelerationConditionParser::GetMinOccur() 
@@ -7204,6 +7476,8 @@ namespace NET_ASAM_OPENSCENARIO
             _standStillConditionXmlParser->ParseElement(indexedElement, parserContext, standStillCondition);
 
             typedObject->SetStandStillCondition(standStillCondition);
+            
+            
         }
         
         int EntityConditionXmlParser::SubElementStandStillConditionParser::GetMinOccur() 
@@ -7242,6 +7516,8 @@ namespace NET_ASAM_OPENSCENARIO
             _speedConditionXmlParser->ParseElement(indexedElement, parserContext, speedCondition);
 
             typedObject->SetSpeedCondition(speedCondition);
+            
+            
         }
         
         int EntityConditionXmlParser::SubElementSpeedConditionParser::GetMinOccur() 
@@ -7280,6 +7556,8 @@ namespace NET_ASAM_OPENSCENARIO
             _relativeSpeedConditionXmlParser->ParseElement(indexedElement, parserContext, relativeSpeedCondition);
 
             typedObject->SetRelativeSpeedCondition(relativeSpeedCondition);
+            
+            
         }
         
         int EntityConditionXmlParser::SubElementRelativeSpeedConditionParser::GetMinOccur() 
@@ -7318,6 +7596,8 @@ namespace NET_ASAM_OPENSCENARIO
             _traveledDistanceConditionXmlParser->ParseElement(indexedElement, parserContext, traveledDistanceCondition);
 
             typedObject->SetTraveledDistanceCondition(traveledDistanceCondition);
+            
+            
         }
         
         int EntityConditionXmlParser::SubElementTraveledDistanceConditionParser::GetMinOccur() 
@@ -7356,6 +7636,8 @@ namespace NET_ASAM_OPENSCENARIO
             _reachPositionConditionXmlParser->ParseElement(indexedElement, parserContext, reachPositionCondition);
 
             typedObject->SetReachPositionCondition(reachPositionCondition);
+            
+            
         }
         
         int EntityConditionXmlParser::SubElementReachPositionConditionParser::GetMinOccur() 
@@ -7394,6 +7676,8 @@ namespace NET_ASAM_OPENSCENARIO
             _distanceConditionXmlParser->ParseElement(indexedElement, parserContext, distanceCondition);
 
             typedObject->SetDistanceCondition(distanceCondition);
+            
+            
         }
         
         int EntityConditionXmlParser::SubElementDistanceConditionParser::GetMinOccur() 
@@ -7432,6 +7716,8 @@ namespace NET_ASAM_OPENSCENARIO
             _relativeDistanceConditionXmlParser->ParseElement(indexedElement, parserContext, relativeDistanceCondition);
 
             typedObject->SetRelativeDistanceCondition(relativeDistanceCondition);
+            
+            
         }
         
         int EntityConditionXmlParser::SubElementRelativeDistanceConditionParser::GetMinOccur() 
@@ -7500,6 +7786,8 @@ namespace NET_ASAM_OPENSCENARIO
 
             typedObject->SetCatalogReference(catalogReference);
             std::dynamic_pointer_cast<CatalogReferenceParserContext>(parserContext)->AddCatalogReference(std::dynamic_pointer_cast<ICatalogReference>(catalogReference));
+            
+            
         }
         
         int EntityObjectXmlParser::SubElementCatalogReferenceParser::GetMinOccur() 
@@ -7538,6 +7826,8 @@ namespace NET_ASAM_OPENSCENARIO
             _vehicleXmlParser->ParseElement(indexedElement, parserContext, vehicle);
 
             typedObject->SetVehicle(vehicle);
+            
+            
         }
         
         int EntityObjectXmlParser::SubElementVehicleParser::GetMinOccur() 
@@ -7576,6 +7866,8 @@ namespace NET_ASAM_OPENSCENARIO
             _pedestrianXmlParser->ParseElement(indexedElement, parserContext, pedestrian);
 
             typedObject->SetPedestrian(pedestrian);
+            
+            
         }
         
         int EntityObjectXmlParser::SubElementPedestrianParser::GetMinOccur() 
@@ -7614,6 +7906,8 @@ namespace NET_ASAM_OPENSCENARIO
             _miscObjectXmlParser->ParseElement(indexedElement, parserContext, miscObject);
 
             typedObject->SetMiscObject(miscObject);
+            
+            
         }
         
         int EntityObjectXmlParser::SubElementMiscObjectParser::GetMinOccur() 
@@ -7652,6 +7946,8 @@ namespace NET_ASAM_OPENSCENARIO
             _externalObjectReferenceXmlParser->ParseElement(indexedElement, parserContext, externalObjectReference);
 
             typedObject->SetExternalObjectReference(externalObjectReference);
+            
+            
         }
         
         int EntityObjectXmlParser::SubElementExternalObjectReferenceParser::GetMinOccur() 
@@ -7723,6 +8019,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -7785,6 +8082,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -7817,6 +8115,8 @@ namespace NET_ASAM_OPENSCENARIO
             _selectedEntitiesXmlParser->ParseElement(indexedElement, parserContext, members);
 
             typedObject->SetMembers(members);
+            
+            
         }
         
         int EntitySelectionXmlParser::SubElementMembersParser::GetMinOccur() 
@@ -7887,6 +8187,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -7923,6 +8224,8 @@ namespace NET_ASAM_OPENSCENARIO
             auto parameterDeclarationsList = typedObject->GetWriterParameterDeclarations();
             parameterDeclarationsList.push_back(parameterDeclarations);
             typedObject->SetParameterDeclarations(parameterDeclarationsList);
+            
+            
         }
         
         int EnvironmentXmlParser::SubElementParameterDeclarationsParser::GetMinOccur() 
@@ -7958,6 +8261,8 @@ namespace NET_ASAM_OPENSCENARIO
             _timeOfDayXmlParser->ParseElement(indexedElement, parserContext, timeOfDay);
 
             typedObject->SetTimeOfDay(timeOfDay);
+            
+            
         }
         
         int EnvironmentXmlParser::SubElementTimeOfDayParser::GetMinOccur() 
@@ -7996,6 +8301,8 @@ namespace NET_ASAM_OPENSCENARIO
             _weatherXmlParser->ParseElement(indexedElement, parserContext, weather);
 
             typedObject->SetWeather(weather);
+            
+            
         }
         
         int EnvironmentXmlParser::SubElementWeatherParser::GetMinOccur() 
@@ -8034,6 +8341,8 @@ namespace NET_ASAM_OPENSCENARIO
             _roadConditionXmlParser->ParseElement(indexedElement, parserContext, roadCondition);
 
             typedObject->SetRoadCondition(roadCondition);
+            
+            
         }
         
         int EnvironmentXmlParser::SubElementRoadConditionParser::GetMinOccur() 
@@ -8104,6 +8413,8 @@ namespace NET_ASAM_OPENSCENARIO
             _environmentXmlParser->ParseElement(indexedElement, parserContext, environment);
 
             typedObject->SetEnvironment(environment);
+            
+            
         }
         
         int EnvironmentActionXmlParser::SubElementEnvironmentParser::GetMinOccur() 
@@ -8143,6 +8454,8 @@ namespace NET_ASAM_OPENSCENARIO
 
             typedObject->SetCatalogReference(catalogReference);
             std::dynamic_pointer_cast<CatalogReferenceParserContext>(parserContext)->AddCatalogReference(std::dynamic_pointer_cast<ICatalogReference>(catalogReference));
+            
+            
         }
         
         int EnvironmentActionXmlParser::SubElementCatalogReferenceParser::GetMinOccur() 
@@ -8212,6 +8525,8 @@ namespace NET_ASAM_OPENSCENARIO
             _directoryXmlParser->ParseElement(indexedElement, parserContext, directory);
 
             typedObject->SetDirectory(directory);
+            
+            
         }
         
         int EnvironmentCatalogLocationXmlParser::SubElementDirectoryParser::GetMinOccur() 
@@ -8286,6 +8601,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__MAXIMUM_EXECUTION_COUNT, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__MAXIMUM_EXECUTION_COUNT, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -8319,6 +8635,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -8357,10 +8674,16 @@ namespace NET_ASAM_OPENSCENARIO
                             auto msg = FileContentMessage("Value '" + attributeValue + "' is not allowed.", ERROR, startMarker);
                             _messageLogger.LogMessage(msg);
                         }
+                        if (Priority::IsDeprecated(kResult))
+				    	{
+							auto msg = FileContentMessage("Enumeration literal '" + attributeValue + "' is deprecated since standard version '" +  Priority::GetDeprecatedVersion(kResult) +"'. " + Priority::GetDeprecatedComment(kResult) + "'.", WARNING, Textmarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), this->_filename));
+							this->_messageLogger.LogMessage(msg);
+				    	}
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__PRIORITY, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__PRIORITY, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -8395,6 +8718,8 @@ namespace NET_ASAM_OPENSCENARIO
             auto actionsList = typedObject->GetWriterActions();
             actionsList.push_back(actions);
             typedObject->SetActions(actionsList);
+            
+            
         }
         
         int EventXmlParser::SubElementActionsParser::GetMinOccur() 
@@ -8433,6 +8758,8 @@ namespace NET_ASAM_OPENSCENARIO
             _triggerXmlParser->ParseElement(indexedElement, parserContext, startTrigger);
 
             typedObject->SetStartTrigger(startTrigger);
+            
+            
         }
         
         int EventXmlParser::SubElementStartTriggerParser::GetMinOccur() 
@@ -8503,6 +8830,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -8565,6 +8893,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__FILEPATH, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__FILEPATH, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -8627,6 +8956,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__AUTHOR, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__AUTHOR, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -8660,6 +8990,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__DATE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__DATE, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -8693,6 +9024,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__DESCRIPTION, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__DESCRIPTION, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -8731,6 +9063,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__REV_MAJOR, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__REV_MAJOR, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -8769,6 +9102,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__REV_MINOR, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__REV_MINOR, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -8801,6 +9135,8 @@ namespace NET_ASAM_OPENSCENARIO
             _licenseXmlParser->ParseElement(indexedElement, parserContext, license);
 
             typedObject->SetLicense(license);
+            
+            
         }
         
         int FileHeaderXmlParser::SubElementLicenseParser::GetMinOccur() 
@@ -8871,6 +9207,8 @@ namespace NET_ASAM_OPENSCENARIO
             _absoluteSpeedXmlParser->ParseElement(indexedElement, parserContext, absoluteSpeed);
 
             typedObject->SetAbsoluteSpeed(absoluteSpeed);
+            
+            
         }
         
         int FinalSpeedXmlParser::SubElementAbsoluteSpeedParser::GetMinOccur() 
@@ -8909,6 +9247,8 @@ namespace NET_ASAM_OPENSCENARIO
             _relativeSpeedToMasterXmlParser->ParseElement(indexedElement, parserContext, relativeSpeedToMaster);
 
             typedObject->SetRelativeSpeedToMaster(relativeSpeedToMaster);
+            
+            
         }
         
         int FinalSpeedXmlParser::SubElementRelativeSpeedToMasterParser::GetMinOccur() 
@@ -8984,6 +9324,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__VISUAL_RANGE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__VISUAL_RANGE, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -9016,6 +9357,8 @@ namespace NET_ASAM_OPENSCENARIO
             _boundingBoxXmlParser->ParseElement(indexedElement, parserContext, boundingBox);
 
             typedObject->SetBoundingBox(boundingBox);
+            
+            
         }
         
         int FogXmlParser::SubElementBoundingBoxParser::GetMinOccur() 
@@ -9091,6 +9434,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__INITIAL_DISTANCE_OFFSET, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__INITIAL_DISTANCE_OFFSET, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -9127,6 +9471,13 @@ namespace NET_ASAM_OPENSCENARIO
             _trajectoryXmlParser->ParseElement(indexedElement, parserContext, trajectory);
 
             typedObject->SetTrajectory(trajectory);
+            
+            
+            // This element is deprecated
+            std::string name = indexedElement->GetElement()->Name();
+        	Position startPosition = indexedElement->GetStartElementLocation();
+			auto msg = FileContentMessage("Element '" + name + "' is deprecated since standard version '1.1'. Comment: 'Use trajectoryRef instead.'.", WARNING, Textmarker(startPosition.GetLine(), startPosition.GetColumn(), _trajectoryXmlParser->_filename));
+			_trajectoryXmlParser->_messageLogger.LogMessage(msg);
         }
         
         int FollowTrajectoryActionXmlParser::SubElementTrajectoryParser::GetMinOccur() 
@@ -9166,6 +9517,13 @@ namespace NET_ASAM_OPENSCENARIO
 
             typedObject->SetCatalogReference(catalogReference);
             std::dynamic_pointer_cast<CatalogReferenceParserContext>(parserContext)->AddCatalogReference(std::dynamic_pointer_cast<ICatalogReference>(catalogReference));
+            
+            
+            // This element is deprecated
+            std::string name = indexedElement->GetElement()->Name();
+        	Position startPosition = indexedElement->GetStartElementLocation();
+			auto msg = FileContentMessage("Element '" + name + "' is deprecated since standard version '1.1'. Comment: 'Use trajectoryRef instead.'.", WARNING, Textmarker(startPosition.GetLine(), startPosition.GetColumn(), _catalogReferenceXmlParser->_filename));
+			_catalogReferenceXmlParser->_messageLogger.LogMessage(msg);
         }
         
         int FollowTrajectoryActionXmlParser::SubElementCatalogReferenceParser::GetMinOccur() 
@@ -9204,6 +9562,8 @@ namespace NET_ASAM_OPENSCENARIO
             _timeReferenceXmlParser->ParseElement(indexedElement, parserContext, timeReference);
 
             typedObject->SetTimeReference(timeReference);
+            
+            
         }
         
         int FollowTrajectoryActionXmlParser::SubElementTimeReferenceParser::GetMinOccur() 
@@ -9242,6 +9602,8 @@ namespace NET_ASAM_OPENSCENARIO
             _trajectoryFollowingModeXmlParser->ParseElement(indexedElement, parserContext, trajectoryFollowingMode);
 
             typedObject->SetTrajectoryFollowingMode(trajectoryFollowingMode);
+            
+            
         }
         
         int FollowTrajectoryActionXmlParser::SubElementTrajectoryFollowingModeParser::GetMinOccur() 
@@ -9280,6 +9642,8 @@ namespace NET_ASAM_OPENSCENARIO
             _trajectoryRefXmlParser->ParseElement(indexedElement, parserContext, trajectoryRef);
 
             typedObject->SetTrajectoryRef(trajectoryRef);
+            
+            
         }
         
         int FollowTrajectoryActionXmlParser::SubElementTrajectoryRefParser::GetMinOccur() 
@@ -9355,6 +9719,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__HEIGHT, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__HEIGHT, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -9393,6 +9758,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__LATITUDE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__LATITUDE, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -9431,6 +9797,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__LONGITUDE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__LONGITUDE, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -9463,6 +9830,8 @@ namespace NET_ASAM_OPENSCENARIO
             _orientationXmlParser->ParseElement(indexedElement, parserContext, orientation);
 
             typedObject->SetOrientation(orientation);
+            
+            
         }
         
         int GeoPositionXmlParser::SubElementOrientationParser::GetMinOccur() 
@@ -9536,6 +9905,8 @@ namespace NET_ASAM_OPENSCENARIO
             _environmentActionXmlParser->ParseElement(indexedElement, parserContext, environmentAction);
 
             typedObject->SetEnvironmentAction(environmentAction);
+            
+            
         }
         
         int GlobalActionXmlParser::SubElementEnvironmentActionParser::GetMinOccur() 
@@ -9574,6 +9945,8 @@ namespace NET_ASAM_OPENSCENARIO
             _entityActionXmlParser->ParseElement(indexedElement, parserContext, entityAction);
 
             typedObject->SetEntityAction(entityAction);
+            
+            
         }
         
         int GlobalActionXmlParser::SubElementEntityActionParser::GetMinOccur() 
@@ -9612,6 +9985,8 @@ namespace NET_ASAM_OPENSCENARIO
             _parameterActionXmlParser->ParseElement(indexedElement, parserContext, parameterAction);
 
             typedObject->SetParameterAction(parameterAction);
+            
+            
         }
         
         int GlobalActionXmlParser::SubElementParameterActionParser::GetMinOccur() 
@@ -9650,6 +10025,8 @@ namespace NET_ASAM_OPENSCENARIO
             _infrastructureActionXmlParser->ParseElement(indexedElement, parserContext, infrastructureAction);
 
             typedObject->SetInfrastructureAction(infrastructureAction);
+            
+            
         }
         
         int GlobalActionXmlParser::SubElementInfrastructureActionParser::GetMinOccur() 
@@ -9688,6 +10065,8 @@ namespace NET_ASAM_OPENSCENARIO
             _trafficActionXmlParser->ParseElement(indexedElement, parserContext, trafficAction);
 
             typedObject->SetTrafficAction(trafficAction);
+            
+            
         }
         
         int GlobalActionXmlParser::SubElementTrafficActionParser::GetMinOccur() 
@@ -9757,6 +10136,8 @@ namespace NET_ASAM_OPENSCENARIO
             auto binsList = typedObject->GetWriterBins();
             binsList.push_back(bins);
             typedObject->SetBins(binsList);
+            
+            
         }
         
         int HistogramXmlParser::SubElementBinsParser::GetMinOccur() 
@@ -9831,6 +10212,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__WEIGHT, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__WEIGHT, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -9863,6 +10245,8 @@ namespace NET_ASAM_OPENSCENARIO
             _rangeXmlParser->ParseElement(indexedElement, parserContext, range);
 
             typedObject->SetRange(range);
+            
+            
         }
         
         int HistogramBinXmlParser::SubElementRangeParser::GetMinOccur() 
@@ -9934,6 +10318,8 @@ namespace NET_ASAM_OPENSCENARIO
             _positionOfCurrentEntityXmlParser->ParseElement(indexedElement, parserContext, fromCurrentEntity);
 
             typedObject->SetFromCurrentEntity(fromCurrentEntity);
+            
+            
         }
         
         int InRoutePositionXmlParser::SubElementFromCurrentEntityParser::GetMinOccur() 
@@ -9972,6 +10358,8 @@ namespace NET_ASAM_OPENSCENARIO
             _positionInRoadCoordinatesXmlParser->ParseElement(indexedElement, parserContext, fromRoadCoordinates);
 
             typedObject->SetFromRoadCoordinates(fromRoadCoordinates);
+            
+            
         }
         
         int InRoutePositionXmlParser::SubElementFromRoadCoordinatesParser::GetMinOccur() 
@@ -10010,6 +10398,8 @@ namespace NET_ASAM_OPENSCENARIO
             _positionInLaneCoordinatesXmlParser->ParseElement(indexedElement, parserContext, fromLaneCoordinates);
 
             typedObject->SetFromLaneCoordinates(fromLaneCoordinates);
+            
+            
         }
         
         int InRoutePositionXmlParser::SubElementFromLaneCoordinatesParser::GetMinOccur() 
@@ -10079,6 +10469,8 @@ namespace NET_ASAM_OPENSCENARIO
             _trafficSignalActionXmlParser->ParseElement(indexedElement, parserContext, trafficSignalAction);
 
             typedObject->SetTrafficSignalAction(trafficSignalAction);
+            
+            
         }
         
         int InfrastructureActionXmlParser::SubElementTrafficSignalActionParser::GetMinOccur() 
@@ -10147,6 +10539,8 @@ namespace NET_ASAM_OPENSCENARIO
             _initActionsXmlParser->ParseElement(indexedElement, parserContext, actions);
 
             typedObject->SetActions(actions);
+            
+            
         }
         
         int InitXmlParser::SubElementActionsParser::GetMinOccur() 
@@ -10218,6 +10612,8 @@ namespace NET_ASAM_OPENSCENARIO
             auto globalActionsList = typedObject->GetWriterGlobalActions();
             globalActionsList.push_back(globalActions);
             typedObject->SetGlobalActions(globalActionsList);
+            
+            
         }
         
         int InitActionsXmlParser::SubElementGlobalActionsParser::GetMinOccur() 
@@ -10257,6 +10653,8 @@ namespace NET_ASAM_OPENSCENARIO
             auto userDefinedActionsList = typedObject->GetWriterUserDefinedActions();
             userDefinedActionsList.push_back(userDefinedActions);
             typedObject->SetUserDefinedActions(userDefinedActionsList);
+            
+            
         }
         
         int InitActionsXmlParser::SubElementUserDefinedActionsParser::GetMinOccur() 
@@ -10296,6 +10694,8 @@ namespace NET_ASAM_OPENSCENARIO
             auto privatesList = typedObject->GetWriterPrivates();
             privatesList.push_back(privates);
             typedObject->SetPrivates(privatesList);
+            
+            
         }
         
         int InitActionsXmlParser::SubElementPrivatesParser::GetMinOccur() 
@@ -10370,6 +10770,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -10438,6 +10839,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__TARGET_LANE_OFFSET, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__TARGET_LANE_OFFSET, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -10471,6 +10873,8 @@ namespace NET_ASAM_OPENSCENARIO
             _transitionDynamicsXmlParser->ParseElement(indexedElement, parserContext, laneChangeActionDynamics);
 
             typedObject->SetLaneChangeActionDynamics(laneChangeActionDynamics);
+            
+            
         }
         
         int LaneChangeActionXmlParser::SubElementLaneChangeActionDynamicsParser::GetMinOccur() 
@@ -10509,6 +10913,8 @@ namespace NET_ASAM_OPENSCENARIO
             _laneChangeTargetXmlParser->ParseElement(indexedElement, parserContext, laneChangeTarget);
 
             typedObject->SetLaneChangeTarget(laneChangeTarget);
+            
+            
         }
         
         int LaneChangeActionXmlParser::SubElementLaneChangeTargetParser::GetMinOccur() 
@@ -10579,6 +10985,8 @@ namespace NET_ASAM_OPENSCENARIO
             _relativeTargetLaneXmlParser->ParseElement(indexedElement, parserContext, relativeTargetLane);
 
             typedObject->SetRelativeTargetLane(relativeTargetLane);
+            
+            
         }
         
         int LaneChangeTargetXmlParser::SubElementRelativeTargetLaneParser::GetMinOccur() 
@@ -10617,6 +11025,8 @@ namespace NET_ASAM_OPENSCENARIO
             _absoluteTargetLaneXmlParser->ParseElement(indexedElement, parserContext, absoluteTargetLane);
 
             typedObject->SetAbsoluteTargetLane(absoluteTargetLane);
+            
+            
         }
         
         int LaneChangeTargetXmlParser::SubElementAbsoluteTargetLaneParser::GetMinOccur() 
@@ -10687,6 +11097,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -10720,6 +11131,8 @@ namespace NET_ASAM_OPENSCENARIO
             _laneOffsetActionDynamicsXmlParser->ParseElement(indexedElement, parserContext, laneOffsetActionDynamics);
 
             typedObject->SetLaneOffsetActionDynamics(laneOffsetActionDynamics);
+            
+            
         }
         
         int LaneOffsetActionXmlParser::SubElementLaneOffsetActionDynamicsParser::GetMinOccur() 
@@ -10758,6 +11171,8 @@ namespace NET_ASAM_OPENSCENARIO
             _laneOffsetTargetXmlParser->ParseElement(indexedElement, parserContext, laneOffsetTarget);
 
             typedObject->SetLaneOffsetTarget(laneOffsetTarget);
+            
+            
         }
         
         int LaneOffsetActionXmlParser::SubElementLaneOffsetTargetParser::GetMinOccur() 
@@ -10832,10 +11247,16 @@ namespace NET_ASAM_OPENSCENARIO
                             auto msg = FileContentMessage("Value '" + attributeValue + "' is not allowed.", ERROR, startMarker);
                             _messageLogger.LogMessage(msg);
                         }
+                        if (DynamicsShape::IsDeprecated(kResult))
+				    	{
+							auto msg = FileContentMessage("Enumeration literal '" + attributeValue + "' is deprecated since standard version '" +  DynamicsShape::GetDeprecatedVersion(kResult) +"'. " + DynamicsShape::GetDeprecatedComment(kResult) + "'.", WARNING, Textmarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), this->_filename));
+							this->_messageLogger.LogMessage(msg);
+				    	}
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__DYNAMICS_SHAPE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__DYNAMICS_SHAPE, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -10874,6 +11295,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__MAX_LATERAL_ACC, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__MAX_LATERAL_ACC, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -10937,6 +11359,8 @@ namespace NET_ASAM_OPENSCENARIO
             _relativeTargetLaneOffsetXmlParser->ParseElement(indexedElement, parserContext, relativeTargetLaneOffset);
 
             typedObject->SetRelativeTargetLaneOffset(relativeTargetLaneOffset);
+            
+            
         }
         
         int LaneOffsetTargetXmlParser::SubElementRelativeTargetLaneOffsetParser::GetMinOccur() 
@@ -10975,6 +11399,8 @@ namespace NET_ASAM_OPENSCENARIO
             _absoluteTargetLaneOffsetXmlParser->ParseElement(indexedElement, parserContext, absoluteTargetLaneOffset);
 
             typedObject->SetAbsoluteTargetLaneOffset(absoluteTargetLaneOffset);
+            
+            
         }
         
         int LaneOffsetTargetXmlParser::SubElementAbsoluteTargetLaneOffsetParser::GetMinOccur() 
@@ -11045,6 +11471,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__LANE_ID, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__LANE_ID, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -11083,6 +11510,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__OFFSET, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__OFFSET, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -11116,6 +11544,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__ROAD_ID, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__ROAD_ID, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -11154,6 +11583,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__S, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__S, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -11186,6 +11616,8 @@ namespace NET_ASAM_OPENSCENARIO
             _orientationXmlParser->ParseElement(indexedElement, parserContext, orientation);
 
             typedObject->SetOrientation(orientation);
+            
+            
         }
         
         int LanePositionXmlParser::SubElementOrientationParser::GetMinOccur() 
@@ -11257,6 +11689,8 @@ namespace NET_ASAM_OPENSCENARIO
             _laneChangeActionXmlParser->ParseElement(indexedElement, parserContext, laneChangeAction);
 
             typedObject->SetLaneChangeAction(laneChangeAction);
+            
+            
         }
         
         int LateralActionXmlParser::SubElementLaneChangeActionParser::GetMinOccur() 
@@ -11295,6 +11729,8 @@ namespace NET_ASAM_OPENSCENARIO
             _laneOffsetActionXmlParser->ParseElement(indexedElement, parserContext, laneOffsetAction);
 
             typedObject->SetLaneOffsetAction(laneOffsetAction);
+            
+            
         }
         
         int LateralActionXmlParser::SubElementLaneOffsetActionParser::GetMinOccur() 
@@ -11333,6 +11769,8 @@ namespace NET_ASAM_OPENSCENARIO
             _lateralDistanceActionXmlParser->ParseElement(indexedElement, parserContext, lateralDistanceAction);
 
             typedObject->SetLateralDistanceAction(lateralDistanceAction);
+            
+            
         }
         
         int LateralActionXmlParser::SubElementLateralDistanceActionParser::GetMinOccur() 
@@ -11403,6 +11841,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -11441,10 +11880,16 @@ namespace NET_ASAM_OPENSCENARIO
                             auto msg = FileContentMessage("Value '" + attributeValue + "' is not allowed.", ERROR, startMarker);
                             _messageLogger.LogMessage(msg);
                         }
+                        if (CoordinateSystem::IsDeprecated(kResult))
+				    	{
+							auto msg = FileContentMessage("Enumeration literal '" + attributeValue + "' is deprecated since standard version '" +  CoordinateSystem::GetDeprecatedVersion(kResult) +"'. " + CoordinateSystem::GetDeprecatedComment(kResult) + "'.", WARNING, Textmarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), this->_filename));
+							this->_messageLogger.LogMessage(msg);
+				    	}
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__COORDINATE_SYSTEM, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__COORDINATE_SYSTEM, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -11483,10 +11928,16 @@ namespace NET_ASAM_OPENSCENARIO
                             auto msg = FileContentMessage("Value '" + attributeValue + "' is not allowed.", ERROR, startMarker);
                             _messageLogger.LogMessage(msg);
                         }
+                        if (LateralDisplacement::IsDeprecated(kResult))
+				    	{
+							auto msg = FileContentMessage("Enumeration literal '" + attributeValue + "' is deprecated since standard version '" +  LateralDisplacement::GetDeprecatedVersion(kResult) +"'. " + LateralDisplacement::GetDeprecatedComment(kResult) + "'.", WARNING, Textmarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), this->_filename));
+							this->_messageLogger.LogMessage(msg);
+				    	}
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__DISPLACEMENT, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__DISPLACEMENT, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -11525,6 +11976,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__DISTANCE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__DISTANCE, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -11560,6 +12012,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -11593,6 +12046,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -11625,6 +12079,8 @@ namespace NET_ASAM_OPENSCENARIO
             _dynamicConstraintsXmlParser->ParseElement(indexedElement, parserContext, dynamicConstraints);
 
             typedObject->SetDynamicConstraints(dynamicConstraints);
+            
+            
         }
         
         int LateralDistanceActionXmlParser::SubElementDynamicConstraintsParser::GetMinOccur() 
@@ -11697,6 +12153,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -11730,6 +12187,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__RESOURCE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__RESOURCE, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -11763,6 +12221,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__SPDX_ID, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__SPDX_ID, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -11821,6 +12280,8 @@ namespace NET_ASAM_OPENSCENARIO
             _speedActionXmlParser->ParseElement(indexedElement, parserContext, speedAction);
 
             typedObject->SetSpeedAction(speedAction);
+            
+            
         }
         
         int LongitudinalActionXmlParser::SubElementSpeedActionParser::GetMinOccur() 
@@ -11859,6 +12320,8 @@ namespace NET_ASAM_OPENSCENARIO
             _longitudinalDistanceActionXmlParser->ParseElement(indexedElement, parserContext, longitudinalDistanceAction);
 
             typedObject->SetLongitudinalDistanceAction(longitudinalDistanceAction);
+            
+            
         }
         
         int LongitudinalActionXmlParser::SubElementLongitudinalDistanceActionParser::GetMinOccur() 
@@ -11929,6 +12392,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -11967,10 +12431,16 @@ namespace NET_ASAM_OPENSCENARIO
                             auto msg = FileContentMessage("Value '" + attributeValue + "' is not allowed.", ERROR, startMarker);
                             _messageLogger.LogMessage(msg);
                         }
+                        if (CoordinateSystem::IsDeprecated(kResult))
+				    	{
+							auto msg = FileContentMessage("Enumeration literal '" + attributeValue + "' is deprecated since standard version '" +  CoordinateSystem::GetDeprecatedVersion(kResult) +"'. " + CoordinateSystem::GetDeprecatedComment(kResult) + "'.", WARNING, Textmarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), this->_filename));
+							this->_messageLogger.LogMessage(msg);
+				    	}
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__COORDINATE_SYSTEM, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__COORDINATE_SYSTEM, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -12009,10 +12479,16 @@ namespace NET_ASAM_OPENSCENARIO
                             auto msg = FileContentMessage("Value '" + attributeValue + "' is not allowed.", ERROR, startMarker);
                             _messageLogger.LogMessage(msg);
                         }
+                        if (LongitudinalDisplacement::IsDeprecated(kResult))
+				    	{
+							auto msg = FileContentMessage("Enumeration literal '" + attributeValue + "' is deprecated since standard version '" +  LongitudinalDisplacement::GetDeprecatedVersion(kResult) +"'. " + LongitudinalDisplacement::GetDeprecatedComment(kResult) + "'.", WARNING, Textmarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), this->_filename));
+							this->_messageLogger.LogMessage(msg);
+				    	}
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__DISPLACEMENT, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__DISPLACEMENT, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -12051,6 +12527,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__DISTANCE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__DISTANCE, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -12086,6 +12563,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -12119,6 +12597,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -12157,6 +12636,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__TIME_GAP, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__TIME_GAP, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -12189,6 +12669,8 @@ namespace NET_ASAM_OPENSCENARIO
             _dynamicConstraintsXmlParser->ParseElement(indexedElement, parserContext, dynamicConstraints);
 
             typedObject->SetDynamicConstraints(dynamicConstraints);
+            
+            
         }
         
         int LongitudinalDistanceActionXmlParser::SubElementDynamicConstraintsParser::GetMinOccur() 
@@ -12258,6 +12740,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -12292,6 +12775,8 @@ namespace NET_ASAM_OPENSCENARIO
             auto parameterDeclarationsList = typedObject->GetWriterParameterDeclarations();
             parameterDeclarationsList.push_back(parameterDeclarations);
             typedObject->SetParameterDeclarations(parameterDeclarationsList);
+            
+            
         }
         
         int ManeuverXmlParser::SubElementParameterDeclarationsParser::GetMinOccur() 
@@ -12328,6 +12813,8 @@ namespace NET_ASAM_OPENSCENARIO
             auto eventsList = typedObject->GetWriterEvents();
             eventsList.push_back(events);
             typedObject->SetEvents(eventsList);
+            
+            
         }
         
         int ManeuverXmlParser::SubElementEventsParser::GetMinOccur() 
@@ -12397,6 +12884,8 @@ namespace NET_ASAM_OPENSCENARIO
             _directoryXmlParser->ParseElement(indexedElement, parserContext, directory);
 
             typedObject->SetDirectory(directory);
+            
+            
         }
         
         int ManeuverCatalogLocationXmlParser::SubElementDirectoryParser::GetMinOccur() 
@@ -12471,6 +12960,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__MAXIMUM_EXECUTION_COUNT, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__MAXIMUM_EXECUTION_COUNT, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -12504,6 +12994,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -12538,6 +13029,8 @@ namespace NET_ASAM_OPENSCENARIO
             _actorsXmlParser->ParseElement(indexedElement, parserContext, actors);
 
             typedObject->SetActors(actors);
+            
+            
         }
         
         int ManeuverGroupXmlParser::SubElementActorsParser::GetMinOccur() 
@@ -12578,6 +13071,8 @@ namespace NET_ASAM_OPENSCENARIO
             catalogReferencesList.push_back(catalogReferences);
             typedObject->SetCatalogReferences(catalogReferencesList);
             std::dynamic_pointer_cast<CatalogReferenceParserContext>(parserContext)->AddCatalogReference(std::dynamic_pointer_cast<ICatalogReference>(catalogReferences));
+            
+            
         }
         
         int ManeuverGroupXmlParser::SubElementCatalogReferencesParser::GetMinOccur() 
@@ -12617,6 +13112,8 @@ namespace NET_ASAM_OPENSCENARIO
             auto maneuversList = typedObject->GetWriterManeuvers();
             maneuversList.push_back(maneuvers);
             typedObject->SetManeuvers(maneuversList);
+            
+            
         }
         
         int ManeuverGroupXmlParser::SubElementManeuversParser::GetMinOccur() 
@@ -12692,6 +13189,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__MASS, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__MASS, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -12730,10 +13228,16 @@ namespace NET_ASAM_OPENSCENARIO
                             auto msg = FileContentMessage("Value '" + attributeValue + "' is not allowed.", ERROR, startMarker);
                             _messageLogger.LogMessage(msg);
                         }
+                        if (MiscObjectCategory::IsDeprecated(kResult))
+				    	{
+							auto msg = FileContentMessage("Enumeration literal '" + attributeValue + "' is deprecated since standard version '" +  MiscObjectCategory::GetDeprecatedVersion(kResult) +"'. " + MiscObjectCategory::GetDeprecatedComment(kResult) + "'.", WARNING, Textmarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), this->_filename));
+							this->_messageLogger.LogMessage(msg);
+				    	}
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__MISC_OBJECT_CATEGORY, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__MISC_OBJECT_CATEGORY, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -12767,6 +13271,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__MODEL3D, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__MODEL3D, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -12800,6 +13305,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -12835,6 +13341,8 @@ namespace NET_ASAM_OPENSCENARIO
             auto parameterDeclarationsList = typedObject->GetWriterParameterDeclarations();
             parameterDeclarationsList.push_back(parameterDeclarations);
             typedObject->SetParameterDeclarations(parameterDeclarationsList);
+            
+            
         }
         
         int MiscObjectXmlParser::SubElementParameterDeclarationsParser::GetMinOccur() 
@@ -12870,6 +13378,8 @@ namespace NET_ASAM_OPENSCENARIO
             _boundingBoxXmlParser->ParseElement(indexedElement, parserContext, boundingBox);
 
             typedObject->SetBoundingBox(boundingBox);
+            
+            
         }
         
         int MiscObjectXmlParser::SubElementBoundingBoxParser::GetMinOccur() 
@@ -12908,6 +13418,8 @@ namespace NET_ASAM_OPENSCENARIO
             _propertiesXmlParser->ParseElement(indexedElement, parserContext, properties);
 
             typedObject->SetProperties(properties);
+            
+            
         }
         
         int MiscObjectXmlParser::SubElementPropertiesParser::GetMinOccur() 
@@ -12977,6 +13489,8 @@ namespace NET_ASAM_OPENSCENARIO
             _directoryXmlParser->ParseElement(indexedElement, parserContext, directory);
 
             typedObject->SetDirectory(directory);
+            
+            
         }
         
         int MiscObjectCatalogLocationXmlParser::SubElementDirectoryParser::GetMinOccur() 
@@ -13047,6 +13561,8 @@ namespace NET_ASAM_OPENSCENARIO
             _parameterAddValueRuleXmlParser->ParseElement(indexedElement, parserContext, addValue);
 
             typedObject->SetAddValue(addValue);
+            
+            
         }
         
         int ModifyRuleXmlParser::SubElementAddValueParser::GetMinOccur() 
@@ -13085,6 +13601,8 @@ namespace NET_ASAM_OPENSCENARIO
             _parameterMultiplyByValueRuleXmlParser->ParseElement(indexedElement, parserContext, multiplyByValue);
 
             typedObject->SetMultiplyByValue(multiplyByValue);
+            
+            
         }
         
         int ModifyRuleXmlParser::SubElementMultiplyByValueParser::GetMinOccur() 
@@ -13188,6 +13706,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__EXPECTED_VALUE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__EXPECTED_VALUE, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -13226,6 +13745,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__VARIANCE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__VARIANCE, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -13258,6 +13778,8 @@ namespace NET_ASAM_OPENSCENARIO
             _rangeXmlParser->ParseElement(indexedElement, parserContext, range);
 
             typedObject->SetRange(range);
+            
+            
         }
         
         int NormalDistributionXmlParser::SubElementRangeParser::GetMinOccur() 
@@ -13332,6 +13854,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__ORDER, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__ORDER, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -13366,6 +13889,8 @@ namespace NET_ASAM_OPENSCENARIO
             auto controlPointsList = typedObject->GetWriterControlPoints();
             controlPointsList.push_back(controlPoints);
             typedObject->SetControlPoints(controlPointsList);
+            
+            
         }
         
         int NurbsXmlParser::SubElementControlPointsParser::GetMinOccur() 
@@ -13405,6 +13930,8 @@ namespace NET_ASAM_OPENSCENARIO
             auto knotsList = typedObject->GetWriterKnots();
             knotsList.push_back(knots);
             typedObject->SetKnots(knotsList);
+            
+            
         }
         
         int NurbsXmlParser::SubElementKnotsParser::GetMinOccur() 
@@ -13476,6 +14003,8 @@ namespace NET_ASAM_OPENSCENARIO
 
             typedObject->SetCatalogReference(catalogReference);
             std::dynamic_pointer_cast<CatalogReferenceParserContext>(parserContext)->AddCatalogReference(std::dynamic_pointer_cast<ICatalogReference>(catalogReference));
+            
+            
         }
         
         int ObjectControllerXmlParser::SubElementCatalogReferenceParser::GetMinOccur() 
@@ -13514,6 +14043,8 @@ namespace NET_ASAM_OPENSCENARIO
             _controllerXmlParser->ParseElement(indexedElement, parserContext, controller);
 
             typedObject->SetController(controller);
+            
+            
         }
         
         int ObjectControllerXmlParser::SubElementControllerParser::GetMinOccur() 
@@ -13588,6 +14119,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__DURATION, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__DURATION, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -13650,6 +14182,8 @@ namespace NET_ASAM_OPENSCENARIO
             _fileHeaderXmlParser->ParseElement(indexedElement, parserContext, fileHeader);
 
             typedObject->SetFileHeader(fileHeader);
+            
+            
         }
         
         int OpenScenarioXmlParser::SubElementFileHeaderParser::GetMinOccur() 
@@ -13688,6 +14222,8 @@ namespace NET_ASAM_OPENSCENARIO
             _openScenarioCategoryXmlParser->ParseElement(indexedElement, parserContext, openScenarioCategory);
 
             typedObject->SetOpenScenarioCategory(openScenarioCategory);
+            
+            
         }
         
         int OpenScenarioXmlParser::SubElementOpenScenarioCategoryParser::GetMinOccur() 
@@ -13759,6 +14295,8 @@ namespace NET_ASAM_OPENSCENARIO
             _scenarioDefinitionXmlParser->ParseElement(indexedElement, parserContext, scenarioDefinition);
 
             typedObject->SetScenarioDefinition(scenarioDefinition);
+            
+            
         }
         
         int OpenScenarioCategoryXmlParser::SubElementScenarioDefinitionParser::GetMinOccur() 
@@ -13799,6 +14337,8 @@ namespace NET_ASAM_OPENSCENARIO
             _catalogDefinitionXmlParser->ParseElement(indexedElement, parserContext, catalogDefinition);
 
             typedObject->SetCatalogDefinition(catalogDefinition);
+            
+            
         }
         
         int OpenScenarioCategoryXmlParser::SubElementCatalogDefinitionParser::GetMinOccur() 
@@ -13837,6 +14377,8 @@ namespace NET_ASAM_OPENSCENARIO
             _parameterValueDistributionDefinitionXmlParser->ParseElement(indexedElement, parserContext, parameterValueDistributionDefinition);
 
             typedObject->SetParameterValueDistributionDefinition(parameterValueDistributionDefinition);
+            
+            
         }
         
         int OpenScenarioCategoryXmlParser::SubElementParameterValueDistributionDefinitionParser::GetMinOccur() 
@@ -13911,6 +14453,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__H, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__H, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -13949,6 +14492,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__P, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__P, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -13987,6 +14531,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__R, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__R, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -14025,10 +14570,16 @@ namespace NET_ASAM_OPENSCENARIO
                             auto msg = FileContentMessage("Value '" + attributeValue + "' is not allowed.", ERROR, startMarker);
                             _messageLogger.LogMessage(msg);
                         }
+                        if (ReferenceContext::IsDeprecated(kResult))
+				    	{
+							auto msg = FileContentMessage("Enumeration literal '" + attributeValue + "' is deprecated since standard version '" +  ReferenceContext::GetDeprecatedVersion(kResult) +"'. " + ReferenceContext::GetDeprecatedComment(kResult) + "'.", WARNING, Textmarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), this->_filename));
+							this->_messageLogger.LogMessage(msg);
+				    	}
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__TYPE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__TYPE, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -14091,6 +14642,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -14129,6 +14681,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -14191,6 +14744,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -14229,6 +14783,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -14296,6 +14851,8 @@ namespace NET_ASAM_OPENSCENARIO
             _overrideThrottleActionXmlParser->ParseElement(indexedElement, parserContext, throttle);
 
             typedObject->SetThrottle(throttle);
+            
+            
         }
         
         int OverrideControllerValueActionXmlParser::SubElementThrottleParser::GetMinOccur() 
@@ -14334,6 +14891,8 @@ namespace NET_ASAM_OPENSCENARIO
             _overrideBrakeActionXmlParser->ParseElement(indexedElement, parserContext, brake);
 
             typedObject->SetBrake(brake);
+            
+            
         }
         
         int OverrideControllerValueActionXmlParser::SubElementBrakeParser::GetMinOccur() 
@@ -14372,6 +14931,8 @@ namespace NET_ASAM_OPENSCENARIO
             _overrideClutchActionXmlParser->ParseElement(indexedElement, parserContext, clutch);
 
             typedObject->SetClutch(clutch);
+            
+            
         }
         
         int OverrideControllerValueActionXmlParser::SubElementClutchParser::GetMinOccur() 
@@ -14410,6 +14971,8 @@ namespace NET_ASAM_OPENSCENARIO
             _overrideParkingBrakeActionXmlParser->ParseElement(indexedElement, parserContext, parkingBrake);
 
             typedObject->SetParkingBrake(parkingBrake);
+            
+            
         }
         
         int OverrideControllerValueActionXmlParser::SubElementParkingBrakeParser::GetMinOccur() 
@@ -14448,6 +15011,8 @@ namespace NET_ASAM_OPENSCENARIO
             _overrideSteeringWheelActionXmlParser->ParseElement(indexedElement, parserContext, steeringWheel);
 
             typedObject->SetSteeringWheel(steeringWheel);
+            
+            
         }
         
         int OverrideControllerValueActionXmlParser::SubElementSteeringWheelParser::GetMinOccur() 
@@ -14486,6 +15051,8 @@ namespace NET_ASAM_OPENSCENARIO
             _overrideGearActionXmlParser->ParseElement(indexedElement, parserContext, gear);
 
             typedObject->SetGear(gear);
+            
+            
         }
         
         int OverrideControllerValueActionXmlParser::SubElementGearParser::GetMinOccur() 
@@ -14555,6 +15122,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -14593,6 +15161,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__NUMBER, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__NUMBER, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -14655,6 +15224,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -14693,6 +15263,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -14755,6 +15326,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -14793,6 +15365,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -14855,6 +15428,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -14893,6 +15467,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -14958,6 +15533,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_REF, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_REF, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -14991,6 +15567,8 @@ namespace NET_ASAM_OPENSCENARIO
             _parameterSetActionXmlParser->ParseElement(indexedElement, parserContext, setAction);
 
             typedObject->SetSetAction(setAction);
+            
+            
         }
         
         int ParameterActionXmlParser::SubElementSetActionParser::GetMinOccur() 
@@ -15029,6 +15607,8 @@ namespace NET_ASAM_OPENSCENARIO
             _parameterModifyActionXmlParser->ParseElement(indexedElement, parserContext, modifyAction);
 
             typedObject->SetModifyAction(modifyAction);
+            
+            
         }
         
         int ParameterActionXmlParser::SubElementModifyActionParser::GetMinOccur() 
@@ -15103,6 +15683,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -15156,6 +15737,7 @@ namespace NET_ASAM_OPENSCENARIO
                     auto proxy = std::make_shared<NamedReferenceProxy<IParameterDeclaration>>(StripDollarSign(attributeValue));
                     proxy->SetParent(typedObject);
                     typedObject->SetParameterRef(proxy);
+                    
                 }
 
                 int GetMinOccur() override
@@ -15189,6 +15771,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -15253,6 +15836,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_REF, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_REF, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -15291,10 +15875,16 @@ namespace NET_ASAM_OPENSCENARIO
                             auto msg = FileContentMessage("Value '" + attributeValue + "' is not allowed.", ERROR, startMarker);
                             _messageLogger.LogMessage(msg);
                         }
+                        if (Rule::IsDeprecated(kResult))
+				    	{
+							auto msg = FileContentMessage("Enumeration literal '" + attributeValue + "' is deprecated since standard version '" +  Rule::GetDeprecatedVersion(kResult) +"'. " + Rule::GetDeprecatedComment(kResult) + "'.", WARNING, Textmarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), this->_filename));
+							this->_messageLogger.LogMessage(msg);
+				    	}
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__RULE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__RULE, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override
@@ -15328,6 +15918,7 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(startMarker));
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<Textmarker>(endMarker));
                      
+                    
                 }
 
                 int GetMinOccur() override

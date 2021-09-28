@@ -217,6 +217,8 @@ namespace NET_ASAM_OPENSCENARIO
          * @return the defined min occur value (0 or 1)
          */
 		virtual int GetMinOccur() = 0;
+
+		
        
     };
 }

@@ -105,6 +105,11 @@ namespace NET_ASAM_OPENSCENARIO
                             auto msg = FileContentMessage("Value '" + attributeValue + "' is not allowed.", ERROR, startMarker);
                             _messageLogger.LogMessage(msg);
                         }
+                        if (<%=property.type.name.toClassName()%>::IsDeprecated(kResult))
+				    	{
+							auto msg = FileContentMessage("Enumeration literal '" + attributeValue + "' is deprecated since standard version '" +  <%=property.type.name.toClassName()%>::GetDeprecatedVersion(kResult) +"'. " + <%=property.type.name.toClassName()%>::GetDeprecatedComment(kResult) + "'.", WARNING, Textmarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), this->_filename));
+							this->_messageLogger.LogMessage(msg);
+				    	}
                         <%-}-%>
                     }
                     typedObject->PutPropertyStartMarker(OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>, std::make_shared<Textmarker>(startMarker));
@@ -122,6 +127,16 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->Set<%=property.name.toClassName()%>(Parse<%=property.type.name.toClassName()%>(StripDollarSign(attributeValue), startMarker));
                         <%-}-%>
                     <%-}-%>
+                    
+                    <%-if (property.isDeprecated()){-%>
+                    // This element is deprecated
+                	<%-String version = property.getDeprecatedVersion();-%>
+                	<%- version = version? version.replaceAll("\"", "\\\\\""):"n/a";-%>
+                	<%-String comment = property.getDeprecatedComment();-%>
+                	<%- comment = comment? comment.replaceAll("\"", "\\\\\""):"n/a";-%>	
+					auto msg = FileContentMessage("Attribute '" + attributeName + "' is deprecated since standard version '<%=version%>'. Comment: '<%=comment%>'.", WARNING, Textmarker(startPosition.GetLine(), startPosition.GetColumn(), this->_filename));
+					this->_messageLogger.LogMessage(msg);
+			    	<%-}-%>
                 }
 
                 int GetMinOccur() override
@@ -181,6 +196,19 @@ namespace NET_ASAM_OPENSCENARIO
             <%- if (property.type.name.toClassName() == "CatalogReference"){-%>
             std::dynamic_pointer_cast<CatalogReferenceParserContext>(parserContext)->AddCatalogReference(std::dynamic_pointer_cast<I<%=property.type.name.toClassName()%>>(<%=property.name.toMemberName()%>));
             <%-}-%>
+            
+            
+            <%-if (property.isDeprecated()){-%>         
+            // This element is deprecated
+            std::string name = indexedElement->GetElement()->Name();
+        	<%-String version = property.getDeprecatedVersion();-%>
+        	<%-version = version? version.replaceAll("\"", "\\\\\""):"n/a";-%>
+        	<%-String comment = property.getDeprecatedComment();-%>
+        	<%- comment = comment? comment.replaceAll("\"", "\\\\\""):"n/a";-%>	
+        	Position startPosition = indexedElement->GetStartElementLocation();
+			auto msg = FileContentMessage("Element '" + name + "' is deprecated since standard version '<%=version%>'. Comment: '<%=comment%>'.", WARNING, Textmarker(startPosition.GetLine(), startPosition.GetColumn(), _<%=property.type.name.toMemberName()%>XmlParser->_filename));
+			_<%=property.type.name.toMemberName()%>XmlParser->_messageLogger.LogMessage(msg);
+			<%-}-%>
         }
         
         int <%=element.name.toClassName()%>XmlParser::SubElement<%=property.name.toClassName()%>Parser::GetMinOccur() 

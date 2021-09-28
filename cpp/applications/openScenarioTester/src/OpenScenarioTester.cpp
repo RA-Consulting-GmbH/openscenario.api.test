@@ -15,6 +15,7 @@
  * limitations under the License.
  */
 
+#include "TestDeprecatedV1_1.h"
 #include "TestExamplesV1_1.h"
 #include "TestRangeCheckerV1_1.h"
 #include "TestFilesV1_1.h"
@@ -52,6 +53,7 @@ bool TestV1_1(std::string basePath )
 	NET_ASAM_OPENSCENARIO::v1_1::TestFlexInterface testFlexInterface(basePath);
 	NET_ASAM_OPENSCENARIO::v1_1::TestInjectedParameters testInjectedParameters(basePath);
 	NET_ASAM_OPENSCENARIO::v1_1::TestWriterApi testWriterApi(basePath);
+	NET_ASAM_OPENSCENARIO::v1_1::TestDeprecated testDeprecated(basePath);
 
 	auto result = true;
 	
@@ -110,7 +112,8 @@ bool TestV1_1(std::string basePath )
 	result = testWriterApi.TestSimpleSuccess() && result;
 	result = testWriterApi.TestParamsSuccess() && result;
 	result = testWriterApi.TestBomFile() && result;
-
+	
+	result = testDeprecated.TestDeprecatedSuccess() && result;
 	return result;
 }
 

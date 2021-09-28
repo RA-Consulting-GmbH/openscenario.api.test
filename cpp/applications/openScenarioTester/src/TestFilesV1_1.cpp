@@ -154,14 +154,14 @@ namespace NET_ASAM_OPENSCENARIO
 					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(95, 116, kFilename)));
 
 				messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
-					"Internal Overflow (limits of internal 64 byte double value exceeded)",
+					"Internal Overflow (limits of internal 64 bit double value exceeded)",
 					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(95, 131, kFilename)));
 				messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
-					"Internal Overflow (limits of internal 64 byte double value exceeded)",
+					"Internal Overflow (limits of internal 64 bit double value exceeded)",
 					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(106, 71, kFilename)));
 
 				messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
-					"Internal Overflow (limits of internal 64 byte double value exceeded)",
+					"Internal Overflow (limits of internal 64 bit double value exceeded)",
 					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(114, 40, kFilename)));
 				messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
 					"Syntax error in expression",

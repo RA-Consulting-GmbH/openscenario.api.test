@@ -32,6 +32,42 @@ namespace NET_ASAM_OPENSCENARIO
 	            {"<%=property.literal.toMemberName()%>", <%=property.literal.toUpperNameFromMemberName()%>},
 	            <%-}-%>
 	        };
+	        
+	        <%-if (element.hasDeprecatedLiterals()){-%>
+            std::map<<%=element.name.toClassName()%>::<%=element.name.toClassName()%>Enum, bool> <%=element.name.toClassName()%>::_enumToDeprecated =
+            {
+            	<%- element.enumerationValues.each{ property ->-%>
+            		<%- if(property.isDeprecated()){-%>
+	            {<%=element.name.toClassName()%>::<%=property.literal.toUpperNameFromMemberName()%>, true},
+	            	<%-} else {-%>
+	            {<%=element.name.toClassName()%>::<%=property.literal.toUpperNameFromMemberName()%>, false},
+	           		 <%-}-%>
+	            <%-}-%>
+            };
+            std::map<<%=element.name.toClassName()%>::<%=element.name.toClassName()%>Enum, std::string> <%=element.name.toClassName()%>::_enumToDeprecatedVersion
+            {
+            	<%- element.enumerationValues.each{ property ->-%>
+            	<%- if(property.isDeprecated() && property.getDeprecatedVersion()){-%>
+	            {<%=element.name.toClassName()%>::<%=property.literal.toUpperNameFromMemberName()%>, "<%=property.getDeprecatedVersion().replaceAll("\"", "\\\\\"")%>"},
+	            <%-} else {-%>
+	            {<%=element.name.toClassName()%>::<%=property.literal.toUpperNameFromMemberName()%>, ""},
+	            <%-}-%>
+	            <%-}-%>
+            };
+            std::map<<%=element.name.toClassName()%>::<%=element.name.toClassName()%>Enum, std::string> <%=element.name.toClassName()%>::_enumToDeprecatedComment
+            {
+            <%- element.enumerationValues.each{ property ->-%>
+            	<%- if(property.isDeprecated() && property.getDeprecatedComment()){-%>
+	            {<%=element.name.toClassName()%>::<%=property.literal.toUpperNameFromMemberName()%>, "<%=property.getDeprecatedComment().replaceAll("\"", "\\\\\"")%>"},
+	            <%-} else {-%>
+	            {<%=element.name.toClassName()%>::<%=property.literal.toUpperNameFromMemberName()%>, ""},
+	            <%-}-%>
+	            <%-}-%>
+            };  
+            
+                   	
+            <%}-%>
+	        
             <%=element.name.toClassName()%>::<%=element.name.toClassName()%>()
             {
                 _literal = k<%=element.name.toClassName()%>EnumString[0];
@@ -55,6 +91,32 @@ namespace NET_ASAM_OPENSCENARIO
                 _<%=element.name.toMemberName()%>Enum = GetFromLiteral(_literal);
             }
 
+            bool <%=element.name.toClassName()%>::IsDeprecated(const <%=element.name.toClassName()%>Enum <%=element.name.toMemberName()%>)
+            { 
+              <%-if (!element.hasDeprecatedLiterals()){-%>
+            	return false;
+              <%-} else {-%>
+              	return _enumToDeprecated[<%=element.name.toMemberName()%>];
+              <%-}-%>
+            }
+			
+			std::string <%=element.name.toClassName()%>::GetDeprecatedVersion(const <%=element.name.toClassName()%>Enum <%=element.name.toMemberName()%>)
+			{
+			  <%-if (!element.hasDeprecatedLiterals()){-%>
+            	return "";
+              <%-} else {-%>
+              	return _enumToDeprecatedVersion[<%=element.name.toMemberName()%>];
+              <%-}-%>
+			}
+
+			std::string <%=element.name.toClassName()%>::GetDeprecatedComment(const <%=element.name.toClassName()%>Enum <%=element.name.toMemberName()%>)
+			{
+			  <%-if (!element.hasDeprecatedLiterals()){-%>
+            	return "";
+              <%-} else {-%>
+              	return _enumToDeprecatedComment[<%=element.name.toMemberName()%>];
+              <%-}-%>
+		}
             
             std::string <%=element.name.toClassName()%>::GetLiteral() const 
             { 

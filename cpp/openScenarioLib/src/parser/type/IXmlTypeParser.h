@@ -31,7 +31,6 @@ namespace NET_ASAM_OPENSCENARIO
     public:
         IXmlTypeParser() = default;
         virtual ~IXmlTypeParser() = default;
-
         /**
          * Parsing the XSD type
          * @param indexedElement the element to be parsed
@@ -42,6 +41,7 @@ namespace NET_ASAM_OPENSCENARIO
         //TODO: discuss with Dieter if this should be avoided as usually its suggested not to specify exceptions
 		virtual void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr <ParserContext>& parserContext, std::shared_ptr <BaseImpl> object) = 0;
 
+		
     };
 
 }

@@ -92,7 +92,7 @@ namespace OscExpression
 	std::unique_ptr <SemanticException> EvaluatorListener::CreateOverFlowUnderFlowException(size_t column)
 	{
 		std::unique_ptr<SemanticException> blub = std::unique_ptr<SemanticException>();
-		return std::unique_ptr<SemanticException>( new SemanticException( "Internal Overflow (limits of internal 64 byte double value exceeded)", column ) );
+		return std::unique_ptr<SemanticException>( new SemanticException( "Internal Overflow (limits of internal 64 bit double value exceeded)", column ) );
 	}
 
 	std::unique_ptr <SemanticException> EvaluatorListener::CreateNotABooleanException(size_t column)
@@ -374,7 +374,7 @@ namespace OscExpression
 		std::shared_ptr<double> doubleResult = ExprValue::CreatePrimitiveDouble(text);
 
 		if (doubleResult == nullptr) {
-			throw  SemanticException("Internal Overflow (limits of internal 64 byte double value exceeded)",
+			throw  SemanticException("Internal Overflow (limits of internal 64 bit double value exceeded)",
 				ctx->num->getCharPositionInLine());
 		}
 		// Push Double to stack

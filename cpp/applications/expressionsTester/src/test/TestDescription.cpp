@@ -18,14 +18,7 @@
 #include "TestDescription.h"
 
 const std::string TestDescription::json = R"json(
-[{
-	"id" : 41,
-	"comment" : "Simple string parameter",
-	"parameterDefinitions": [
-	"string speed= 'test';"],
-	"expr": "$speed",
-	"expectedValue": "test"
-},
+[
 {
 	"id" : 0,
 	"comment" : "test internal calculation maximal value for unsignedShort +1 (65535+1)",
@@ -56,7 +49,7 @@ const std::string TestDescription::json = R"json(
 	"expectedValue": 26.56157396722825
 },{
 	"id" : 3,
-	"comment" : "Test oeprator precedence for +/*",
+	"comment" : "Test operator precedence for +/*",
 	"expr": "${4+6*5}",
 	"expectedValue": 34
 },{
@@ -228,7 +221,7 @@ const std::string TestDescription::json = R"json(
 	"comment": "Parsing a floating point value that exceeds internal limits ",
 	"expr": "${1.80E308}",
 	"expectedError": {
-		"message": "Internal Overflow (limits of internal 64 byte double value exceeded)",
+		"message": "Internal Overflow (limits of internal 64 bit double value exceeded)",
 		"column": 2
 	}
 },{
@@ -236,7 +229,7 @@ const std::string TestDescription::json = R"json(
 	"comment": "Parsing a floating point value that exceeds internal limits ",
 	"expr": "${1.7976931348623157E308 + 1E308}",
 	"expectedError": {
-		"message": "Internal Overflow (limits of internal 64 byte double value exceeded)",
+		"message": "Internal Overflow (limits of internal 64 bit double value exceeded)",
 		"column": 25
 	}
 },{
@@ -244,7 +237,7 @@ const std::string TestDescription::json = R"json(
 	"comment": "Parsing a floating point value that exceeds internal limits ",
 	"expr": "${4.9E-324 -1E-324 }",
 	"expectedError": {
-		"message": "Internal Overflow (limits of internal 64 byte double value exceeded)",
+		"message": "Internal Overflow (limits of internal 64 bit double value exceeded)",
 		"column": 12
 	}
 },{
@@ -252,7 +245,7 @@ const std::string TestDescription::json = R"json(
 	"comment": "Parsing a floating point value that exceeds internal limits ",
 	"expr": "${-4.9E-324 +1E-324 }",
 	"expectedError": {
-		"message": "Internal Overflow (limits of internal 64 byte double value exceeded)",
+		"message": "Internal Overflow (limits of internal 64 bit double value exceeded)",
 		"column": 13
 	}
 },{
@@ -272,7 +265,7 @@ const std::string TestDescription::json = R"json(
 	"comment": "Pow over Double limits",
 	"expr": "${pow(1.7976931348623157E308 , 1.7976931348623157E308)}",
 	"expectedError": {
-		"message": "Internal Overflow (limits of internal 64 byte double value exceeded)",
+		"message": "Internal Overflow (limits of internal 64 bit double value exceeded)",
 		"column": 6
 	}
 },
