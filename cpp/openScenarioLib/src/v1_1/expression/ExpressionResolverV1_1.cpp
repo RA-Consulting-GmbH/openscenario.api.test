@@ -119,7 +119,8 @@ namespace NET_ASAM_OPENSCENARIO
 								"' of parameter '" + value->GetParameterName() + "' was converted.", INFO, *expressionObject->GetTextmarker(attributeKey).get());
 							logger->LogMessage(msg);
 						}
-						expressionObject->ResolveParameter(logger, attributeKey, value->ToString());
+						auto strValue = value->ToString();
+						expressionObject->ResolveParameter( logger, attributeKey, strValue );
 					}
 					else
 					{
@@ -244,7 +245,8 @@ namespace NET_ASAM_OPENSCENARIO
 
 					auto parmeterAssignmentImpl = std::dynamic_pointer_cast<ParameterAssignmentImpl>(parameterAssignment);
 					// Resolve value of Parameter Assignment
-					if (ParserHelper::IsExpression(parameterAssignment->GetValue()))
+					auto strValue = parameterAssignment->GetValue();
+					if( ParserHelper::IsExpression( strValue ) )
 					{
 						std::shared_ptr<OscExpression::ExprValue> value = ResolveValueOfParameterAsignment(logger, parameterAssignment);
 						if (value != nullptr)
@@ -364,8 +366,8 @@ namespace NET_ASAM_OPENSCENARIO
 
 		std::shared_ptr<OscExpression::ExprValue> ExpressionResolver::ResolveValueOfParameterDeclaration(std::shared_ptr<IParserMessageLogger>& logger, std::shared_ptr<IParameterDeclaration> parameterDeclaration)
 		{
-			std::string& value = parameterDeclaration->GetValue();
-			std::string& parameterType = parameterDeclaration->GetParameterType().GetLiteral();
+			std::string value = parameterDeclaration->GetValue();
+			std::string parameterType = parameterDeclaration->GetParameterType().GetLiteral();
 			if (! ParserHelper::IsExpression(value))
 			{
 				return nullptr;
@@ -395,7 +397,7 @@ namespace NET_ASAM_OPENSCENARIO
 
 		std::shared_ptr<OscExpression::ExprValue> ExpressionResolver::ResolveValueOfParameterAsignment(std::shared_ptr<IParserMessageLogger>& logger, std::shared_ptr<IParameterAssignment> parameterAssignment)
 		{
-			std::string& value = parameterAssignment->GetValue();
+			std::string value = parameterAssignment->GetValue();
 			if (!ParserHelper::IsExpression(value))
 			{
 				return nullptr;
