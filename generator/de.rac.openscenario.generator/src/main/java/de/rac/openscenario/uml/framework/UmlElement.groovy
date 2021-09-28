@@ -54,4 +54,15 @@ public abstract class UmlElement {
 	public List<Stereotype> getAppliedStereotypes() {
 		return appliedStereotypes;
 	}
+	public boolean isDeprecated() {
+		return hasStereotype("deprecated");
+	}
+	
+	public String getDeprecatedVersion() {
+		return getTagValue("deprecated", "withVersion")
+	}
+	
+	public String getDeprecatedComment() {
+		return getTagValue("deprecated", "comment")
+	}
 }

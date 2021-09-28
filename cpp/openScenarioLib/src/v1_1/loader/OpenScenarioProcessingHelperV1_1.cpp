@@ -18,16 +18,18 @@
 
 #include "OpenScenarioProcessingHelperV1_1.h"
 #include <map>
+
+#include "ExpressionResolverV1_1.h"
 #include "MemLeakDetection.h"
-#include "ParameterResolverV1_1.h"
 
 namespace NET_ASAM_OPENSCENARIO
 {
     namespace v1_1
     {
-       
+	    class ExpressionResolver;
 
-        bool OpenScenarioProcessingHelper::IsCatalog(std::shared_ptr<IOpenScenario> openScenario)
+
+	    bool OpenScenarioProcessingHelper::IsCatalog(std::shared_ptr<IOpenScenario> openScenario)
         {
             auto openScenarioCategory = openScenario->GetOpenScenarioCategory();
             return openScenarioCategory != nullptr && openScenarioCategory->GetCatalogDefinition() != nullptr;
@@ -37,16 +39,16 @@ namespace NET_ASAM_OPENSCENARIO
         {
             if (!IsCatalog(openScenario))
             {
-                ParameterResolver parameterResolver;
-                parameterResolver.Resolve(logger, openScenario, injectedParameters, true);
+                ExpressionResolver expressionResolver;
+				expressionResolver.Resolve(logger, openScenario, injectedParameters, true);
             }
         }
 
 
         void OpenScenarioProcessingHelper::ResolveWithParameterAssignements(std::shared_ptr<IParserMessageLogger> logger, std::shared_ptr<ICatalogElement>& catalogElement, const std::map<std::string, std::string> parameterAssignments)
         {
-            ParameterResolver parameterResolver;
-            parameterResolver.ResolveWithParameterAssignments(logger, catalogElement, parameterAssignments);
+			ExpressionResolver expressionResolver;
+			expressionResolver.ResolveWithParameterAssignments(logger, catalogElement, parameterAssignments);
         }
 
     }

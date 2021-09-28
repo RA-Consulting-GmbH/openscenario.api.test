@@ -63,19 +63,12 @@ public class XmlParserClassHelper {
 	public boolean isExpressionAllowed(UmlType type, String className, String attributeName) {
 		if (type.isPrimitiveType())
 		{
-			if (type.name == "string")
-			{
-				return (className == "ParameterDeclaration" || className == "ParameterAssignment") && attributeName ==  "value";
-
-			}else if (type.name == "unsignedInt" || 
+			return (type.name == "unsignedInt" || 
 					  type.name == "int" || 
 				      type.name == "unsignedShort" || 
 					  type.name == "double" || 
 					  type.name == "bool")
-			{
-				return true;
-			}
-	
+			
 			
 		}
 		

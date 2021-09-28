@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * Copyright 2020 by ASAM e.V.
+ *
+ * ASAM licenses this file under the Apache License, 
+ * Version 2.0 (the "License"); you may not use this file except 
+ * in compliance with the License. 
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *-->
+<OpenSCENARIO xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="OpenSCENARIO.xsd" xmlns:m="http://www.w3.org/1998/Math/MathML">	
+  <FileHeader revMajor="${65535 +1}" revMinor="${ceil(35.5+1)}" date="2017-02-24T10:00:00" description="Sample Scenario - Double Lane Changer" author="Andreas Biehn"/>
+  <ParameterDeclarations>
+	  <ParameterDeclaration name="test" value="0" parameterType="double"/>
+	  <ParameterDeclaration name="test2" value="65535" parameterType="unsignedShort"/>
+	  <ParameterDeclaration name="timeParam" value="2017-02-24T10:00:00" parameterType="dateTime"/>
+	  <ParameterDeclaration name="stringParam" value="test" parameterType="string"/>
+	  <ParameterDeclaration name="boolParam" value="false" parameterType="boolean"/>
+	  <ParameterDeclaration parameterType="double" name="doubleVal" value="0"/>
+  </ParameterDeclarations>
+  <CatalogLocations>
+    <VehicleCatalog>
+      <Directory path="Catalogs/VehicleCatalogs"/>
+    </VehicleCatalog>
+    <ControllerCatalog>
+      <Directory path="Catalogs/DriverCatalogs"/>
+    </ControllerCatalog>
+    <PedestrianCatalog>
+      <Directory path="Catalogs/ObserverCatalogs"/>
+    </PedestrianCatalog>
+    <MiscObjectCatalog>
+      <Directory path="Catalogs/MiscObjectCatalogs"/>
+    </MiscObjectCatalog>
+    <EnvironmentCatalog>
+      <Directory path="Catalogs/EnvironmentCatalogs"/>
+    </EnvironmentCatalog>
+    <ManeuverCatalog>
+      <Directory path="Catalogs/ManeuverCatalogs"/>
+    </ManeuverCatalog>
+    <TrajectoryCatalog>
+      <Directory path="Catalogs/TrajectoryCatalog"/>
+    </TrajectoryCatalog>
+    <RouteCatalog>
+      <Directory path="Catalogs/RoutingCatalog"/>
+    </RouteCatalog>
+  </CatalogLocations>
+  <RoadNetwork>
+    <LogicFile filepath="Databases/PEGASUS/PEGASUS_A01.xodr"/>
+    <SceneGraphFile filepath="Databases/PEGASUS/PEGASUS_A01.opt.osgb"/>
+  </RoadNetwork>
+  <Entities>
+    <ScenarioObject name="Ego">
+      <CatalogReference catalogName="VechicleCatalog" entryName="AudiA3_blue_147kW"/>
+      <ObjectController>
+        <CatalogReference catalogName="DriverCatalog" entryName="DefaultDriver"/>
+      </ObjectController>
+    </ScenarioObject>
+    <ScenarioObject name="A1">
+      <CatalogReference catalogName="VechicleCatalog" entryName="AudiA4_red_147kW"/>
+      <ObjectController>
+        <CatalogReference catalogName="DriverCatalog" entryName="DefaultDriver"/>
+      </ObjectController>
+    </ScenarioObject>
+    <ScenarioObject name="A2">
+      <CatalogReference catalogName="VechicleCatalog" entryName="AudiA4_red_147kW"/>
+      <ObjectController>
+        <CatalogReference catalogName="DriverCatalog" entryName="DefaultDriver"/>
+      </ObjectController>
+    </ScenarioObject>
+  </Entities>
+  <Storyboard>
+    <Init>
+      <Actions>
+        <Private entityRef="Ego">
+          <PrivateAction>
+            <LongitudinalAction>
+              <SpeedAction>
+                <SpeedActionDynamics dynamicsShape="step" value="${2/0}" dynamicsDimension="time"/>
+                <SpeedActionTarget>
+                  <AbsoluteTargetSpeed value="${$test+1}"/>
+                </SpeedActionTarget>
+              </SpeedAction>
+            </LongitudinalAction>
+          </PrivateAction>
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <WorldPosition x="${34/$doubleVal}" y="${pow(0,-0.5)}" z="${sqrt(-9)}" h="${pow(-3,-0.5)}" p="${pow(-3,0.5)}" r="${1.80E308}"/>
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="A1">
+          <PrivateAction>
+            <LongitudinalAction>
+              <SpeedAction>
+                <SpeedActionDynamics dynamicsShape="step" value="2" dynamicsDimension="time"/>
+                <SpeedActionTarget>
+                  <AbsoluteTargetSpeed value="${1.7976931348623157E308 + 1E308}"/>
+                </SpeedActionTarget>
+              </SpeedAction>
+            </LongitudinalAction>
+          </PrivateAction>
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <WorldPosition x="${pow(1.7976931348623157E308 , 1.7976931348623157E308)}" y="${5f}" z="${5}}" h="1.5707963267948966e+00" p="0.0000000000000000e+00" r="0.0000000000000000e+00"/>
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="A2">
+          <PrivateAction>
+            <LongitudinalAction>
+              <SpeedAction>
+                <SpeedActionDynamics dynamicsShape="step" value="2" dynamicsDimension="time"/>
+                <SpeedActionTarget>
+                  <AbsoluteTargetSpeed value="${$timeParam + 1}"/>
+                </SpeedActionTarget>
+              </SpeedAction>
+            </LongitudinalAction>
+          </PrivateAction>
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <WorldPosition x="${$stringParam + 1}" y="1.0" z="0.0000000000000000e+00" h="1.5707963267948966e+00" p="0.0000000000000000e+00" r="0.0000000000000000e+00"/>
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+      </Actions>
+    </Init>
+    <Story name="MyStory">
+      <ParameterDeclarations>
+        <ParameterDeclaration parameterType="string" name="$owner" value="A1"/>
+         <ParameterDeclaration parameterType="double" name="doubleVal" value="21"/>
+      </ParameterDeclarations>
+      <Act name="$owner">
+        <ManeuverGroup maximumExecutionCount="1" name="MySequence">
+          <Actors selectTriggeringEntities="false">
+            <EntityRef entityRef="$owner"/>
+          </Actors>
+          <Maneuver name="MyDoubleLaneChangeManeuver">
+            <Event name="MyLaneChangeRightEvent" priority="overwrite">
+              <Action name="MyLaneChangeRightAction">
+                <PrivateAction>
+                  <LateralAction>
+                    <LaneChangeAction>
+                      <LaneChangeActionDynamics dynamicsShape="sinusoidal" value="2" dynamicsDimension="time"/>
+                      <LaneChangeTarget>
+                        <RelativeTargetLane entityRef="$owner" value="-1"/>
+                      </LaneChangeTarget>
+                    </LaneChangeAction>
+                  </LateralAction>
+                </PrivateAction>
+              </Action>
+              <StartTrigger>
+                <ConditionGroup>
+                  <Condition name="MyStartCondition1" delay="$doubleVal" conditionEdge="rising">
+                    <ByEntityCondition>
+                      <TriggeringEntities triggeringEntitiesRule="any">
+                        <EntityRef entityRef="$owner"/>
+                      </TriggeringEntities>
+                      <EntityCondition>
+                        <DistanceCondition value="5.0000000000000000e+00" freespace="false" alongRoute="false" rule="greaterThan">
+                          <Position>
+                            <RelativeObjectPosition entityRef="Ego" dx="0.0000000000000000e+00" dy="0.0000000000000000e+00"/>
+                          </Position>
+                        </DistanceCondition>
+                      </EntityCondition>
+                    </ByEntityCondition>
+                  </Condition>
+                </ConditionGroup>
+              </StartTrigger>
+            </Event>
+            <Event name="MyLaneChangeLeftEvent" priority="overwrite">
+              <Action name="MyLaneChangeLeftAction">
+                <PrivateAction>
+                  <LateralAction>
+                    <LaneChangeAction>
+                      <LaneChangeActionDynamics dynamicsShape="sinusoidal" value="2" dynamicsDimension="time"/>
+                      <LaneChangeTarget>
+                        <RelativeTargetLane entityRef="$owner" value="1"/>
+                      </LaneChangeTarget>
+                    </LaneChangeAction>
+                  </LateralAction>
+                </PrivateAction>
+              </Action>
+              <StartTrigger>
+                <ConditionGroup>
+                  <Condition name="MyStartCondition2" delay="0" conditionEdge="rising">
+                    <ByValueCondition>
+                      <StoryboardElementStateCondition storyboardElementType="action" storyboardElementRef="MyLaneChangeRightAction" state="completeState"/>
+                    </ByValueCondition>
+                  </Condition>
+                </ConditionGroup>
+              </StartTrigger>
+            </Event>
+          </Maneuver>
+        </ManeuverGroup>
+        <StartTrigger>
+          <ConditionGroup>
+            <Condition name="" delay="0" conditionEdge="rising">
+              <ByValueCondition>
+                <SimulationTimeCondition value="0" rule="equalTo"/>
+              </ByValueCondition>
+            </Condition>
+          </ConditionGroup>
+        </StartTrigger>
+      </Act>
+    </Story>
+    <StopTrigger/>
+  </Storyboard>
+</OpenSCENARIO>

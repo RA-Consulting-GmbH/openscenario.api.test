@@ -15,65 +15,30 @@
  * limitations under the License.
  */
 
-#include "Position.h"
+#include "PositionNode.h"
 #include "MemLeakDetection.h"
 
 namespace NET_ASAM_OPENSCENARIO
 {
 
-    /**
-     * A node along with its position.
-     */
-    class PositionNode 
+	Position PositionNode::GetStartPosition() const
     {
-    private:
-        Position _startPosition;
-        Position _endPosition;
+        return _startPosition;
+    }
 
-    public:
-        /**
-         * The start position
-         * @return start position of the node
-         */
-        Position GetStartPosition() const
-        {
-            return _startPosition;
-        }
+    Position PositionNode::GetEndPosition() const
+    {
+        return _endPosition;
+    }
 
-        /**
-         * The end position
-         * @return end position of the node
-         */
-        Position GetEndPosition() const
-        {
-            return _endPosition;
-        }
+    void PositionNode::AddEndPosition(const int line, const int column)
+    {
+        _endPosition = Position(line, column);
+    }
 
-        /**
-         * Adding an end postion to the node
-         * @param line of the end position
-         * @param column of the end position
-         */
-        void AddEndPosition(const int line, const int column) 
-        {
-            _endPosition = Position(line, column);
-        }
+	PositionNode::PositionNode(const int line, const int column):_startPosition(line, column), _endPosition(-1,-1) {}
 
-        /**
-         * Constructor
-         * @param line of the start position
-         * @param column of the stat position
-         */
-        PositionNode(const int line, const int column):_startPosition(line, column), _endPosition(-1,-1) {}
+	PositionNode::PositionNode(const int startLine, const int startColumn, const int endLine, const int endColumn):
+    _startPosition(startLine, startColumn), _endPosition(endLine, endColumn) {}
 
-        /**
-         * Constructor
-         * @param startLine line of the start position
-         * @param startColumn column of the stat position
-         * @param endLine line of the end position
-         * @param endColumn column of the end position
-         */
-        PositionNode(const int startLine, const int startColumn, const int endLine, const int endColumn):
-        _startPosition(startLine, startColumn), _endPosition(endLine, endColumn) {}
-    };
 }

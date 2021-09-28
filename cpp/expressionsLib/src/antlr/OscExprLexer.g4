@@ -29,6 +29,11 @@ DIVIDE : '/';
 MODULO : '%';
 PLUS : '+';
 MINUS : '-';
+NOT : 'not';
+AND : 'and';
+OR : 'or';
+FALSE_LITERAL : 'false';
+TRUE_LITERAL : 'true';
 	
 fragment INT :   '0' | [1-9] [0-9]* ; // no leading zeros
 fragment EXP :   [Ee] [+\-]? INT ; // \- since - means "range" inside [...]

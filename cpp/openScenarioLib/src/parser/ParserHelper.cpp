@@ -244,4 +244,36 @@ namespace NET_ASAM_OPENSCENARIO
         }
     }
 
+	bool ParserHelper::IsParametrized(std::string& value)
+	{
+		// Only Dollar will result in "$"
+		std::smatch base_match;
+		const std::regex base_regex("^\\s*\\$[A-Za-z_][A-Za-z0-9_]*$");
+		bool result = std::regex_match(value, base_match, base_regex);
+		if (result)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+
+	}
+
+	bool ParserHelper::IsExpression(std::string& value)
+	{
+		// Only Dollar will result in "$"
+		std::smatch base_match;
+		const std::regex base_regex("^\\s*\\$\\s*\\{");
+		bool result = std::regex_search(value, base_match, base_regex);
+		if (result)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
 }

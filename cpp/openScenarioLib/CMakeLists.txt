@@ -286,6 +286,7 @@ set( HEADERS_COMMON_PARSER_TYPE
 )
 
 set( HEADERS_COMMON_XMLINDEXER
+  "src/xmlIndexer/AttributeInfo.h"
   "src/xmlIndexer/AttributeNode.h"
   "src/xmlIndexer/ElementNode.h"
   "src/xmlIndexer/Position.h"
@@ -394,12 +395,10 @@ set( HEADERS_LOADER_1_1
   "src/v1_1/loader/XmlScenarioImportLoaderFactoryV1_1.h"
 )
 
-set( HEADERS_PARAMETER_1_1
-  "src/v1_1/parameter/ParameterResolverV1_1.h"
-)
 
 set( HEADERS_EXPRESSION_1_1
   "src/v1_1/expression/ExpressionResolverV1_1.h"
+  "src/v1_1/expression/ExpressionResolverStackV1_1.h"
 )
 
 set( HEADERS_PARSER_1_1
@@ -585,18 +584,17 @@ set( SOURCES_V1_1_LOADER
 	"src/v1_1/loader/XmlScenarioLoaderV1_1.cpp"
 )
 
-set( SOURCES_V1_1_PARAMETER
-	"src/v1_1/parameter/ParameterResolverV1_1.cpp"
-)
 
 set( SOURCES_V1_1_EXPRESSION
 	"src/v1_1/expression/ExpressionResolverV1_1.cpp"
+	"src/v1_1/expression/ExpressionResolverStackV1_1.cpp"
 )
 set( SOURCES_V1_1_PARSER
 	"src/v1_1/parser/CatalogReferenceParserContextV1_1.cpp"
 )
 
 set( SOURCES_XMLINDEXER
+	"src/xmlIndexer/AttributeInfo.cpp"
 	"src/xmlIndexer/AttributeNode.cpp"
 	"src/xmlIndexer/ElementNode.cpp"
 	"src/xmlIndexer/Position.cpp"
@@ -659,7 +657,6 @@ if( MSVC )
   source_group( Sources\\V1_1\\Catalog FILES ${SOURCES_V1_1_CATALOG})
   source_group( Sources\\V1_1\\Checker FILES ${SOURCES_V1_1_CHECKER})
   source_group( Sources\\V1_1\\Loader FILES ${SOURCES_V1_1_LOADER})
-  source_group( Sources\\V1_1\\Parameter FILES ${SOURCES_V1_1_PARAMETER})
   source_group( Sources\\V1_1\\Expression FILES ${SOURCES_V1_1_EXPRESSION})
   source_group( Sources\\V1_1\\Parser FILES ${SOURCES_V1_1_PARSER})
   source_group( Sources\\XmlIndexer FILES ${SOURCES_XMLINDEXER})
@@ -692,7 +689,6 @@ if( MSVC )
 
   source_group( Headers\\v1_1\\Catalog FILES ${HEADERS_CATALOG})
   source_group( Headers\\v1_1\\Loaders FILES ${HEADERS_LOADER_1_1})
-  source_group( Headers\\v1_1\\Parameter FILES ${HEADERS_PARAMETER_1_1})
   source_group( Headers\\v1_1\\Expression FILES ${HEADERS_EXPRESSION_1_1})
   source_group( Headers\\v1_1\\Parser FILES ${HEADERS_PARSER_1_1})
   source_group( Headers\\v1_1\\Checker FILES ${HEADERS_CHECKER_1_1})
@@ -746,7 +742,7 @@ add_library ( ${PROJECT_NAME} # ${LIB_TYPE}
 			  
 			  ${SOURCES_API} ${SOURCES_CHECKER_TREE} ${SOURCES_COMMON} ${SOURCES_EXPORT} ${SOURCES_IMPL} ${SOURCES_LOADER} ${SOURCES_PARAMETER} 
 			  ${SOURCES_PARSER} ${SOURCES_SIMPLE_STRUCT} ${SOURCES_V1_0_CATALOG} ${SOURCES_V1_0_CHECKER} ${SOURCES_V1_0_LOADER} ${SOURCES_V1_0_PARAMETER} 
-			  ${SOURCES_V1_0_PARSER} ${SOURCES_V1_1_CATALOG} ${SOURCES_V1_1_CHECKER} ${SOURCES_V1_1_LOADER} ${SOURCES_V1_1_PARAMETER} ${SOURCES_V1_1_PARSER} 
+			  ${SOURCES_V1_0_PARSER} ${SOURCES_V1_1_CATALOG} ${SOURCES_V1_1_CHECKER} ${SOURCES_V1_1_LOADER} ${SOURCES_V1_1_PARSER} 
 			  ${SOURCES_XMLINDEXER} ${SOURCES_TYPE_PARSER} ${SOURCES_MODELGROUP_PARSER} ${SOURCES_CHECKER} ${SOURCES_CHECKER_MODEL}
 
 
@@ -761,7 +757,7 @@ add_library ( ${PROJECT_NAME} # ${LIB_TYPE}
 
               ${HEADERS_PARAMETER_1_0} ${HEADERS_PARSER_1_0} ${HEADERS_CATALOG} ${HEADERS_LOADER_1_0} ${HEADERS_CHECKER_1_0} 
 
-              ${HEADERS_PARAMETER_1_1} ${HEADERS_EXPRESSION_1_1} ${HEADERS_PARSER_1_1} ${HEADERS_CATALOG} ${HEADERS_LOADER_1_1} ${HEADERS_CHECKER_1_1} 
+              ${HEADERS_EXPRESSION_1_1} ${HEADERS_PARSER_1_1} ${HEADERS_CATALOG} ${HEADERS_LOADER_1_1} ${HEADERS_CHECKER_1_1} 
 
               ${HEADERS_GENERATED_1_0_API} ${HEADERS_GENERATED_1_0_API_WRITER} ${HEADERS_GENERATED_1_0_COMMON} ${HEADERS_GENERATED_1_0_CHECKER} 
               ${HEADERS_GENERATED_1_0_CHECKER_MODEL} ${HEADERS_GENERATED_1_0_CHECKER_IMPL} ${HEADERS_GENERATED_1_0_CHECKER_RANGE} ${HEADERS_GENERATED_1_0_CATALOG} 

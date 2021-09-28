@@ -53,6 +53,14 @@ include_directories(${ANTLR_XMLParser_OUTPUT_DIR})
 set( SOURCES
   ${SOURCES}
   "src/IndexerTester.cpp"
+  "../../externalLibs/TinyXML2/tinyxml2.cpp"
+  "../../openScenarioLib/src/xmlIndexer/AttributeInfo.cpp"
+  "../../openScenarioLib/src/xmlIndexer/ElementNode.cpp"
+  "../../openScenarioLib/src/xmlIndexer/AttributeNode.cpp"
+  "../../openScenarioLib/src/xmlIndexer/Position.cpp"
+  "../../openScenarioLib/src/xmlIndexer/PositionNode.cpp"
+  "../../openScenarioLib/src/xmlIndexer/PositionIndex.cpp"
+
 )
 
 ################################################################

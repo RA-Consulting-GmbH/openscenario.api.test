@@ -38,32 +38,54 @@ namespace NET_ASAM_OPENSCENARIO
 		IExpressionObject() = default;
         virtual  ~IExpressionObject() = default;
 
-        /**
-         * A set with all keys for attributes that have parameters instead of real values.
-         * @return the set of keys
-         */
-		virtual std::vector<std::string> GetExpressionAttributeKeys() const = 0;
+		/**
+		 * Resolving an unsigned Int expression 
+		 * @param attributeKey attribute key whose expression should be resolved.
+		 * @param value unsigned int result of an expression
+		 */
+		virtual void ResolveUnsignedIntExpression(std::string& attributeKey, unsigned int& value) = 0;
 
 		/**
-		 * resolving a parameter using a string representation of a value
-		 * @param logger to log messages
-		 * @param attributeKey attribute key whose parameter should be resolved.
-		 * @param expression string representation of an expression
+		 * Resolving an int expression
+		 * @param attributeKey attribute key whose expression should be resolved.
+		 * @param value int result of an expression
 		 */
-		virtual void ResolveExpression(std::shared_ptr<IParserMessageLogger>& logger, std::string& attributeKey, std::string& expression, std::shared_ptr<std::map<std::string, std::shared_ptr<OscExpression::ExprValue>>> definedParameters) = 0;
+		virtual void ResolveIntExpression(std::string& attributeKey, int& value) = 0;
 
+		/**
+		 * Resolving boolean expression
+		 * @param attributeKey attribute key whose expression should be resolved.
+		 * @param value boolean result of an expression
+		 */
+		virtual void ResolveBooleanExpression(std::string& attributeKey, bool& value) = 0;
 
-        /**
-         * The name from a key constant. This method is for assembling messages.
-         * @param attributeKey the key constant
-         * @return the name of the constant.
-         */
-		virtual std::string GetExpressionFromAttribute(std::string& attributeKey) const = 0;
+		/**
+		 * Resolving an double expression
+		 * @param attributeKey attribute key whose expression should be resolved.
+		 * @param value double result of an expression
+		 */
+		virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) = 0;
+    	
+		/**
+		 * Resolving a string expression
+		 * @param attributeKey attribute key whose expression should be resolved.
+		 * @param value string result of an expression
+		 */
+		virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) = 0;
 
-        /**
-        * The keys of the attributes that are resolved
-        * @return set with the keys
-        */
-		virtual std::vector<std::string> GetResolvedAttributeKeys() const = 0;
+		/**
+		 * Resolving a unsigned short expression
+		 * @param attributeKey attribute key whose expression should be resolved.
+		 * @param value unsigned short result of an expression
+		 */
+		virtual void ResolveUnsignedShortExpression(std::string& attributeKey, unsigned short& value) = 0;
+		/**
+		 * Resolving a dateTime expression
+		 * @param attributeKey attribute key whose expression should be resolved.
+		 * @param value string result of an expression
+		 */
+		virtual void ResolveDateTimeExpression(std::string& attributeKey, DateTime& value) = 0;
+
+      
     };
 }

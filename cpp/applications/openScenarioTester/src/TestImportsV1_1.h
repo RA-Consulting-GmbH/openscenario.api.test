@@ -26,12 +26,13 @@ namespace NET_ASAM_OPENSCENARIO
 		{
 		private:
 			static std::shared_ptr<ICatalogReference> GetVehicleImport(std::shared_ptr<IOpenScenario> openScenario, const std::string scenarioObjectName, const std::string entryName);
+			static double epsilon;;
 		public:
 
 			TestImports(std::string& executablePath);
 			
 			bool TestImportSuccess();
-
+			bool TestImportWithExpressionsSuccess();
 
 			bool TestImportWithParametersSuccess();
 		};

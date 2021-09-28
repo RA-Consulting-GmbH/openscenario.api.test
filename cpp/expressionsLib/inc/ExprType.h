@@ -53,39 +53,77 @@ namespace OscExpression
 		/**
 		* unsigned integer type
 		*/
-		OSC_EXPR_EXP static std::shared_ptr<ExprType> UNSIGNED_INT;
+		static std::shared_ptr<ExprType> UNSIGNED_INT;
 
 		/**
 		* integer type
 		*/
-		OSC_EXPR_EXP static std::shared_ptr<ExprType> INT;
+		static std::shared_ptr<ExprType> INT;
 
 		/**
 		* unsigned short type
 		*/
-		OSC_EXPR_EXP static std::shared_ptr<ExprType> UNSIGNED_SHORT;
+		static std::shared_ptr<ExprType> UNSIGNED_SHORT;
 
 		/**
 		* double type
 		*/
-		OSC_EXPR_EXP static std::shared_ptr<ExprType> DOUBLE;
+		static std::shared_ptr<ExprType> DOUBLE;
 
 		/**
 		* string type
 		*/
-		OSC_EXPR_EXP static std::shared_ptr<ExprType> STRING;
+		static std::shared_ptr<ExprType> STRING;
 
 		/**
 		* boolean type
 		*/
-		OSC_EXPR_EXP static std::shared_ptr<ExprType> BOOLEAN;
+		static std::shared_ptr<ExprType> BOOLEAN;
 
 		/**
 		* date time type
 		*/
-		OSC_EXPR_EXP static std::shared_ptr<ExprType> DATE_TIME;
+		static std::shared_ptr<ExprType> DATE_TIME;
 
 
+		/**
+		 * Exported Getters for static variables (Linker errors, when trying to export static variables explicitly. Exporting satic functions works)
+		 */
+
+		 /**
+		 * unsigned integer type
+		 */
+		OSC_EXPR_EXP static std::shared_ptr<ExprType> GetUnsignedIntType();
+
+		/**
+		* integer type
+		*/
+		OSC_EXPR_EXP static std::shared_ptr<ExprType> GetIntType();
+
+		/**
+		* unsigned short type
+		*/
+		OSC_EXPR_EXP static std::shared_ptr<ExprType> GetUnsignedShortType();
+
+		/**
+		* double type
+		*/
+		OSC_EXPR_EXP static std::shared_ptr<ExprType> GetDoubleType();
+
+		/**
+		* string type
+		*/
+		OSC_EXPR_EXP static std::shared_ptr<ExprType> GetStringType();
+
+		/**
+		* boolean type
+		*/
+		OSC_EXPR_EXP static std::shared_ptr<ExprType> GetBooleanType();
+
+		/**
+		* date time type
+		*/
+		OSC_EXPR_EXP static std::shared_ptr<ExprType> GetDateTimeType();
 
 
 		/**
@@ -107,8 +145,8 @@ namespace OscExpression
 		 * @return true, if the the expression type is integer numeric.
 		 */
 		OSC_EXPR_EXP bool IsIntegerNumeric();
-		
-		
+
+
 	private:
 		const std::string _literal;
 		static std::map<std::string, std::shared_ptr<ExprType>> _literalToInstance;

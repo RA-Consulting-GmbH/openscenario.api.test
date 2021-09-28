@@ -35,4 +35,9 @@ public class UmlEnumeration extends UmlType {
 	{
 		return enumerationValues.find { UmlEnumerationLiteral umlEnumerationLiteral ->umlEnumerationLiteral.literal == literal  }
 	}
+	
+	private  boolean hasDeprecatedLiterals()
+	{
+		return !enumerationValues.findAll { UmlEnumerationLiteral umlEnumerationLiteral ->umlEnumerationLiteral.isDeprecated()  }.isEmpty()
+	}
 }

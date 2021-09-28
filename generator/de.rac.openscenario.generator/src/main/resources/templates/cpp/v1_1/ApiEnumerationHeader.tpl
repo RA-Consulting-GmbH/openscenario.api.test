@@ -47,6 +47,11 @@ namespace NET_ASAM_OPENSCENARIO
             std::string _literal;
             <%=element.name.toClassName()%>Enum _<%=element.name.toMemberName()%>Enum;
             static std::map<std::string, <%=element.name.toClassName()%>Enum> _stringToEnum;
+            <%-if (element.hasDeprecatedLiterals()){-%>
+            static std::map<<%=element.name.toClassName()%>Enum, bool> _enumToDeprecated;
+            static std::map<<%=element.name.toClassName()%>Enum, std::string> _enumToDeprecatedVersion;
+            static std::map<<%=element.name.toClassName()%>Enum, std::string> _enumToDeprecatedComment;          	
+            <%}-%>
 
         public:
             const std::vector<std::string> k<%=element.name.toClassName()%>EnumString 
@@ -65,6 +70,12 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP <%=element.name.toClassName()%>(<%=element.name.toClassName()%>Enum& <%=element.name.toMemberName()%>);
 
             OPENSCENARIOLIB_EXP <%=element.name.toClassName()%>(const <%=element.name.toClassName()%>Enum <%=element.name.toMemberName()%>);
+
+			OPENSCENARIOLIB_EXP static bool IsDeprecated(const <%=element.name.toClassName()%>Enum <%=element.name.toMemberName()%>);
+			
+			OPENSCENARIOLIB_EXP static std::string GetDeprecatedVersion(const <%=element.name.toClassName()%>Enum <%=element.name.toMemberName()%>);
+
+			OPENSCENARIOLIB_EXP static std::string GetDeprecatedComment(const <%=element.name.toClassName()%>Enum <%=element.name.toMemberName()%>);
 
             /**
              * Constructor using the literal

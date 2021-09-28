@@ -34,28 +34,22 @@ namespace NET_ASAM_OPENSCENARIO
          * The column
          * @return the column of the position.
          */
-        int GetColumn() const
-        {
-            return _column;
-        }
+		int GetColumn() const;
 
         /**
          * The line
          * @return the line of the position
          */
-        int GetLine() const
-        {
-            return _line;
-        }
+		int GetLine() const;
 
         /**
          * Constructor
          * @param line line of the position
          * @param column column of the position
          */
-        Position(const int line, const int column):_line(line), _column(column) {}
+		Position(const int line, const int column);
 
-        Position() :_line(-1), _column(-1) {}
+		Position();
 
     };
 

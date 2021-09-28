@@ -47,8 +47,7 @@ include_directories(${ANTLR_OscExprLexer_OUTPUT_DIR})
 include_directories(${ANTLR_OscExprParser_OUTPUT_DIR})
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/inc)
 
-set ( LIB_HEADERS
-    ${LIB_HEADERS}
+set ( HEADERS
 	"inc/OscExprEvaluatorImpl.h"
 	"inc/ParseErrorListener.hpp"
 	"inc/OscExprEvaluatorFactory.h"
@@ -60,9 +59,7 @@ set ( LIB_HEADERS
 	"inc/OscExprExportDefs.h"
 )
 
-set( LIB_SOURCES
-    ${LIB_SOURCES}
-	#"src/main.cpp"
+set( SOURCES
 	"src/OscExprEvaluatorImpl.cpp"
 	"src/OscExprEvaluatorFactory.cpp"
 	"src/EvaluatorListener.cpp"
@@ -70,6 +67,10 @@ set( LIB_SOURCES
 	"src/ExprValue.cpp"
 	"src/SemanticException.cpp"
 	
+)
+set( ANTLR_GENERATED
+    ${ANTLR_OscExprLexer_CXX_OUTPUTS}
+	${ANTLR_OscExprParser_CXX_OUTPUTS}
 )
 
 # Resource files
@@ -81,10 +82,23 @@ if( MSVC )
   set( VS_RESOURCE_FILE ${CMAKE_CURRENT_SOURCE_DIR}/rc/${PROJECT_NAME}.rc )
 endif()
 
+if( MSVC )
+  # Groups for source files
+  source_group( Sources FILES ${SOURCES})
+  # Groups for antlr source files
 
+  # Groups for antlr generated files
+  source_group( Antlr FILES ${ANTLR_GENERATED})
+  
+  # Groups for header files
+  source_group( Headers FILES ${HEADERS} )
+    
+  # Groups for resource files
+  source_group( Resources FILES ${RESOURCE_FILES} )
+endif()
 
 # add generated grammar to demo binary target
-add_library( ${PROJECT_NAME} ${LIB_SOURCES} ${LIB_HEADERS} 
+add_library( ${PROJECT_NAME} ${SOURCES} ${HEADERS} 
              ${ANTLR_OscExprLexer_CXX_OUTPUTS}
              ${ANTLR_OscExprParser_CXX_OUTPUTS}
 			 ${RESOURCE_FILES})

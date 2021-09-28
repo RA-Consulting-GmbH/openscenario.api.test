@@ -114,6 +114,7 @@ set( HEADERS
   "src/TestFlexInterfaceV1_0.h"
   "src/TestVersionCheckerV1_0.h"
   "src/TestInjectedParametersV1_0.h"
+  "src/TestDeprecatedV1_1.h"
   "src/TestExamplesV1_1.h"
   "src/TestBaseV1_1.h"
   "src/TestFilesV1_1.h"
@@ -256,6 +257,7 @@ set( SOURCES
 	"src/TestVersionCheckerV1_1.cpp"
 	"src/TestWriterApiV1_0.cpp"
 	"src/TestWriterApiV1_1.cpp"
+	"src/TestDeprecatedV1_1.cpp"
 )
 
 set( SOURCES_HELPER

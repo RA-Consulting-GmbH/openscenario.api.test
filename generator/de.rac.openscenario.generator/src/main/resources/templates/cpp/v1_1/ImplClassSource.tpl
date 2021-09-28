@@ -31,190 +31,190 @@ namespace NET_ASAM_OPENSCENARIO
     {
     <%- model.getClasses().each{ element->-%>
 
-            IOpenScenarioFlexElement* <%=element.name.toClassName()%>Impl::GetOpenScenarioFlexElement()
-            {
-                return this;
-            }
+        IOpenScenarioFlexElement* <%=element.name.toClassName()%>Impl::GetOpenScenarioFlexElement()
+        {
+            return this;
+        }
     <%- properties = element.umlProperties-%>
     <%-properties.each{ property ->-%>
         <%-if (property.upper== -1){-%>
-            std::vector<<%=property.type.toCppName()%>> <%=element.name.toClassName()%>Impl::Get<%=property.name.toClassName()%>() const
-            {
-                std::vector<<%=property.type.toCppName()%>> temp;
-	            for(auto&& elm: _<%=property.name.toMemberName()%>)
-	                temp.push_back(elm);
-	            return temp;
-            }
+        std::vector<<%=property.type.toCppName()%>> <%=element.name.toClassName()%>Impl::Get<%=property.name.toClassName()%>() const
+        {
+            std::vector<<%=property.type.toCppName()%>> temp;
+            for(auto&& elm: _<%=property.name.toMemberName()%>)
+                temp.push_back(elm);
+            return temp;
+        }
 			<%- if (!property.isTransient()){-%>
-            std::vector<<%=property.type.toCppWriterName()%>> <%=element.name.toClassName()%>Impl::GetWriter<%=property.name.toClassName()%>() const
-            {
-                return _<%=property.name.toMemberName()%>;
-            }
+        std::vector<<%=property.type.toCppWriterName()%>> <%=element.name.toClassName()%>Impl::GetWriter<%=property.name.toClassName()%>() const
+        {
+            return _<%=property.name.toMemberName()%>;
+        }
 			<%-} -%>
 
-            int <%=element.name.toClassName()%>Impl::Get<%=property.name.toClassName()%>Size() const
-            {
-                return static_cast<int>(_<%=property.name.toMemberName()%>.size());
-            }
+        int <%=element.name.toClassName()%>Impl::Get<%=property.name.toClassName()%>Size() const
+        {
+            return static_cast<int>(_<%=property.name.toMemberName()%>.size());
+        }
 
-            <%=property.type.toCppName()%> <%=element.name.toClassName()%>Impl::Get<%=property.name.toClassName()%>AtIndex(unsigned int index) const
+        <%=property.type.toCppName()%> <%=element.name.toClassName()%>Impl::Get<%=property.name.toClassName()%>AtIndex(unsigned int index) const
+        {
+            if (index >= 0 && _<%=property.name.toMemberName()%>.size() > index)
             {
-                if (index >= 0 && _<%=property.name.toMemberName()%>.size() > index)
-                {
-                    return _<%=property.name.toMemberName()%>[index];
-                }
-                return <%=property.type.toCppDefaultValue()%>;
+                return _<%=property.name.toMemberName()%>[index];
             }
+            return <%=property.type.toCppDefaultValue()%>;
+        }
         <%-}else if (property.isProxy()){-%>
-            std::shared_ptr<INamedReference<I<%=property.type.name.toClassName()%>>> <%=element.name.toClassName()%>Impl::Get<%=property.name.toClassName()%>() const
-            {
-            	 return _<%=property.name.toMemberName()%>;
-            }
+        std::shared_ptr<INamedReference<I<%=property.type.name.toClassName()%>>> <%=element.name.toClassName()%>Impl::Get<%=property.name.toClassName()%>() const
+        {
+        	 return _<%=property.name.toMemberName()%>;
+        }
         <%-}else{-%>
-            <%=property.type.toCppName()%> <%=element.name.toClassName()%>Impl::Get<%=property.name.toClassName()%>() const
-            {
-            	  return _<%=property.name.toMemberName()%>;
-            }
+        <%=property.type.toCppName()%> <%=element.name.toClassName()%>Impl::Get<%=property.name.toClassName()%>() const
+        {
+        	  return _<%=property.name.toMemberName()%>;
+        }
         <%-}-%>
     <%-}-%>
 
 <%-properties.each{ property ->-%>
 
 <%- if (property.isProxy() && !property.isList()){-%>
-            void <%=element.name.toClassName()%>Impl::Set<%=property.name.toClassName()%>(std::shared_ptr<INamedReference<<%=property.type.toCppTemplateName()%>>> <%=property.name.toMemberName()%>)
+        void <%=element.name.toClassName()%>Impl::Set<%=property.name.toClassName()%>(std::shared_ptr<INamedReference<<%=property.type.toCppTemplateName()%>>> <%=property.name.toMemberName()%>)
 <%}else if (property.isTransient() && property.isList()){-%>
-            void <%=element.name.toClassName()%>Impl::Set<%=property.name.toClassName()%>(std::vector<<%=property.type.toCppName()%>>& <%=property.name.toMemberName()%>)
+        void <%=element.name.toClassName()%>Impl::Set<%=property.name.toClassName()%>(std::vector<<%=property.type.toCppName()%>>& <%=property.name.toMemberName()%>)
 <%}else if (property.isTransient() && !property.isList()){-%>
-            void <%=element.name.toClassName()%>Impl::Set<%=property.name.toClassName()%>(const <%=property.type.toCppName()%> <%=property.name.toMemberName()%>)
+        void <%=element.name.toClassName()%>Impl::Set<%=property.name.toClassName()%>(const <%=property.type.toCppName()%> <%=property.name.toMemberName()%>)
 <%}else if (property.isXmlElementProperty() && !property.isList()){-%>
-            void <%=element.name.toClassName()%>Impl::Set<%=property.name.toClassName()%>(<%=property.type.toCppWriterName()%> <%=property.name.toMemberName()%>)
+        void <%=element.name.toClassName()%>Impl::Set<%=property.name.toClassName()%>(<%=property.type.toCppWriterName()%> <%=property.name.toMemberName()%>)
 <%}else if (property.isXmlElementProperty() && property.isList()){-%>
-            void <%=element.name.toClassName()%>Impl::Set<%=property.name.toClassName()%>(std::vector<<%=property.type.toCppWriterName()%>>& <%=property.name.toMemberName()%>)
+        void <%=element.name.toClassName()%>Impl::Set<%=property.name.toClassName()%>(std::vector<<%=property.type.toCppWriterName()%>>& <%=property.name.toMemberName()%>)
 <%}else {-%>
-            void <%=element.name.toClassName()%>Impl::Set<%=property.name.toClassName()%>(const <%=property.type.toCppName()%> <%=property.name.toMemberName()%>)
+        void <%=element.name.toClassName()%>Impl::Set<%=property.name.toClassName()%>(const <%=property.type.toCppName()%> <%=property.name.toMemberName()%>)
 <%-}-%>
-            {
+        {
 <%- if (property.isXmlElementProperty() && property.isList()){-%>
-                _<%=property.name.toMemberName()%> = <%=property.name.toMemberName()%>;
+            _<%=property.name.toMemberName()%> = <%=property.name.toMemberName()%>;
 <%}else {-%>
-                _<%=property.name.toMemberName()%> = <%=property.name.toMemberName()%>;
+            _<%=property.name.toMemberName()%> = <%=property.name.toMemberName()%>;
 <%-}-%>
 <%-if (property.isXorElement()){-%>
 <%- element.getXmlElementProperties().each{ siblingProperty -> siblingProperty-%>
 <%-if (siblingProperty.isXorElement()){-%> 
 <%-if (siblingProperty != property){-%>
-                _<%=siblingProperty.name.toMemberName()%> = {};
+            _<%=siblingProperty.name.toMemberName()%> = {};
 <%-}-%>
 <%-}else{-%>
 <%-throw new Error();-%>
 <%-}-%>
 <%-}}-%>
 <%-if (property.isParameterizableProperty()){-%>
-                //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>);
+            //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>);
 <%-}-%>
-            }
+        }
 <%-}-%>
 
-            std::shared_ptr<void> <%=element.name.toClassName()%>Impl::GetAdapter(const std::string classifier)
-            {
-                if (classifier == typeid(<%=element.name.toClassName()%>Impl).name())
-                    return shared_from_this();
-                else if (classifier == typeid(I<%=element.name.toClassName()%>).name())
-                    return std::dynamic_pointer_cast<I<%=element.name.toClassName()%>>(shared_from_this());
-                else if (classifier == typeid(I<%=element.name.toClassName()%>Writer).name())
-                    return std::dynamic_pointer_cast<I<%=element.name.toClassName()%>Writer>(shared_from_this());
-                return BaseImpl::GetAdapter(classifier);
-            }
+        std::shared_ptr<void> <%=element.name.toClassName()%>Impl::GetAdapter(const std::string classifier)
+        {
+            if (classifier == typeid(<%=element.name.toClassName()%>Impl).name())
+                return shared_from_this();
+            else if (classifier == typeid(I<%=element.name.toClassName()%>).name())
+                return std::dynamic_pointer_cast<I<%=element.name.toClassName()%>>(shared_from_this());
+            else if (classifier == typeid(I<%=element.name.toClassName()%>Writer).name())
+                return std::dynamic_pointer_cast<I<%=element.name.toClassName()%>Writer>(shared_from_this());
+            return BaseImpl::GetAdapter(classifier);
+        }
 
-            std::weak_ptr<IOpenScenarioModelElement> <%=element.name.toClassName()%>Impl::GetParent() const
-            {
-                return BaseImpl::GetParent();
-            }
+        std::weak_ptr<IOpenScenarioModelElement> <%=element.name.toClassName()%>Impl::GetParent() const
+        {
+            return BaseImpl::GetParent();
+        }
 
-            // Implement the IOpenScenarioFlexElement interface
+        // Implement the IOpenScenarioFlexElement interface
 
 
-            uint32_t <%=element.name.toClassName()%>Impl::GetUnsignedIntProperty(std::string key) const
-            {
-                <%addTypeCode(element,"UnsignedInt")%>
-            }
+        uint32_t <%=element.name.toClassName()%>Impl::GetUnsignedIntProperty(std::string key) const
+        {
+            <%addTypeCode(element,"UnsignedInt")%>
+        }
 
-            int <%=element.name.toClassName()%>Impl::GetIntProperty(std::string key) const
-            {
-                <%addTypeCode(element,"Int")%>
-            }
+        int <%=element.name.toClassName()%>Impl::GetIntProperty(std::string key) const
+        {
+            <%addTypeCode(element,"Int")%>
+        }
 
-            double <%=element.name.toClassName()%>Impl::GetDoubleProperty(std::string key) const
-            {
-                <%addTypeCode(element,"Double")%>
-            }
+        double <%=element.name.toClassName()%>Impl::GetDoubleProperty(std::string key) const
+        {
+            <%addTypeCode(element,"Double")%>
+        }
 
-            uint16_t <%=element.name.toClassName()%>Impl::GetUnsignedShortProperty(std::string key) const
-            {
-                <%addTypeCode(element,"UnsignedShort")%>
+        uint16_t <%=element.name.toClassName()%>Impl::GetUnsignedShortProperty(std::string key) const
+        {
+            <%addTypeCode(element,"UnsignedShort")%>
             }
  
             bool <%=element.name.toClassName()%>Impl::GetBooleanProperty(std::string key) const
-            {
-                <%addTypeCode(element,"Boolean")%>
-            }
+        {
+            <%addTypeCode(element,"Boolean")%>
+        }
 
-            DateTime <%=element.name.toClassName()%>Impl::GetDateTimeProperty(std::string key) const
-            {
-                <%addTypeCode(element,"DateTime")%>
-            }
+        DateTime <%=element.name.toClassName()%>Impl::GetDateTimeProperty(std::string key) const
+        {
+            <%addTypeCode(element,"DateTime")%>
+        }
 
   <%-List listChildElements = element.getXmlElementProperties().findAll(){ it.isList() }-%>
   <%-if (!listChildElements.isEmpty()){-%>
   <%-}-%>
  
-            std::weak_ptr<IOpenScenarioFlexElement> <%=element.name.toClassName()%>Impl::GetParentFlexElement() const
-            {
-                return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
-            }
+        std::weak_ptr<IOpenScenarioFlexElement> <%=element.name.toClassName()%>Impl::GetParentFlexElement() const
+        {
+            return std::dynamic_pointer_cast<IOpenScenarioFlexElement>(GetParent().lock());
+        }
 
 
-            std::string <%=element.name.toClassName()%>Impl::GetModelType() const
-            {
-                return "<%=element.name.toClassName()%>";
-            }
+        std::string <%=element.name.toClassName()%>Impl::GetModelType() const
+        {
+            return "<%=element.name.toClassName()%>";
+        }
 
 <%properties = element.getParametrizableAttributes()-%>
 <%-properties.each{ property ->-%>
-            void <%=element.name.toClassName()%>Impl::WriteParameterTo<%=property.name.toClassName()%>(std::string& parameterName)
-            {
-                Textmarker nullTextMarker(-1, -1, "");
-                SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>, parameterName, nullTextMarker /*no textmarker*/);
-                _<%=property.name.toMemberName()%> = {};
-            }
+        void <%=element.name.toClassName()%>Impl::WriteParameterTo<%=property.name.toClassName()%>(std::string& parameterName)
+        {
+            Textmarker nullTextMarker(-1, -1, "");
+            SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>, parameterName, nullTextMarker /*no textmarker*/);
+            _<%=property.name.toMemberName()%> = {};
+        }
 
 <%-}-%>
 <%-properties.each{ property ->-%>
-            std::string <%=element.name.toClassName()%>Impl::GetParameterFrom<%=property.name.toClassName()%>() const
-            {
-                auto <%=property.name.toMemberName()%> = OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>;
-                return GetParameterNameFromAttribute(<%=property.name.toMemberName()%>);
-            }
+        std::string <%=element.name.toClassName()%>Impl::GetParameterFrom<%=property.name.toClassName()%>() const
+        {
+            auto <%=property.name.toMemberName()%> = OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>;
+            return GetParameterNameFromAttribute(<%=property.name.toMemberName()%>);
+        }
 
 <%-}-%>
 <%-properties.each{ property ->-%>
-            bool <%=element.name.toClassName()%>Impl::Is<%=property.name.toClassName()%>Parameterized()
-            {
-                auto keys = GetParameterizedAttributeKeys();
-                const auto kIt = std::find(keys.begin(), keys.end(), OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>);
-                if (kIt != keys.end())
-                    return true;
-                return false;
-            }
+        bool <%=element.name.toClassName()%>Impl::Is<%=property.name.toClassName()%>Parameterized()
+        {
+            auto keys = GetParameterizedAttributeKeys();
+            const auto kIt = std::find(keys.begin(), keys.end(), OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>);
+            if (kIt != keys.end())
+                return true;
+            return false;
+        }
 
 <%-}-%>
             // children
 <%-properties = element.getXmlElementProperties().findAll(){ !it.isList() }-%>
 <%-properties.each{ property ->-%>
-            <%=property.type.toCppWriterName()%> <%=element.name.toClassName()%>Impl::GetWriter<%=property.name.toClassName()%>() const
-            {
-                return std::dynamic_pointer_cast<<%=property.type.toCppTemplateName()%>Writer>(_<%=property.name.toMemberName()%>);
-            }
+        <%=property.type.toCppWriterName()%> <%=element.name.toClassName()%>Impl::GetWriter<%=property.name.toClassName()%>() const
+        {
+            return std::dynamic_pointer_cast<<%=property.type.toCppTemplateName()%>Writer>(_<%=property.name.toMemberName()%>);
+        }
 <%-}-%>
     <%- properties = element.umlProperties-%>
 
@@ -340,9 +340,8 @@ namespace NET_ASAM_OPENSCENARIO
             CloneEndMarker(*clonedObject);
             CloneAttributeKeyToStartMarker(*clonedObject);
             CloneAttributeKeyToEndMarker(*clonedObject);
-            CloneAttributeKeyToParameterNameMap(*clonedObject);
-			CloneAttributeKeyToExpressionMap(*clonedObject);
-
+			CloneAttributeKeyToParameterNameMap(*clonedObject);
+				
             // clone attributes;
             <%-properties = element.getXmlAttributeProperties();-%>
             <%-properties.each{ property -> -%>
@@ -519,7 +518,14 @@ namespace NET_ASAM_OPENSCENARIO
             throw KeyNotSupportedException();
             <%-}-%>
         }
-        
+<%-addResolveFunction(element, "unsignedInt", "unsigned int")-%>
+<%-addResolveFunction(element, "unsignedShort", "unsigned short")-%>
+<%-addResolveFunction(element, "boolean", "bool")-%>
+<%-addResolveFunction(element, "string", "std::string")-%>
+<%-addResolveFunction(element, "double", "double")-%>
+<%-addResolveFunction(element, "int", "int")-%>
+<%-addResolveFunction(element, "dateTime", "DateTime")-%>
+		
 
 <%-}-%>
     }
@@ -544,3 +550,21 @@ if (key.empty())
                 throw KeyNotSupportedException();
  <%-}-%>
  <%-}-%>
+ 
+ <%-def addResolveFunction(element, primitiveType, cTypeString){-%>
+ <%- def attributes = element.getParametrizableAttributes().findAll(){property -> property.type.name == primitiveType};-%>
+ <%- if(!attributes.isEmpty()){-%>
+		void <%=element.name.toClassName()%>Impl::Resolve<%=primitiveType.toClassName()%>Expression(std::string& attributeKey, <%=cTypeString%>& value)
+		{
+		 <%-attributes.eachWithIndex { property, index ->-%>
+            <%=index==0?"":"else "%>if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>)
+            {
+                // Simple type
+                _<%=property.name.toMemberName()%> = value;
+                AddResolvedParameter(attributeKey);
+            }
+        <%-}-%>
+		
+		}
+<%-}-%>	
+<%-}-%>		

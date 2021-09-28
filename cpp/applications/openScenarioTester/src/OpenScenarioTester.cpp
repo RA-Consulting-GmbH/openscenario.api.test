@@ -15,6 +15,7 @@
  * limitations under the License.
  */
 
+#include "TestDeprecatedV1_1.h"
 #include "TestExamplesV1_1.h"
 #include "TestRangeCheckerV1_1.h"
 #include "TestFilesV1_1.h"
@@ -52,6 +53,7 @@ bool TestV1_1(std::string basePath )
 	NET_ASAM_OPENSCENARIO::v1_1::TestFlexInterface testFlexInterface(basePath);
 	NET_ASAM_OPENSCENARIO::v1_1::TestInjectedParameters testInjectedParameters(basePath);
 	NET_ASAM_OPENSCENARIO::v1_1::TestWriterApi testWriterApi(basePath);
+	NET_ASAM_OPENSCENARIO::v1_1::TestDeprecated testDeprecated(basePath);
 
 	auto result = true;
 	
@@ -61,6 +63,8 @@ bool TestV1_1(std::string basePath )
 
 	result = testFiles.TestSimpleSuccess() && result;
 	result = testFiles.TestParamsSuccess() && result;
+	result = testFiles.TestExpressionsSuccess() && result;
+	result = testFiles.TestExpressionsFailure() && result;
 	result = testFiles.TestBomFile() && result;
 	result = testFiles.TestParamsFailure() && result;
 	result = testFiles.TestParamsConversionInfo() && result;
@@ -75,6 +79,7 @@ bool TestV1_1(std::string basePath )
 	result = testImports.TestImportSuccess() && result;
 
 	result = testImports.TestImportWithParametersSuccess() && result;
+	result = testImports.TestImportWithExpressionsSuccess() && result;
 
 	result = testReader.TestImportSuccess() && result;
 	result = testReader.TestDirectorySuccess() && result;
@@ -107,7 +112,8 @@ bool TestV1_1(std::string basePath )
 	result = testWriterApi.TestSimpleSuccess() && result;
 	result = testWriterApi.TestParamsSuccess() && result;
 	result = testWriterApi.TestBomFile() && result;
-
+	
+	result = testDeprecated.TestDeprecatedSuccess() && result;
 	return result;
 }
 
@@ -193,8 +199,8 @@ int main(int argc, char** argv)
 
 	
 
-	auto result = TestV1_0(basePath);
-	result = TestV1_1(basePath) && result;
+	auto result = TestV1_1(basePath);
+	result = TestV1_0(basePath) && result;
 
 	 if (result)
         return 0;

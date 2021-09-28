@@ -82,6 +82,12 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP CloudState(const CloudStateEnum cloudState);
 
+			OPENSCENARIOLIB_EXP static bool IsDeprecated(const CloudStateEnum cloudState);
+			
+			OPENSCENARIOLIB_EXP static std::string GetDeprecatedVersion(const CloudStateEnum cloudState);
+
+			OPENSCENARIOLIB_EXP static std::string GetDeprecatedComment(const CloudStateEnum cloudState);
+
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO
@@ -166,6 +172,12 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP ConditionEdge(const ConditionEdgeEnum conditionEdge);
 
+			OPENSCENARIOLIB_EXP static bool IsDeprecated(const ConditionEdgeEnum conditionEdge);
+			
+			OPENSCENARIOLIB_EXP static std::string GetDeprecatedVersion(const ConditionEdgeEnum conditionEdge);
+
+			OPENSCENARIOLIB_EXP static std::string GetDeprecatedComment(const ConditionEdgeEnum conditionEdge);
+
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO
@@ -247,6 +259,12 @@ Trajectory-based s,t coordinate system (s-axis is the trajectory-arc, which the 
 
             OPENSCENARIOLIB_EXP CoordinateSystem(const CoordinateSystemEnum coordinateSystem);
 
+			OPENSCENARIOLIB_EXP static bool IsDeprecated(const CoordinateSystemEnum coordinateSystem);
+			
+			OPENSCENARIOLIB_EXP static std::string GetDeprecatedVersion(const CoordinateSystemEnum coordinateSystem);
+
+			OPENSCENARIOLIB_EXP static std::string GetDeprecatedComment(const CoordinateSystemEnum coordinateSystem);
+
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO
@@ -322,6 +340,12 @@ Trajectory-based s,t coordinate system (s-axis is the trajectory-arc, which the 
             OPENSCENARIOLIB_EXP DynamicsDimension(DynamicsDimensionEnum& dynamicsDimension);
 
             OPENSCENARIOLIB_EXP DynamicsDimension(const DynamicsDimensionEnum dynamicsDimension);
+
+			OPENSCENARIOLIB_EXP static bool IsDeprecated(const DynamicsDimensionEnum dynamicsDimension);
+			
+			OPENSCENARIOLIB_EXP static std::string GetDeprecatedVersion(const DynamicsDimensionEnum dynamicsDimension);
+
+			OPENSCENARIOLIB_EXP static std::string GetDeprecatedComment(const DynamicsDimensionEnum dynamicsDimension);
 
             /**
              * Constructor using the literal
@@ -402,6 +426,12 @@ Trajectory-based s,t coordinate system (s-axis is the trajectory-arc, which the 
 
             OPENSCENARIOLIB_EXP DynamicsShape(const DynamicsShapeEnum dynamicsShape);
 
+			OPENSCENARIOLIB_EXP static bool IsDeprecated(const DynamicsShapeEnum dynamicsShape);
+			
+			OPENSCENARIOLIB_EXP static std::string GetDeprecatedVersion(const DynamicsShapeEnum dynamicsShape);
+
+			OPENSCENARIOLIB_EXP static std::string GetDeprecatedComment(const DynamicsShapeEnum dynamicsShape);
+
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO
@@ -474,6 +504,12 @@ Trajectory-based s,t coordinate system (s-axis is the trajectory-arc, which the 
             OPENSCENARIOLIB_EXP FollowingMode(FollowingModeEnum& followingMode);
 
             OPENSCENARIOLIB_EXP FollowingMode(const FollowingModeEnum followingMode);
+
+			OPENSCENARIOLIB_EXP static bool IsDeprecated(const FollowingModeEnum followingMode);
+			
+			OPENSCENARIOLIB_EXP static std::string GetDeprecatedVersion(const FollowingModeEnum followingMode);
+
+			OPENSCENARIOLIB_EXP static std::string GetDeprecatedComment(const FollowingModeEnum followingMode);
 
             /**
              * Constructor using the literal
@@ -551,6 +587,12 @@ Trajectory-based s,t coordinate system (s-axis is the trajectory-arc, which the 
 
             OPENSCENARIOLIB_EXP LateralDisplacement(const LateralDisplacementEnum lateralDisplacement);
 
+			OPENSCENARIOLIB_EXP static bool IsDeprecated(const LateralDisplacementEnum lateralDisplacement);
+			
+			OPENSCENARIOLIB_EXP static std::string GetDeprecatedVersion(const LateralDisplacementEnum lateralDisplacement);
+
+			OPENSCENARIOLIB_EXP static std::string GetDeprecatedComment(const LateralDisplacementEnum lateralDisplacement);
+
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO
@@ -626,6 +668,12 @@ Trajectory-based s,t coordinate system (s-axis is the trajectory-arc, which the 
             OPENSCENARIOLIB_EXP LongitudinalDisplacement(LongitudinalDisplacementEnum& longitudinalDisplacement);
 
             OPENSCENARIOLIB_EXP LongitudinalDisplacement(const LongitudinalDisplacementEnum longitudinalDisplacement);
+
+			OPENSCENARIOLIB_EXP static bool IsDeprecated(const LongitudinalDisplacementEnum longitudinalDisplacement);
+			
+			OPENSCENARIOLIB_EXP static std::string GetDeprecatedVersion(const LongitudinalDisplacementEnum longitudinalDisplacement);
+
+			OPENSCENARIOLIB_EXP static std::string GetDeprecatedComment(const LongitudinalDisplacementEnum longitudinalDisplacement);
 
             /**
              * Constructor using the literal
@@ -712,7 +760,10 @@ Trajectory-based s,t coordinate system (s-axis is the trajectory-arc, which the 
             std::string _literal;
             MiscObjectCategoryEnum _miscObjectCategoryEnum;
             static std::map<std::string, MiscObjectCategoryEnum> _stringToEnum;
-
+            static std::map<MiscObjectCategoryEnum, bool> _enumToDeprecated;
+            static std::map<MiscObjectCategoryEnum, std::string> _enumToDeprecatedVersion;
+            static std::map<MiscObjectCategoryEnum, std::string> _enumToDeprecatedComment;          	
+            
         public:
             const std::vector<std::string> kMiscObjectCategoryEnumString 
             {
@@ -744,6 +795,12 @@ Trajectory-based s,t coordinate system (s-axis is the trajectory-arc, which the 
             OPENSCENARIOLIB_EXP MiscObjectCategory(MiscObjectCategoryEnum& miscObjectCategory);
 
             OPENSCENARIOLIB_EXP MiscObjectCategory(const MiscObjectCategoryEnum miscObjectCategory);
+
+			OPENSCENARIOLIB_EXP static bool IsDeprecated(const MiscObjectCategoryEnum miscObjectCategory);
+			
+			OPENSCENARIOLIB_EXP static std::string GetDeprecatedVersion(const MiscObjectCategoryEnum miscObjectCategory);
+
+			OPENSCENARIOLIB_EXP static std::string GetDeprecatedComment(const MiscObjectCategoryEnum miscObjectCategory);
 
             /**
              * Constructor using the literal
@@ -823,6 +880,12 @@ Trajectory-based s,t coordinate system (s-axis is the trajectory-arc, which the 
             OPENSCENARIOLIB_EXP ObjectType(ObjectTypeEnum& objectType);
 
             OPENSCENARIOLIB_EXP ObjectType(const ObjectTypeEnum objectType);
+
+			OPENSCENARIOLIB_EXP static bool IsDeprecated(const ObjectTypeEnum objectType);
+			
+			OPENSCENARIOLIB_EXP static std::string GetDeprecatedVersion(const ObjectTypeEnum objectType);
+
+			OPENSCENARIOLIB_EXP static std::string GetDeprecatedComment(const ObjectTypeEnum objectType);
 
             /**
              * Constructor using the literal
@@ -912,6 +975,12 @@ Trajectory-based s,t coordinate system (s-axis is the trajectory-arc, which the 
 
             OPENSCENARIOLIB_EXP ParameterType(const ParameterTypeEnum parameterType);
 
+			OPENSCENARIOLIB_EXP static bool IsDeprecated(const ParameterTypeEnum parameterType);
+			
+			OPENSCENARIOLIB_EXP static std::string GetDeprecatedVersion(const ParameterTypeEnum parameterType);
+
+			OPENSCENARIOLIB_EXP static std::string GetDeprecatedComment(const ParameterTypeEnum parameterType);
+
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO
@@ -988,6 +1057,12 @@ Trajectory-based s,t coordinate system (s-axis is the trajectory-arc, which the 
 
             OPENSCENARIOLIB_EXP PedestrianCategory(const PedestrianCategoryEnum pedestrianCategory);
 
+			OPENSCENARIOLIB_EXP static bool IsDeprecated(const PedestrianCategoryEnum pedestrianCategory);
+			
+			OPENSCENARIOLIB_EXP static std::string GetDeprecatedVersion(const PedestrianCategoryEnum pedestrianCategory);
+
+			OPENSCENARIOLIB_EXP static std::string GetDeprecatedComment(const PedestrianCategoryEnum pedestrianCategory);
+
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO
@@ -1063,6 +1138,12 @@ Trajectory-based s,t coordinate system (s-axis is the trajectory-arc, which the 
             OPENSCENARIOLIB_EXP PrecipitationType(PrecipitationTypeEnum& precipitationType);
 
             OPENSCENARIOLIB_EXP PrecipitationType(const PrecipitationTypeEnum precipitationType);
+
+			OPENSCENARIOLIB_EXP static bool IsDeprecated(const PrecipitationTypeEnum precipitationType);
+			
+			OPENSCENARIOLIB_EXP static std::string GetDeprecatedVersion(const PrecipitationTypeEnum precipitationType);
+
+			OPENSCENARIOLIB_EXP static std::string GetDeprecatedComment(const PrecipitationTypeEnum precipitationType);
 
             /**
              * Constructor using the literal
@@ -1142,6 +1223,12 @@ Trajectory-based s,t coordinate system (s-axis is the trajectory-arc, which the 
 
             OPENSCENARIOLIB_EXP Priority(const PriorityEnum priority);
 
+			OPENSCENARIOLIB_EXP static bool IsDeprecated(const PriorityEnum priority);
+			
+			OPENSCENARIOLIB_EXP static std::string GetDeprecatedVersion(const PriorityEnum priority);
+
+			OPENSCENARIOLIB_EXP static std::string GetDeprecatedComment(const PriorityEnum priority);
+
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO
@@ -1215,6 +1302,12 @@ Trajectory-based s,t coordinate system (s-axis is the trajectory-arc, which the 
 
             OPENSCENARIOLIB_EXP ReferenceContext(const ReferenceContextEnum referenceContext);
 
+			OPENSCENARIOLIB_EXP static bool IsDeprecated(const ReferenceContextEnum referenceContext);
+			
+			OPENSCENARIOLIB_EXP static std::string GetDeprecatedVersion(const ReferenceContextEnum referenceContext);
+
+			OPENSCENARIOLIB_EXP static std::string GetDeprecatedComment(const ReferenceContextEnum referenceContext);
+
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO
@@ -1278,7 +1371,10 @@ Smallest lateral distance (y for cartesian coordinate systems, t for road-based 
             std::string _literal;
             RelativeDistanceTypeEnum _relativeDistanceTypeEnum;
             static std::map<std::string, RelativeDistanceTypeEnum> _stringToEnum;
-
+            static std::map<RelativeDistanceTypeEnum, bool> _enumToDeprecated;
+            static std::map<RelativeDistanceTypeEnum, std::string> _enumToDeprecatedVersion;
+            static std::map<RelativeDistanceTypeEnum, std::string> _enumToDeprecatedComment;          	
+            
         public:
             const std::vector<std::string> kRelativeDistanceTypeEnumString 
             {
@@ -1297,6 +1393,12 @@ Smallest lateral distance (y for cartesian coordinate systems, t for road-based 
             OPENSCENARIOLIB_EXP RelativeDistanceType(RelativeDistanceTypeEnum& relativeDistanceType);
 
             OPENSCENARIOLIB_EXP RelativeDistanceType(const RelativeDistanceTypeEnum relativeDistanceType);
+
+			OPENSCENARIOLIB_EXP static bool IsDeprecated(const RelativeDistanceTypeEnum relativeDistanceType);
+			
+			OPENSCENARIOLIB_EXP static std::string GetDeprecatedVersion(const RelativeDistanceTypeEnum relativeDistanceType);
+
+			OPENSCENARIOLIB_EXP static std::string GetDeprecatedComment(const RelativeDistanceTypeEnum relativeDistanceType);
 
             /**
              * Constructor using the literal
@@ -1376,6 +1478,12 @@ Smallest lateral distance (y for cartesian coordinate systems, t for road-based 
             OPENSCENARIOLIB_EXP RouteStrategy(RouteStrategyEnum& routeStrategy);
 
             OPENSCENARIOLIB_EXP RouteStrategy(const RouteStrategyEnum routeStrategy);
+
+			OPENSCENARIOLIB_EXP static bool IsDeprecated(const RouteStrategyEnum routeStrategy);
+			
+			OPENSCENARIOLIB_EXP static std::string GetDeprecatedVersion(const RouteStrategyEnum routeStrategy);
+
+			OPENSCENARIOLIB_EXP static std::string GetDeprecatedComment(const RouteStrategyEnum routeStrategy);
 
             /**
              * Constructor using the literal
@@ -1462,6 +1570,12 @@ Smallest lateral distance (y for cartesian coordinate systems, t for road-based 
 
             OPENSCENARIOLIB_EXP Rule(const RuleEnum rule);
 
+			OPENSCENARIOLIB_EXP static bool IsDeprecated(const RuleEnum rule);
+			
+			OPENSCENARIOLIB_EXP static std::string GetDeprecatedVersion(const RuleEnum rule);
+
+			OPENSCENARIOLIB_EXP static std::string GetDeprecatedComment(const RuleEnum rule);
+
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO
@@ -1536,6 +1650,12 @@ Smallest lateral distance (y for cartesian coordinate systems, t for road-based 
             OPENSCENARIOLIB_EXP SpeedTargetValueType(SpeedTargetValueTypeEnum& speedTargetValueType);
 
             OPENSCENARIOLIB_EXP SpeedTargetValueType(const SpeedTargetValueTypeEnum speedTargetValueType);
+
+			OPENSCENARIOLIB_EXP static bool IsDeprecated(const SpeedTargetValueTypeEnum speedTargetValueType);
+			
+			OPENSCENARIOLIB_EXP static std::string GetDeprecatedVersion(const SpeedTargetValueTypeEnum speedTargetValueType);
+
+			OPENSCENARIOLIB_EXP static std::string GetDeprecatedComment(const SpeedTargetValueTypeEnum speedTargetValueType);
 
             /**
              * Constructor using the literal
@@ -1630,6 +1750,12 @@ Smallest lateral distance (y for cartesian coordinate systems, t for road-based 
 
             OPENSCENARIOLIB_EXP StoryboardElementState(const StoryboardElementStateEnum storyboardElementState);
 
+			OPENSCENARIOLIB_EXP static bool IsDeprecated(const StoryboardElementStateEnum storyboardElementState);
+			
+			OPENSCENARIOLIB_EXP static std::string GetDeprecatedVersion(const StoryboardElementStateEnum storyboardElementState);
+
+			OPENSCENARIOLIB_EXP static std::string GetDeprecatedComment(const StoryboardElementStateEnum storyboardElementState);
+
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO
@@ -1715,6 +1841,12 @@ Smallest lateral distance (y for cartesian coordinate systems, t for road-based 
 
             OPENSCENARIOLIB_EXP StoryboardElementType(const StoryboardElementTypeEnum storyboardElementType);
 
+			OPENSCENARIOLIB_EXP static bool IsDeprecated(const StoryboardElementTypeEnum storyboardElementType);
+			
+			OPENSCENARIOLIB_EXP static std::string GetDeprecatedVersion(const StoryboardElementTypeEnum storyboardElementType);
+
+			OPENSCENARIOLIB_EXP static std::string GetDeprecatedComment(const StoryboardElementTypeEnum storyboardElementType);
+
             /**
              * Constructor using the literal
              * @param literal_ as defined in OpenSCENARIO
@@ -1787,6 +1919,12 @@ Smallest lateral distance (y for cartesian coordinate systems, t for road-based 
             OPENSCENARIOLIB_EXP TriggeringEntitiesRule(TriggeringEntitiesRuleEnum& triggeringEntitiesRule);
 
             OPENSCENARIOLIB_EXP TriggeringEntitiesRule(const TriggeringEntitiesRuleEnum triggeringEntitiesRule);
+
+			OPENSCENARIOLIB_EXP static bool IsDeprecated(const TriggeringEntitiesRuleEnum triggeringEntitiesRule);
+			
+			OPENSCENARIOLIB_EXP static std::string GetDeprecatedVersion(const TriggeringEntitiesRuleEnum triggeringEntitiesRule);
+
+			OPENSCENARIOLIB_EXP static std::string GetDeprecatedComment(const TriggeringEntitiesRuleEnum triggeringEntitiesRule);
 
             /**
              * Constructor using the literal
@@ -1884,6 +2022,12 @@ Smallest lateral distance (y for cartesian coordinate systems, t for road-based 
             OPENSCENARIOLIB_EXP VehicleCategory(VehicleCategoryEnum& vehicleCategory);
 
             OPENSCENARIOLIB_EXP VehicleCategory(const VehicleCategoryEnum vehicleCategory);
+
+			OPENSCENARIOLIB_EXP static bool IsDeprecated(const VehicleCategoryEnum vehicleCategory);
+			
+			OPENSCENARIOLIB_EXP static std::string GetDeprecatedVersion(const VehicleCategoryEnum vehicleCategory);
+
+			OPENSCENARIOLIB_EXP static std::string GetDeprecatedComment(const VehicleCategoryEnum vehicleCategory);
 
             /**
              * Constructor using the literal
