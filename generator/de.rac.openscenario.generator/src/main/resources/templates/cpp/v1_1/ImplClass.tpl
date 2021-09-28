@@ -190,6 +190,6 @@ namespace NET_ASAM_OPENSCENARIO
 <%-def addResolveFunction(element, primitiveType, cTypeString){-%>
  <%- def attributes = element.getParametrizableAttributes().findAll(){property -> property.type.name == primitiveType};-%>
  <%- if(!attributes.isEmpty()){-%>
-			virtual void <%=element.name.toClassName()%>Impl::Resolve<%=primitiveType.toClassName()%>Expression(std::string& attributeKey, <%=cTypeString%>& value) override;		
+			virtual void Resolve<%=primitiveType.toClassName()%>Expression(std::string& attributeKey, <%=cTypeString%>& value) override;		
 <%-}-%>	
 <%-}-%>	

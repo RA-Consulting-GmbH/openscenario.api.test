@@ -135,7 +135,7 @@ namespace NET_ASAM_OPENSCENARIO
 							case INT:
 							{
 
-								int intValue = (int)value->getDoubleValue();
+								int intValue = (int) value->getDoubleValue();
 								expressionObject->ResolveIntExpression(attributeKey, intValue);
 								break;
 							}
@@ -151,6 +151,8 @@ namespace NET_ASAM_OPENSCENARIO
 								expressionObject->ResolveUnsignedShortExpression(attributeKey, unsignedShortValue);
 								break;
 							}
+							default:
+								break;
 						}
 					}
 					
@@ -296,7 +298,7 @@ namespace NET_ASAM_OPENSCENARIO
 						auto parameterType = parameterDeclaration->GetParameterType().GetLiteral();
 						auto parameterValue = std::make_shared<ParameterValue>(parameterDeclaration->GetName(), child->GetParameterType(parameterType), parameterDeclaration->GetValue());
 
-						if (!injectedParameters.empty() && std::dynamic_pointer_cast<IScenarioDefinition>(baseImpl) != nullptr || std::dynamic_pointer_cast<ICatalogElement>(baseImpl) != nullptr)
+						if (!injectedParameters.empty() && (std::dynamic_pointer_cast<IScenarioDefinition>(baseImpl) != nullptr || std::dynamic_pointer_cast<ICatalogElement>(baseImpl) != nullptr))
 						{
 							// override parameter values with injected parameters
 							if (OverrideGlobalParameterWithInjectedParameter(parameterValue, logger, injectedParameters, parameterDeclaration))

@@ -56,7 +56,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<ISteadyStateWriter> _steadyState {};
         public:
 
-			virtual void AbsoluteSpeedImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP AbsoluteSpeedImpl();
 
@@ -149,7 +149,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::string _value {};
         public:
 
-			virtual void AbsoluteTargetLaneImpl::ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
+			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
 		
             OPENSCENARIOLIB_EXP AbsoluteTargetLaneImpl();
 
@@ -238,7 +238,7 @@ namespace NET_ASAM_OPENSCENARIO
             double _value {};
         public:
 
-			virtual void AbsoluteTargetLaneOffsetImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP AbsoluteTargetLaneOffsetImpl();
 
@@ -327,7 +327,7 @@ namespace NET_ASAM_OPENSCENARIO
             double _value {};
         public:
 
-			virtual void AbsoluteTargetSpeedImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP AbsoluteTargetSpeedImpl();
 
@@ -417,7 +417,7 @@ namespace NET_ASAM_OPENSCENARIO
             double _value {};
         public:
 
-			virtual void AccelerationConditionImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP AccelerationConditionImpl();
 
@@ -601,7 +601,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<ITriggerWriter> _stopTrigger {};
         public:
 
-			virtual void ActImpl::ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
+			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
 		
             OPENSCENARIOLIB_EXP ActImpl();
 
@@ -708,7 +708,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IPrivateActionWriter> _privateAction {};
         public:
 
-			virtual void ActionImpl::ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
+			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
 		
             OPENSCENARIOLIB_EXP ActionImpl();
 
@@ -810,7 +810,7 @@ namespace NET_ASAM_OPENSCENARIO
             bool _longitudinal {};
         public:
 
-			virtual void ActivateControllerActionImpl::ResolveBooleanExpression(std::string& attributeKey, bool& value) override;		
+			virtual void ResolveBooleanExpression(std::string& attributeKey, bool& value) override;		
 		
             OPENSCENARIOLIB_EXP ActivateControllerActionImpl();
 
@@ -909,7 +909,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<std::shared_ptr<IEntityRefWriter>> _entityRefs {};
         public:
 
-			virtual void ActorsImpl::ResolveBooleanExpression(std::string& attributeKey, bool& value) override;		
+			virtual void ResolveBooleanExpression(std::string& attributeKey, bool& value) override;		
 		
             OPENSCENARIOLIB_EXP ActorsImpl();
 
@@ -1091,7 +1091,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<ICatalogReferenceWriter> _catalogReference {};
         public:
 
-			virtual void AssignControllerActionImpl::ResolveBooleanExpression(std::string& attributeKey, bool& value) override;		
+			virtual void ResolveBooleanExpression(std::string& attributeKey, bool& value) override;		
 		
             OPENSCENARIOLIB_EXP AssignControllerActionImpl();
 
@@ -1289,7 +1289,7 @@ namespace NET_ASAM_OPENSCENARIO
             double _wheelDiameter {};
         public:
 
-			virtual void AxleImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP AxleImpl();
 
@@ -1983,7 +1983,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<std::shared_ptr<IRouteWriter>> _routes {};
         public:
 
-			virtual void CatalogImpl::ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
+			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
 		
             OPENSCENARIOLIB_EXP CatalogImpl();
 
@@ -2332,7 +2332,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<ICatalogElement> _ref {};
         public:
 
-			virtual void CatalogReferenceImpl::ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
+			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
 		
             OPENSCENARIOLIB_EXP CatalogReferenceImpl();
 
@@ -2442,7 +2442,7 @@ namespace NET_ASAM_OPENSCENARIO
             double _z {};
         public:
 
-			virtual void CenterImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP CenterImpl();
 
@@ -2643,7 +2643,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IPositionWriter> _position {};
         public:
 
-			virtual void ClothoidImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP ClothoidImpl();
 
@@ -2873,8 +2873,8 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IByValueConditionWriter> _byValueCondition {};
         public:
 
-			virtual void ConditionImpl::ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
-			virtual void ConditionImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP ConditionImpl();
 
@@ -3077,7 +3077,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IPositionWriter> _position {};
         public:
 
-			virtual void ControlPointImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP ControlPointImpl();
 
@@ -3181,7 +3181,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IPropertiesWriter> _properties {};
         public:
 
-			virtual void ControllerImpl::ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
+			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
 		
             OPENSCENARIOLIB_EXP ControllerImpl();
 
@@ -3547,7 +3547,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<ICatalogReferenceWriter> _catalogReference {};
         public:
 
-			virtual void ControllerDistributionEntryImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP ControllerDistributionEntryImpl();
 
@@ -3645,7 +3645,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::string _type {};
         public:
 
-			virtual void CustomCommandActionImpl::ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
+			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
 		
             OPENSCENARIOLIB_EXP CustomCommandActionImpl();
 
@@ -4162,7 +4162,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IDeterministicSingleParameterDistributionTypeWriter> _deterministicSingleParameterDistributionType {};
         public:
 
-			virtual void DeterministicSingleParameterDistributionImpl::ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
+			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
 		
             OPENSCENARIOLIB_EXP DeterministicSingleParameterDistributionImpl();
 
@@ -4350,7 +4350,7 @@ namespace NET_ASAM_OPENSCENARIO
             double _width {};
         public:
 
-			virtual void DimensionsImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP DimensionsImpl();
 
@@ -4457,7 +4457,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::string _path {};
         public:
 
-			virtual void DirectoryImpl::ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
+			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
 		
             OPENSCENARIOLIB_EXP DirectoryImpl();
 
@@ -4552,8 +4552,8 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IPositionWriter> _position {};
         public:
 
-			virtual void DistanceConditionImpl::ResolveBooleanExpression(std::string& attributeKey, bool& value) override;		
-			virtual void DistanceConditionImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveBooleanExpression(std::string& attributeKey, bool& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP DistanceConditionImpl();
 
@@ -4780,7 +4780,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IRangeWriter> _range {};
         public:
 
-			virtual void DistributionRangeImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP DistributionRangeImpl();
 
@@ -4959,7 +4959,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::string _value {};
         public:
 
-			virtual void DistributionSetElementImpl::ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
+			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
 		
             OPENSCENARIOLIB_EXP DistributionSetElementImpl();
 
@@ -5050,7 +5050,7 @@ namespace NET_ASAM_OPENSCENARIO
             double _maxSpeed {};
         public:
 
-			virtual void DynamicConstraintsImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP DynamicConstraintsImpl();
 
@@ -5157,7 +5157,7 @@ namespace NET_ASAM_OPENSCENARIO
             double _duration {};
         public:
 
-			virtual void EndOfRoadConditionImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP EndOfRoadConditionImpl();
 
@@ -5773,7 +5773,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<ISelectedEntitiesWriter> _members {};
         public:
 
-			virtual void EntitySelectionImpl::ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
+			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
 		
             OPENSCENARIOLIB_EXP EntitySelectionImpl();
 
@@ -5870,7 +5870,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IRoadConditionWriter> _roadCondition {};
         public:
 
-			virtual void EnvironmentImpl::ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
+			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
 		
             OPENSCENARIOLIB_EXP EnvironmentImpl();
 
@@ -6155,8 +6155,8 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<ITriggerWriter> _startTrigger {};
         public:
 
-			virtual void EventImpl::ResolveUnsignedIntExpression(std::string& attributeKey, unsigned int& value) override;		
-			virtual void EventImpl::ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
+			virtual void ResolveUnsignedIntExpression(std::string& attributeKey, unsigned int& value) override;		
+			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
 		
             OPENSCENARIOLIB_EXP EventImpl();
 
@@ -6274,7 +6274,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::string _name {};
         public:
 
-			virtual void ExternalObjectReferenceImpl::ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
+			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
 		
             OPENSCENARIOLIB_EXP ExternalObjectReferenceImpl();
 
@@ -6363,7 +6363,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::string _filepath {};
         public:
 
-			virtual void FileImpl::ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
+			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
 		
             OPENSCENARIOLIB_EXP FileImpl();
 
@@ -6457,9 +6457,9 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<ILicenseWriter> _license {};
         public:
 
-			virtual void FileHeaderImpl::ResolveUnsignedShortExpression(std::string& attributeKey, unsigned short& value) override;		
-			virtual void FileHeaderImpl::ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
-			virtual void FileHeaderImpl::ResolveDateTimeExpression(std::string& attributeKey, DateTime& value) override;		
+			virtual void ResolveUnsignedShortExpression(std::string& attributeKey, unsigned short& value) override;		
+			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
+			virtual void ResolveDateTimeExpression(std::string& attributeKey, DateTime& value) override;		
 		
             OPENSCENARIOLIB_EXP FileHeaderImpl();
 
@@ -6677,7 +6677,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IBoundingBoxWriter> _boundingBox {};
         public:
 
-			virtual void FogImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP FogImpl();
 
@@ -6775,7 +6775,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<ITrajectoryRefWriter> _trajectoryRef {};
         public:
 
-			virtual void FollowTrajectoryActionImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP FollowTrajectoryActionImpl();
 
@@ -6887,7 +6887,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IOrientationWriter> _orientation {};
         public:
 
-			virtual void GeoPositionImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP GeoPositionImpl();
 
@@ -7188,7 +7188,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IRangeWriter> _range {};
         public:
 
-			virtual void HistogramBinImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP HistogramBinImpl();
 
@@ -7642,7 +7642,7 @@ namespace NET_ASAM_OPENSCENARIO
             double _value {};
         public:
 
-			virtual void KnotImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP KnotImpl();
 
@@ -7733,7 +7733,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<ILaneChangeTargetWriter> _laneChangeTarget {};
         public:
 
-			virtual void LaneChangeActionImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP LaneChangeActionImpl();
 
@@ -7920,7 +7920,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<ILaneOffsetTargetWriter> _laneOffsetTarget {};
         public:
 
-			virtual void LaneOffsetActionImpl::ResolveBooleanExpression(std::string& attributeKey, bool& value) override;		
+			virtual void ResolveBooleanExpression(std::string& attributeKey, bool& value) override;		
 		
             OPENSCENARIOLIB_EXP LaneOffsetActionImpl();
 
@@ -8018,7 +8018,7 @@ namespace NET_ASAM_OPENSCENARIO
             double _maxLateralAcc {};
         public:
 
-			virtual void LaneOffsetActionDynamicsImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP LaneOffsetActionDynamicsImpl();
 
@@ -8208,8 +8208,8 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IOrientationWriter> _orientation {};
         public:
 
-			virtual void LanePositionImpl::ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
-			virtual void LanePositionImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP LanePositionImpl();
 
@@ -8428,8 +8428,8 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IDynamicConstraintsWriter> _dynamicConstraints {};
         public:
 
-			virtual void LateralDistanceActionImpl::ResolveBooleanExpression(std::string& attributeKey, bool& value) override;		
-			virtual void LateralDistanceActionImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveBooleanExpression(std::string& attributeKey, bool& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP LateralDistanceActionImpl();
 
@@ -8570,7 +8570,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::string _spdxId {};
         public:
 
-			virtual void LicenseImpl::ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
+			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
 		
             OPENSCENARIOLIB_EXP LicenseImpl();
 
@@ -8781,8 +8781,8 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IDynamicConstraintsWriter> _dynamicConstraints {};
         public:
 
-			virtual void LongitudinalDistanceActionImpl::ResolveBooleanExpression(std::string& attributeKey, bool& value) override;		
-			virtual void LongitudinalDistanceActionImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveBooleanExpression(std::string& attributeKey, bool& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP LongitudinalDistanceActionImpl();
 
@@ -8931,7 +8931,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<std::shared_ptr<IEventWriter>> _events {};
         public:
 
-			virtual void ManeuverImpl::ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
+			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
 		
             OPENSCENARIOLIB_EXP ManeuverImpl();
 
@@ -9123,8 +9123,8 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<std::shared_ptr<IManeuverWriter>> _maneuvers {};
         public:
 
-			virtual void ManeuverGroupImpl::ResolveUnsignedIntExpression(std::string& attributeKey, unsigned int& value) override;		
-			virtual void ManeuverGroupImpl::ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
+			virtual void ResolveUnsignedIntExpression(std::string& attributeKey, unsigned int& value) override;		
+			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
 		
             OPENSCENARIOLIB_EXP ManeuverGroupImpl();
 
@@ -9246,8 +9246,8 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IPropertiesWriter> _properties {};
         public:
 
-			virtual void MiscObjectImpl::ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
-			virtual void MiscObjectImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP MiscObjectImpl();
 
@@ -9631,7 +9631,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IRangeWriter> _range {};
         public:
 
-			virtual void NormalDistributionImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP NormalDistributionImpl();
 
@@ -9735,7 +9735,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<std::shared_ptr<IKnotWriter>> _knots {};
         public:
 
-			virtual void NurbsImpl::ResolveUnsignedIntExpression(std::string& attributeKey, unsigned int& value) override;		
+			virtual void ResolveUnsignedIntExpression(std::string& attributeKey, unsigned int& value) override;		
 		
             OPENSCENARIOLIB_EXP NurbsImpl();
 
@@ -9926,7 +9926,7 @@ namespace NET_ASAM_OPENSCENARIO
             double _duration {};
         public:
 
-			virtual void OffroadConditionImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP OffroadConditionImpl();
 
@@ -10199,7 +10199,7 @@ namespace NET_ASAM_OPENSCENARIO
             ReferenceContext _type {};
         public:
 
-			virtual void OrientationImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP OrientationImpl();
 
@@ -10316,8 +10316,8 @@ namespace NET_ASAM_OPENSCENARIO
             double _value {};
         public:
 
-			virtual void OverrideBrakeActionImpl::ResolveBooleanExpression(std::string& attributeKey, bool& value) override;		
-			virtual void OverrideBrakeActionImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveBooleanExpression(std::string& attributeKey, bool& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP OverrideBrakeActionImpl();
 
@@ -10416,8 +10416,8 @@ namespace NET_ASAM_OPENSCENARIO
             double _value {};
         public:
 
-			virtual void OverrideClutchActionImpl::ResolveBooleanExpression(std::string& attributeKey, bool& value) override;		
-			virtual void OverrideClutchActionImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveBooleanExpression(std::string& attributeKey, bool& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP OverrideClutchActionImpl();
 
@@ -10624,8 +10624,8 @@ namespace NET_ASAM_OPENSCENARIO
             double _number {};
         public:
 
-			virtual void OverrideGearActionImpl::ResolveBooleanExpression(std::string& attributeKey, bool& value) override;		
-			virtual void OverrideGearActionImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveBooleanExpression(std::string& attributeKey, bool& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP OverrideGearActionImpl();
 
@@ -10724,8 +10724,8 @@ namespace NET_ASAM_OPENSCENARIO
             double _value {};
         public:
 
-			virtual void OverrideParkingBrakeActionImpl::ResolveBooleanExpression(std::string& attributeKey, bool& value) override;		
-			virtual void OverrideParkingBrakeActionImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveBooleanExpression(std::string& attributeKey, bool& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP OverrideParkingBrakeActionImpl();
 
@@ -10824,8 +10824,8 @@ namespace NET_ASAM_OPENSCENARIO
             double _value {};
         public:
 
-			virtual void OverrideSteeringWheelActionImpl::ResolveBooleanExpression(std::string& attributeKey, bool& value) override;		
-			virtual void OverrideSteeringWheelActionImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveBooleanExpression(std::string& attributeKey, bool& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP OverrideSteeringWheelActionImpl();
 
@@ -10924,8 +10924,8 @@ namespace NET_ASAM_OPENSCENARIO
             double _value {};
         public:
 
-			virtual void OverrideThrottleActionImpl::ResolveBooleanExpression(std::string& attributeKey, bool& value) override;		
-			virtual void OverrideThrottleActionImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveBooleanExpression(std::string& attributeKey, bool& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP OverrideThrottleActionImpl();
 
@@ -11121,7 +11121,7 @@ namespace NET_ASAM_OPENSCENARIO
             double _value {};
         public:
 
-			virtual void ParameterAddValueRuleImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP ParameterAddValueRuleImpl();
 
@@ -11211,7 +11211,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::string _value {};
         public:
 
-			virtual void ParameterAssignmentImpl::ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
+			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
 		
             OPENSCENARIOLIB_EXP ParameterAssignmentImpl();
 
@@ -11305,7 +11305,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::string _value {};
         public:
 
-			virtual void ParameterConditionImpl::ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
+			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
 		
             OPENSCENARIOLIB_EXP ParameterConditionImpl();
 
@@ -11415,7 +11415,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<std::shared_ptr<IValueConstraintGroupWriter>> _constraintGroups {};
         public:
 
-			virtual void ParameterDeclarationImpl::ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
+			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
 		
             OPENSCENARIOLIB_EXP ParameterDeclarationImpl();
 
@@ -11606,7 +11606,7 @@ namespace NET_ASAM_OPENSCENARIO
             double _value {};
         public:
 
-			virtual void ParameterMultiplyByValueRuleImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP ParameterMultiplyByValueRuleImpl();
 
@@ -11695,7 +11695,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::string _value {};
         public:
 
-			virtual void ParameterSetActionImpl::ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
+			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
 		
             OPENSCENARIOLIB_EXP ParameterSetActionImpl();
 
@@ -12048,8 +12048,8 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IPropertiesWriter> _properties {};
         public:
 
-			virtual void PedestrianImpl::ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
-			virtual void PedestrianImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP PedestrianImpl();
 
@@ -12276,7 +12276,7 @@ namespace NET_ASAM_OPENSCENARIO
             double _maxSpeed {};
         public:
 
-			virtual void PerformanceImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP PerformanceImpl();
 
@@ -12385,8 +12385,8 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<std::shared_ptr<ITrafficSignalStateWriter>> _trafficSignalStates {};
         public:
 
-			virtual void PhaseImpl::ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
-			virtual void PhaseImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP PhaseImpl();
 
@@ -12492,7 +12492,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IRangeWriter> _range {};
         public:
 
-			virtual void PoissonDistributionImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP PoissonDistributionImpl();
 
@@ -12801,8 +12801,8 @@ namespace NET_ASAM_OPENSCENARIO
             double _pathS {};
         public:
 
-			virtual void PositionInLaneCoordinatesImpl::ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
-			virtual void PositionInLaneCoordinatesImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP PositionInLaneCoordinatesImpl();
 
@@ -12910,7 +12910,7 @@ namespace NET_ASAM_OPENSCENARIO
             double _t {};
         public:
 
-			virtual void PositionInRoadCoordinatesImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP PositionInRoadCoordinatesImpl();
 
@@ -13098,7 +13098,7 @@ namespace NET_ASAM_OPENSCENARIO
             PrecipitationType _precipitationType {};
         public:
 
-			virtual void PrecipitationImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP PrecipitationImpl();
 
@@ -13506,8 +13506,8 @@ namespace NET_ASAM_OPENSCENARIO
             double _weight {};
         public:
 
-			virtual void ProbabilityDistributionSetElementImpl::ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
-			virtual void ProbabilityDistributionSetElementImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP ProbabilityDistributionSetElementImpl();
 
@@ -13700,7 +13700,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::string _value {};
         public:
 
-			virtual void PropertyImpl::ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
+			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
 		
             OPENSCENARIOLIB_EXP PropertyImpl();
 
@@ -13799,7 +13799,7 @@ namespace NET_ASAM_OPENSCENARIO
             double _upperLimit {};
         public:
 
-			virtual void RangeImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP RangeImpl();
 
@@ -13898,7 +13898,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IPositionWriter> _position {};
         public:
 
-			virtual void ReachPositionConditionImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP ReachPositionConditionImpl();
 
@@ -13996,8 +13996,8 @@ namespace NET_ASAM_OPENSCENARIO
             double _value {};
         public:
 
-			virtual void RelativeDistanceConditionImpl::ResolveBooleanExpression(std::string& attributeKey, bool& value) override;		
-			virtual void RelativeDistanceConditionImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveBooleanExpression(std::string& attributeKey, bool& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP RelativeDistanceConditionImpl();
 
@@ -14136,8 +14136,8 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IOrientationWriter> _orientation {};
         public:
 
-			virtual void RelativeLanePositionImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-			virtual void RelativeLanePositionImpl::ResolveIntExpression(std::string& attributeKey, int& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveIntExpression(std::string& attributeKey, int& value) override;		
 		
             OPENSCENARIOLIB_EXP RelativeLanePositionImpl();
 
@@ -14270,7 +14270,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IOrientationWriter> _orientation {};
         public:
 
-			virtual void RelativeObjectPositionImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP RelativeObjectPositionImpl();
 
@@ -14393,7 +14393,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IOrientationWriter> _orientation {};
         public:
 
-			virtual void RelativeRoadPositionImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP RelativeRoadPositionImpl();
 
@@ -14506,7 +14506,7 @@ namespace NET_ASAM_OPENSCENARIO
             double _value {};
         public:
 
-			virtual void RelativeSpeedConditionImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP RelativeSpeedConditionImpl();
 
@@ -14615,7 +14615,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<ISteadyStateWriter> _steadyState {};
         public:
 
-			virtual void RelativeSpeedToMasterImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP RelativeSpeedToMasterImpl();
 
@@ -14718,7 +14718,7 @@ namespace NET_ASAM_OPENSCENARIO
             int _value {};
         public:
 
-			virtual void RelativeTargetLaneImpl::ResolveIntExpression(std::string& attributeKey, int& value) override;		
+			virtual void ResolveIntExpression(std::string& attributeKey, int& value) override;		
 		
             OPENSCENARIOLIB_EXP RelativeTargetLaneImpl();
 
@@ -14817,7 +14817,7 @@ namespace NET_ASAM_OPENSCENARIO
             double _value {};
         public:
 
-			virtual void RelativeTargetLaneOffsetImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP RelativeTargetLaneOffsetImpl();
 
@@ -14918,8 +14918,8 @@ namespace NET_ASAM_OPENSCENARIO
             double _value {};
         public:
 
-			virtual void RelativeTargetSpeedImpl::ResolveBooleanExpression(std::string& attributeKey, bool& value) override;		
-			virtual void RelativeTargetSpeedImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveBooleanExpression(std::string& attributeKey, bool& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP RelativeTargetSpeedImpl();
 
@@ -15039,7 +15039,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IOrientationWriter> _orientation {};
         public:
 
-			virtual void RelativeWorldPositionImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP RelativeWorldPositionImpl();
 
@@ -15160,7 +15160,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IPropertiesWriter> _properties {};
         public:
 
-			virtual void RoadConditionImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP RoadConditionImpl();
 
@@ -15357,8 +15357,8 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IOrientationWriter> _orientation {};
         public:
 
-			virtual void RoadPositionImpl::ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
-			virtual void RoadPositionImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP RoadPositionImpl();
 
@@ -15472,8 +15472,8 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<std::shared_ptr<IWaypointWriter>> _waypoints {};
         public:
 
-			virtual void RouteImpl::ResolveBooleanExpression(std::string& attributeKey, bool& value) override;		
-			virtual void RouteImpl::ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
+			virtual void ResolveBooleanExpression(std::string& attributeKey, bool& value) override;		
+			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
 		
             OPENSCENARIOLIB_EXP RouteImpl();
 
@@ -16054,7 +16054,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IObjectControllerWriter> _objectController {};
         public:
 
-			virtual void ScenarioObjectImpl::ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
+			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
 		
             OPENSCENARIOLIB_EXP ScenarioObjectImpl();
 
@@ -16339,7 +16339,7 @@ namespace NET_ASAM_OPENSCENARIO
             double _value {};
         public:
 
-			virtual void SimulationTimeConditionImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP SimulationTimeConditionImpl();
 
@@ -16614,7 +16614,7 @@ namespace NET_ASAM_OPENSCENARIO
             double _value {};
         public:
 
-			virtual void SpeedConditionImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP SpeedConditionImpl();
 
@@ -16712,7 +16712,7 @@ namespace NET_ASAM_OPENSCENARIO
             double _duration {};
         public:
 
-			virtual void StandStillConditionImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP StandStillConditionImpl();
 
@@ -16891,8 +16891,8 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<std::shared_ptr<IStochasticDistributionWriter>> _stochasticDistributions {};
         public:
 
-			virtual void StochasticImpl::ResolveUnsignedIntExpression(std::string& attributeKey, unsigned int& value) override;		
-			virtual void StochasticImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveUnsignedIntExpression(std::string& attributeKey, unsigned int& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP StochasticImpl();
 
@@ -16998,7 +16998,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IStochasticDistributionTypeWriter> _stochasticDistributionType {};
         public:
 
-			virtual void StochasticDistributionImpl::ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
+			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
 		
             OPENSCENARIOLIB_EXP StochasticDistributionImpl();
 
@@ -17201,7 +17201,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<std::shared_ptr<IActWriter>> _acts {};
         public:
 
-			virtual void StoryImpl::ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
+			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
 		
             OPENSCENARIOLIB_EXP StoryImpl();
 
@@ -17512,7 +17512,7 @@ namespace NET_ASAM_OPENSCENARIO
             double _intensity {};
         public:
 
-			virtual void SunImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP SunImpl();
 
@@ -17624,7 +17624,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IFinalSpeedWriter> _finalSpeed {};
         public:
 
-			virtual void SynchronizeActionImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP SynchronizeActionImpl();
 
@@ -17743,7 +17743,7 @@ namespace NET_ASAM_OPENSCENARIO
             double _distance {};
         public:
 
-			virtual void TargetDistanceSteadyStateImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP TargetDistanceSteadyStateImpl();
 
@@ -17832,7 +17832,7 @@ namespace NET_ASAM_OPENSCENARIO
             double _time {};
         public:
 
-			virtual void TargetTimeSteadyStateImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP TargetTimeSteadyStateImpl();
 
@@ -18010,8 +18010,8 @@ namespace NET_ASAM_OPENSCENARIO
             double _value {};
         public:
 
-			virtual void TimeHeadwayConditionImpl::ResolveBooleanExpression(std::string& attributeKey, bool& value) override;		
-			virtual void TimeHeadwayConditionImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveBooleanExpression(std::string& attributeKey, bool& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP TimeHeadwayConditionImpl();
 
@@ -18155,8 +18155,8 @@ namespace NET_ASAM_OPENSCENARIO
             DateTime _dateTime {};
         public:
 
-			virtual void TimeOfDayImpl::ResolveBooleanExpression(std::string& attributeKey, bool& value) override;		
-			virtual void TimeOfDayImpl::ResolveDateTimeExpression(std::string& attributeKey, DateTime& value) override;		
+			virtual void ResolveBooleanExpression(std::string& attributeKey, bool& value) override;		
+			virtual void ResolveDateTimeExpression(std::string& attributeKey, DateTime& value) override;		
 		
             OPENSCENARIOLIB_EXP TimeOfDayImpl();
 
@@ -18255,7 +18255,7 @@ namespace NET_ASAM_OPENSCENARIO
             Rule _rule {};
         public:
 
-			virtual void TimeOfDayConditionImpl::ResolveDateTimeExpression(std::string& attributeKey, DateTime& value) override;		
+			virtual void ResolveDateTimeExpression(std::string& attributeKey, DateTime& value) override;		
 		
             OPENSCENARIOLIB_EXP TimeOfDayConditionImpl();
 
@@ -18447,8 +18447,8 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<ITimeToCollisionConditionTargetWriter> _timeToCollisionConditionTarget {};
         public:
 
-			virtual void TimeToCollisionConditionImpl::ResolveBooleanExpression(std::string& attributeKey, bool& value) override;		
-			virtual void TimeToCollisionConditionImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveBooleanExpression(std::string& attributeKey, bool& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP TimeToCollisionConditionImpl();
 
@@ -18676,7 +18676,7 @@ namespace NET_ASAM_OPENSCENARIO
             double _scale {};
         public:
 
-			virtual void TimingImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP TimingImpl();
 
@@ -18787,7 +18787,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<ITrafficStopActionWriter> _trafficStopAction {};
         public:
 
-			virtual void TrafficActionImpl::ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
+			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
 		
             OPENSCENARIOLIB_EXP TrafficActionImpl();
 
@@ -18894,7 +18894,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IControllerDistributionWriter> _controllerDistribution {};
         public:
 
-			virtual void TrafficDefinitionImpl::ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
+			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
 		
             OPENSCENARIOLIB_EXP TrafficDefinitionImpl();
 
@@ -19080,7 +19080,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::string _state {};
         public:
 
-			virtual void TrafficSignalConditionImpl::ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
+			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
 		
             OPENSCENARIOLIB_EXP TrafficSignalConditionImpl();
 
@@ -19181,8 +19181,8 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<std::shared_ptr<IPhaseWriter>> _phases {};
         public:
 
-			virtual void TrafficSignalControllerImpl::ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
-			virtual void TrafficSignalControllerImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP TrafficSignalControllerImpl();
 
@@ -19298,7 +19298,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<std::shared_ptr<IPhase>> _phaseRef {};
         public:
 
-			virtual void TrafficSignalControllerActionImpl::ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
+			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
 		
             OPENSCENARIOLIB_EXP TrafficSignalControllerActionImpl();
 
@@ -19404,7 +19404,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<std::shared_ptr<IPhase>> _phaseRef {};
         public:
 
-			virtual void TrafficSignalControllerConditionImpl::ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
+			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
 		
             OPENSCENARIOLIB_EXP TrafficSignalControllerConditionImpl();
 
@@ -19509,7 +19509,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::string _trafficSignalId {};
         public:
 
-			virtual void TrafficSignalStateImpl::ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
+			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
 		
             OPENSCENARIOLIB_EXP TrafficSignalStateImpl();
 
@@ -19608,7 +19608,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::string _state {};
         public:
 
-			virtual void TrafficSignalStateActionImpl::ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
+			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
 		
             OPENSCENARIOLIB_EXP TrafficSignalStateActionImpl();
 
@@ -19709,7 +19709,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<ITrafficDefinitionWriter> _trafficDefinition {};
         public:
 
-			virtual void TrafficSinkActionImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP TrafficSinkActionImpl();
 
@@ -19819,7 +19819,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<ITrafficDefinitionWriter> _trafficDefinition {};
         public:
 
-			virtual void TrafficSourceActionImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP TrafficSourceActionImpl();
 
@@ -20019,8 +20019,8 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<ITrafficDefinitionWriter> _trafficDefinition {};
         public:
 
-			virtual void TrafficSwarmActionImpl::ResolveUnsignedIntExpression(std::string& attributeKey, unsigned int& value) override;		
-			virtual void TrafficSwarmActionImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveUnsignedIntExpression(std::string& attributeKey, unsigned int& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP TrafficSwarmActionImpl();
 
@@ -20165,8 +20165,8 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IShapeWriter> _shape {};
         public:
 
-			virtual void TrajectoryImpl::ResolveBooleanExpression(std::string& attributeKey, bool& value) override;		
-			virtual void TrajectoryImpl::ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
+			virtual void ResolveBooleanExpression(std::string& attributeKey, bool& value) override;		
+			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
 		
             OPENSCENARIOLIB_EXP TrajectoryImpl();
 
@@ -20451,7 +20451,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<ITrajectoryRefWriter> _trajectoryRef {};
         public:
 
-			virtual void TrajectoryPositionImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP TrajectoryPositionImpl();
 
@@ -20647,7 +20647,7 @@ namespace NET_ASAM_OPENSCENARIO
             double _value {};
         public:
 
-			virtual void TransitionDynamicsImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP TransitionDynamicsImpl();
 
@@ -20754,7 +20754,7 @@ namespace NET_ASAM_OPENSCENARIO
             double _value {};
         public:
 
-			virtual void TraveledDistanceConditionImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP TraveledDistanceConditionImpl();
 
@@ -21278,7 +21278,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::string _type {};
         public:
 
-			virtual void UserDefinedDistributionImpl::ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
+			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
 		
             OPENSCENARIOLIB_EXP UserDefinedDistributionImpl();
 
@@ -21378,7 +21378,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::string _value {};
         public:
 
-			virtual void UserDefinedValueConditionImpl::ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
+			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
 		
             OPENSCENARIOLIB_EXP UserDefinedValueConditionImpl();
 
@@ -21486,7 +21486,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::string _value {};
         public:
 
-			virtual void ValueConstraintImpl::ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
+			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
 		
             OPENSCENARIOLIB_EXP ValueConstraintImpl();
 
@@ -21764,8 +21764,8 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IPropertiesWriter> _properties {};
         public:
 
-			virtual void VehicleImpl::ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
-			virtual void VehicleImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP VehicleImpl();
 
@@ -22076,7 +22076,7 @@ namespace NET_ASAM_OPENSCENARIO
             double _weight {};
         public:
 
-			virtual void VehicleCategoryDistributionEntryImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP VehicleCategoryDistributionEntryImpl();
 
@@ -22175,7 +22175,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IPositionWriter> _position {};
         public:
 
-			virtual void VertexImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP VertexImpl();
 
@@ -22270,7 +22270,7 @@ namespace NET_ASAM_OPENSCENARIO
             bool _traffic {};
         public:
 
-			virtual void VisibilityActionImpl::ResolveBooleanExpression(std::string& attributeKey, bool& value) override;		
+			virtual void ResolveBooleanExpression(std::string& attributeKey, bool& value) override;		
 		
             OPENSCENARIOLIB_EXP VisibilityActionImpl();
 
@@ -22476,7 +22476,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IWindWriter> _wind {};
         public:
 
-			virtual void WeatherImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP WeatherImpl();
 
@@ -22600,7 +22600,7 @@ namespace NET_ASAM_OPENSCENARIO
             double _speed {};
         public:
 
-			virtual void WindImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP WindImpl();
 
@@ -22703,7 +22703,7 @@ namespace NET_ASAM_OPENSCENARIO
             double _z {};
         public:
 
-			virtual void WorldPositionImpl::ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
+			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 		
             OPENSCENARIOLIB_EXP WorldPositionImpl();
 

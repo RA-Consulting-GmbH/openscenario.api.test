@@ -87,7 +87,7 @@ attributeList  returns [std::vector<AttributeNode> result]
     $result = std::vector<AttributeNode> {};
 }
 	:
-		(attribute {$result.emplace_back(AttributeNode($attribute.result.GetName(),$attribute.start->getLine(), $attribute.start->getCharPositionInLine(), $attribute.stop->getLine(), $attribute.stop->getCharPositionInLine(),$attribute.result.GetStartValuePosition().GetLine(),$attribute.result.GetStartValuePosition().GetColumn()));})*
+		(attribute {auto name = $attribute.result.GetName();$result.emplace_back(AttributeNode(name,$attribute.start->getLine(), $attribute.start->getCharPositionInLine(), $attribute.stop->getLine(), $attribute.stop->getCharPositionInLine(),$attribute.result.GetStartValuePosition().GetLine(),$attribute.result.GetStartValuePosition().GetColumn()));})*
 ;
 
 reference   :   EntityRef | CharRef ;
@@ -98,7 +98,7 @@ attribute   returns [AttributeInfo result]
  
 }
 
-:   Name EQUALS STRING {$result = AttributeInfo($Name->getText(),$STRING->getLine(),$STRING->getCharPositionInLine()+1);} ; // coorect the included '"' with '+1'
+:   Name EQUALS STRING {auto text = $Name->getText(); $result = AttributeInfo(text,$STRING->getLine(),$STRING->getCharPositionInLine()+1);} ; // coorect the included '"' with '+1'
 
 /** ``All text that is not markup constitutes the character data of
  *  the document.''
