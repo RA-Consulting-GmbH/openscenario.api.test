@@ -21,5 +21,7 @@
 /cpp/applications/openScenarioReader/rc/OpenScenarioReader.aps
 /cpp/applications/openScenarioTester/rc/OpenScenarioTester.aps
 /cpp/openScenarioLib/rc/OpenScenarioLib.aps
-cpp/applications/expressionsTester/rc/ExpressionsTester.rc
-cpp/applications/expressionsTester/src/antlr/.antlr
+/cpp/applications/expressionsTester/rc/ExpressionsTester.rc
+/cpp/applications/expressionsTester/src/antlr/.antlr
+/cpp/thirdparty/antlr/antlr4-4.8/
+/cpp/thirdparty/antlr/antlr4-4.8_*.zip

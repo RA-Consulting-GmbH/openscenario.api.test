@@ -1,16 +1,17 @@
 ################################################################
 cmake_minimum_required( VERSION 3.8.2 )
 project( OpenScenarioTester )
-message("${PROJECT_NAME}")
+message( STATUS "\n${PROJECT_NAME}" )
 
 
 ################################################################
 # Preprocessor settings
 if( WIN32 )
-  add_definitions( -D_CRT_SECURE_NO_WARNINGS )
+    add_definitions( -D_CRT_SECURE_NO_WARNINGS )
 else( WIN32 )
-  add_definitions( -Wall -fPIC -Wno-unused-variable )
+    add_definitions( -Wall -fPIC -Wno-unused-variable )
 endif( WIN32 )
+
 
 ################################################################
 # Update rc file
@@ -22,16 +23,16 @@ configure_file("${CMAKE_SOURCE_DIR}/common/rc.template" "${CMAKE_CURRENT_SOURCE_
 # Preprocessor settings
 # Shared or static lib?
 if( ${BUILD_SHARED_LIBS} )
-  add_definitions( -DEXPORT_OPENSCENARIOLIB )
-  set( LIB_TYPE "SHARED" )
+    add_definitions( -DEXPORT_OPENSCENARIOLIB )
+#    set( LIB_TYPE "SHARED" )
 else()
-  set( LIB_TYPE "STATIC" )
+#    set( LIB_TYPE "STATIC" )
 endif()
 
 ################################################################
 # Set compile output folder
 RAC_SET_FOLDERS()
-message ("Building all into: ${CMAKE_BINARY_DIR}")
+message (STATUS "Building all into: ${CMAKE_BINARY_DIR}")
 
 
 ################################################################
@@ -91,46 +92,46 @@ include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated
 
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../expressionsLib/inc)
 
+
 ################################################################
 # Source files
 set( SOURCES
-  ${SOURCES}
-  "src/OpenScenarioTester.cpp"
-  "../../externalLibs/TinyXML2/tinyxml2.cpp"
+#    ${SOURCES}
+    "src/OpenScenarioTester.cpp"
+    "../../externalLibs/TinyXML2/tinyxml2.cpp"
 )
 
-################################################################
 # Header files
 set( HEADERS
-  ${HEADERS}
-  "src/TestExamplesV1_0.h"
-  "src/TestBaseV1_0.h"
-  "src/TestFilesV1_0.h"
-  "src/TestReaderV1_0.h"
-  "src/TestWriterApiV1_0.h"
-  "src/TestImportsV1_0.h"
-  "src/TestSimpleDemosV1_0.h"
-  "src/TestRangeCheckerV1_0.h"
-  "src/TestFlexInterfaceV1_0.h"
-  "src/TestVersionCheckerV1_0.h"
-  "src/TestInjectedParametersV1_0.h"
-  "src/TestExamplesV1_1.h"
-  "src/TestBaseV1_1.h"
-  "src/TestFilesV1_1.h"
-  "src/TestReaderV1_1.h"
-  "src/TestWriterApiV1_1.h"
-  "src/TestImportsV1_1.h"
-  "src/TestSimpleDemosV1_1.h"
-  "src/TestRangeCheckerV1_1.h"
-  "src/TestFlexInterfaceV1_1.h"
-  "src/TestVersionCheckerV1_1.h"
-  "src/TestInjectedParametersV1_1.h"
+#    ${HEADERS}
+    "src/TestExamplesV1_0.h"
+    "src/TestBaseV1_0.h"
+    "src/TestFilesV1_0.h"
+    "src/TestReaderV1_0.h"
+    "src/TestWriterApiV1_0.h"
+    "src/TestImportsV1_0.h"
+    "src/TestSimpleDemosV1_0.h"
+    "src/TestRangeCheckerV1_0.h"
+    "src/TestFlexInterfaceV1_0.h"
+    "src/TestVersionCheckerV1_0.h"
+    "src/TestInjectedParametersV1_0.h"
+    "src/TestExamplesV1_1.h"
+    "src/TestBaseV1_1.h"
+    "src/TestFilesV1_1.h"
+    "src/TestReaderV1_1.h"
+    "src/TestWriterApiV1_1.h"
+    "src/TestImportsV1_1.h"
+    "src/TestSimpleDemosV1_1.h"
+    "src/TestRangeCheckerV1_1.h"
+    "src/TestFlexInterfaceV1_1.h"
+    "src/TestVersionCheckerV1_1.h"
+    "src/TestInjectedParametersV1_1.h"
 )
 
 set( HEADERS_HELPER
-  ${HEADERS_HELPER}
-  "src/helper/EgoCheckerRuleV1_0.h"
-  "src/helper/EgoCheckerRuleV1_1.h"
+#    ${HEADERS_HELPER}
+    "src/helper/EgoCheckerRuleV1_0.h"
+    "src/helper/EgoCheckerRuleV1_1.h"
 )
 
 set (OPEN_SCENARIO_LIB_SRC_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src)
@@ -262,57 +263,69 @@ set( SOURCES_HELPER
 	"src/helper/EgoCheckerRuleV1_0.cpp"
 	"src/helper/EgoCheckerRuleV1_1.cpp"
 )
-################################################################
+
 # Resource files
 if( MSVC )
-  set( RESOURCE_FILES
-    "rc/${PROJECT_NAME}.rc"
-    "rc/resource.h"
-  )
-  set( VS_RESOURCE_FILE ${CMAKE_CURRENT_SOURCE_DIR}/rc/${PROJECT_NAME}.rc )
+    set( RESOURCE_FILES
+        "rc/${PROJECT_NAME}.rc"
+        "rc/resource.h"
+    )
+    set( VS_RESOURCE_FILE ${CMAKE_CURRENT_SOURCE_DIR}/rc/${PROJECT_NAME}.rc )
 endif()
+
 
 ################################################################
 # Create groups for VS
 if( MSVC )
-  # Groups for source files
-  source_group( Sources FILES ${SOURCES})
-  source_group( Sources\\Helper FILES ${SOURCES_HELPER})
+    # Groups for source files
+    source_group( Sources FILES ${SOURCES})
+    source_group( Sources\\Helper FILES ${SOURCES_HELPER})
 
-  # Groups for header files
-  source_group( Headers FILES ${HEADERS} )
-  source_group( Headers\\Helper FILES ${HEADERS_HELPER} )
+    # Groups for header files
+    source_group( Headers FILES ${HEADERS} )
+    source_group( Headers\\Helper FILES ${HEADERS_HELPER} )
 
-  source_group( Sources\\Api FILES ${SOURCES_API})
-  source_group( Sources\\Checker\\Tree FILES ${SOURCES_CHECKER_TREE})
-  source_group( Sources\\Common FILES ${SOURCES_COMMON})
-  source_group( Sources\\Export FILES ${SOURCES_EXPORT})
-  source_group( Sources\\Impl FILES ${SOURCES_IMPL})
-  source_group( Sources\\Loader FILES ${SOURCES_LOADER})
-  source_group( Sources\\Parameter FILES ${SOURCES_PARAMETER})
-  source_group( Sources\\Parser FILES ${SOURCES_PARSER})
-  source_group( Sources\\Simple\\Struct FILES ${SOURCES_SIMPLE_STRUCT})
-  source_group( Sources\\V1_0\\Catalog FILES ${SOURCES_V1_0_CATALOG})
-  source_group( Sources\\V1_0\\Checker FILES ${SOURCES_V1_0_CHECKER})
-  source_group( Sources\\V1_0\\Loader FILES ${SOURCES_V1_0_LOADER})
-  source_group( Sources\\V1_0\\Parameter FILES ${SOURCES_V1_0_PARAMETER})
-  source_group( Sources\\V1_0\\Parser FILES ${SOURCES_V1_0_PARSER})
-  source_group( Sources\\V1_1\\Catalog FILES ${SOURCES_V1_1_CATALOG})
-  source_group( Sources\\V1_1\\Checker FILES ${SOURCES_V1_1_CHECKER})
-  source_group( Sources\\V1_1\\Loader FILES ${SOURCES_V1_1_LOADER})
-  source_group( Sources\\V1_1\\Parameter FILES ${SOURCES_V1_1_PARAMETER})
-  source_group( Sources\\V1_1\\Parser FILES ${SOURCES_V1_1_PARSER})
-  source_group( Sources\\XmlIndexer FILES ${SOURCES_XMLINDEXER})
-  
-  # Groups for resource files
-  source_group( Resources FILES ${RESOURCE_FILES} )
+    source_group( Sources\\Api FILES ${SOURCES_API})
+    source_group( Sources\\Checker\\Tree FILES ${SOURCES_CHECKER_TREE})
+    source_group( Sources\\Common FILES ${SOURCES_COMMON})
+    source_group( Sources\\Export FILES ${SOURCES_EXPORT})
+    source_group( Sources\\Impl FILES ${SOURCES_IMPL})
+    source_group( Sources\\Loader FILES ${SOURCES_LOADER})
+    source_group( Sources\\Parameter FILES ${SOURCES_PARAMETER})
+    source_group( Sources\\Parser FILES ${SOURCES_PARSER})
+    source_group( Sources\\Simple\\Struct FILES ${SOURCES_SIMPLE_STRUCT})
+    source_group( Sources\\V1_0\\Catalog FILES ${SOURCES_V1_0_CATALOG})
+    source_group( Sources\\V1_0\\Checker FILES ${SOURCES_V1_0_CHECKER})
+    source_group( Sources\\V1_0\\Loader FILES ${SOURCES_V1_0_LOADER})
+    source_group( Sources\\V1_0\\Parameter FILES ${SOURCES_V1_0_PARAMETER})
+    source_group( Sources\\V1_0\\Parser FILES ${SOURCES_V1_0_PARSER})
+    source_group( Sources\\V1_1\\Catalog FILES ${SOURCES_V1_1_CATALOG})
+    source_group( Sources\\V1_1\\Checker FILES ${SOURCES_V1_1_CHECKER})
+    source_group( Sources\\V1_1\\Loader FILES ${SOURCES_V1_1_LOADER})
+    source_group( Sources\\V1_1\\Parameter FILES ${SOURCES_V1_1_PARAMETER})
+    source_group( Sources\\V1_1\\Parser FILES ${SOURCES_V1_1_PARSER})
+    source_group( Sources\\XmlIndexer FILES ${SOURCES_XMLINDEXER})
+    
+    # Groups for resource files
+    source_group( Resources FILES ${RESOURCE_FILES} )
 endif()
+
 
 ################################################################
 # Generate executable
 add_executable( ${PROJECT_NAME} ${SOURCES} ${SOURCES_HELPER} ${HEADERS} ${HEADERS_HELPER} 				
-				${RESOURCE_FILES} 
-			)
+				${RESOURCE_FILES} )
+
+if(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
+    if( ${BUILD_SHARED_LIBS} )
+        target_compile_options(${PROJECT_NAME} PRIVATE "/MD$<$<CONFIG:Debug>:d>")
+    else()
+        target_compile_options(${PROJECT_NAME} PRIVATE "/MT$<$<CONFIG:Debug>:d>")
+    endif()
+endif()
+
+target_link_libraries( ${PROJECT_NAME} OpenScenarioLib )
+
 
 ################################################################
 # Copy the resources for testing
@@ -321,23 +334,13 @@ add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
 		COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_CURRENT_SOURCE_DIR}/res ${CMAKE_BINARY_DIR}/$(Configuration)/TestResources/${PROJECT_NAME}
 		)
 
-if(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
-  if( ${BUILD_SHARED_LIBS} )
-      target_compile_options(${PROJECT_NAME} PRIVATE "/MD$<$<CONFIG:Debug>:d>")
-  else()
-      target_compile_options(${PROJECT_NAME} PRIVATE "/MT$<$<CONFIG:Debug>:d>")
-  endif()
-endif()
-
-target_link_libraries( ${PROJECT_NAME} OpenScenarioLib )
-
 
 ################################################################
 # Visual Studio solution settings
 if( MSVC )
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /bigobj ${osc_extra_static_compile_flags}")
-  set_target_properties( ${PROJECT_NAME} PROPERTIES FOLDER Apps )
-  set_target_properties(
-    ${PROJECT_NAME} PROPERTIES
-    VS_DEBUGGER_WORKING_DIRECTORY "${CMAKE_BINARY_DIR}/$(Configuration)")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /bigobj" ) # ${osc_extra_static_compile_flags}")
+    set_target_properties( ${PROJECT_NAME} PROPERTIES FOLDER Apps )
+    set_target_properties(
+        ${PROJECT_NAME} PROPERTIES
+        VS_DEBUGGER_WORKING_DIRECTORY "${CMAKE_BINARY_DIR}/$(Configuration)")
 endif()
