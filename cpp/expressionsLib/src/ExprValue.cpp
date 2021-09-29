@@ -222,7 +222,7 @@ namespace OscExpression
 		{
 			std::shared_ptr<ExprValue> result = nullptr;
 
-			if (IsTypeStringBased())
+			if (this->exprType == ExprType::STRING || this->exprType == ExprType::BOOLEAN)
 			{
 				if (stringValue == "true" || stringValue == "false" || stringValue == "0" || stringValue == "1")
 				{
@@ -285,6 +285,9 @@ namespace OscExpression
 			if (IsTypeNumeric())
 			{
 				result =  CreateDoubleValue(doubleValue);
+			}else
+			{
+				result = CreateDoubleValueFromString(stringValue);
 			}
 			
 			return result;

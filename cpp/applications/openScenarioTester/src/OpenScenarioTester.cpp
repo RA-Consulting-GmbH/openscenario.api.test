@@ -15,6 +15,7 @@
  * limitations under the License.
  */
 
+#include "TestAlksV1_1.h"
 #include "TestDeprecatedV1_1.h"
 #include "TestExamplesV1_1.h"
 #include "TestRangeCheckerV1_1.h"
@@ -54,13 +55,16 @@ bool TestV1_1(std::string basePath )
 	NET_ASAM_OPENSCENARIO::v1_1::TestInjectedParameters testInjectedParameters(basePath);
 	NET_ASAM_OPENSCENARIO::v1_1::TestWriterApi testWriterApi(basePath);
 	NET_ASAM_OPENSCENARIO::v1_1::TestDeprecated testDeprecated(basePath);
+	NET_ASAM_OPENSCENARIO::v1_1::TestAlks testAlks(basePath);
 
 	auto result = true;
+
 	
 	result = testExamples.TestExample() && result;
 
 	result = testRangeChecker.TestParamsFailure() && result;
 
+	result = testFiles.TestMultiChoiceElement() && result;
 	result = testFiles.TestSimpleSuccess() && result;
 	result = testFiles.TestParamsSuccess() && result;
 	result = testFiles.TestExpressionsSuccess() && result;
@@ -114,6 +118,11 @@ bool TestV1_1(std::string basePath )
 	result = testWriterApi.TestBomFile() && result;
 	
 	result = testDeprecated.TestDeprecatedSuccess() && result;
+	result = testAlks.TestScenarios() && result;
+	result = testAlks.TestCatalogs() && result;
+	result = testAlks.TestVariations() && result;
+
+	
 	return result;
 }
 
