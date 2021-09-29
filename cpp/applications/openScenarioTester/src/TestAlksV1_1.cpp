@@ -91,7 +91,7 @@ namespace NET_ASAM_OPENSCENARIO
 		{
 			std::vector<std::string> scenarioFiles =
 			{
-				"Controllers/Controllercatalog.xosc",
+				"Controllers/ControllerCatalog.xosc",
 				"MiscObjects/MiscObjectCatalog.xosc",
 				"Pedestrians/PedestrianCatalog.xosc",
 				"Vehicles/VehicleCatalog.xosc"
