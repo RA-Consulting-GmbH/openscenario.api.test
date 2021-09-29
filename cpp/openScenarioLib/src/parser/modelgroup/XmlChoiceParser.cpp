@@ -82,12 +82,6 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     _occuredElementList.emplace(std::make_pair(parser, currentOccurs + 1));
                 }
-                else
-                {
-                    auto msg = FileContentMessage("Too many elements of <" + tagName + ">  (" + std::to_string(parser->GetMaxOccur()) + ") has already reached", ERROR, Textmarker(start.GetLine(), start.GetColumn(), this->_filename));
-                    this->_messageLogger.LogMessage(msg);
-                    lastElementParsed = indexedElement;
-                }
             }
 
             currentListIndex++;

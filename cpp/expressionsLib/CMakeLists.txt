@@ -46,39 +46,32 @@ antlr_target(OscExprParser ${CMAKE_CURRENT_SOURCE_DIR}/src/antlr/OscExprParser.g
 
 
 ################################################################
-# include generated files in project environment
-# include_directories(${ANTLR4_INCLUDE_DIRS})
-# include_directories(${CMAKE_CURRENT_SOURCE_DIR}/inc)
-# include_directories(${ANTLR_OscExprLexer_OUTPUT_DIR})
-# include_directories(${ANTLR_OscExprParser_OUTPUT_DIR})
-
-
-################################################################
 # Specify all header and source files
+
 set ( LIB_HEADERS
-#    ${LIB_HEADERS}
-    "inc/OscExprEvaluatorImpl.h"
-    "inc/ParseErrorListener.hpp"
-    "inc/OscExprEvaluatorFactory.h"
-    "inc/OscExprEvaluator.h"
-    "inc/EvaluatorListener.h"
-    "inc/ExprType.h"
-    "inc/ExprValue.h"
-    "inc/SemanticException.h"
-    "inc/OscExprExportDefs.h"
+	"inc/OscExprEvaluatorImpl.h"
+	"inc/ParseErrorListener.hpp"
+	"inc/OscExprEvaluatorFactory.h"
+	"inc/OscExprEvaluator.h"
+	"inc/EvaluatorListener.h"
+	"inc/ExprType.h"
+	"inc/ExprValue.h"
+	"inc/SemanticException.h"
+	"inc/OscExprExportDefs.h"
 )
 
-# sources
 set( LIB_SOURCES
-#    ${LIB_SOURCES}
-    #"src/main.cpp"
-    "src/OscExprEvaluatorImpl.cpp"
-    "src/OscExprEvaluatorFactory.cpp"
-    "src/EvaluatorListener.cpp"
-    "src/ExprType.cpp"
-    "src/ExprValue.cpp"
-    "src/SemanticException.cpp"
-    
+	"src/OscExprEvaluatorImpl.cpp"
+	"src/OscExprEvaluatorFactory.cpp"
+	"src/EvaluatorListener.cpp"
+	"src/ExprType.cpp"
+	"src/ExprValue.cpp"
+	"src/SemanticException.cpp"
+	
+)
+set( ANTLR_GENERATED
+    ${ANTLR_OscExprLexer_CXX_OUTPUTS}
+	  ${ANTLR_OscExprParser_CXX_OUTPUTS}
 )
 
 # Resource files
@@ -89,7 +82,6 @@ if( MSVC )
     )
     set( VS_RESOURCE_FILE ${CMAKE_CURRENT_SOURCE_DIR}/rc/${PROJECT_NAME}.rc )
 endif()
-
 
 ################################################################
 # Create groups for VS
@@ -107,10 +99,9 @@ if( MSVC )
     source_group( Antlr FILES ${ANTLR_OscExprLexer_OUTPUT_DIR} ${ANTLR_OscExprParser_OUTPUT_DIR} )
 endif()
 
-
 ################################################################
 # add generated grammar to demo binary target
-add_library( ${PROJECT_NAME} ${LIB_SOURCES} ${LIB_HEADERS} 
+add_library( ${PROJECT_NAME} ${LIB_SOURCES}
              ${ANTLR_OscExprLexer_CXX_OUTPUTS}
              ${ANTLR_OscExprParser_CXX_OUTPUTS}
              ${RESOURCE_FILES})

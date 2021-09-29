@@ -50,18 +50,9 @@ public:
 		int id,
 		std::string expr,
 		std::string expectedError,
-		int expectedErrorColumn ,
+		int expectedErrorColumn,
 		std::shared_ptr <std::map<std::string, std::shared_ptr<OscExpression::ExprValue>>> parameterDefinitions,
-		std::shared_ptr <OscExpression::ExprType> expectedDatatype) {
-
-		this->id = id;
-		this->expr = expr;
-		this->isErrorDef = true;
-		this->expectedError = expectedError;
-		this->expectedErrorColumn = expectedErrorColumn;
-		this->parameterDefinitions = parameterDefinitions;
-		this->expectedDatatype = expectedDatatype;
-	}
+		std::shared_ptr <OscExpression::ExprType> expectedDatatype);
 
 	/**
 	 * @param id
@@ -75,52 +66,28 @@ public:
 		std::string expr,
 		std::shared_ptr<OscExpression::ExprValue> expectedValue,
 		std::shared_ptr <std::map<std::string, std::shared_ptr<OscExpression::ExprValue>>> parameterDefinitions,
-		std::shared_ptr <OscExpression::ExprType> expectedDatatype) {
-
-		this->id = id;
-		this->expr = expr;
-		this->expectedValue = expectedValue;
-		this->parameterDefinitions = parameterDefinitions;
-		this->isErrorDef = false;
-		this->expectedDatatype = expectedDatatype;
-	}
+		std::shared_ptr <OscExpression::ExprType> expectedDatatype);
 
 	/** @return the expectedError */
-	std::string GetExpectedError() {
-		return this->expectedError;
-	}
+	std::string GetExpectedError();
 
 	/** @return the expr */
-	std::string GetExpr() {
-		return this->expr;
-	}
+	std::string GetExpr();
 
 	/** @return the expectedErrorColumn */
-	int GetExpectedErrorColumn() {
-		return this->expectedErrorColumn;
-	}
+	int GetExpectedErrorColumn();
 
 	/** @return the expectedValue */
-	std::shared_ptr<OscExpression::ExprValue> GetExpectedValue() {
-		return this->expectedValue;
-	}
+	std::shared_ptr<OscExpression::ExprValue> GetExpectedValue();
 
 	/** @return the parameterDefinitions */
-	std::shared_ptr<std::map<std::string, std::shared_ptr<OscExpression::ExprValue>>> getParameterDefinitions() {
-		return this->parameterDefinitions;
-	}
+	std::shared_ptr<std::map<std::string, std::shared_ptr<OscExpression::ExprValue>>> getParameterDefinitions();
 
 	/** @return the isErrorDef */
-	 bool IsErrorDef() {
-		return this->isErrorDef;
-	}
+	bool IsErrorDef();
 	/** @return the id */
-	int getId() {
-		return this->id;
-	}
+	int getId();
 
 	/** @return the expectedDatatype */
-	std::shared_ptr <OscExpression::ExprType> GetExpectedDatatype() {
-		return this->expectedDatatype;
-	}
+	std::shared_ptr <OscExpression::ExprType> GetExpectedDatatype();
 };

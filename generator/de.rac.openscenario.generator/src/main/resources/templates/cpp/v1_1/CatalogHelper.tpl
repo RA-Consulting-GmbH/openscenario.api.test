@@ -57,6 +57,14 @@ namespace NET_ASAM_OPENSCENARIO
             * cannot be converted
             */
             OPENSCENARIOLIB_EXP static std::string GetName(std::shared_ptr<ICatalogElement>& catalogElement);
+            
+            /**
+	        * Provides the ParameterDeclarations of the catalogElement
+	        * @param catalogElement the catalog element
+	        * @return The list with the parameter declarations
+	        */
+	        OPENSCENARIOLIB_EXP static std::vector<std::shared_ptr<IParameterDeclaration>> GetParameterDeclarations(std::shared_ptr<ICatalogElement>& catalogElement);
+       
         };
     }
 }

@@ -39,7 +39,7 @@ namespace NET_ASAM_OPENSCENARIO
          * @param line of the start position
          * @param column of the stat position
          */
-        ElementNode(const int line, const int column) : PositionNode(line, column) {}
+		ElementNode(const int line, const int column);
 
         /**
          * Constructor
@@ -48,46 +48,26 @@ namespace NET_ASAM_OPENSCENARIO
          * @param endLine line of the end position
          * @param endColumn column of the end position
          */
-        ElementNode(const int startLine, const int startColumn, const int endLine, const int endColumn) :
-            PositionNode(startLine, startColumn, endLine, endColumn) {}
+		ElementNode(const int startLine, const int startColumn, const int endLine, const int endColumn);
 
         /**
          * Adds an attribute node
          * @param attributeNodes attribte node to add
          */
-        void AddAttributes(std::vector<AttributeNode>& attributeNodes)
-        {
-            for (auto&& node : attributeNodes)
-                _attributes.push_back(std::make_shared<AttributeNode>(node));
-        }
+		void AddAttributes(std::vector<AttributeNode>& attributeNodes);
 
         /**
          * Get the attribute node by its index.
          * @param index the requested index
          * @return the attribute node
          */
-        std::shared_ptr<AttributeNode> GetAttributeNode(const unsigned int index)
-        {
-            if (index > _attributes.size())
-                return nullptr;
-            return _attributes[index];
-        }
+		std::shared_ptr<AttributeNode> GetAttributeNode(const unsigned int index);
 
         /**
          * Get the attribute node by its name
          * @param attributeName the name of the attribute node
          * @return the attribute node with the specific name.
          */
-        std::shared_ptr<AttributeNode> GetAttributeNode(std::string& attributeName)
-        {
-            for (auto attributeNode : _attributes)
-            {
-                if (attributeNode->GetName() == attributeName)
-                {
-                    return attributeNode;
-                }
-            }
-            return nullptr;
-        }
+		std::shared_ptr<AttributeNode> GetAttributeNode(std::string& attributeName);
     };
 }

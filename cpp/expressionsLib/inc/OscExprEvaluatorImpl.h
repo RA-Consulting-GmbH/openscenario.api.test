@@ -33,6 +33,8 @@ namespace OscExpression {
 		std::shared_ptr<EvaluatorListener> evaluatorListener;
 
 		std::shared_ptr <antlr4::tree::ParseTree> tree = nullptr;
+
+		std::shared_ptr<OscExpression::ExprType> expectedDatatype;
 		
 	public:
 		OscExprEvaluatorImpl(std::shared_ptr<std::map<std::string,  std::shared_ptr<OscExpression::ExprValue>>> definedParameters, std::shared_ptr<OscExpression::ExprType> expectedDatatype);

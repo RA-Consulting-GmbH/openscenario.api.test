@@ -24,6 +24,8 @@ namespace NET_ASAM_OPENSCENARIO
 		class TestFiles : public TestBase
 		{
 
+		private :
+			static double epsilon;
 		public:
 
 			TestFiles(std::string& executablePath);
@@ -31,10 +33,14 @@ namespace NET_ASAM_OPENSCENARIO
 			bool TestSimpleSuccess();
 
 			bool TestParamsSuccess();
+			
+			bool TestExpressionsSuccess();
 
 			bool TestBomFile();
 
 			bool TestParamsFailure();
+			
+			bool TestExpressionsFailure();
 
 			bool TestParamsConversionInfo();
 
@@ -50,6 +56,8 @@ namespace NET_ASAM_OPENSCENARIO
 			bool TestCustomCommandAction();
 
 			bool TestFileNotFound() const;
+			
+			bool TestMultiChoiceElement();
 		};
 	}
 }

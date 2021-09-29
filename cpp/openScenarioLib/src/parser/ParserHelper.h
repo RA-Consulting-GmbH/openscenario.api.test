@@ -167,5 +167,19 @@ namespace NET_ASAM_OPENSCENARIO
          * @throws Exception when validation fails
          */
 		static void ValidateDateTime(std::string& xmlValue);
+
+		/**
+		 * Checks for paramterized value ($-notation)
+		 * @param value value
+		 * @return true if the attribute represents a parameter rather than a literal value
+		 */
+		static bool IsParametrized(std::string& value);
+		/**
+		 * Checks for expression value ('${'-notation)
+		 * @param value value
+		 * @return true if the attribute represents an expression rather than a literal value
+		 */
+		static bool IsExpression(std::string& value);
+
     };
 }

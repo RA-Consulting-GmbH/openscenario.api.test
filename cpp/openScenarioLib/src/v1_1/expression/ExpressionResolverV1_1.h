@@ -24,6 +24,7 @@
 #include "ApiClassImplV1_1.h"
 #include "BaseImpl.h"
 #include "SimpleType.h"
+#include "ExpressionResolverStackV1_1.h"
 
 
 namespace NET_ASAM_OPENSCENARIO
@@ -37,59 +38,63 @@ namespace NET_ASAM_OPENSCENARIO
         {
 
         private:
-            std::vector<std::map<std::string, std::shared_ptr<ParameterValue>>> _parameterValueSets;
+			std::shared_ptr<ExpressionResolverStack> _expressionResolverStack;;
+	
+			/**
+			 * Adapter function that creates a ExprValue for a ParameterValue.
+			 * @param paramterValue to log messages
+			 * @return the created ExprValue
+			 */
+			std::shared_ptr<OscExpression::ExprValue> CreateExprValueFromParameterValue(std::shared_ptr<ParameterValue> paramterValue);
 
-			bool DoesExpectedTypeMatchWithConversions(SimpleType& expectedSimpleType, SimpleType& actualSimpleType, std::string& value);
+			/**
+			 * Adapter function that creates a ExprValue for a ParameterValue.
+			 * @param actualSimpleType to log messages
+			 * @return the created ExprValue
+			 */
+			std::shared_ptr<OscExpression::ExprType> CreateExprTypeFromSimpleType(SimpleType& actualSimpleType);
 
-            /**
+        	/**
              * Resolves all parameters of a parameterized object.
              * @param logger to log messages
-             * @param parameterizedObject the parameterized object
+             * @param expressionObject the expression object
              * @param logUnresolvableParameter a flag whether unresolvable parameters should be logged.
              */
-			void ResolveInternal(std::shared_ptr<IParserMessageLogger>& logger, std::shared_ptr<IParameterizedObject> parameterizedObject, const bool logUnresolvableParameter);
+			void ResolveInternal(std::shared_ptr<IParserMessageLogger>& logger, std::shared_ptr<IExpressionObject> expressionObject, const bool logUnresolvableParameter);
 
         public:
-        	/**
-             * @param expectedParameterType expected type
-             * @param parameterName  name of the parameter the value is looked up
-             * @return the string representation of the value.
-             */
-			std::shared_ptr<ParameterValue> FindValue(std::string& parameterName);
+
+			/**
+			 * Constructor
+			 */
+        	ExpressionResolver();
+
+			/**
+			 * Default Destructor
+			 */
+			virtual ~ExpressionResolver() = default;
         	
-            /**
-             * Pushes a parameter value set on the stack. Implementing scopes of values.
-             * The values are always looked up in the head of the stack first.
-             * @param parameterValues set of parameter values
-             */
-			void PushParameterValueSet(std::vector<std::shared_ptr<ParameterValue>> parameterValues);
         	
-            /**
-             * Remove the head of the stack
-             */
-			void PopParameterValueSet();
             
         private:
 
             /**
-             * Overrides the value of a paramterValue in a List of paramter values
-             *
-             * @param parameterValues list of parameter values.
-             * @param name name of the parameter to override
-             * @param value value of the parameter to override
-             */
-			void OverrideValue(std::vector<std::shared_ptr<ParameterValue>> parameterValues, std::string& name, std::string& value);
-            /**
              * Checks the data type and overrides the values in the parametervalues.
              *
-             * @param parameterDefinitions the parameter values to override
+             * @param parameterDefinition the parameter value to override
              * @param logger the logger to pick up the errors and warnings
              * @param injectedParameters the injected parameters
-             * @param scenarioDefinition the scenario definition with the global parameter declarations
+             * @param parameterDeclaration the parameterDefinition with the global parameter declarations
+             * @return true if an injected parameter overrides the parameter definition 
              */
-			void OverrideGlobalParametersWithInjectedParameters(std::vector<std::shared_ptr<ParameterValue>> parameterDefinitions, std::shared_ptr<IParserMessageLogger> logger, std::map<std::string, std::string>& injectedParameters, std::shared_ptr<IScenarioDefinition> scenarioDefinition);
+			bool OverrideGlobalParameterWithInjectedParameter(std::shared_ptr<ParameterValue> parameterDefinition,
+			                                                  std::shared_ptr<IParserMessageLogger> logger,
+			                                                  std::map<std::string, std::string>& injectedParameters,
+			                                                  std::shared_ptr<IParameterDeclaration> parameterDeclaration);
+			void ResolveCatalogElement(std::shared_ptr<IParserMessageLogger>& logger,
+			                           std::shared_ptr<CatalogReferenceImpl> catalogReferenceImpl);
 
-        public:
+		public:
         	/**
              *
              * @param logger logger to log messages
@@ -98,14 +103,23 @@ namespace NET_ASAM_OPENSCENARIO
              * @param logUnresolvableParameter a flag whether unresolvable parameters should be logged.
              */
 			void Resolve(std::shared_ptr<IParserMessageLogger>& logger, std::shared_ptr<BaseImpl> baseImpl, std::map<std::string, std::string>& injectedParameters, bool logUnresolvableParameter);
-            /**
+			/**
+			 * Resolves the expression when value attribute has a expression
+			 * @param parameterDeclaration
+			 * @return nullptr if the value cannot be resolved or value is not an expression.
+			 */
+			std::shared_ptr<OscExpression::ExprValue> ResolveValueOfParameterDeclaration(std::shared_ptr<IParserMessageLogger>& logger, std::shared_ptr<IParameterDeclaration> parameterDeclaration);
+			std::shared_ptr<OscExpression::ExprValue> ResolveValueOfParameterAsignment(
+				std::shared_ptr<IParserMessageLogger>& logger,
+				std::shared_ptr<IParameterAssignment> parameterAssignment);
+
+			/**
              * Resolve all parameters with parameter assignments, instead of parameter definitions
              * @param logger to log messages
              * @param catalogElement a catalogElement the parameters will be resolved.
              * @param parameterAssignments the parameter assignments that provide the parameter names and values
              */
 			void ResolveWithParameterAssignments(std::shared_ptr<IParserMessageLogger>& logger, std::shared_ptr<ICatalogElement>& catalogElement, const std::map<std::string, std::string> parameterAssignments);
-    
         };
     }
 }

@@ -76,9 +76,26 @@ namespace NET_ASAM_OPENSCENARIO
 			std::sort(filterByErrorLevelLogger.begin(), filterByErrorLevelLogger.end(), []( NET_ASAM_OPENSCENARIO::FileContentMessage& lhs, NET_ASAM_OPENSCENARIO::FileContentMessage& rhs) {
 				return lhs.GetMsg() < rhs.GetMsg();
 			});
+			
+			if (kFilterByErrorLevelMessages.size() != filterByErrorLevelLogger.size())
+			{
+				for (auto it = filterByErrorLevelLogger.begin(); it != filterByErrorLevelLogger.end(); ++it) {
+					std::cout << it->ToString() << "\n";
+				}
+				
+			}
 			return kFilterByErrorLevelMessages.size() == filterByErrorLevelLogger.size() &&
 				   std::equal(kFilterByErrorLevelMessages.begin(), kFilterByErrorLevelMessages.end(), filterByErrorLevelLogger.begin(),
-				[](NET_ASAM_OPENSCENARIO::FileContentMessage & l, NET_ASAM_OPENSCENARIO::FileContentMessage & r) {return l.ToString() == r.ToString(); });
+				[](NET_ASAM_OPENSCENARIO::FileContentMessage & l, NET_ASAM_OPENSCENARIO::FileContentMessage & r)
+			{
+				if (l.ToString() != r.ToString())
+				{
+					std::cout << l.ToString() << "\n";
+					std::cout << r.ToString() << "\n";
+				}
+
+				return l.ToString() == r.ToString();
+			});
 		}
 
 		std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage> TestBase::FilterByErrorLevel(std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage> messages, NET_ASAM_OPENSCENARIO::ErrorLevel& errorLevel)

@@ -37,9 +37,9 @@
 #include "OscExprEvaluator.h"
 #include "OscExprEvaluatorFactory.h"
 #include "SemanticException.h"
-#include "TestDescription.hpp"
-#include "TestSpecificationReader.hpp"
-#include "TestSpecificationRunner.hpp"
+#include "TestDescription.h"
+#include "TestSpecificationReader.h"
+#include "TestSpecificationRunner.h"
 
 #pragma execution_character_set("utf-8")
 

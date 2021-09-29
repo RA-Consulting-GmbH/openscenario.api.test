@@ -16,6 +16,7 @@
  */
 
 #include "XmlComplexTypeParser.h"
+#include "ParserHelper.h"
 #include <regex>
 
 namespace NET_ASAM_OPENSCENARIO
@@ -54,7 +55,8 @@ namespace NET_ASAM_OPENSCENARIO
                 parser = kIt->second;
 
             auto attributeStartPosition = indexedElement->GetAttributeStartPosition(attributeName);
-            auto attributeEndPosition = indexedElement->GetAttributeEndPosition(attributeName);
+			auto attributeEndPosition = indexedElement->GetAttributeEndPosition(attributeName);
+			auto attributeStartValuePosition = indexedElement->GetAttributeStartValuePosition(attributeName);
 
             if (attributeName.find(":") != std::string::npos)
             {
@@ -68,7 +70,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
             else
             {
-                parser->Parse(attributeStartPosition, attributeEndPosition, attributeName, attributeValue, object);
+                parser->Parse(attributeStartPosition, attributeEndPosition, attributeStartValuePosition, attributeName, attributeValue, object);
                 // Remove 
                _attributeNameToAttributeParser.erase(attributeName);
             }
@@ -106,16 +108,13 @@ namespace NET_ASAM_OPENSCENARIO
 	
     bool XmlComplexTypeParser::IsParametrized(std::string& value)
     {
-        // Only Dollar will result in "$"
-        return value[0] == '$' && value.length() > 1;
+		return ParserHelper::IsParametrized(value);
+
     }
 
 	bool XmlComplexTypeParser::IsExpression(std::string& value)
 	{
-		// Only Dollar will result in "$"
-		std::smatch base_match;
-		const std::regex base_regex("^\\s*\\$\\s*\\{");
-		return std::regex_match(value,base_match, base_regex);
+		return ParserHelper::IsExpression(value);
 	}
 	
     /**

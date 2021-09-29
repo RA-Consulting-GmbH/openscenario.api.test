@@ -16,46 +16,26 @@
  */
 
 #include "MemLeakDetection.h"
+#include "Position.h"
 
 namespace NET_ASAM_OPENSCENARIO
 {
-    /**
-     * Class for position value objects.
-     */
-    class Position 
+    int Position::GetColumn() const
     {
-    private:
-        int _line;
-        int _column;
+        return _column;
+    }
 
-    public:
-        /**
-         * The column
-         * @return the column of the position.
-         */
-        int GetColumn() const
-        {
-            return _column;
-        }
+    /**
+     * The line
+     * @return the line of the position
+     */
+    int Position::GetLine() const
+    {
+        return _line;
+    }
 
-        /**
-         * The line
-         * @return the line of the position
-         */
-        int GetLine() const
-        {
-            return _line;
-        }
+	Position::Position(const int line, const int column):_line(line), _column(column) {}
 
-        /**
-         * Constructor
-         * @param line line of the position
-         * @param column column of the position
-         */
-        Position(const int line, const int column):_line(line), _column(column) {}
-
-        Position() :_line(-1), _column(-1) {}
-
-    };
+	Position::Position() :_line(-1), _column(-1) {}
 
 }

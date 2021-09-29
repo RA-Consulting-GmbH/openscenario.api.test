@@ -48,6 +48,8 @@ parser grammar XMLParser;
  
 #include "PositionIndex.h"
 #include "AttributeNode.h"
+#include "AttributeInfo.h"
+
 using namespace NET_ASAM_OPENSCENARIO;
 }
 
@@ -85,18 +87,18 @@ attributeList  returns [std::vector<AttributeNode> result]
     $result = std::vector<AttributeNode> {};
 }
 	:
-		(attribute {$result.emplace_back(AttributeNode($attribute.result,$attribute.start->getLine(), $attribute.start->getCharPositionInLine(), $attribute.stop->getLine(), $attribute.stop->getCharPositionInLine()));})*
+		(attribute {auto name = $attribute.result.GetName();$result.emplace_back(AttributeNode(name,$attribute.start->getLine(), $attribute.start->getCharPositionInLine(), $attribute.stop->getLine(), $attribute.stop->getCharPositionInLine(),$attribute.result.GetStartValuePosition().GetLine(),$attribute.result.GetStartValuePosition().GetColumn()));})*
 ;
 
 reference   :   EntityRef | CharRef ;
 
-attribute   returns [std::string result]
+attribute   returns [AttributeInfo result]
 @init
 {
-    $result = "";
+ 
 }
 
-:   Name  {$result = $Name->getText();} EQUALS STRING ; // Our STRING is AttValue in spec
+:   Name EQUALS STRING {auto text = $Name->getText(); $result = AttributeInfo(text,$STRING->getLine(),$STRING->getCharPositionInLine()+1);} ; // coorect the included '"' with '+1'
 
 /** ``All text that is not markup constitutes the character data of
  *  the document.''

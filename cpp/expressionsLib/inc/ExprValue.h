@@ -35,7 +35,12 @@ namespace OscExpression
 
 		private:
 			double doubleValue;
+			std::string stringValue;
+			bool boolValue;
+
 			std::shared_ptr<ExprType> exprType;
+			bool isSimpleParameter = false;
+			std::string parameterName;
 
 		private:
 			/** Private constructor */
@@ -56,12 +61,13 @@ namespace OscExpression
 			 */
 			OSC_EXPR_EXP static std::shared_ptr<ExprValue> CreateDoubleValue(double doubleValue);
 
+
 			/**
 			 * @param unsignedShortValue
 			 * @return the created ExprValue
 			 */
 			OSC_EXPR_EXP static std::shared_ptr<ExprValue> CreateUnsignedShortValue(double unsignedShortValue);
-
+			
 			/**
 			 * @param unsignedIntValue
 			 * @return the created ExprValue
@@ -75,19 +81,35 @@ namespace OscExpression
 			OSC_EXPR_EXP static std::shared_ptr<ExprValue> CreateIntValue(double intValue);
 
 			/**
+			 * @param stringValue
 			 * @return the created ExprValue
 			 */
-			OSC_EXPR_EXP static std::shared_ptr<ExprValue> CreateStringValue();
+			OSC_EXPR_EXP static std::shared_ptr<ExprValue> CreateStringValue(std::string stringValue);
 
 			/**
+			 * @param parameterName	the parameterName of the expression
+			 * @param stringValue the value of the expression 
+			 * @param expressionType the type of the expression
 			 * @return the created ExprValue
 			 */
-			OSC_EXPR_EXP static std::shared_ptr<ExprValue> CreateDateTimeValue();
+			OSC_EXPR_EXP static std::shared_ptr<ExprValue> CreateSimpleParameterValue(std::string parameterName, std::string stringValue, std::shared_ptr<ExprType> exprType);
 
 			/**
+			 * @param dateTimeStringValue string representation of the dateTime value
 			 * @return the created ExprValue
 			 */
-			OSC_EXPR_EXP static std::shared_ptr<ExprValue> CreateBooleanValue();
+			OSC_EXPR_EXP static std::shared_ptr<ExprValue> CreateDateTimeValue(std::string dateTimeStringValue);
+
+			/**
+			 * @param boolStringValue string representation of the boolean value
+			 * @return the created ExprValue
+			 */
+			OSC_EXPR_EXP static std::shared_ptr<ExprValue> CreateBooleanValue(std::string boolStringValue);
+
+			/**
+			 * @param boolValue boolean value
+			 * @return the created ExprValue
+			 */OSC_EXPR_EXP static std::shared_ptr<ExprValue> CreateBooleanValue(bool boolValue);
 
 			/**
 			 * Returns the value in double
@@ -114,10 +136,40 @@ namespace OscExpression
 			OSC_EXPR_EXP bool IsFloatingPointNumeric();
 
 			/**
+			 * @return true if object's expression type is string based
+			 */
+			OSC_EXPR_EXP bool IsTypeStringBased();
+			
+			/**
+			 * @return true if object's expression type is string based
+			 */
+			OSC_EXPR_EXP bool IsSimpleParameter();
+
+			/**
+			 * @return true if object's expression type is numeric
+			 */
+			OSC_EXPR_EXP bool IsTypeNumeric();
+
+
+			/**
 			 * @return the int value or nullptr if conversion is not possible
 			 */
 			OSC_EXPR_EXP std::shared_ptr <ExprValue> ConvertToInt();
+			
+			/**
+			* @return the int value or nullptr if conversion is not possible
+			*/
+			OSC_EXPR_EXP std::shared_ptr <ExprValue> ConvertToString();
 
+			/**
+			* @return the int value or nullptr if conversion is not possible
+			*/
+			OSC_EXPR_EXP std::shared_ptr <ExprValue> ConvertToBoolean();
+
+			/**
+			* @return the int value or nullptr if conversion is not possible
+			*/
+			OSC_EXPR_EXP std::shared_ptr <ExprValue> ConvertToDateTime();
 
 			/**
 			 * @return the unsigned int expression value or nullptr if conversion is not possible
@@ -138,7 +190,30 @@ namespace OscExpression
 			 * @return the string representation of the value
 			 */
 			OSC_EXPR_EXP std::string ToString();
+			/**
+			 * @return the parameter name
+			 */
+			OSC_EXPR_EXP std::string GetParameterName();
+			
+			/**
+			 * for non BOOLEAN type this will return false
+			 * @return boolean Value
+			 */
+			OSC_EXPR_EXP bool GetBoolValue();
 
+			/**
+			 * Converts a SimpleParameterType to a target type. Throws an exception if not possible
+			 * @return the target type or null, if (this) is not a simple parameter type.
+			 */
+			OSC_EXPR_EXP std::shared_ptr<OscExpression::ExprValue> ConvertSimpleParameterToTargetType(std::shared_ptr<OscExpression::ExprType> targetType);
+
+			/**
+			 * Creates a double value from a string
+			 * @return the double value or nullptr if the doubleStringValue cannot be parsed into a double
+			 */
+			OSC_EXPR_EXP static std::shared_ptr<ExprValue> CreateDoubleValueFromString(std::string doubleStringValue);
+			
+			
 		};
 
 }

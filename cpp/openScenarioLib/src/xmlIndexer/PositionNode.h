@@ -36,37 +36,27 @@ namespace NET_ASAM_OPENSCENARIO
          * The start position
          * @return start position of the node
          */
-        Position GetStartPosition() const
-        {
-            return _startPosition;
-        }
+		Position GetStartPosition() const;
 
         /**
          * The end position
          * @return end position of the node
          */
-        Position GetEndPosition() const
-        {
-            return _endPosition;
-        }
+		Position GetEndPosition() const;
 
         /**
          * Adding an end postion to the node
          * @param line of the end position
          * @param column of the end position
          */
-        void AddEndPosition(const int line, const int column) 
-        {
-            _endPosition = Position(line, column);
-        }
+		void AddEndPosition(const int line, const int column);
 
         /**
          * Constructor
          * @param line of the start position
          * @param column of the stat position
          */
-        PositionNode(const int line, const int column):_startPosition(line, column), _endPosition(-1,-1) {}
-
+		PositionNode(const int line, const int column);
         /**
          * Constructor
          * @param startLine line of the start position
@@ -74,7 +64,6 @@ namespace NET_ASAM_OPENSCENARIO
          * @param endLine line of the end position
          * @param endColumn column of the end position
          */
-        PositionNode(const int startLine, const int startColumn, const int endLine, const int endColumn):
-        _startPosition(startLine, startColumn), _endPosition(endLine, endColumn) {}
+		PositionNode(const int startLine, const int startColumn, const int endLine, const int endColumn);
     };
 }

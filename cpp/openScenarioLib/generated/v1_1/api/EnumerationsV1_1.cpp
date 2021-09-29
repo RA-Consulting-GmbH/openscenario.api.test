@@ -30,6 +30,8 @@ namespace NET_ASAM_OPENSCENARIO
 	            {"rainy", RAINY},
 	            {"skyOff", SKY_OFF},
 	        };
+	        
+	        
             CloudState::CloudState()
             {
                 _literal = kCloudStateEnumString[0];
@@ -53,6 +55,20 @@ namespace NET_ASAM_OPENSCENARIO
                 _cloudStateEnum = GetFromLiteral(_literal);
             }
 
+            bool CloudState::IsDeprecated(const CloudStateEnum cloudState)
+            { 
+            	return false;
+            }
+			
+			std::string CloudState::GetDeprecatedVersion(const CloudStateEnum cloudState)
+			{
+            	return "";
+			}
+
+			std::string CloudState::GetDeprecatedComment(const CloudStateEnum cloudState)
+			{
+            	return "";
+		}
             
             std::string CloudState::GetLiteral() const 
             { 
@@ -93,6 +109,8 @@ namespace NET_ASAM_OPENSCENARIO
 	            {"rising", RISING},
 	            {"risingOrFalling", RISING_OR_FALLING},
 	        };
+	        
+	        
             ConditionEdge::ConditionEdge()
             {
                 _literal = kConditionEdgeEnumString[0];
@@ -116,6 +134,20 @@ namespace NET_ASAM_OPENSCENARIO
                 _conditionEdgeEnum = GetFromLiteral(_literal);
             }
 
+            bool ConditionEdge::IsDeprecated(const ConditionEdgeEnum conditionEdge)
+            { 
+            	return false;
+            }
+			
+			std::string ConditionEdge::GetDeprecatedVersion(const ConditionEdgeEnum conditionEdge)
+			{
+            	return "";
+			}
+
+			std::string ConditionEdge::GetDeprecatedComment(const ConditionEdgeEnum conditionEdge)
+			{
+            	return "";
+		}
             
             std::string ConditionEdge::GetLiteral() const 
             { 
@@ -156,6 +188,8 @@ namespace NET_ASAM_OPENSCENARIO
 	            {"road", ROAD},
 	            {"trajectory", TRAJECTORY},
 	        };
+	        
+	        
             CoordinateSystem::CoordinateSystem()
             {
                 _literal = kCoordinateSystemEnumString[0];
@@ -179,6 +213,20 @@ namespace NET_ASAM_OPENSCENARIO
                 _coordinateSystemEnum = GetFromLiteral(_literal);
             }
 
+            bool CoordinateSystem::IsDeprecated(const CoordinateSystemEnum coordinateSystem)
+            { 
+            	return false;
+            }
+			
+			std::string CoordinateSystem::GetDeprecatedVersion(const CoordinateSystemEnum coordinateSystem)
+			{
+            	return "";
+			}
+
+			std::string CoordinateSystem::GetDeprecatedComment(const CoordinateSystemEnum coordinateSystem)
+			{
+            	return "";
+		}
             
             std::string CoordinateSystem::GetLiteral() const 
             { 
@@ -218,6 +266,8 @@ namespace NET_ASAM_OPENSCENARIO
 	            {"rate", RATE},
 	            {"time", TIME},
 	        };
+	        
+	        
             DynamicsDimension::DynamicsDimension()
             {
                 _literal = kDynamicsDimensionEnumString[0];
@@ -241,6 +291,20 @@ namespace NET_ASAM_OPENSCENARIO
                 _dynamicsDimensionEnum = GetFromLiteral(_literal);
             }
 
+            bool DynamicsDimension::IsDeprecated(const DynamicsDimensionEnum dynamicsDimension)
+            { 
+            	return false;
+            }
+			
+			std::string DynamicsDimension::GetDeprecatedVersion(const DynamicsDimensionEnum dynamicsDimension)
+			{
+            	return "";
+			}
+
+			std::string DynamicsDimension::GetDeprecatedComment(const DynamicsDimensionEnum dynamicsDimension)
+			{
+            	return "";
+		}
             
             std::string DynamicsDimension::GetLiteral() const 
             { 
@@ -281,6 +345,8 @@ namespace NET_ASAM_OPENSCENARIO
 	            {"sinusoidal", SINUSOIDAL},
 	            {"step", STEP},
 	        };
+	        
+	        
             DynamicsShape::DynamicsShape()
             {
                 _literal = kDynamicsShapeEnumString[0];
@@ -304,6 +370,20 @@ namespace NET_ASAM_OPENSCENARIO
                 _dynamicsShapeEnum = GetFromLiteral(_literal);
             }
 
+            bool DynamicsShape::IsDeprecated(const DynamicsShapeEnum dynamicsShape)
+            { 
+            	return false;
+            }
+			
+			std::string DynamicsShape::GetDeprecatedVersion(const DynamicsShapeEnum dynamicsShape)
+			{
+            	return "";
+			}
+
+			std::string DynamicsShape::GetDeprecatedComment(const DynamicsShapeEnum dynamicsShape)
+			{
+            	return "";
+		}
             
             std::string DynamicsShape::GetLiteral() const 
             { 
@@ -342,6 +422,8 @@ namespace NET_ASAM_OPENSCENARIO
 	            {"follow", FOLLOW},
 	            {"position", POSITION},
 	        };
+	        
+	        
             FollowingMode::FollowingMode()
             {
                 _literal = kFollowingModeEnumString[0];
@@ -365,6 +447,20 @@ namespace NET_ASAM_OPENSCENARIO
                 _followingModeEnum = GetFromLiteral(_literal);
             }
 
+            bool FollowingMode::IsDeprecated(const FollowingModeEnum followingMode)
+            { 
+            	return false;
+            }
+			
+			std::string FollowingMode::GetDeprecatedVersion(const FollowingModeEnum followingMode)
+			{
+            	return "";
+			}
+
+			std::string FollowingMode::GetDeprecatedComment(const FollowingModeEnum followingMode)
+			{
+            	return "";
+		}
             
             std::string FollowingMode::GetLiteral() const 
             { 
@@ -404,6 +500,8 @@ namespace NET_ASAM_OPENSCENARIO
 	            {"leftToReferencedEntity", LEFT_TO_REFERENCED_ENTITY},
 	            {"rightToReferencedEntity", RIGHT_TO_REFERENCED_ENTITY},
 	        };
+	        
+	        
             LateralDisplacement::LateralDisplacement()
             {
                 _literal = kLateralDisplacementEnumString[0];
@@ -427,6 +525,20 @@ namespace NET_ASAM_OPENSCENARIO
                 _lateralDisplacementEnum = GetFromLiteral(_literal);
             }
 
+            bool LateralDisplacement::IsDeprecated(const LateralDisplacementEnum lateralDisplacement)
+            { 
+            	return false;
+            }
+			
+			std::string LateralDisplacement::GetDeprecatedVersion(const LateralDisplacementEnum lateralDisplacement)
+			{
+            	return "";
+			}
+
+			std::string LateralDisplacement::GetDeprecatedComment(const LateralDisplacementEnum lateralDisplacement)
+			{
+            	return "";
+		}
             
             std::string LateralDisplacement::GetLiteral() const 
             { 
@@ -466,6 +578,8 @@ namespace NET_ASAM_OPENSCENARIO
 	            {"leadingReferencedEntity", LEADING_REFERENCED_ENTITY},
 	            {"trailingReferencedEntity", TRAILING_REFERENCED_ENTITY},
 	        };
+	        
+	        
             LongitudinalDisplacement::LongitudinalDisplacement()
             {
                 _literal = kLongitudinalDisplacementEnumString[0];
@@ -489,6 +603,20 @@ namespace NET_ASAM_OPENSCENARIO
                 _longitudinalDisplacementEnum = GetFromLiteral(_literal);
             }
 
+            bool LongitudinalDisplacement::IsDeprecated(const LongitudinalDisplacementEnum longitudinalDisplacement)
+            { 
+            	return false;
+            }
+			
+			std::string LongitudinalDisplacement::GetDeprecatedVersion(const LongitudinalDisplacementEnum longitudinalDisplacement)
+			{
+            	return "";
+			}
+
+			std::string LongitudinalDisplacement::GetDeprecatedComment(const LongitudinalDisplacementEnum longitudinalDisplacement)
+			{
+            	return "";
+		}
             
             std::string LongitudinalDisplacement::GetLiteral() const 
             { 
@@ -542,6 +670,70 @@ namespace NET_ASAM_OPENSCENARIO
 	            {"vegetation", VEGETATION},
 	            {"wind", WIND},
 	        };
+	        
+            std::map<MiscObjectCategory::MiscObjectCategoryEnum, bool> MiscObjectCategory::_enumToDeprecated =
+            {
+	            {MiscObjectCategory::BARRIER, false},
+	            {MiscObjectCategory::BUILDING, false},
+	            {MiscObjectCategory::CROSSWALK, false},
+	            {MiscObjectCategory::GANTRY, false},
+	            {MiscObjectCategory::NONE, false},
+	            {MiscObjectCategory::OBSTACLE, false},
+	            {MiscObjectCategory::PARKING_SPACE, false},
+	            {MiscObjectCategory::PATCH, false},
+	            {MiscObjectCategory::POLE, false},
+	            {MiscObjectCategory::RAILING, false},
+	            {MiscObjectCategory::ROAD_MARK, false},
+	            {MiscObjectCategory::SOUND_BARRIER, false},
+	            {MiscObjectCategory::STREET_LAMP, false},
+	            {MiscObjectCategory::TRAFFIC_ISLAND, false},
+	            {MiscObjectCategory::TREE, false},
+	            {MiscObjectCategory::VEGETATION, false},
+	            {MiscObjectCategory::WIND, true},
+            };
+            std::map<MiscObjectCategory::MiscObjectCategoryEnum, std::string> MiscObjectCategory::_enumToDeprecatedVersion
+            {
+	            {MiscObjectCategory::BARRIER, ""},
+	            {MiscObjectCategory::BUILDING, ""},
+	            {MiscObjectCategory::CROSSWALK, ""},
+	            {MiscObjectCategory::GANTRY, ""},
+	            {MiscObjectCategory::NONE, ""},
+	            {MiscObjectCategory::OBSTACLE, ""},
+	            {MiscObjectCategory::PARKING_SPACE, ""},
+	            {MiscObjectCategory::PATCH, ""},
+	            {MiscObjectCategory::POLE, ""},
+	            {MiscObjectCategory::RAILING, ""},
+	            {MiscObjectCategory::ROAD_MARK, ""},
+	            {MiscObjectCategory::SOUND_BARRIER, ""},
+	            {MiscObjectCategory::STREET_LAMP, ""},
+	            {MiscObjectCategory::TRAFFIC_ISLAND, ""},
+	            {MiscObjectCategory::TREE, ""},
+	            {MiscObjectCategory::VEGETATION, ""},
+	            {MiscObjectCategory::WIND, "1.1"},
+            };
+            std::map<MiscObjectCategory::MiscObjectCategoryEnum, std::string> MiscObjectCategory::_enumToDeprecatedComment
+            {
+	            {MiscObjectCategory::BARRIER, ""},
+	            {MiscObjectCategory::BUILDING, ""},
+	            {MiscObjectCategory::CROSSWALK, ""},
+	            {MiscObjectCategory::GANTRY, ""},
+	            {MiscObjectCategory::NONE, ""},
+	            {MiscObjectCategory::OBSTACLE, ""},
+	            {MiscObjectCategory::PARKING_SPACE, ""},
+	            {MiscObjectCategory::PATCH, ""},
+	            {MiscObjectCategory::POLE, ""},
+	            {MiscObjectCategory::RAILING, ""},
+	            {MiscObjectCategory::ROAD_MARK, ""},
+	            {MiscObjectCategory::SOUND_BARRIER, ""},
+	            {MiscObjectCategory::STREET_LAMP, ""},
+	            {MiscObjectCategory::TRAFFIC_ISLAND, ""},
+	            {MiscObjectCategory::TREE, ""},
+	            {MiscObjectCategory::VEGETATION, ""},
+	            {MiscObjectCategory::WIND, "Use instead XSDcomplexeType \"Wind\" in \"Weather\"."},
+            };  
+            
+                   	
+            	        
             MiscObjectCategory::MiscObjectCategory()
             {
                 _literal = kMiscObjectCategoryEnumString[0];
@@ -565,6 +757,20 @@ namespace NET_ASAM_OPENSCENARIO
                 _miscObjectCategoryEnum = GetFromLiteral(_literal);
             }
 
+            bool MiscObjectCategory::IsDeprecated(const MiscObjectCategoryEnum miscObjectCategory)
+            { 
+              	return _enumToDeprecated[miscObjectCategory];
+            }
+			
+			std::string MiscObjectCategory::GetDeprecatedVersion(const MiscObjectCategoryEnum miscObjectCategory)
+			{
+              	return _enumToDeprecatedVersion[miscObjectCategory];
+			}
+
+			std::string MiscObjectCategory::GetDeprecatedComment(const MiscObjectCategoryEnum miscObjectCategory)
+			{
+              	return _enumToDeprecatedComment[miscObjectCategory];
+		}
             
             std::string MiscObjectCategory::GetLiteral() const 
             { 
@@ -605,6 +811,8 @@ namespace NET_ASAM_OPENSCENARIO
 	            {"pedestrian", PEDESTRIAN},
 	            {"vehicle", VEHICLE},
 	        };
+	        
+	        
             ObjectType::ObjectType()
             {
                 _literal = kObjectTypeEnumString[0];
@@ -628,6 +836,20 @@ namespace NET_ASAM_OPENSCENARIO
                 _objectTypeEnum = GetFromLiteral(_literal);
             }
 
+            bool ObjectType::IsDeprecated(const ObjectTypeEnum objectType)
+            { 
+            	return false;
+            }
+			
+			std::string ObjectType::GetDeprecatedVersion(const ObjectTypeEnum objectType)
+			{
+            	return "";
+			}
+
+			std::string ObjectType::GetDeprecatedComment(const ObjectTypeEnum objectType)
+			{
+            	return "";
+		}
             
             std::string ObjectType::GetLiteral() const 
             { 
@@ -671,6 +893,8 @@ namespace NET_ASAM_OPENSCENARIO
 	            {"unsignedInt", UNSIGNED_INT},
 	            {"unsignedShort", UNSIGNED_SHORT},
 	        };
+	        
+	        
             ParameterType::ParameterType()
             {
                 _literal = kParameterTypeEnumString[0];
@@ -694,6 +918,20 @@ namespace NET_ASAM_OPENSCENARIO
                 _parameterTypeEnum = GetFromLiteral(_literal);
             }
 
+            bool ParameterType::IsDeprecated(const ParameterTypeEnum parameterType)
+            { 
+            	return false;
+            }
+			
+			std::string ParameterType::GetDeprecatedVersion(const ParameterTypeEnum parameterType)
+			{
+            	return "";
+			}
+
+			std::string ParameterType::GetDeprecatedComment(const ParameterTypeEnum parameterType)
+			{
+            	return "";
+		}
             
             std::string ParameterType::GetLiteral() const 
             { 
@@ -733,6 +971,8 @@ namespace NET_ASAM_OPENSCENARIO
 	            {"pedestrian", PEDESTRIAN},
 	            {"wheelchair", WHEELCHAIR},
 	        };
+	        
+	        
             PedestrianCategory::PedestrianCategory()
             {
                 _literal = kPedestrianCategoryEnumString[0];
@@ -756,6 +996,20 @@ namespace NET_ASAM_OPENSCENARIO
                 _pedestrianCategoryEnum = GetFromLiteral(_literal);
             }
 
+            bool PedestrianCategory::IsDeprecated(const PedestrianCategoryEnum pedestrianCategory)
+            { 
+            	return false;
+            }
+			
+			std::string PedestrianCategory::GetDeprecatedVersion(const PedestrianCategoryEnum pedestrianCategory)
+			{
+            	return "";
+			}
+
+			std::string PedestrianCategory::GetDeprecatedComment(const PedestrianCategoryEnum pedestrianCategory)
+			{
+            	return "";
+		}
             
             std::string PedestrianCategory::GetLiteral() const 
             { 
@@ -795,6 +1049,8 @@ namespace NET_ASAM_OPENSCENARIO
 	            {"rain", RAIN},
 	            {"snow", SNOW},
 	        };
+	        
+	        
             PrecipitationType::PrecipitationType()
             {
                 _literal = kPrecipitationTypeEnumString[0];
@@ -818,6 +1074,20 @@ namespace NET_ASAM_OPENSCENARIO
                 _precipitationTypeEnum = GetFromLiteral(_literal);
             }
 
+            bool PrecipitationType::IsDeprecated(const PrecipitationTypeEnum precipitationType)
+            { 
+            	return false;
+            }
+			
+			std::string PrecipitationType::GetDeprecatedVersion(const PrecipitationTypeEnum precipitationType)
+			{
+            	return "";
+			}
+
+			std::string PrecipitationType::GetDeprecatedComment(const PrecipitationTypeEnum precipitationType)
+			{
+            	return "";
+		}
             
             std::string PrecipitationType::GetLiteral() const 
             { 
@@ -857,6 +1127,8 @@ namespace NET_ASAM_OPENSCENARIO
 	            {"parallel", PARALLEL},
 	            {"skip", SKIP},
 	        };
+	        
+	        
             Priority::Priority()
             {
                 _literal = kPriorityEnumString[0];
@@ -880,6 +1152,20 @@ namespace NET_ASAM_OPENSCENARIO
                 _priorityEnum = GetFromLiteral(_literal);
             }
 
+            bool Priority::IsDeprecated(const PriorityEnum priority)
+            { 
+            	return false;
+            }
+			
+			std::string Priority::GetDeprecatedVersion(const PriorityEnum priority)
+			{
+            	return "";
+			}
+
+			std::string Priority::GetDeprecatedComment(const PriorityEnum priority)
+			{
+            	return "";
+		}
             
             std::string Priority::GetLiteral() const 
             { 
@@ -918,6 +1204,8 @@ namespace NET_ASAM_OPENSCENARIO
 	            {"absolute", ABSOLUTE},
 	            {"relative", RELATIVE},
 	        };
+	        
+	        
             ReferenceContext::ReferenceContext()
             {
                 _literal = kReferenceContextEnumString[0];
@@ -941,6 +1229,20 @@ namespace NET_ASAM_OPENSCENARIO
                 _referenceContextEnum = GetFromLiteral(_literal);
             }
 
+            bool ReferenceContext::IsDeprecated(const ReferenceContextEnum referenceContext)
+            { 
+            	return false;
+            }
+			
+			std::string ReferenceContext::GetDeprecatedVersion(const ReferenceContextEnum referenceContext)
+			{
+            	return "";
+			}
+
+			std::string ReferenceContext::GetDeprecatedComment(const ReferenceContextEnum referenceContext)
+			{
+            	return "";
+		}
             
             std::string ReferenceContext::GetLiteral() const 
             { 
@@ -981,6 +1283,31 @@ namespace NET_ASAM_OPENSCENARIO
 	            {"lateral", LATERAL},
 	            {"longitudinal", LONGITUDINAL},
 	        };
+	        
+            std::map<RelativeDistanceType::RelativeDistanceTypeEnum, bool> RelativeDistanceType::_enumToDeprecated =
+            {
+	            {RelativeDistanceType::CARTESIAN_DISTANCE, true},
+	            {RelativeDistanceType::EUCLIDIAN_DISTANCE, false},
+	            {RelativeDistanceType::LATERAL, false},
+	            {RelativeDistanceType::LONGITUDINAL, false},
+            };
+            std::map<RelativeDistanceType::RelativeDistanceTypeEnum, std::string> RelativeDistanceType::_enumToDeprecatedVersion
+            {
+	            {RelativeDistanceType::CARTESIAN_DISTANCE, "1.1"},
+	            {RelativeDistanceType::EUCLIDIAN_DISTANCE, ""},
+	            {RelativeDistanceType::LATERAL, ""},
+	            {RelativeDistanceType::LONGITUDINAL, ""},
+            };
+            std::map<RelativeDistanceType::RelativeDistanceTypeEnum, std::string> RelativeDistanceType::_enumToDeprecatedComment
+            {
+	            {RelativeDistanceType::CARTESIAN_DISTANCE, "Use euclideanDistance"},
+	            {RelativeDistanceType::EUCLIDIAN_DISTANCE, ""},
+	            {RelativeDistanceType::LATERAL, ""},
+	            {RelativeDistanceType::LONGITUDINAL, ""},
+            };  
+            
+                   	
+            	        
             RelativeDistanceType::RelativeDistanceType()
             {
                 _literal = kRelativeDistanceTypeEnumString[0];
@@ -1004,6 +1331,20 @@ namespace NET_ASAM_OPENSCENARIO
                 _relativeDistanceTypeEnum = GetFromLiteral(_literal);
             }
 
+            bool RelativeDistanceType::IsDeprecated(const RelativeDistanceTypeEnum relativeDistanceType)
+            { 
+              	return _enumToDeprecated[relativeDistanceType];
+            }
+			
+			std::string RelativeDistanceType::GetDeprecatedVersion(const RelativeDistanceTypeEnum relativeDistanceType)
+			{
+              	return _enumToDeprecatedVersion[relativeDistanceType];
+			}
+
+			std::string RelativeDistanceType::GetDeprecatedComment(const RelativeDistanceTypeEnum relativeDistanceType)
+			{
+              	return _enumToDeprecatedComment[relativeDistanceType];
+		}
             
             std::string RelativeDistanceType::GetLiteral() const 
             { 
@@ -1044,6 +1385,8 @@ namespace NET_ASAM_OPENSCENARIO
 	            {"random", RANDOM},
 	            {"shortest", SHORTEST},
 	        };
+	        
+	        
             RouteStrategy::RouteStrategy()
             {
                 _literal = kRouteStrategyEnumString[0];
@@ -1067,6 +1410,20 @@ namespace NET_ASAM_OPENSCENARIO
                 _routeStrategyEnum = GetFromLiteral(_literal);
             }
 
+            bool RouteStrategy::IsDeprecated(const RouteStrategyEnum routeStrategy)
+            { 
+            	return false;
+            }
+			
+			std::string RouteStrategy::GetDeprecatedVersion(const RouteStrategyEnum routeStrategy)
+			{
+            	return "";
+			}
+
+			std::string RouteStrategy::GetDeprecatedComment(const RouteStrategyEnum routeStrategy)
+			{
+            	return "";
+		}
             
             std::string RouteStrategy::GetLiteral() const 
             { 
@@ -1109,6 +1466,8 @@ namespace NET_ASAM_OPENSCENARIO
 	            {"lessThan", LESS_THAN},
 	            {"notEqualTo", NOT_EQUAL_TO},
 	        };
+	        
+	        
             Rule::Rule()
             {
                 _literal = kRuleEnumString[0];
@@ -1132,6 +1491,20 @@ namespace NET_ASAM_OPENSCENARIO
                 _ruleEnum = GetFromLiteral(_literal);
             }
 
+            bool Rule::IsDeprecated(const RuleEnum rule)
+            { 
+            	return false;
+            }
+			
+			std::string Rule::GetDeprecatedVersion(const RuleEnum rule)
+			{
+            	return "";
+			}
+
+			std::string Rule::GetDeprecatedComment(const RuleEnum rule)
+			{
+            	return "";
+		}
             
             std::string Rule::GetLiteral() const 
             { 
@@ -1170,6 +1543,8 @@ namespace NET_ASAM_OPENSCENARIO
 	            {"delta", DELTA},
 	            {"factor", FACTOR},
 	        };
+	        
+	        
             SpeedTargetValueType::SpeedTargetValueType()
             {
                 _literal = kSpeedTargetValueTypeEnumString[0];
@@ -1193,6 +1568,20 @@ namespace NET_ASAM_OPENSCENARIO
                 _speedTargetValueTypeEnum = GetFromLiteral(_literal);
             }
 
+            bool SpeedTargetValueType::IsDeprecated(const SpeedTargetValueTypeEnum speedTargetValueType)
+            { 
+            	return false;
+            }
+			
+			std::string SpeedTargetValueType::GetDeprecatedVersion(const SpeedTargetValueTypeEnum speedTargetValueType)
+			{
+            	return "";
+			}
+
+			std::string SpeedTargetValueType::GetDeprecatedComment(const SpeedTargetValueTypeEnum speedTargetValueType)
+			{
+            	return "";
+		}
             
             std::string SpeedTargetValueType::GetLiteral() const 
             { 
@@ -1236,6 +1625,8 @@ namespace NET_ASAM_OPENSCENARIO
 	            {"startTransition", START_TRANSITION},
 	            {"stopTransition", STOP_TRANSITION},
 	        };
+	        
+	        
             StoryboardElementState::StoryboardElementState()
             {
                 _literal = kStoryboardElementStateEnumString[0];
@@ -1259,6 +1650,20 @@ namespace NET_ASAM_OPENSCENARIO
                 _storyboardElementStateEnum = GetFromLiteral(_literal);
             }
 
+            bool StoryboardElementState::IsDeprecated(const StoryboardElementStateEnum storyboardElementState)
+            { 
+            	return false;
+            }
+			
+			std::string StoryboardElementState::GetDeprecatedVersion(const StoryboardElementStateEnum storyboardElementState)
+			{
+            	return "";
+			}
+
+			std::string StoryboardElementState::GetDeprecatedComment(const StoryboardElementStateEnum storyboardElementState)
+			{
+            	return "";
+		}
             
             std::string StoryboardElementState::GetLiteral() const 
             { 
@@ -1301,6 +1706,8 @@ namespace NET_ASAM_OPENSCENARIO
 	            {"maneuverGroup", MANEUVER_GROUP},
 	            {"story", STORY},
 	        };
+	        
+	        
             StoryboardElementType::StoryboardElementType()
             {
                 _literal = kStoryboardElementTypeEnumString[0];
@@ -1324,6 +1731,20 @@ namespace NET_ASAM_OPENSCENARIO
                 _storyboardElementTypeEnum = GetFromLiteral(_literal);
             }
 
+            bool StoryboardElementType::IsDeprecated(const StoryboardElementTypeEnum storyboardElementType)
+            { 
+            	return false;
+            }
+			
+			std::string StoryboardElementType::GetDeprecatedVersion(const StoryboardElementTypeEnum storyboardElementType)
+			{
+            	return "";
+			}
+
+			std::string StoryboardElementType::GetDeprecatedComment(const StoryboardElementTypeEnum storyboardElementType)
+			{
+            	return "";
+		}
             
             std::string StoryboardElementType::GetLiteral() const 
             { 
@@ -1362,6 +1783,8 @@ namespace NET_ASAM_OPENSCENARIO
 	            {"all", ALL},
 	            {"any", ANY},
 	        };
+	        
+	        
             TriggeringEntitiesRule::TriggeringEntitiesRule()
             {
                 _literal = kTriggeringEntitiesRuleEnumString[0];
@@ -1385,6 +1808,20 @@ namespace NET_ASAM_OPENSCENARIO
                 _triggeringEntitiesRuleEnum = GetFromLiteral(_literal);
             }
 
+            bool TriggeringEntitiesRule::IsDeprecated(const TriggeringEntitiesRuleEnum triggeringEntitiesRule)
+            { 
+            	return false;
+            }
+			
+			std::string TriggeringEntitiesRule::GetDeprecatedVersion(const TriggeringEntitiesRuleEnum triggeringEntitiesRule)
+			{
+            	return "";
+			}
+
+			std::string TriggeringEntitiesRule::GetDeprecatedComment(const TriggeringEntitiesRuleEnum triggeringEntitiesRule)
+			{
+            	return "";
+		}
             
             std::string TriggeringEntitiesRule::GetLiteral() const 
             { 
@@ -1431,6 +1868,8 @@ namespace NET_ASAM_OPENSCENARIO
 	            {"truck", TRUCK},
 	            {"van", VAN},
 	        };
+	        
+	        
             VehicleCategory::VehicleCategory()
             {
                 _literal = kVehicleCategoryEnumString[0];
@@ -1454,6 +1893,20 @@ namespace NET_ASAM_OPENSCENARIO
                 _vehicleCategoryEnum = GetFromLiteral(_literal);
             }
 
+            bool VehicleCategory::IsDeprecated(const VehicleCategoryEnum vehicleCategory)
+            { 
+            	return false;
+            }
+			
+			std::string VehicleCategory::GetDeprecatedVersion(const VehicleCategoryEnum vehicleCategory)
+			{
+            	return "";
+			}
+
+			std::string VehicleCategory::GetDeprecatedComment(const VehicleCategoryEnum vehicleCategory)
+			{
+            	return "";
+		}
             
             std::string VehicleCategory::GetLiteral() const 
             { 

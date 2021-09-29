@@ -112,6 +112,13 @@ namespace NET_ASAM_OPENSCENARIO
          * @return the position
          */
 		Position GetAttributeEndPosition(std::string& attributeName) const;
+
+    	/**
+		 * The start value position of an attribute in this element
+		 * @param attributeName name of the requested attribute
+		 * @return the position
+		 */
+		Position GetAttributeStartValuePosition(std::string& attributeName) const;
         /**
          * Is this node a mixed node
          * @return true if mixed node

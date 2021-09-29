@@ -241,6 +241,31 @@ namespace NET_ASAM_OPENSCENARIO
                 return std::dynamic_pointer_cast<IVehicle>(catalogElement)->GetName();
             return "";
         }
+        /**
+        * Provides the ParameterDeclarations of the catalogElement
+        * @param catalogElement the catalog element
+        * @return The list with the parameter declarations
+        */
+        std::vector<std::shared_ptr<IParameterDeclaration>> CatalogHelper::GetParameterDeclarations(std::shared_ptr<ICatalogElement>& catalogElement)
+        {
+            if (IsController(catalogElement))
+                return std::dynamic_pointer_cast<IController>(catalogElement)->GetParameterDeclarations();
+            if (IsEnvironment(catalogElement))
+                return std::dynamic_pointer_cast<IEnvironment>(catalogElement)->GetParameterDeclarations();
+            if (IsManeuver(catalogElement))
+                return std::dynamic_pointer_cast<IManeuver>(catalogElement)->GetParameterDeclarations();
+            if (IsMiscObject(catalogElement))
+                return std::dynamic_pointer_cast<IMiscObject>(catalogElement)->GetParameterDeclarations();
+            if (IsPedestrian(catalogElement))
+                return std::dynamic_pointer_cast<IPedestrian>(catalogElement)->GetParameterDeclarations();
+            if (IsRoute(catalogElement))
+                return std::dynamic_pointer_cast<IRoute>(catalogElement)->GetParameterDeclarations();
+            if (IsTrajectory(catalogElement))
+                return std::dynamic_pointer_cast<ITrajectory>(catalogElement)->GetParameterDeclarations();
+            if (IsVehicle(catalogElement))
+                return std::dynamic_pointer_cast<IVehicle>(catalogElement)->GetParameterDeclarations();
+            return std::vector<std::shared_ptr<IParameterDeclaration>>();
+        }
  
     }
 }

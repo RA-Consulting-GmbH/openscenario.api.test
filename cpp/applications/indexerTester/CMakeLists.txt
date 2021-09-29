@@ -35,24 +35,20 @@ antlr_target( XMLParser ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/an
              COMPILE_FLAGS -lib ${ANTLR_XMLLexer_OUTPUT_DIR} )
 
 
-################################################################
-# Include folders
-#include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src )
-#include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/xmlIndexer )
-#include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/antlr/xmlParser )
-#include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../externalLibs/TinyXML2 )
-#include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../common )
-#include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../externalLibs/Filesystem )
-#include_directories( ${ANTLR4_INCLUDE_DIRS} )
-#include_directories( ${ANTLR_XMLLexer_OUTPUT_DIR} )
-#include_directories( ${ANTLR_XMLParser_OUTPUT_DIR} )
 
 
 ################################################################
 # Source files
 set( SOURCES
-#    ${SOURCES}
-    "src/IndexerTester.cpp"
+  ${SOURCES}
+  "src/IndexerTester.cpp"
+  "../../externalLibs/TinyXML2/tinyxml2.cpp"
+  "../../openScenarioLib/src/xmlIndexer/AttributeInfo.cpp"
+  "../../openScenarioLib/src/xmlIndexer/ElementNode.cpp"
+  "../../openScenarioLib/src/xmlIndexer/AttributeNode.cpp"
+  "../../openScenarioLib/src/xmlIndexer/Position.cpp"
+  "../../openScenarioLib/src/xmlIndexer/PositionNode.cpp"
+  "../../openScenarioLib/src/xmlIndexer/PositionIndex.cpp"
 )
 
 # Header files
@@ -118,7 +114,6 @@ target_include_directories( ${PROJECT_NAME}
                             ${CMAKE_CURRENT_SOURCE_DIR}/../../externalLibs/TinyXML2
                             ${CMAKE_CURRENT_SOURCE_DIR}/../../externalLibs/Filesystem
                             ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/xmlIndexer
-                            ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/antlr/xmlParser
                             ${ANTLR4_INCLUDE_DIRS}
                             ${ANTLR_XMLLexer_OUTPUT_DIR}
                             ${ANTLR_XMLParser_OUTPUT_DIR}

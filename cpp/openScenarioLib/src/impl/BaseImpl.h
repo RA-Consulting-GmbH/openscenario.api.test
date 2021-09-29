@@ -56,45 +56,32 @@ namespace NET_ASAM_OPENSCENARIO
 			ParameterizedAttribute(const std::string parameterName, Textmarker& textMarker);
         };
 
-		/**
-		 * An attribute that is an expression.
-		 */
-		class ExpressionAttribute
-		{
-		public:
-			Textmarker textMarker;
-			std::string expression;
-
-			ExpressionAttribute(const std::string expression, Textmarker& textMarker);
-		};
-
         class BaseImplIlocator : public ILocator
         {
             std::map<std::string, std::shared_ptr<Textmarker>>& _attributeKeyToStartMarker;
-            std::map<std::string, std::shared_ptr<Textmarker>>& _attributeKeyToEndMarker;
-            Textmarker& _startMarker;
+			std::map<std::string, std::shared_ptr<Textmarker>>& _attributeKeyToEndMarker;
+			Textmarker& _startMarker;
             Textmarker& _endMarker;
 
         public:
-			BaseImplIlocator(std::map<std::string, std::shared_ptr<Textmarker>>& attributeKeyToStartMarker, std::map<std::string, std::shared_ptr<Textmarker>>& attributeKeyToEndMarker,
+			BaseImplIlocator(std::map<std::string, std::shared_ptr<Textmarker>>& attributeKeyToStartMarker, std::map<std::string, std::shared_ptr<Textmarker>>& attributeKeyToEndMarker, 
 				Textmarker& startMarker, Textmarker& endMarker);
 
-			Textmarker GetStartMarkerOfProperty(const std::string& propertyKey) override;
+			virtual Textmarker GetStartMarkerOfProperty(const std::string& propertyKey) override;
 
-			Textmarker GetStartMarker() override;
+			virtual Textmarker GetStartMarker() override;
 
-			Textmarker GetEndMarkerOfProperty(std::string& propertyKey) override;
+			virtual Textmarker GetEndMarkerOfProperty(const std::string& propertyKey) override;
 
-			Textmarker GetEndMarker() override;
+			virtual Textmarker GetEndMarker() override;
         };
 
 		std::map<std::string, std::shared_ptr<ParameterizedAttribute>> _attributeKeyToParameterName{};
-		std::map<std::string, std::shared_ptr<ExpressionAttribute>> _attributeKeyToExpression{};
-    	
+		
 		std::vector<std::string> _resolvedAttributes{};
         std::map<std::string, std::shared_ptr<Textmarker>> _attributeKeyToStartMarker{};
-        std::map<std::string, std::shared_ptr<Textmarker>> _attributeKeyToEndMarker{};
-        std::map<std::string, std::shared_ptr<void>> _adapters{};
+		std::map<std::string, std::shared_ptr<Textmarker>> _attributeKeyToEndMarker{};
+		std::map<std::string, std::shared_ptr<void>> _adapters{};
         Textmarker _startMarker;
         Textmarker _endMarker;
         std::weak_ptr<IOpenScenarioModelElement> _parent;
@@ -135,12 +122,6 @@ namespace NET_ASAM_OPENSCENARIO
 		 */
 		void CloneAttributeKeyToParameterNameMap(BaseImpl& baseImpl);
     	
-		/**
-		* Clones the attributeKeyToExpression property of this class into the cloned object.
-		* @param baseImpl  the cloned object to copy this object's attributeKeyToExpression into.
-		*/
-		void CloneAttributeKeyToExpressionMap(BaseImpl& baseImpl);
-
         /**
          * Sets an attribute that is represented by a parameter instead of a real value.
          * @param attributeKey the key of this attribute.
@@ -155,21 +136,6 @@ namespace NET_ASAM_OPENSCENARIO
          * @param attributeKey the key of this attribute.
          */
 		void RemoveAttributeParameter(const std::string attributeKey);
-
-		/**
-		 * Sets an attribute that is represented by an expression instead of a real value.
-		 * @param attributeKey the key of this attribute.
-		 * @param expression the expression.
-		 * @param textMarker The text marker for this object.
-		 */
-		void SetAttributeExpression(const std::string attributeKey, const std::string expression, Textmarker& textMarker);
-
-		/**
-		 * Removes a expression from an attribute.
-		 *
-		 * @param attributeKey the key of this attribute.
-		 */
-		void RemoveAttributeExpression(const std::string attributeKey);
 
         /**
          * Adds the resolved attribute value to the list of resolved parameters.
@@ -223,13 +189,13 @@ namespace NET_ASAM_OPENSCENARIO
          */
 		void PutPropertyStartMarker(std::string propertyKey, std::shared_ptr<Textmarker> startMarker);
 
-        /**
-         * Puts an end marker for a specific property
-         * @param propertyKey the key of the property
-         * @param endMarker the end marker
-         */
+		/**
+		 * Puts an end marker for a specific property
+		 * @param propertyKey the key of the property
+		 * @param endMarker the end marker
+		 */
 		void PutPropertyEndMarker(std::string propertyKey, std::shared_ptr<Textmarker> endMarker);
-
+		
 		std::vector<std::shared_ptr<ParameterValue>> GetParameterDefinitions() const override;
 
 		bool HasParameterDefinitions() override;
@@ -247,6 +213,7 @@ namespace NET_ASAM_OPENSCENARIO
          * @param value the string representation of the value that should be assigned to the property
          */
 		void ResolveParameter(std::shared_ptr<IParserMessageLogger>& logger, std::string& attributeKey, std::string& value) override;
+
 
         /**
          * The start marker of the this object in a file.
@@ -291,11 +258,19 @@ namespace NET_ASAM_OPENSCENARIO
          */
 		void SetParent(const std::weak_ptr<IOpenScenarioModelElement> parent);
 
-		virtual std::vector<std::string> GetExpressionAttributeKeys() const  override;
+		virtual void ResolveUnsignedIntExpression(std::string& attributeKey, unsigned int& value) override;
 
-		virtual void ResolveExpression(std::shared_ptr<IParserMessageLogger>& logger, std::string& attributeKey, std::string& expression, std::shared_ptr<std::map<std::string, std::shared_ptr<OscExpression::ExprValue>>> definedParameters) override;
+		virtual void ResolveIntExpression(std::string& attributeKey, int& value) override;
 
-		virtual std::string GetExpressionFromAttribute(std::string& attributeKey) const override;
+		virtual void ResolveBooleanExpression(std::string& attributeKey, bool& value) override;
+
+		virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;
+
+		virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;
+
+		virtual void ResolveUnsignedShortExpression(std::string& attributeKey, unsigned short& value) override;
+    	
+		virtual void ResolveDateTimeExpression(std::string& attributeKey, DateTime& value) override;
 
 
     };

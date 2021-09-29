@@ -5,7 +5,7 @@ message( STATUS "\n${PROJECT_NAME}" )
 
 
 ################################################################
-# Preprocessor settings
+# Preprocessor settings  
 if( WIN32 )
     add_definitions( -D_CRT_SECURE_NO_WARNINGS )
 else( WIN32 )
@@ -37,35 +37,38 @@ antlr_target( OscParamDefParser ${CMAKE_CURRENT_SOURCE_DIR}/src/antlr/OscParamDe
     COMPILE_FLAGS -lib ${ANTLR_OscParamDefLexer_OUTPUT_DIR}
     )
 
-
-################################################################
-# Include folders
-#include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src )
-#include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/antlr4cpp_generated_src/OscParamDefLexer )
-#include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../expressionsLib/inc )
-#include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../common )
-#include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/thirdParty/nlohmann/inc )
-#include_directories( ${ANTLR4_INCLUDE_DIRS} )
-#include_directories( ${ANTLR_OscParamDefLexer_OUTPUT_DIR} )
-#include_directories( ${ANTLR_OscParamDefParser_OUTPUT_DIR} )
-
-
 ################################################################
 # Specify all header and source files
-set( TEST_HEADERS
-#    ${TEST_HEADERS}
-    "inc/TestSpecification.hpp"
-    "inc/TestSpecificationReader.hpp"
-    "inc/ParamDefReader.h"
-    "inc/TestDescription.hpp"
-    "inc/TestSpecificationRunner.hpp"
-    "thirdParty/nlohmann/inc/json.hpp"
+
+set ( HEADERS
+	"src/test/TestSpecification.h"
+	"src/test/TestSpecificationReader.h"
+	"src/test/ParamDefReader.h"
+	"src/test/TestDescription.h"
+	"src/test/TestSpecificationRunner.h"
+	"thirdParty/nlohmann/inc/json.hpp"
 )
 
-set( TEST_SOURCES
-#    ${TEST_SOURCES}
+set( SOURCES
     "src/test/OpenScenarioExpressionsTest.cpp"
-    "src/test/ParamDefReader.cpp"
+	"src/test/ParamDefReader.cpp"
+	"src/test/TestSpecification.cpp"
+	"src/test/TestSpecificationReader.cpp"
+	"src/test/TestDescription.cpp"
+	"src/test/TestSpecificationRunner.cpp"
+
+)
+
+set( ANTLR_SOURCE_FILES
+    "src/antlr/OscParamDefParser.g4"
+	   "src/antlr/OscParamDefLexer.g4"
+
+)
+
+set( ANTLR_GENERATED
+    ${ANTLR_OscParamDefLexer_CXX_OUTPUTS}
+	  ${ANTLR_OscParamDefParser_CXX_OUTPUTS}
+
 )
 
 
@@ -83,25 +86,23 @@ endif()
 ################################################################
 # Create groups for VS
 if( MSVC )
-    # Groups for source files
-    source_group( Sources FILES ${TEST_SOURCES} )
-
-    # Groups for header files
-    source_group( Headers FILES ${TEST_HEADERS} )
-
-    # Groups for resource files
+    # Group for source files
+    source_group( Sources FILES ${SOURCES} )
+    # Group for header files
+    source_group( Headers FILES ${HEADERS} )
+    # Group for antlr source files
+    source_group( AntlrSources FILES ${ANTLR_SOURCE_FILES})
+    # Group for antlr generated files
+    source_group( Antlr FILES ${ANTLR_GENERATED})
+    # Group for resource files
     source_group( Resources FILES ${RESOURCE_FILES} )
-
-    # Group for antlr files
-    source_group( Antlr FILES ${ANTLR_OscParamDefLexer_CXX_OUTPUTS} ${ANTLR_OscParamDefParser_CXX_OUTPUTS} )
 endif()
-
 
 ################################################################
 # Add the executable by using cmake's var \${PROJECT_NAME}
-add_executable( ${PROJECT_NAME}
-                ${TEST_SOURCES} ${TEST_HEADERS} 
-                ${ANTLR_OscParamDefLexer_CXX_OUTPUTS}
+add_executable( ${PROJECT_NAME} 
+                ${SOURCES} 
+				        ${ANTLR_OscParamDefLexer_CXX_OUTPUTS}
                 ${ANTLR_OscParamDefParser_CXX_OUTPUTS}
                 ${RESOURCE_FILES} )
 
@@ -121,8 +122,7 @@ target_link_libraries( ${PROJECT_NAME}
 
 # Add include dirs
 target_include_directories( ${PROJECT_NAME}
-                    PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/inc
-                            ${CMAKE_CURRENT_SOURCE_DIR}/src
+                    PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src/test
                             ${CMAKE_CURRENT_SOURCE_DIR}/../../common
                             ${CMAKE_CURRENT_SOURCE_DIR}/../../expressionsLib/inc
                             ${CMAKE_CURRENT_SOURCE_DIR}/thirdParty/nlohmann/inc
