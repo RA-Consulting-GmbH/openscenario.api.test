@@ -19,6 +19,7 @@
 
 const std::string TestDescription::json = R"json(
 [
+
 {
 	"id" : 0,
 	"comment" : "test internal calculation maximal value for unsignedShort +1 (65535+1)",
@@ -319,7 +320,7 @@ const std::string TestDescription::json = R"json(
 	"dateTime testDateTime= 'TestDateTime';"],
 	"expr": "${$testDateTime + 1}",
 	"expectedError": {
-		"message": "Expressions are exclusively supported for numeric types or boolean type. Parameter '$testDateTime' is of not supported type 'dateTime'",
+		"message": "Expressions are exclusively supported for numeric types or boolean type or convertible string type. Parameter '$testDateTime' is of not supported type 'dateTime'",
 		"column": 2
 	}
 },
@@ -330,8 +331,29 @@ const std::string TestDescription::json = R"json(
 	"string testString= 'TestString';"],
 	"expr": "${$testString + 1}",
 	"expectedError": {
-		"message": "Expressions are exclusively supported for numeric types or boolean type. Parameter '$testString' is of not supported type 'string'",
+		"message": "Expressions are exclusively supported for numeric types or boolean type or convertible string type. Parameter '$testString' is not convertible to numeric type or to boolean type.",
 		"column": 2
+	}
+},
+{
+	"id" : 46,
+	"comment" : "String is allowed when convertible",
+	"parameterDefinitions": [
+	"string speed= '4.333';"],
+	"expr": "${$speed}",
+	"expectedValue": 4.333,
+	"expectedDatatype": "double"
+},
+{
+	"id" : 47,
+	"comment": "String is not allowed in expression calculation",
+	"parameterDefinitions": [
+	"string testString= '1.22';"],
+	"expr": "${$testString + 1}",
+	"expectedDatatype": "int",
+	"expectedError": {
+		"message": "Value '2.220000' cannot be converted to type 'int'",
+		"column": 0
 	}
 },
 {
@@ -657,6 +679,15 @@ const std::string TestDescription::json = R"json(
 		"message": "Value must be of type 'boolean'",
 		"column": 11
 	}
+},
+{
+	"id" : 86,
+	"comment" : "String is allowed when convertible",
+	"parameterDefinitions": [
+	"string speed= 'false';"],
+	"expr": "${$speed or false}",
+	"expectedValue": "false",
+	"expectedDatatype": "boolean"
 }
 
 

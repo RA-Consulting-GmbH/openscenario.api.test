@@ -21,43 +21,26 @@ namespace NET_ASAM_OPENSCENARIO
 {
     namespace v1_1
 	{
-		class TestFiles : public TestBase
+		class TestAlks : public TestBase
 		{
 
 		private :
-			static double epsilon;
+			static std::string pathNameCatalogs;
+			static std::string pathNameScenarios;
+			static std::string pathNameVariations;
+			bool TestFiles(std::vector<std::string> scenarioFiles, std::string path);
+
 		public:
 
-			TestFiles(std::string& executablePath);
+			TestAlks(std::string& executablePath);
 
-			bool TestSimpleSuccess();
+			bool TestScenarios();
 
-			bool TestParamsSuccess();
+			bool TestCatalogs();
 			
-			bool TestExpressionsSuccess();
+			bool TestVariations();
 
-			bool TestBomFile();
-
-			bool TestParamsFailure();
 			
-			bool TestExpressionsFailure();
-
-			bool TestParamsConversionInfo();
-
-			bool TestParamsConversion();
-
-			bool TestUnvalidXml();
-			bool TestUnknownElement();
-
-			bool TestWrongAttributes();
-
-			bool TestWrongEndElement();
-
-			bool TestCustomCommandAction();
-
-			bool TestFileNotFound() const;
-			
-			bool TestMultiChoiceElement();
 		};
 	}
 }
