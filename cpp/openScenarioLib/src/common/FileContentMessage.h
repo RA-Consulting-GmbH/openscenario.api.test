@@ -45,6 +45,8 @@ namespace NET_ASAM_OPENSCENARIO
          */
 		OPENSCENARIOLIB_EXP FileContentMessage(const std::string message, const ErrorLevel errorLevel, const Textmarker textmarker);
 
+        OPENSCENARIOLIB_EXP ~FileContentMessage() = default;
+
         /**
          * The text marker that enables the user to trace the message back to a file location
          * @return the text marker

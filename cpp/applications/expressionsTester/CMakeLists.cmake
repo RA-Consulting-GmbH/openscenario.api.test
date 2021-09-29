@@ -5,7 +5,7 @@ message( STATUS "\n${PROJECT_NAME}" )
 
 
 ################################################################
-# Preprocessor settings  
+# Preprocessor settings
 if( WIN32 )
     add_definitions( -D_CRT_SECURE_NO_WARNINGS )
 else( WIN32 )
@@ -27,7 +27,6 @@ message ( STATUS "Building all into: ${CMAKE_BINARY_DIR}" )
 
 ################################################################
 # Antlr
-#include_directories( ${ANTLR4_INCLUDE_DIRS} )
 antlr_target( OscParamDefLexer ${CMAKE_CURRENT_SOURCE_DIR}/src/antlr/OscParamDefLexer.g4 LEXER
     PACKAGE OscParamDef
     )
@@ -37,9 +36,21 @@ antlr_target( OscParamDefParser ${CMAKE_CURRENT_SOURCE_DIR}/src/antlr/OscParamDe
     COMPILE_FLAGS -lib ${ANTLR_OscParamDefLexer_OUTPUT_DIR}
     )
 
+
+################################################################
+# Include folders
+#include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src )
+#include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/antlr4cpp_generated_src/OscParamDefLexer )
+#include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../expressionsLib/inc )
+#include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../common )
+#include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/thirdParty/nlohmann/inc )
+#include_directories( ${ANTLR4_INCLUDE_DIRS} )
+#include_directories( ${ANTLR_OscParamDefLexer_OUTPUT_DIR} )
+#include_directories( ${ANTLR_OscParamDefParser_OUTPUT_DIR} )
+
+
 ################################################################
 # Specify all header and source files
-
 set ( HEADERS
 	"src/test/TestSpecification.h"
 	"src/test/TestSpecificationReader.h"
@@ -61,14 +72,13 @@ set( SOURCES
 
 set( ANTLR_SOURCE_FILES
     "src/antlr/OscParamDefParser.g4"
-	   "src/antlr/OscParamDefLexer.g4"
+	"src/antlr/OscParamDefLexer.g4"
 
 )
 
 set( ANTLR_GENERATED
     ${ANTLR_OscParamDefLexer_CXX_OUTPUTS}
-	  ${ANTLR_OscParamDefParser_CXX_OUTPUTS}
-
+	${ANTLR_OscParamDefParser_CXX_OUTPUTS}
 )
 
 
@@ -88,41 +98,47 @@ endif()
 if( MSVC )
     # Group for source files
     source_group( Sources FILES ${SOURCES} )
+
     # Group for header files
     source_group( Headers FILES ${HEADERS} )
+
     # Group for antlr source files
     source_group( AntlrSources FILES ${ANTLR_SOURCE_FILES})
+
     # Group for antlr generated files
     source_group( Antlr FILES ${ANTLR_GENERATED})
+
     # Group for resource files
     source_group( Resources FILES ${RESOURCE_FILES} )
 endif()
 
+
 ################################################################
 # Add the executable by using cmake's var \${PROJECT_NAME}
-add_executable( ${PROJECT_NAME} 
-                ${SOURCES} 
-				        ${ANTLR_OscParamDefLexer_CXX_OUTPUTS}
+add_executable( ${PROJECT_NAME}
+                ${SOURCES} ${HEADERS} 
+				${ANTLR_OscParamDefLexer_CXX_OUTPUTS}
                 ${ANTLR_OscParamDefParser_CXX_OUTPUTS}
                 ${RESOURCE_FILES} )
 
-if( ${BUILD_SHARED_LIBS} )
-    set( ANTLR_STATIC_SHARED  antlr4_shared )
-    message( STATUS "${PROJECT_NAME}: using Antlr shared" )
-else()
-    set( ANTLR_STATIC_SHARED  antlr4_static )
-    message( STATUS "${PROJECT_NAME}: using Antlr static" )
-endif()
+#if( ${BUILD_SHARED_LIBS} )
+#    set( ANTLR_STATIC_SHARED  antlr4_shared )
+#    message( STATUS "${PROJECT_NAME}: using Antlr shared" )
+#else()
+#    set( ANTLR_STATIC_SHARED  antlr4_static )
+#    message( STATUS "${PROJECT_NAME}: using Antlr static" )
+#endif()
 
 # Add libs
 target_link_libraries( ${PROJECT_NAME} 
                PRIVATE ExpressionsLib
-                       ${ANTLR_STATIC_SHARED}
+                       #antlr4_static #${ANTLR_STATIC_SHARED}
                        )
 
 # Add include dirs
 target_include_directories( ${PROJECT_NAME}
-                    PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src/test
+                    PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src
+                            ${CMAKE_CURRENT_SOURCE_DIR}/src/test
                             ${CMAKE_CURRENT_SOURCE_DIR}/../../common
                             ${CMAKE_CURRENT_SOURCE_DIR}/../../expressionsLib/inc
                             ${CMAKE_CURRENT_SOURCE_DIR}/thirdParty/nlohmann/inc
