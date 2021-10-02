@@ -278,4 +278,10 @@ namespace NET_ASAM_OPENSCENARIO
 	void BaseImpl::ResolveDoubleExpression(std::string& attributeKey, double& value)
 	{
 	}
+
+	bool BaseImpl::IsTypedStringAttribute(std::string& attributeKey)
+    {
+		return false;
+    }
+
 }

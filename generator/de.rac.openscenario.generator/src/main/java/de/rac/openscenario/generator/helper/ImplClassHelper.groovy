@@ -18,6 +18,7 @@
 import de.rac.openscenario.generator.cpp.CppDocHelper
 import de.rac.openscenario.uml.framework.UmlClass
 import de.rac.openscenario.uml.framework.UmlProperty
+import de.rac.openscenario.uml.framework.UmlType
 
 public class ImplClassHelper {
 
@@ -76,5 +77,12 @@ public class ImplClassHelper {
         return resultSet;
         
     }
+	
+	public boolean hasStringTypedValue(UmlType type) {
+		return  (type.name == "ParameterDeclaration"
+				|| type.name == "ParameterAssignment"
+				|| type.name == "ValueConstraint")
+		
+	}
 	
 }

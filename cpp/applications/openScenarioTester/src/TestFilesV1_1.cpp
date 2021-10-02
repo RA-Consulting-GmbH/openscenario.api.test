@@ -170,10 +170,10 @@ namespace NET_ASAM_OPENSCENARIO
 					"Syntax error in expression near '}'",
 					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(114, 108, kFilename)));
 				messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
-					"Expressions are exclusively supported for numeric types or boolean type or convertible string type. Parameter '$timeParam' is of not supported type 'dateTime'",
+					"Value must be numeric",
 					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(125, 48, kFilename)));
 				messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage(
-					"Expressions are exclusively supported for numeric types or boolean type or convertible string type. Parameter '$stringParam' is not convertible to numeric type or to boolean type.",
+					"Value must be numeric",
 					NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(133, 36, kFilename)));
 
 

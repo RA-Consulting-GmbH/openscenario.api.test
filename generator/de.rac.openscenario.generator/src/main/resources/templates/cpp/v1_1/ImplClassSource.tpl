@@ -525,7 +525,13 @@ namespace NET_ASAM_OPENSCENARIO
 <%-addResolveFunction(element, "double", "double")-%>
 <%-addResolveFunction(element, "int", "int")-%>
 <%-addResolveFunction(element, "dateTime", "DateTime")-%>
-		
+
+<%-if (helper.hasStringTypedValue(element)){-%>
+		bool <%=element.name.toClassName()%>Impl::IsTypedStringAttribute(std::string& attributeKey)
+		{
+			return (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE);
+		}
+<%-}-%>	
 
 <%-}-%>
     }

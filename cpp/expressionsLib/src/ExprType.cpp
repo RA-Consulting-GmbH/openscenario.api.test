@@ -103,6 +103,11 @@ namespace OscExpression
 		{
 			return kIt->second;
 		}
+		// Fix inconsistency between int/integer
+		if (literal == "integer")
+		{
+			return  ExprType::INT;
+		}
 		return nullptr;
 	}
 

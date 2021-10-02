@@ -3,7 +3,7 @@
  * Copyright 2020 by ASAM e.V.
  *
  * ASAM licenses this file under the Apache License, 
- * Version 2.0 (the "License"); you may not use this file except 
+ * Version 2.0 (the "License"); you may not use this file except 
  * in compliance with the License. 
  * You may obtain a copy of the License at
  *
@@ -17,7 +17,7 @@
  *-->
 <!DOCTYPE foo [ <!ENTITY myentity "my entity value" > ]> 
 <OpenSCENARIO xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="OpenSCENARIO.xsd" xmlns:m="http://www.w3.org/1998/Math/MathML">	
-  <FileHeader revMajor="0" revMinor="9" date="2001-10-26T21:32:52" description="Sample Scenario - Double Lane Changer" author="Andreas Biehn"/>
+  <FileHeader revMajor="0" revMinor="9" date="2001-10-26T21:32:52+4Z" description="Sample Scenario - Double Lane Changer" author="Andreas Biehn"/>
   <ParameterDeclarations/>
   <CatalogLocations>
     <VehicleCatalog>

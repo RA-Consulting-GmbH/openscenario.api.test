@@ -59,7 +59,8 @@ bool TestV1_1(std::string basePath )
 
 	auto result = true;
 
-	
+
+	result = testAlks.TestScenarios() && result;
 	result = testExamples.TestExample() && result;
 
 	result = testRangeChecker.TestParamsFailure() && result;
@@ -118,9 +119,9 @@ bool TestV1_1(std::string basePath )
 	result = testWriterApi.TestBomFile() && result;
 	
 	result = testDeprecated.TestDeprecatedSuccess() && result;
-	result = testAlks.TestScenarios() && result;
-	result = testAlks.TestCatalogs() && result;
-	result = testAlks.TestVariations() && result;
+
+	//result = testAlks.TestCatalogs() && result;
+	//result = testAlks.TestVariations() && result;
 
 	
 	return result;

@@ -272,7 +272,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* AbsoluteTargetLaneImpl::GetOpenScenarioFlexElement()
@@ -485,7 +485,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* AbsoluteTargetLaneOffsetImpl::GetOpenScenarioFlexElement()
@@ -698,7 +698,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* AbsoluteTargetSpeedImpl::GetOpenScenarioFlexElement()
@@ -911,7 +911,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* AccelerationConditionImpl::GetOpenScenarioFlexElement()
@@ -1188,7 +1188,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* AcquirePositionActionImpl::GetOpenScenarioFlexElement()
@@ -1376,7 +1376,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* ActImpl::GetOpenScenarioFlexElement()
@@ -1718,7 +1718,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* ActionImpl::GetOpenScenarioFlexElement()
@@ -2034,7 +2034,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* ActivateControllerActionImpl::GetOpenScenarioFlexElement()
@@ -2298,7 +2298,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* ActorsImpl::GetOpenScenarioFlexElement()
@@ -2574,7 +2574,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* AddEntityActionImpl::GetOpenScenarioFlexElement()
@@ -2762,7 +2762,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* AssignControllerActionImpl::GetOpenScenarioFlexElement()
@@ -3094,7 +3094,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* AssignRouteActionImpl::GetOpenScenarioFlexElement()
@@ -3315,7 +3315,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* AxleImpl::GetOpenScenarioFlexElement()
@@ -3732,7 +3732,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* AxlesImpl::GetOpenScenarioFlexElement()
@@ -4014,7 +4014,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* BoundingBoxImpl::GetOpenScenarioFlexElement()
@@ -4233,7 +4233,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* ByEntityConditionImpl::GetOpenScenarioFlexElement()
@@ -4452,7 +4452,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* ByObjectTypeImpl::GetOpenScenarioFlexElement()
@@ -4669,7 +4669,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* ByTypeImpl::GetOpenScenarioFlexElement()
@@ -4886,7 +4886,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* ByValueConditionImpl::GetOpenScenarioFlexElement()
@@ -5302,7 +5302,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* CatalogImpl::GetOpenScenarioFlexElement()
@@ -5984,7 +5984,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* CatalogDefinitionImpl::GetOpenScenarioFlexElement()
@@ -6172,7 +6172,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* CatalogLocationsImpl::GetOpenScenarioFlexElement()
@@ -6577,7 +6577,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* CatalogReferenceImpl::GetOpenScenarioFlexElement()
@@ -6913,7 +6913,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* CenterImpl::GetOpenScenarioFlexElement()
@@ -7228,7 +7228,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* CentralSwarmObjectImpl::GetOpenScenarioFlexElement()
@@ -7448,7 +7448,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* ClothoidImpl::GetOpenScenarioFlexElement()
@@ -7951,7 +7951,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* CollisionConditionImpl::GetOpenScenarioFlexElement()
@@ -8172,7 +8172,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* ConditionImpl::GetOpenScenarioFlexElement()
@@ -8577,7 +8577,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* ConditionGroupImpl::GetOpenScenarioFlexElement()
@@ -8793,7 +8793,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* ControlPointImpl::GetOpenScenarioFlexElement()
@@ -9092,7 +9092,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* ControllerImpl::GetOpenScenarioFlexElement()
@@ -9422,7 +9422,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* ControllerActionImpl::GetOpenScenarioFlexElement()
@@ -9672,7 +9672,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* ControllerCatalogLocationImpl::GetOpenScenarioFlexElement()
@@ -9860,7 +9860,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* ControllerDistributionImpl::GetOpenScenarioFlexElement()
@@ -10076,7 +10076,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* ControllerDistributionEntryImpl::GetOpenScenarioFlexElement()
@@ -10357,7 +10357,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* CustomCommandActionImpl::GetOpenScenarioFlexElement()
@@ -10620,7 +10620,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* DeleteEntityActionImpl::GetOpenScenarioFlexElement()
@@ -10773,7 +10773,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* DeterministicImpl::GetOpenScenarioFlexElement()
@@ -10989,7 +10989,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* DeterministicMultiParameterDistributionImpl::GetOpenScenarioFlexElement()
@@ -11177,7 +11177,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* DeterministicMultiParameterDistributionTypeImpl::GetOpenScenarioFlexElement()
@@ -11365,7 +11365,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* DeterministicParameterDistributionImpl::GetOpenScenarioFlexElement()
@@ -11586,7 +11586,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* DeterministicSingleParameterDistributionImpl::GetOpenScenarioFlexElement()
@@ -11834,7 +11834,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* DeterministicSingleParameterDistributionTypeImpl::GetOpenScenarioFlexElement()
@@ -12090,7 +12090,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* DimensionsImpl::GetOpenScenarioFlexElement()
@@ -12405,7 +12405,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* DirectoryImpl::GetOpenScenarioFlexElement()
@@ -12618,7 +12618,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* DistanceConditionImpl::GetOpenScenarioFlexElement()
@@ -13159,7 +13159,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* DistributionDefinitionImpl::GetOpenScenarioFlexElement()
@@ -13380,7 +13380,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* DistributionRangeImpl::GetOpenScenarioFlexElement()
@@ -13628,7 +13628,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* DistributionSetImpl::GetOpenScenarioFlexElement()
@@ -13844,7 +13844,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* DistributionSetElementImpl::GetOpenScenarioFlexElement()
@@ -14057,7 +14057,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* DynamicConstraintsImpl::GetOpenScenarioFlexElement()
@@ -14372,7 +14372,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* EndOfRoadConditionImpl::GetOpenScenarioFlexElement()
@@ -14585,7 +14585,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* EntitiesImpl::GetOpenScenarioFlexElement()
@@ -14859,7 +14859,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* EntityActionImpl::GetOpenScenarioFlexElement()
@@ -15147,7 +15147,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* EntityConditionImpl::GetOpenScenarioFlexElement()
@@ -15863,7 +15863,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* EntityObjectImpl::GetOpenScenarioFlexElement()
@@ -16195,7 +16195,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* EntityRefImpl::GetOpenScenarioFlexElement()
@@ -16415,7 +16415,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* EntitySelectionImpl::GetOpenScenarioFlexElement()
@@ -16663,7 +16663,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* EnvironmentImpl::GetOpenScenarioFlexElement()
@@ -17055,7 +17055,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* EnvironmentActionImpl::GetOpenScenarioFlexElement()
@@ -17276,7 +17276,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* EnvironmentCatalogLocationImpl::GetOpenScenarioFlexElement()
@@ -17464,7 +17464,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* EventImpl::GetOpenScenarioFlexElement()
@@ -17899,7 +17899,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* ExternalObjectReferenceImpl::GetOpenScenarioFlexElement()
@@ -18112,7 +18112,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* FileImpl::GetOpenScenarioFlexElement()
@@ -18325,7 +18325,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* FileHeaderImpl::GetOpenScenarioFlexElement()
@@ -18796,7 +18796,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* FinalSpeedImpl::GetOpenScenarioFlexElement()
@@ -19017,7 +19017,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* FogImpl::GetOpenScenarioFlexElement()
@@ -19265,7 +19265,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* FollowTrajectoryActionImpl::GetOpenScenarioFlexElement()
@@ -19637,7 +19637,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* GeoPositionImpl::GetOpenScenarioFlexElement()
@@ -19987,7 +19987,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* GlobalActionImpl::GetOpenScenarioFlexElement()
@@ -20319,7 +20319,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* HistogramImpl::GetOpenScenarioFlexElement()
@@ -20535,7 +20535,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* HistogramBinImpl::GetOpenScenarioFlexElement()
@@ -20783,7 +20783,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* InRoutePositionImpl::GetOpenScenarioFlexElement()
@@ -21039,7 +21039,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* InfrastructureActionImpl::GetOpenScenarioFlexElement()
@@ -21227,7 +21227,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* InitImpl::GetOpenScenarioFlexElement()
@@ -21415,7 +21415,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* InitActionsImpl::GetOpenScenarioFlexElement()
@@ -21747,7 +21747,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* KnotImpl::GetOpenScenarioFlexElement()
@@ -21960,7 +21960,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* LaneChangeActionImpl::GetOpenScenarioFlexElement()
@@ -22239,7 +22239,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* LaneChangeTargetImpl::GetOpenScenarioFlexElement()
@@ -22460,7 +22460,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* LaneOffsetActionImpl::GetOpenScenarioFlexElement()
@@ -22739,7 +22739,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* LaneOffsetActionDynamicsImpl::GetOpenScenarioFlexElement()
@@ -23016,7 +23016,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* LaneOffsetTargetImpl::GetOpenScenarioFlexElement()
@@ -23237,7 +23237,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* LanePositionImpl::GetOpenScenarioFlexElement()
@@ -23648,7 +23648,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* LateralActionImpl::GetOpenScenarioFlexElement()
@@ -23904,7 +23904,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* LateralDistanceActionImpl::GetOpenScenarioFlexElement()
@@ -24453,7 +24453,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* LicenseImpl::GetOpenScenarioFlexElement()
@@ -24820,7 +24820,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* LongitudinalActionImpl::GetOpenScenarioFlexElement()
@@ -25041,7 +25041,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* LongitudinalDistanceActionImpl::GetOpenScenarioFlexElement()
@@ -25641,7 +25641,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* ManeuverImpl::GetOpenScenarioFlexElement()
@@ -25994,7 +25994,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* ManeuverCatalogLocationImpl::GetOpenScenarioFlexElement()
@@ -26182,7 +26182,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* ManeuverGroupImpl::GetOpenScenarioFlexElement()
@@ -26611,7 +26611,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* MiscObjectImpl::GetOpenScenarioFlexElement()
@@ -27148,7 +27148,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* MiscObjectCatalogLocationImpl::GetOpenScenarioFlexElement()
@@ -27336,7 +27336,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* ModifyRuleImpl::GetOpenScenarioFlexElement()
@@ -27557,7 +27557,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* NoneImpl::GetOpenScenarioFlexElement()
@@ -27710,7 +27710,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* NormalDistributionImpl::GetOpenScenarioFlexElement()
@@ -28009,7 +28009,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* NurbsImpl::GetOpenScenarioFlexElement()
@@ -28343,7 +28343,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* ObjectControllerImpl::GetOpenScenarioFlexElement()
@@ -28564,7 +28564,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* OffroadConditionImpl::GetOpenScenarioFlexElement()
@@ -28777,7 +28777,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* OpenScenarioImpl::GetOpenScenarioFlexElement()
@@ -28996,7 +28996,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* OpenScenarioCategoryImpl::GetOpenScenarioFlexElement()
@@ -29252,7 +29252,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* OrientationImpl::GetOpenScenarioFlexElement()
@@ -29631,7 +29631,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* OverrideBrakeActionImpl::GetOpenScenarioFlexElement()
@@ -29904,7 +29904,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* OverrideClutchActionImpl::GetOpenScenarioFlexElement()
@@ -30177,7 +30177,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* OverrideControllerValueActionImpl::GetOpenScenarioFlexElement()
@@ -30520,7 +30520,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* OverrideGearActionImpl::GetOpenScenarioFlexElement()
@@ -30793,7 +30793,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* OverrideParkingBrakeActionImpl::GetOpenScenarioFlexElement()
@@ -31066,7 +31066,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* OverrideSteeringWheelActionImpl::GetOpenScenarioFlexElement()
@@ -31339,7 +31339,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* OverrideThrottleActionImpl::GetOpenScenarioFlexElement()
@@ -31612,7 +31612,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* ParameterActionImpl::GetOpenScenarioFlexElement()
@@ -31900,7 +31900,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* ParameterAddValueRuleImpl::GetOpenScenarioFlexElement()
@@ -32113,7 +32113,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* ParameterAssignmentImpl::GetOpenScenarioFlexElement()
@@ -32359,7 +32359,11 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
+		bool ParameterAssignmentImpl::IsTypedStringAttribute(std::string& attributeKey)
+		{
+			return (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE);
+		}
 
 
         IOpenScenarioFlexElement* ParameterConditionImpl::GetOpenScenarioFlexElement()
@@ -32699,7 +32703,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* ParameterDeclarationImpl::GetOpenScenarioFlexElement()
@@ -33056,7 +33060,11 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
+		bool ParameterDeclarationImpl::IsTypedStringAttribute(std::string& attributeKey)
+		{
+			return (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE);
+		}
 
 
         IOpenScenarioFlexElement* ParameterModifyActionImpl::GetOpenScenarioFlexElement()
@@ -33244,7 +33252,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* ParameterMultiplyByValueRuleImpl::GetOpenScenarioFlexElement()
@@ -33457,7 +33465,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* ParameterSetActionImpl::GetOpenScenarioFlexElement()
@@ -33670,7 +33678,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* ParameterValueDistributionImpl::GetOpenScenarioFlexElement()
@@ -33889,7 +33897,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* ParameterValueDistributionDefinitionImpl::GetOpenScenarioFlexElement()
@@ -34077,7 +34085,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* ParameterValueSetImpl::GetOpenScenarioFlexElement()
@@ -34293,7 +34301,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* PedestrianImpl::GetOpenScenarioFlexElement()
@@ -34882,7 +34890,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* PedestrianCatalogLocationImpl::GetOpenScenarioFlexElement()
@@ -35070,7 +35078,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* PerformanceImpl::GetOpenScenarioFlexElement()
@@ -35385,7 +35393,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* PhaseImpl::GetOpenScenarioFlexElement()
@@ -35721,7 +35729,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* PoissonDistributionImpl::GetOpenScenarioFlexElement()
@@ -35969,7 +35977,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* PolylineImpl::GetOpenScenarioFlexElement()
@@ -36185,7 +36193,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* PositionImpl::GetOpenScenarioFlexElement()
@@ -36742,7 +36750,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* PositionInLaneCoordinatesImpl::GetOpenScenarioFlexElement()
@@ -37066,7 +37074,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* PositionInRoadCoordinatesImpl::GetOpenScenarioFlexElement()
@@ -37330,7 +37338,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* PositionOfCurrentEntityImpl::GetOpenScenarioFlexElement()
@@ -37550,7 +37558,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* PrecipitationImpl::GetOpenScenarioFlexElement()
@@ -37878,7 +37886,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* PrivateImpl::GetOpenScenarioFlexElement()
@@ -38161,7 +38169,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* PrivateActionImpl::GetOpenScenarioFlexElement()
@@ -38622,7 +38630,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* ProbabilityDistributionSetImpl::GetOpenScenarioFlexElement()
@@ -38838,7 +38846,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* ProbabilityDistributionSetElementImpl::GetOpenScenarioFlexElement()
@@ -39111,7 +39119,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* PropertiesImpl::GetOpenScenarioFlexElement()
@@ -39385,7 +39393,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* PropertyImpl::GetOpenScenarioFlexElement()
@@ -39650,7 +39658,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* RangeImpl::GetOpenScenarioFlexElement()
@@ -39914,7 +39922,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* ReachPositionConditionImpl::GetOpenScenarioFlexElement()
@@ -40162,7 +40170,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* RelativeDistanceConditionImpl::GetOpenScenarioFlexElement()
@@ -40684,7 +40692,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* RelativeLanePositionImpl::GetOpenScenarioFlexElement()
@@ -41161,7 +41169,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* RelativeObjectPositionImpl::GetOpenScenarioFlexElement()
@@ -41578,7 +41586,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* RelativeRoadPositionImpl::GetOpenScenarioFlexElement()
@@ -41944,7 +41952,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* RelativeSpeedConditionImpl::GetOpenScenarioFlexElement()
@@ -42288,7 +42296,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* RelativeSpeedToMasterImpl::GetOpenScenarioFlexElement()
@@ -42600,7 +42608,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* RelativeTargetLaneImpl::GetOpenScenarioFlexElement()
@@ -42880,7 +42888,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* RelativeTargetLaneOffsetImpl::GetOpenScenarioFlexElement()
@@ -43160,7 +43168,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* RelativeTargetSpeedImpl::GetOpenScenarioFlexElement()
@@ -43564,7 +43572,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* RelativeWorldPositionImpl::GetOpenScenarioFlexElement()
@@ -43981,7 +43989,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* RoadConditionImpl::GetOpenScenarioFlexElement()
@@ -44229,7 +44237,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* RoadNetworkImpl::GetOpenScenarioFlexElement()
@@ -44541,7 +44549,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* RoadPositionImpl::GetOpenScenarioFlexElement()
@@ -44900,7 +44908,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* RouteImpl::GetOpenScenarioFlexElement()
@@ -45313,7 +45321,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* RouteCatalogLocationImpl::GetOpenScenarioFlexElement()
@@ -45501,7 +45509,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* RoutePositionImpl::GetOpenScenarioFlexElement()
@@ -45751,7 +45759,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* RouteRefImpl::GetOpenScenarioFlexElement()
@@ -45972,7 +45980,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* RoutingActionImpl::GetOpenScenarioFlexElement()
@@ -46228,7 +46236,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* ScenarioDefinitionImpl::GetOpenScenarioFlexElement()
@@ -46591,7 +46599,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* ScenarioObjectImpl::GetOpenScenarioFlexElement()
@@ -46870,7 +46878,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* SelectedEntitiesImpl::GetOpenScenarioFlexElement()
@@ -47146,7 +47154,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* ShapeImpl::GetOpenScenarioFlexElement()
@@ -47402,7 +47410,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* SimulationTimeConditionImpl::GetOpenScenarioFlexElement()
@@ -47679,7 +47687,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* SpeedActionImpl::GetOpenScenarioFlexElement()
@@ -47898,7 +47906,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* SpeedActionTargetImpl::GetOpenScenarioFlexElement()
@@ -48119,7 +48127,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* SpeedConditionImpl::GetOpenScenarioFlexElement()
@@ -48396,7 +48404,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* StandStillConditionImpl::GetOpenScenarioFlexElement()
@@ -48609,7 +48617,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* SteadyStateImpl::GetOpenScenarioFlexElement()
@@ -48830,7 +48838,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* StochasticImpl::GetOpenScenarioFlexElement()
@@ -49166,7 +49174,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* StochasticDistributionImpl::GetOpenScenarioFlexElement()
@@ -49414,7 +49422,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* StochasticDistributionTypeImpl::GetOpenScenarioFlexElement()
@@ -49787,7 +49795,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* StoryImpl::GetOpenScenarioFlexElement()
@@ -50140,7 +50148,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* StoryboardImpl::GetOpenScenarioFlexElement()
@@ -50422,7 +50430,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* StoryboardElementStateConditionImpl::GetOpenScenarioFlexElement()
@@ -50765,7 +50773,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* SunImpl::GetOpenScenarioFlexElement()
@@ -51080,7 +51088,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* SynchronizeActionImpl::GetOpenScenarioFlexElement()
@@ -51508,7 +51516,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* TargetDistanceSteadyStateImpl::GetOpenScenarioFlexElement()
@@ -51721,7 +51729,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* TargetTimeSteadyStateImpl::GetOpenScenarioFlexElement()
@@ -51934,7 +51942,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* TeleportActionImpl::GetOpenScenarioFlexElement()
@@ -52122,7 +52130,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* TimeHeadwayConditionImpl::GetOpenScenarioFlexElement()
@@ -52695,7 +52703,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* TimeOfDayImpl::GetOpenScenarioFlexElement()
@@ -52968,7 +52976,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* TimeOfDayConditionImpl::GetOpenScenarioFlexElement()
@@ -53245,7 +53253,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* TimeReferenceImpl::GetOpenScenarioFlexElement()
@@ -53466,7 +53474,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* TimeToCollisionConditionImpl::GetOpenScenarioFlexElement()
@@ -54007,7 +54015,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* TimeToCollisionConditionTargetImpl::GetOpenScenarioFlexElement()
@@ -54228,7 +54236,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* TimingImpl::GetOpenScenarioFlexElement()
@@ -54556,7 +54564,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* TrafficActionImpl::GetOpenScenarioFlexElement()
@@ -54909,7 +54917,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* TrafficDefinitionImpl::GetOpenScenarioFlexElement()
@@ -55188,7 +55196,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* TrafficSignalActionImpl::GetOpenScenarioFlexElement()
@@ -55409,7 +55417,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* TrafficSignalConditionImpl::GetOpenScenarioFlexElement()
@@ -55674,7 +55682,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* TrafficSignalControllerImpl::GetOpenScenarioFlexElement()
@@ -56062,7 +56070,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* TrafficSignalControllerActionImpl::GetOpenScenarioFlexElement()
@@ -56364,7 +56372,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* TrafficSignalControllerConditionImpl::GetOpenScenarioFlexElement()
@@ -56666,7 +56674,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* TrafficSignalStateImpl::GetOpenScenarioFlexElement()
@@ -56931,7 +56939,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* TrafficSignalStateActionImpl::GetOpenScenarioFlexElement()
@@ -57196,7 +57204,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* TrafficSinkActionImpl::GetOpenScenarioFlexElement()
@@ -57526,7 +57534,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* TrafficSourceActionImpl::GetOpenScenarioFlexElement()
@@ -57907,7 +57915,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* TrafficStopActionImpl::GetOpenScenarioFlexElement()
@@ -58060,7 +58068,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* TrafficSwarmActionImpl::GetOpenScenarioFlexElement()
@@ -58603,7 +58611,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* TrajectoryImpl::GetOpenScenarioFlexElement()
@@ -58993,7 +59001,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* TrajectoryCatalogLocationImpl::GetOpenScenarioFlexElement()
@@ -59181,7 +59189,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* TrajectoryFollowingModeImpl::GetOpenScenarioFlexElement()
@@ -59398,7 +59406,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* TrajectoryPositionImpl::GetOpenScenarioFlexElement()
@@ -59728,7 +59736,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* TrajectoryRefImpl::GetOpenScenarioFlexElement()
@@ -59949,7 +59957,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* TransitionDynamicsImpl::GetOpenScenarioFlexElement()
@@ -60285,7 +60293,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* TraveledDistanceConditionImpl::GetOpenScenarioFlexElement()
@@ -60498,7 +60506,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* TriggerImpl::GetOpenScenarioFlexElement()
@@ -60714,7 +60722,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* TriggeringEntitiesImpl::GetOpenScenarioFlexElement()
@@ -60994,7 +61002,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* UniformDistributionImpl::GetOpenScenarioFlexElement()
@@ -61182,7 +61190,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* UsedAreaImpl::GetOpenScenarioFlexElement()
@@ -61398,7 +61406,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* UserDefinedActionImpl::GetOpenScenarioFlexElement()
@@ -61586,7 +61594,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* UserDefinedDistributionImpl::GetOpenScenarioFlexElement()
@@ -61849,7 +61857,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* UserDefinedValueConditionImpl::GetOpenScenarioFlexElement()
@@ -62178,7 +62186,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* ValueConstraintImpl::GetOpenScenarioFlexElement()
@@ -62455,7 +62463,11 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
+		bool ValueConstraintImpl::IsTypedStringAttribute(std::string& attributeKey)
+		{
+			return (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE);
+		}
 
 
         IOpenScenarioFlexElement* ValueConstraintGroupImpl::GetOpenScenarioFlexElement()
@@ -62671,7 +62683,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* ValueSetDistributionImpl::GetOpenScenarioFlexElement()
@@ -62887,7 +62899,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* VehicleImpl::GetOpenScenarioFlexElement()
@@ -63486,7 +63498,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* VehicleCatalogLocationImpl::GetOpenScenarioFlexElement()
@@ -63674,7 +63686,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* VehicleCategoryDistributionImpl::GetOpenScenarioFlexElement()
@@ -63890,7 +63902,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* VehicleCategoryDistributionEntryImpl::GetOpenScenarioFlexElement()
@@ -64167,7 +64179,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* VertexImpl::GetOpenScenarioFlexElement()
@@ -64415,7 +64427,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* VisibilityActionImpl::GetOpenScenarioFlexElement()
@@ -64730,7 +64742,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* WaypointImpl::GetOpenScenarioFlexElement()
@@ -64982,7 +64994,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
             throw KeyNotSupportedException();
         }
-		
+
 
 
         IOpenScenarioFlexElement* WeatherImpl::GetOpenScenarioFlexElement()
@@ -65438,7 +65450,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* WindImpl::GetOpenScenarioFlexElement()
@@ -65702,7 +65714,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
 
         IOpenScenarioFlexElement* WorldPositionImpl::GetOpenScenarioFlexElement()
@@ -66170,7 +66182,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 		
 		}
-		
+
 
     }
 }

@@ -67,7 +67,10 @@ namespace NET_ASAM_OPENSCENARIO
 <%-addResolveFunction(element, "double", "double")-%>
 <%-addResolveFunction(element, "int", "int")-%>
 <%-addResolveFunction(element, "dateTime", "DateTime")-%>
-		
+<%-if (helper.hasStringTypedValue(element)){-%>
+			virtual bool IsTypedStringAttribute(std::string& attributeKey) override;
+
+<%-}-%>
             OPENSCENARIOLIB_EXP <%=element.name.toClassName()%>Impl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;

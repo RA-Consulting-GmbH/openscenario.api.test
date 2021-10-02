@@ -67,11 +67,13 @@ public class XmlParserClassHelper {
 					  type.name == "int" || 
 				      type.name == "unsignedShort" || 
 					  type.name == "double" || 
-					  type.name == "bool")
+					  type.name == "bool" ||
+					  type.name == "string")
 			
 			
 		}
 		
 		return false;
 	}
+	
 }

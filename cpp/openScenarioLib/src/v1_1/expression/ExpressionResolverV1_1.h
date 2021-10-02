@@ -54,15 +54,57 @@ namespace NET_ASAM_OPENSCENARIO
 			 */
 			std::shared_ptr<OscExpression::ExprType> CreateExprTypeFromSimpleType(SimpleType& actualSimpleType);
 
-        	/**
-             * Resolves all parameters of a parameterized object.
-             * @param logger to log messages
-             * @param expressionObject the expression object
-             * @param logUnresolvableParameter a flag whether unresolvable parameters should be logged.
-             */
+			/**
+			 * Resolves all parameters of a parameterized object.
+			 * @param logger to log messages
+			 * @param expressionObject the expression object
+			 * @param logUnresolvableParameter a flag whether unresolvable parameters should be logged.
+			 */
 			void ResolveInternal(std::shared_ptr<IParserMessageLogger>& logger, std::shared_ptr<IExpressionObject> expressionObject, const bool logUnresolvableParameter);
+			/**
+			 * Validates the parameter constraint groups. Puts the error messages to a list and add them to the logger if all constraint groups fail.
+			 * This represents an OR operation between the parameter constraint groups.
+			 * @param logger to log messages
+			 * @param parameterResolvedValue the resolvedValue for the parameter
+			 * @param parameterName name of the parameter
+			 * @param parameterType the type of the parameter
+			 * @param constraintGroups the vector with the constraint groups
+			 * @return false if all groups fail to validate (OR)
+			 */
+        	bool ValidateParameterConstraintGroups(std::shared_ptr<IParserMessageLogger>& logger,
+			                                       std::shared_ptr<OscExpression::ExprValue> parameterResolvedValue,
+			                                       std::string parameterName,
+			                                       std::shared_ptr<OscExpression::ExprType> parameterType,
+			                                       std::vector<std::shared_ptr<IValueConstraintGroup>>
+			                                       constraintGroups);
 
-        public:
+			/**
+			 * Validates the parameter constraints
+			 * @param logger to log messages
+			 * @param gatheredMessages messages to gather form the validation
+			 * @param parameterResolvedValue the resolvedValue for the parameter
+			 * @param parameterName name of the parameter
+			 * @param parameterType the type of the parameter
+			 * @param constraintGroup the constraintGroup
+			 * @return false if the group fails to validate (any constraint, AND)
+			 */
+			bool ValidateParameterConstraints(std::shared_ptr<IParserMessageLogger>& logger, std::vector<std::shared_ptr<FileContentMessage>>& gatheredMessages, std::shared_ptr<OscExpression::ExprValue> parameterResolvedValue, std::string parameterName, std::shared_ptr<OscExpression::ExprType> parameterType, std::shared_ptr<IValueConstraintGroup> constraintGroup);
+			/**
+			 * Validates the parameter constraints
+			 * @param logger to log messages
+			 * @param parameterResolvedValue the resolvedValue for the parameter
+			 * @param parameterName name of the parameter
+			 * @param parameterType the type of the parameter
+			 * @param constraint the constraint
+			 * @return fasle if validation of the single constraint fails
+			 */
+        	bool ValidateSingleParameterConstraint(std::shared_ptr<IParserMessageLogger>& logger,
+												   std::shared_ptr<OscExpression::ExprValue> parameterResolvedValue,
+												   std::string parameterName,
+			                                       std::shared_ptr<OscExpression::ExprType> parameterType,
+			                                       std::shared_ptr<IValueConstraint> constraint);
+
+		public:
 
 			/**
 			 * Constructor
@@ -91,8 +133,8 @@ namespace NET_ASAM_OPENSCENARIO
 			                                                  std::shared_ptr<IParserMessageLogger> logger,
 			                                                  std::map<std::string, std::string>& injectedParameters,
 			                                                  std::shared_ptr<IParameterDeclaration> parameterDeclaration);
-			void ResolveCatalogElement(std::shared_ptr<IParserMessageLogger>& logger,
-			                           std::shared_ptr<CatalogReferenceImpl> catalogReferenceImpl);
+			void LogParameterConstraintError(std::shared_ptr<IParserMessageLogger>& logger,
+			                                 std::shared_ptr<IParameterDeclaration> parameterDeclaration);
 
 		public:
         	/**
@@ -103,15 +145,6 @@ namespace NET_ASAM_OPENSCENARIO
              * @param logUnresolvableParameter a flag whether unresolvable parameters should be logged.
              */
 			void Resolve(std::shared_ptr<IParserMessageLogger>& logger, std::shared_ptr<BaseImpl> baseImpl, std::map<std::string, std::string>& injectedParameters, bool logUnresolvableParameter);
-			/**
-			 * Resolves the expression when value attribute has a expression
-			 * @param parameterDeclaration
-			 * @return nullptr if the value cannot be resolved or value is not an expression.
-			 */
-			std::shared_ptr<OscExpression::ExprValue> ResolveValueOfParameterDeclaration(std::shared_ptr<IParserMessageLogger>& logger, std::shared_ptr<IParameterDeclaration> parameterDeclaration);
-			std::shared_ptr<OscExpression::ExprValue> ResolveValueOfParameterAsignment(
-				std::shared_ptr<IParserMessageLogger>& logger,
-				std::shared_ptr<IParameterAssignment> parameterAssignment);
 
 			/**
              * Resolve all parameters with parameter assignments, instead of parameter definitions

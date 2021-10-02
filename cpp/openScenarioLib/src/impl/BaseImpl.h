@@ -266,7 +266,9 @@ namespace NET_ASAM_OPENSCENARIO
 
 		virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;
 
-		virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;
+    	virtual bool IsTypedStringAttribute(std::string& attributeKey) override;
+
+        virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;
 
 		virtual void ResolveUnsignedShortExpression(std::string& attributeKey, unsigned short& value) override;
     	

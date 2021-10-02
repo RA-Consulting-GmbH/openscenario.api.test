@@ -57,7 +57,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP AbsoluteSpeedImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -150,7 +149,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
-		
             OPENSCENARIOLIB_EXP AbsoluteTargetLaneImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -239,7 +237,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP AbsoluteTargetLaneOffsetImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -328,7 +325,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP AbsoluteTargetSpeedImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -418,7 +414,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP AccelerationConditionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -515,7 +510,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IPositionWriter> _position {};
         public:
 
-		
             OPENSCENARIOLIB_EXP AcquirePositionActionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -602,7 +596,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
-		
             OPENSCENARIOLIB_EXP ActImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -709,7 +702,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
-		
             OPENSCENARIOLIB_EXP ActionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -811,7 +803,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveBooleanExpression(std::string& attributeKey, bool& value) override;		
-		
             OPENSCENARIOLIB_EXP ActivateControllerActionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -910,7 +901,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveBooleanExpression(std::string& attributeKey, bool& value) override;		
-		
             OPENSCENARIOLIB_EXP ActorsImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -1005,7 +995,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IPositionWriter> _position {};
         public:
 
-		
             OPENSCENARIOLIB_EXP AddEntityActionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -1092,7 +1081,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveBooleanExpression(std::string& attributeKey, bool& value) override;		
-		
             OPENSCENARIOLIB_EXP AssignControllerActionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -1198,7 +1186,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<ICatalogReferenceWriter> _catalogReference {};
         public:
 
-		
             OPENSCENARIOLIB_EXP AssignRouteActionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -1290,7 +1277,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP AxleImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -1416,7 +1402,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<std::shared_ptr<IAxleWriter>> _additionalAxles {};
         public:
 
-		
             OPENSCENARIOLIB_EXP AxlesImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -1511,7 +1496,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IDimensionsWriter> _dimensions {};
         public:
 
-		
             OPENSCENARIOLIB_EXP BoundingBoxImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -1599,7 +1583,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IEntityConditionWriter> _entityCondition {};
         public:
 
-		
             OPENSCENARIOLIB_EXP ByEntityConditionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -1686,7 +1669,6 @@ namespace NET_ASAM_OPENSCENARIO
             ObjectType _type {};
         public:
 
-		
             OPENSCENARIOLIB_EXP ByObjectTypeImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -1774,7 +1756,6 @@ namespace NET_ASAM_OPENSCENARIO
             ObjectType _objectType {};
         public:
 
-		
             OPENSCENARIOLIB_EXP ByTypeImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -1868,7 +1849,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<ITrafficSignalControllerConditionWriter> _trafficSignalControllerCondition {};
         public:
 
-		
             OPENSCENARIOLIB_EXP ByValueConditionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -1984,7 +1964,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
-		
             OPENSCENARIOLIB_EXP CatalogImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -2128,7 +2107,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<ICatalogWriter> _catalog {};
         public:
 
-		
             OPENSCENARIOLIB_EXP CatalogDefinitionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -2218,7 +2196,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IRouteCatalogLocationWriter> _routeCatalog {};
         public:
 
-		
             OPENSCENARIOLIB_EXP CatalogLocationsImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -2333,7 +2310,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
-		
             OPENSCENARIOLIB_EXP CatalogReferenceImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -2443,7 +2419,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP CenterImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -2549,7 +2524,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<INamedReference<IEntity>> _entityRef {};
         public:
 
-		
             OPENSCENARIOLIB_EXP CentralSwarmObjectImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -2644,7 +2618,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP ClothoidImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -2782,7 +2755,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IByObjectTypeWriter> _byType {};
         public:
 
-		
             OPENSCENARIOLIB_EXP CollisionConditionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -2875,7 +2847,6 @@ namespace NET_ASAM_OPENSCENARIO
 
 			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP ConditionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -2989,7 +2960,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<std::shared_ptr<IConditionWriter>> _conditions {};
         public:
 
-		
             OPENSCENARIOLIB_EXP ConditionGroupImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -3078,7 +3048,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP ControlPointImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -3182,7 +3151,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
-		
             OPENSCENARIOLIB_EXP ControllerImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -3285,7 +3253,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IActivateControllerActionWriter> _activateControllerAction {};
         public:
 
-		
             OPENSCENARIOLIB_EXP ControllerActionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -3376,7 +3343,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IDirectoryWriter> _directory {};
         public:
 
-		
             OPENSCENARIOLIB_EXP ControllerCatalogLocationImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -3459,7 +3425,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<std::shared_ptr<IControllerDistributionEntryWriter>> _controllerDistributionEntries {};
         public:
 
-		
             OPENSCENARIOLIB_EXP ControllerDistributionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -3548,7 +3513,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP ControllerDistributionEntryImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -3646,7 +3610,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
-		
             OPENSCENARIOLIB_EXP CustomCommandActionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -3742,7 +3705,6 @@ namespace NET_ASAM_OPENSCENARIO
         private:
         public:
 
-		
             OPENSCENARIOLIB_EXP DeleteEntityActionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -3821,7 +3783,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<std::shared_ptr<IDeterministicParameterDistributionWriter>> _deterministicParameterDistributions {};
         public:
 
-		
             OPENSCENARIOLIB_EXP DeterministicImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -3907,7 +3868,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IDeterministicMultiParameterDistributionTypeWriter> _deterministicMultiParameterDistributionType {};
         public:
 
-		
             OPENSCENARIOLIB_EXP DeterministicMultiParameterDistributionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -3990,7 +3950,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IValueSetDistributionWriter> _valueSetDistribution {};
         public:
 
-		
             OPENSCENARIOLIB_EXP DeterministicMultiParameterDistributionTypeImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -4074,7 +4033,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IDeterministicSingleParameterDistributionWriter> _deterministicSingleParameterDistribution {};
         public:
 
-		
             OPENSCENARIOLIB_EXP DeterministicParameterDistributionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -4163,7 +4121,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
-		
             OPENSCENARIOLIB_EXP DeterministicSingleParameterDistributionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -4257,7 +4214,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IUserDefinedDistributionWriter> _userDefinedDistribution {};
         public:
 
-		
             OPENSCENARIOLIB_EXP DeterministicSingleParameterDistributionTypeImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -4351,7 +4307,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP DimensionsImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -4458,7 +4413,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
-		
             OPENSCENARIOLIB_EXP DirectoryImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -4554,7 +4508,6 @@ namespace NET_ASAM_OPENSCENARIO
 
 			virtual void ResolveBooleanExpression(std::string& attributeKey, bool& value) override;		
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP DistanceConditionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -4692,7 +4645,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IStochasticWriter> _stochastic {};
         public:
 
-		
             OPENSCENARIOLIB_EXP DistributionDefinitionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -4781,7 +4733,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP DistributionRangeImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -4873,7 +4824,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<std::shared_ptr<IDistributionSetElementWriter>> _elements {};
         public:
 
-		
             OPENSCENARIOLIB_EXP DistributionSetImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -4960,7 +4910,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
-		
             OPENSCENARIOLIB_EXP DistributionSetElementImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -5051,7 +5000,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP DynamicConstraintsImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -5158,7 +5106,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP EndOfRoadConditionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -5247,7 +5194,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<std::shared_ptr<IEntitySelectionWriter>> _entitySelections {};
         public:
 
-		
             OPENSCENARIOLIB_EXP EntitiesImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -5342,7 +5288,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IDeleteEntityActionWriter> _deleteEntityAction {};
         public:
 
-		
             OPENSCENARIOLIB_EXP EntityActionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -5450,7 +5395,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IRelativeDistanceConditionWriter> _relativeDistanceCondition {};
         public:
 
-		
             OPENSCENARIOLIB_EXP EntityConditionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -5585,7 +5529,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IExternalObjectReferenceWriter> _externalObjectReference {};
         public:
 
-		
             OPENSCENARIOLIB_EXP EntityObjectImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -5684,7 +5627,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<INamedReference<IEntity>> _entityRef {};
         public:
 
-		
             OPENSCENARIOLIB_EXP EntityRefImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -5774,7 +5716,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
-		
             OPENSCENARIOLIB_EXP EntitySelectionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -5871,7 +5812,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
-		
             OPENSCENARIOLIB_EXP EnvironmentImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -5981,7 +5921,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<ICatalogReferenceWriter> _catalogReference {};
         public:
 
-		
             OPENSCENARIOLIB_EXP EnvironmentActionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -6068,7 +6007,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IDirectoryWriter> _directory {};
         public:
 
-		
             OPENSCENARIOLIB_EXP EnvironmentCatalogLocationImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -6157,7 +6095,6 @@ namespace NET_ASAM_OPENSCENARIO
 
 			virtual void ResolveUnsignedIntExpression(std::string& attributeKey, unsigned int& value) override;		
 			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
-		
             OPENSCENARIOLIB_EXP EventImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -6275,7 +6212,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
-		
             OPENSCENARIOLIB_EXP ExternalObjectReferenceImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -6364,7 +6300,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
-		
             OPENSCENARIOLIB_EXP FileImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -6460,7 +6395,6 @@ namespace NET_ASAM_OPENSCENARIO
 			virtual void ResolveUnsignedShortExpression(std::string& attributeKey, unsigned short& value) override;		
 			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
 			virtual void ResolveDateTimeExpression(std::string& attributeKey, DateTime& value) override;		
-		
             OPENSCENARIOLIB_EXP FileHeaderImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -6589,7 +6523,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IRelativeSpeedToMasterWriter> _relativeSpeedToMaster {};
         public:
 
-		
             OPENSCENARIOLIB_EXP FinalSpeedImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -6678,7 +6611,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP FogImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -6776,7 +6708,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP FollowTrajectoryActionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -6888,7 +6819,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP GeoPositionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -7002,7 +6932,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<ITrafficActionWriter> _trafficAction {};
         public:
 
-		
             OPENSCENARIOLIB_EXP GlobalActionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -7101,7 +7030,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<std::shared_ptr<IHistogramBinWriter>> _bins {};
         public:
 
-		
             OPENSCENARIOLIB_EXP HistogramImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -7189,7 +7117,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP HistogramBinImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -7283,7 +7210,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IPositionInLaneCoordinatesWriter> _fromLaneCoordinates {};
         public:
 
-		
             OPENSCENARIOLIB_EXP InRoutePositionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -7374,7 +7300,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<ITrafficSignalActionWriter> _trafficSignalAction {};
         public:
 
-		
             OPENSCENARIOLIB_EXP InfrastructureActionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -7457,7 +7382,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IInitActionsWriter> _actions {};
         public:
 
-		
             OPENSCENARIOLIB_EXP InitImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -7542,7 +7466,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<std::shared_ptr<IPrivateWriter>> _privates {};
         public:
 
-		
             OPENSCENARIOLIB_EXP InitActionsImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -7643,7 +7566,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP KnotImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -7734,7 +7656,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP LaneChangeActionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -7831,7 +7752,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IAbsoluteTargetLaneWriter> _absoluteTargetLane {};
         public:
 
-		
             OPENSCENARIOLIB_EXP LaneChangeTargetImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -7921,7 +7841,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveBooleanExpression(std::string& attributeKey, bool& value) override;		
-		
             OPENSCENARIOLIB_EXP LaneOffsetActionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -8019,7 +7938,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP LaneOffsetActionDynamicsImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -8117,7 +8035,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IAbsoluteTargetLaneOffsetWriter> _absoluteTargetLaneOffset {};
         public:
 
-		
             OPENSCENARIOLIB_EXP LaneOffsetTargetImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -8210,7 +8127,6 @@ namespace NET_ASAM_OPENSCENARIO
 
 			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP LanePositionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -8331,7 +8247,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<ILateralDistanceActionWriter> _lateralDistanceAction {};
         public:
 
-		
             OPENSCENARIOLIB_EXP LateralActionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -8430,7 +8345,6 @@ namespace NET_ASAM_OPENSCENARIO
 
 			virtual void ResolveBooleanExpression(std::string& attributeKey, bool& value) override;		
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP LateralDistanceActionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -8571,7 +8485,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
-		
             OPENSCENARIOLIB_EXP LicenseImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -8687,7 +8600,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<ILongitudinalDistanceActionWriter> _longitudinalDistanceAction {};
         public:
 
-		
             OPENSCENARIOLIB_EXP LongitudinalActionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -8783,7 +8695,6 @@ namespace NET_ASAM_OPENSCENARIO
 
 			virtual void ResolveBooleanExpression(std::string& attributeKey, bool& value) override;		
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP LongitudinalDistanceActionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -8932,7 +8843,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
-		
             OPENSCENARIOLIB_EXP ManeuverImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -9036,7 +8946,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IDirectoryWriter> _directory {};
         public:
 
-		
             OPENSCENARIOLIB_EXP ManeuverCatalogLocationImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -9125,7 +9034,6 @@ namespace NET_ASAM_OPENSCENARIO
 
 			virtual void ResolveUnsignedIntExpression(std::string& attributeKey, unsigned int& value) override;		
 			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
-		
             OPENSCENARIOLIB_EXP ManeuverGroupImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -9248,7 +9156,6 @@ namespace NET_ASAM_OPENSCENARIO
 
 			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP MiscObjectImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -9380,7 +9287,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IDirectoryWriter> _directory {};
         public:
 
-		
             OPENSCENARIOLIB_EXP MiscObjectCatalogLocationImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -9464,7 +9370,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IParameterMultiplyByValueRuleWriter> _multiplyByValue {};
         public:
 
-		
             OPENSCENARIOLIB_EXP ModifyRuleImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -9550,7 +9455,6 @@ namespace NET_ASAM_OPENSCENARIO
         private:
         public:
 
-		
             OPENSCENARIOLIB_EXP NoneImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -9632,7 +9536,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP NormalDistributionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -9736,7 +9639,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveUnsignedIntExpression(std::string& attributeKey, unsigned int& value) override;		
-		
             OPENSCENARIOLIB_EXP NurbsImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -9839,7 +9741,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IControllerWriter> _controller {};
         public:
 
-		
             OPENSCENARIOLIB_EXP ObjectControllerImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -9927,7 +9828,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP OffroadConditionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -10016,7 +9916,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IOpenScenarioCategoryWriter> _openScenarioCategory {};
         public:
 
-		
             OPENSCENARIOLIB_EXP OpenScenarioImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -10105,7 +10004,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IParameterValueDistributionDefinitionWriter> _parameterValueDistributionDefinition {};
         public:
 
-		
             OPENSCENARIOLIB_EXP OpenScenarioCategoryImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -10200,7 +10098,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP OrientationImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -10318,7 +10215,6 @@ namespace NET_ASAM_OPENSCENARIO
 
 			virtual void ResolveBooleanExpression(std::string& attributeKey, bool& value) override;		
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP OverrideBrakeActionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -10418,7 +10314,6 @@ namespace NET_ASAM_OPENSCENARIO
 
 			virtual void ResolveBooleanExpression(std::string& attributeKey, bool& value) override;		
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP OverrideClutchActionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -10520,7 +10415,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IOverrideGearActionWriter> _gear {};
         public:
 
-		
             OPENSCENARIOLIB_EXP OverrideControllerValueActionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -10626,7 +10520,6 @@ namespace NET_ASAM_OPENSCENARIO
 
 			virtual void ResolveBooleanExpression(std::string& attributeKey, bool& value) override;		
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP OverrideGearActionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -10726,7 +10619,6 @@ namespace NET_ASAM_OPENSCENARIO
 
 			virtual void ResolveBooleanExpression(std::string& attributeKey, bool& value) override;		
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP OverrideParkingBrakeActionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -10826,7 +10718,6 @@ namespace NET_ASAM_OPENSCENARIO
 
 			virtual void ResolveBooleanExpression(std::string& attributeKey, bool& value) override;		
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP OverrideSteeringWheelActionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -10926,7 +10817,6 @@ namespace NET_ASAM_OPENSCENARIO
 
 			virtual void ResolveBooleanExpression(std::string& attributeKey, bool& value) override;		
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP OverrideThrottleActionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -11025,7 +10915,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IParameterModifyActionWriter> _modifyAction {};
         public:
 
-		
             OPENSCENARIOLIB_EXP ParameterActionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -11122,7 +11011,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP ParameterAddValueRuleImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -11212,7 +11100,8 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
-		
+			virtual bool IsTypedStringAttribute(std::string& attributeKey) override;
+
             OPENSCENARIOLIB_EXP ParameterAssignmentImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -11306,7 +11195,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
-		
             OPENSCENARIOLIB_EXP ParameterConditionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -11416,7 +11304,8 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
-		
+			virtual bool IsTypedStringAttribute(std::string& attributeKey) override;
+
             OPENSCENARIOLIB_EXP ParameterDeclarationImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -11523,7 +11412,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IModifyRuleWriter> _rule {};
         public:
 
-		
             OPENSCENARIOLIB_EXP ParameterModifyActionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -11607,7 +11495,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP ParameterMultiplyByValueRuleImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -11696,7 +11583,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
-		
             OPENSCENARIOLIB_EXP ParameterSetActionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -11785,7 +11671,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IDistributionDefinitionWriter> _distributionDefinition {};
         public:
 
-		
             OPENSCENARIOLIB_EXP ParameterValueDistributionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -11872,7 +11757,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IParameterValueDistributionWriter> _parameterValueDistribution {};
         public:
 
-		
             OPENSCENARIOLIB_EXP ParameterValueDistributionDefinitionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -11955,7 +11839,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<std::shared_ptr<IParameterAssignmentWriter>> _parameterAssignments {};
         public:
 
-		
             OPENSCENARIOLIB_EXP ParameterValueSetImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -12050,7 +11933,6 @@ namespace NET_ASAM_OPENSCENARIO
 
 			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP PedestrianImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -12191,7 +12073,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IDirectoryWriter> _directory {};
         public:
 
-		
             OPENSCENARIOLIB_EXP PedestrianCatalogLocationImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -12277,7 +12158,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP PerformanceImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -12387,7 +12267,6 @@ namespace NET_ASAM_OPENSCENARIO
 
 			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP PhaseImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -12493,7 +12372,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP PoissonDistributionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -12585,7 +12463,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<std::shared_ptr<IVertexWriter>> _vertices {};
         public:
 
-		
             OPENSCENARIOLIB_EXP PolylineImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -12680,7 +12557,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<ITrajectoryPositionWriter> _trajectoryPosition {};
         public:
 
-		
             OPENSCENARIOLIB_EXP PositionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -12803,7 +12679,6 @@ namespace NET_ASAM_OPENSCENARIO
 
 			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP PositionInLaneCoordinatesImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -12911,7 +12786,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP PositionInRoadCoordinatesImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -13008,7 +12882,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<INamedReference<IEntity>> _entityRef {};
         public:
 
-		
             OPENSCENARIOLIB_EXP PositionOfCurrentEntityImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -13099,7 +12972,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP PrecipitationImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -13206,7 +13078,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<std::shared_ptr<IPrivateActionWriter>> _privateActions {};
         public:
 
-		
             OPENSCENARIOLIB_EXP PrivateImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -13308,7 +13179,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IRoutingActionWriter> _routingAction {};
         public:
 
-		
             OPENSCENARIOLIB_EXP PrivateActionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -13419,7 +13289,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<std::shared_ptr<IProbabilityDistributionSetElementWriter>> _elements {};
         public:
 
-		
             OPENSCENARIOLIB_EXP ProbabilityDistributionSetImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -13508,7 +13377,6 @@ namespace NET_ASAM_OPENSCENARIO
 
 			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP ProbabilityDistributionSetElementImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -13606,7 +13474,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<std::shared_ptr<IFileWriter>> _files {};
         public:
 
-		
             OPENSCENARIOLIB_EXP PropertiesImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -13701,7 +13568,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
-		
             OPENSCENARIOLIB_EXP PropertyImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -13800,7 +13666,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP RangeImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -13899,7 +13764,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP ReachPositionConditionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -13998,7 +13862,6 @@ namespace NET_ASAM_OPENSCENARIO
 
 			virtual void ResolveBooleanExpression(std::string& attributeKey, bool& value) override;		
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP RelativeDistanceConditionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -14138,7 +14001,6 @@ namespace NET_ASAM_OPENSCENARIO
 
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
 			virtual void ResolveIntExpression(std::string& attributeKey, int& value) override;		
-		
             OPENSCENARIOLIB_EXP RelativeLanePositionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -14271,7 +14133,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP RelativeObjectPositionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -14394,7 +14255,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP RelativeRoadPositionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -14507,7 +14367,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP RelativeSpeedConditionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -14616,7 +14475,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP RelativeSpeedToMasterImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -14719,7 +14577,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveIntExpression(std::string& attributeKey, int& value) override;		
-		
             OPENSCENARIOLIB_EXP RelativeTargetLaneImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -14818,7 +14675,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP RelativeTargetLaneOffsetImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -14920,7 +14776,6 @@ namespace NET_ASAM_OPENSCENARIO
 
 			virtual void ResolveBooleanExpression(std::string& attributeKey, bool& value) override;		
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP RelativeTargetSpeedImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -15040,7 +14895,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP RelativeWorldPositionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -15161,7 +15015,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP RoadConditionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -15256,7 +15109,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IUsedAreaWriter> _usedArea {};
         public:
 
-		
             OPENSCENARIOLIB_EXP RoadNetworkImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -15359,7 +15211,6 @@ namespace NET_ASAM_OPENSCENARIO
 
 			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP RoadPositionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -15474,7 +15325,6 @@ namespace NET_ASAM_OPENSCENARIO
 
 			virtual void ResolveBooleanExpression(std::string& attributeKey, bool& value) override;		
 			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
-		
             OPENSCENARIOLIB_EXP RouteImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -15587,7 +15437,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IDirectoryWriter> _directory {};
         public:
 
-		
             OPENSCENARIOLIB_EXP RouteCatalogLocationImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -15672,7 +15521,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IInRoutePositionWriter> _inRoutePosition {};
         public:
 
-		
             OPENSCENARIOLIB_EXP RoutePositionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -15764,7 +15612,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<ICatalogReferenceWriter> _catalogReference {};
         public:
 
-		
             OPENSCENARIOLIB_EXP RouteRefImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -15853,7 +15700,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IAcquirePositionActionWriter> _acquirePositionAction {};
         public:
 
-		
             OPENSCENARIOLIB_EXP RoutingActionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -15948,7 +15794,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IStoryboardWriter> _storyboard {};
         public:
 
-		
             OPENSCENARIOLIB_EXP ScenarioDefinitionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -16055,7 +15900,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
-		
             OPENSCENARIOLIB_EXP ScenarioObjectImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -16152,7 +15996,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<std::shared_ptr<IByTypeWriter>> _byType {};
         public:
 
-		
             OPENSCENARIOLIB_EXP SelectedEntitiesImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -16247,7 +16090,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<INurbsWriter> _nurbs {};
         public:
 
-		
             OPENSCENARIOLIB_EXP ShapeImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -16340,7 +16182,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP SimulationTimeConditionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -16438,7 +16279,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<ISpeedActionTargetWriter> _speedActionTarget {};
         public:
 
-		
             OPENSCENARIOLIB_EXP SpeedActionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -16526,7 +16366,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IAbsoluteTargetSpeedWriter> _absoluteTargetSpeed {};
         public:
 
-		
             OPENSCENARIOLIB_EXP SpeedActionTargetImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -16615,7 +16454,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP SpeedConditionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -16713,7 +16551,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP StandStillConditionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -16802,7 +16639,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<ITargetTimeSteadyStateWriter> _targetTimeSteadyState {};
         public:
 
-		
             OPENSCENARIOLIB_EXP SteadyStateImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -16893,7 +16729,6 @@ namespace NET_ASAM_OPENSCENARIO
 
 			virtual void ResolveUnsignedIntExpression(std::string& attributeKey, unsigned int& value) override;		
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP StochasticImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -16999,7 +16834,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
-		
             OPENSCENARIOLIB_EXP StochasticDistributionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -17096,7 +16930,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IUserDefinedDistributionWriter> _userDefinedDistribution {};
         public:
 
-		
             OPENSCENARIOLIB_EXP StochasticDistributionTypeImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -17202,7 +17035,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
-		
             OPENSCENARIOLIB_EXP StoryImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -17308,7 +17140,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<ITriggerWriter> _stopTrigger {};
         public:
 
-		
             OPENSCENARIOLIB_EXP StoryboardImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -17404,7 +17235,6 @@ namespace NET_ASAM_OPENSCENARIO
             StoryboardElementType _storyboardElementType {};
         public:
 
-		
             OPENSCENARIOLIB_EXP StoryboardElementStateConditionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -17513,7 +17343,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP SunImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -17625,7 +17454,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP SynchronizeActionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -17744,7 +17572,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP TargetDistanceSteadyStateImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -17833,7 +17660,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP TargetTimeSteadyStateImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -17921,7 +17747,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IPositionWriter> _position {};
         public:
 
-		
             OPENSCENARIOLIB_EXP TeleportActionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -18012,7 +17837,6 @@ namespace NET_ASAM_OPENSCENARIO
 
 			virtual void ResolveBooleanExpression(std::string& attributeKey, bool& value) override;		
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP TimeHeadwayConditionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -18157,7 +17981,6 @@ namespace NET_ASAM_OPENSCENARIO
 
 			virtual void ResolveBooleanExpression(std::string& attributeKey, bool& value) override;		
 			virtual void ResolveDateTimeExpression(std::string& attributeKey, DateTime& value) override;		
-		
             OPENSCENARIOLIB_EXP TimeOfDayImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -18256,7 +18079,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveDateTimeExpression(std::string& attributeKey, DateTime& value) override;		
-		
             OPENSCENARIOLIB_EXP TimeOfDayConditionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -18354,7 +18176,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<ITimingWriter> _timing {};
         public:
 
-		
             OPENSCENARIOLIB_EXP TimeReferenceImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -18449,7 +18270,6 @@ namespace NET_ASAM_OPENSCENARIO
 
 			virtual void ResolveBooleanExpression(std::string& attributeKey, bool& value) override;		
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP TimeToCollisionConditionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -18587,7 +18407,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IEntityRefWriter> _entityRef {};
         public:
 
-		
             OPENSCENARIOLIB_EXP TimeToCollisionConditionTargetImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -18677,7 +18496,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP TimingImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -18788,7 +18606,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
-		
             OPENSCENARIOLIB_EXP TrafficActionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -18895,7 +18712,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
-		
             OPENSCENARIOLIB_EXP TrafficDefinitionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -18992,7 +18808,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<ITrafficSignalStateActionWriter> _trafficSignalStateAction {};
         public:
 
-		
             OPENSCENARIOLIB_EXP TrafficSignalActionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -19081,7 +18896,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
-		
             OPENSCENARIOLIB_EXP TrafficSignalConditionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -19183,7 +18997,6 @@ namespace NET_ASAM_OPENSCENARIO
 
 			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP TrafficSignalControllerImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -19299,7 +19112,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
-		
             OPENSCENARIOLIB_EXP TrafficSignalControllerActionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -19405,7 +19217,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
-		
             OPENSCENARIOLIB_EXP TrafficSignalControllerConditionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -19510,7 +19321,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
-		
             OPENSCENARIOLIB_EXP TrafficSignalStateImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -19609,7 +19419,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
-		
             OPENSCENARIOLIB_EXP TrafficSignalStateActionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -19710,7 +19519,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP TrafficSinkActionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -19820,7 +19628,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP TrafficSourceActionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -19933,7 +19740,6 @@ namespace NET_ASAM_OPENSCENARIO
         private:
         public:
 
-		
             OPENSCENARIOLIB_EXP TrafficStopActionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -20021,7 +19827,6 @@ namespace NET_ASAM_OPENSCENARIO
 
 			virtual void ResolveUnsignedIntExpression(std::string& attributeKey, unsigned int& value) override;		
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP TrafficSwarmActionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -20167,7 +19972,6 @@ namespace NET_ASAM_OPENSCENARIO
 
 			virtual void ResolveBooleanExpression(std::string& attributeKey, bool& value) override;		
 			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
-		
             OPENSCENARIOLIB_EXP TrajectoryImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -20277,7 +20081,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IDirectoryWriter> _directory {};
         public:
 
-		
             OPENSCENARIOLIB_EXP TrajectoryCatalogLocationImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -20360,7 +20163,6 @@ namespace NET_ASAM_OPENSCENARIO
             FollowingMode _followingMode {};
         public:
 
-		
             OPENSCENARIOLIB_EXP TrajectoryFollowingModeImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -20452,7 +20254,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP TrajectoryPositionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -20558,7 +20359,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<ICatalogReferenceWriter> _catalogReference {};
         public:
 
-		
             OPENSCENARIOLIB_EXP TrajectoryRefImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -20648,7 +20448,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP TransitionDynamicsImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -20755,7 +20554,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP TraveledDistanceConditionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -20843,7 +20641,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<std::shared_ptr<IConditionGroupWriter>> _conditionGroups {};
         public:
 
-		
             OPENSCENARIOLIB_EXP TriggerImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -20930,7 +20727,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<std::shared_ptr<IEntityRefWriter>> _entityRefs {};
         public:
 
-		
             OPENSCENARIOLIB_EXP TriggeringEntitiesImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -21025,7 +20821,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IRangeWriter> _range {};
         public:
 
-		
             OPENSCENARIOLIB_EXP UniformDistributionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -21108,7 +20903,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<std::shared_ptr<IPositionWriter>> _positions {};
         public:
 
-		
             OPENSCENARIOLIB_EXP UsedAreaImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -21194,7 +20988,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<ICustomCommandActionWriter> _customCommandAction {};
         public:
 
-		
             OPENSCENARIOLIB_EXP UserDefinedActionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -21279,7 +21072,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
-		
             OPENSCENARIOLIB_EXP UserDefinedDistributionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -21379,7 +21171,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
-		
             OPENSCENARIOLIB_EXP UserDefinedValueConditionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -21487,7 +21278,8 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
-		
+			virtual bool IsTypedStringAttribute(std::string& attributeKey) override;
+
             OPENSCENARIOLIB_EXP ValueConstraintImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -21584,7 +21376,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<std::shared_ptr<IValueConstraintWriter>> _constraints {};
         public:
 
-		
             OPENSCENARIOLIB_EXP ValueConstraintGroupImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -21670,7 +21461,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<std::shared_ptr<IParameterValueSetWriter>> _parameterValueSets {};
         public:
 
-		
             OPENSCENARIOLIB_EXP ValueSetDistributionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -21766,7 +21556,6 @@ namespace NET_ASAM_OPENSCENARIO
 
 			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP VehicleImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -21906,7 +21695,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IDirectoryWriter> _directory {};
         public:
 
-		
             OPENSCENARIOLIB_EXP VehicleCatalogLocationImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -21989,7 +21777,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<std::shared_ptr<IVehicleCategoryDistributionEntryWriter>> _vehicleCategoryDistributionEntries {};
         public:
 
-		
             OPENSCENARIOLIB_EXP VehicleCategoryDistributionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -22077,7 +21864,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP VehicleCategoryDistributionEntryImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -22176,7 +21962,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP VertexImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -22271,7 +22056,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveBooleanExpression(std::string& attributeKey, bool& value) override;		
-		
             OPENSCENARIOLIB_EXP VisibilityActionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -22378,7 +22162,6 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<IPositionWriter> _position {};
         public:
 
-		
             OPENSCENARIOLIB_EXP WaypointImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -22477,7 +22260,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP WeatherImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -22601,7 +22383,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP WindImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;
@@ -22704,7 +22485,6 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveDoubleExpression(std::string& attributeKey, double& value) override;		
-		
             OPENSCENARIOLIB_EXP WorldPositionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;

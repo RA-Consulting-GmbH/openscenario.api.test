@@ -40,7 +40,7 @@ namespace OscExpression
 		bool result = false;
 		std::shared_ptr<ExprValue> convertedType = nullptr;
 		if (valueToConvert->IsSimpleParameter()) {
-			convertedType = valueToConvert->ConvertSimpleParameterToTargetType(type);
+			convertedType = ExprValue::CreateTypedValue(valueToConvert->ToString(), type);
 			if (convertedType == nullptr && valueToConvert->GetExprType()->GetLiteral() != type->GetLiteral())
 			{
 				std::ostringstream stringStream;
@@ -65,6 +65,17 @@ namespace OscExpression
 		}
 		else if (type == OscExpression::ExprType::BOOLEAN) {
 			convertedType = valueToConvert->ConvertToBoolean();
+		}
+		else if (type == OscExpression::ExprType::STRING)
+		{
+			// if string can be unambigously cnverted into string (integer value or boolean value or Datetime), then convert it.
+			if (valueToConvert->IsTypeNumeric() && valueToConvert->getDoubleValue() == std::ceil(valueToConvert->getDoubleValue()))
+			{
+				result = false;
+			} else
+			{
+				result = true;
+			}
 		}
 		if (convertedType == nullptr) {
 			std::ostringstream stringStream;
@@ -301,43 +312,31 @@ namespace OscExpression
 		else
 		{
 			std::shared_ptr<ExprValue> exprValue = kIt->second;
-			if (exprValue->IsOfType({ ExprType::STRING })) {
+			if (exprValue->IsOfType({ ExprType::STRING }) || exprValue->IsSimpleParameter()) {
 				// Try to convert to double
-				std::shared_ptr<ExprValue> convertedExpr = exprValue->ExprValue::ConvertToDouble();
+				std::shared_ptr<ExprValue> convertedExpr = exprValue->CreateTypedValue(exprValue->ToString(), ExprType::DOUBLE);
 				if (convertedExpr != nullptr)
 				{
 					this->valueStack.push(convertedExpr);
 				} else 
 				{
-					convertedExpr = exprValue->ExprValue::ConvertToBoolean();
-				}
-				if (convertedExpr != nullptr)
-				{
-					this->valueStack.push(convertedExpr);
-				}
-				else
-				{
-					std::ostringstream stringStream;
-					stringStream << "Expressions are exclusively supported for numeric types or boolean type or convertible string type. Parameter '$" << id << "' is not convertible to numeric type or to boolean type.";
-					throw  SemanticException(stringStream.str(), GetColumn(ctx));
+					convertedExpr = exprValue->CreateTypedValue(exprValue->ToString(), ExprType::BOOLEAN);
+					if (convertedExpr != nullptr)
+					{
+						this->valueStack.push(convertedExpr);
+					}
+					else
+					{
+						std::ostringstream stringStream;
+						stringStream << "Expressions are exclusively supported for numeric types or boolean type or convertible string type. Parameter '$" << id << "' is not convertible to numeric type or to boolean type.";
+						throw  SemanticException(stringStream.str(), GetColumn(ctx));
+					}
 				}
 			}else if(exprValue->IsOfType({ ExprType::DATE_TIME })) {
 
 				std::ostringstream stringStream;
 				stringStream << "Expressions are exclusively supported for numeric types or boolean type or convertible string type. Parameter '$" << id << "' is of not supported type '" << exprValue->GetExprType()->GetLiteral() << "'";
 				throw  SemanticException(stringStream.str(), GetColumn(ctx));
-			}else {
-				if (exprValue->IsSimpleParameter() && exprValue->GetExprType() == ExprType::BOOLEAN)
-				{
-					this->valueStack.push(ExprValue::CreateBooleanValue(exprValue->ToString()));
-				}else if (exprValue->IsSimpleParameter())
-				{
-					this->valueStack.push(ExprValue::CreateDoubleValueFromString(exprValue->ToString()));
-				}
-				else
-				{
-					this->valueStack.push(exprValue);
-				}
 			}
 
 		}

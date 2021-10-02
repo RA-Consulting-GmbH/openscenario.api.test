@@ -89,10 +89,17 @@ namespace OscExpression
 			/**
 			 * @param parameterName	the parameterName of the expression
 			 * @param stringValue the value of the expression 
-			 * @param expressionType the type of the expression
+			 * @param exprType the type of the expression
 			 * @return the created ExprValue
 			 */
 			OSC_EXPR_EXP static std::shared_ptr<ExprValue> CreateSimpleParameterValue(std::string parameterName, std::string stringValue, std::shared_ptr<ExprType> exprType);
+			/**
+			 * Creates the typed Value or returns nullptr when the value cannot be created
+			 * @param stringValue the value of the expression
+			 * @param exprType the type of the expression
+			 * @return the created ExprValue
+			 */
+			OSC_EXPR_EXP static std::shared_ptr<ExprValue> CreateTypedValue(std::string stringValue, std::shared_ptr<ExprType> exprType);
 
 			/**
 			 * @param dateTimeStringValue string representation of the dateTime value

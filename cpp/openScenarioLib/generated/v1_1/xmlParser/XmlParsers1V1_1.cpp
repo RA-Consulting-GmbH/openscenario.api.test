@@ -167,6 +167,11 @@ namespace NET_ASAM_OPENSCENARIO
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startValueMarker); 
                     }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype string
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startValueMarker); 
+                    }
                     else
                     {
                     	
@@ -553,6 +558,11 @@ namespace NET_ASAM_OPENSCENARIO
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startValueMarker); 
                     }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype string
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startValueMarker); 
+                    }
                     else
                     {
                     	
@@ -739,6 +749,11 @@ namespace NET_ASAM_OPENSCENARIO
 					auto typedObject = std::static_pointer_cast<ActionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startValueMarker); 
+                    }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype string
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startValueMarker); 
                     }
                     else
@@ -2566,6 +2581,11 @@ namespace NET_ASAM_OPENSCENARIO
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startValueMarker); 
                     }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype string
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startValueMarker); 
+                    }
                     else
                     {
                     	
@@ -3387,6 +3407,11 @@ namespace NET_ASAM_OPENSCENARIO
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__CATALOG_NAME, attributeValue, startValueMarker); 
                     }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype string
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__CATALOG_NAME, attributeValue, startValueMarker); 
+                    }
                     else
                     {
                     	
@@ -3419,6 +3444,11 @@ namespace NET_ASAM_OPENSCENARIO
 					auto typedObject = std::static_pointer_cast<CatalogReferenceImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ENTRY_NAME, attributeValue, startValueMarker); 
+                    }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype string
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ENTRY_NAME, attributeValue, startValueMarker); 
                     }
                     else
@@ -4241,6 +4271,11 @@ namespace NET_ASAM_OPENSCENARIO
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startValueMarker); 
                     }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype string
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startValueMarker); 
+                    }
                     else
                     {
                     	
@@ -4604,6 +4639,11 @@ namespace NET_ASAM_OPENSCENARIO
 					auto typedObject = std::static_pointer_cast<ControllerImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startValueMarker); 
+                    }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype string
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startValueMarker); 
                     }
                     else
@@ -5199,6 +5239,11 @@ namespace NET_ASAM_OPENSCENARIO
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TYPE, attributeValue, startValueMarker); 
                     }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype string
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TYPE, attributeValue, startValueMarker); 
+                    }
                     else
                     {
                     	
@@ -5597,6 +5642,11 @@ namespace NET_ASAM_OPENSCENARIO
 					auto typedObject = std::static_pointer_cast<DeterministicSingleParameterDistributionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_NAME, attributeValue, startValueMarker); 
+                    }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype string
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_NAME, attributeValue, startValueMarker); 
                     }
                     else
@@ -5998,6 +6048,11 @@ namespace NET_ASAM_OPENSCENARIO
 					auto typedObject = std::static_pointer_cast<DirectoryImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__PATH, attributeValue, startValueMarker); 
+                    }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype string
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__PATH, attributeValue, startValueMarker); 
                     }
                     else
@@ -6674,6 +6729,11 @@ namespace NET_ASAM_OPENSCENARIO
 					auto typedObject = std::static_pointer_cast<DistributionSetElementImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startValueMarker); 
+                    }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype string
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startValueMarker); 
                     }
                     else
@@ -8072,6 +8132,11 @@ namespace NET_ASAM_OPENSCENARIO
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startValueMarker); 
                     }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype string
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startValueMarker); 
+                    }
                     else
                     {
                     	
@@ -8175,6 +8240,11 @@ namespace NET_ASAM_OPENSCENARIO
 					auto typedObject = std::static_pointer_cast<EnvironmentImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startValueMarker); 
+                    }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype string
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startValueMarker); 
                     }
                     else
@@ -8625,6 +8695,11 @@ namespace NET_ASAM_OPENSCENARIO
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startValueMarker); 
                     }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype string
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startValueMarker); 
+                    }
                     else
                     {
                     	
@@ -8820,6 +8895,11 @@ namespace NET_ASAM_OPENSCENARIO
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startValueMarker); 
                     }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype string
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startValueMarker); 
+                    }
                     else
                     {
                     	
@@ -8883,6 +8963,11 @@ namespace NET_ASAM_OPENSCENARIO
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__FILEPATH, attributeValue, startValueMarker); 
                     }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype string
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__FILEPATH, attributeValue, startValueMarker); 
+                    }
                     else
                     {
                     	
@@ -8944,6 +9029,11 @@ namespace NET_ASAM_OPENSCENARIO
 					auto typedObject = std::static_pointer_cast<FileHeaderImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__AUTHOR, attributeValue, startValueMarker); 
+                    }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype string
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__AUTHOR, attributeValue, startValueMarker); 
                     }
                     else
@@ -9012,6 +9102,11 @@ namespace NET_ASAM_OPENSCENARIO
 					auto typedObject = std::static_pointer_cast<FileHeaderImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DESCRIPTION, attributeValue, startValueMarker); 
+                    }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype string
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DESCRIPTION, attributeValue, startValueMarker); 
                     }
                     else
@@ -11461,6 +11556,11 @@ namespace NET_ASAM_OPENSCENARIO
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__LANE_ID, attributeValue, startValueMarker); 
                     }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype string
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__LANE_ID, attributeValue, startValueMarker); 
+                    }
                     else
                     {
                     	
@@ -11532,6 +11632,11 @@ namespace NET_ASAM_OPENSCENARIO
 					auto typedObject = std::static_pointer_cast<LanePositionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ROAD_ID, attributeValue, startValueMarker); 
+                    }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype string
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ROAD_ID, attributeValue, startValueMarker); 
                     }
                     else
@@ -12143,6 +12248,11 @@ namespace NET_ASAM_OPENSCENARIO
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startValueMarker); 
                     }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype string
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startValueMarker); 
+                    }
                     else
                     {
                     	
@@ -12177,6 +12287,11 @@ namespace NET_ASAM_OPENSCENARIO
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RESOURCE, attributeValue, startValueMarker); 
                     }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype string
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RESOURCE, attributeValue, startValueMarker); 
+                    }
                     else
                     {
                     	
@@ -12209,6 +12324,11 @@ namespace NET_ASAM_OPENSCENARIO
 					auto typedObject = std::static_pointer_cast<LicenseImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__SPDX_ID, attributeValue, startValueMarker); 
+                    }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype string
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__SPDX_ID, attributeValue, startValueMarker); 
                     }
                     else
@@ -12730,6 +12850,11 @@ namespace NET_ASAM_OPENSCENARIO
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startValueMarker); 
                     }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype string
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startValueMarker); 
+                    }
                     else
                     {
                     	
@@ -12982,6 +13107,11 @@ namespace NET_ASAM_OPENSCENARIO
 					auto typedObject = std::static_pointer_cast<ManeuverGroupImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startValueMarker); 
+                    }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype string
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startValueMarker); 
                     }
                     else
@@ -13261,6 +13391,11 @@ namespace NET_ASAM_OPENSCENARIO
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MODEL3D, attributeValue, startValueMarker); 
                     }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype string
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MODEL3D, attributeValue, startValueMarker); 
+                    }
                     else
                     {
                     	
@@ -13293,6 +13428,11 @@ namespace NET_ASAM_OPENSCENARIO
 					auto typedObject = std::static_pointer_cast<MiscObjectImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startValueMarker); 
+                    }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype string
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME, attributeValue, startValueMarker); 
                     }
                     else
@@ -15761,6 +15901,11 @@ namespace NET_ASAM_OPENSCENARIO
                     {
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startValueMarker); 
                     }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype string
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startValueMarker); 
+                    }
                     else
                     {
                     	
@@ -15906,6 +16051,11 @@ namespace NET_ASAM_OPENSCENARIO
 					auto typedObject = std::static_pointer_cast<ParameterConditionImpl>(object);
                     if (IsParametrized(attributeValue))
                     {
+                        typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startValueMarker); 
+                    }
+					else if (IsExpression(attributeValue))
+                    {
+                    	// Expressions allowed for datatype string
                         typedObject->SetAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE, attributeValue, startValueMarker); 
                     }
                     else

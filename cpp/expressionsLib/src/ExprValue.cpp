@@ -41,9 +41,10 @@ namespace OscExpression
 			errno = 0;
 			double result = strtod(input, &end);
 
-			if (result == 0 && (errno != 0 || end == input)) {
+			if ((result == 0 && errno != 0) || (end != (input + doubleValueString.length()))) {
 				return nullptr;
 			}
+			
 			if (result > std::numeric_limits<double>::max())
 			{
 				return nullptr;
@@ -114,6 +115,56 @@ namespace OscExpression
 			result->isSimpleParameter = true;
 			result->parameterName = parameterName;
 			result->stringValue = stringValue;
+			return result;
+		}
+
+		std::shared_ptr<ExprValue> ExprValue::CreateTypedValue(std::string stringValue, std::shared_ptr<ExprType> exprType)
+		{
+			std::shared_ptr <ExprValue> result = std::shared_ptr <ExprValue>(new ExprValue());
+
+			if (exprType == ExprType::DOUBLE)
+			{
+				result = CreateDoubleValueFromString(stringValue);
+			}else if (exprType == ExprType::UNSIGNED_INT)
+			{
+				result = CreateDoubleValueFromString(stringValue);
+				if (result != nullptr)
+				{
+					result = result->ConvertToUnsignedInt();
+				}
+			}
+			else if (exprType == ExprType::UNSIGNED_SHORT)
+			{
+				result = CreateDoubleValueFromString(stringValue);
+				if (result != nullptr)
+				{
+					result = result->ConvertToUnsignedShort();
+				}
+			}
+			else if (exprType == ExprType::INT)
+			{
+				result = CreateDoubleValueFromString(stringValue);
+				if (result != nullptr)
+				{
+					result = result->ConvertToInt();
+				}
+			}
+			else if (exprType == ExprType::STRING)
+			{
+				result = CreateStringValue(stringValue);
+				
+			}
+			else if (exprType == ExprType::BOOLEAN)
+			{
+				result = CreateBooleanValue(stringValue);
+				
+			}
+			else if (exprType == ExprType::DATE_TIME)
+			{
+				result = CreateDateTimeValue(stringValue);
+				
+			}
+			
 			return result;
 		}
 

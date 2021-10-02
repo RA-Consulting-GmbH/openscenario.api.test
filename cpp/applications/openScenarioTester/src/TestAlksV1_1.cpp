@@ -45,7 +45,7 @@ namespace NET_ASAM_OPENSCENARIO
 					// ReSharper disable once CppLocalVariableMayBeConst
 					auto openScenario = std::dynamic_pointer_cast<IOpenScenario>(ExecuteImportParsing(_executablePath + "/" + kInputDir + "/" + path + "/" + filename, catalogMessageLogger));
 
-					auto filterByErrorLevelLogger = _messageLogger->GetMessagesFilteredByWorseOrEqualToErrorLevel(NET_ASAM_OPENSCENARIO::WARNING);
+					auto filterByErrorLevelLogger = _messageLogger->GetMessagesFilteredByWorseOrEqualToErrorLevel(NET_ASAM_OPENSCENARIO::ERROR);
 					if(! Assert(filterByErrorLevelLogger.empty(), ASSERT_LOCATION))
 					{ 
 						for (auto it = filterByErrorLevelLogger.begin(); it != filterByErrorLevelLogger.end(); ++it) {
