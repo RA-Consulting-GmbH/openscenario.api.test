@@ -135,6 +135,8 @@ namespace NET_ASAM_OPENSCENARIO
 			                                                  std::shared_ptr<IParameterDeclaration> parameterDeclaration);
 			void LogParameterConstraintError(std::shared_ptr<IParserMessageLogger>& logger,
 			                                 std::shared_ptr<IParameterDeclaration> parameterDeclaration);
+			void LogParameterTypeError(std::shared_ptr<IParserMessageLogger>& logger,
+			                           std::shared_ptr<IParameterDeclaration> parameterDeclaration);
 
 		public:
         	/**

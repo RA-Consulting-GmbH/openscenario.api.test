@@ -42,7 +42,7 @@ namespace NET_ASAM_OPENSCENARIO
 	    {
 			std::shared_ptr<OscExpression::ExprValue> result = nullptr;
 			SimpleType targetType = paramterValue->GetType();
-			return OscExpression::ExprValue::CreateSimpleParameterValue(paramterValue->GetName(), paramterValue->GetValue(), CreateExprTypeFromSimpleType(targetType));
+			return OscExpression::ExprValue::CreateTypedValue(paramterValue->GetValue(), CreateExprTypeFromSimpleType(targetType));
 	    }
 
 	
@@ -118,50 +118,38 @@ namespace NET_ASAM_OPENSCENARIO
 				try {
 					std::shared_ptr<OscExpression::ExprValue> value = evaluator->Evaluate(expression);
 					
-					if (value->IsSimpleParameter())
+					
+					if(isTypedStringAttribute)
 					{
-						if (targetType != nullptr && targetType != value->GetExprType())
-						{
-							// add Matching Info
-							auto msg = FileContentMessage("Parameter type (" + value->GetExprType()->GetLiteral() +
-								") does not match expected type (" + targetType->GetLiteral() + "). Value '" + value->ToString() +
-								"' of parameter '" + value->GetParameterName() + "' was converted.", INFO, *expressionObject->GetTextmarker(attributeKey).get());
-							logger->LogMessage(msg);
-						}
-						auto strValue = value->ToString();
-						expressionObject->ResolveParameter( logger, attributeKey, strValue );
+						// targetIsString, so resolve String attribute
+						expressionObject->ResolveStringExpression(attributeKey, value->ToString());
+					}else if (targetType == OscExpression::ExprType::GetDoubleType())
+					{
+						double doubleValue = value->getDoubleValue();
+						expressionObject->ResolveDoubleExpression(attributeKey, doubleValue);
 					}
-					else
+					else if (targetType == OscExpression::ExprType::GetIntType())
 					{
-						if(isTypedStringAttribute)
-						{
-							// targetIsString, so resolve String attribute
-							expressionObject->ResolveStringExpression(attributeKey, value->ToString());
-						}else if (targetType == OscExpression::ExprType::GetDoubleType())
-						{
-							double doubleValue = value->getDoubleValue();
-							expressionObject->ResolveDoubleExpression(attributeKey, doubleValue);
-						}
-						else if (targetType == OscExpression::ExprType::GetIntType())
-						{
 
-							int intValue = (int) value->getDoubleValue();
-							expressionObject->ResolveIntExpression(attributeKey, intValue);
-						}
-						else if (targetType == OscExpression::ExprType::GetUnsignedIntType())
-						{
-							unsigned int unsignedIntValue = (unsigned int)value->getDoubleValue();
-							expressionObject->ResolveUnsignedIntExpression(attributeKey, unsignedIntValue);
-						}
-						else if (targetType == OscExpression::ExprType::GetUnsignedShortType())
-						{
-							unsigned short unsignedShortValue = (unsigned short)value->getDoubleValue();
-							expressionObject->ResolveUnsignedShortExpression(attributeKey, unsignedShortValue);
-						}
-							
+						int intValue = (int) value->getDoubleValue();
+						expressionObject->ResolveIntExpression(attributeKey, intValue);
+					}
+					else if (targetType == OscExpression::ExprType::GetUnsignedIntType())
+					{
+						unsigned int unsignedIntValue = (unsigned int)value->getDoubleValue();
+						expressionObject->ResolveUnsignedIntExpression(attributeKey, unsignedIntValue);
+					}
+					else if (targetType == OscExpression::ExprType::GetUnsignedShortType())
+					{
+						unsigned short unsignedShortValue = (unsigned short)value->getDoubleValue();
+						expressionObject->ResolveUnsignedShortExpression(attributeKey, unsignedShortValue);
+					}
+					else 
+					{
+						std::string stringValue = value->ToString();
+						expressionObject->ResolveParameter(logger, attributeKey, stringValue);
 						
 					}
-					
 				} catch (OscExpression::SemanticException& s)
 				{
 					std::shared_ptr<Textmarker>  textMarker = expressionObject->GetTextmarker(attributeKey);
@@ -247,10 +235,7 @@ namespace NET_ASAM_OPENSCENARIO
 	    {
 	    	// First, check whether the constraint value can be converted into the targetData type;
 			std::shared_ptr<OscExpression::ExprValue> constraintValue = OscExpression::ExprValue::CreateTypedValue(constraint->GetValue(), parameterType);
-			if (parameterResolvedValue->IsSimpleParameter())
-			{
-				parameterResolvedValue = OscExpression::ExprValue::CreateTypedValue(parameterResolvedValue->ToString(), parameterResolvedValue->GetExprType());
-			}
+			parameterResolvedValue = OscExpression::ExprValue::CreateTypedValue(parameterResolvedValue->ToString(), parameterResolvedValue->GetExprType());
 			if (constraintValue == nullptr)
 			{
 				auto locator = std::static_pointer_cast<NET_ASAM_OPENSCENARIO::ILocator>(constraint->GetAdapter(typeid(NET_ASAM_OPENSCENARIO::ILocator).name()));
@@ -306,30 +291,30 @@ namespace NET_ASAM_OPENSCENARIO
 				if (rule == Rule::RuleEnum::EQUAL_TO)
 				{
 
-					result = ((long) parameterResolvedValue->getDoubleValue()) == ((long)constraintValue->getDoubleValue());
+					result = ((long long) parameterResolvedValue->getDoubleValue()) == ((long long)constraintValue->getDoubleValue());
 
 				}
 				else if (rule == Rule::RuleEnum::LESS_THAN)
 				{
-					result = ((long)parameterResolvedValue->getDoubleValue()) < ((long)constraintValue->getDoubleValue());
+					result = ((long long)parameterResolvedValue->getDoubleValue()) < ((long long)constraintValue->getDoubleValue());
 				}
 				else if (rule == Rule::RuleEnum::LESS_OR_EQUAL)
 				{
 
-					result = ((long)parameterResolvedValue->getDoubleValue()) <= ((long)constraintValue->getDoubleValue());
+					result = ((long long)parameterResolvedValue->getDoubleValue()) <= ((long long)constraintValue->getDoubleValue());
 
 				}
 				else if (rule == Rule::RuleEnum::GREATER_THAN)
 				{
-					result = ((long)parameterResolvedValue->getDoubleValue()) > ((long)constraintValue->getDoubleValue());
+					result = ((long long)parameterResolvedValue->getDoubleValue()) > ((long long)constraintValue->getDoubleValue());
 				}
 				else if (rule == Rule::RuleEnum::GREATER_OR_EQUAL)
 				{
-					result = ((long)parameterResolvedValue->getDoubleValue()) >= ((long)constraintValue->getDoubleValue());
+					result = ((long long)parameterResolvedValue->getDoubleValue()) >= ((long long)constraintValue->getDoubleValue());
 				}
 				else if (rule == Rule::RuleEnum::NOT_EQUAL_TO)
 				{
-					result = ((long)parameterResolvedValue->getDoubleValue()) != ((long)constraintValue->getDoubleValue());
+					result = ((long long)parameterResolvedValue->getDoubleValue()) != ((long long)constraintValue->getDoubleValue());
 				}
 			}
 			
@@ -503,7 +488,19 @@ namespace NET_ASAM_OPENSCENARIO
 			    logger->LogMessage(msg);
 		    }
 	    }
+		void ExpressionResolver::LogParameterTypeError(std::shared_ptr<IParserMessageLogger>& logger, std::shared_ptr<IParameterDeclaration> parameterDeclaration)
+		{
+			std::string parameterName = parameterDeclaration->GetName();
+			std::string parameterType = parameterDeclaration->GetParameterType().GetLiteral();
+			std::string parameterValue = parameterDeclaration->GetValue();
 
+			auto locator = std::static_pointer_cast<NET_ASAM_OPENSCENARIO::ILocator>(parameterDeclaration->GetAdapter(typeid(NET_ASAM_OPENSCENARIO::ILocator).name()));
+			if (locator != nullptr)
+			{
+				auto msg = FileContentMessage("Parameter '" + parameterName + "' cannot be converted into type '"+parameterType +"' ('"+ parameterValue +"').", ErrorLevel::ERROR, locator->GetStartMarkerOfProperty(OSC_CONSTANTS::ATTRIBUTE__VALUE));
+				logger->LogMessage(msg);
+			}
+		}
         void ExpressionResolver::Resolve(std::shared_ptr<IParserMessageLogger>& logger, std::shared_ptr<BaseImpl> baseImpl, std::map<std::string, std::string>& injectedParameters, bool logUnresolvableParameter)
         {
 			std::map<std::string, std::string> emptyMap;
@@ -549,17 +546,23 @@ namespace NET_ASAM_OPENSCENARIO
 								// Is overriden
 								notUsedInjectedParameters.erase(parameterValue->GetName());
 							}
-							exprValue = CreateExprValueFromParameterValue(parameterValue);
 						}
 						
 						exprValue = CreateExprValueFromParameterValue(parameterValue);
-						// Insert it and potentially override it
-						if (!ValidateParameterConstraintGroups(logger, exprValue, parameterName, OscExpression::ExprType::GetFromLiteral(parameterType), parameterDeclaration->GetConstraintGroups()))
+						if (exprValue != nullptr)
 						{
-							LogParameterConstraintError(logger, parameterDeclaration);
+							// Insert it and potentially override it
+							if (!ValidateParameterConstraintGroups(logger, exprValue, parameterName, OscExpression::ExprType::GetFromLiteral(parameterType), parameterDeclaration->GetConstraintGroups()))
+							{
+								LogParameterConstraintError(logger, parameterDeclaration);
+							}
+							_expressionResolverStack->PushExpression(parameterDeclaration->GetName(), exprValue);
+							paramsDefinitionSize++;
+						} else
+						{
+							LogParameterTypeError(logger, parameterDeclaration);
 						}
-						_expressionResolverStack->PushExpression(parameterDeclaration->GetName(), exprValue);
-						paramsDefinitionSize++;
+	
 						
 					}
 						
@@ -620,13 +623,24 @@ namespace NET_ASAM_OPENSCENARIO
 						}
                 		
 						std::shared_ptr<OscExpression::ExprValue> exprValue = CreateExprValueFromParameterValue(parameterValue);
-						// Insert it and potentially override it
-						if (!ValidateParameterConstraintGroups(logger, exprValue, parameterValue->GetName(), OscExpression::ExprType::GetFromLiteral(parameterType), parameterDeclaration->GetConstraintGroups()))
+                	
+						exprValue = CreateExprValueFromParameterValue(parameterValue);
+						if (exprValue != nullptr)
 						{
-							LogParameterConstraintError(logger, parameterDeclaration);
+							// Insert it and potentially override it
+							if (!ValidateParameterConstraintGroups(logger, exprValue, parameterValue->GetName(), OscExpression::ExprType::GetFromLiteral(parameterType), parameterDeclaration->GetConstraintGroups()))
+							{
+								LogParameterConstraintError(logger, parameterDeclaration);
+							}
+							_expressionResolverStack->PushExpression(parameterValue->GetName(), exprValue);
+							paramsDefinitionSize++;
 						}
-						_expressionResolverStack->PushExpression(parameterValue->GetName(), exprValue);
-						paramsDefinitionSize++;
+						else
+						{
+							LogParameterTypeError(logger, parameterDeclaration);
+						}
+
+						
                 	}
                 }
             }

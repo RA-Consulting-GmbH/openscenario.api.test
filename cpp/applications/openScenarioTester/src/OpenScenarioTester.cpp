@@ -61,7 +61,10 @@ bool TestV1_1(std::string basePath )
 	NET_ASAM_OPENSCENARIO::v1_1::TestParameterValidation testParametervalidation(basePath);
 
 	auto result = true;
-
+	result = testAlks.TestScenarios() && result;
+	result = testInjectedParameters.TestInjectionsForSuccess() && result;
+	result = testFiles.TestExpressionsSuccess() && result;
+	result = testParametervalidation.TestValidationWrongDataTypes() && result;
 	result = testExamples.TestExample() && result;
 
 	result = testRangeChecker.TestParamsFailure() && result;
@@ -69,7 +72,7 @@ bool TestV1_1(std::string basePath )
 	result = testFiles.TestMultiChoiceElement() && result;
 	result = testFiles.TestSimpleSuccess() && result;
 	result = testFiles.TestParamsSuccess() && result;
-	result = testFiles.TestExpressionsSuccess() && result;
+
 	result = testFiles.TestExpressionsFailure() && result;
 	result = testFiles.TestBomFile() && result;
 	result = testFiles.TestParamsFailure() && result;
@@ -123,9 +126,9 @@ bool TestV1_1(std::string basePath )
 
 	result = testAlks.TestCatalogs() && result;
 	result = testAlks.TestVariations() && result; 
-	result = testAlks.TestScenarios() && result;
+	
 	result = testParametervalidation.TestValidation() && result;
-
+	result = testParametervalidation.TestValidationErrors() && result;
 	
 	return result;
 }

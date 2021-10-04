@@ -31,8 +31,8 @@ namespace NET_ASAM_OPENSCENARIO
 			TestParameterValidation(std::string& executablePath);
 
 			bool TestValidation();
-
-			
+			bool TestValidationErrors();
+			bool TestValidationWrongDataTypes();
 		};
 	}
 }

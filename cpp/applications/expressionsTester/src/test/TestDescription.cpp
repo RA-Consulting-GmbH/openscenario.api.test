@@ -317,7 +317,7 @@ const std::string TestDescription::json = R"json(
 	"id" : 44,
 	"comment": "dateTime is not allowed in expression calculation",
 	"parameterDefinitions": [
-	"dateTime testDateTime= 'TestDateTime';"],
+	"dateTime testDateTime= '2017-02-24T10:00:00';"],
 	"expr": "${$testDateTime + 1}",
 	"expectedError": {
 		"message": "Expressions are exclusively supported for numeric types or boolean type or convertible string type. Parameter '$testDateTime' is of not supported type 'dateTime'",
@@ -331,7 +331,7 @@ const std::string TestDescription::json = R"json(
 	"string testString= 'TestString';"],
 	"expr": "${$testString + 1}",
 	"expectedError": {
-		"message": "Expressions are exclusively supported for numeric types or boolean type or convertible string type. Parameter '$testString' is not convertible to numeric type or to boolean type.",
+		"message": "Value must be numeric",
 		"column": 2
 	}
 },
@@ -369,7 +369,7 @@ const std::string TestDescription::json = R"json(
 	"id" : 49,
 	"comment": "Not a dateTime String",
 	"parameterDefinitions": [
-	"dateTime testDateTime= 'testDateTime';"],
+	"string testDateTime= 'testDateTime';"],
 	"expr": "$testDateTime",
 	"expectedDatatype": "dateTime",	
 	"expectedError": {
@@ -379,7 +379,7 @@ const std::string TestDescription::json = R"json(
 },
 {
 	"id" : 50,
-	"comment": "Not a dateTime String",
+	"comment": "A dateTime String",
 	"parameterDefinitions": [
 	"dateTime testDateTime= '2001-10-26T21:32:52';"],
 	"expr": "$testDateTime",

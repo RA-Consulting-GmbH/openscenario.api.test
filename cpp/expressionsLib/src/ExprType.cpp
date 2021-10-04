@@ -48,18 +48,7 @@ namespace OscExpression
 
 	};
 
-	std::map < ExprType*, std::vector<ExprType*>> ExprType::_conversionTable =
-	{
-
-		{ ExprType::UNSIGNED_INT.get(),	{UNSIGNED_INT.get(),INT.get(),UNSIGNED_SHORT.get(),DOUBLE.get()}},
-		{ ExprType::INT.get() ,	{UNSIGNED_INT.get(),INT.get(),UNSIGNED_SHORT.get(),DOUBLE.get()}},
-		{ ExprType::UNSIGNED_SHORT.get() ,	{UNSIGNED_INT.get(),INT.get(),UNSIGNED_SHORT.get(),DOUBLE.get()}},
-		{ ExprType::DOUBLE.get() ,	{UNSIGNED_INT.get(),INT.get(),UNSIGNED_SHORT.get(),DOUBLE.get()}},
-		{ ExprType::STRING.get() ,	{}},
-		{ ExprType::BOOLEAN.get() ,	{}},
-		{ ExprType::DATE_TIME.get() ,	{}},
-
-	};
+	
 	ExprType::ExprType(const std::string literal)
 		: _literal(literal)
 	{}
@@ -117,21 +106,7 @@ namespace OscExpression
 		return _literal;
 	}
 
-	bool ExprType::IsTypeConvertibleTo(std::shared_ptr<ExprType> targetType)
-	{
-		const auto kIt = _conversionTable.find(this);
-		if (kIt != _conversionTable.end())
-		{
-			std::vector<ExprType*> list = kIt->second;
-			
-			if (std::find(list.begin(), list.end(), targetType.get()) != list.end())
-			{
-				return true;
-			}
-			
-		}
-		return false;
-	}
+	
 
 	bool ExprType::IsIntegerNumeric()
 	{

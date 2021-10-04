@@ -68,9 +68,9 @@ namespace NET_ASAM_OPENSCENARIO
 		{
 			std::vector<std::string> scenarioFiles =
 			{
+				"ALKS_Scenario_4.1_3_SideVehicle_TEMPLATE.xosc",
 				"ALKS_Scenario_4.1_1_FreeDriving_TEMPLATE.xosc",
 				"ALKS_Scenario_4.1_2_SwervingLeadVehicle_TEMPLATE.xosc",
-				"ALKS_Scenario_4.1_3_SideVehicle_TEMPLATE.xosc",
 				"ALKS_Scenario_4.2_1_FullyBlockingTarget_TEMPLATE.xosc",
 				"ALKS_Scenario_4.2_2_PartiallyBlockingTarget_TEMPLATE.xosc",
 				"ALKS_Scenario_4.2_3_CrossingPedestrian_TEMPLATE.xosc",

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OpenSCENARIO>
+  <FileHeader revMajor="1" revMinor="1" date="2021-07-09T10:00:00" description="ALKS Scenario 4.2_1 FullyBlockingTarget Template" author="BMW AG" />
+  <ParameterDeclarations>
+    <!--The ParameterDeclarations section is needed for easy variation.-->
+    <ParameterDeclaration name="Road" parameterType="string" value="./ALKS_Road_straight.xodr"></ParameterDeclaration>
+	<ParameterDeclaration name="wrong_boolean" parameterType="boolean" value="true">
+		<ConstraintGroup>
+			<ValueConstraint rule="greaterThan" value="wrongBoolean" />
+		</ConstraintGroup>
+	</ParameterDeclaration>
+	<ParameterDeclaration name="wrong_dateTime" parameterType="dateTime" value="2021-07-09T11:00:00.34+03:00">
+		<ConstraintGroup>
+			<ValueConstraint rule="greaterThan" value="wrongDateTime" />
+		</ConstraintGroup>
+	</ParameterDeclaration>
+	<ParameterDeclaration name="wrong_double" parameterType="double" value="30">
+		<ConstraintGroup>
+			<ValueConstraint rule="greaterThan" value="wrongDouble" />
+		</ConstraintGroup>
+	</ParameterDeclaration>
+	<ParameterDeclaration name="wrong_integer" parameterType="integer" value="10">
+		<ConstraintGroup>
+			<ValueConstraint rule="greaterThan" value="wrongInt" />
+		</ConstraintGroup>
+	</ParameterDeclaration>
+	<ParameterDeclaration name="wrong_unsignedInt" parameterType="unsignedInt" value="2">
+		<ConstraintGroup>
+			<ValueConstraint rule="greaterThan" value="wrongUnsignedInt" />
+		</ConstraintGroup>
+	</ParameterDeclaration>
+	<ParameterDeclaration name="wrong_unsignedShort" parameterType="unsignedShort" value="2">
+		<ConstraintGroup>
+			<ValueConstraint rule="greaterThan" value="wrongUnsignedShort" />
+		</ConstraintGroup>
+	</ParameterDeclaration>
+	<ParameterDeclaration name="wrong_boolean_paramValue" parameterType="boolean" value="wrongBoolean">
+		<ConstraintGroup>
+			<ValueConstraint rule="greaterThan" value="true" />
+		</ConstraintGroup>
+	</ParameterDeclaration>
+	<ParameterDeclaration name="wrong_dateTime_paramValue" parameterType="dateTime" value="wrongDateTime">
+		<ConstraintGroup>
+			<ValueConstraint rule="greaterThan" value="2021-07-09T11:00:00.34+03:00" />
+		</ConstraintGroup>
+	</ParameterDeclaration>
+	<ParameterDeclaration name="wrong_double_paramValue" parameterType="double" value="wrongDouble">
+		<ConstraintGroup>
+			<ValueConstraint rule="greaterThan" value="30" />
+		</ConstraintGroup>
+	</ParameterDeclaration>
+	<ParameterDeclaration name="wrong_integer_paramValue" parameterType="integer" value="wrongInt">
+		<ConstraintGroup>
+			<ValueConstraint rule="greaterThan" value="10" />
+		</ConstraintGroup>
+	</ParameterDeclaration>
+	<ParameterDeclaration name="wrong_unsignedInt_paramValue" parameterType="unsignedInt" value="wrongUnsignedInt">
+		<ConstraintGroup>
+			<ValueConstraint rule="greaterThan" value="2" />
+		</ConstraintGroup>
+	</ParameterDeclaration>
+	<ParameterDeclaration name="wrong_unsignedShort_paramValue" parameterType="unsignedShort" value="wrongUnsignedShort">
+		<ConstraintGroup>
+			<ValueConstraint rule="greaterThan" value="2" />
+		</ConstraintGroup>
+	</ParameterDeclaration>  </ParameterDeclarations>
+  <CatalogLocations>
+    <VehicleCatalog>
+      <Directory path="../Catalogs/Vehicles" />
+    </VehicleCatalog>
+    <PedestrianCatalog>
+      <Directory path="../Catalogs/Pedestrians" />
+    </PedestrianCatalog>
+    <MiscObjectCatalog>
+      <Directory path="../Catalogs/MiscObjects" />
+    </MiscObjectCatalog>
+    <ControllerCatalog>
+      <Directory path="../Catalogs/Controllers" />
+    </ControllerCatalog>
+  </CatalogLocations>
+  <RoadNetwork>
+    <LogicFile filepath="$Road" />
+  </RoadNetwork>
+  <Entities>
+    <ScenarioObject name="Ego">
+      <CatalogReference catalogName="VehicleCatalog" entryName="car_ego"></CatalogReference>
+      <ObjectController>
+        <CatalogReference catalogName="ControllerCatalog" entryName="ALKSController"></CatalogReference>
+      </ObjectController>
+    </ScenarioObject>
+    <ScenarioObject name="TargetBlocking">
+      <CatalogReference catalogName="PedestrianCatalog" entryName="pedestrian"></CatalogReference>
+    </ScenarioObject>
+  </Entities>
+  <Storyboard>
+    <Init>
+      <Actions>
+        <Private entityRef="Ego">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <LanePosition roadId="0" laneId="Ego_InitPosition_LaneId" offset="0.0" s="5.0"></LanePosition>
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+          <PrivateAction>
+            <LongitudinalAction>
+              <SpeedAction>
+                <SpeedActionDynamics dynamicsShape="step" dynamicsDimension="time" value="0" />
+                <SpeedActionTarget>
+                  <AbsoluteTargetSpeed value="${60.0 / 3.6}" />
+                </SpeedActionTarget>
+              </SpeedAction>
+            </LongitudinalAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="TargetBlocking">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <LanePosition roadId="0" laneId="Ego_InitPosition_LaneId" offset="0.0" s="500.0"></LanePosition>
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+      </Actions>
+    </Init>
+    <Story name="ActivateALKSControllerStory">
+      <Act name="ActivateALKSControllerAct">
+        <ManeuverGroup maximumExecutionCount="1" name="ActivateALKSControllerManeuverGroup">
+          <Actors selectTriggeringEntities="false">
+            <EntityRef entityRef="Ego" />
+          </Actors>
+          <Maneuver name="ActivateALKSControllerManeuver">
+            <Event name="ActivateALKSControllerEvent" priority="overwrite">
+              <Action name="ActivateALKSControllerAction">
+                <PrivateAction>
+                  <ControllerAction>
+                    <ActivateControllerAction lateral="true" longitudinal="true" />
+                  </ControllerAction>
+                </PrivateAction>
+              </Action>
+              <StartTrigger>
+                <ConditionGroup>
+                  <Condition name="ActivateALKSControllerEventCondition" delay="0" conditionEdge="rising">
+                    <ByValueCondition>
+                      <SimulationTimeCondition value="10000" rule="greaterOrEqual" />
+                    </ByValueCondition>
+                  </Condition>
+                </ConditionGroup>
+              </StartTrigger>
+            </Event>
+          </Maneuver>
+        </ManeuverGroup>
+        <StartTrigger>
+          <ConditionGroup>
+            <Condition name="ActivateALKSControllerActCondition" delay="0" conditionEdge="none">
+              <ByValueCondition>
+                <SimulationTimeCondition value="0" rule="greaterOrEqual" />
+              </ByValueCondition>
+            </Condition>
+          </ConditionGroup>
+        </StartTrigger>
+      </Act>
+    </Story>
+    <StopTrigger>
+      <ConditionGroup>
+        <Condition name="End" delay="0" conditionEdge="rising">
+          <ByValueCondition>
+            <!--The scenario stops 10 s after the ego would reach the target without braking.-->
+            <SimulationTimeCondition value="${(500.0 / (60.0 / 3.6)) + 10.0}" rule="greaterOrEqual"></SimulationTimeCondition>
+          </ByValueCondition>
+        </Condition>
+      </ConditionGroup>
+    </StopTrigger>
+  </Storyboard>
+</OpenSCENARIO>

@@ -54,11 +54,21 @@ namespace OscExpression
 		antlr4::tree::ParseTree* tree= parser.prog();
 
 		antlr4::tree::ParseTreeWalker::DEFAULT.walk(&*this->evaluatorListener, tree);
+		std::shared_ptr<ExprValue> result = this->evaluatorListener->GetResult();
 		if (this->expectedDatatype != nullptr)
 		{
-			EvaluatorListener::IsConvertible(this->evaluatorListener->GetResult(), this->expectedDatatype,0);
+			std::shared_ptr<ExprValue> convertedType = result->ConvertToTargetType(this->expectedDatatype);
+			if (convertedType == nullptr)
+			{
+				std::ostringstream stringStream;
+				stringStream << "Value '" << result->ToString() << "' cannot be converted to type '" << expectedDatatype->GetLiteral() << "'";
+				throw  SemanticException(stringStream.str(), 0);
+			}else
+			{
+				result = convertedType;
+			}
 		} 
-		return this->evaluatorListener->GetResult();
+		return result;
 	}
 
 
