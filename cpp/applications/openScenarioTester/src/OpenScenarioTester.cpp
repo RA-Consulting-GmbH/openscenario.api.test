@@ -15,6 +15,8 @@
  * limitations under the License.
  */
 
+#include <TestParameterValidationV1_1.h>
+
 #include "TestAlksV1_1.h"
 #include "TestDeprecatedV1_1.h"
 #include "TestExamplesV1_1.h"
@@ -56,11 +58,10 @@ bool TestV1_1(std::string basePath )
 	NET_ASAM_OPENSCENARIO::v1_1::TestWriterApi testWriterApi(basePath);
 	NET_ASAM_OPENSCENARIO::v1_1::TestDeprecated testDeprecated(basePath);
 	NET_ASAM_OPENSCENARIO::v1_1::TestAlks testAlks(basePath);
+	NET_ASAM_OPENSCENARIO::v1_1::TestParameterValidation testParametervalidation(basePath);
 
 	auto result = true;
 
-
-	result = testAlks.TestScenarios() && result;
 	result = testExamples.TestExample() && result;
 
 	result = testRangeChecker.TestParamsFailure() && result;
@@ -120,8 +121,10 @@ bool TestV1_1(std::string basePath )
 	
 	result = testDeprecated.TestDeprecatedSuccess() && result;
 
-	//result = testAlks.TestCatalogs() && result;
-	//result = testAlks.TestVariations() && result;
+	result = testAlks.TestCatalogs() && result;
+	result = testAlks.TestVariations() && result; 
+	result = testAlks.TestScenarios() && result;
+	result = testParametervalidation.TestValidation() && result;
 
 	
 	return result;

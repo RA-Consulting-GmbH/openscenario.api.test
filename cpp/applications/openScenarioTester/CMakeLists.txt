@@ -120,6 +120,7 @@ set( HEADERS
   "src/TestVersionCheckerV1_1.h"
   "src/TestInjectedParametersV1_1.h"
   "src/TestAlksV1_1.h"
+  "src/TestParameterValidationV1_1.h"
 )
 
 set( HEADERS_HELPER
@@ -155,6 +156,7 @@ set( SOURCES
 	"src/TestWriterApiV1_1.cpp"
 	"src/TestDeprecatedV1_1.cpp"
 	"src/TestAlksV1_1.cpp"
+	"src/TestParameterValidationV1_1.cpp"
 )
 
 set( SOURCES_HELPER
