@@ -3,8 +3,6 @@
 cmake_minimum_required(VERSION 3.8.2)
 project(OpenScenario-Cpp)
 message(STATUS "${PROJECT_NAME}")
-# Set cmake policies
-cmake_policy(SET CMP0114 NEW)
 
 
 ################################################################
