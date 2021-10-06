@@ -47,6 +47,8 @@ namespace NET_ASAM_OPENSCENARIO
 			bool TestParamsConversion();
 
 			bool TestUnvalidXml();
+			bool TestDefaultValues();
+
 			bool TestUnknownElement();
 
 			bool TestWrongAttributes();

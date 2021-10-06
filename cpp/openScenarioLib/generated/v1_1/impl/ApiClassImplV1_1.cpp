@@ -216,6 +216,7 @@ namespace NET_ASAM_OPENSCENARIO
             // clone attributes;
             // Simple type
             clonedObject->_value = GetValue();
+            // clone indicators
             // clone children
             const auto kSteadyState =  GetWriterSteadyState();
             if (kSteadyState)
@@ -437,6 +438,7 @@ namespace NET_ASAM_OPENSCENARIO
             // clone attributes;
             // Simple type
             clonedObject->_value = GetValue();
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -659,6 +661,7 @@ namespace NET_ASAM_OPENSCENARIO
             // clone attributes;
             // Simple type
             clonedObject->_value = GetValue();
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -872,6 +875,7 @@ namespace NET_ASAM_OPENSCENARIO
             // clone attributes;
             // Simple type
             clonedObject->_value = GetValue();
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -1139,6 +1143,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
             // Simple type
             clonedObject->_value = GetValue();
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -1330,6 +1335,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kPosition =  GetWriterPosition();
             if (kPosition)
@@ -1615,6 +1621,7 @@ namespace NET_ASAM_OPENSCENARIO
             // clone attributes;
             // Simple type
             clonedObject->_name = GetName();
+            // clone indicators
             // clone children
             const auto kManeuverGroups =  GetWriterManeuverGroups();
             if (!kManeuverGroups.empty())
@@ -1943,6 +1950,7 @@ namespace NET_ASAM_OPENSCENARIO
             // clone attributes;
             // Simple type
             clonedObject->_name = GetName();
+            // clone indicators
             // clone children
             const auto kGlobalAction =  GetWriterGlobalAction();
             if (kGlobalAction)
@@ -2055,12 +2063,16 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _lateral = lateral;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__LATERAL);
+			// set the indicator to true
+            isSetLateral = true;          
         }
 
         void ActivateControllerActionImpl::SetLongitudinal(const bool longitudinal)
         {
             _longitudinal = longitudinal;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__LONGITUDINAL);
+			// set the indicator to true
+            isSetLongitudinal = true;          
         }
 
         std::shared_ptr<void> ActivateControllerActionImpl::GetAdapter(const std::string classifier)
@@ -2253,6 +2265,9 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->_lateral = GetLateral();
             // Simple type
             clonedObject->_longitudinal = GetLongitudinal();
+            // clone indicators
+            	clonedObject->isSetLateral = isSetLateral;
+            	clonedObject->isSetLongitudinal = isSetLongitudinal;
             // clone children
             return clonedObject;
         }
@@ -2300,6 +2315,26 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void ActivateControllerActionImpl::ResetLateral()
+	   {
+	   		isSetLateral = false; 
+			_lateral = {};
+			
+	   }
+       bool ActivateControllerActionImpl::IsSetLateral() const
+	   {
+			return isSetLateral;
+	   }
+       void ActivateControllerActionImpl::ResetLongitudinal()
+	   {
+	   		isSetLongitudinal = false; 
+			_longitudinal = {};
+			
+	   }
+       bool ActivateControllerActionImpl::IsSetLongitudinal() const
+	   {
+			return isSetLongitudinal;
+	   }
 
         IOpenScenarioFlexElement* ActorsImpl::GetOpenScenarioFlexElement()
         {
@@ -2510,6 +2545,7 @@ namespace NET_ASAM_OPENSCENARIO
             // clone attributes;
             // Simple type
             clonedObject->_selectTriggeringEntities = GetSelectTriggeringEntities();
+            // clone indicators
             // clone children
             const auto kEntityRefs =  GetWriterEntityRefs();
             if (!kEntityRefs.empty())
@@ -2716,6 +2752,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kPosition =  GetWriterPosition();
             if (kPosition)
@@ -2791,12 +2828,16 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _activateLateral = activateLateral;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ACTIVATE_LATERAL);
+			// set the indicator to true
+            isSetActivateLateral = true;          
         }
 
         void AssignControllerActionImpl::SetActivateLongitudinal(const bool activateLongitudinal)
         {
             _activateLongitudinal = activateLongitudinal;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ACTIVATE_LONGITUDINAL);
+			// set the indicator to true
+            isSetActivateLongitudinal = true;          
         }
 
         void AssignControllerActionImpl::SetController(std::shared_ptr<IControllerWriter> controller)
@@ -3019,6 +3060,9 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->_activateLateral = GetActivateLateral();
             // Simple type
             clonedObject->_activateLongitudinal = GetActivateLongitudinal();
+            // clone indicators
+            	clonedObject->isSetActivateLateral = isSetActivateLateral;
+            	clonedObject->isSetActivateLongitudinal = isSetActivateLongitudinal;
             // clone children
             const auto kController =  GetWriterController();
             if (kController)
@@ -3096,6 +3140,26 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void AssignControllerActionImpl::ResetActivateLateral()
+	   {
+	   		isSetActivateLateral = false; 
+			_activateLateral = {};
+			
+	   }
+       bool AssignControllerActionImpl::IsSetActivateLateral() const
+	   {
+			return isSetActivateLateral;
+	   }
+       void AssignControllerActionImpl::ResetActivateLongitudinal()
+	   {
+	   		isSetActivateLongitudinal = false; 
+			_activateLongitudinal = {};
+			
+	   }
+       bool AssignControllerActionImpl::IsSetActivateLongitudinal() const
+	   {
+			return isSetActivateLongitudinal;
+	   }
 
         IOpenScenarioFlexElement* AssignRouteActionImpl::GetOpenScenarioFlexElement()
         {
@@ -3256,6 +3320,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kRoute =  GetWriterRoute();
             if (kRoute)
@@ -3669,6 +3734,7 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->_trackWidth = GetTrackWidth();
             // Simple type
             clonedObject->_wheelDiameter = GetWheelDiameter();
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -3930,6 +3996,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kFrontAxle =  GetWriterFrontAxle();
             if (kFrontAxle)
@@ -4174,6 +4241,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kCenter =  GetWriterCenter();
             if (kCenter)
@@ -4393,6 +4461,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kTriggeringEntities =  GetWriterTriggeringEntities();
             if (kTriggeringEntities)
@@ -4630,6 +4699,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 clonedObject->_type = ObjectType::GetFromLiteral(kType.GetLiteral());
             }
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -4847,6 +4917,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 clonedObject->_objectType = ObjectType::GetFromLiteral(kObjectType.GetLiteral());
             }
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -5178,6 +5249,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kParameterCondition =  GetWriterParameterCondition();
             if (kParameterCondition)
@@ -5771,6 +5843,7 @@ namespace NET_ASAM_OPENSCENARIO
             // clone attributes;
             // Simple type
             clonedObject->_name = GetName();
+            // clone indicators
             // clone children
             const auto kVehicles =  GetWriterVehicles();
             if (!kVehicles.empty())
@@ -6126,6 +6199,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kCatalog =  GetWriterCatalog();
             if (kCatalog)
@@ -6440,6 +6514,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kVehicleCatalog =  GetWriterVehicleCatalog();
             if (kVehicleCatalog)
@@ -6830,6 +6905,7 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->_catalogName = GetCatalogName();
             // Simple type
             clonedObject->_entryName = GetEntryName();
+            // clone indicators
             // clone children
             const auto kParameterAssignments =  GetWriterParameterAssignments();
             if (!kParameterAssignments.empty())
@@ -7177,6 +7253,7 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->_y = GetY();
             // Simple type
             clonedObject->_z = GetZ();
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -7397,6 +7474,7 @@ namespace NET_ASAM_OPENSCENARIO
             proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
             clonedObject->_entityRef = proxy;
             
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -7495,12 +7573,16 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _curvatureDot = curvatureDot;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__CURVATURE_DOT);
+			// set the indicator to true
+            isSetCurvatureDot = true;          
         }
 
         void ClothoidImpl::SetCurvaturePrime(const double curvaturePrime)
         {
             _curvaturePrime = curvaturePrime;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__CURVATURE_PRIME);
+			// set the indicator to true
+            isSetCurvaturePrime = true;          
         }
 
         void ClothoidImpl::SetLength(const double length)
@@ -7513,12 +7595,16 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _startTime = startTime;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__START_TIME);
+			// set the indicator to true
+            isSetStartTime = true;          
         }
 
         void ClothoidImpl::SetStopTime(const double stopTime)
         {
             _stopTime = stopTime;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__STOP_TIME);
+			// set the indicator to true
+            isSetStopTime = true;          
         }
 
         void ClothoidImpl::SetPosition(std::shared_ptr<IPositionWriter> position)
@@ -7865,6 +7951,11 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->_startTime = GetStartTime();
             // Simple type
             clonedObject->_stopTime = GetStopTime();
+            // clone indicators
+            	clonedObject->isSetCurvatureDot = isSetCurvatureDot;
+            	clonedObject->isSetCurvaturePrime = isSetCurvaturePrime;
+            	clonedObject->isSetStartTime = isSetStartTime;
+            	clonedObject->isSetStopTime = isSetStopTime;
             // clone children
             const auto kPosition =  GetWriterPosition();
             if (kPosition)
@@ -7953,6 +8044,46 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void ClothoidImpl::ResetCurvatureDot()
+	   {
+	   		isSetCurvatureDot = false; 
+			_curvatureDot = {};
+			
+	   }
+       bool ClothoidImpl::IsSetCurvatureDot() const
+	   {
+			return isSetCurvatureDot;
+	   }
+       void ClothoidImpl::ResetCurvaturePrime()
+	   {
+	   		isSetCurvaturePrime = false; 
+			_curvaturePrime = {};
+			
+	   }
+       bool ClothoidImpl::IsSetCurvaturePrime() const
+	   {
+			return isSetCurvaturePrime;
+	   }
+       void ClothoidImpl::ResetStartTime()
+	   {
+	   		isSetStartTime = false; 
+			_startTime = {};
+			
+	   }
+       bool ClothoidImpl::IsSetStartTime() const
+	   {
+			return isSetStartTime;
+	   }
+       void ClothoidImpl::ResetStopTime()
+	   {
+	   		isSetStopTime = false; 
+			_stopTime = {};
+			
+	   }
+       bool ClothoidImpl::IsSetStopTime() const
+	   {
+			return isSetStopTime;
+	   }
 
         IOpenScenarioFlexElement* CollisionConditionImpl::GetOpenScenarioFlexElement()
         {
@@ -8113,6 +8244,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kEntityRef =  GetWriterEntityRef();
             if (kEntityRef)
@@ -8479,6 +8611,7 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->_delay = GetDelay();
             // Simple type
             clonedObject->_name = GetName();
+            // clone indicators
             // clone children
             const auto kByEntityCondition =  GetWriterByEntityCondition();
             if (kByEntityCondition)
@@ -8739,6 +8872,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kConditions =  GetWriterConditions();
             if (!kConditions.empty())
@@ -8818,12 +8952,16 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _time = time;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TIME);
+			// set the indicator to true
+            isSetTime = true;          
         }
 
         void ControlPointImpl::SetWeight(const double weight)
         {
             _weight = weight;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__WEIGHT);
+			// set the indicator to true
+            isSetWeight = true;          
         }
 
         void ControlPointImpl::SetPosition(std::shared_ptr<IPositionWriter> position)
@@ -9030,6 +9168,9 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->_time = GetTime();
             // Simple type
             clonedObject->_weight = GetWeight();
+            // clone indicators
+            	clonedObject->isSetTime = isSetTime;
+            	clonedObject->isSetWeight = isSetWeight;
             // clone children
             const auto kPosition =  GetWriterPosition();
             if (kPosition)
@@ -9094,6 +9235,26 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void ControlPointImpl::ResetTime()
+	   {
+	   		isSetTime = false; 
+			_time = {};
+			
+	   }
+       bool ControlPointImpl::IsSetTime() const
+	   {
+			return isSetTime;
+	   }
+       void ControlPointImpl::ResetWeight()
+	   {
+	   		isSetWeight = false; 
+			_weight = {};
+			
+	   }
+       bool ControlPointImpl::IsSetWeight() const
+	   {
+			return isSetWeight;
+	   }
 
         IOpenScenarioFlexElement* ControllerImpl::GetOpenScenarioFlexElement()
         {
@@ -9333,6 +9494,7 @@ namespace NET_ASAM_OPENSCENARIO
             // clone attributes;
             // Simple type
             clonedObject->_name = GetName();
+            // clone indicators
             // clone children
             const auto kParameterDeclarations =  GetWriterParameterDeclarations();
             if (!kParameterDeclarations.empty())
@@ -9600,6 +9762,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kAssignControllerAction =  GetWriterAssignControllerAction();
             if (kAssignControllerAction)
@@ -9814,6 +9977,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kDirectory =  GetWriterDirectory();
             if (kDirectory)
@@ -10022,6 +10186,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kControllerDistributionEntries =  GetWriterControllerDistributionEntries();
             if (!kControllerDistributionEntries.empty())
@@ -10288,6 +10453,7 @@ namespace NET_ASAM_OPENSCENARIO
             // clone attributes;
             // Simple type
             clonedObject->_weight = GetWeight();
+            // clone indicators
             // clone children
             const auto kController =  GetWriterController();
             if (kController)
@@ -10561,6 +10727,7 @@ namespace NET_ASAM_OPENSCENARIO
             // clone attributes;
             // Simple type
             clonedObject->_type = GetType();
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -10744,6 +10911,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -10935,6 +11103,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kDeterministicParameterDistributions =  GetWriterDeterministicParameterDistributions();
             if (!kDeterministicParameterDistributions.empty())
@@ -11131,6 +11300,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kDeterministicMultiParameterDistributionType =  GetWriterDeterministicMultiParameterDistributionType();
             if (kDeterministicMultiParameterDistributionType)
@@ -11319,6 +11489,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kValueSetDistribution =  GetWriterValueSetDistribution();
             if (kValueSetDistribution)
@@ -11527,6 +11698,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kDeterministicMultiParameterDistribution =  GetWriterDeterministicMultiParameterDistribution();
             if (kDeterministicMultiParameterDistribution)
@@ -11769,6 +11941,7 @@ namespace NET_ASAM_OPENSCENARIO
             // clone attributes;
             // Simple type
             clonedObject->_parameterName = GetParameterName();
+            // clone indicators
             // clone children
             const auto kDeterministicSingleParameterDistributionType =  GetWriterDeterministicSingleParameterDistributionType();
             if (kDeterministicSingleParameterDistributionType)
@@ -12018,6 +12191,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kDistributionSet =  GetWriterDistributionSet();
             if (kDistributionSet)
@@ -12354,6 +12528,7 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->_length = GetLength();
             // Simple type
             clonedObject->_width = GetWidth();
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -12570,6 +12745,7 @@ namespace NET_ASAM_OPENSCENARIO
             // clone attributes;
             // Simple type
             clonedObject->_path = GetPath();
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -12659,6 +12835,8 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _alongRoute = alongRoute;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ALONG_ROUTE);
+			// set the indicator to true
+            isSetAlongRoute = true;          
         }
 
         void DistanceConditionImpl::SetCoordinateSystem(const CoordinateSystem coordinateSystem)
@@ -13067,6 +13245,8 @@ namespace NET_ASAM_OPENSCENARIO
             }
             // Simple type
             clonedObject->_value = GetValue();
+            // clone indicators
+            	clonedObject->isSetAlongRoute = isSetAlongRoute;
             // clone children
             const auto kPosition =  GetWriterPosition();
             if (kPosition)
@@ -13161,6 +13341,16 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void DistanceConditionImpl::ResetAlongRoute()
+	   {
+	   		isSetAlongRoute = false; 
+			_alongRoute = {};
+			
+	   }
+       bool DistanceConditionImpl::IsSetAlongRoute() const
+	   {
+			return isSetAlongRoute;
+	   }
 
         IOpenScenarioFlexElement* DistributionDefinitionImpl::GetOpenScenarioFlexElement()
         {
@@ -13321,6 +13511,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kDeterministic =  GetWriterDeterministic();
             if (kDeterministic)
@@ -13572,6 +13763,7 @@ namespace NET_ASAM_OPENSCENARIO
             // clone attributes;
             // Simple type
             clonedObject->_stepWidth = GetStepWidth();
+            // clone indicators
             // clone children
             const auto kRange =  GetWriterRange();
             if (kRange)
@@ -13790,6 +13982,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kElements =  GetWriterElements();
             if (!kElements.empty())
@@ -14009,6 +14202,7 @@ namespace NET_ASAM_OPENSCENARIO
             // clone attributes;
             // Simple type
             clonedObject->_value = GetValue();
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -14082,18 +14276,24 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _maxAcceleration = maxAcceleration;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAX_ACCELERATION);
+			// set the indicator to true
+            isSetMaxAcceleration = true;          
         }
 
         void DynamicConstraintsImpl::SetMaxDeceleration(const double maxDeceleration)
         {
             _maxDeceleration = maxDeceleration;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAX_DECELERATION);
+			// set the indicator to true
+            isSetMaxDeceleration = true;          
         }
 
         void DynamicConstraintsImpl::SetMaxSpeed(const double maxSpeed)
         {
             _maxSpeed = maxSpeed;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAX_SPEED);
+			// set the indicator to true
+            isSetMaxSpeed = true;          
         }
 
         std::shared_ptr<void> DynamicConstraintsImpl::GetAdapter(const std::string classifier)
@@ -14321,6 +14521,10 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->_maxDeceleration = GetMaxDeceleration();
             // Simple type
             clonedObject->_maxSpeed = GetMaxSpeed();
+            // clone indicators
+            	clonedObject->isSetMaxAcceleration = isSetMaxAcceleration;
+            	clonedObject->isSetMaxDeceleration = isSetMaxDeceleration;
+            	clonedObject->isSetMaxSpeed = isSetMaxSpeed;
             // clone children
             return clonedObject;
         }
@@ -14374,6 +14578,36 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void DynamicConstraintsImpl::ResetMaxAcceleration()
+	   {
+	   		isSetMaxAcceleration = false; 
+			_maxAcceleration = {};
+			
+	   }
+       bool DynamicConstraintsImpl::IsSetMaxAcceleration() const
+	   {
+			return isSetMaxAcceleration;
+	   }
+       void DynamicConstraintsImpl::ResetMaxDeceleration()
+	   {
+	   		isSetMaxDeceleration = false; 
+			_maxDeceleration = {};
+			
+	   }
+       bool DynamicConstraintsImpl::IsSetMaxDeceleration() const
+	   {
+			return isSetMaxDeceleration;
+	   }
+       void DynamicConstraintsImpl::ResetMaxSpeed()
+	   {
+	   		isSetMaxSpeed = false; 
+			_maxSpeed = {};
+			
+	   }
+       bool DynamicConstraintsImpl::IsSetMaxSpeed() const
+	   {
+			return isSetMaxSpeed;
+	   }
 
         IOpenScenarioFlexElement* EndOfRoadConditionImpl::GetOpenScenarioFlexElement()
         {
@@ -14546,6 +14780,7 @@ namespace NET_ASAM_OPENSCENARIO
             // clone attributes;
             // Simple type
             clonedObject->_duration = GetDuration();
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -14785,6 +15020,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kScenarioObjects =  GetWriterScenarioObjects();
             if (!kScenarioObjects.empty())
@@ -15066,6 +15302,7 @@ namespace NET_ASAM_OPENSCENARIO
             proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
             clonedObject->_entityRef = proxy;
             
+            // clone indicators
             // clone children
             const auto kAddEntityAction =  GetWriterAddEntityAction();
             if (kAddEntityAction)
@@ -15661,6 +15898,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kEndOfRoadCondition =  GetWriterEndOfRoadCondition();
             if (kEndOfRoadCondition)
@@ -16097,6 +16335,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kCatalogReference =  GetWriterCatalogReference();
             if (kCatalogReference)
@@ -16364,6 +16603,7 @@ namespace NET_ASAM_OPENSCENARIO
             proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
             clonedObject->_entityRef = proxy;
             
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -16598,6 +16838,7 @@ namespace NET_ASAM_OPENSCENARIO
             // clone attributes;
             // Simple type
             clonedObject->_name = GetName();
+            // clone indicators
             // clone children
             const auto kMembers =  GetWriterMembers();
             if (kMembers)
@@ -16940,6 +17181,7 @@ namespace NET_ASAM_OPENSCENARIO
             // clone attributes;
             // Simple type
             clonedObject->_name = GetName();
+            // clone indicators
             // clone children
             const auto kParameterDeclarations =  GetWriterParameterDeclarations();
             if (!kParameterDeclarations.empty())
@@ -17217,6 +17459,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kEnvironment =  GetWriterEnvironment();
             if (kEnvironment)
@@ -17418,6 +17661,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kDirectory =  GetWriterDirectory();
             if (kDirectory)
@@ -17789,6 +18033,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 clonedObject->_priority = Priority::GetFromLiteral(kPriority.GetLiteral());
             }
+            // clone indicators
             // clone children
             const auto kActions =  GetWriterActions();
             if (!kActions.empty())
@@ -18064,6 +18309,7 @@ namespace NET_ASAM_OPENSCENARIO
             // clone attributes;
             // Simple type
             clonedObject->_name = GetName();
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -18277,6 +18523,7 @@ namespace NET_ASAM_OPENSCENARIO
             // clone attributes;
             // Simple type
             clonedObject->_filepath = GetFilepath();
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -18694,6 +18941,7 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->_revMajor = GetRevMajor();
             // Simple type
             clonedObject->_revMinor = GetRevMinor();
+            // clone indicators
             // clone children
             const auto kLicense =  GetWriterLicense();
             if (kLicense)
@@ -18958,6 +19206,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kAbsoluteSpeed =  GetWriterAbsoluteSpeed();
             if (kAbsoluteSpeed)
@@ -19209,6 +19458,7 @@ namespace NET_ASAM_OPENSCENARIO
             // clone attributes;
             // Simple type
             clonedObject->_visualRange = GetVisualRange();
+            // clone indicators
             // clone children
             const auto kBoundingBox =  GetWriterBoundingBox();
             if (kBoundingBox)
@@ -19529,6 +19779,7 @@ namespace NET_ASAM_OPENSCENARIO
             // clone attributes;
             // Simple type
             clonedObject->_initialDistanceOffset = GetInitialDistanceOffset();
+            // clone indicators
             // clone children
             const auto kTrajectory =  GetWriterTrajectory();
             if (kTrajectory)
@@ -19919,6 +20170,7 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->_latitude = GetLatitude();
             // Simple type
             clonedObject->_longitude = GetLongitude();
+            // clone indicators
             // clone children
             const auto kOrientation =  GetWriterOrientation();
             if (kOrientation)
@@ -20221,6 +20473,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kEnvironmentAction =  GetWriterEnvironmentAction();
             if (kEnvironmentAction)
@@ -20481,6 +20734,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kBins =  GetWriterBins();
             if (!kBins.empty())
@@ -20727,6 +20981,7 @@ namespace NET_ASAM_OPENSCENARIO
             // clone attributes;
             // Simple type
             clonedObject->_weight = GetWeight();
+            // clone indicators
             // clone children
             const auto kRange =  GetWriterRange();
             if (kRange)
@@ -20967,6 +21222,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kFromCurrentEntity =  GetWriterFromCurrentEntity();
             if (kFromCurrentEntity)
@@ -21181,6 +21437,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kTrafficSignalAction =  GetWriterTrafficSignalAction();
             if (kTrafficSignalAction)
@@ -21369,6 +21626,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kActions =  GetWriterActions();
             if (kActions)
@@ -21653,6 +21911,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kGlobalActions =  GetWriterGlobalActions();
             if (!kGlobalActions.empty())
@@ -21921,6 +22180,7 @@ namespace NET_ASAM_OPENSCENARIO
             // clone attributes;
             // Simple type
             clonedObject->_value = GetValue();
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -22170,6 +22430,7 @@ namespace NET_ASAM_OPENSCENARIO
             // clone attributes;
             // Simple type
             clonedObject->_targetLaneOffset = GetTargetLaneOffset();
+            // clone indicators
             // clone children
             const auto kLaneChangeActionDynamics =  GetWriterLaneChangeActionDynamics();
             if (kLaneChangeActionDynamics)
@@ -22401,6 +22662,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kRelativeTargetLane =  GetWriterRelativeTargetLane();
             if (kRelativeTargetLane)
@@ -22670,6 +22932,7 @@ namespace NET_ASAM_OPENSCENARIO
             // clone attributes;
             // Simple type
             clonedObject->_continuous = GetContinuous();
+            // clone indicators
             // clone children
             const auto kLaneOffsetActionDynamics =  GetWriterLaneOffsetActionDynamics();
             if (kLaneOffsetActionDynamics)
@@ -22766,6 +23029,8 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _maxLateralAcc = maxLateralAcc;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAX_LATERAL_ACC);
+			// set the indicator to true
+            isSetMaxLateralAcc = true;          
         }
 
         std::shared_ptr<void> LaneOffsetActionDynamicsImpl::GetAdapter(const std::string classifier)
@@ -22967,6 +23232,8 @@ namespace NET_ASAM_OPENSCENARIO
             }
             // Simple type
             clonedObject->_maxLateralAcc = GetMaxLateralAcc();
+            // clone indicators
+            	clonedObject->isSetMaxLateralAcc = isSetMaxLateralAcc;
             // clone children
             return clonedObject;
         }
@@ -23018,6 +23285,16 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void LaneOffsetActionDynamicsImpl::ResetMaxLateralAcc()
+	   {
+	   		isSetMaxLateralAcc = false; 
+			_maxLateralAcc = {};
+			
+	   }
+       bool LaneOffsetActionDynamicsImpl::IsSetMaxLateralAcc() const
+	   {
+			return isSetMaxLateralAcc;
+	   }
 
         IOpenScenarioFlexElement* LaneOffsetTargetImpl::GetOpenScenarioFlexElement()
         {
@@ -23178,6 +23455,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kRelativeTargetLaneOffset =  GetWriterRelativeTargetLaneOffset();
             if (kRelativeTargetLaneOffset)
@@ -23556,6 +23834,7 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->_roadId = GetRoadId();
             // Simple type
             clonedObject->_s = GetS();
+            // clone indicators
             // clone children
             const auto kOrientation =  GetWriterOrientation();
             if (kOrientation)
@@ -23832,6 +24111,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kLaneChangeAction =  GetWriterLaneChangeAction();
             if (kLaneChangeAction)
@@ -24344,6 +24624,7 @@ namespace NET_ASAM_OPENSCENARIO
             
             // Simple type
             clonedObject->_freespace = GetFreespace();
+            // clone indicators
             // clone children
             const auto kDynamicConstraints =  GetWriterDynamicConstraints();
             if (kDynamicConstraints)
@@ -24494,12 +24775,16 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _resource = resource;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RESOURCE);
+			// set the indicator to true
+            isSetResource = true;          
         }
 
         void LicenseImpl::SetSpdxId(const std::string spdxId)
         {
             _spdxId = spdxId;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__SPDX_ID);
+			// set the indicator to true
+            isSetSpdxId = true;          
         }
 
         std::shared_ptr<void> LicenseImpl::GetAdapter(const std::string classifier)
@@ -24739,6 +25024,9 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->_resource = GetResource();
             // Simple type
             clonedObject->_spdxId = GetSpdxId();
+            // clone indicators
+            	clonedObject->isSetResource = isSetResource;
+            	clonedObject->isSetSpdxId = isSetSpdxId;
             // clone children
             return clonedObject;
         }
@@ -24822,6 +25110,26 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void LicenseImpl::ResetResource()
+	   {
+	   		isSetResource = false; 
+			_resource = {};
+			
+	   }
+       bool LicenseImpl::IsSetResource() const
+	   {
+			return isSetResource;
+	   }
+       void LicenseImpl::ResetSpdxId()
+	   {
+	   		isSetSpdxId = false; 
+			_spdxId = {};
+			
+	   }
+       bool LicenseImpl::IsSetSpdxId() const
+	   {
+			return isSetSpdxId;
+	   }
 
         IOpenScenarioFlexElement* LongitudinalActionImpl::GetOpenScenarioFlexElement()
         {
@@ -24982,6 +25290,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kSpeedAction =  GetWriterSpeedAction();
             if (kSpeedAction)
@@ -25104,6 +25413,8 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _distance = distance;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DISTANCE);
+			// set the indicator to true
+            isSetDistance = true;          
         }
 
         void LongitudinalDistanceActionImpl::SetEntityRef(std::shared_ptr<INamedReference<IEntity>> entityRef)
@@ -25122,6 +25433,8 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _timeGap = timeGap;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TIME_GAP);
+			// set the indicator to true
+            isSetTimeGap = true;          
         }
 
         void LongitudinalDistanceActionImpl::SetDynamicConstraints(std::shared_ptr<IDynamicConstraintsWriter> dynamicConstraints)
@@ -25526,6 +25839,9 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->_freespace = GetFreespace();
             // Simple type
             clonedObject->_timeGap = GetTimeGap();
+            // clone indicators
+            	clonedObject->isSetDistance = isSetDistance;
+            	clonedObject->isSetTimeGap = isSetTimeGap;
             // clone children
             const auto kDynamicConstraints =  GetWriterDynamicConstraints();
             if (kDynamicConstraints)
@@ -25643,6 +25959,26 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void LongitudinalDistanceActionImpl::ResetDistance()
+	   {
+	   		isSetDistance = false; 
+			_distance = {};
+			
+	   }
+       bool LongitudinalDistanceActionImpl::IsSetDistance() const
+	   {
+			return isSetDistance;
+	   }
+       void LongitudinalDistanceActionImpl::ResetTimeGap()
+	   {
+	   		isSetTimeGap = false; 
+			_timeGap = {};
+			
+	   }
+       bool LongitudinalDistanceActionImpl::IsSetTimeGap() const
+	   {
+			return isSetTimeGap;
+	   }
 
         IOpenScenarioFlexElement* ManeuverImpl::GetOpenScenarioFlexElement()
         {
@@ -25902,6 +26238,7 @@ namespace NET_ASAM_OPENSCENARIO
             // clone attributes;
             // Simple type
             clonedObject->_name = GetName();
+            // clone indicators
             // clone children
             const auto kParameterDeclarations =  GetWriterParameterDeclarations();
             if (!kParameterDeclarations.empty())
@@ -26136,6 +26473,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kDirectory =  GetWriterDirectory();
             if (kDirectory)
@@ -26491,6 +26829,7 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->_maximumExecutionCount = GetMaximumExecutionCount();
             // Simple type
             clonedObject->_name = GetName();
+            // clone indicators
             // clone children
             const auto kActors =  GetWriterActors();
             if (kActors)
@@ -26685,6 +27024,8 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _model3d = model3d;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MODEL3D);
+			// set the indicator to true
+            isSetModel3d = true;          
         }
 
         void MiscObjectImpl::SetName(const std::string name)
@@ -27015,6 +27356,8 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->_model3d = GetModel3d();
             // Simple type
             clonedObject->_name = GetName();
+            // clone indicators
+            	clonedObject->isSetModel3d = isSetModel3d;
             // clone children
             const auto kParameterDeclarations =  GetWriterParameterDeclarations();
             if (!kParameterDeclarations.empty())
@@ -27150,6 +27493,16 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void MiscObjectImpl::ResetModel3d()
+	   {
+	   		isSetModel3d = false; 
+			_model3d = {};
+			
+	   }
+       bool MiscObjectImpl::IsSetModel3d() const
+	   {
+			return isSetModel3d;
+	   }
 
         IOpenScenarioFlexElement* MiscObjectCatalogLocationImpl::GetOpenScenarioFlexElement()
         {
@@ -27290,6 +27643,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kDirectory =  GetWriterDirectory();
             if (kDirectory)
@@ -27498,6 +27852,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kAddValue =  GetWriterAddValue();
             if (kAddValue)
@@ -27681,6 +28036,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -27947,6 +28303,7 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->_expectedValue = GetExpectedValue();
             // Simple type
             clonedObject->_variance = GetVariance();
+            // clone indicators
             // clone children
             const auto kRange =  GetWriterRange();
             if (kRange)
@@ -28259,6 +28616,7 @@ namespace NET_ASAM_OPENSCENARIO
             // clone attributes;
             // Simple type
             clonedObject->_order = GetOrder();
+            // clone indicators
             // clone children
             const auto kControlPoints =  GetWriterControlPoints();
             if (!kControlPoints.empty())
@@ -28505,6 +28863,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kCatalogReference =  GetWriterCatalogReference();
             if (kCatalogReference)
@@ -28738,6 +29097,7 @@ namespace NET_ASAM_OPENSCENARIO
             // clone attributes;
             // Simple type
             clonedObject->_duration = GetDuration();
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -28937,6 +29297,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kFileHeader =  GetWriterFileHeader();
             if (kFileHeader)
@@ -29180,6 +29541,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kScenarioDefinition =  GetWriterScenarioDefinition();
             if (kScenarioDefinition)
@@ -29570,6 +29932,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 clonedObject->_type = ReferenceContext::GetFromLiteral(kType.GetLiteral());
             }
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -29855,6 +30218,7 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->_active = GetActive();
             // Simple type
             clonedObject->_value = GetValue();
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -30128,6 +30492,7 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->_active = GetActive();
             // Simple type
             clonedObject->_value = GetValue();
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -30409,6 +30774,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kThrottle =  GetWriterThrottle();
             if (kThrottle)
@@ -30744,6 +31110,7 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->_active = GetActive();
             // Simple type
             clonedObject->_number = GetNumber();
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -31017,6 +31384,7 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->_active = GetActive();
             // Simple type
             clonedObject->_value = GetValue();
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -31290,6 +31658,7 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->_active = GetActive();
             // Simple type
             clonedObject->_value = GetValue();
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -31563,6 +31932,7 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->_active = GetActive();
             // Simple type
             clonedObject->_value = GetValue();
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -31819,6 +32189,7 @@ namespace NET_ASAM_OPENSCENARIO
             proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
             clonedObject->_parameterRef = proxy;
             
+            // clone indicators
             // clone children
             const auto kSetAction =  GetWriterSetAction();
             if (kSetAction)
@@ -32074,6 +32445,7 @@ namespace NET_ASAM_OPENSCENARIO
             // clone attributes;
             // Simple type
             clonedObject->_value = GetValue();
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -32293,6 +32665,7 @@ namespace NET_ASAM_OPENSCENARIO
             
             // Simple type
             clonedObject->_value = GetValue();
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -32627,6 +33000,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
             // Simple type
             clonedObject->_value = GetValue();
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -32972,6 +33346,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
             // Simple type
             clonedObject->_value = GetValue();
+            // clone indicators
             // clone children
             const auto kConstraintGroups =  GetWriterConstraintGroups();
             if (!kConstraintGroups.empty())
@@ -33206,6 +33581,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kRule =  GetWriterRule();
             if (kRule)
@@ -33426,6 +33802,7 @@ namespace NET_ASAM_OPENSCENARIO
             // clone attributes;
             // Simple type
             clonedObject->_value = GetValue();
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -33630,6 +34007,7 @@ namespace NET_ASAM_OPENSCENARIO
             // clone attributes;
             // Simple type
             clonedObject->_value = GetValue();
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -33838,6 +34216,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kScenarioFile =  GetWriterScenarioFile();
             if (kScenarioFile)
@@ -34039,6 +34418,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kParameterValueDistribution =  GetWriterParameterValueDistribution();
             if (kParameterValueDistribution)
@@ -34247,6 +34627,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kParameterAssignments =  GetWriterParameterAssignments();
             if (!kParameterAssignments.empty())
@@ -34373,12 +34754,16 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _model = model;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MODEL);
+			// set the indicator to true
+            isSetModel = true;          
         }
 
         void PedestrianImpl::SetModel3d(const std::string model3d)
         {
             _model3d = model3d;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MODEL3D);
+			// set the indicator to true
+            isSetModel3d = true;          
         }
 
         void PedestrianImpl::SetName(const std::string name)
@@ -34746,6 +35131,9 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 clonedObject->_pedestrianCategory = PedestrianCategory::GetFromLiteral(kPedestrianCategory.GetLiteral());
             }
+            // clone indicators
+            	clonedObject->isSetModel = isSetModel;
+            	clonedObject->isSetModel3d = isSetModel3d;
             // clone children
             const auto kParameterDeclarations =  GetWriterParameterDeclarations();
             if (!kParameterDeclarations.empty())
@@ -34892,6 +35280,26 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void PedestrianImpl::ResetModel()
+	   {
+	   		isSetModel = false; 
+			_model = {};
+			
+	   }
+       bool PedestrianImpl::IsSetModel() const
+	   {
+			return isSetModel;
+	   }
+       void PedestrianImpl::ResetModel3d()
+	   {
+	   		isSetModel3d = false; 
+			_model3d = {};
+			
+	   }
+       bool PedestrianImpl::IsSetModel3d() const
+	   {
+			return isSetModel3d;
+	   }
 
         IOpenScenarioFlexElement* PedestrianCatalogLocationImpl::GetOpenScenarioFlexElement()
         {
@@ -35032,6 +35440,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kDirectory =  GetWriterDirectory();
             if (kDirectory)
@@ -35342,6 +35751,7 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->_maxDeceleration = GetMaxDeceleration();
             // Simple type
             clonedObject->_maxSpeed = GetMaxSpeed();
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -35646,6 +36056,7 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->_duration = GetDuration();
             // Simple type
             clonedObject->_name = GetName();
+            // clone indicators
             // clone children
             const auto kTrafficSignalStates =  GetWriterTrafficSignalStates();
             if (!kTrafficSignalStates.empty())
@@ -35921,6 +36332,7 @@ namespace NET_ASAM_OPENSCENARIO
             // clone attributes;
             // Simple type
             clonedObject->_expectedValue = GetExpectedValue();
+            // clone indicators
             // clone children
             const auto kRange =  GetWriterRange();
             if (kRange)
@@ -36139,6 +36551,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kVertices =  GetWriterVertices();
             if (!kVertices.empty())
@@ -36587,6 +37000,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kWorldPosition =  GetWriterWorldPosition();
             if (kWorldPosition)
@@ -37010,6 +37424,7 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->_laneOffset = GetLaneOffset();
             // Simple type
             clonedObject->_pathS = GetPathS();
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -37293,6 +37708,7 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->_pathS = GetPathS();
             // Simple type
             clonedObject->_t = GetT();
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -37507,6 +37923,7 @@ namespace NET_ASAM_OPENSCENARIO
             proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
             clonedObject->_entityRef = proxy;
             
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -37583,12 +38000,16 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _intensity = intensity;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__INTENSITY);
+			// set the indicator to true
+            isSetIntensity = true;          
         }
 
         void PrecipitationImpl::SetPrecipitationIntensity(const double precipitationIntensity)
         {
             _precipitationIntensity = precipitationIntensity;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__PRECIPITATION_INTENSITY);
+			// set the indicator to true
+            isSetPrecipitationIntensity = true;          
         }
 
         void PrecipitationImpl::SetPrecipitationType(const PrecipitationType precipitationType)
@@ -37831,6 +38252,9 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 clonedObject->_precipitationType = PrecipitationType::GetFromLiteral(kPrecipitationType.GetLiteral());
             }
+            // clone indicators
+            	clonedObject->isSetIntensity = isSetIntensity;
+            	clonedObject->isSetPrecipitationIntensity = isSetPrecipitationIntensity;
             // clone children
             return clonedObject;
         }
@@ -37888,6 +38312,26 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void PrecipitationImpl::ResetIntensity()
+	   {
+	   		isSetIntensity = false; 
+			_intensity = {};
+			
+	   }
+       bool PrecipitationImpl::IsSetIntensity() const
+	   {
+			return isSetIntensity;
+	   }
+       void PrecipitationImpl::ResetPrecipitationIntensity()
+	   {
+	   		isSetPrecipitationIntensity = false; 
+			_precipitationIntensity = {};
+			
+	   }
+       bool PrecipitationImpl::IsSetPrecipitationIntensity() const
+	   {
+			return isSetPrecipitationIntensity;
+	   }
 
         IOpenScenarioFlexElement* PrivateImpl::GetOpenScenarioFlexElement()
         {
@@ -38093,6 +38537,7 @@ namespace NET_ASAM_OPENSCENARIO
             proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
             clonedObject->_entityRef = proxy;
             
+            // clone indicators
             // clone children
             const auto kPrivateActions =  GetWriterPrivateActions();
             if (!kPrivateActions.empty())
@@ -38493,6 +38938,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kLongitudinalAction =  GetWriterLongitudinalAction();
             if (kLongitudinalAction)
@@ -38792,6 +39238,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kElements =  GetWriterElements();
             if (!kElements.empty())
@@ -39061,6 +39508,7 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->_value = GetValue();
             // Simple type
             clonedObject->_weight = GetWeight();
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -39319,6 +39767,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kProperties =  GetWriterProperties();
             if (!kProperties.empty())
@@ -39599,6 +40048,7 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->_name = GetName();
             // Simple type
             clonedObject->_value = GetValue();
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -39877,6 +40327,7 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->_lowerLimit = GetLowerLimit();
             // Simple type
             clonedObject->_upperLimit = GetUpperLimit();
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -40114,6 +40565,7 @@ namespace NET_ASAM_OPENSCENARIO
             // clone attributes;
             // Simple type
             clonedObject->_tolerance = GetTolerance();
+            // clone indicators
             // clone children
             const auto kPosition =  GetWriterPosition();
             if (kPosition)
@@ -40601,6 +41053,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
             // Simple type
             clonedObject->_value = GetValue();
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -40735,12 +41188,16 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _ds = ds;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DS);
+			// set the indicator to true
+            isSetDs = true;          
         }
 
         void RelativeLanePositionImpl::SetDsLane(const double dsLane)
         {
             _dsLane = dsLane;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DS_LANE);
+			// set the indicator to true
+            isSetDsLane = true;          
         }
 
         void RelativeLanePositionImpl::SetEntityRef(std::shared_ptr<INamedReference<IEntity>> entityRef)
@@ -41069,6 +41526,9 @@ namespace NET_ASAM_OPENSCENARIO
             
             // Simple type
             clonedObject->_offset = GetOffset();
+            // clone indicators
+            	clonedObject->isSetDs = isSetDs;
+            	clonedObject->isSetDsLane = isSetDsLane;
             // clone children
             const auto kOrientation =  GetWriterOrientation();
             if (kOrientation)
@@ -41171,6 +41631,26 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void RelativeLanePositionImpl::ResetDs()
+	   {
+	   		isSetDs = false; 
+			_ds = {};
+			
+	   }
+       bool RelativeLanePositionImpl::IsSetDs() const
+	   {
+			return isSetDs;
+	   }
+       void RelativeLanePositionImpl::ResetDsLane()
+	   {
+	   		isSetDsLane = false; 
+			_dsLane = {};
+			
+	   }
+       bool RelativeLanePositionImpl::IsSetDsLane() const
+	   {
+			return isSetDsLane;
+	   }
 
         IOpenScenarioFlexElement* RelativeObjectPositionImpl::GetOpenScenarioFlexElement()
         {
@@ -41496,6 +41976,7 @@ namespace NET_ASAM_OPENSCENARIO
             proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
             clonedObject->_entityRef = proxy;
             
+            // clone indicators
             // clone children
             const auto kOrientation =  GetWriterOrientation();
             if (kOrientation)
@@ -41868,6 +42349,7 @@ namespace NET_ASAM_OPENSCENARIO
             proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
             clonedObject->_entityRef = proxy;
             
+            // clone indicators
             // clone children
             const auto kOrientation =  GetWriterOrientation();
             if (kOrientation)
@@ -42225,6 +42707,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
             // Simple type
             clonedObject->_value = GetValue();
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -42542,6 +43025,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
             // Simple type
             clonedObject->_value = GetValue();
+            // clone indicators
             // clone children
             const auto kSteadyState =  GetWriterSteadyState();
             if (kSteadyState)
@@ -42827,6 +43311,7 @@ namespace NET_ASAM_OPENSCENARIO
             
             // Simple type
             clonedObject->_value = GetValue();
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -43107,6 +43592,7 @@ namespace NET_ASAM_OPENSCENARIO
             
             // Simple type
             clonedObject->_value = GetValue();
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -43491,6 +43977,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
             // Simple type
             clonedObject->_value = GetValue();
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -43899,6 +44386,7 @@ namespace NET_ASAM_OPENSCENARIO
             proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
             clonedObject->_entityRef = proxy;
             
+            // clone indicators
             // clone children
             const auto kOrientation =  GetWriterOrientation();
             if (kOrientation)
@@ -44181,6 +44669,7 @@ namespace NET_ASAM_OPENSCENARIO
             // clone attributes;
             // Simple type
             clonedObject->_frictionScaleFactor = GetFrictionScaleFactor();
+            // clone indicators
             // clone children
             const auto kProperties =  GetWriterProperties();
             if (kProperties)
@@ -44453,6 +44942,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kLogicFile =  GetWriterLogicFile();
             if (kLogicFile)
@@ -44827,6 +45317,7 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->_s = GetS();
             // Simple type
             clonedObject->_t = GetT();
+            // clone indicators
             // clone children
             const auto kOrientation =  GetWriterOrientation();
             if (kOrientation)
@@ -45219,6 +45710,7 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->_closed = GetClosed();
             // Simple type
             clonedObject->_name = GetName();
+            // clone indicators
             // clone children
             const auto kParameterDeclarations =  GetWriterParameterDeclarations();
             if (!kParameterDeclarations.empty())
@@ -45463,6 +45955,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kDirectory =  GetWriterDirectory();
             if (kDirectory)
@@ -45687,6 +46180,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kRouteRef =  GetWriterRouteRef();
             if (kRouteRef)
@@ -45921,6 +46415,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kRoute =  GetWriterRoute();
             if (kRoute)
@@ -46164,6 +46659,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kAssignRouteAction =  GetWriterAssignRouteAction();
             if (kAssignRouteAction)
@@ -46490,6 +46986,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kParameterDeclarations =  GetWriterParameterDeclarations();
             if (!kParameterDeclarations.empty())
@@ -46800,6 +47297,7 @@ namespace NET_ASAM_OPENSCENARIO
             // clone attributes;
             // Simple type
             clonedObject->_name = GetName();
+            // clone indicators
             // clone children
             const auto kEntityObject =  GetWriterEntityObject();
             if (kEntityObject)
@@ -47080,6 +47578,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kEntityRef =  GetWriterEntityRef();
             if (!kEntityRef.empty())
@@ -47338,6 +47837,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kPolyline =  GetWriterPolyline();
             if (kPolyline)
@@ -47638,6 +48138,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
             // Simple type
             clonedObject->_value = GetValue();
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -47847,6 +48348,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kSpeedActionDynamics =  GetWriterSpeedActionDynamics();
             if (kSpeedActionDynamics)
@@ -48068,6 +48570,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kRelativeTargetSpeed =  GetWriterRelativeTargetSpeed();
             if (kRelativeTargetSpeed)
@@ -48355,6 +48858,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
             // Simple type
             clonedObject->_value = GetValue();
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -48578,6 +49082,7 @@ namespace NET_ASAM_OPENSCENARIO
             // clone attributes;
             // Simple type
             clonedObject->_duration = GetDuration();
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -48779,6 +49284,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kTargetDistanceSteadyState =  GetWriterTargetDistanceSteadyState();
             if (kTargetDistanceSteadyState)
@@ -48890,6 +49396,8 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _randomSeed = randomSeed;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RANDOM_SEED);
+			// set the indicator to true
+            isSetRandomSeed = true;          
         }
 
         void StochasticImpl::SetStochasticDistributions(std::vector<std::shared_ptr<IStochasticDistributionWriter>>& stochasticDistributions)
@@ -49100,6 +49608,8 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->_numberOfTestRuns = GetNumberOfTestRuns();
             // Simple type
             clonedObject->_randomSeed = GetRandomSeed();
+            // clone indicators
+            	clonedObject->isSetRandomSeed = isSetRandomSeed;
             // clone children
             const auto kStochasticDistributions =  GetWriterStochasticDistributions();
             if (!kStochasticDistributions.empty())
@@ -49176,6 +49686,16 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void StochasticImpl::ResetRandomSeed()
+	   {
+	   		isSetRandomSeed = false; 
+			_randomSeed = {};
+			
+	   }
+       bool StochasticImpl::IsSetRandomSeed() const
+	   {
+			return isSetRandomSeed;
+	   }
 
         IOpenScenarioFlexElement* StochasticDistributionImpl::GetOpenScenarioFlexElement()
         {
@@ -49357,6 +49877,7 @@ namespace NET_ASAM_OPENSCENARIO
             // clone attributes;
             // Simple type
             clonedObject->_parameterName = GetParameterName();
+            // clone indicators
             // clone children
             const auto kStochasticDistributionType =  GetWriterStochasticDistributionType();
             if (kStochasticDistributionType)
@@ -49684,6 +50205,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kProbabilityDistributionSet =  GetWriterProbabilityDistributionSet();
             if (kProbabilityDistributionSet)
@@ -50056,6 +50578,7 @@ namespace NET_ASAM_OPENSCENARIO
             // clone attributes;
             // Simple type
             clonedObject->_name = GetName();
+            // clone indicators
             // clone children
             const auto kParameterDeclarations =  GetWriterParameterDeclarations();
             if (!kParameterDeclarations.empty())
@@ -50346,6 +50869,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kInit =  GetWriterInit();
             if (kInit)
@@ -50707,6 +51231,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 clonedObject->_storyboardElementType = StoryboardElementType::GetFromLiteral(kStoryboardElementType.GetLiteral());
             }
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -51037,6 +51562,7 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->_elevation = GetElevation();
             // Simple type
             clonedObject->_intensity = GetIntensity();
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -51131,12 +51657,16 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _targetTolerance = targetTolerance;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TARGET_TOLERANCE);
+			// set the indicator to true
+            isSetTargetTolerance = true;          
         }
 
         void SynchronizeActionImpl::SetTargetToleranceMaster(const double targetToleranceMaster)
         {
             _targetToleranceMaster = targetToleranceMaster;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TARGET_TOLERANCE_MASTER);
+			// set the indicator to true
+            isSetTargetToleranceMaster = true;          
         }
 
         void SynchronizeActionImpl::SetTargetPositionMaster(std::shared_ptr<IPositionWriter> targetPositionMaster)
@@ -51406,6 +51936,9 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->_targetTolerance = GetTargetTolerance();
             // Simple type
             clonedObject->_targetToleranceMaster = GetTargetToleranceMaster();
+            // clone indicators
+            	clonedObject->isSetTargetTolerance = isSetTargetTolerance;
+            	clonedObject->isSetTargetToleranceMaster = isSetTargetToleranceMaster;
             // clone children
             const auto kTargetPositionMaster =  GetWriterTargetPositionMaster();
             if (kTargetPositionMaster)
@@ -51518,6 +52051,26 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void SynchronizeActionImpl::ResetTargetTolerance()
+	   {
+	   		isSetTargetTolerance = false; 
+			_targetTolerance = {};
+			
+	   }
+       bool SynchronizeActionImpl::IsSetTargetTolerance() const
+	   {
+			return isSetTargetTolerance;
+	   }
+       void SynchronizeActionImpl::ResetTargetToleranceMaster()
+	   {
+	   		isSetTargetToleranceMaster = false; 
+			_targetToleranceMaster = {};
+			
+	   }
+       bool SynchronizeActionImpl::IsSetTargetToleranceMaster() const
+	   {
+			return isSetTargetToleranceMaster;
+	   }
 
         IOpenScenarioFlexElement* TargetDistanceSteadyStateImpl::GetOpenScenarioFlexElement()
         {
@@ -51690,6 +52243,7 @@ namespace NET_ASAM_OPENSCENARIO
             // clone attributes;
             // Simple type
             clonedObject->_distance = GetDistance();
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -51903,6 +52457,7 @@ namespace NET_ASAM_OPENSCENARIO
             // clone attributes;
             // Simple type
             clonedObject->_time = GetTime();
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -52084,6 +52639,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kPosition =  GetWriterPosition();
             if (kPosition)
@@ -52171,6 +52727,8 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _alongRoute = alongRoute;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ALONG_ROUTE);
+			// set the indicator to true
+            isSetAlongRoute = true;          
         }
 
         void TimeHeadwayConditionImpl::SetCoordinateSystem(const CoordinateSystem coordinateSystem)
@@ -52606,6 +53164,8 @@ namespace NET_ASAM_OPENSCENARIO
             }
             // Simple type
             clonedObject->_value = GetValue();
+            // clone indicators
+            	clonedObject->isSetAlongRoute = isSetAlongRoute;
             // clone children
             return clonedObject;
         }
@@ -52705,6 +53265,16 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void TimeHeadwayConditionImpl::ResetAlongRoute()
+	   {
+	   		isSetAlongRoute = false; 
+			_alongRoute = {};
+			
+	   }
+       bool TimeHeadwayConditionImpl::IsSetAlongRoute() const
+	   {
+			return isSetAlongRoute;
+	   }
 
         IOpenScenarioFlexElement* TimeOfDayImpl::GetOpenScenarioFlexElement()
         {
@@ -52927,6 +53497,7 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->_animation = GetAnimation();
             // Simple type
             clonedObject->_dateTime = GetDateTime();
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -53204,6 +53775,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 clonedObject->_rule = Rule::GetFromLiteral(kRule.GetLiteral());
             }
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -53415,6 +53987,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kNone =  GetWriterNone();
             if (kNone)
@@ -53515,6 +54088,8 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _alongRoute = alongRoute;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ALONG_ROUTE);
+			// set the indicator to true
+            isSetAlongRoute = true;          
         }
 
         void TimeToCollisionConditionImpl::SetCoordinateSystem(const CoordinateSystem coordinateSystem)
@@ -53923,6 +54498,8 @@ namespace NET_ASAM_OPENSCENARIO
             }
             // Simple type
             clonedObject->_value = GetValue();
+            // clone indicators
+            	clonedObject->isSetAlongRoute = isSetAlongRoute;
             // clone children
             const auto kTimeToCollisionConditionTarget =  GetWriterTimeToCollisionConditionTarget();
             if (kTimeToCollisionConditionTarget)
@@ -54017,6 +54594,16 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void TimeToCollisionConditionImpl::ResetAlongRoute()
+	   {
+	   		isSetAlongRoute = false; 
+			_alongRoute = {};
+			
+	   }
+       bool TimeToCollisionConditionImpl::IsSetAlongRoute() const
+	   {
+			return isSetAlongRoute;
+	   }
 
         IOpenScenarioFlexElement* TimeToCollisionConditionTargetImpl::GetOpenScenarioFlexElement()
         {
@@ -54177,6 +54764,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kPosition =  GetWriterPosition();
             if (kPosition)
@@ -54509,6 +55097,7 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->_offset = GetOffset();
             // Simple type
             clonedObject->_scale = GetScale();
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -54597,6 +55186,8 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _trafficName = trafficName;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TRAFFIC_NAME);
+			// set the indicator to true
+            isSetTrafficName = true;          
         }
 
         void TrafficActionImpl::SetTrafficSourceAction(std::shared_ptr<ITrafficSourceActionWriter> trafficSourceAction)
@@ -54813,6 +55404,8 @@ namespace NET_ASAM_OPENSCENARIO
             // clone attributes;
             // Simple type
             clonedObject->_trafficName = GetTrafficName();
+            // clone indicators
+            	clonedObject->isSetTrafficName = isSetTrafficName;
             // clone children
             const auto kTrafficSourceAction =  GetWriterTrafficSourceAction();
             if (kTrafficSourceAction)
@@ -54919,6 +55512,16 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void TrafficActionImpl::ResetTrafficName()
+	   {
+	   		isSetTrafficName = false; 
+			_trafficName = {};
+			
+	   }
+       bool TrafficActionImpl::IsSetTrafficName() const
+	   {
+			return isSetTrafficName;
+	   }
 
         IOpenScenarioFlexElement* TrafficDefinitionImpl::GetOpenScenarioFlexElement()
         {
@@ -55118,6 +55721,7 @@ namespace NET_ASAM_OPENSCENARIO
             // clone attributes;
             // Simple type
             clonedObject->_name = GetName();
+            // clone indicators
             // clone children
             const auto kVehicleCategoryDistribution =  GetWriterVehicleCategoryDistribution();
             if (kVehicleCategoryDistribution)
@@ -55358,6 +55962,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kTrafficSignalControllerAction =  GetWriterTrafficSignalControllerAction();
             if (kTrafficSignalControllerAction)
@@ -55623,6 +56228,7 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->_name = GetName();
             // Simple type
             clonedObject->_state = GetState();
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -55744,6 +56350,8 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _reference = reference;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__REFERENCE);
+			// set the indicator to true
+            isSetReference = true;          
         }
 
         void TrafficSignalControllerImpl::SetPhases(std::vector<std::shared_ptr<IPhaseWriter>>& phases)
@@ -55976,6 +56584,8 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->_name = GetName();
             // Simple type
             clonedObject->_reference = GetReference();
+            // clone indicators
+            	clonedObject->isSetReference = isSetReference;
             // clone children
             const auto kPhases =  GetWriterPhases();
             if (!kPhases.empty())
@@ -56072,6 +56682,16 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void TrafficSignalControllerImpl::ResetReference()
+	   {
+	   		isSetReference = false; 
+			_reference = {};
+			
+	   }
+       bool TrafficSignalControllerImpl::IsSetReference() const
+	   {
+			return isSetReference;
+	   }
 
         IOpenScenarioFlexElement* TrafficSignalControllerActionImpl::GetOpenScenarioFlexElement()
         {
@@ -56306,6 +56926,7 @@ namespace NET_ASAM_OPENSCENARIO
             proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
             clonedObject->_trafficSignalControllerRef = proxy;
             
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -56608,6 +57229,7 @@ namespace NET_ASAM_OPENSCENARIO
             proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
             clonedObject->_trafficSignalControllerRef = proxy;
             
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -56880,6 +57502,7 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->_state = GetState();
             // Simple type
             clonedObject->_trafficSignalId = GetTrafficSignalId();
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -57145,6 +57768,7 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->_name = GetName();
             // Simple type
             clonedObject->_state = GetState();
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -57239,6 +57863,8 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _rate = rate;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RATE);
+			// set the indicator to true
+            isSetRate = true;          
         }
 
         void TrafficSinkActionImpl::SetPosition(std::shared_ptr<IPositionWriter> position)
@@ -57459,6 +58085,8 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->_radius = GetRadius();
             // Simple type
             clonedObject->_rate = GetRate();
+            // clone indicators
+            	clonedObject->isSetRate = isSetRate;
             // clone children
             const auto kPosition =  GetWriterPosition();
             if (kPosition)
@@ -57536,6 +58164,16 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void TrafficSinkActionImpl::ResetRate()
+	   {
+	   		isSetRate = false; 
+			_rate = {};
+			
+	   }
+       bool TrafficSinkActionImpl::IsSetRate() const
+	   {
+			return isSetRate;
+	   }
 
         IOpenScenarioFlexElement* TrafficSourceActionImpl::GetOpenScenarioFlexElement()
         {
@@ -57834,6 +58472,7 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->_rate = GetRate();
             // Simple type
             clonedObject->_velocity = GetVelocity();
+            // clone indicators
             // clone children
             const auto kPosition =  GetWriterPosition();
             if (kPosition)
@@ -58039,6 +58678,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -58508,6 +59148,7 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->_semiMinorAxis = GetSemiMinorAxis();
             // Simple type
             clonedObject->_velocity = GetVelocity();
+            // clone indicators
             // clone children
             const auto kCentralObject =  GetWriterCentralObject();
             if (kCentralObject)
@@ -58902,6 +59543,7 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->_closed = GetClosed();
             // Simple type
             clonedObject->_name = GetName();
+            // clone indicators
             // clone children
             const auto kParameterDeclarations =  GetWriterParameterDeclarations();
             if (!kParameterDeclarations.empty())
@@ -59143,6 +59785,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kDirectory =  GetWriterDirectory();
             if (kDirectory)
@@ -59367,6 +60010,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 clonedObject->_followingMode = FollowingMode::GetFromLiteral(kFollowingMode.GetLiteral());
             }
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -59661,6 +60305,7 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->_s = GetS();
             // Simple type
             clonedObject->_t = GetT();
+            // clone indicators
             // clone children
             const auto kOrientation =  GetWriterOrientation();
             if (kOrientation)
@@ -59898,6 +60543,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kTrajectory =  GetWriterTrajectory();
             if (kTrajectory)
@@ -60239,6 +60885,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
             // Simple type
             clonedObject->_value = GetValue();
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -60467,6 +61114,7 @@ namespace NET_ASAM_OPENSCENARIO
             // clone attributes;
             // Simple type
             clonedObject->_value = GetValue();
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -60668,6 +61316,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kConditionGroups =  GetWriterConditionGroups();
             if (!kConditionGroups.empty())
@@ -60938,6 +61587,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 clonedObject->_triggeringEntitiesRule = TriggeringEntitiesRule::GetFromLiteral(kTriggeringEntitiesRule.GetLiteral());
             }
+            // clone indicators
             // clone children
             const auto kEntityRefs =  GetWriterEntityRefs();
             if (!kEntityRefs.empty())
@@ -61144,6 +61794,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kRange =  GetWriterRange();
             if (kRange)
@@ -61352,6 +62003,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kPositions =  GetWriterPositions();
             if (!kPositions.empty())
@@ -61548,6 +62200,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kCustomCommandAction =  GetWriterCustomCommandAction();
             if (kCustomCommandAction)
@@ -61798,6 +62451,7 @@ namespace NET_ASAM_OPENSCENARIO
             // clone attributes;
             // Simple type
             clonedObject->_type = GetType();
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -62117,6 +62771,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
             // Simple type
             clonedObject->_value = GetValue();
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -62405,6 +63060,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
             // Simple type
             clonedObject->_value = GetValue();
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -62629,6 +63285,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kConstraints =  GetWriterConstraints();
             if (!kConstraints.empty())
@@ -62845,6 +63502,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kParameterValueSets =  GetWriterParameterValueSets();
             if (!kParameterValueSets.empty())
@@ -62969,12 +63627,16 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _mass = mass;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MASS);
+			// set the indicator to true
+            isSetMass = true;          
         }
 
         void VehicleImpl::SetModel3d(const std::string model3d)
         {
             _model3d = model3d;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MODEL3D);
+			// set the indicator to true
+            isSetModel3d = true;          
         }
 
         void VehicleImpl::SetName(const std::string name)
@@ -63339,6 +64001,9 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 clonedObject->_vehicleCategory = VehicleCategory::GetFromLiteral(kVehicleCategory.GetLiteral());
             }
+            // clone indicators
+            	clonedObject->isSetMass = isSetMass;
+            	clonedObject->isSetModel3d = isSetModel3d;
             // clone children
             const auto kParameterDeclarations =  GetWriterParameterDeclarations();
             if (!kParameterDeclarations.empty())
@@ -63500,6 +64165,26 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void VehicleImpl::ResetMass()
+	   {
+	   		isSetMass = false; 
+			_mass = {};
+			
+	   }
+       bool VehicleImpl::IsSetMass() const
+	   {
+			return isSetMass;
+	   }
+       void VehicleImpl::ResetModel3d()
+	   {
+	   		isSetModel3d = false; 
+			_model3d = {};
+			
+	   }
+       bool VehicleImpl::IsSetModel3d() const
+	   {
+			return isSetModel3d;
+	   }
 
         IOpenScenarioFlexElement* VehicleCatalogLocationImpl::GetOpenScenarioFlexElement()
         {
@@ -63640,6 +64325,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kDirectory =  GetWriterDirectory();
             if (kDirectory)
@@ -63848,6 +64534,7 @@ namespace NET_ASAM_OPENSCENARIO
 			CloneAttributeKeyToParameterNameMap(*clonedObject);
 				
             // clone attributes;
+            // clone indicators
             // clone children
             const auto kVehicleCategoryDistributionEntries =  GetWriterVehicleCategoryDistributionEntries();
             if (!kVehicleCategoryDistributionEntries.empty())
@@ -64130,6 +64817,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
             // Simple type
             clonedObject->_weight = GetWeight();
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -64200,6 +64888,8 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _time = time;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TIME);
+			// set the indicator to true
+            isSetTime = true;          
         }
 
         void VertexImpl::SetPosition(std::shared_ptr<IPositionWriter> position)
@@ -64371,6 +65061,8 @@ namespace NET_ASAM_OPENSCENARIO
             // clone attributes;
             // Simple type
             clonedObject->_time = GetTime();
+            // clone indicators
+            	clonedObject->isSetTime = isSetTime;
             // clone children
             const auto kPosition =  GetWriterPosition();
             if (kPosition)
@@ -64429,6 +65121,16 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void VertexImpl::ResetTime()
+	   {
+	   		isSetTime = false; 
+			_time = {};
+			
+	   }
+       bool VertexImpl::IsSetTime() const
+	   {
+			return isSetTime;
+	   }
 
         IOpenScenarioFlexElement* VisibilityActionImpl::GetOpenScenarioFlexElement()
         {
@@ -64691,6 +65393,7 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->_sensors = GetSensors();
             // Simple type
             clonedObject->_traffic = GetTraffic();
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -64938,6 +65641,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 clonedObject->_routeStrategy = RouteStrategy::GetFromLiteral(kRouteStrategy.GetLiteral());
             }
+            // clone indicators
             // clone children
             const auto kPosition =  GetWriterPosition();
             if (kPosition)
@@ -65035,18 +65739,24 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _atmosphericPressure = atmosphericPressure;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ATMOSPHERIC_PRESSURE);
+			// set the indicator to true
+            isSetAtmosphericPressure = true;          
         }
 
         void WeatherImpl::SetCloudState(const CloudState cloudState)
         {
             _cloudState = cloudState;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__CLOUD_STATE);
+			// set the indicator to true
+            isSetCloudState = true;          
         }
 
         void WeatherImpl::SetTemperature(const double temperature)
         {
             _temperature = temperature;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TEMPERATURE);
+			// set the indicator to true
+            isSetTemperature = true;          
         }
 
         void WeatherImpl::SetSun(std::shared_ptr<ISunWriter> sun)
@@ -65339,6 +66049,10 @@ namespace NET_ASAM_OPENSCENARIO
             }
             // Simple type
             clonedObject->_temperature = GetTemperature();
+            // clone indicators
+            	clonedObject->isSetAtmosphericPressure = isSetAtmosphericPressure;
+            	clonedObject->isSetCloudState = isSetCloudState;
+            	clonedObject->isSetTemperature = isSetTemperature;
             // clone children
             const auto kSun =  GetWriterSun();
             if (kSun)
@@ -65452,6 +66166,36 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void WeatherImpl::ResetAtmosphericPressure()
+	   {
+	   		isSetAtmosphericPressure = false; 
+			_atmosphericPressure = {};
+			
+	   }
+       bool WeatherImpl::IsSetAtmosphericPressure() const
+	   {
+			return isSetAtmosphericPressure;
+	   }
+       void WeatherImpl::ResetCloudState()
+	   {
+	   		isSetCloudState = false; 
+			_cloudState = {};
+			
+	   }
+       bool WeatherImpl::IsSetCloudState() const
+	   {
+			return isSetCloudState;
+	   }
+       void WeatherImpl::ResetTemperature()
+	   {
+	   		isSetTemperature = false; 
+			_temperature = {};
+			
+	   }
+       bool WeatherImpl::IsSetTemperature() const
+	   {
+			return isSetTemperature;
+	   }
 
         IOpenScenarioFlexElement* WindImpl::GetOpenScenarioFlexElement()
         {
@@ -65669,6 +66413,7 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->_direction = GetDirection();
             // Simple type
             clonedObject->_speed = GetSpeed();
+            // clone indicators
             // clone children
             return clonedObject;
         }
@@ -66113,6 +66858,7 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->_y = GetY();
             // Simple type
             clonedObject->_z = GetZ();
+            // clone indicators
             // clone children
             return clonedObject;
         }

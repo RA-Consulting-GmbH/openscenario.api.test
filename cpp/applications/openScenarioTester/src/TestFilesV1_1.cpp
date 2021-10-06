@@ -321,6 +321,48 @@ namespace NET_ASAM_OPENSCENARIO
 			}
 		}
 
+		bool TestFiles::TestDefaultValues()
+		{
+			try
+			{
+				ClearMessageLogger();
+				auto openScenario = std::dynamic_pointer_cast<IOpenScenario>(ExecuteParsing(_executablePath + "/" + kInputDir + "DoubleLaneChangerDefaultValues.xosc"));
+
+				bool res = Assert(_messageLogger->GetMessagesFilteredByWorseOrEqualToErrorLevel(NET_ASAM_OPENSCENARIO::ERROR).empty(), ASSERT_LOCATION);
+				if (!res)
+				{
+					auto filterByErrorLevelLogger = _messageLogger->GetMessagesFilteredByErrorLevel(NET_ASAM_OPENSCENARIO::ERROR);
+					for (auto it = filterByErrorLevelLogger.begin(); it != filterByErrorLevelLogger.end(); ++it) {
+						std::cout << it->ToString() << "\n";
+					}
+				}
+				auto event = openScenario->GetOpenScenarioCategory()->GetScenarioDefinition()->GetStoryboard()->GetStories()[0]->GetActs()[0]->GetManeuverGroups()[0]->GetManeuvers()[0]->GetEvents()[0]; 
+				// get distance condition with alongRoute NOT set
+				auto distanceCondition = event->GetStartTrigger()->GetConditionGroups()[0]->GetConditions()[0]->GetByEntityCondition()->GetEntityCondition()->GetDistanceCondition();
+
+				// Test Default value for coordinate System
+				std::string coordinateSystem = distanceCondition->GetCoordinateSystem().GetLiteral();
+				res = Assert(coordinateSystem == "entity", ASSERT_LOCATION) && res;
+				// Test Default value for relativeDistanceType
+				std::string relativeDistanceType = distanceCondition->GetRelativeDistanceType().GetLiteral();
+				res = Assert(relativeDistanceType == "euclidianDistance", ASSERT_LOCATION) && res;
+				bool isSet = distanceCondition->IsSetAlongRoute();
+				res = Assert( !isSet, ASSERT_LOCATION) && res;
+				
+				// get distance condition with alongRoute set
+				distanceCondition = event->GetStartTrigger()->GetConditionGroups()[0]->GetConditions()[1]->GetByEntityCondition()->GetEntityCondition()->GetDistanceCondition();
+				isSet = distanceCondition->IsSetAlongRoute();
+				res = Assert(isSet, ASSERT_LOCATION) && res;
+				return res;
+
+			}
+			catch (NET_ASAM_OPENSCENARIO::ScenarioLoaderException& e)
+			{
+				std::cout << e.what() << std::endl;
+				return Assert(true, ASSERT_LOCATION);
+			}
+		}
+
 		bool TestFiles::TestUnknownElement()
 		{
 			try 

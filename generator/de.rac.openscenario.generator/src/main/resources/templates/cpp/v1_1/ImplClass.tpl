@@ -46,18 +46,19 @@ namespace NET_ASAM_OPENSCENARIO
         private:
         <%-properties.each{ property ->-%>
 <%- if (property.isProxy() && !property.isList()){-%>
-            std::shared_ptr<INamedReference<I<%=property.type.name.toClassName()%>>> _<%=property.name.toMemberName()%> {};
+            std::shared_ptr<INamedReference<I<%=property.type.name.toClassName()%>>> _<%=property.name.toMemberName()%>  = nullptr;
 <%}else if (property.isTransient() && property.isList()){-%>
             std::vector<<%=property.type.toCppName()%>> _<%=property.name.toMemberName()%> {};
 <%}else if (property.isTransient() && !property.isList()){-%>
-            <%=property.type.toCppName()%> _<%=property.name.toMemberName()%> {};
+            <%=property.type.toCppName()%> _<%=property.name.toMemberName()%> {<%=defaultValueHelper.getDefaultValue(element.name.toClassName(),property.name.toMemberName())%>};
 <%}else if (property.isXmlElementProperty() && !property.isList()){-%>
             <%=property.type.toCppWriterName()%> _<%=property.name.toMemberName()%> {};
 <%}else if (property.isXmlElementProperty() && property.isList()){-%>
             std::vector<<%=property.type.toCppWriterName()%>> _<%=property.name.toMemberName()%> {};
 <%}else {-%>
-            <%=property.type.toCppName()%> _<%=property.name.toMemberName()%> {};
+            <%=property.type.toCppName()%> _<%=property.name.toMemberName()%> {<%=defaultValueHelper.getDefaultValue(element.name.toClassName(),property.name.toMemberName())%>};
 <%-}}-%>
+
         public:
 
 <%-addResolveFunction(element, "unsignedInt", "unsigned int")-%>
@@ -90,6 +91,12 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP <%=property.type.toCppName()%> Get<%=property.name.toClassName()%>() const override;
         <%-}-%>
     <%-}-%>
+
+	<%-properties = element.umlProperties-%>
+	<%-properties.each{ property ->-%>
+	<%-if (defaultValueHelper.hasNoneAsDefault(element.name.toClassName(),property.name.toMemberName())) {-%>
+            bool isSet<%=property.name.toClassName()%> = false;          
+	<%-}}-%>
 
 <%-properties.each{ property ->-%>
 
@@ -183,6 +190,12 @@ namespace NET_ASAM_OPENSCENARIO
 <%-properties.each{ property ->-%>
             OPENSCENARIOLIB_EXP <%=property.type.toCppWriterName()%> GetWriter<%=property.name.toClassName()%>() const override;
 <%-}-%>
+<%-properties = element.umlProperties-%>
+<%-properties.each{ property ->-%>
+<%-if (defaultValueHelper.hasNoneAsDefault(element.name.toClassName(),property.name.toMemberName())) {-%>
+            OPENSCENARIOLIB_EXP virtual void Reset<%=property.name.toClassName()%>() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSet<%=property.name.toClassName()%>() const override;          
+<%-}}-%>
         };
 
     <%-}-%>

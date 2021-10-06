@@ -294,6 +294,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
 
+
         };
 
 
@@ -320,6 +321,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return "";
             }
+
 
 
         };
@@ -350,6 +352,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
 
+
         };
 
 
@@ -376,6 +379,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return 0;
             }
+
 
 
         };
@@ -418,6 +422,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
 
+
         };
 
 
@@ -444,6 +449,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return nullptr;
             }
+
 
 
         };
@@ -523,6 +529,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return nullptr;
             }
 
+
         };
 
 
@@ -584,6 +591,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
 
+
         };
 
 
@@ -622,6 +630,23 @@ namespace NET_ASAM_OPENSCENARIO
                 return false;
             }
 
+
+            /**
+            * Retrieves whether property lateral is set
+            * @return true when the optional property is set
+            */
+            virtual bool IsSetLateral() const
+            {
+                return false;
+            }
+            /**
+            * Retrieves whether property longitudinal is set
+            * @return true when the optional property is set
+            */
+            virtual bool IsSetLongitudinal() const
+            {
+                return false;
+            }
 
         };
 
@@ -677,6 +702,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return nullptr;
             }
 
+
         };
 
 
@@ -703,6 +729,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return nullptr;
             }
+
 
 
         };
@@ -770,6 +797,23 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
 
+            /**
+            * Retrieves whether property activateLateral is set
+            * @return true when the optional property is set
+            */
+            virtual bool IsSetActivateLateral() const
+            {
+                return false;
+            }
+            /**
+            * Retrieves whether property activateLongitudinal is set
+            * @return true when the optional property is set
+            */
+            virtual bool IsSetActivateLongitudinal() const
+            {
+                return false;
+            }
+
         };
 
 
@@ -809,6 +853,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return nullptr;
             }
+
 
 
         };
@@ -884,6 +929,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
 
+
         };
 
 
@@ -949,6 +995,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return nullptr;
             }
 
+
         };
 
 
@@ -987,6 +1034,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return nullptr;
             }
+
 
 
         };
@@ -1030,6 +1078,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
 
+
         };
 
 
@@ -1058,6 +1107,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
 
+
         };
 
 
@@ -1084,6 +1134,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return ObjectType();
             }
+
 
 
         };
@@ -1178,6 +1229,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return nullptr;
             }
+
 
 
         };
@@ -1417,6 +1469,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return nullptr;
             }
 
+
         };
 
 
@@ -1443,6 +1496,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return nullptr;
             }
+
 
 
         };
@@ -1550,6 +1604,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
 
+
         };
 
 
@@ -1628,6 +1683,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return nullptr;
             }
 
+
         };
 
 
@@ -1679,6 +1735,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
 
+
         };
 
 
@@ -1705,6 +1762,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return std::make_shared<INamedReference<IEntity>>();
             }
+
 
 
         };
@@ -1804,6 +1862,39 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
 
+            /**
+            * Retrieves whether property curvatureDot is set
+            * @return true when the optional property is set
+            */
+            virtual bool IsSetCurvatureDot() const
+            {
+                return false;
+            }
+            /**
+            * Retrieves whether property curvaturePrime is set
+            * @return true when the optional property is set
+            */
+            virtual bool IsSetCurvaturePrime() const
+            {
+                return false;
+            }
+            /**
+            * Retrieves whether property startTime is set
+            * @return true when the optional property is set
+            */
+            virtual bool IsSetStartTime() const
+            {
+                return false;
+            }
+            /**
+            * Retrieves whether property stopTime is set
+            * @return true when the optional property is set
+            */
+            virtual bool IsSetStopTime() const
+            {
+                return false;
+            }
+
         };
 
 
@@ -1842,6 +1933,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return nullptr;
             }
+
 
 
         };
@@ -1919,6 +2011,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
 
+
         };
 
 
@@ -1962,6 +2055,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return nullptr;
             }
+
 
         };
 
@@ -2013,6 +2107,23 @@ namespace NET_ASAM_OPENSCENARIO
                 return nullptr;
             }
 
+
+            /**
+            * Retrieves whether property time is set
+            * @return true when the optional property is set
+            */
+            virtual bool IsSetTime() const
+            {
+                return false;
+            }
+            /**
+            * Retrieves whether property weight is set
+            * @return true when the optional property is set
+            */
+            virtual bool IsSetWeight() const
+            {
+                return false;
+            }
 
         };
 
@@ -2079,6 +2190,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return nullptr;
             }
 
+
         };
 
 
@@ -2130,6 +2242,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
 
+
         };
 
 
@@ -2156,6 +2269,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return nullptr;
             }
+
 
 
         };
@@ -2200,6 +2314,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return nullptr;
             }
+
 
         };
 
@@ -2251,6 +2366,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
 
+
         };
 
 
@@ -2291,6 +2407,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
 
+
         };
 
 
@@ -2306,6 +2423,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         public:
             virtual ~IDeleteEntityAction() = default;
+
 
 
         };
@@ -2351,6 +2469,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return nullptr;
             }
 
+
         };
 
 
@@ -2379,6 +2498,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
 
+
         };
 
 
@@ -2405,6 +2525,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return nullptr;
             }
+
 
 
         };
@@ -2446,6 +2567,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
 
+
         };
 
 
@@ -2483,6 +2605,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return nullptr;
             }
+
 
 
         };
@@ -2533,6 +2656,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return nullptr;
             }
+
 
 
         };
@@ -2586,6 +2710,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
 
+
         };
 
 
@@ -2612,6 +2737,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return "";
             }
+
 
 
         };
@@ -2712,6 +2838,15 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
 
+            /**
+            * Retrieves whether property alongRoute is set
+            * @return true when the optional property is set
+            */
+            virtual bool IsSetAlongRoute() const
+            {
+                return false;
+            }
+
         };
 
 
@@ -2749,6 +2884,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return nullptr;
             }
+
 
 
         };
@@ -2790,6 +2926,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return nullptr;
             }
+
 
 
         };
@@ -2835,6 +2972,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return nullptr;
             }
 
+
         };
 
 
@@ -2861,6 +2999,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return "";
             }
+
 
 
         };
@@ -2916,6 +3055,31 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
 
+            /**
+            * Retrieves whether property maxAcceleration is set
+            * @return true when the optional property is set
+            */
+            virtual bool IsSetMaxAcceleration() const
+            {
+                return false;
+            }
+            /**
+            * Retrieves whether property maxDeceleration is set
+            * @return true when the optional property is set
+            */
+            virtual bool IsSetMaxDeceleration() const
+            {
+                return false;
+            }
+            /**
+            * Retrieves whether property maxSpeed is set
+            * @return true when the optional property is set
+            */
+            virtual bool IsSetMaxSpeed() const
+            {
+                return false;
+            }
+
         };
 
 
@@ -2942,6 +3106,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return 0;
             }
+
 
 
         };
@@ -3013,6 +3178,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return nullptr;
             }
 
+
         };
 
 
@@ -3061,6 +3227,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return nullptr;
             }
+
 
 
         };
@@ -3223,6 +3390,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
 
+
         };
 
 
@@ -3295,6 +3463,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
 
+
         };
 
 
@@ -3321,6 +3490,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return std::make_shared<INamedReference<IEntity>>();
             }
+
 
 
         };
@@ -3361,6 +3531,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return nullptr;
             }
+
 
 
         };
@@ -3451,6 +3622,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return nullptr;
             }
 
+
         };
 
 
@@ -3491,6 +3663,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
 
+
         };
 
 
@@ -3517,6 +3690,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return nullptr;
             }
+
 
 
         };
@@ -3608,6 +3782,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return nullptr;
             }
 
+
         };
 
 
@@ -3637,6 +3812,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
 
+
         };
 
 
@@ -3663,6 +3839,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return "";
             }
+
 
 
         };
@@ -3748,6 +3925,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
 
+
         };
 
 
@@ -3787,6 +3965,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
 
+
         };
 
 
@@ -3824,6 +4003,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return nullptr;
             }
+
 
 
         };
@@ -3916,6 +4096,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
 
+
         };
 
 
@@ -3979,6 +4160,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return nullptr;
             }
+
 
 
         };
@@ -4053,6 +4235,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
 
+
         };
 
 
@@ -4096,6 +4279,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return nullptr;
             }
 
+
         };
 
 
@@ -4135,6 +4319,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return nullptr;
             }
+
 
 
         };
@@ -4188,6 +4373,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
 
+
         };
 
 
@@ -4216,6 +4402,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
 
+
         };
 
 
@@ -4242,6 +4429,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return nullptr;
             }
+
 
 
         };
@@ -4340,6 +4528,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return nullptr;
             }
 
+
         };
 
 
@@ -4366,6 +4555,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return 0;
             }
+
 
 
         };
@@ -4423,6 +4613,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
 
+
         };
 
 
@@ -4460,6 +4651,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return nullptr;
             }
+
 
 
         };
@@ -4520,6 +4712,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
 
+
         };
 
 
@@ -4560,6 +4753,15 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
 
+            /**
+            * Retrieves whether property maxLateralAcc is set
+            * @return true when the optional property is set
+            */
+            virtual bool IsSetMaxLateralAcc() const
+            {
+                return false;
+            }
+
         };
 
 
@@ -4597,6 +4799,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return nullptr;
             }
+
 
 
         };
@@ -4672,6 +4875,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
 
+
         };
 
 
@@ -4720,6 +4924,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return nullptr;
             }
+
 
 
         };
@@ -4823,6 +5028,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
 
+
         };
 
 
@@ -4886,6 +5092,23 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
 
+            /**
+            * Retrieves whether property resource is set
+            * @return true when the optional property is set
+            */
+            virtual bool IsSetResource() const
+            {
+                return false;
+            }
+            /**
+            * Retrieves whether property spdxId is set
+            * @return true when the optional property is set
+            */
+            virtual bool IsSetSpdxId() const
+            {
+                return false;
+            }
+
         };
 
 
@@ -4923,6 +5146,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return nullptr;
             }
+
 
 
         };
@@ -5034,6 +5258,23 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
 
+            /**
+            * Retrieves whether property distance is set
+            * @return true when the optional property is set
+            */
+            virtual bool IsSetDistance() const
+            {
+                return false;
+            }
+            /**
+            * Retrieves whether property timeGap is set
+            * @return true when the optional property is set
+            */
+            virtual bool IsSetTimeGap() const
+            {
+                return false;
+            }
+
         };
 
 
@@ -5114,6 +5355,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return nullptr;
             }
 
+
         };
 
 
@@ -5140,6 +5382,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return nullptr;
             }
+
 
 
         };
@@ -5244,6 +5487,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return nullptr;
             }
+
 
         };
 
@@ -5354,6 +5598,15 @@ namespace NET_ASAM_OPENSCENARIO
                 return nullptr;
             }
 
+            /**
+            * Retrieves whether property model3d is set
+            * @return true when the optional property is set
+            */
+            virtual bool IsSetModel3d() const
+            {
+                return false;
+            }
+
         };
 
 
@@ -5380,6 +5633,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return nullptr;
             }
+
 
 
         };
@@ -5422,6 +5676,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
 
+
         };
 
 
@@ -5437,6 +5692,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         public:
             virtual ~INone() = default;
+
 
 
         };
@@ -5487,6 +5743,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return nullptr;
             }
+
 
 
         };
@@ -5573,6 +5830,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return nullptr;
             }
 
+
         };
 
 
@@ -5612,6 +5870,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
 
+
         };
 
 
@@ -5639,6 +5898,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return 0;
             }
+
 
 
         };
@@ -5678,6 +5938,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return nullptr;
             }
+
 
 
         };
@@ -5728,6 +5989,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return nullptr;
             }
+
 
 
         };
@@ -5791,6 +6053,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
 
+
         };
 
 
@@ -5830,6 +6093,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
 
+
         };
 
 
@@ -5867,6 +6131,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return 0;
             }
+
 
 
         };
@@ -5952,6 +6217,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
 
+
         };
 
 
@@ -5989,6 +6255,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return 0;
             }
+
 
 
         };
@@ -6030,6 +6297,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
 
+
         };
 
 
@@ -6069,6 +6337,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
 
+
         };
 
 
@@ -6106,6 +6375,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return 0;
             }
+
 
 
         };
@@ -6158,6 +6428,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
 
+
         };
 
 
@@ -6184,6 +6455,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return 0;
             }
+
 
 
         };
@@ -6226,6 +6498,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return "";
             }
+
 
 
         };
@@ -6278,6 +6551,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return "";
             }
+
 
 
         };
@@ -6358,6 +6632,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return nullptr;
             }
 
+
         };
 
 
@@ -6384,6 +6659,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return nullptr;
             }
+
 
 
         };
@@ -6414,6 +6690,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
 
+
         };
 
 
@@ -6440,6 +6717,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return "";
             }
+
 
 
         };
@@ -6481,6 +6759,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
 
+
         };
 
 
@@ -6507,6 +6786,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return nullptr;
             }
+
 
 
         };
@@ -6551,6 +6831,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return nullptr;
             }
+
 
         };
 
@@ -6672,6 +6953,23 @@ namespace NET_ASAM_OPENSCENARIO
                 return nullptr;
             }
 
+            /**
+            * Retrieves whether property model is set
+            * @return true when the optional property is set
+            */
+            virtual bool IsSetModel() const
+            {
+                return false;
+            }
+            /**
+            * Retrieves whether property model3d is set
+            * @return true when the optional property is set
+            */
+            virtual bool IsSetModel3d() const
+            {
+                return false;
+            }
+
         };
 
 
@@ -6698,6 +6996,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return nullptr;
             }
+
 
 
         };
@@ -6748,6 +7047,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return 0;
             }
+
 
 
         };
@@ -6817,6 +7117,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return nullptr;
             }
 
+
         };
 
 
@@ -6854,6 +7155,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return nullptr;
             }
+
 
 
         };
@@ -6898,6 +7200,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return nullptr;
             }
+
 
         };
 
@@ -7027,6 +7330,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
 
+
         };
 
 
@@ -7078,6 +7382,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
 
+
         };
 
 
@@ -7118,6 +7423,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
 
+
         };
 
 
@@ -7145,6 +7451,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return std::make_shared<INamedReference<IEntity>>();
             }
+
 
 
         };
@@ -7196,6 +7503,23 @@ namespace NET_ASAM_OPENSCENARIO
                 return PrecipitationType();
             }
 
+
+            /**
+            * Retrieves whether property intensity is set
+            * @return true when the optional property is set
+            */
+            virtual bool IsSetIntensity() const
+            {
+                return false;
+            }
+            /**
+            * Retrieves whether property precipitationIntensity is set
+            * @return true when the optional property is set
+            */
+            virtual bool IsSetPrecipitationIntensity() const
+            {
+                return false;
+            }
 
         };
 
@@ -7250,6 +7574,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return nullptr;
             }
+
 
         };
 
@@ -7360,6 +7685,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
 
+
         };
 
 
@@ -7403,6 +7729,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return nullptr;
             }
 
+
         };
 
 
@@ -7442,6 +7769,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return 0;
             }
+
 
 
         };
@@ -7515,6 +7843,7 @@ namespace NET_ASAM_OPENSCENARIO
                 return nullptr;
             }
 
+
         };
 
 
@@ -7552,6 +7881,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return "";
             }
+
 
 
         };
@@ -7593,6 +7923,7 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
 
+
         };
 
 
@@ -7630,6 +7961,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return nullptr;
             }
+
 
 
         };
@@ -7714,6 +8046,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return 0;
             }
+
 
 
         };
@@ -7824,6 +8157,23 @@ Alternatively
             }
 
 
+            /**
+            * Retrieves whether property ds is set
+            * @return true when the optional property is set
+            */
+            virtual bool IsSetDs() const
+            {
+                return false;
+            }
+            /**
+            * Retrieves whether property dsLane is set
+            * @return true when the optional property is set
+            */
+            virtual bool IsSetDsLane() const
+            {
+                return false;
+            }
+
         };
 
 
@@ -7899,6 +8249,7 @@ Alternatively
             }
 
 
+
         };
 
 
@@ -7960,6 +8311,7 @@ Alternatively
             }
 
 
+
         };
 
 
@@ -8009,6 +8361,7 @@ Alternatively
             {
                 return 0;
             }
+
 
 
         };
@@ -8061,6 +8414,7 @@ Alternatively
             }
 
 
+
         };
 
 
@@ -8098,6 +8452,7 @@ Alternatively
             {
                 return 0;
             }
+
 
 
         };
@@ -8138,6 +8493,7 @@ Alternatively
             {
                 return 0;
             }
+
 
 
         };
@@ -8203,6 +8559,7 @@ Alternatively
             {
                 return 0;
             }
+
 
 
         };
@@ -8279,6 +8636,7 @@ Alternatively
             }
 
 
+
         };
 
 
@@ -8316,6 +8674,7 @@ Alternatively
             {
                 return nullptr;
             }
+
 
 
         };
@@ -8398,6 +8757,7 @@ Alternatively
                 return nullptr;
             }
 
+
         };
 
 
@@ -8459,6 +8819,7 @@ Alternatively
             {
                 return nullptr;
             }
+
 
 
         };
@@ -8553,6 +8914,7 @@ Alternatively
                 return nullptr;
             }
 
+
         };
 
 
@@ -8579,6 +8941,7 @@ Alternatively
             {
                 return nullptr;
             }
+
 
 
         };
@@ -8634,6 +8997,7 @@ Alternatively
             }
 
 
+
         };
 
 
@@ -8671,6 +9035,7 @@ Alternatively
             {
                 return nullptr;
             }
+
 
 
         };
@@ -8723,6 +9088,7 @@ Alternatively
             {
                 return nullptr;
             }
+
 
 
         };
@@ -8815,6 +9181,7 @@ Alternatively
                 return nullptr;
             }
 
+
         };
 
 
@@ -8864,6 +9231,7 @@ Alternatively
             {
                 return nullptr;
             }
+
 
 
         };
@@ -8935,6 +9303,7 @@ Alternatively
                 return nullptr;
             }
 
+
         };
 
 
@@ -8985,6 +9354,7 @@ Alternatively
             }
 
 
+
         };
 
 
@@ -9022,6 +9392,7 @@ Alternatively
             {
                 return 0;
             }
+
 
 
         };
@@ -9064,6 +9435,7 @@ Alternatively
             }
 
 
+
         };
 
 
@@ -9102,6 +9474,7 @@ Alternatively
             {
                 return nullptr;
             }
+
 
 
         };
@@ -9144,6 +9517,7 @@ Alternatively
             }
 
 
+
         };
 
 
@@ -9170,6 +9544,7 @@ Alternatively
             {
                 return 0;
             }
+
 
 
         };
@@ -9209,6 +9584,7 @@ Alternatively
             {
                 return nullptr;
             }
+
 
 
         };
@@ -9277,6 +9653,15 @@ Alternatively
                 return nullptr;
             }
 
+            /**
+            * Retrieves whether property randomSeed is set
+            * @return true when the optional property is set
+            */
+            virtual bool IsSetRandomSeed() const
+            {
+                return false;
+            }
+
         };
 
 
@@ -9314,6 +9699,7 @@ Alternatively
             {
                 return nullptr;
             }
+
 
 
         };
@@ -9399,6 +9785,7 @@ Alternatively
             }
 
 
+
         };
 
 
@@ -9479,6 +9866,7 @@ Alternatively
                 return nullptr;
             }
 
+
         };
 
 
@@ -9544,6 +9932,7 @@ Alternatively
                 return nullptr;
             }
 
+
         };
 
 
@@ -9596,6 +9985,7 @@ Alternatively
             }
 
 
+
         };
 
 
@@ -9645,6 +10035,7 @@ Alternatively
             {
                 return 0;
             }
+
 
 
         };
@@ -9732,6 +10123,23 @@ Alternatively
             }
 
 
+            /**
+            * Retrieves whether property targetTolerance is set
+            * @return true when the optional property is set
+            */
+            virtual bool IsSetTargetTolerance() const
+            {
+                return false;
+            }
+            /**
+            * Retrieves whether property targetToleranceMaster is set
+            * @return true when the optional property is set
+            */
+            virtual bool IsSetTargetToleranceMaster() const
+            {
+                return false;
+            }
+
         };
 
 
@@ -9758,6 +10166,7 @@ Alternatively
             {
                 return 0;
             }
+
 
 
         };
@@ -9788,6 +10197,7 @@ Alternatively
             }
 
 
+
         };
 
 
@@ -9814,6 +10224,7 @@ Alternatively
             {
                 return nullptr;
             }
+
 
 
         };
@@ -9919,6 +10330,15 @@ Alternatively
             }
 
 
+            /**
+            * Retrieves whether property alongRoute is set
+            * @return true when the optional property is set
+            */
+            virtual bool IsSetAlongRoute() const
+            {
+                return false;
+            }
+
         };
 
 
@@ -9956,6 +10376,7 @@ Alternatively
             {
                 return {};
             }
+
 
 
         };
@@ -9998,6 +10419,7 @@ Alternatively
             }
 
 
+
         };
 
 
@@ -10037,6 +10459,7 @@ Alternatively
             {
                 return nullptr;
             }
+
 
 
         };
@@ -10144,6 +10567,15 @@ Alternatively
             }
 
 
+            /**
+            * Retrieves whether property alongRoute is set
+            * @return true when the optional property is set
+            */
+            virtual bool IsSetAlongRoute() const
+            {
+                return false;
+            }
+
         };
 
 
@@ -10182,6 +10614,7 @@ Alternatively
             {
                 return nullptr;
             }
+
 
 
         };
@@ -10233,6 +10666,7 @@ Alternatively
             {
                 return 0;
             }
+
 
 
         };
@@ -10307,6 +10741,15 @@ Alternatively
             }
 
 
+            /**
+            * Retrieves whether property trafficName is set
+            * @return true when the optional property is set
+            */
+            virtual bool IsSetTrafficName() const
+            {
+                return false;
+            }
+
         };
 
 
@@ -10357,6 +10800,7 @@ Alternatively
             }
 
 
+
         };
 
 
@@ -10394,6 +10838,7 @@ Alternatively
             {
                 return nullptr;
             }
+
 
 
         };
@@ -10436,6 +10881,7 @@ Alternatively
             {
                 return "";
             }
+
 
 
         };
@@ -10517,6 +10963,15 @@ Alternatively
                 return nullptr;
             }
 
+            /**
+            * Retrieves whether property reference is set
+            * @return true when the optional property is set
+            */
+            virtual bool IsSetReference() const
+            {
+                return false;
+            }
+
         };
 
 
@@ -10582,6 +11037,7 @@ Alternatively
             {
                 return nullptr;
             }
+
 
         };
 
@@ -10650,6 +11106,7 @@ Alternatively
                 return nullptr;
             }
 
+
         };
 
 
@@ -10689,6 +11146,7 @@ Alternatively
             }
 
 
+
         };
 
 
@@ -10726,6 +11184,7 @@ Alternatively
             {
                 return "";
             }
+
 
 
         };
@@ -10789,6 +11248,15 @@ Alternatively
                 return nullptr;
             }
 
+
+            /**
+            * Retrieves whether property rate is set
+            * @return true when the optional property is set
+            */
+            virtual bool IsSetRate() const
+            {
+                return false;
+            }
 
         };
 
@@ -10862,6 +11330,7 @@ Alternatively
             }
 
 
+
         };
 
 
@@ -10878,6 +11347,7 @@ Alternatively
         {
         public:
             virtual ~ITrafficStopAction() = default;
+
 
 
         };
@@ -10993,6 +11463,7 @@ Alternatively
             }
 
 
+
         };
 
 
@@ -11069,6 +11540,7 @@ Alternatively
                 return nullptr;
             }
 
+
         };
 
 
@@ -11095,6 +11567,7 @@ Alternatively
             {
                 return nullptr;
             }
+
 
 
         };
@@ -11126,6 +11599,7 @@ Alternatively
             {
                 return FollowingMode();
             }
+
 
 
         };
@@ -11191,6 +11665,7 @@ Alternatively
             }
 
 
+
         };
 
 
@@ -11228,6 +11703,7 @@ Alternatively
             {
                 return nullptr;
             }
+
 
 
         };
@@ -11284,6 +11760,7 @@ Alternatively
             }
 
 
+
         };
 
 
@@ -11310,6 +11787,7 @@ Alternatively
             {
                 return 0;
             }
+
 
 
         };
@@ -11355,6 +11833,7 @@ Alternatively
             {
                 return nullptr;
             }
+
 
         };
 
@@ -11411,6 +11890,7 @@ Alternatively
                 return nullptr;
             }
 
+
         };
 
 
@@ -11437,6 +11917,7 @@ Alternatively
             {
                 return nullptr;
             }
+
 
 
         };
@@ -11483,6 +11964,7 @@ Alternatively
                 return nullptr;
             }
 
+
         };
 
 
@@ -11510,6 +11992,7 @@ Alternatively
             {
                 return nullptr;
             }
+
 
 
         };
@@ -11550,6 +12033,7 @@ Alternatively
             {
                 return "";
             }
+
 
 
         };
@@ -11604,6 +12088,7 @@ Alternatively
             }
 
 
+
         };
 
 
@@ -11645,6 +12130,7 @@ Alternatively
             {
                 return "";
             }
+
 
 
         };
@@ -11693,6 +12179,7 @@ Multiple constraint groups are
                 return nullptr;
             }
 
+
         };
 
 
@@ -11735,6 +12222,7 @@ Multiple constraint groups are
             {
                 return nullptr;
             }
+
 
         };
 
@@ -11867,6 +12355,23 @@ Multiple constraint groups are
                 return nullptr;
             }
 
+            /**
+            * Retrieves whether property mass is set
+            * @return true when the optional property is set
+            */
+            virtual bool IsSetMass() const
+            {
+                return false;
+            }
+            /**
+            * Retrieves whether property model3d is set
+            * @return true when the optional property is set
+            */
+            virtual bool IsSetModel3d() const
+            {
+                return false;
+            }
+
         };
 
 
@@ -11893,6 +12398,7 @@ Multiple constraint groups are
             {
                 return nullptr;
             }
+
 
 
         };
@@ -11939,6 +12445,7 @@ Multiple constraint groups are
                 return nullptr;
             }
 
+
         };
 
 
@@ -11979,6 +12486,7 @@ Multiple constraint groups are
             }
 
 
+
         };
 
 
@@ -12017,6 +12525,15 @@ Multiple constraint groups are
                 return nullptr;
             }
 
+
+            /**
+            * Retrieves whether property time is set
+            * @return true when the optional property is set
+            */
+            virtual bool IsSetTime() const
+            {
+                return false;
+            }
 
         };
 
@@ -12070,6 +12587,7 @@ Multiple constraint groups are
             }
 
 
+
         };
 
 
@@ -12107,6 +12625,7 @@ Multiple constraint groups are
             {
                 return nullptr;
             }
+
 
 
         };
@@ -12208,6 +12727,31 @@ Multiple constraint groups are
             }
 
 
+            /**
+            * Retrieves whether property atmosphericPressure is set
+            * @return true when the optional property is set
+            */
+            virtual bool IsSetAtmosphericPressure() const
+            {
+                return false;
+            }
+            /**
+            * Retrieves whether property cloudState is set
+            * @return true when the optional property is set
+            */
+            virtual bool IsSetCloudState() const
+            {
+                return false;
+            }
+            /**
+            * Retrieves whether property temperature is set
+            * @return true when the optional property is set
+            */
+            virtual bool IsSetTemperature() const
+            {
+                return false;
+            }
+
         };
 
 
@@ -12246,6 +12790,7 @@ Multiple constraint groups are
             {
                 return 0;
             }
+
 
 
         };
@@ -12333,6 +12878,7 @@ Multiple constraint groups are
             {
                 return 0;
             }
+
 
 
         };

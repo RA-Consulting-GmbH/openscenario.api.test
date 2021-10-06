@@ -84,6 +84,7 @@ bool TestV1_1(std::string basePath )
 	result = testFiles.TestWrongEndElement() && result;
 	result = testFiles.TestCustomCommandAction() && result;
 	result = testFiles.TestFileNotFound() && result;
+	result = testFiles.TestDefaultValues() && result;
 
 	result = testImports.TestImportSuccess() && result;
 
