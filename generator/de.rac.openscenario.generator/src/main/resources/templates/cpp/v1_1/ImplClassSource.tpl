@@ -112,6 +112,10 @@ namespace NET_ASAM_OPENSCENARIO
 <%-if (property.isParameterizableProperty()){-%>
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>);
 <%-}-%>
+<%-if (defaultValueHelper.hasNoneAsDefault(element.name.toClassName(),property.name.toMemberName())) {-%>
+			// set the indicator to true
+            isSet<%=property.name.toClassName()%> = true;          
+<%-}-%>
         }
 <%-}-%>
 
@@ -363,6 +367,10 @@ namespace NET_ASAM_OPENSCENARIO
             }
             <%-}-%>
             <%-}-%>
+            // clone indicators
+            <%-properties.findAll(){property -> defaultValueHelper.hasNoneAsDefault(element.name.toClassName(),property.name.toMemberName())}.each{ property ->-%>          
+            	clonedObject->isSet<%=property.name.toClassName()%> = isSet<%=property.name.toClassName()%>;
+            <%-}-%>
             // clone children
             <%-properties = element.getXmlElementProperties();-%>
             <%-properties.each{ property -> -%>
@@ -525,8 +533,32 @@ namespace NET_ASAM_OPENSCENARIO
 <%-addResolveFunction(element, "double", "double")-%>
 <%-addResolveFunction(element, "int", "int")-%>
 <%-addResolveFunction(element, "dateTime", "DateTime")-%>
-		
 
+<%-if (helper.hasStringTypedValue(element)){-%>
+		bool <%=element.name.toClassName()%>Impl::IsTypedStringAttribute(std::string& attributeKey)
+		{
+			return (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE);
+		}
+<%-}-%>	
+
+<%-properties = element.umlProperties-%>
+<%-properties.each{ property ->-%>
+<%-if (defaultValueHelper.hasNoneAsDefault(element.name.toClassName(),property.name.toMemberName())) {-%>
+       void <%=element.name.toClassName()%>Impl::Reset<%=property.name.toClassName()%>()
+	   {
+	   		isSet<%=property.name.toClassName()%> = false; 
+	   		<%- if (property.isProxy() && !property.isList()){-%>
+        	_<%=property.name.toMemberName()%> = nullptr;
+			<%-}else{-%>
+			_<%=property.name.toMemberName()%> = {};
+			<%-}-%>
+			
+	   }
+       bool <%=element.name.toClassName()%>Impl::IsSet<%=property.name.toClassName()%>() const
+	   {
+			return isSet<%=property.name.toClassName()%>;
+	   }
+<%-}}-%>
 <%-}-%>
     }
 }

@@ -1,0 +1,36 @@
+name: LinuxSharedRelease
+on: 
+  workflow_dispatch:
+    name: LinuxSharedRelease
+        
+jobs:
+  LinuxSharedReleaseBuild:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: update system
+      run:  sudo apt-get update
+
+    - name: install uuid-dev package
+      run:  sudo apt-get install uuid-dev
+    
+    - name: cmake generate solution Release
+      run: cmake -S ./cpp --preset="Linux-shared-release"
+      
+    - name: build solution Release
+      shell: bash
+      run: |
+        cd cpp
+        cmake --build --preset="Build-Linux-shared-release"
+    
+    - name: test Release
+      shell: bash
+      run: |
+        cd cpp/build/output/Linux_shared/Release
+        chmod a+x *
+        export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:.
+        ./ExpressionTester && (exit 0) 
+        ./IndexerTester && (exit 0) 
+        ./OpenScenarioTester && (exit 0) 

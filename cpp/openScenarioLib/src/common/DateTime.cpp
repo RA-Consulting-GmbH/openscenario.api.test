@@ -19,24 +19,105 @@
 #include <sstream>
 #include <iomanip>
 #include "MemLeakDetection.h"
+#include <cmath>
 
 namespace NET_ASAM_OPENSCENARIO
 {
-     bool DateTime::operator== (const DateTime& other) const
+		bool DateTime::operator== (const DateTime& other) const
         {
-            return sec == other.sec &&
-                min == other.min &&
-                hour == other.hour &&
-                mday == other.mday &&
-                mon == other.mon &&
-                year == other.year &&
-                wday == other.wday &&
-                yday == other.yday &&
-                isdst == other.isdst &&
-                gmtHours == other.gmtHours &&
-                gmtMin == other.gmtMin;
+			auto secondsThis = GetSeconds(*this);
+			auto secondsOther = other.GetSeconds(other);
+			if (secondsThis == secondsOther)
+			{
+				return abs(sec - other.sec) < 0.00001;
+			}
+			return false;
         }
+	
+		bool DateTime::operator!= (const DateTime& other) const
+		{
+			return !(*this == other);
+		}
+	
+		bool DateTime::operator> (const DateTime& other) const
+		{
+			auto secondsThis = GetSeconds(*this);
+			auto secondsOther = other.GetSeconds(other);
+			if (secondsThis > secondsOther)
+			{
+				return true;
+			}
+			else if (secondsThis == secondsOther)
+			{
+				return sec > other.sec;
+			}
+			return false;
+		
+		}
 
+		bool DateTime::operator< (const DateTime& other) const
+		{
+			auto secondsThis = GetSeconds(*this);
+			auto secondsOther = other.GetSeconds(other);
+			if (secondsThis < secondsOther)
+			{
+				return true;
+			}
+			else if (secondsThis == secondsOther)
+			{
+				return sec < other.sec;
+			}
+			return false;
+		}
+
+		bool DateTime::operator<= (const DateTime& other) const
+		{
+			auto secondsThis = GetSeconds(*this);
+			auto secondsOther = other.GetSeconds(other);
+			if (secondsThis < secondsOther)
+			{
+				return true;
+			}
+			else if (secondsThis == secondsOther)
+			{
+				return sec <= other.sec;
+			}
+			return false;
+		}
+
+		bool DateTime::operator>= (const DateTime& other) const
+		{
+			auto secondsThis = GetSeconds(*this);
+			auto secondsOther = other.GetSeconds(other);
+			if (secondsThis > secondsOther)
+			{
+				return true;
+			}
+			else if (secondsThis == secondsOther)
+			{
+				return sec >= other.sec;
+			}
+			return false;
+		}
+
+		long long DateTime::GetSeconds(const DateTime& dateTime)
+		{
+			struct tm timestruct;
+			timestruct.tm_year = dateTime.year;;
+			timestruct.tm_mday = dateTime.mday;
+			timestruct.tm_mon = dateTime.mon;
+			timestruct.tm_hour = dateTime.hour;
+			timestruct.tm_min = dateTime.min;
+			timestruct.tm_sec = (int) std::ceil(dateTime.sec);
+			timestruct.tm_isdst = 0;
+
+			time_t localTime = mktime(&timestruct);
+
+			localTime -= (dateTime.gmtHours * 3600);
+			localTime -= (dateTime.gmtMin * 60);
+			return localTime;
+			
+		}
 
         std::string DateTimeParser::ToString(const DateTime dateTime)
         {

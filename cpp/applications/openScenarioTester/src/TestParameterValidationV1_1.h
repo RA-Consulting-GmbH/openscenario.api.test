@@ -21,45 +21,18 @@ namespace NET_ASAM_OPENSCENARIO
 {
     namespace v1_1
 	{
-		class TestFiles : public TestBase
+		class TestParameterValidation : public TestBase
 		{
 
 		private :
 			static double epsilon;
 		public:
 
-			TestFiles(std::string& executablePath);
+			TestParameterValidation(std::string& executablePath);
 
-			bool TestSimpleSuccess();
-
-			bool TestParamsSuccess();
-			
-			bool TestExpressionsSuccess();
-
-			bool TestBomFile();
-
-			bool TestParamsFailure();
-			
-			bool TestExpressionsFailure();
-
-			bool TestParamsConversionInfo();
-
-			bool TestParamsConversion();
-
-			bool TestUnvalidXml();
-			bool TestDefaultValues();
-
-			bool TestUnknownElement();
-
-			bool TestWrongAttributes();
-
-			bool TestWrongEndElement();
-
-			bool TestCustomCommandAction();
-
-			bool TestFileNotFound() const;
-			
-			bool TestMultiChoiceElement();
+			bool TestValidation();
+			bool TestValidationErrors();
+			bool TestValidationWrongDataTypes();
 		};
 	}
 }

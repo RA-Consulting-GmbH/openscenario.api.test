@@ -40,7 +40,9 @@ namespace OscExpression {
 		
 		size_t GetColumn(antlr4::ParserRuleContext* ruleContext);
 
-		
+		std::shared_ptr<ExprValue> ConvertToTargetType(std::shared_ptr<OscExpression::ExprType> type);
+
+
 		void PrepareOverflowUnderflowDetection();
 
 		bool IsOverFlowOrUnderflow();
@@ -52,8 +54,7 @@ namespace OscExpression {
 		static std::unique_ptr <SemanticException> CreateNotANumericException(size_t column);
 
 	public:
-		OSC_EXPR_EXP static bool IsConvertible(std::shared_ptr <ExprValue> valueToConvert, std::shared_ptr <OscExpression::ExprType> type, int column);
-
+		
 		OSC_EXPR_EXP EvaluatorListener(std::shared_ptr<std::map<std::string,  std::shared_ptr<OscExpression::ExprValue>>> definedParameters, std::shared_ptr<OscExpression::ExprType> expectedDatatype);
 	
 		
@@ -76,7 +77,9 @@ namespace OscExpression {
 		OSC_EXPR_EXP void exitFunctionTwoArguments(OscExprParser::FunctionTwoArgumentsContext *ctx) override;
 		
 		OSC_EXPR_EXP void exitNot(OscExprParser::NotContext *ctx) override;
-		
+		std::shared_ptr<ExprValue> CreateBooleanExprFromExpr(std::shared_ptr<ExprValue> sourceType);
+		std::shared_ptr<ExprValue> CreateNumericExprFromExpr(std::shared_ptr<ExprValue> sourceType);
+
 		OSC_EXPR_EXP void exitAnd(OscExprParser::AndContext *ctx) override;
 
 		OSC_EXPR_EXP void exitOr(OscExprParser::OrContext *ctx) override;

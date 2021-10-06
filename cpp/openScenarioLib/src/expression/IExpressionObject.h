@@ -86,6 +86,13 @@ namespace NET_ASAM_OPENSCENARIO
 		 */
 		virtual void ResolveDateTimeExpression(std::string& attributeKey, DateTime& value) = 0;
 
+		/**
+		 * Returns true if attribute is (ParameterDeclaration, value), (ParameterAssignement, value) or (ValueConstraint, value)
+		 * @param attributeKey attribute key
+		 * @return true if it is a typed string value
+		 */
+		virtual bool IsTypedStringAttribute(std::string& attributeKey) = 0;
+
       
     };
 }

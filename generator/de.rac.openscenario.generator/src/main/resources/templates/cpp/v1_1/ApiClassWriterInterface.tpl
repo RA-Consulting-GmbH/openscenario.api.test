@@ -98,6 +98,15 @@ namespace NET_ASAM_OPENSCENARIO
 <%=helper.makeChildListWriterGetterCppDoc(element, property, "            ")%>
             virtual std::vector<<%=property.type.toCppWriterName()%>> GetWriter<%=property.name.toClassName()%>() const = 0;
 <%-}-%>
+<%-properties = element.umlProperties-%>
+<%-properties.each{ property ->-%>
+<%-if (defaultValueHelper.hasNoneAsDefault(element.name.toClassName(),property.name.toMemberName())) {-%>
+            /**
+            * Resets the optional property (IsSet<%=property.name.toClassName()%>() will return false);
+            */
+            virtual void Reset<%=property.name.toClassName()%>() = 0;
+            
+<%-}}-%>
         };
 
 <%-}-%>

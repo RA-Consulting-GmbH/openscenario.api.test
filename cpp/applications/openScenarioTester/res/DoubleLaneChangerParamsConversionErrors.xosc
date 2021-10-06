@@ -190,6 +190,7 @@
                       <LaneChangeActionDynamics dynamicsShape="sinusoidal" value="2" dynamicsDimension="time"/>
                       <LaneChangeTarget>
                         <RelativeTargetLane entityRef="$owner" value="$testInteger"/>
+                        <RelativeTargetLane entityRef="$owner" value="$testInteger"/>
                       </LaneChangeTarget>
                     </LaneChangeAction>
                   </LateralAction>

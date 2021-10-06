@@ -48,7 +48,6 @@ std::shared_ptr<std::map<std::string, std::shared_ptr<ExprValue>>> ParamDefReade
 			  std::string literal = numericParamDef->literal->getText();
 			  std::string id =  numericParamDef->id->getText();
 			  std::shared_ptr<double> doubleResult = ExprValue::CreatePrimitiveDouble(literal);
-			  std::shared_ptr <ExprValue> simpleValue = ExprValue::CreateSimpleParameterValue(id, literal, ExprType::GetFromLiteral(type));
 	  		
 	  		  if (doubleResult == nullptr)
 	  		  {
@@ -62,24 +61,24 @@ std::shared_ptr<std::map<std::string, std::shared_ptr<ExprValue>>> ParamDefReade
 	      		  {
 					  throw std::runtime_error("Error in Parameter definition: '" + literal + "' cannot be converted to '"+type+"'");
 	      		  }
-				  result->insert(std::pair<std::string, std::shared_ptr<ExprValue>>(id, simpleValue));
+				  result->insert(std::pair<std::string, std::shared_ptr<ExprValue>>(id, typedValue));
 		      } else if (type == "unsignedInt") {
 				  std::shared_ptr<ExprValue> typedValue = doubleValue->ConvertToUnsignedInt();
 				  if (typedValue == nullptr)
 				  {
 					  throw std::runtime_error("Error in Parameter definition: '" + literal + "' cannot be converted to '" + type + "'");
 				  }
-				  result->insert(std::pair<std::string, std::shared_ptr<ExprValue>>(id, simpleValue));
+				  result->insert(std::pair<std::string, std::shared_ptr<ExprValue>>(id, typedValue));
 			  } else if (type == "unsignedShort") {
 				  std::shared_ptr<ExprValue> typedValue = doubleValue->ConvertToUnsignedShort();
 				  if (typedValue == nullptr)
 				  {
 					  throw std::runtime_error("Error in Parameter definition: '" + literal + "' cannot be converted to '" + type + "'");
 				  }
-				  result->insert(std::pair<std::string, std::shared_ptr<ExprValue>>(id, simpleValue));
+				  result->insert(std::pair<std::string, std::shared_ptr<ExprValue>>(id, typedValue));
 
 		      } else if (type == "double") {
-				  result->insert(std::pair<std::string, std::shared_ptr<ExprValue>>(id, simpleValue));
+				  result->insert(std::pair<std::string, std::shared_ptr<ExprValue>>(id, doubleValue));
 
 		      }
 		  }else if (paramDef->stringParamDef() != 0)
@@ -91,22 +90,21 @@ std::shared_ptr<std::map<std::string, std::shared_ptr<ExprValue>>> ParamDefReade
 			  literal.erase(0, 1); // removes first character;
 			  literal.erase(std::prev(literal.end())); // removes last character; 
 			  std::string id =  stringParamDef->id->getText();
-			  std::shared_ptr <ExprValue> simpleValue = ExprValue::CreateSimpleParameterValue(id, literal, ExprType::GetFromLiteral(type));
-
+			  
 
 			  if (type == "string") {
 				  std::shared_ptr<ExprValue> typedValue = ExprValue::CreateStringValue(literal);
-				  result->insert(std::pair<std::string, std::shared_ptr<ExprValue>>(id, simpleValue));
+				  result->insert(std::pair<std::string, std::shared_ptr<ExprValue>>(id, typedValue));
 			  }
 			  else if (type == "dateTime") {
 				  std::shared_ptr<ExprValue> typedValue = ExprValue::CreateDateTimeValue(literal);
-				  result->insert(std::pair<std::string, std::shared_ptr<ExprValue>>(id, simpleValue));
+				  if (typedValue == nullptr)
+				  {
+					  throw std::runtime_error("Error in Parameter definition: '" + literal + "' cannot be converted to '" + type + "'");
+				  }
+				  result->insert(std::pair<std::string, std::shared_ptr<ExprValue>>(id, typedValue));
 			  }
-			  else if (type == "boolean") {
-				  std::shared_ptr<ExprValue> typedValue = ExprValue::CreateBooleanValue(literal);
-				  result->insert(std::pair<std::string, std::shared_ptr<ExprValue>>(id, simpleValue));
-
-			  }			
+			  		
 		  }
 		  else if (paramDef->booleanParamDef() != 0)
 		  {
@@ -115,11 +113,13 @@ std::shared_ptr<std::map<std::string, std::shared_ptr<ExprValue>>> ParamDefReade
 			  std::string type = booleanParamDef->type->getText();
 			  std::string literal = booleanParamDef->literal->getText();
 			  std::string id = booleanParamDef->id->getText();
-			  std::shared_ptr <ExprValue> simpleValue = ExprValue::CreateSimpleParameterValue(id, literal, ExprType::GetFromLiteral(type));
-
-
+			  
 			  std::shared_ptr<ExprValue> typedValue = ExprValue::CreateBooleanValue(literal);
-			  result->insert(std::pair<std::string, std::shared_ptr<ExprValue>>(id, simpleValue));
+			  if (typedValue == nullptr)
+			  {
+				  throw std::runtime_error("Error in Parameter definition: '" + literal + "' cannot be converted to '" + type + "'");
+			  }
+			  result->insert(std::pair<std::string, std::shared_ptr<ExprValue>>(id, typedValue));
 
 		  }
     }

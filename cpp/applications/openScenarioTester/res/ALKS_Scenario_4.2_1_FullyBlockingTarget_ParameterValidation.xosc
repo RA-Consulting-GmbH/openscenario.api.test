@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OpenSCENARIO>
+  <FileHeader revMajor="1" revMinor="1" date="2021-07-09T10:00:00" description="ALKS Scenario 4.2_1 FullyBlockingTarget Template" author="BMW AG" />
+  <ParameterDeclarations>
+    <!--The ParameterDeclarations section is needed for easy variation.-->
+    <ParameterDeclaration name="Road" parameterType="string" value="./ALKS_Road_straight.xodr"></ParameterDeclaration>
+		<ParameterDeclaration name="boolean_equalTo" parameterType="boolean" value="true">
+		<ConstraintGroup>
+			<ValueConstraint rule="equalTo" value="true" />
+		</ConstraintGroup>
+	</ParameterDeclaration>
+	<ParameterDeclaration name="boolean_greaterThan" parameterType="boolean" value="true">
+		<ConstraintGroup>
+			<ValueConstraint rule="greaterThan" value="false" />
+		</ConstraintGroup>
+	</ParameterDeclaration>
+	<ParameterDeclaration name="boolean_lessThan" parameterType="boolean" value="false">
+		<ConstraintGroup>
+			<ValueConstraint rule="lessThan" value="true" />
+		</ConstraintGroup>
+	</ParameterDeclaration>
+	<ParameterDeclaration name="boolean_notEqualTo" parameterType="boolean" value="true">
+		<ConstraintGroup>
+			<ValueConstraint rule="notEqualTo" value="false" />
+		</ConstraintGroup>
+	</ParameterDeclaration>
+	<ParameterDeclaration name="boolean_greaterOrEqual" parameterType="boolean" value="true">
+		<ConstraintGroup>
+			<ValueConstraint rule="greaterOrEqual" value="false" />
+		</ConstraintGroup>
+	</ParameterDeclaration>
+	<ParameterDeclaration name="boolean_lessOrEqual" parameterType="boolean" value="false">
+		<ConstraintGroup>
+			<ValueConstraint rule="lessOrEqual" value="true" />
+		</ConstraintGroup>
+	</ParameterDeclaration>
+	<ParameterDeclaration name="dateTime_equalTo" parameterType="dateTime" value="2021-07-09T11:00:00.34+04:00">
+		<ConstraintGroup>
+			<ValueConstraint rule="equalTo" value="2021-07-09T10:00:00.34+03:00" />
+		</ConstraintGroup>
+	</ParameterDeclaration>
+	<ParameterDeclaration name="dateTime_greaterThan" parameterType="dateTime" value="2021-07-09T11:00:00.34+03:00">
+		<ConstraintGroup>
+			<ValueConstraint rule="greaterThan" value="2021-07-09T10:00:00.34+03:00" />
+		</ConstraintGroup>
+	</ParameterDeclaration>
+	<ParameterDeclaration name="dateTime_lessThan" parameterType="dateTime" value="2021-07-09T10:00:00.34+03:00">
+		<ConstraintGroup>
+			<ValueConstraint rule="lessThan" value="2021-07-09T11:00:00.34+03:00" />
+		</ConstraintGroup>
+	</ParameterDeclaration>
+	<ParameterDeclaration name="dateTime_notEqualTo" parameterType="dateTime" value="2021-07-09T11:00:00.34+03:00">
+		<ConstraintGroup>
+			<ValueConstraint rule="notEqualTo" value="2021-07-09T10:00:00.34+03:00" />
+		</ConstraintGroup>
+	</ParameterDeclaration>
+	<ParameterDeclaration name="dateTime_greaterOrEqual" parameterType="dateTime" value="2021-07-09T11:00:00.34+03:00">
+		<ConstraintGroup>
+			<ValueConstraint rule="greaterOrEqual" value="2021-07-09T10:00:00.34+03:00" />
+		</ConstraintGroup>
+	</ParameterDeclaration>
+	<ParameterDeclaration name="dateTime_lessOrEqual" parameterType="dateTime" value="2021-07-09T10:00:00.34+03:00">
+		<ConstraintGroup>
+			<ValueConstraint rule="lessOrEqual" value="2021-07-09T11:00:00.34+03:00" />
+		</ConstraintGroup>
+	</ParameterDeclaration>
+	<ParameterDeclaration name="double_equalTo" parameterType="double" value="60">
+		<ConstraintGroup>
+			<ValueConstraint rule="equalTo" value="60.0" />
+		</ConstraintGroup>
+	</ParameterDeclaration>
+	<ParameterDeclaration name="double_greaterThan" parameterType="double" value="61">
+		<ConstraintGroup>
+			<ValueConstraint rule="greaterThan" value="60.0" />
+		</ConstraintGroup>
+	</ParameterDeclaration>
+	<ParameterDeclaration name="double_lessThan" parameterType="double" value="59">
+		<ConstraintGroup>
+			<ValueConstraint rule="lessThan" value="60.0" />
+		</ConstraintGroup>
+	</ParameterDeclaration>
+	<ParameterDeclaration name="double_notEqualTo" parameterType="double" value="61">
+		<ConstraintGroup>
+			<ValueConstraint rule="notEqualTo" value="60.0" />
+		</ConstraintGroup>
+	</ParameterDeclaration>
+	<ParameterDeclaration name="double_greaterOrEqual" parameterType="double" value="61">
+		<ConstraintGroup>
+			<ValueConstraint rule="greaterOrEqual" value="60.0" />
+		</ConstraintGroup>
+	</ParameterDeclaration>
+	<ParameterDeclaration name="double_lessOrEqual" parameterType="double" value="59">
+		<ConstraintGroup>
+			<ValueConstraint rule="lessOrEqual" value="60.0" />
+		</ConstraintGroup>
+	</ParameterDeclaration>
+	<ParameterDeclaration name="integer_equalTo" parameterType="integer" value="-5.0">
+		<ConstraintGroup>
+			<ValueConstraint rule="equalTo" value="-5" />
+		</ConstraintGroup>
+	</ParameterDeclaration>
+	<ParameterDeclaration name="integer_greaterThan" parameterType="integer" value="-4.0">
+		<ConstraintGroup>
+			<ValueConstraint rule="greaterThan" value="-5" />
+		</ConstraintGroup>
+	</ParameterDeclaration>
+	<ParameterDeclaration name="integer_lessThan" parameterType="integer" value="-6">
+		<ConstraintGroup>
+			<ValueConstraint rule="lessThan" value="-5" />
+		</ConstraintGroup>
+	</ParameterDeclaration>
+	<ParameterDeclaration name="integer_notEqualTo" parameterType="integer" value="-4.0">
+		<ConstraintGroup>
+			<ValueConstraint rule="notEqualTo" value="-5" />
+		</ConstraintGroup>
+	</ParameterDeclaration>
+	<ParameterDeclaration name="integer_greaterOrEqual" parameterType="integer" value="-4.0">
+		<ConstraintGroup>
+			<ValueConstraint rule="greaterOrEqual" value="-5" />
+		</ConstraintGroup>
+	</ParameterDeclaration>
+	<ParameterDeclaration name="integer_lessOrEqual" parameterType="integer" value="-6">
+		<ConstraintGroup>
+			<ValueConstraint rule="lessOrEqual" value="-5" />
+		</ConstraintGroup>
+	</ParameterDeclaration>
+	<ParameterDeclaration name="string_equalTo" parameterType="string" value="abcd">
+		<ConstraintGroup>
+			<ValueConstraint rule="equalTo" value="abcd" />
+		</ConstraintGroup>
+	</ParameterDeclaration>
+	<ParameterDeclaration name="string_greaterThan" parameterType="string" value="abcd">
+		<ConstraintGroup>
+			<ValueConstraint rule="greaterThan" value="Abcd" />
+		</ConstraintGroup>
+	</ParameterDeclaration>
+	<ParameterDeclaration name="string_lessThan" parameterType="string" value="Abcd">
+		<ConstraintGroup>
+			<ValueConstraint rule="lessThan" value="abcd" />
+		</ConstraintGroup>
+	</ParameterDeclaration>
+	<ParameterDeclaration name="string_notEqualTo" parameterType="string" value="abcd">
+		<ConstraintGroup>
+			<ValueConstraint rule="notEqualTo" value="Abcd" />
+		</ConstraintGroup>
+	</ParameterDeclaration>
+	<ParameterDeclaration name="string_greaterOrEqual" parameterType="string" value="abcd">
+		<ConstraintGroup>
+			<ValueConstraint rule="greaterOrEqual" value="Abcd" />
+		</ConstraintGroup>
+	</ParameterDeclaration>
+	<ParameterDeclaration name="string_lessOrEqual" parameterType="string" value="Abcd">
+		<ConstraintGroup>
+			<ValueConstraint rule="lessOrEqual" value="abcd" />
+		</ConstraintGroup>
+	</ParameterDeclaration>
+	<ParameterDeclaration name="unsignedInt_equalTo" parameterType="unsignedInt" value="60000">
+		<ConstraintGroup>
+			<ValueConstraint rule="equalTo" value="60000" />
+		</ConstraintGroup>
+	</ParameterDeclaration>
+	<ParameterDeclaration name="unsignedInt_greaterThan" parameterType="unsignedInt" value="60001">
+		<ConstraintGroup>
+			<ValueConstraint rule="greaterThan" value="60000" />
+		</ConstraintGroup>
+	</ParameterDeclaration>
+	<ParameterDeclaration name="unsignedInt_lessThan" parameterType="unsignedInt" value="5000">
+		<ConstraintGroup>
+			<ValueConstraint rule="lessThan" value="60000" />
+		</ConstraintGroup>
+	</ParameterDeclaration>
+	<ParameterDeclaration name="unsignedInt_notEqualTo" parameterType="unsignedInt" value="60001">
+		<ConstraintGroup>
+			<ValueConstraint rule="notEqualTo" value="60000" />
+		</ConstraintGroup>
+	</ParameterDeclaration>
+	<ParameterDeclaration name="unsignedInt_greaterOrEqual" parameterType="unsignedInt" value="60001">
+		<ConstraintGroup>
+			<ValueConstraint rule="greaterOrEqual" value="60000" />
+		</ConstraintGroup>
+	</ParameterDeclaration>
+	<ParameterDeclaration name="unsignedInt_lessOrEqual" parameterType="unsignedInt" value="5000">
+		<ConstraintGroup>
+			<ValueConstraint rule="lessOrEqual" value="60000" />
+		</ConstraintGroup>
+	</ParameterDeclaration>
+	<ParameterDeclaration name="unsignedShort_equalTo" parameterType="unsignedShort" value="234">
+		<ConstraintGroup>
+			<ValueConstraint rule="equalTo" value="234" />
+		</ConstraintGroup>
+	</ParameterDeclaration>
+	<ParameterDeclaration name="unsignedShort_greaterThan" parameterType="unsignedShort" value="235">
+		<ConstraintGroup>
+			<ValueConstraint rule="greaterThan" value="234" />
+		</ConstraintGroup>
+	</ParameterDeclaration>
+	<ParameterDeclaration name="unsignedShort_lessThan" parameterType="unsignedShort" value="233">
+		<ConstraintGroup>
+			<ValueConstraint rule="lessThan" value="234" />
+		</ConstraintGroup>
+	</ParameterDeclaration>
+	<ParameterDeclaration name="unsignedShort_notEqualTo" parameterType="unsignedShort" value="235">
+		<ConstraintGroup>
+			<ValueConstraint rule="notEqualTo" value="234" />
+		</ConstraintGroup>
+	</ParameterDeclaration>
+	<ParameterDeclaration name="unsignedShort_greaterOrEqual" parameterType="unsignedShort" value="235">
+		<ConstraintGroup>
+			<ValueConstraint rule="greaterOrEqual" value="234" />
+		</ConstraintGroup>
+	</ParameterDeclaration>
+	<ParameterDeclaration name="unsignedShort_lessOrEqual" parameterType="unsignedShort" value="233">
+		<ConstraintGroup>
+			<ValueConstraint rule="lessOrEqual" value="234" />
+		</ConstraintGroup>
+	</ParameterDeclaration>
+  </ParameterDeclarations>
+  <CatalogLocations>
+    <VehicleCatalog>
+      <Directory path="../Catalogs/Vehicles" />
+    </VehicleCatalog>
+    <PedestrianCatalog>
+      <Directory path="../Catalogs/Pedestrians" />
+    </PedestrianCatalog>
+    <MiscObjectCatalog>
+      <Directory path="../Catalogs/MiscObjects" />
+    </MiscObjectCatalog>
+    <ControllerCatalog>
+      <Directory path="../Catalogs/Controllers" />
+    </ControllerCatalog>
+  </CatalogLocations>
+  <RoadNetwork>
+    <LogicFile filepath="$Road" />
+  </RoadNetwork>
+  <Entities>
+    <ScenarioObject name="Ego">
+      <CatalogReference catalogName="VehicleCatalog" entryName="car_ego"></CatalogReference>
+      <ObjectController>
+        <CatalogReference catalogName="ControllerCatalog" entryName="ALKSController"></CatalogReference>
+      </ObjectController>
+    </ScenarioObject>
+    <ScenarioObject name="TargetBlocking">
+      <CatalogReference catalogName="PedestrianCatalog" entryName="pedestrian"></CatalogReference>
+    </ScenarioObject>
+  </Entities>
+  <Storyboard>
+    <Init>
+      <Actions>
+        <Private entityRef="Ego">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <LanePosition roadId="0" laneId="Ego_InitPosition_LaneId" offset="0.0" s="5.0"></LanePosition>
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+          <PrivateAction>
+            <LongitudinalAction>
+              <SpeedAction>
+                <SpeedActionDynamics dynamicsShape="step" dynamicsDimension="time" value="0" />
+                <SpeedActionTarget>
+                  <AbsoluteTargetSpeed value="${60.0 / 3.6}" />
+                </SpeedActionTarget>
+              </SpeedAction>
+            </LongitudinalAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="TargetBlocking">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <LanePosition roadId="0" laneId="Ego_InitPosition_LaneId" offset="0.0" s="500.0"></LanePosition>
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+      </Actions>
+    </Init>
+    <Story name="ActivateALKSControllerStory">
+      <Act name="ActivateALKSControllerAct">
+        <ManeuverGroup maximumExecutionCount="1" name="ActivateALKSControllerManeuverGroup">
+          <Actors selectTriggeringEntities="false">
+            <EntityRef entityRef="Ego" />
+          </Actors>
+          <Maneuver name="ActivateALKSControllerManeuver">
+            <Event name="ActivateALKSControllerEvent" priority="overwrite">
+              <Action name="ActivateALKSControllerAction">
+                <PrivateAction>
+                  <ControllerAction>
+                    <ActivateControllerAction lateral="true" longitudinal="true" />
+                  </ControllerAction>
+                </PrivateAction>
+              </Action>
+              <StartTrigger>
+                <ConditionGroup>
+                  <Condition name="ActivateALKSControllerEventCondition" delay="0" conditionEdge="rising">
+                    <ByValueCondition>
+                      <SimulationTimeCondition value="10000" rule="greaterOrEqual" />
+                    </ByValueCondition>
+                  </Condition>
+                </ConditionGroup>
+              </StartTrigger>
+            </Event>
+          </Maneuver>
+        </ManeuverGroup>
+        <StartTrigger>
+          <ConditionGroup>
+            <Condition name="ActivateALKSControllerActCondition" delay="0" conditionEdge="none">
+              <ByValueCondition>
+                <SimulationTimeCondition value="0" rule="greaterOrEqual" />
+              </ByValueCondition>
+            </Condition>
+          </ConditionGroup>
+        </StartTrigger>
+      </Act>
+    </Story>
+    <StopTrigger>
+      <ConditionGroup>
+        <Condition name="End" delay="0" conditionEdge="rising">
+          <ByValueCondition>
+            <!--The scenario stops 10 s after the ego would reach the target without braking.-->
+            <SimulationTimeCondition value="${(500.0 / (60.0 / 3.6)) + 10.0}" rule="greaterOrEqual"></SimulationTimeCondition>
+          </ByValueCondition>
+        </Condition>
+      </ConditionGroup>
+    </StopTrigger>
+  </Storyboard>
+</OpenSCENARIO>

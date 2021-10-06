@@ -32,6 +32,8 @@ namespace OscExpression
 			
 		}
 
+		std::string ExprValue::dateTimeRegEx = "(\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.?\\d*(\\+|\\-)?\\d{0,2}:?\\d{0,2}Z?)";
+	
 		std::shared_ptr<double> ExprValue::CreatePrimitiveDouble(std::string doubleValueString)
 		{
 			
@@ -41,9 +43,10 @@ namespace OscExpression
 			errno = 0;
 			double result = strtod(input, &end);
 
-			if (result == 0 && (errno != 0 || end == input)) {
+			if ((result == 0 && errno != 0) || (end != (input + doubleValueString.length()))) {
 				return nullptr;
 			}
+			
 			if (result > std::numeric_limits<double>::max())
 			{
 				return nullptr;
@@ -106,14 +109,57 @@ namespace OscExpression
 
 		}
 
-		std::shared_ptr<ExprValue> ExprValue::CreateSimpleParameterValue(std::string parameterName,
-			std::string stringValue, std::shared_ptr<ExprType> exprType)
+
+		std::shared_ptr<ExprValue> ExprValue::CreateTypedValue(std::string stringValue, std::shared_ptr<ExprType> exprType)
 		{
 			std::shared_ptr <ExprValue> result = std::shared_ptr <ExprValue>(new ExprValue());
-			result->exprType = exprType;
-			result->isSimpleParameter = true;
-			result->parameterName = parameterName;
-			result->stringValue = stringValue;
+
+			if (exprType == ExprType::DOUBLE)
+			{
+				result = CreateDoubleValueFromString(stringValue);
+			}else if (exprType == ExprType::UNSIGNED_INT)
+			{
+				result = CreateDoubleValueFromString(stringValue);
+				if (result != nullptr)
+				{
+					result = result->ConvertToUnsignedInt();
+				}
+			}
+			else if (exprType == ExprType::UNSIGNED_SHORT)
+			{
+				result = CreateDoubleValueFromString(stringValue);
+				if (result != nullptr)
+				{
+					result = result->ConvertToUnsignedShort();
+				}
+			}
+			else if (exprType == ExprType::INT)
+			{
+				result = CreateDoubleValueFromString(stringValue);
+				if (result != nullptr)
+				{
+					result = result->ConvertToInt();
+				}
+			}
+			else if (exprType == ExprType::STRING)
+			{
+				result = CreateStringValue(stringValue);
+				
+			}
+			else if (exprType == ExprType::BOOLEAN)
+			{
+				result = CreateBooleanValue(stringValue);
+				
+			}
+			else if (exprType == ExprType::DATE_TIME)
+			{
+				result = CreateDateTimeValue(stringValue);
+				if (result != nullptr)
+				{
+					result = result->ConvertToDateTime();
+				}
+			}
+			
 			return result;
 		}
 
@@ -122,6 +168,10 @@ namespace OscExpression
 			std::shared_ptr <ExprValue> result = std::shared_ptr <ExprValue>(new ExprValue());
 			result->exprType = ExprType::DATE_TIME;
 			result->stringValue = dateTimeStringValue;
+			if (!std::regex_match(dateTimeStringValue, std::regex(dateTimeRegEx)))
+			{
+				result = nullptr;
+			}
 			return result;
 		}
 
@@ -134,9 +184,12 @@ namespace OscExpression
 			{
 				result->boolValue = true;
 				
-			} else 
+			} else if (boolStringValue == "false" || boolStringValue == "0")
 			{
 				result->boolValue = false;
+			}else
+			{
+				result = nullptr;
 			}
 			return result;
 		}
@@ -172,22 +225,19 @@ namespace OscExpression
 
 		bool ExprValue::IsTypeStringBased()
 		{
-			return !this->isSimpleParameter && (GetExprType() == ExprType::STRING ||
+			return GetExprType() == ExprType::STRING ||
 				GetExprType() == ExprType::DATE_TIME ||
-				GetExprType() == ExprType::BOOLEAN);
+				GetExprType() == ExprType::BOOLEAN;
 		}
 
-		bool ExprValue::IsSimpleParameter()
-		{
-			return this->isSimpleParameter;
-		}
+		
 
 		bool ExprValue::IsTypeNumeric()
 		{
-			return !this->isSimpleParameter && (GetExprType() == ExprType::UNSIGNED_INT ||
+			return GetExprType() == ExprType::UNSIGNED_INT ||
 				GetExprType() == ExprType::INT ||
 				GetExprType() == ExprType::UNSIGNED_SHORT ||
-				GetExprType() == ExprType::DOUBLE);
+				GetExprType() == ExprType::DOUBLE;
 
 		}
 
@@ -200,6 +250,14 @@ namespace OscExpression
 				if (doubleValue >= INT_MIN && doubleValue <= INT_MAX &&std::ceil(doubleValue) == doubleValue)
 				{
 					result = CreateIntValue(doubleValue);
+				}
+			}
+			else
+			{
+				result = CreateDoubleValueFromString(stringValue);
+				if (result != nullptr)
+				{
+					result = ExprValue::CreateIntValue(result->getDoubleValue());
 				}
 			}
 
@@ -239,10 +297,7 @@ namespace OscExpression
 
 			if (IsTypeStringBased())
 			{
-				if (std::regex_match(stringValue, std::regex("(\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.?\\d*(\\+|\\-)?\\d{0,2}:?\\d{0,2}Z?)")))
-				{
-					result = ExprValue::CreateDateTimeValue(stringValue);
-				}
+				result = ExprValue::CreateDateTimeValue(stringValue);
 			}
 
 			return result;
@@ -259,6 +314,14 @@ namespace OscExpression
 					result = ExprValue::CreateUnsignedIntValue(doubleValue);
 				}
 			}
+			else
+			{
+				result = CreateDoubleValueFromString(stringValue);
+				if (result != nullptr)
+				{
+					result = ExprValue::CreateUnsignedIntValue(result->getDoubleValue());
+				}
+			}
 
 			return result;
 		}
@@ -272,6 +335,14 @@ namespace OscExpression
 				if (doubleValue >= 0 && doubleValue <= USHRT_MAX && std::ceil(doubleValue) == doubleValue)
 				{
 					result = ExprValue::CreateUnsignedShortValue(doubleValue);
+				}
+			}
+			else
+			{
+				result = CreateDoubleValueFromString(stringValue);
+				if (result != nullptr)
+				{
+					result = ExprValue::CreateUnsignedShortValue(result->getDoubleValue());
 				}
 			}
 
@@ -297,15 +368,22 @@ namespace OscExpression
 
 		std::string ExprValue::ToString()
 		{
-			if (this->isSimpleParameter)
-			{
-				return stringValue;
-			}else if (GetExprType() == ExprType::UNSIGNED_INT ||
+			if (GetExprType() == ExprType::UNSIGNED_INT ||
 				GetExprType() == ExprType::INT ||
 				GetExprType() == ExprType::UNSIGNED_SHORT ||
 				GetExprType() == ExprType::DOUBLE)
 			{
-				return std::to_string(getDoubleValue());
+				double doubleValue = getDoubleValue();
+				if (doubleValue == std::ceil(doubleValue))
+				{
+					// skip the zeros
+					long long unambiguousValue = (long long)doubleValue;
+					return std::to_string(unambiguousValue);
+				}
+				else
+				{
+					return std::to_string(doubleValue);
+				}
 			}else
 			{
 				return stringValue;
@@ -313,68 +391,63 @@ namespace OscExpression
 			
 		}
 
-		std::string ExprValue::GetParameterName()
-		{
-			return parameterName;
-		}
+		
 
 		bool ExprValue::GetBoolValue()
 		{
 			return boolValue;
 		}
 
-		std::shared_ptr<OscExpression::ExprValue>  ExprValue::ConvertSimpleParameterToTargetType(std::shared_ptr<OscExpression::ExprType> targetType)
+		
+
+		std::shared_ptr<ExprValue> ExprValue::ConvertToTargetType(std::shared_ptr <OscExpression::ExprType> type)
 		{
-			std::shared_ptr<OscExpression::ExprValue> result = nullptr;
-			if (!this->IsSimpleParameter())
-			{
-				return result;
-			}
+			std::shared_ptr<ExprValue> convertedType = nullptr;
 
-			std::shared_ptr<OscExpression::ExprType> actualType = GetExprType();
-			std::string value = ToString();
-
-			if (targetType == ExprType::STRING)
-			{
-				// Everything can be converted into String
-				result = CreateStringValue(value);
+			if (type == OscExpression::ExprType::INT) {
+				convertedType = ConvertToInt();
 			}
-			else if (targetType == ExprType::DOUBLE)
-			{
-				result = CreateDoubleValueFromString(value);
-
+			else if (type == OscExpression::ExprType::UNSIGNED_INT) {
+				convertedType = ConvertToUnsignedInt();
 			}
-			else if (targetType == ExprType::INT)
-			{
-				std::shared_ptr<OscExpression::ExprValue> exprValue = CreateDoubleValueFromString(value);
-				result = exprValue == nullptr? nullptr: exprValue->ConvertToInt();
-
+			else if (type == OscExpression::ExprType::UNSIGNED_SHORT) {
+				convertedType = ConvertToUnsignedShort();
 			}
-			else if (targetType == ExprType::UNSIGNED_INT)
-			{
-				std::shared_ptr<OscExpression::ExprValue> exprValue = CreateDoubleValueFromString(value);
-				result = exprValue == nullptr ? nullptr : exprValue->ConvertToUnsignedInt();
+			else if (type == OscExpression::ExprType::DOUBLE) {
+				convertedType = ConvertToDouble();
 			}
-
-			else if (targetType == ExprType::UNSIGNED_SHORT)
-			{
-				std::shared_ptr<OscExpression::ExprValue> exprValue = CreateDoubleValueFromString(value);
-				result = exprValue == nullptr ? nullptr : exprValue->ConvertToUnsignedShort();
-
+			else if (type == OscExpression::ExprType::BOOLEAN) {
+				convertedType = ConvertToBoolean();
 			}
-
-			else if (targetType == ExprType::BOOLEAN)
+			else if (type == OscExpression::ExprType::STRING)
 			{
-				std::shared_ptr<OscExpression::ExprValue> exprValue = CreateStringValue(value);
-				result = exprValue == nullptr ? nullptr :  exprValue->ConvertToBoolean();
+				// if string can be unambigously converted into string (integer value or boolean value or Datetime), then convert it.
+				if (GetExprType() == OscExpression::ExprType::STRING || GetExprType() == OscExpression::ExprType::BOOLEAN)
+				{
+					convertedType = ConvertToString();
 
+				}
+				else if (IsTypeNumeric())
+				{
+					double doubleValue = getDoubleValue();
+					if (doubleValue == std::ceil(doubleValue))
+					{
+						long long unambiguousValue = (long long)doubleValue;
+						std::string longStringValue = std::to_string(unambiguousValue);
+						convertedType = CreateStringValue(longStringValue);
+					}
+
+				}
 			}
-			else if (targetType == ExprType::DATE_TIME)
+			else if (type == OscExpression::ExprType::DATE_TIME)
 			{
-				std::shared_ptr<OscExpression::ExprValue> exprValue = CreateStringValue(value);
-				result = exprValue == nullptr ? nullptr : exprValue->ConvertToDateTime();
-			}
-			return result;
+				convertedType = ConvertToDateTime();
+
+
+			}			
+
+			return convertedType;
 		}
+
 };
 

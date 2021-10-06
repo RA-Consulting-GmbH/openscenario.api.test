@@ -45,7 +45,7 @@ namespace NET_ASAM_OPENSCENARIO
 					// ReSharper disable once CppLocalVariableMayBeConst
 					auto openScenario = std::dynamic_pointer_cast<IOpenScenario>(ExecuteImportParsing(_executablePath + "/" + kInputDir + "/" + path + "/" + filename, catalogMessageLogger));
 
-					auto filterByErrorLevelLogger = _messageLogger->GetMessagesFilteredByWorseOrEqualToErrorLevel(NET_ASAM_OPENSCENARIO::WARNING);
+					auto filterByErrorLevelLogger = _messageLogger->GetMessagesFilteredByWorseOrEqualToErrorLevel(NET_ASAM_OPENSCENARIO::ERROR);
 					if(! Assert(filterByErrorLevelLogger.empty(), ASSERT_LOCATION))
 					{ 
 						for (auto it = filterByErrorLevelLogger.begin(); it != filterByErrorLevelLogger.end(); ++it) {
@@ -68,9 +68,9 @@ namespace NET_ASAM_OPENSCENARIO
 		{
 			std::vector<std::string> scenarioFiles =
 			{
+				"ALKS_Scenario_4.1_3_SideVehicle_TEMPLATE.xosc",
 				"ALKS_Scenario_4.1_1_FreeDriving_TEMPLATE.xosc",
 				"ALKS_Scenario_4.1_2_SwervingLeadVehicle_TEMPLATE.xosc",
-				"ALKS_Scenario_4.1_3_SideVehicle_TEMPLATE.xosc",
 				"ALKS_Scenario_4.2_1_FullyBlockingTarget_TEMPLATE.xosc",
 				"ALKS_Scenario_4.2_2_PartiallyBlockingTarget_TEMPLATE.xosc",
 				"ALKS_Scenario_4.2_3_CrossingPedestrian_TEMPLATE.xosc",

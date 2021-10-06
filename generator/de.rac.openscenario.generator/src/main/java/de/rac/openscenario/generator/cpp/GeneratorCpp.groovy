@@ -19,15 +19,17 @@ package de.rac.openscenario.generator.cpp
 import de.rac.generator.basic.CommonTemplateProcessor
 import de.rac.generator.basic.Memoizer
 import de.rac.generator.main.naming.MainNamingHelper
+import de.rac.generator.main.util.DefaultValueHelper
 import de.rac.openscenario.generator.GeneratorHelper
 import de.rac.openscenario.generator.LicenseHelper
 import de.rac.openscenario.generator.TemplateProcessor
 import de.rac.openscenario.generator.helper.ApiClassInterfaceHelper
-import de.rac.openscenario.generator.helper.ApiClassWriterInterfaceHelper
 import de.rac.openscenario.generator.helper.ApiClassWriterFactoryImplHelper;
 import de.rac.openscenario.generator.helper.ApiClassWriterFactoryInterfaceHelper;
+import de.rac.openscenario.generator.helper.ApiClassWriterInterfaceHelper
 import de.rac.openscenario.generator.helper.ApiEnumerationHelper
 import de.rac.openscenario.generator.helper.ApiInterfaceHelper
+import de.rac.openscenario.generator.helper.CardinalityCheckerRuleHelper
 import de.rac.openscenario.generator.helper.CatalogHelperHelper
 import de.rac.openscenario.generator.helper.ConstantClassHelper
 import de.rac.openscenario.generator.helper.ImplClassHelper
@@ -35,10 +37,9 @@ import de.rac.openscenario.generator.helper.RangeCheckerHelper
 import de.rac.openscenario.generator.helper.RangeCheckerRuleHelper
 import de.rac.openscenario.generator.helper.ScenarioCheckerImplHelper
 import de.rac.openscenario.generator.helper.ScenarioCheckerInterfaceHelper
+import de.rac.openscenario.generator.helper.UnionCheckerRuleHelper
 import de.rac.openscenario.generator.helper.XmlExporterClassHelper;
 import de.rac.openscenario.generator.helper.XmlParserClassHelper
-import de.rac.openscenario.generator.helper.UnionCheckerRuleHelper
-import de.rac.openscenario.generator.helper.CardinalityCheckerRuleHelper
 import de.rac.openscenario.uml.framework.Stereotype
 import de.rac.openscenario.uml.framework.UmlClass
 import de.rac.openscenario.uml.framework.UmlModel
@@ -67,6 +68,7 @@ public class GeneratorCpp {
 		
 		versionMap[V1_1] = [:];
 		versionMap[V1_1]["modelFile"] = "input/OpenSCENARIO_Ea_1.1.0.xmi";
+		versionMap[V1_1]["defaultValues"] = "input/DefaultValues_1.1.0.json";
 		versionMap[V1_1]["rangeCheckerRulesFile"] = "input/RangeCheckerRules_1.1.0.json";
 		versionMap[V1_1]["fileSuffix"] = "V1_1";
 		versionMap[V1_1]["oscVersion"] = "1.1";
@@ -91,9 +93,20 @@ public class GeneratorCpp {
 			def outputDir = new File(new File(args[0]), key);
 
 
+
 			InputStream stream = classLoader.getResourceAsStream(versionProperties["modelFile"])
 			UmlModel umlModel = de.rac.openscenario.uml.ea.EaUmlLoader.loadModelFromStream(stream);
-
+			
+			
+			def defaultValueHelper = new DefaultValueHelper([:]);
+			if (versionProperties["defaultValues"])
+			{
+				def jsonSlurper = new JsonSlurper()
+				InputStream jsonStream = classLoader.getResourceAsStream(versionProperties["defaultValues"])
+				
+				def defaultValueMap = jsonSlurper.parse(jsonStream)
+				defaultValueHelper = new DefaultValueHelper(defaultValueMap);
+			}
 
 			def jsonSlurper = new JsonSlurper()
 			def Map rangeCheckerRules = GeneratorHelper.getRangeCheckerRules(versionProperties["rangeCheckerRulesFile"]);
@@ -105,6 +118,7 @@ public class GeneratorCpp {
 				"oscVersion" : versionProperties["oscVersion"],
 				"versionNamespace" : key,
 				"fileSuffix" : versionProperties["fileSuffix"],
+				"defaultValueHelper" : defaultValueHelper,
 			];
 
 

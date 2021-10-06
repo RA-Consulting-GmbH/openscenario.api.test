@@ -53,23 +53,10 @@ int TestSpecificationRunner::runTests(std::shared_ptr<std::vector<std::shared_pt
 				try {
 					std::shared_ptr<OscExpression::ExprValue> resultExprValue = evaluator->Evaluate(test->GetExpr());
 
-					if (resultExprValue->IsSimpleParameter()) {
-						resultExprValue = resultExprValue->ConvertSimpleParameterToTargetType(resultExprValue->GetExprType());
-						/*if (test->GetExpectedValue()->ToString()
-							!= resultExprValue->ToString()) {
-
-							std::ostringstream stringStream;
-							stringStream << "Expected Value: " << test->GetExpectedValue()->ToString() << "\n";
-							stringStream << "Actual value: " << resultExprValue->ToString() << "\n";
-
-							issueError(test->getId(), stringStream.str(), logger);
-							isSuccessfull = false;
-						}*/
-
-					}
-					if (resultExprValue->IsFloatingPointNumeric()) {
-						if (test->GetExpectedValue()->getDoubleValue()
-							!= resultExprValue->getDoubleValue()) {
+					if (resultExprValue->IsTypeNumeric()) {
+						auto double_value = test->GetExpectedValue()->getDoubleValue();
+						if (abs(double_value
+							- resultExprValue->getDoubleValue()) > 0.001) {
 
 							std::ostringstream stringStream;
 							stringStream << "Expected Value: " << test->GetExpectedValue()->getDoubleValue() << "\n";

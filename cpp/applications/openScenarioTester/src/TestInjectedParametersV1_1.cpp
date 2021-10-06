@@ -71,8 +71,10 @@ namespace NET_ASAM_OPENSCENARIO
 			{
 				auto openScenario = std::dynamic_pointer_cast<IOpenScenario>(ExecuteParsing(_executablePath + "/" +  kInputDir + "DoubleLaneChangerInjectedParams.xosc", injectedParamters));
 
+				auto filePath = openScenario->GetOpenScenarioCategory()->GetScenarioDefinition()->GetRoadNetwork()->GetLogicFile()->GetFilepath();
+				
 				// testString
-				auto res = Assert("injected" == openScenario->GetOpenScenarioCategory()->GetScenarioDefinition()->GetRoadNetwork()->GetLogicFile()->GetFilepath(), ASSERT_LOCATION);
+				auto res = Assert("injected" == filePath, ASSERT_LOCATION);
 
 				// testUnsignedInt
 				auto eventPtr = GetEvent(openScenario);

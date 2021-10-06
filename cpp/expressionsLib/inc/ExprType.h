@@ -133,12 +133,6 @@ namespace OscExpression
 		 */
 		OSC_EXPR_EXP static std::shared_ptr<ExprType> GetFromLiteral(const std::string& literal);
 
-		/**
-		 * Returns whether the expression type is convertible to the target type
-		 * @param targetType the target type the type .
-		 * @return true, if the the expression type can be converted to the target type.
-		 */
-		OSC_EXPR_EXP bool IsTypeConvertibleTo(std::shared_ptr<ExprType> targetType);
 
 		/**
 		 * Returns whether the expression type is a integer numeric type
@@ -150,7 +144,6 @@ namespace OscExpression
 	private:
 		const std::string _literal;
 		static std::map<std::string, std::shared_ptr<ExprType>> _literalToInstance;
-		static std::map <ExprType*, std::vector<ExprType*>> _conversionTable;
 		
 
 		/**
