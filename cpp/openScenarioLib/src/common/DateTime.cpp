@@ -100,7 +100,7 @@ namespace NET_ASAM_OPENSCENARIO
 			return false;
 		}
 
-		long DateTime::GetSeconds(const DateTime& dateTime)
+		long long DateTime::GetSeconds(const DateTime& dateTime)
 		{
 			struct tm timestruct;
 			timestruct.tm_year = dateTime.year;;
@@ -108,7 +108,8 @@ namespace NET_ASAM_OPENSCENARIO
 			timestruct.tm_mon = dateTime.mon;
 			timestruct.tm_hour = dateTime.hour;
 			timestruct.tm_min = dateTime.min;
-			timestruct.tm_sec = std::ceil(dateTime.sec);
+			timestruct.tm_sec = (int) std::ceil(dateTime.sec);
+			timestruct.tm_isdst = 0;
 
 			time_t localTime = mktime(&timestruct);
 

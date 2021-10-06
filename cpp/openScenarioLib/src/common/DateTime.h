@@ -38,7 +38,7 @@ namespace NET_ASAM_OPENSCENARIO
 		OPENSCENARIOLIB_EXP bool operator!= (const DateTime& other) const;
 		OPENSCENARIOLIB_EXP bool operator> (const DateTime& other) const;
 		OPENSCENARIOLIB_EXP bool operator>= (const DateTime& other) const;
-		static long GetSeconds(const DateTime& dateTime);
+		static long long GetSeconds(const DateTime& dateTime);
 		OPENSCENARIOLIB_EXP bool operator< (const DateTime& other) const;
 		OPENSCENARIOLIB_EXP bool operator<= (const DateTime& other) const;
 
