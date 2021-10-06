@@ -122,7 +122,8 @@ namespace NET_ASAM_OPENSCENARIO
 					if(isTypedStringAttribute)
 					{
 						// targetIsString, so resolve String attribute
-						expressionObject->ResolveStringExpression(attributeKey, value->ToString());
+						auto valueString = value->ToString();
+						expressionObject->ResolveStringExpression(attributeKey, valueString);
 					}else if (targetType == OscExpression::ExprType::GetDoubleType())
 					{
 						double doubleValue = value->getDoubleValue();
