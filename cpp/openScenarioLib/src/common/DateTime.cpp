@@ -19,6 +19,7 @@
 #include <sstream>
 #include <iomanip>
 #include "MemLeakDetection.h"
+#include <cmath>
 
 namespace NET_ASAM_OPENSCENARIO
 {
@@ -107,7 +108,7 @@ namespace NET_ASAM_OPENSCENARIO
 			timestruct.tm_mon = dateTime.mon;
 			timestruct.tm_hour = dateTime.hour;
 			timestruct.tm_min = dateTime.min;
-			timestruct.tm_sec = ceil(dateTime.sec);
+			timestruct.tm_sec = std::ceil(dateTime.sec);
 
 			time_t localTime = mktime(&timestruct);
 
