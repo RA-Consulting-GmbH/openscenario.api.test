@@ -85,15 +85,12 @@ namespace NET_ASAM_OPENSCENARIO
 <%-}}-%>
 
 <%-properties.each{ property ->-%>
-<%-if (defaultValueHelper.hasNoneAsDefault(element.name.toClassName(),property.name.toMemberName())) {-%>
+<%-if (property.lower == 0) {-%>
             /**
             * Retrieves whether property <%=property.name.toMemberName()%> is set
             * @return true when the optional property is set
             */
-            virtual bool IsSet<%=property.name.toClassName()%>() const
-            {
-                return false;
-            }
+            virtual bool IsSet<%=property.name.toClassName()%>() const = 0;
 <%-}}-%>
 
         };
