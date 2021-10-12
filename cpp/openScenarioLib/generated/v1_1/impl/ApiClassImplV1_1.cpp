@@ -50,6 +50,8 @@ namespace NET_ASAM_OPENSCENARIO
         void AbsoluteSpeedImpl::SetSteadyState(std::shared_ptr<ISteadyStateWriter> steadyState)
         {
             _steadyState = steadyState;
+			// set the indicator to true
+            isSetSteadyState = true;          
         }
 
         std::shared_ptr<void> AbsoluteSpeedImpl::GetAdapter(const std::string classifier)
@@ -275,6 +277,16 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void AbsoluteSpeedImpl::ResetSteadyState()
+	   {
+	   		isSetSteadyState = false; 
+			_steadyState = {};
+			
+	   }
+       bool AbsoluteSpeedImpl::IsSetSteadyState() const
+	   {
+			return isSetSteadyState;
+	   }
 
         IOpenScenarioFlexElement* AbsoluteTargetLaneImpl::GetOpenScenarioFlexElement()
         {
@@ -1447,6 +1459,8 @@ namespace NET_ASAM_OPENSCENARIO
         void ActImpl::SetStopTrigger(std::shared_ptr<ITriggerWriter> stopTrigger)
         {
             _stopTrigger = stopTrigger;
+			// set the indicator to true
+            isSetStopTrigger = true;          
         }
 
         std::shared_ptr<void> ActImpl::GetAdapter(const std::string classifier)
@@ -1727,6 +1741,16 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void ActImpl::ResetStopTrigger()
+	   {
+	   		isSetStopTrigger = false; 
+			_stopTrigger = {};
+			
+	   }
+       bool ActImpl::IsSetStopTrigger() const
+	   {
+			return isSetStopTrigger;
+	   }
 
         IOpenScenarioFlexElement* ActionImpl::GetOpenScenarioFlexElement()
         {
@@ -1761,6 +1785,8 @@ namespace NET_ASAM_OPENSCENARIO
             _globalAction = globalAction;
             _userDefinedAction = {};
             _privateAction = {};
+			// set the indicator to true
+            isSetGlobalAction = true;          
         }
 
         void ActionImpl::SetUserDefinedAction(std::shared_ptr<IUserDefinedActionWriter> userDefinedAction)
@@ -1768,6 +1794,8 @@ namespace NET_ASAM_OPENSCENARIO
             _userDefinedAction = userDefinedAction;
             _globalAction = {};
             _privateAction = {};
+			// set the indicator to true
+            isSetUserDefinedAction = true;          
         }
 
         void ActionImpl::SetPrivateAction(std::shared_ptr<IPrivateActionWriter> privateAction)
@@ -1775,6 +1803,8 @@ namespace NET_ASAM_OPENSCENARIO
             _privateAction = privateAction;
             _globalAction = {};
             _userDefinedAction = {};
+			// set the indicator to true
+            isSetPrivateAction = true;          
         }
 
         std::shared_ptr<void> ActionImpl::GetAdapter(const std::string classifier)
@@ -2044,6 +2074,36 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void ActionImpl::ResetGlobalAction()
+	   {
+	   		isSetGlobalAction = false; 
+			_globalAction = {};
+			
+	   }
+       bool ActionImpl::IsSetGlobalAction() const
+	   {
+			return isSetGlobalAction;
+	   }
+       void ActionImpl::ResetUserDefinedAction()
+	   {
+	   		isSetUserDefinedAction = false; 
+			_userDefinedAction = {};
+			
+	   }
+       bool ActionImpl::IsSetUserDefinedAction() const
+	   {
+			return isSetUserDefinedAction;
+	   }
+       void ActionImpl::ResetPrivateAction()
+	   {
+	   		isSetPrivateAction = false; 
+			_privateAction = {};
+			
+	   }
+       bool ActionImpl::IsSetPrivateAction() const
+	   {
+			return isSetPrivateAction;
+	   }
 
         IOpenScenarioFlexElement* ActivateControllerActionImpl::GetOpenScenarioFlexElement()
         {
@@ -2380,6 +2440,8 @@ namespace NET_ASAM_OPENSCENARIO
         void ActorsImpl::SetEntityRefs(std::vector<std::shared_ptr<IEntityRefWriter>>& entityRefs)
         {
             _entityRefs = entityRefs;
+			// set the indicator to true
+            isSetEntityRefs = true;          
         }
 
         std::shared_ptr<void> ActorsImpl::GetAdapter(const std::string classifier)
@@ -2612,6 +2674,16 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void ActorsImpl::ResetEntityRefs()
+	   {
+	   		isSetEntityRefs = false; 
+			_entityRefs = {};
+			
+	   }
+       bool ActorsImpl::IsSetEntityRefs() const
+	   {
+			return isSetEntityRefs;
+	   }
 
         IOpenScenarioFlexElement* AddEntityActionImpl::GetOpenScenarioFlexElement()
         {
@@ -2844,12 +2916,16 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _controller = controller;
             _catalogReference = {};
+			// set the indicator to true
+            isSetController = true;          
         }
 
         void AssignControllerActionImpl::SetCatalogReference(std::shared_ptr<ICatalogReferenceWriter> catalogReference)
         {
             _catalogReference = catalogReference;
             _controller = {};
+			// set the indicator to true
+            isSetCatalogReference = true;          
         }
 
         std::shared_ptr<void> AssignControllerActionImpl::GetAdapter(const std::string classifier)
@@ -3160,6 +3236,26 @@ namespace NET_ASAM_OPENSCENARIO
 	   {
 			return isSetActivateLongitudinal;
 	   }
+       void AssignControllerActionImpl::ResetController()
+	   {
+	   		isSetController = false; 
+			_controller = {};
+			
+	   }
+       bool AssignControllerActionImpl::IsSetController() const
+	   {
+			return isSetController;
+	   }
+       void AssignControllerActionImpl::ResetCatalogReference()
+	   {
+	   		isSetCatalogReference = false; 
+			_catalogReference = {};
+			
+	   }
+       bool AssignControllerActionImpl::IsSetCatalogReference() const
+	   {
+			return isSetCatalogReference;
+	   }
 
         IOpenScenarioFlexElement* AssignRouteActionImpl::GetOpenScenarioFlexElement()
         {
@@ -3179,12 +3275,16 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _route = route;
             _catalogReference = {};
+			// set the indicator to true
+            isSetRoute = true;          
         }
 
         void AssignRouteActionImpl::SetCatalogReference(std::shared_ptr<ICatalogReferenceWriter> catalogReference)
         {
             _catalogReference = catalogReference;
             _route = {};
+			// set the indicator to true
+            isSetCatalogReference = true;          
         }
 
         std::shared_ptr<void> AssignRouteActionImpl::GetAdapter(const std::string classifier)
@@ -3382,6 +3482,26 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+       void AssignRouteActionImpl::ResetRoute()
+	   {
+	   		isSetRoute = false; 
+			_route = {};
+			
+	   }
+       bool AssignRouteActionImpl::IsSetRoute() const
+	   {
+			return isSetRoute;
+	   }
+       void AssignRouteActionImpl::ResetCatalogReference()
+	   {
+	   		isSetCatalogReference = false; 
+			_catalogReference = {};
+			
+	   }
+       bool AssignRouteActionImpl::IsSetCatalogReference() const
+	   {
+			return isSetCatalogReference;
+	   }
 
         IOpenScenarioFlexElement* AxleImpl::GetOpenScenarioFlexElement()
         {
@@ -3853,6 +3973,8 @@ namespace NET_ASAM_OPENSCENARIO
         void AxlesImpl::SetAdditionalAxles(std::vector<std::shared_ptr<IAxleWriter>>& additionalAxles)
         {
             _additionalAxles = additionalAxles;
+			// set the indicator to true
+            isSetAdditionalAxles = true;          
         }
 
         std::shared_ptr<void> AxlesImpl::GetAdapter(const std::string classifier)
@@ -4083,6 +4205,16 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+       void AxlesImpl::ResetAdditionalAxles()
+	   {
+	   		isSetAdditionalAxles = false; 
+			_additionalAxles = {};
+			
+	   }
+       bool AxlesImpl::IsSetAdditionalAxles() const
+	   {
+			return isSetAdditionalAxles;
+	   }
 
         IOpenScenarioFlexElement* BoundingBoxImpl::GetOpenScenarioFlexElement()
         {
@@ -5003,6 +5135,8 @@ namespace NET_ASAM_OPENSCENARIO
             _userDefinedValueCondition = {};
             _trafficSignalCondition = {};
             _trafficSignalControllerCondition = {};
+			// set the indicator to true
+            isSetParameterCondition = true;          
         }
 
         void ByValueConditionImpl::SetTimeOfDayCondition(std::shared_ptr<ITimeOfDayConditionWriter> timeOfDayCondition)
@@ -5014,6 +5148,8 @@ namespace NET_ASAM_OPENSCENARIO
             _userDefinedValueCondition = {};
             _trafficSignalCondition = {};
             _trafficSignalControllerCondition = {};
+			// set the indicator to true
+            isSetTimeOfDayCondition = true;          
         }
 
         void ByValueConditionImpl::SetSimulationTimeCondition(std::shared_ptr<ISimulationTimeConditionWriter> simulationTimeCondition)
@@ -5025,6 +5161,8 @@ namespace NET_ASAM_OPENSCENARIO
             _userDefinedValueCondition = {};
             _trafficSignalCondition = {};
             _trafficSignalControllerCondition = {};
+			// set the indicator to true
+            isSetSimulationTimeCondition = true;          
         }
 
         void ByValueConditionImpl::SetStoryboardElementStateCondition(std::shared_ptr<IStoryboardElementStateConditionWriter> storyboardElementStateCondition)
@@ -5036,6 +5174,8 @@ namespace NET_ASAM_OPENSCENARIO
             _userDefinedValueCondition = {};
             _trafficSignalCondition = {};
             _trafficSignalControllerCondition = {};
+			// set the indicator to true
+            isSetStoryboardElementStateCondition = true;          
         }
 
         void ByValueConditionImpl::SetUserDefinedValueCondition(std::shared_ptr<IUserDefinedValueConditionWriter> userDefinedValueCondition)
@@ -5047,6 +5187,8 @@ namespace NET_ASAM_OPENSCENARIO
             _storyboardElementStateCondition = {};
             _trafficSignalCondition = {};
             _trafficSignalControllerCondition = {};
+			// set the indicator to true
+            isSetUserDefinedValueCondition = true;          
         }
 
         void ByValueConditionImpl::SetTrafficSignalCondition(std::shared_ptr<ITrafficSignalConditionWriter> trafficSignalCondition)
@@ -5058,6 +5200,8 @@ namespace NET_ASAM_OPENSCENARIO
             _storyboardElementStateCondition = {};
             _userDefinedValueCondition = {};
             _trafficSignalControllerCondition = {};
+			// set the indicator to true
+            isSetTrafficSignalCondition = true;          
         }
 
         void ByValueConditionImpl::SetTrafficSignalControllerCondition(std::shared_ptr<ITrafficSignalControllerConditionWriter> trafficSignalControllerCondition)
@@ -5069,6 +5213,8 @@ namespace NET_ASAM_OPENSCENARIO
             _storyboardElementStateCondition = {};
             _userDefinedValueCondition = {};
             _trafficSignalCondition = {};
+			// set the indicator to true
+            isSetTrafficSignalControllerCondition = true;          
         }
 
         std::shared_ptr<void> ByValueConditionImpl::GetAdapter(const std::string classifier)
@@ -5376,6 +5522,76 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+       void ByValueConditionImpl::ResetParameterCondition()
+	   {
+	   		isSetParameterCondition = false; 
+			_parameterCondition = {};
+			
+	   }
+       bool ByValueConditionImpl::IsSetParameterCondition() const
+	   {
+			return isSetParameterCondition;
+	   }
+       void ByValueConditionImpl::ResetTimeOfDayCondition()
+	   {
+	   		isSetTimeOfDayCondition = false; 
+			_timeOfDayCondition = {};
+			
+	   }
+       bool ByValueConditionImpl::IsSetTimeOfDayCondition() const
+	   {
+			return isSetTimeOfDayCondition;
+	   }
+       void ByValueConditionImpl::ResetSimulationTimeCondition()
+	   {
+	   		isSetSimulationTimeCondition = false; 
+			_simulationTimeCondition = {};
+			
+	   }
+       bool ByValueConditionImpl::IsSetSimulationTimeCondition() const
+	   {
+			return isSetSimulationTimeCondition;
+	   }
+       void ByValueConditionImpl::ResetStoryboardElementStateCondition()
+	   {
+	   		isSetStoryboardElementStateCondition = false; 
+			_storyboardElementStateCondition = {};
+			
+	   }
+       bool ByValueConditionImpl::IsSetStoryboardElementStateCondition() const
+	   {
+			return isSetStoryboardElementStateCondition;
+	   }
+       void ByValueConditionImpl::ResetUserDefinedValueCondition()
+	   {
+	   		isSetUserDefinedValueCondition = false; 
+			_userDefinedValueCondition = {};
+			
+	   }
+       bool ByValueConditionImpl::IsSetUserDefinedValueCondition() const
+	   {
+			return isSetUserDefinedValueCondition;
+	   }
+       void ByValueConditionImpl::ResetTrafficSignalCondition()
+	   {
+	   		isSetTrafficSignalCondition = false; 
+			_trafficSignalCondition = {};
+			
+	   }
+       bool ByValueConditionImpl::IsSetTrafficSignalCondition() const
+	   {
+			return isSetTrafficSignalCondition;
+	   }
+       void ByValueConditionImpl::ResetTrafficSignalControllerCondition()
+	   {
+	   		isSetTrafficSignalControllerCondition = false; 
+			_trafficSignalControllerCondition = {};
+			
+	   }
+       bool ByValueConditionImpl::IsSetTrafficSignalControllerCondition() const
+	   {
+			return isSetTrafficSignalControllerCondition;
+	   }
 
         IOpenScenarioFlexElement* CatalogImpl::GetOpenScenarioFlexElement()
         {
@@ -5591,46 +5807,64 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _name = name;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME);
+			// set the indicator to true
+            isSetName = true;          
         }
 
         void CatalogImpl::SetVehicles(std::vector<std::shared_ptr<IVehicleWriter>>& vehicles)
         {
             _vehicles = vehicles;
+			// set the indicator to true
+            isSetVehicles = true;          
         }
 
         void CatalogImpl::SetControllers(std::vector<std::shared_ptr<IControllerWriter>>& controllers)
         {
             _controllers = controllers;
+			// set the indicator to true
+            isSetControllers = true;          
         }
 
         void CatalogImpl::SetPedestrians(std::vector<std::shared_ptr<IPedestrianWriter>>& pedestrians)
         {
             _pedestrians = pedestrians;
+			// set the indicator to true
+            isSetPedestrians = true;          
         }
 
         void CatalogImpl::SetMiscObjects(std::vector<std::shared_ptr<IMiscObjectWriter>>& miscObjects)
         {
             _miscObjects = miscObjects;
+			// set the indicator to true
+            isSetMiscObjects = true;          
         }
 
         void CatalogImpl::SetEnvironments(std::vector<std::shared_ptr<IEnvironmentWriter>>& environments)
         {
             _environments = environments;
+			// set the indicator to true
+            isSetEnvironments = true;          
         }
 
         void CatalogImpl::SetManeuvers(std::vector<std::shared_ptr<IManeuverWriter>>& maneuvers)
         {
             _maneuvers = maneuvers;
+			// set the indicator to true
+            isSetManeuvers = true;          
         }
 
         void CatalogImpl::SetTrajectories(std::vector<std::shared_ptr<ITrajectoryWriter>>& trajectories)
         {
             _trajectories = trajectories;
+			// set the indicator to true
+            isSetTrajectories = true;          
         }
 
         void CatalogImpl::SetRoutes(std::vector<std::shared_ptr<IRouteWriter>>& routes)
         {
             _routes = routes;
+			// set the indicator to true
+            isSetRoutes = true;          
         }
 
         std::shared_ptr<void> CatalogImpl::GetAdapter(const std::string classifier)
@@ -5844,6 +6078,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_name = GetName();
             // clone indicators
+            	clonedObject->isSetName = isSetName;
             // clone children
             const auto kVehicles =  GetWriterVehicles();
             if (!kVehicles.empty())
@@ -6059,6 +6294,96 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void CatalogImpl::ResetName()
+	   {
+	   		isSetName = false; 
+			_name = {};
+			
+	   }
+       bool CatalogImpl::IsSetName() const
+	   {
+			return isSetName;
+	   }
+       void CatalogImpl::ResetVehicles()
+	   {
+	   		isSetVehicles = false; 
+			_vehicles = {};
+			
+	   }
+       bool CatalogImpl::IsSetVehicles() const
+	   {
+			return isSetVehicles;
+	   }
+       void CatalogImpl::ResetControllers()
+	   {
+	   		isSetControllers = false; 
+			_controllers = {};
+			
+	   }
+       bool CatalogImpl::IsSetControllers() const
+	   {
+			return isSetControllers;
+	   }
+       void CatalogImpl::ResetPedestrians()
+	   {
+	   		isSetPedestrians = false; 
+			_pedestrians = {};
+			
+	   }
+       bool CatalogImpl::IsSetPedestrians() const
+	   {
+			return isSetPedestrians;
+	   }
+       void CatalogImpl::ResetMiscObjects()
+	   {
+	   		isSetMiscObjects = false; 
+			_miscObjects = {};
+			
+	   }
+       bool CatalogImpl::IsSetMiscObjects() const
+	   {
+			return isSetMiscObjects;
+	   }
+       void CatalogImpl::ResetEnvironments()
+	   {
+	   		isSetEnvironments = false; 
+			_environments = {};
+			
+	   }
+       bool CatalogImpl::IsSetEnvironments() const
+	   {
+			return isSetEnvironments;
+	   }
+       void CatalogImpl::ResetManeuvers()
+	   {
+	   		isSetManeuvers = false; 
+			_maneuvers = {};
+			
+	   }
+       bool CatalogImpl::IsSetManeuvers() const
+	   {
+			return isSetManeuvers;
+	   }
+       void CatalogImpl::ResetTrajectories()
+	   {
+	   		isSetTrajectories = false; 
+			_trajectories = {};
+			
+	   }
+       bool CatalogImpl::IsSetTrajectories() const
+	   {
+			return isSetTrajectories;
+	   }
+       void CatalogImpl::ResetRoutes()
+	   {
+	   		isSetRoutes = false; 
+			_routes = {};
+			
+	   }
+       bool CatalogImpl::IsSetRoutes() const
+	   {
+			return isSetRoutes;
+	   }
 
         IOpenScenarioFlexElement* CatalogDefinitionImpl::GetOpenScenarioFlexElement()
         {
@@ -6290,41 +6615,57 @@ namespace NET_ASAM_OPENSCENARIO
         void CatalogLocationsImpl::SetVehicleCatalog(std::shared_ptr<IVehicleCatalogLocationWriter> vehicleCatalog)
         {
             _vehicleCatalog = vehicleCatalog;
+			// set the indicator to true
+            isSetVehicleCatalog = true;          
         }
 
         void CatalogLocationsImpl::SetControllerCatalog(std::shared_ptr<IControllerCatalogLocationWriter> controllerCatalog)
         {
             _controllerCatalog = controllerCatalog;
+			// set the indicator to true
+            isSetControllerCatalog = true;          
         }
 
         void CatalogLocationsImpl::SetPedestrianCatalog(std::shared_ptr<IPedestrianCatalogLocationWriter> pedestrianCatalog)
         {
             _pedestrianCatalog = pedestrianCatalog;
+			// set the indicator to true
+            isSetPedestrianCatalog = true;          
         }
 
         void CatalogLocationsImpl::SetMiscObjectCatalog(std::shared_ptr<IMiscObjectCatalogLocationWriter> miscObjectCatalog)
         {
             _miscObjectCatalog = miscObjectCatalog;
+			// set the indicator to true
+            isSetMiscObjectCatalog = true;          
         }
 
         void CatalogLocationsImpl::SetEnvironmentCatalog(std::shared_ptr<IEnvironmentCatalogLocationWriter> environmentCatalog)
         {
             _environmentCatalog = environmentCatalog;
+			// set the indicator to true
+            isSetEnvironmentCatalog = true;          
         }
 
         void CatalogLocationsImpl::SetManeuverCatalog(std::shared_ptr<IManeuverCatalogLocationWriter> maneuverCatalog)
         {
             _maneuverCatalog = maneuverCatalog;
+			// set the indicator to true
+            isSetManeuverCatalog = true;          
         }
 
         void CatalogLocationsImpl::SetTrajectoryCatalog(std::shared_ptr<ITrajectoryCatalogLocationWriter> trajectoryCatalog)
         {
             _trajectoryCatalog = trajectoryCatalog;
+			// set the indicator to true
+            isSetTrajectoryCatalog = true;          
         }
 
         void CatalogLocationsImpl::SetRouteCatalog(std::shared_ptr<IRouteCatalogLocationWriter> routeCatalog)
         {
             _routeCatalog = routeCatalog;
+			// set the indicator to true
+            isSetRouteCatalog = true;          
         }
 
         std::shared_ptr<void> CatalogLocationsImpl::GetAdapter(const std::string classifier)
@@ -6654,6 +6995,86 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+       void CatalogLocationsImpl::ResetVehicleCatalog()
+	   {
+	   		isSetVehicleCatalog = false; 
+			_vehicleCatalog = {};
+			
+	   }
+       bool CatalogLocationsImpl::IsSetVehicleCatalog() const
+	   {
+			return isSetVehicleCatalog;
+	   }
+       void CatalogLocationsImpl::ResetControllerCatalog()
+	   {
+	   		isSetControllerCatalog = false; 
+			_controllerCatalog = {};
+			
+	   }
+       bool CatalogLocationsImpl::IsSetControllerCatalog() const
+	   {
+			return isSetControllerCatalog;
+	   }
+       void CatalogLocationsImpl::ResetPedestrianCatalog()
+	   {
+	   		isSetPedestrianCatalog = false; 
+			_pedestrianCatalog = {};
+			
+	   }
+       bool CatalogLocationsImpl::IsSetPedestrianCatalog() const
+	   {
+			return isSetPedestrianCatalog;
+	   }
+       void CatalogLocationsImpl::ResetMiscObjectCatalog()
+	   {
+	   		isSetMiscObjectCatalog = false; 
+			_miscObjectCatalog = {};
+			
+	   }
+       bool CatalogLocationsImpl::IsSetMiscObjectCatalog() const
+	   {
+			return isSetMiscObjectCatalog;
+	   }
+       void CatalogLocationsImpl::ResetEnvironmentCatalog()
+	   {
+	   		isSetEnvironmentCatalog = false; 
+			_environmentCatalog = {};
+			
+	   }
+       bool CatalogLocationsImpl::IsSetEnvironmentCatalog() const
+	   {
+			return isSetEnvironmentCatalog;
+	   }
+       void CatalogLocationsImpl::ResetManeuverCatalog()
+	   {
+	   		isSetManeuverCatalog = false; 
+			_maneuverCatalog = {};
+			
+	   }
+       bool CatalogLocationsImpl::IsSetManeuverCatalog() const
+	   {
+			return isSetManeuverCatalog;
+	   }
+       void CatalogLocationsImpl::ResetTrajectoryCatalog()
+	   {
+	   		isSetTrajectoryCatalog = false; 
+			_trajectoryCatalog = {};
+			
+	   }
+       bool CatalogLocationsImpl::IsSetTrajectoryCatalog() const
+	   {
+			return isSetTrajectoryCatalog;
+	   }
+       void CatalogLocationsImpl::ResetRouteCatalog()
+	   {
+	   		isSetRouteCatalog = false; 
+			_routeCatalog = {};
+			
+	   }
+       bool CatalogLocationsImpl::IsSetRouteCatalog() const
+	   {
+			return isSetRouteCatalog;
+	   }
 
         IOpenScenarioFlexElement* CatalogReferenceImpl::GetOpenScenarioFlexElement()
         {
@@ -6713,6 +7134,8 @@ namespace NET_ASAM_OPENSCENARIO
         void CatalogReferenceImpl::SetParameterAssignments(std::vector<std::shared_ptr<IParameterAssignmentWriter>>& parameterAssignments)
         {
             _parameterAssignments = parameterAssignments;
+			// set the indicator to true
+            isSetParameterAssignments = true;          
         }
 
         void CatalogReferenceImpl::SetRef(const std::shared_ptr<ICatalogElement> ref)
@@ -6991,6 +7414,16 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void CatalogReferenceImpl::ResetParameterAssignments()
+	   {
+	   		isSetParameterAssignments = false; 
+			_parameterAssignments = {};
+			
+	   }
+       bool CatalogReferenceImpl::IsSetParameterAssignments() const
+	   {
+			return isSetParameterAssignments;
+	   }
 
         IOpenScenarioFlexElement* CenterImpl::GetOpenScenarioFlexElement()
         {
@@ -8103,12 +8536,16 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _entityRef = entityRef;
             _byType = {};
+			// set the indicator to true
+            isSetEntityRef = true;          
         }
 
         void CollisionConditionImpl::SetByType(std::shared_ptr<IByObjectTypeWriter> byType)
         {
             _byType = byType;
             _entityRef = {};
+			// set the indicator to true
+            isSetByType = true;          
         }
 
         std::shared_ptr<void> CollisionConditionImpl::GetAdapter(const std::string classifier)
@@ -8306,6 +8743,26 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+       void CollisionConditionImpl::ResetEntityRef()
+	   {
+	   		isSetEntityRef = false; 
+			_entityRef = {};
+			
+	   }
+       bool CollisionConditionImpl::IsSetEntityRef() const
+	   {
+			return isSetEntityRef;
+	   }
+       void CollisionConditionImpl::ResetByType()
+	   {
+	   		isSetByType = false; 
+			_byType = {};
+			
+	   }
+       bool CollisionConditionImpl::IsSetByType() const
+	   {
+			return isSetByType;
+	   }
 
         IOpenScenarioFlexElement* ConditionImpl::GetOpenScenarioFlexElement()
         {
@@ -8355,12 +8812,16 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _byEntityCondition = byEntityCondition;
             _byValueCondition = {};
+			// set the indicator to true
+            isSetByEntityCondition = true;          
         }
 
         void ConditionImpl::SetByValueCondition(std::shared_ptr<IByValueConditionWriter> byValueCondition)
         {
             _byValueCondition = byValueCondition;
             _byEntityCondition = {};
+			// set the indicator to true
+            isSetByValueCondition = true;          
         }
 
         std::shared_ptr<void> ConditionImpl::GetAdapter(const std::string classifier)
@@ -8712,6 +9173,26 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void ConditionImpl::ResetByEntityCondition()
+	   {
+	   		isSetByEntityCondition = false; 
+			_byEntityCondition = {};
+			
+	   }
+       bool ConditionImpl::IsSetByEntityCondition() const
+	   {
+			return isSetByEntityCondition;
+	   }
+       void ConditionImpl::ResetByValueCondition()
+	   {
+	   		isSetByValueCondition = false; 
+			_byValueCondition = {};
+			
+	   }
+       bool ConditionImpl::IsSetByValueCondition() const
+	   {
+			return isSetByValueCondition;
+	   }
 
         IOpenScenarioFlexElement* ConditionGroupImpl::GetOpenScenarioFlexElement()
         {
@@ -9304,6 +9785,8 @@ namespace NET_ASAM_OPENSCENARIO
         void ControllerImpl::SetParameterDeclarations(std::vector<std::shared_ptr<IParameterDeclarationWriter>>& parameterDeclarations)
         {
             _parameterDeclarations = parameterDeclarations;
+			// set the indicator to true
+            isSetParameterDeclarations = true;          
         }
 
         void ControllerImpl::SetProperties(std::shared_ptr<IPropertiesWriter> properties)
@@ -9586,6 +10069,16 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void ControllerImpl::ResetParameterDeclarations()
+	   {
+	   		isSetParameterDeclarations = false; 
+			_parameterDeclarations = {};
+			
+	   }
+       bool ControllerImpl::IsSetParameterDeclarations() const
+	   {
+			return isSetParameterDeclarations;
+	   }
 
         IOpenScenarioFlexElement* ControllerActionImpl::GetOpenScenarioFlexElement()
         {
@@ -9608,16 +10101,22 @@ namespace NET_ASAM_OPENSCENARIO
         void ControllerActionImpl::SetAssignControllerAction(std::shared_ptr<IAssignControllerActionWriter> assignControllerAction)
         {
             _assignControllerAction = assignControllerAction;
+			// set the indicator to true
+            isSetAssignControllerAction = true;          
         }
 
         void ControllerActionImpl::SetOverrideControllerValueAction(std::shared_ptr<IOverrideControllerValueActionWriter> overrideControllerValueAction)
         {
             _overrideControllerValueAction = overrideControllerValueAction;
+			// set the indicator to true
+            isSetOverrideControllerValueAction = true;          
         }
 
         void ControllerActionImpl::SetActivateControllerAction(std::shared_ptr<IActivateControllerActionWriter> activateControllerAction)
         {
             _activateControllerAction = activateControllerAction;
+			// set the indicator to true
+            isSetActivateControllerAction = true;          
         }
 
         std::shared_ptr<void> ControllerActionImpl::GetAdapter(const std::string classifier)
@@ -9837,6 +10336,36 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+       void ControllerActionImpl::ResetAssignControllerAction()
+	   {
+	   		isSetAssignControllerAction = false; 
+			_assignControllerAction = {};
+			
+	   }
+       bool ControllerActionImpl::IsSetAssignControllerAction() const
+	   {
+			return isSetAssignControllerAction;
+	   }
+       void ControllerActionImpl::ResetOverrideControllerValueAction()
+	   {
+	   		isSetOverrideControllerValueAction = false; 
+			_overrideControllerValueAction = {};
+			
+	   }
+       bool ControllerActionImpl::IsSetOverrideControllerValueAction() const
+	   {
+			return isSetOverrideControllerValueAction;
+	   }
+       void ControllerActionImpl::ResetActivateControllerAction()
+	   {
+	   		isSetActivateControllerAction = false; 
+			_activateControllerAction = {};
+			
+	   }
+       bool ControllerActionImpl::IsSetActivateControllerAction() const
+	   {
+			return isSetActivateControllerAction;
+	   }
 
         IOpenScenarioFlexElement* ControllerCatalogLocationImpl::GetOpenScenarioFlexElement()
         {
@@ -10272,12 +10801,16 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _controller = controller;
             _catalogReference = {};
+			// set the indicator to true
+            isSetController = true;          
         }
 
         void ControllerDistributionEntryImpl::SetCatalogReference(std::shared_ptr<ICatalogReferenceWriter> catalogReference)
         {
             _catalogReference = catalogReference;
             _controller = {};
+			// set the indicator to true
+            isSetCatalogReference = true;          
         }
 
         std::shared_ptr<void> ControllerDistributionEntryImpl::GetAdapter(const std::string classifier)
@@ -10525,6 +11058,26 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void ControllerDistributionEntryImpl::ResetController()
+	   {
+	   		isSetController = false; 
+			_controller = {};
+			
+	   }
+       bool ControllerDistributionEntryImpl::IsSetController() const
+	   {
+			return isSetController;
+	   }
+       void ControllerDistributionEntryImpl::ResetCatalogReference()
+	   {
+	   		isSetCatalogReference = false; 
+			_catalogReference = {};
+			
+	   }
+       bool ControllerDistributionEntryImpl::IsSetCatalogReference() const
+	   {
+			return isSetCatalogReference;
+	   }
 
         IOpenScenarioFlexElement* CustomCommandActionImpl::GetOpenScenarioFlexElement()
         {
@@ -10978,6 +11531,8 @@ namespace NET_ASAM_OPENSCENARIO
         void DeterministicImpl::SetDeterministicParameterDistributions(std::vector<std::shared_ptr<IDeterministicParameterDistributionWriter>>& deterministicParameterDistributions)
         {
             _deterministicParameterDistributions = deterministicParameterDistributions;
+			// set the indicator to true
+            isSetDeterministicParameterDistributions = true;          
         }
 
         std::shared_ptr<void> DeterministicImpl::GetAdapter(const std::string classifier)
@@ -11160,6 +11715,16 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+       void DeterministicImpl::ResetDeterministicParameterDistributions()
+	   {
+	   		isSetDeterministicParameterDistributions = false; 
+			_deterministicParameterDistributions = {};
+			
+	   }
+       bool DeterministicImpl::IsSetDeterministicParameterDistributions() const
+	   {
+			return isSetDeterministicParameterDistributions;
+	   }
 
         IOpenScenarioFlexElement* DeterministicMultiParameterDistributionImpl::GetOpenScenarioFlexElement()
         {
@@ -12843,6 +13408,8 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _coordinateSystem = coordinateSystem;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__COORDINATE_SYSTEM);
+			// set the indicator to true
+            isSetCoordinateSystem = true;          
         }
 
         void DistanceConditionImpl::SetFreespace(const bool freespace)
@@ -12855,6 +13422,8 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _relativeDistanceType = relativeDistanceType;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RELATIVE_DISTANCE_TYPE);
+			// set the indicator to true
+            isSetRelativeDistanceType = true;          
         }
 
         void DistanceConditionImpl::SetRule(const Rule rule)
@@ -13247,6 +13816,8 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->_value = GetValue();
             // clone indicators
             	clonedObject->isSetAlongRoute = isSetAlongRoute;
+            	clonedObject->isSetCoordinateSystem = isSetCoordinateSystem;
+            	clonedObject->isSetRelativeDistanceType = isSetRelativeDistanceType;
             // clone children
             const auto kPosition =  GetWriterPosition();
             if (kPosition)
@@ -13350,6 +13921,26 @@ namespace NET_ASAM_OPENSCENARIO
        bool DistanceConditionImpl::IsSetAlongRoute() const
 	   {
 			return isSetAlongRoute;
+	   }
+       void DistanceConditionImpl::ResetCoordinateSystem()
+	   {
+	   		isSetCoordinateSystem = false; 
+			_coordinateSystem = {CoordinateSystem::CoordinateSystemEnum::ENTITY};
+			
+	   }
+       bool DistanceConditionImpl::IsSetCoordinateSystem() const
+	   {
+			return isSetCoordinateSystem;
+	   }
+       void DistanceConditionImpl::ResetRelativeDistanceType()
+	   {
+	   		isSetRelativeDistanceType = false; 
+			_relativeDistanceType = {RelativeDistanceType::RelativeDistanceTypeEnum::EUCLIDIAN_DISTANCE};
+			
+	   }
+       bool DistanceConditionImpl::IsSetRelativeDistanceType() const
+	   {
+			return isSetRelativeDistanceType;
 	   }
 
         IOpenScenarioFlexElement* DistributionDefinitionImpl::GetOpenScenarioFlexElement()
@@ -14882,11 +15473,15 @@ namespace NET_ASAM_OPENSCENARIO
         void EntitiesImpl::SetScenarioObjects(std::vector<std::shared_ptr<IScenarioObjectWriter>>& scenarioObjects)
         {
             _scenarioObjects = scenarioObjects;
+			// set the indicator to true
+            isSetScenarioObjects = true;          
         }
 
         void EntitiesImpl::SetEntitySelections(std::vector<std::shared_ptr<IEntitySelectionWriter>>& entitySelections)
         {
             _entitySelections = entitySelections;
+			// set the indicator to true
+            isSetEntitySelections = true;          
         }
 
         std::shared_ptr<void> EntitiesImpl::GetAdapter(const std::string classifier)
@@ -15097,6 +15692,26 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+       void EntitiesImpl::ResetScenarioObjects()
+	   {
+	   		isSetScenarioObjects = false; 
+			_scenarioObjects = {};
+			
+	   }
+       bool EntitiesImpl::IsSetScenarioObjects() const
+	   {
+			return isSetScenarioObjects;
+	   }
+       void EntitiesImpl::ResetEntitySelections()
+	   {
+	   		isSetEntitySelections = false; 
+			_entitySelections = {};
+			
+	   }
+       bool EntitiesImpl::IsSetEntitySelections() const
+	   {
+			return isSetEntitySelections;
+	   }
 
         IOpenScenarioFlexElement* EntityActionImpl::GetOpenScenarioFlexElement()
         {
@@ -15126,12 +15741,16 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _addEntityAction = addEntityAction;
             _deleteEntityAction = {};
+			// set the indicator to true
+            isSetAddEntityAction = true;          
         }
 
         void EntityActionImpl::SetDeleteEntityAction(std::shared_ptr<IDeleteEntityActionWriter> deleteEntityAction)
         {
             _deleteEntityAction = deleteEntityAction;
             _addEntityAction = {};
+			// set the indicator to true
+            isSetDeleteEntityAction = true;          
         }
 
         std::shared_ptr<void> EntityActionImpl::GetAdapter(const std::string classifier)
@@ -15386,6 +16005,26 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+       void EntityActionImpl::ResetAddEntityAction()
+	   {
+	   		isSetAddEntityAction = false; 
+			_addEntityAction = {};
+			
+	   }
+       bool EntityActionImpl::IsSetAddEntityAction() const
+	   {
+			return isSetAddEntityAction;
+	   }
+       void EntityActionImpl::ResetDeleteEntityAction()
+	   {
+	   		isSetDeleteEntityAction = false; 
+			_deleteEntityAction = {};
+			
+	   }
+       bool EntityActionImpl::IsSetDeleteEntityAction() const
+	   {
+			return isSetDeleteEntityAction;
+	   }
 
         IOpenScenarioFlexElement* EntityConditionImpl::GetOpenScenarioFlexElement()
         {
@@ -15460,6 +16099,8 @@ namespace NET_ASAM_OPENSCENARIO
             _reachPositionCondition = {};
             _distanceCondition = {};
             _relativeDistanceCondition = {};
+			// set the indicator to true
+            isSetEndOfRoadCondition = true;          
         }
 
         void EntityConditionImpl::SetCollisionCondition(std::shared_ptr<ICollisionConditionWriter> collisionCondition)
@@ -15477,6 +16118,8 @@ namespace NET_ASAM_OPENSCENARIO
             _reachPositionCondition = {};
             _distanceCondition = {};
             _relativeDistanceCondition = {};
+			// set the indicator to true
+            isSetCollisionCondition = true;          
         }
 
         void EntityConditionImpl::SetOffroadCondition(std::shared_ptr<IOffroadConditionWriter> offroadCondition)
@@ -15494,6 +16137,8 @@ namespace NET_ASAM_OPENSCENARIO
             _reachPositionCondition = {};
             _distanceCondition = {};
             _relativeDistanceCondition = {};
+			// set the indicator to true
+            isSetOffroadCondition = true;          
         }
 
         void EntityConditionImpl::SetTimeHeadwayCondition(std::shared_ptr<ITimeHeadwayConditionWriter> timeHeadwayCondition)
@@ -15511,6 +16156,8 @@ namespace NET_ASAM_OPENSCENARIO
             _reachPositionCondition = {};
             _distanceCondition = {};
             _relativeDistanceCondition = {};
+			// set the indicator to true
+            isSetTimeHeadwayCondition = true;          
         }
 
         void EntityConditionImpl::SetTimeToCollisionCondition(std::shared_ptr<ITimeToCollisionConditionWriter> timeToCollisionCondition)
@@ -15528,6 +16175,8 @@ namespace NET_ASAM_OPENSCENARIO
             _reachPositionCondition = {};
             _distanceCondition = {};
             _relativeDistanceCondition = {};
+			// set the indicator to true
+            isSetTimeToCollisionCondition = true;          
         }
 
         void EntityConditionImpl::SetAccelerationCondition(std::shared_ptr<IAccelerationConditionWriter> accelerationCondition)
@@ -15545,6 +16194,8 @@ namespace NET_ASAM_OPENSCENARIO
             _reachPositionCondition = {};
             _distanceCondition = {};
             _relativeDistanceCondition = {};
+			// set the indicator to true
+            isSetAccelerationCondition = true;          
         }
 
         void EntityConditionImpl::SetStandStillCondition(std::shared_ptr<IStandStillConditionWriter> standStillCondition)
@@ -15562,6 +16213,8 @@ namespace NET_ASAM_OPENSCENARIO
             _reachPositionCondition = {};
             _distanceCondition = {};
             _relativeDistanceCondition = {};
+			// set the indicator to true
+            isSetStandStillCondition = true;          
         }
 
         void EntityConditionImpl::SetSpeedCondition(std::shared_ptr<ISpeedConditionWriter> speedCondition)
@@ -15579,6 +16232,8 @@ namespace NET_ASAM_OPENSCENARIO
             _reachPositionCondition = {};
             _distanceCondition = {};
             _relativeDistanceCondition = {};
+			// set the indicator to true
+            isSetSpeedCondition = true;          
         }
 
         void EntityConditionImpl::SetRelativeSpeedCondition(std::shared_ptr<IRelativeSpeedConditionWriter> relativeSpeedCondition)
@@ -15596,6 +16251,8 @@ namespace NET_ASAM_OPENSCENARIO
             _reachPositionCondition = {};
             _distanceCondition = {};
             _relativeDistanceCondition = {};
+			// set the indicator to true
+            isSetRelativeSpeedCondition = true;          
         }
 
         void EntityConditionImpl::SetTraveledDistanceCondition(std::shared_ptr<ITraveledDistanceConditionWriter> traveledDistanceCondition)
@@ -15613,6 +16270,8 @@ namespace NET_ASAM_OPENSCENARIO
             _reachPositionCondition = {};
             _distanceCondition = {};
             _relativeDistanceCondition = {};
+			// set the indicator to true
+            isSetTraveledDistanceCondition = true;          
         }
 
         void EntityConditionImpl::SetReachPositionCondition(std::shared_ptr<IReachPositionConditionWriter> reachPositionCondition)
@@ -15630,6 +16289,8 @@ namespace NET_ASAM_OPENSCENARIO
             _traveledDistanceCondition = {};
             _distanceCondition = {};
             _relativeDistanceCondition = {};
+			// set the indicator to true
+            isSetReachPositionCondition = true;          
         }
 
         void EntityConditionImpl::SetDistanceCondition(std::shared_ptr<IDistanceConditionWriter> distanceCondition)
@@ -15647,6 +16308,8 @@ namespace NET_ASAM_OPENSCENARIO
             _traveledDistanceCondition = {};
             _reachPositionCondition = {};
             _relativeDistanceCondition = {};
+			// set the indicator to true
+            isSetDistanceCondition = true;          
         }
 
         void EntityConditionImpl::SetRelativeDistanceCondition(std::shared_ptr<IRelativeDistanceConditionWriter> relativeDistanceCondition)
@@ -15664,6 +16327,8 @@ namespace NET_ASAM_OPENSCENARIO
             _traveledDistanceCondition = {};
             _reachPositionCondition = {};
             _distanceCondition = {};
+			// set the indicator to true
+            isSetRelativeDistanceCondition = true;          
         }
 
         std::shared_ptr<void> EntityConditionImpl::GetAdapter(const std::string classifier)
@@ -16103,6 +16768,136 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+       void EntityConditionImpl::ResetEndOfRoadCondition()
+	   {
+	   		isSetEndOfRoadCondition = false; 
+			_endOfRoadCondition = {};
+			
+	   }
+       bool EntityConditionImpl::IsSetEndOfRoadCondition() const
+	   {
+			return isSetEndOfRoadCondition;
+	   }
+       void EntityConditionImpl::ResetCollisionCondition()
+	   {
+	   		isSetCollisionCondition = false; 
+			_collisionCondition = {};
+			
+	   }
+       bool EntityConditionImpl::IsSetCollisionCondition() const
+	   {
+			return isSetCollisionCondition;
+	   }
+       void EntityConditionImpl::ResetOffroadCondition()
+	   {
+	   		isSetOffroadCondition = false; 
+			_offroadCondition = {};
+			
+	   }
+       bool EntityConditionImpl::IsSetOffroadCondition() const
+	   {
+			return isSetOffroadCondition;
+	   }
+       void EntityConditionImpl::ResetTimeHeadwayCondition()
+	   {
+	   		isSetTimeHeadwayCondition = false; 
+			_timeHeadwayCondition = {};
+			
+	   }
+       bool EntityConditionImpl::IsSetTimeHeadwayCondition() const
+	   {
+			return isSetTimeHeadwayCondition;
+	   }
+       void EntityConditionImpl::ResetTimeToCollisionCondition()
+	   {
+	   		isSetTimeToCollisionCondition = false; 
+			_timeToCollisionCondition = {};
+			
+	   }
+       bool EntityConditionImpl::IsSetTimeToCollisionCondition() const
+	   {
+			return isSetTimeToCollisionCondition;
+	   }
+       void EntityConditionImpl::ResetAccelerationCondition()
+	   {
+	   		isSetAccelerationCondition = false; 
+			_accelerationCondition = {};
+			
+	   }
+       bool EntityConditionImpl::IsSetAccelerationCondition() const
+	   {
+			return isSetAccelerationCondition;
+	   }
+       void EntityConditionImpl::ResetStandStillCondition()
+	   {
+	   		isSetStandStillCondition = false; 
+			_standStillCondition = {};
+			
+	   }
+       bool EntityConditionImpl::IsSetStandStillCondition() const
+	   {
+			return isSetStandStillCondition;
+	   }
+       void EntityConditionImpl::ResetSpeedCondition()
+	   {
+	   		isSetSpeedCondition = false; 
+			_speedCondition = {};
+			
+	   }
+       bool EntityConditionImpl::IsSetSpeedCondition() const
+	   {
+			return isSetSpeedCondition;
+	   }
+       void EntityConditionImpl::ResetRelativeSpeedCondition()
+	   {
+	   		isSetRelativeSpeedCondition = false; 
+			_relativeSpeedCondition = {};
+			
+	   }
+       bool EntityConditionImpl::IsSetRelativeSpeedCondition() const
+	   {
+			return isSetRelativeSpeedCondition;
+	   }
+       void EntityConditionImpl::ResetTraveledDistanceCondition()
+	   {
+	   		isSetTraveledDistanceCondition = false; 
+			_traveledDistanceCondition = {};
+			
+	   }
+       bool EntityConditionImpl::IsSetTraveledDistanceCondition() const
+	   {
+			return isSetTraveledDistanceCondition;
+	   }
+       void EntityConditionImpl::ResetReachPositionCondition()
+	   {
+	   		isSetReachPositionCondition = false; 
+			_reachPositionCondition = {};
+			
+	   }
+       bool EntityConditionImpl::IsSetReachPositionCondition() const
+	   {
+			return isSetReachPositionCondition;
+	   }
+       void EntityConditionImpl::ResetDistanceCondition()
+	   {
+	   		isSetDistanceCondition = false; 
+			_distanceCondition = {};
+			
+	   }
+       bool EntityConditionImpl::IsSetDistanceCondition() const
+	   {
+			return isSetDistanceCondition;
+	   }
+       void EntityConditionImpl::ResetRelativeDistanceCondition()
+	   {
+	   		isSetRelativeDistanceCondition = false; 
+			_relativeDistanceCondition = {};
+			
+	   }
+       bool EntityConditionImpl::IsSetRelativeDistanceCondition() const
+	   {
+			return isSetRelativeDistanceCondition;
+	   }
 
         IOpenScenarioFlexElement* EntityObjectImpl::GetOpenScenarioFlexElement()
         {
@@ -16137,6 +16932,8 @@ namespace NET_ASAM_OPENSCENARIO
             _pedestrian = {};
             _miscObject = {};
             _externalObjectReference = {};
+			// set the indicator to true
+            isSetCatalogReference = true;          
         }
 
         void EntityObjectImpl::SetVehicle(std::shared_ptr<IVehicleWriter> vehicle)
@@ -16146,6 +16943,8 @@ namespace NET_ASAM_OPENSCENARIO
             _pedestrian = {};
             _miscObject = {};
             _externalObjectReference = {};
+			// set the indicator to true
+            isSetVehicle = true;          
         }
 
         void EntityObjectImpl::SetPedestrian(std::shared_ptr<IPedestrianWriter> pedestrian)
@@ -16155,6 +16954,8 @@ namespace NET_ASAM_OPENSCENARIO
             _vehicle = {};
             _miscObject = {};
             _externalObjectReference = {};
+			// set the indicator to true
+            isSetPedestrian = true;          
         }
 
         void EntityObjectImpl::SetMiscObject(std::shared_ptr<IMiscObjectWriter> miscObject)
@@ -16164,6 +16965,8 @@ namespace NET_ASAM_OPENSCENARIO
             _vehicle = {};
             _pedestrian = {};
             _externalObjectReference = {};
+			// set the indicator to true
+            isSetMiscObject = true;          
         }
 
         void EntityObjectImpl::SetExternalObjectReference(std::shared_ptr<IExternalObjectReferenceWriter> externalObjectReference)
@@ -16173,6 +16976,8 @@ namespace NET_ASAM_OPENSCENARIO
             _vehicle = {};
             _pedestrian = {};
             _miscObject = {};
+			// set the indicator to true
+            isSetExternalObjectReference = true;          
         }
 
         std::shared_ptr<void> EntityObjectImpl::GetAdapter(const std::string classifier)
@@ -16436,6 +17241,56 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+       void EntityObjectImpl::ResetCatalogReference()
+	   {
+	   		isSetCatalogReference = false; 
+			_catalogReference = {};
+			
+	   }
+       bool EntityObjectImpl::IsSetCatalogReference() const
+	   {
+			return isSetCatalogReference;
+	   }
+       void EntityObjectImpl::ResetVehicle()
+	   {
+	   		isSetVehicle = false; 
+			_vehicle = {};
+			
+	   }
+       bool EntityObjectImpl::IsSetVehicle() const
+	   {
+			return isSetVehicle;
+	   }
+       void EntityObjectImpl::ResetPedestrian()
+	   {
+	   		isSetPedestrian = false; 
+			_pedestrian = {};
+			
+	   }
+       bool EntityObjectImpl::IsSetPedestrian() const
+	   {
+			return isSetPedestrian;
+	   }
+       void EntityObjectImpl::ResetMiscObject()
+	   {
+	   		isSetMiscObject = false; 
+			_miscObject = {};
+			
+	   }
+       bool EntityObjectImpl::IsSetMiscObject() const
+	   {
+			return isSetMiscObject;
+	   }
+       void EntityObjectImpl::ResetExternalObjectReference()
+	   {
+	   		isSetExternalObjectReference = false; 
+			_externalObjectReference = {};
+			
+	   }
+       bool EntityObjectImpl::IsSetExternalObjectReference() const
+	   {
+			return isSetExternalObjectReference;
+	   }
 
         IOpenScenarioFlexElement* EntityRefImpl::GetOpenScenarioFlexElement()
         {
@@ -16963,21 +17818,29 @@ namespace NET_ASAM_OPENSCENARIO
         void EnvironmentImpl::SetParameterDeclarations(std::vector<std::shared_ptr<IParameterDeclarationWriter>>& parameterDeclarations)
         {
             _parameterDeclarations = parameterDeclarations;
+			// set the indicator to true
+            isSetParameterDeclarations = true;          
         }
 
         void EnvironmentImpl::SetTimeOfDay(std::shared_ptr<ITimeOfDayWriter> timeOfDay)
         {
             _timeOfDay = timeOfDay;
+			// set the indicator to true
+            isSetTimeOfDay = true;          
         }
 
         void EnvironmentImpl::SetWeather(std::shared_ptr<IWeatherWriter> weather)
         {
             _weather = weather;
+			// set the indicator to true
+            isSetWeather = true;          
         }
 
         void EnvironmentImpl::SetRoadCondition(std::shared_ptr<IRoadConditionWriter> roadCondition)
         {
             _roadCondition = roadCondition;
+			// set the indicator to true
+            isSetRoadCondition = true;          
         }
 
         std::shared_ptr<void> EnvironmentImpl::GetAdapter(const std::string classifier)
@@ -17299,6 +18162,46 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void EnvironmentImpl::ResetParameterDeclarations()
+	   {
+	   		isSetParameterDeclarations = false; 
+			_parameterDeclarations = {};
+			
+	   }
+       bool EnvironmentImpl::IsSetParameterDeclarations() const
+	   {
+			return isSetParameterDeclarations;
+	   }
+       void EnvironmentImpl::ResetTimeOfDay()
+	   {
+	   		isSetTimeOfDay = false; 
+			_timeOfDay = {};
+			
+	   }
+       bool EnvironmentImpl::IsSetTimeOfDay() const
+	   {
+			return isSetTimeOfDay;
+	   }
+       void EnvironmentImpl::ResetWeather()
+	   {
+	   		isSetWeather = false; 
+			_weather = {};
+			
+	   }
+       bool EnvironmentImpl::IsSetWeather() const
+	   {
+			return isSetWeather;
+	   }
+       void EnvironmentImpl::ResetRoadCondition()
+	   {
+	   		isSetRoadCondition = false; 
+			_roadCondition = {};
+			
+	   }
+       bool EnvironmentImpl::IsSetRoadCondition() const
+	   {
+			return isSetRoadCondition;
+	   }
 
         IOpenScenarioFlexElement* EnvironmentActionImpl::GetOpenScenarioFlexElement()
         {
@@ -17318,12 +18221,16 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _environment = environment;
             _catalogReference = {};
+			// set the indicator to true
+            isSetEnvironment = true;          
         }
 
         void EnvironmentActionImpl::SetCatalogReference(std::shared_ptr<ICatalogReferenceWriter> catalogReference)
         {
             _catalogReference = catalogReference;
             _environment = {};
+			// set the indicator to true
+            isSetCatalogReference = true;          
         }
 
         std::shared_ptr<void> EnvironmentActionImpl::GetAdapter(const std::string classifier)
@@ -17521,6 +18428,26 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+       void EnvironmentActionImpl::ResetEnvironment()
+	   {
+	   		isSetEnvironment = false; 
+			_environment = {};
+			
+	   }
+       bool EnvironmentActionImpl::IsSetEnvironment() const
+	   {
+			return isSetEnvironment;
+	   }
+       void EnvironmentActionImpl::ResetCatalogReference()
+	   {
+	   		isSetCatalogReference = false; 
+			_catalogReference = {};
+			
+	   }
+       bool EnvironmentActionImpl::IsSetCatalogReference() const
+	   {
+			return isSetCatalogReference;
+	   }
 
         IOpenScenarioFlexElement* EnvironmentCatalogLocationImpl::GetOpenScenarioFlexElement()
         {
@@ -17762,6 +18689,8 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _maximumExecutionCount = maximumExecutionCount;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAXIMUM_EXECUTION_COUNT);
+			// set the indicator to true
+            isSetMaximumExecutionCount = true;          
         }
 
         void EventImpl::SetName(const std::string name)
@@ -17784,6 +18713,8 @@ namespace NET_ASAM_OPENSCENARIO
         void EventImpl::SetStartTrigger(std::shared_ptr<ITriggerWriter> startTrigger)
         {
             _startTrigger = startTrigger;
+			// set the indicator to true
+            isSetStartTrigger = true;          
         }
 
         std::shared_ptr<void> EventImpl::GetAdapter(const std::string classifier)
@@ -18034,6 +18965,7 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->_priority = Priority::GetFromLiteral(kPriority.GetLiteral());
             }
             // clone indicators
+            	clonedObject->isSetMaximumExecutionCount = isSetMaximumExecutionCount;
             // clone children
             const auto kActions =  GetWriterActions();
             if (!kActions.empty())
@@ -18146,6 +19078,26 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void EventImpl::ResetMaximumExecutionCount()
+	   {
+	   		isSetMaximumExecutionCount = false; 
+			_maximumExecutionCount = {1};
+			
+	   }
+       bool EventImpl::IsSetMaximumExecutionCount() const
+	   {
+			return isSetMaximumExecutionCount;
+	   }
+       void EventImpl::ResetStartTrigger()
+	   {
+	   		isSetStartTrigger = false; 
+			_startTrigger = {};
+			
+	   }
+       bool EventImpl::IsSetStartTrigger() const
+	   {
+			return isSetStartTrigger;
+	   }
 
         IOpenScenarioFlexElement* ExternalObjectReferenceImpl::GetOpenScenarioFlexElement()
         {
@@ -18638,6 +19590,8 @@ namespace NET_ASAM_OPENSCENARIO
         void FileHeaderImpl::SetLicense(std::shared_ptr<ILicenseWriter> license)
         {
             _license = license;
+			// set the indicator to true
+            isSetLicense = true;          
         }
 
         std::shared_ptr<void> FileHeaderImpl::GetAdapter(const std::string classifier)
@@ -19046,6 +20000,16 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void FileHeaderImpl::ResetLicense()
+	   {
+	   		isSetLicense = false; 
+			_license = {};
+			
+	   }
+       bool FileHeaderImpl::IsSetLicense() const
+	   {
+			return isSetLicense;
+	   }
 
         IOpenScenarioFlexElement* FinalSpeedImpl::GetOpenScenarioFlexElement()
         {
@@ -19065,12 +20029,16 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _absoluteSpeed = absoluteSpeed;
             _relativeSpeedToMaster = {};
+			// set the indicator to true
+            isSetAbsoluteSpeed = true;          
         }
 
         void FinalSpeedImpl::SetRelativeSpeedToMaster(std::shared_ptr<IRelativeSpeedToMasterWriter> relativeSpeedToMaster)
         {
             _relativeSpeedToMaster = relativeSpeedToMaster;
             _absoluteSpeed = {};
+			// set the indicator to true
+            isSetRelativeSpeedToMaster = true;          
         }
 
         std::shared_ptr<void> FinalSpeedImpl::GetAdapter(const std::string classifier)
@@ -19268,6 +20236,26 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+       void FinalSpeedImpl::ResetAbsoluteSpeed()
+	   {
+	   		isSetAbsoluteSpeed = false; 
+			_absoluteSpeed = {};
+			
+	   }
+       bool FinalSpeedImpl::IsSetAbsoluteSpeed() const
+	   {
+			return isSetAbsoluteSpeed;
+	   }
+       void FinalSpeedImpl::ResetRelativeSpeedToMaster()
+	   {
+	   		isSetRelativeSpeedToMaster = false; 
+			_relativeSpeedToMaster = {};
+			
+	   }
+       bool FinalSpeedImpl::IsSetRelativeSpeedToMaster() const
+	   {
+			return isSetRelativeSpeedToMaster;
+	   }
 
         IOpenScenarioFlexElement* FogImpl::GetOpenScenarioFlexElement()
         {
@@ -19292,6 +20280,8 @@ namespace NET_ASAM_OPENSCENARIO
         void FogImpl::SetBoundingBox(std::shared_ptr<IBoundingBoxWriter> boundingBox)
         {
             _boundingBox = boundingBox;
+			// set the indicator to true
+            isSetBoundingBox = true;          
         }
 
         std::shared_ptr<void> FogImpl::GetAdapter(const std::string classifier)
@@ -19517,6 +20507,16 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void FogImpl::ResetBoundingBox()
+	   {
+	   		isSetBoundingBox = false; 
+			_boundingBox = {};
+			
+	   }
+       bool FogImpl::IsSetBoundingBox() const
+	   {
+			return isSetBoundingBox;
+	   }
 
         IOpenScenarioFlexElement* FollowTrajectoryActionImpl::GetOpenScenarioFlexElement()
         {
@@ -19552,16 +20552,22 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _initialDistanceOffset = initialDistanceOffset;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__INITIAL_DISTANCE_OFFSET);
+			// set the indicator to true
+            isSetInitialDistanceOffset = true;          
         }
 
         void FollowTrajectoryActionImpl::SetTrajectory(std::shared_ptr<ITrajectoryWriter> trajectory)
         {
             _trajectory = trajectory;
+			// set the indicator to true
+            isSetTrajectory = true;          
         }
 
         void FollowTrajectoryActionImpl::SetCatalogReference(std::shared_ptr<ICatalogReferenceWriter> catalogReference)
         {
             _catalogReference = catalogReference;
+			// set the indicator to true
+            isSetCatalogReference = true;          
         }
 
         void FollowTrajectoryActionImpl::SetTimeReference(std::shared_ptr<ITimeReferenceWriter> timeReference)
@@ -19577,6 +20583,8 @@ namespace NET_ASAM_OPENSCENARIO
         void FollowTrajectoryActionImpl::SetTrajectoryRef(std::shared_ptr<ITrajectoryRefWriter> trajectoryRef)
         {
             _trajectoryRef = trajectoryRef;
+			// set the indicator to true
+            isSetTrajectoryRef = true;          
         }
 
         std::shared_ptr<void> FollowTrajectoryActionImpl::GetAdapter(const std::string classifier)
@@ -19780,6 +20788,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_initialDistanceOffset = GetInitialDistanceOffset();
             // clone indicators
+            	clonedObject->isSetInitialDistanceOffset = isSetInitialDistanceOffset;
             // clone children
             const auto kTrajectory =  GetWriterTrajectory();
             if (kTrajectory)
@@ -19890,6 +20899,46 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void FollowTrajectoryActionImpl::ResetInitialDistanceOffset()
+	   {
+	   		isSetInitialDistanceOffset = false; 
+			_initialDistanceOffset = {0};
+			
+	   }
+       bool FollowTrajectoryActionImpl::IsSetInitialDistanceOffset() const
+	   {
+			return isSetInitialDistanceOffset;
+	   }
+       void FollowTrajectoryActionImpl::ResetTrajectory()
+	   {
+	   		isSetTrajectory = false; 
+			_trajectory = {};
+			
+	   }
+       bool FollowTrajectoryActionImpl::IsSetTrajectory() const
+	   {
+			return isSetTrajectory;
+	   }
+       void FollowTrajectoryActionImpl::ResetCatalogReference()
+	   {
+	   		isSetCatalogReference = false; 
+			_catalogReference = {};
+			
+	   }
+       bool FollowTrajectoryActionImpl::IsSetCatalogReference() const
+	   {
+			return isSetCatalogReference;
+	   }
+       void FollowTrajectoryActionImpl::ResetTrajectoryRef()
+	   {
+	   		isSetTrajectoryRef = false; 
+			_trajectoryRef = {};
+			
+	   }
+       bool FollowTrajectoryActionImpl::IsSetTrajectoryRef() const
+	   {
+			return isSetTrajectoryRef;
+	   }
 
         IOpenScenarioFlexElement* GeoPositionImpl::GetOpenScenarioFlexElement()
         {
@@ -19917,6 +20966,8 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _height = height;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__HEIGHT);
+			// set the indicator to true
+            isSetHeight = true;          
         }
 
         void GeoPositionImpl::SetLatitude(const double latitude)
@@ -19934,6 +20985,8 @@ namespace NET_ASAM_OPENSCENARIO
         void GeoPositionImpl::SetOrientation(std::shared_ptr<IOrientationWriter> orientation)
         {
             _orientation = orientation;
+			// set the indicator to true
+            isSetOrientation = true;          
         }
 
         std::shared_ptr<void> GeoPositionImpl::GetAdapter(const std::string classifier)
@@ -20171,6 +21224,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_longitude = GetLongitude();
             // clone indicators
+            	clonedObject->isSetHeight = isSetHeight;
             // clone children
             const auto kOrientation =  GetWriterOrientation();
             if (kOrientation)
@@ -20241,6 +21295,26 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void GeoPositionImpl::ResetHeight()
+	   {
+	   		isSetHeight = false; 
+			_height = {0};
+			
+	   }
+       bool GeoPositionImpl::IsSetHeight() const
+	   {
+			return isSetHeight;
+	   }
+       void GeoPositionImpl::ResetOrientation()
+	   {
+	   		isSetOrientation = false; 
+			_orientation = {};
+			
+	   }
+       bool GeoPositionImpl::IsSetOrientation() const
+	   {
+			return isSetOrientation;
+	   }
 
         IOpenScenarioFlexElement* GlobalActionImpl::GetOpenScenarioFlexElement()
         {
@@ -20275,6 +21349,8 @@ namespace NET_ASAM_OPENSCENARIO
             _parameterAction = {};
             _infrastructureAction = {};
             _trafficAction = {};
+			// set the indicator to true
+            isSetEnvironmentAction = true;          
         }
 
         void GlobalActionImpl::SetEntityAction(std::shared_ptr<IEntityActionWriter> entityAction)
@@ -20284,6 +21360,8 @@ namespace NET_ASAM_OPENSCENARIO
             _parameterAction = {};
             _infrastructureAction = {};
             _trafficAction = {};
+			// set the indicator to true
+            isSetEntityAction = true;          
         }
 
         void GlobalActionImpl::SetParameterAction(std::shared_ptr<IParameterActionWriter> parameterAction)
@@ -20293,6 +21371,8 @@ namespace NET_ASAM_OPENSCENARIO
             _entityAction = {};
             _infrastructureAction = {};
             _trafficAction = {};
+			// set the indicator to true
+            isSetParameterAction = true;          
         }
 
         void GlobalActionImpl::SetInfrastructureAction(std::shared_ptr<IInfrastructureActionWriter> infrastructureAction)
@@ -20302,6 +21382,8 @@ namespace NET_ASAM_OPENSCENARIO
             _entityAction = {};
             _parameterAction = {};
             _trafficAction = {};
+			// set the indicator to true
+            isSetInfrastructureAction = true;          
         }
 
         void GlobalActionImpl::SetTrafficAction(std::shared_ptr<ITrafficActionWriter> trafficAction)
@@ -20311,6 +21393,8 @@ namespace NET_ASAM_OPENSCENARIO
             _entityAction = {};
             _parameterAction = {};
             _infrastructureAction = {};
+			// set the indicator to true
+            isSetTrafficAction = true;          
         }
 
         std::shared_ptr<void> GlobalActionImpl::GetAdapter(const std::string classifier)
@@ -20574,6 +21658,56 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+       void GlobalActionImpl::ResetEnvironmentAction()
+	   {
+	   		isSetEnvironmentAction = false; 
+			_environmentAction = {};
+			
+	   }
+       bool GlobalActionImpl::IsSetEnvironmentAction() const
+	   {
+			return isSetEnvironmentAction;
+	   }
+       void GlobalActionImpl::ResetEntityAction()
+	   {
+	   		isSetEntityAction = false; 
+			_entityAction = {};
+			
+	   }
+       bool GlobalActionImpl::IsSetEntityAction() const
+	   {
+			return isSetEntityAction;
+	   }
+       void GlobalActionImpl::ResetParameterAction()
+	   {
+	   		isSetParameterAction = false; 
+			_parameterAction = {};
+			
+	   }
+       bool GlobalActionImpl::IsSetParameterAction() const
+	   {
+			return isSetParameterAction;
+	   }
+       void GlobalActionImpl::ResetInfrastructureAction()
+	   {
+	   		isSetInfrastructureAction = false; 
+			_infrastructureAction = {};
+			
+	   }
+       bool GlobalActionImpl::IsSetInfrastructureAction() const
+	   {
+			return isSetInfrastructureAction;
+	   }
+       void GlobalActionImpl::ResetTrafficAction()
+	   {
+	   		isSetTrafficAction = false; 
+			_trafficAction = {};
+			
+	   }
+       bool GlobalActionImpl::IsSetTrafficAction() const
+	   {
+			return isSetTrafficAction;
+	   }
 
         IOpenScenarioFlexElement* HistogramImpl::GetOpenScenarioFlexElement()
         {
@@ -21064,6 +22198,8 @@ namespace NET_ASAM_OPENSCENARIO
             _fromCurrentEntity = fromCurrentEntity;
             _fromRoadCoordinates = {};
             _fromLaneCoordinates = {};
+			// set the indicator to true
+            isSetFromCurrentEntity = true;          
         }
 
         void InRoutePositionImpl::SetFromRoadCoordinates(std::shared_ptr<IPositionInRoadCoordinatesWriter> fromRoadCoordinates)
@@ -21071,6 +22207,8 @@ namespace NET_ASAM_OPENSCENARIO
             _fromRoadCoordinates = fromRoadCoordinates;
             _fromCurrentEntity = {};
             _fromLaneCoordinates = {};
+			// set the indicator to true
+            isSetFromRoadCoordinates = true;          
         }
 
         void InRoutePositionImpl::SetFromLaneCoordinates(std::shared_ptr<IPositionInLaneCoordinatesWriter> fromLaneCoordinates)
@@ -21078,6 +22216,8 @@ namespace NET_ASAM_OPENSCENARIO
             _fromLaneCoordinates = fromLaneCoordinates;
             _fromCurrentEntity = {};
             _fromRoadCoordinates = {};
+			// set the indicator to true
+            isSetFromLaneCoordinates = true;          
         }
 
         std::shared_ptr<void> InRoutePositionImpl::GetAdapter(const std::string classifier)
@@ -21297,6 +22437,36 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+       void InRoutePositionImpl::ResetFromCurrentEntity()
+	   {
+	   		isSetFromCurrentEntity = false; 
+			_fromCurrentEntity = {};
+			
+	   }
+       bool InRoutePositionImpl::IsSetFromCurrentEntity() const
+	   {
+			return isSetFromCurrentEntity;
+	   }
+       void InRoutePositionImpl::ResetFromRoadCoordinates()
+	   {
+	   		isSetFromRoadCoordinates = false; 
+			_fromRoadCoordinates = {};
+			
+	   }
+       bool InRoutePositionImpl::IsSetFromRoadCoordinates() const
+	   {
+			return isSetFromRoadCoordinates;
+	   }
+       void InRoutePositionImpl::ResetFromLaneCoordinates()
+	   {
+	   		isSetFromLaneCoordinates = false; 
+			_fromLaneCoordinates = {};
+			
+	   }
+       bool InRoutePositionImpl::IsSetFromLaneCoordinates() const
+	   {
+			return isSetFromLaneCoordinates;
+	   }
 
         IOpenScenarioFlexElement* InfrastructureActionImpl::GetOpenScenarioFlexElement()
         {
@@ -21760,16 +22930,22 @@ namespace NET_ASAM_OPENSCENARIO
         void InitActionsImpl::SetGlobalActions(std::vector<std::shared_ptr<IGlobalActionWriter>>& globalActions)
         {
             _globalActions = globalActions;
+			// set the indicator to true
+            isSetGlobalActions = true;          
         }
 
         void InitActionsImpl::SetUserDefinedActions(std::vector<std::shared_ptr<IUserDefinedActionWriter>>& userDefinedActions)
         {
             _userDefinedActions = userDefinedActions;
+			// set the indicator to true
+            isSetUserDefinedActions = true;          
         }
 
         void InitActionsImpl::SetPrivates(std::vector<std::shared_ptr<IPrivateWriter>>& privates)
         {
             _privates = privates;
+			// set the indicator to true
+            isSetPrivates = true;          
         }
 
         std::shared_ptr<void> InitActionsImpl::GetAdapter(const std::string classifier)
@@ -22008,6 +23184,36 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+       void InitActionsImpl::ResetGlobalActions()
+	   {
+	   		isSetGlobalActions = false; 
+			_globalActions = {};
+			
+	   }
+       bool InitActionsImpl::IsSetGlobalActions() const
+	   {
+			return isSetGlobalActions;
+	   }
+       void InitActionsImpl::ResetUserDefinedActions()
+	   {
+	   		isSetUserDefinedActions = false; 
+			_userDefinedActions = {};
+			
+	   }
+       bool InitActionsImpl::IsSetUserDefinedActions() const
+	   {
+			return isSetUserDefinedActions;
+	   }
+       void InitActionsImpl::ResetPrivates()
+	   {
+	   		isSetPrivates = false; 
+			_privates = {};
+			
+	   }
+       bool InitActionsImpl::IsSetPrivates() const
+	   {
+			return isSetPrivates;
+	   }
 
         IOpenScenarioFlexElement* KnotImpl::GetOpenScenarioFlexElement()
         {
@@ -22245,6 +23451,8 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _targetLaneOffset = targetLaneOffset;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TARGET_LANE_OFFSET);
+			// set the indicator to true
+            isSetTargetLaneOffset = true;          
         }
 
         void LaneChangeActionImpl::SetLaneChangeActionDynamics(std::shared_ptr<ITransitionDynamicsWriter> laneChangeActionDynamics)
@@ -22431,6 +23639,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_targetLaneOffset = GetTargetLaneOffset();
             // clone indicators
+            	clonedObject->isSetTargetLaneOffset = isSetTargetLaneOffset;
             // clone children
             const auto kLaneChangeActionDynamics =  GetWriterLaneChangeActionDynamics();
             if (kLaneChangeActionDynamics)
@@ -22502,6 +23711,16 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void LaneChangeActionImpl::ResetTargetLaneOffset()
+	   {
+	   		isSetTargetLaneOffset = false; 
+			_targetLaneOffset = {0};
+			
+	   }
+       bool LaneChangeActionImpl::IsSetTargetLaneOffset() const
+	   {
+			return isSetTargetLaneOffset;
+	   }
 
         IOpenScenarioFlexElement* LaneChangeTargetImpl::GetOpenScenarioFlexElement()
         {
@@ -22521,12 +23740,16 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _relativeTargetLane = relativeTargetLane;
             _absoluteTargetLane = {};
+			// set the indicator to true
+            isSetRelativeTargetLane = true;          
         }
 
         void LaneChangeTargetImpl::SetAbsoluteTargetLane(std::shared_ptr<IAbsoluteTargetLaneWriter> absoluteTargetLane)
         {
             _absoluteTargetLane = absoluteTargetLane;
             _relativeTargetLane = {};
+			// set the indicator to true
+            isSetAbsoluteTargetLane = true;          
         }
 
         std::shared_ptr<void> LaneChangeTargetImpl::GetAdapter(const std::string classifier)
@@ -22724,6 +23947,26 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+       void LaneChangeTargetImpl::ResetRelativeTargetLane()
+	   {
+	   		isSetRelativeTargetLane = false; 
+			_relativeTargetLane = {};
+			
+	   }
+       bool LaneChangeTargetImpl::IsSetRelativeTargetLane() const
+	   {
+			return isSetRelativeTargetLane;
+	   }
+       void LaneChangeTargetImpl::ResetAbsoluteTargetLane()
+	   {
+	   		isSetAbsoluteTargetLane = false; 
+			_absoluteTargetLane = {};
+			
+	   }
+       bool LaneChangeTargetImpl::IsSetAbsoluteTargetLane() const
+	   {
+			return isSetAbsoluteTargetLane;
+	   }
 
         IOpenScenarioFlexElement* LaneOffsetActionImpl::GetOpenScenarioFlexElement()
         {
@@ -23314,12 +24557,16 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _relativeTargetLaneOffset = relativeTargetLaneOffset;
             _absoluteTargetLaneOffset = {};
+			// set the indicator to true
+            isSetRelativeTargetLaneOffset = true;          
         }
 
         void LaneOffsetTargetImpl::SetAbsoluteTargetLaneOffset(std::shared_ptr<IAbsoluteTargetLaneOffsetWriter> absoluteTargetLaneOffset)
         {
             _absoluteTargetLaneOffset = absoluteTargetLaneOffset;
             _relativeTargetLaneOffset = {};
+			// set the indicator to true
+            isSetAbsoluteTargetLaneOffset = true;          
         }
 
         std::shared_ptr<void> LaneOffsetTargetImpl::GetAdapter(const std::string classifier)
@@ -23517,6 +24764,26 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+       void LaneOffsetTargetImpl::ResetRelativeTargetLaneOffset()
+	   {
+	   		isSetRelativeTargetLaneOffset = false; 
+			_relativeTargetLaneOffset = {};
+			
+	   }
+       bool LaneOffsetTargetImpl::IsSetRelativeTargetLaneOffset() const
+	   {
+			return isSetRelativeTargetLaneOffset;
+	   }
+       void LaneOffsetTargetImpl::ResetAbsoluteTargetLaneOffset()
+	   {
+	   		isSetAbsoluteTargetLaneOffset = false; 
+			_absoluteTargetLaneOffset = {};
+			
+	   }
+       bool LaneOffsetTargetImpl::IsSetAbsoluteTargetLaneOffset() const
+	   {
+			return isSetAbsoluteTargetLaneOffset;
+	   }
 
         IOpenScenarioFlexElement* LanePositionImpl::GetOpenScenarioFlexElement()
         {
@@ -23554,6 +24821,8 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _offset = offset;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__OFFSET);
+			// set the indicator to true
+            isSetOffset = true;          
         }
 
         void LanePositionImpl::SetRoadId(const std::string roadId)
@@ -23571,6 +24840,8 @@ namespace NET_ASAM_OPENSCENARIO
         void LanePositionImpl::SetOrientation(std::shared_ptr<IOrientationWriter> orientation)
         {
             _orientation = orientation;
+			// set the indicator to true
+            isSetOrientation = true;          
         }
 
         std::shared_ptr<void> LanePositionImpl::GetAdapter(const std::string classifier)
@@ -23835,6 +25106,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_s = GetS();
             // clone indicators
+            	clonedObject->isSetOffset = isSetOffset;
             // clone children
             const auto kOrientation =  GetWriterOrientation();
             if (kOrientation)
@@ -23929,6 +25201,26 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void LanePositionImpl::ResetOffset()
+	   {
+	   		isSetOffset = false; 
+			_offset = {0};
+			
+	   }
+       bool LanePositionImpl::IsSetOffset() const
+	   {
+			return isSetOffset;
+	   }
+       void LanePositionImpl::ResetOrientation()
+	   {
+	   		isSetOrientation = false; 
+			_orientation = {};
+			
+	   }
+       bool LanePositionImpl::IsSetOrientation() const
+	   {
+			return isSetOrientation;
+	   }
 
         IOpenScenarioFlexElement* LateralActionImpl::GetOpenScenarioFlexElement()
         {
@@ -23953,6 +25245,8 @@ namespace NET_ASAM_OPENSCENARIO
             _laneChangeAction = laneChangeAction;
             _laneOffsetAction = {};
             _lateralDistanceAction = {};
+			// set the indicator to true
+            isSetLaneChangeAction = true;          
         }
 
         void LateralActionImpl::SetLaneOffsetAction(std::shared_ptr<ILaneOffsetActionWriter> laneOffsetAction)
@@ -23960,6 +25254,8 @@ namespace NET_ASAM_OPENSCENARIO
             _laneOffsetAction = laneOffsetAction;
             _laneChangeAction = {};
             _lateralDistanceAction = {};
+			// set the indicator to true
+            isSetLaneOffsetAction = true;          
         }
 
         void LateralActionImpl::SetLateralDistanceAction(std::shared_ptr<ILateralDistanceActionWriter> lateralDistanceAction)
@@ -23967,6 +25263,8 @@ namespace NET_ASAM_OPENSCENARIO
             _lateralDistanceAction = lateralDistanceAction;
             _laneChangeAction = {};
             _laneOffsetAction = {};
+			// set the indicator to true
+            isSetLateralDistanceAction = true;          
         }
 
         std::shared_ptr<void> LateralActionImpl::GetAdapter(const std::string classifier)
@@ -24186,6 +25484,36 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+       void LateralActionImpl::ResetLaneChangeAction()
+	   {
+	   		isSetLaneChangeAction = false; 
+			_laneChangeAction = {};
+			
+	   }
+       bool LateralActionImpl::IsSetLaneChangeAction() const
+	   {
+			return isSetLaneChangeAction;
+	   }
+       void LateralActionImpl::ResetLaneOffsetAction()
+	   {
+	   		isSetLaneOffsetAction = false; 
+			_laneOffsetAction = {};
+			
+	   }
+       bool LateralActionImpl::IsSetLaneOffsetAction() const
+	   {
+			return isSetLaneOffsetAction;
+	   }
+       void LateralActionImpl::ResetLateralDistanceAction()
+	   {
+	   		isSetLateralDistanceAction = false; 
+			_lateralDistanceAction = {};
+			
+	   }
+       bool LateralActionImpl::IsSetLateralDistanceAction() const
+	   {
+			return isSetLateralDistanceAction;
+	   }
 
         IOpenScenarioFlexElement* LateralDistanceActionImpl::GetOpenScenarioFlexElement()
         {
@@ -24231,18 +25559,24 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _coordinateSystem = coordinateSystem;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__COORDINATE_SYSTEM);
+			// set the indicator to true
+            isSetCoordinateSystem = true;          
         }
 
         void LateralDistanceActionImpl::SetDisplacement(const LateralDisplacement displacement)
         {
             _displacement = displacement;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DISPLACEMENT);
+			// set the indicator to true
+            isSetDisplacement = true;          
         }
 
         void LateralDistanceActionImpl::SetDistance(const double distance)
         {
             _distance = distance;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DISTANCE);
+			// set the indicator to true
+            isSetDistance = true;          
         }
 
         void LateralDistanceActionImpl::SetEntityRef(std::shared_ptr<INamedReference<IEntity>> entityRef)
@@ -24260,6 +25594,8 @@ namespace NET_ASAM_OPENSCENARIO
         void LateralDistanceActionImpl::SetDynamicConstraints(std::shared_ptr<IDynamicConstraintsWriter> dynamicConstraints)
         {
             _dynamicConstraints = dynamicConstraints;
+			// set the indicator to true
+            isSetDynamicConstraints = true;          
         }
 
         std::shared_ptr<void> LateralDistanceActionImpl::GetAdapter(const std::string classifier)
@@ -24625,6 +25961,9 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_freespace = GetFreespace();
             // clone indicators
+            	clonedObject->isSetCoordinateSystem = isSetCoordinateSystem;
+            	clonedObject->isSetDisplacement = isSetDisplacement;
+            	clonedObject->isSetDistance = isSetDistance;
             // clone children
             const auto kDynamicConstraints =  GetWriterDynamicConstraints();
             if (kDynamicConstraints)
@@ -24736,6 +26075,46 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void LateralDistanceActionImpl::ResetCoordinateSystem()
+	   {
+	   		isSetCoordinateSystem = false; 
+			_coordinateSystem = {CoordinateSystem::CoordinateSystemEnum::ENTITY};
+			
+	   }
+       bool LateralDistanceActionImpl::IsSetCoordinateSystem() const
+	   {
+			return isSetCoordinateSystem;
+	   }
+       void LateralDistanceActionImpl::ResetDisplacement()
+	   {
+	   		isSetDisplacement = false; 
+			_displacement = {LateralDisplacement::LateralDisplacementEnum::ANY};
+			
+	   }
+       bool LateralDistanceActionImpl::IsSetDisplacement() const
+	   {
+			return isSetDisplacement;
+	   }
+       void LateralDistanceActionImpl::ResetDistance()
+	   {
+	   		isSetDistance = false; 
+			_distance = {0};
+			
+	   }
+       bool LateralDistanceActionImpl::IsSetDistance() const
+	   {
+			return isSetDistance;
+	   }
+       void LateralDistanceActionImpl::ResetDynamicConstraints()
+	   {
+	   		isSetDynamicConstraints = false; 
+			_dynamicConstraints = {};
+			
+	   }
+       bool LateralDistanceActionImpl::IsSetDynamicConstraints() const
+	   {
+			return isSetDynamicConstraints;
+	   }
 
         IOpenScenarioFlexElement* LicenseImpl::GetOpenScenarioFlexElement()
         {
@@ -24763,6 +26142,8 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _text = text;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TEXT);
+			// set the indicator to true
+            isSetText = true;          
         }
 
         void LicenseImpl::SetName(const std::string name)
@@ -25110,6 +26491,16 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void LicenseImpl::ResetText()
+	   {
+	   		isSetText = false; 
+			_text = {};
+			
+	   }
+       bool LicenseImpl::IsSetText() const
+	   {
+			return isSetText;
+	   }
        void LicenseImpl::ResetResource()
 	   {
 	   		isSetResource = false; 
@@ -25149,12 +26540,16 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _speedAction = speedAction;
             _longitudinalDistanceAction = {};
+			// set the indicator to true
+            isSetSpeedAction = true;          
         }
 
         void LongitudinalActionImpl::SetLongitudinalDistanceAction(std::shared_ptr<ILongitudinalDistanceActionWriter> longitudinalDistanceAction)
         {
             _longitudinalDistanceAction = longitudinalDistanceAction;
             _speedAction = {};
+			// set the indicator to true
+            isSetLongitudinalDistanceAction = true;          
         }
 
         std::shared_ptr<void> LongitudinalActionImpl::GetAdapter(const std::string classifier)
@@ -25352,6 +26747,26 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+       void LongitudinalActionImpl::ResetSpeedAction()
+	   {
+	   		isSetSpeedAction = false; 
+			_speedAction = {};
+			
+	   }
+       bool LongitudinalActionImpl::IsSetSpeedAction() const
+	   {
+			return isSetSpeedAction;
+	   }
+       void LongitudinalActionImpl::ResetLongitudinalDistanceAction()
+	   {
+	   		isSetLongitudinalDistanceAction = false; 
+			_longitudinalDistanceAction = {};
+			
+	   }
+       bool LongitudinalActionImpl::IsSetLongitudinalDistanceAction() const
+	   {
+			return isSetLongitudinalDistanceAction;
+	   }
 
         IOpenScenarioFlexElement* LongitudinalDistanceActionImpl::GetOpenScenarioFlexElement()
         {
@@ -25401,12 +26816,16 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _coordinateSystem = coordinateSystem;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__COORDINATE_SYSTEM);
+			// set the indicator to true
+            isSetCoordinateSystem = true;          
         }
 
         void LongitudinalDistanceActionImpl::SetDisplacement(const LongitudinalDisplacement displacement)
         {
             _displacement = displacement;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DISPLACEMENT);
+			// set the indicator to true
+            isSetDisplacement = true;          
         }
 
         void LongitudinalDistanceActionImpl::SetDistance(const double distance)
@@ -25440,6 +26859,8 @@ namespace NET_ASAM_OPENSCENARIO
         void LongitudinalDistanceActionImpl::SetDynamicConstraints(std::shared_ptr<IDynamicConstraintsWriter> dynamicConstraints)
         {
             _dynamicConstraints = dynamicConstraints;
+			// set the indicator to true
+            isSetDynamicConstraints = true;          
         }
 
         std::shared_ptr<void> LongitudinalDistanceActionImpl::GetAdapter(const std::string classifier)
@@ -25840,6 +27261,8 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_timeGap = GetTimeGap();
             // clone indicators
+            	clonedObject->isSetCoordinateSystem = isSetCoordinateSystem;
+            	clonedObject->isSetDisplacement = isSetDisplacement;
             	clonedObject->isSetDistance = isSetDistance;
             	clonedObject->isSetTimeGap = isSetTimeGap;
             // clone children
@@ -25959,6 +27382,26 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void LongitudinalDistanceActionImpl::ResetCoordinateSystem()
+	   {
+	   		isSetCoordinateSystem = false; 
+			_coordinateSystem = {CoordinateSystem::CoordinateSystemEnum::ENTITY};
+			
+	   }
+       bool LongitudinalDistanceActionImpl::IsSetCoordinateSystem() const
+	   {
+			return isSetCoordinateSystem;
+	   }
+       void LongitudinalDistanceActionImpl::ResetDisplacement()
+	   {
+	   		isSetDisplacement = false; 
+			_displacement = {LongitudinalDisplacement::LongitudinalDisplacementEnum::TRAILING_REFERENCED_ENTITY};
+			
+	   }
+       bool LongitudinalDistanceActionImpl::IsSetDisplacement() const
+	   {
+			return isSetDisplacement;
+	   }
        void LongitudinalDistanceActionImpl::ResetDistance()
 	   {
 	   		isSetDistance = false; 
@@ -25978,6 +27421,16 @@ namespace NET_ASAM_OPENSCENARIO
        bool LongitudinalDistanceActionImpl::IsSetTimeGap() const
 	   {
 			return isSetTimeGap;
+	   }
+       void LongitudinalDistanceActionImpl::ResetDynamicConstraints()
+	   {
+	   		isSetDynamicConstraints = false; 
+			_dynamicConstraints = {};
+			
+	   }
+       bool LongitudinalDistanceActionImpl::IsSetDynamicConstraints() const
+	   {
+			return isSetDynamicConstraints;
 	   }
 
         IOpenScenarioFlexElement* ManeuverImpl::GetOpenScenarioFlexElement()
@@ -26049,6 +27502,8 @@ namespace NET_ASAM_OPENSCENARIO
         void ManeuverImpl::SetParameterDeclarations(std::vector<std::shared_ptr<IParameterDeclarationWriter>>& parameterDeclarations)
         {
             _parameterDeclarations = parameterDeclarations;
+			// set the indicator to true
+            isSetParameterDeclarations = true;          
         }
 
         void ManeuverImpl::SetEvents(std::vector<std::shared_ptr<IEventWriter>>& events)
@@ -26333,6 +27788,16 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void ManeuverImpl::ResetParameterDeclarations()
+	   {
+	   		isSetParameterDeclarations = false; 
+			_parameterDeclarations = {};
+			
+	   }
+       bool ManeuverImpl::IsSetParameterDeclarations() const
+	   {
+			return isSetParameterDeclarations;
+	   }
 
         IOpenScenarioFlexElement* ManeuverCatalogLocationImpl::GetOpenScenarioFlexElement()
         {
@@ -26611,11 +28076,15 @@ namespace NET_ASAM_OPENSCENARIO
         void ManeuverGroupImpl::SetCatalogReferences(std::vector<std::shared_ptr<ICatalogReferenceWriter>>& catalogReferences)
         {
             _catalogReferences = catalogReferences;
+			// set the indicator to true
+            isSetCatalogReferences = true;          
         }
 
         void ManeuverGroupImpl::SetManeuvers(std::vector<std::shared_ptr<IManeuverWriter>>& maneuvers)
         {
             _maneuvers = maneuvers;
+			// set the indicator to true
+            isSetManeuvers = true;          
         }
 
         std::shared_ptr<void> ManeuverGroupImpl::GetAdapter(const std::string classifier)
@@ -26952,6 +28421,26 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void ManeuverGroupImpl::ResetCatalogReferences()
+	   {
+	   		isSetCatalogReferences = false; 
+			_catalogReferences = {};
+			
+	   }
+       bool ManeuverGroupImpl::IsSetCatalogReferences() const
+	   {
+			return isSetCatalogReferences;
+	   }
+       void ManeuverGroupImpl::ResetManeuvers()
+	   {
+	   		isSetManeuvers = false; 
+			_maneuvers = {};
+			
+	   }
+       bool ManeuverGroupImpl::IsSetManeuvers() const
+	   {
+			return isSetManeuvers;
+	   }
 
         IOpenScenarioFlexElement* MiscObjectImpl::GetOpenScenarioFlexElement()
         {
@@ -27037,6 +28526,8 @@ namespace NET_ASAM_OPENSCENARIO
         void MiscObjectImpl::SetParameterDeclarations(std::vector<std::shared_ptr<IParameterDeclarationWriter>>& parameterDeclarations)
         {
             _parameterDeclarations = parameterDeclarations;
+			// set the indicator to true
+            isSetParameterDeclarations = true;          
         }
 
         void MiscObjectImpl::SetBoundingBox(std::shared_ptr<IBoundingBoxWriter> boundingBox)
@@ -27503,6 +28994,16 @@ namespace NET_ASAM_OPENSCENARIO
 	   {
 			return isSetModel3d;
 	   }
+       void MiscObjectImpl::ResetParameterDeclarations()
+	   {
+	   		isSetParameterDeclarations = false; 
+			_parameterDeclarations = {};
+			
+	   }
+       bool MiscObjectImpl::IsSetParameterDeclarations() const
+	   {
+			return isSetParameterDeclarations;
+	   }
 
         IOpenScenarioFlexElement* MiscObjectCatalogLocationImpl::GetOpenScenarioFlexElement()
         {
@@ -27711,12 +29212,16 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _addValue = addValue;
             _multiplyByValue = {};
+			// set the indicator to true
+            isSetAddValue = true;          
         }
 
         void ModifyRuleImpl::SetMultiplyByValue(std::shared_ptr<IParameterMultiplyByValueRuleWriter> multiplyByValue)
         {
             _multiplyByValue = multiplyByValue;
             _addValue = {};
+			// set the indicator to true
+            isSetMultiplyByValue = true;          
         }
 
         std::shared_ptr<void> ModifyRuleImpl::GetAdapter(const std::string classifier)
@@ -27914,6 +29419,26 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+       void ModifyRuleImpl::ResetAddValue()
+	   {
+	   		isSetAddValue = false; 
+			_addValue = {};
+			
+	   }
+       bool ModifyRuleImpl::IsSetAddValue() const
+	   {
+			return isSetAddValue;
+	   }
+       void ModifyRuleImpl::ResetMultiplyByValue()
+	   {
+	   		isSetMultiplyByValue = false; 
+			_multiplyByValue = {};
+			
+	   }
+       bool ModifyRuleImpl::IsSetMultiplyByValue() const
+	   {
+			return isSetMultiplyByValue;
+	   }
 
         IOpenScenarioFlexElement* NoneImpl::GetOpenScenarioFlexElement()
         {
@@ -28102,6 +29627,8 @@ namespace NET_ASAM_OPENSCENARIO
         void NormalDistributionImpl::SetRange(std::shared_ptr<IRangeWriter> range)
         {
             _range = range;
+			// set the indicator to true
+            isSetRange = true;          
         }
 
         std::shared_ptr<void> NormalDistributionImpl::GetAdapter(const std::string classifier)
@@ -28368,6 +29895,16 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void NormalDistributionImpl::ResetRange()
+	   {
+	   		isSetRange = false; 
+			_range = {};
+			
+	   }
+       bool NormalDistributionImpl::IsSetRange() const
+	   {
+			return isSetRange;
+	   }
 
         IOpenScenarioFlexElement* NurbsImpl::GetOpenScenarioFlexElement()
         {
@@ -28722,12 +30259,16 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _catalogReference = catalogReference;
             _controller = {};
+			// set the indicator to true
+            isSetCatalogReference = true;          
         }
 
         void ObjectControllerImpl::SetController(std::shared_ptr<IControllerWriter> controller)
         {
             _controller = controller;
             _catalogReference = {};
+			// set the indicator to true
+            isSetController = true;          
         }
 
         std::shared_ptr<void> ObjectControllerImpl::GetAdapter(const std::string classifier)
@@ -28925,6 +30466,26 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+       void ObjectControllerImpl::ResetCatalogReference()
+	   {
+	   		isSetCatalogReference = false; 
+			_catalogReference = {};
+			
+	   }
+       bool ObjectControllerImpl::IsSetCatalogReference() const
+	   {
+			return isSetCatalogReference;
+	   }
+       void ObjectControllerImpl::ResetController()
+	   {
+	   		isSetController = false; 
+			_controller = {};
+			
+	   }
+       bool ObjectControllerImpl::IsSetController() const
+	   {
+			return isSetController;
+	   }
 
         IOpenScenarioFlexElement* OffroadConditionImpl::GetOpenScenarioFlexElement()
         {
@@ -29643,24 +31204,32 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _h = h;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__H);
+			// set the indicator to true
+            isSetH = true;          
         }
 
         void OrientationImpl::SetP(const double p)
         {
             _p = p;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__P);
+			// set the indicator to true
+            isSetP = true;          
         }
 
         void OrientationImpl::SetR(const double r)
         {
             _r = r;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__R);
+			// set the indicator to true
+            isSetR = true;          
         }
 
         void OrientationImpl::SetType(const ReferenceContext type)
         {
             _type = type;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TYPE);
+			// set the indicator to true
+            isSetType = true;          
         }
 
         std::shared_ptr<void> OrientationImpl::GetAdapter(const std::string classifier)
@@ -29933,6 +31502,10 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->_type = ReferenceContext::GetFromLiteral(kType.GetLiteral());
             }
             // clone indicators
+            	clonedObject->isSetH = isSetH;
+            	clonedObject->isSetP = isSetP;
+            	clonedObject->isSetR = isSetR;
+            	clonedObject->isSetType = isSetType;
             // clone children
             return clonedObject;
         }
@@ -29996,6 +31569,46 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void OrientationImpl::ResetH()
+	   {
+	   		isSetH = false; 
+			_h = {0};
+			
+	   }
+       bool OrientationImpl::IsSetH() const
+	   {
+			return isSetH;
+	   }
+       void OrientationImpl::ResetP()
+	   {
+	   		isSetP = false; 
+			_p = {0};
+			
+	   }
+       bool OrientationImpl::IsSetP() const
+	   {
+			return isSetP;
+	   }
+       void OrientationImpl::ResetR()
+	   {
+	   		isSetR = false; 
+			_r = {0};
+			
+	   }
+       bool OrientationImpl::IsSetR() const
+	   {
+			return isSetR;
+	   }
+       void OrientationImpl::ResetType()
+	   {
+	   		isSetType = false; 
+			_type = {ReferenceContext::ReferenceContextEnum::ABSOLUTE};
+			
+	   }
+       bool OrientationImpl::IsSetType() const
+	   {
+			return isSetType;
+	   }
 
         IOpenScenarioFlexElement* OverrideBrakeActionImpl::GetOpenScenarioFlexElement()
         {
@@ -30578,31 +32191,43 @@ namespace NET_ASAM_OPENSCENARIO
         void OverrideControllerValueActionImpl::SetThrottle(std::shared_ptr<IOverrideThrottleActionWriter> throttle)
         {
             _throttle = throttle;
+			// set the indicator to true
+            isSetThrottle = true;          
         }
 
         void OverrideControllerValueActionImpl::SetBrake(std::shared_ptr<IOverrideBrakeActionWriter> brake)
         {
             _brake = brake;
+			// set the indicator to true
+            isSetBrake = true;          
         }
 
         void OverrideControllerValueActionImpl::SetClutch(std::shared_ptr<IOverrideClutchActionWriter> clutch)
         {
             _clutch = clutch;
+			// set the indicator to true
+            isSetClutch = true;          
         }
 
         void OverrideControllerValueActionImpl::SetParkingBrake(std::shared_ptr<IOverrideParkingBrakeActionWriter> parkingBrake)
         {
             _parkingBrake = parkingBrake;
+			// set the indicator to true
+            isSetParkingBrake = true;          
         }
 
         void OverrideControllerValueActionImpl::SetSteeringWheel(std::shared_ptr<IOverrideSteeringWheelActionWriter> steeringWheel)
         {
             _steeringWheel = steeringWheel;
+			// set the indicator to true
+            isSetSteeringWheel = true;          
         }
 
         void OverrideControllerValueActionImpl::SetGear(std::shared_ptr<IOverrideGearActionWriter> gear)
         {
             _gear = gear;
+			// set the indicator to true
+            isSetGear = true;          
         }
 
         std::shared_ptr<void> OverrideControllerValueActionImpl::GetAdapter(const std::string classifier)
@@ -30888,6 +32513,66 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+       void OverrideControllerValueActionImpl::ResetThrottle()
+	   {
+	   		isSetThrottle = false; 
+			_throttle = {};
+			
+	   }
+       bool OverrideControllerValueActionImpl::IsSetThrottle() const
+	   {
+			return isSetThrottle;
+	   }
+       void OverrideControllerValueActionImpl::ResetBrake()
+	   {
+	   		isSetBrake = false; 
+			_brake = {};
+			
+	   }
+       bool OverrideControllerValueActionImpl::IsSetBrake() const
+	   {
+			return isSetBrake;
+	   }
+       void OverrideControllerValueActionImpl::ResetClutch()
+	   {
+	   		isSetClutch = false; 
+			_clutch = {};
+			
+	   }
+       bool OverrideControllerValueActionImpl::IsSetClutch() const
+	   {
+			return isSetClutch;
+	   }
+       void OverrideControllerValueActionImpl::ResetParkingBrake()
+	   {
+	   		isSetParkingBrake = false; 
+			_parkingBrake = {};
+			
+	   }
+       bool OverrideControllerValueActionImpl::IsSetParkingBrake() const
+	   {
+			return isSetParkingBrake;
+	   }
+       void OverrideControllerValueActionImpl::ResetSteeringWheel()
+	   {
+	   		isSetSteeringWheel = false; 
+			_steeringWheel = {};
+			
+	   }
+       bool OverrideControllerValueActionImpl::IsSetSteeringWheel() const
+	   {
+			return isSetSteeringWheel;
+	   }
+       void OverrideControllerValueActionImpl::ResetGear()
+	   {
+	   		isSetGear = false; 
+			_gear = {};
+			
+	   }
+       bool OverrideControllerValueActionImpl::IsSetGear() const
+	   {
+			return isSetGear;
+	   }
 
         IOpenScenarioFlexElement* OverrideGearActionImpl::GetOpenScenarioFlexElement()
         {
@@ -32013,12 +33698,16 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _setAction = setAction;
             _modifyAction = {};
+			// set the indicator to true
+            isSetSetAction = true;          
         }
 
         void ParameterActionImpl::SetModifyAction(std::shared_ptr<IParameterModifyActionWriter> modifyAction)
         {
             _modifyAction = modifyAction;
             _setAction = {};
+			// set the indicator to true
+            isSetModifyAction = true;          
         }
 
         std::shared_ptr<void> ParameterActionImpl::GetAdapter(const std::string classifier)
@@ -32273,6 +33962,26 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+       void ParameterActionImpl::ResetSetAction()
+	   {
+	   		isSetSetAction = false; 
+			_setAction = {};
+			
+	   }
+       bool ParameterActionImpl::IsSetSetAction() const
+	   {
+			return isSetSetAction;
+	   }
+       void ParameterActionImpl::ResetModifyAction()
+	   {
+	   		isSetModifyAction = false; 
+			_modifyAction = {};
+			
+	   }
+       bool ParameterActionImpl::IsSetModifyAction() const
+	   {
+			return isSetModifyAction;
+	   }
 
         IOpenScenarioFlexElement* ParameterAddValueRuleImpl::GetOpenScenarioFlexElement()
         {
@@ -33143,6 +34852,8 @@ namespace NET_ASAM_OPENSCENARIO
         void ParameterDeclarationImpl::SetConstraintGroups(std::vector<std::shared_ptr<IValueConstraintGroupWriter>>& constraintGroups)
         {
             _constraintGroups = constraintGroups;
+			// set the indicator to true
+            isSetConstraintGroups = true;          
         }
 
         std::shared_ptr<void> ParameterDeclarationImpl::GetAdapter(const std::string classifier)
@@ -33441,6 +35152,16 @@ namespace NET_ASAM_OPENSCENARIO
 			return (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE);
 		}
 
+       void ParameterDeclarationImpl::ResetConstraintGroups()
+	   {
+	   		isSetConstraintGroups = false; 
+			_constraintGroups = {};
+			
+	   }
+       bool ParameterDeclarationImpl::IsSetConstraintGroups() const
+	   {
+			return isSetConstraintGroups;
+	   }
 
         IOpenScenarioFlexElement* ParameterModifyActionImpl::GetOpenScenarioFlexElement()
         {
@@ -34781,6 +36502,8 @@ namespace NET_ASAM_OPENSCENARIO
         void PedestrianImpl::SetParameterDeclarations(std::vector<std::shared_ptr<IParameterDeclarationWriter>>& parameterDeclarations)
         {
             _parameterDeclarations = parameterDeclarations;
+			// set the indicator to true
+            isSetParameterDeclarations = true;          
         }
 
         void PedestrianImpl::SetBoundingBox(std::shared_ptr<IBoundingBoxWriter> boundingBox)
@@ -35299,6 +37022,16 @@ namespace NET_ASAM_OPENSCENARIO
        bool PedestrianImpl::IsSetModel3d() const
 	   {
 			return isSetModel3d;
+	   }
+       void PedestrianImpl::ResetParameterDeclarations()
+	   {
+	   		isSetParameterDeclarations = false; 
+			_parameterDeclarations = {};
+			
+	   }
+       bool PedestrianImpl::IsSetParameterDeclarations() const
+	   {
+			return isSetParameterDeclarations;
 	   }
 
         IOpenScenarioFlexElement* PedestrianCatalogLocationImpl::GetOpenScenarioFlexElement()
@@ -35860,6 +37593,8 @@ namespace NET_ASAM_OPENSCENARIO
         void PhaseImpl::SetTrafficSignalStates(std::vector<std::shared_ptr<ITrafficSignalStateWriter>>& trafficSignalStates)
         {
             _trafficSignalStates = trafficSignalStates;
+			// set the indicator to true
+            isSetTrafficSignalStates = true;          
         }
 
         std::shared_ptr<void> PhaseImpl::GetAdapter(const std::string classifier)
@@ -36142,6 +37877,16 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void PhaseImpl::ResetTrafficSignalStates()
+	   {
+	   		isSetTrafficSignalStates = false; 
+			_trafficSignalStates = {};
+			
+	   }
+       bool PhaseImpl::IsSetTrafficSignalStates() const
+	   {
+			return isSetTrafficSignalStates;
+	   }
 
         IOpenScenarioFlexElement* PoissonDistributionImpl::GetOpenScenarioFlexElement()
         {
@@ -36166,6 +37911,8 @@ namespace NET_ASAM_OPENSCENARIO
         void PoissonDistributionImpl::SetRange(std::shared_ptr<IRangeWriter> range)
         {
             _range = range;
+			// set the indicator to true
+            isSetRange = true;          
         }
 
         std::shared_ptr<void> PoissonDistributionImpl::GetAdapter(const std::string classifier)
@@ -36391,6 +38138,16 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void PoissonDistributionImpl::ResetRange()
+	   {
+	   		isSetRange = false; 
+			_range = {};
+			
+	   }
+       bool PoissonDistributionImpl::IsSetRange() const
+	   {
+			return isSetRange;
+	   }
 
         IOpenScenarioFlexElement* PolylineImpl::GetOpenScenarioFlexElement()
         {
@@ -36667,6 +38424,8 @@ namespace NET_ASAM_OPENSCENARIO
             _routePosition = {};
             _geoPosition = {};
             _trajectoryPosition = {};
+			// set the indicator to true
+            isSetWorldPosition = true;          
         }
 
         void PositionImpl::SetRelativeWorldPosition(std::shared_ptr<IRelativeWorldPositionWriter> relativeWorldPosition)
@@ -36681,6 +38440,8 @@ namespace NET_ASAM_OPENSCENARIO
             _routePosition = {};
             _geoPosition = {};
             _trajectoryPosition = {};
+			// set the indicator to true
+            isSetRelativeWorldPosition = true;          
         }
 
         void PositionImpl::SetRelativeObjectPosition(std::shared_ptr<IRelativeObjectPositionWriter> relativeObjectPosition)
@@ -36695,6 +38456,8 @@ namespace NET_ASAM_OPENSCENARIO
             _routePosition = {};
             _geoPosition = {};
             _trajectoryPosition = {};
+			// set the indicator to true
+            isSetRelativeObjectPosition = true;          
         }
 
         void PositionImpl::SetRoadPosition(std::shared_ptr<IRoadPositionWriter> roadPosition)
@@ -36709,6 +38472,8 @@ namespace NET_ASAM_OPENSCENARIO
             _routePosition = {};
             _geoPosition = {};
             _trajectoryPosition = {};
+			// set the indicator to true
+            isSetRoadPosition = true;          
         }
 
         void PositionImpl::SetRelativeRoadPosition(std::shared_ptr<IRelativeRoadPositionWriter> relativeRoadPosition)
@@ -36723,6 +38488,8 @@ namespace NET_ASAM_OPENSCENARIO
             _routePosition = {};
             _geoPosition = {};
             _trajectoryPosition = {};
+			// set the indicator to true
+            isSetRelativeRoadPosition = true;          
         }
 
         void PositionImpl::SetLanePosition(std::shared_ptr<ILanePositionWriter> lanePosition)
@@ -36737,6 +38504,8 @@ namespace NET_ASAM_OPENSCENARIO
             _routePosition = {};
             _geoPosition = {};
             _trajectoryPosition = {};
+			// set the indicator to true
+            isSetLanePosition = true;          
         }
 
         void PositionImpl::SetRelativeLanePosition(std::shared_ptr<IRelativeLanePositionWriter> relativeLanePosition)
@@ -36751,6 +38520,8 @@ namespace NET_ASAM_OPENSCENARIO
             _routePosition = {};
             _geoPosition = {};
             _trajectoryPosition = {};
+			// set the indicator to true
+            isSetRelativeLanePosition = true;          
         }
 
         void PositionImpl::SetRoutePosition(std::shared_ptr<IRoutePositionWriter> routePosition)
@@ -36765,6 +38536,8 @@ namespace NET_ASAM_OPENSCENARIO
             _relativeLanePosition = {};
             _geoPosition = {};
             _trajectoryPosition = {};
+			// set the indicator to true
+            isSetRoutePosition = true;          
         }
 
         void PositionImpl::SetGeoPosition(std::shared_ptr<IGeoPositionWriter> geoPosition)
@@ -36779,6 +38552,8 @@ namespace NET_ASAM_OPENSCENARIO
             _relativeLanePosition = {};
             _routePosition = {};
             _trajectoryPosition = {};
+			// set the indicator to true
+            isSetGeoPosition = true;          
         }
 
         void PositionImpl::SetTrajectoryPosition(std::shared_ptr<ITrajectoryPositionWriter> trajectoryPosition)
@@ -36793,6 +38568,8 @@ namespace NET_ASAM_OPENSCENARIO
             _relativeLanePosition = {};
             _routePosition = {};
             _geoPosition = {};
+			// set the indicator to true
+            isSetTrajectoryPosition = true;          
         }
 
         std::shared_ptr<void> PositionImpl::GetAdapter(const std::string classifier)
@@ -37166,6 +38943,106 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+       void PositionImpl::ResetWorldPosition()
+	   {
+	   		isSetWorldPosition = false; 
+			_worldPosition = {};
+			
+	   }
+       bool PositionImpl::IsSetWorldPosition() const
+	   {
+			return isSetWorldPosition;
+	   }
+       void PositionImpl::ResetRelativeWorldPosition()
+	   {
+	   		isSetRelativeWorldPosition = false; 
+			_relativeWorldPosition = {};
+			
+	   }
+       bool PositionImpl::IsSetRelativeWorldPosition() const
+	   {
+			return isSetRelativeWorldPosition;
+	   }
+       void PositionImpl::ResetRelativeObjectPosition()
+	   {
+	   		isSetRelativeObjectPosition = false; 
+			_relativeObjectPosition = {};
+			
+	   }
+       bool PositionImpl::IsSetRelativeObjectPosition() const
+	   {
+			return isSetRelativeObjectPosition;
+	   }
+       void PositionImpl::ResetRoadPosition()
+	   {
+	   		isSetRoadPosition = false; 
+			_roadPosition = {};
+			
+	   }
+       bool PositionImpl::IsSetRoadPosition() const
+	   {
+			return isSetRoadPosition;
+	   }
+       void PositionImpl::ResetRelativeRoadPosition()
+	   {
+	   		isSetRelativeRoadPosition = false; 
+			_relativeRoadPosition = {};
+			
+	   }
+       bool PositionImpl::IsSetRelativeRoadPosition() const
+	   {
+			return isSetRelativeRoadPosition;
+	   }
+       void PositionImpl::ResetLanePosition()
+	   {
+	   		isSetLanePosition = false; 
+			_lanePosition = {};
+			
+	   }
+       bool PositionImpl::IsSetLanePosition() const
+	   {
+			return isSetLanePosition;
+	   }
+       void PositionImpl::ResetRelativeLanePosition()
+	   {
+	   		isSetRelativeLanePosition = false; 
+			_relativeLanePosition = {};
+			
+	   }
+       bool PositionImpl::IsSetRelativeLanePosition() const
+	   {
+			return isSetRelativeLanePosition;
+	   }
+       void PositionImpl::ResetRoutePosition()
+	   {
+	   		isSetRoutePosition = false; 
+			_routePosition = {};
+			
+	   }
+       bool PositionImpl::IsSetRoutePosition() const
+	   {
+			return isSetRoutePosition;
+	   }
+       void PositionImpl::ResetGeoPosition()
+	   {
+	   		isSetGeoPosition = false; 
+			_geoPosition = {};
+			
+	   }
+       bool PositionImpl::IsSetGeoPosition() const
+	   {
+			return isSetGeoPosition;
+	   }
+       void PositionImpl::ResetTrajectoryPosition()
+	   {
+	   		isSetTrajectoryPosition = false; 
+			_trajectoryPosition = {};
+			
+	   }
+       bool PositionImpl::IsSetTrajectoryPosition() const
+	   {
+			return isSetTrajectoryPosition;
+	   }
 
         IOpenScenarioFlexElement* PositionInLaneCoordinatesImpl::GetOpenScenarioFlexElement()
         {
@@ -37195,6 +39072,8 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _laneOffset = laneOffset;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__LANE_OFFSET);
+			// set the indicator to true
+            isSetLaneOffset = true;          
         }
 
         void PositionInLaneCoordinatesImpl::SetPathS(const double pathS)
@@ -37425,6 +39304,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_pathS = GetPathS();
             // clone indicators
+            	clonedObject->isSetLaneOffset = isSetLaneOffset;
             // clone children
             return clonedObject;
         }
@@ -37491,6 +39371,16 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void PositionInLaneCoordinatesImpl::ResetLaneOffset()
+	   {
+	   		isSetLaneOffset = false; 
+			_laneOffset = {0};
+			
+	   }
+       bool PositionInLaneCoordinatesImpl::IsSetLaneOffset() const
+	   {
+			return isSetLaneOffset;
+	   }
 
         IOpenScenarioFlexElement* PositionInRoadCoordinatesImpl::GetOpenScenarioFlexElement()
         {
@@ -38665,6 +40555,8 @@ namespace NET_ASAM_OPENSCENARIO
             _controllerAction = {};
             _teleportAction = {};
             _routingAction = {};
+			// set the indicator to true
+            isSetLongitudinalAction = true;          
         }
 
         void PrivateActionImpl::SetLateralAction(std::shared_ptr<ILateralActionWriter> lateralAction)
@@ -38677,6 +40569,8 @@ namespace NET_ASAM_OPENSCENARIO
             _controllerAction = {};
             _teleportAction = {};
             _routingAction = {};
+			// set the indicator to true
+            isSetLateralAction = true;          
         }
 
         void PrivateActionImpl::SetVisibilityAction(std::shared_ptr<IVisibilityActionWriter> visibilityAction)
@@ -38689,6 +40583,8 @@ namespace NET_ASAM_OPENSCENARIO
             _controllerAction = {};
             _teleportAction = {};
             _routingAction = {};
+			// set the indicator to true
+            isSetVisibilityAction = true;          
         }
 
         void PrivateActionImpl::SetSynchronizeAction(std::shared_ptr<ISynchronizeActionWriter> synchronizeAction)
@@ -38701,6 +40597,8 @@ namespace NET_ASAM_OPENSCENARIO
             _controllerAction = {};
             _teleportAction = {};
             _routingAction = {};
+			// set the indicator to true
+            isSetSynchronizeAction = true;          
         }
 
         void PrivateActionImpl::SetActivateControllerAction(std::shared_ptr<IActivateControllerActionWriter> activateControllerAction)
@@ -38713,6 +40611,8 @@ namespace NET_ASAM_OPENSCENARIO
             _controllerAction = {};
             _teleportAction = {};
             _routingAction = {};
+			// set the indicator to true
+            isSetActivateControllerAction = true;          
         }
 
         void PrivateActionImpl::SetControllerAction(std::shared_ptr<IControllerActionWriter> controllerAction)
@@ -38725,6 +40625,8 @@ namespace NET_ASAM_OPENSCENARIO
             _activateControllerAction = {};
             _teleportAction = {};
             _routingAction = {};
+			// set the indicator to true
+            isSetControllerAction = true;          
         }
 
         void PrivateActionImpl::SetTeleportAction(std::shared_ptr<ITeleportActionWriter> teleportAction)
@@ -38737,6 +40639,8 @@ namespace NET_ASAM_OPENSCENARIO
             _activateControllerAction = {};
             _controllerAction = {};
             _routingAction = {};
+			// set the indicator to true
+            isSetTeleportAction = true;          
         }
 
         void PrivateActionImpl::SetRoutingAction(std::shared_ptr<IRoutingActionWriter> routingAction)
@@ -38749,6 +40653,8 @@ namespace NET_ASAM_OPENSCENARIO
             _activateControllerAction = {};
             _controllerAction = {};
             _teleportAction = {};
+			// set the indicator to true
+            isSetRoutingAction = true;          
         }
 
         std::shared_ptr<void> PrivateActionImpl::GetAdapter(const std::string classifier)
@@ -39078,6 +40984,86 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+       void PrivateActionImpl::ResetLongitudinalAction()
+	   {
+	   		isSetLongitudinalAction = false; 
+			_longitudinalAction = {};
+			
+	   }
+       bool PrivateActionImpl::IsSetLongitudinalAction() const
+	   {
+			return isSetLongitudinalAction;
+	   }
+       void PrivateActionImpl::ResetLateralAction()
+	   {
+	   		isSetLateralAction = false; 
+			_lateralAction = {};
+			
+	   }
+       bool PrivateActionImpl::IsSetLateralAction() const
+	   {
+			return isSetLateralAction;
+	   }
+       void PrivateActionImpl::ResetVisibilityAction()
+	   {
+	   		isSetVisibilityAction = false; 
+			_visibilityAction = {};
+			
+	   }
+       bool PrivateActionImpl::IsSetVisibilityAction() const
+	   {
+			return isSetVisibilityAction;
+	   }
+       void PrivateActionImpl::ResetSynchronizeAction()
+	   {
+	   		isSetSynchronizeAction = false; 
+			_synchronizeAction = {};
+			
+	   }
+       bool PrivateActionImpl::IsSetSynchronizeAction() const
+	   {
+			return isSetSynchronizeAction;
+	   }
+       void PrivateActionImpl::ResetActivateControllerAction()
+	   {
+	   		isSetActivateControllerAction = false; 
+			_activateControllerAction = {};
+			
+	   }
+       bool PrivateActionImpl::IsSetActivateControllerAction() const
+	   {
+			return isSetActivateControllerAction;
+	   }
+       void PrivateActionImpl::ResetControllerAction()
+	   {
+	   		isSetControllerAction = false; 
+			_controllerAction = {};
+			
+	   }
+       bool PrivateActionImpl::IsSetControllerAction() const
+	   {
+			return isSetControllerAction;
+	   }
+       void PrivateActionImpl::ResetTeleportAction()
+	   {
+	   		isSetTeleportAction = false; 
+			_teleportAction = {};
+			
+	   }
+       bool PrivateActionImpl::IsSetTeleportAction() const
+	   {
+			return isSetTeleportAction;
+	   }
+       void PrivateActionImpl::ResetRoutingAction()
+	   {
+	   		isSetRoutingAction = false; 
+			_routingAction = {};
+			
+	   }
+       bool PrivateActionImpl::IsSetRoutingAction() const
+	   {
+			return isSetRoutingAction;
+	   }
 
         IOpenScenarioFlexElement* ProbabilityDistributionSetImpl::GetOpenScenarioFlexElement()
         {
@@ -39629,11 +41615,15 @@ namespace NET_ASAM_OPENSCENARIO
         void PropertiesImpl::SetProperties(std::vector<std::shared_ptr<IPropertyWriter>>& properties)
         {
             _properties = properties;
+			// set the indicator to true
+            isSetProperties = true;          
         }
 
         void PropertiesImpl::SetFiles(std::vector<std::shared_ptr<IFileWriter>>& files)
         {
             _files = files;
+			// set the indicator to true
+            isSetFiles = true;          
         }
 
         std::shared_ptr<void> PropertiesImpl::GetAdapter(const std::string classifier)
@@ -39844,6 +41834,26 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+       void PropertiesImpl::ResetProperties()
+	   {
+	   		isSetProperties = false; 
+			_properties = {};
+			
+	   }
+       bool PropertiesImpl::IsSetProperties() const
+	   {
+			return isSetProperties;
+	   }
+       void PropertiesImpl::ResetFiles()
+	   {
+	   		isSetFiles = false; 
+			_files = {};
+			
+	   }
+       bool PropertiesImpl::IsSetFiles() const
+	   {
+			return isSetFiles;
+	   }
 
         IOpenScenarioFlexElement* PropertyImpl::GetOpenScenarioFlexElement()
         {
@@ -40659,6 +42669,8 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _coordinateSystem = coordinateSystem;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__COORDINATE_SYSTEM);
+			// set the indicator to true
+            isSetCoordinateSystem = true;          
         }
 
         void RelativeDistanceConditionImpl::SetEntityRef(std::shared_ptr<INamedReference<IEntity>> entityRef)
@@ -41054,6 +43066,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_value = GetValue();
             // clone indicators
+            	clonedObject->isSetCoordinateSystem = isSetCoordinateSystem;
             // clone children
             return clonedObject;
         }
@@ -41147,6 +43160,16 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void RelativeDistanceConditionImpl::ResetCoordinateSystem()
+	   {
+	   		isSetCoordinateSystem = false; 
+			_coordinateSystem = {CoordinateSystem::CoordinateSystemEnum::ENTITY};
+			
+	   }
+       bool RelativeDistanceConditionImpl::IsSetCoordinateSystem() const
+	   {
+			return isSetCoordinateSystem;
+	   }
 
         IOpenScenarioFlexElement* RelativeLanePositionImpl::GetOpenScenarioFlexElement()
         {
@@ -41210,11 +43233,15 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _offset = offset;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__OFFSET);
+			// set the indicator to true
+            isSetOffset = true;          
         }
 
         void RelativeLanePositionImpl::SetOrientation(std::shared_ptr<IOrientationWriter> orientation)
         {
             _orientation = orientation;
+			// set the indicator to true
+            isSetOrientation = true;          
         }
 
         std::shared_ptr<void> RelativeLanePositionImpl::GetAdapter(const std::string classifier)
@@ -41529,6 +43556,7 @@ namespace NET_ASAM_OPENSCENARIO
             // clone indicators
             	clonedObject->isSetDs = isSetDs;
             	clonedObject->isSetDsLane = isSetDsLane;
+            	clonedObject->isSetOffset = isSetOffset;
             // clone children
             const auto kOrientation =  GetWriterOrientation();
             if (kOrientation)
@@ -41651,6 +43679,26 @@ namespace NET_ASAM_OPENSCENARIO
 	   {
 			return isSetDsLane;
 	   }
+       void RelativeLanePositionImpl::ResetOffset()
+	   {
+	   		isSetOffset = false; 
+			_offset = {0};
+			
+	   }
+       bool RelativeLanePositionImpl::IsSetOffset() const
+	   {
+			return isSetOffset;
+	   }
+       void RelativeLanePositionImpl::ResetOrientation()
+	   {
+	   		isSetOrientation = false; 
+			_orientation = {};
+			
+	   }
+       bool RelativeLanePositionImpl::IsSetOrientation() const
+	   {
+			return isSetOrientation;
+	   }
 
         IOpenScenarioFlexElement* RelativeObjectPositionImpl::GetOpenScenarioFlexElement()
         {
@@ -41694,6 +43742,8 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _dz = dz;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DZ);
+			// set the indicator to true
+            isSetDz = true;          
         }
 
         void RelativeObjectPositionImpl::SetEntityRef(std::shared_ptr<INamedReference<IEntity>> entityRef)
@@ -41705,6 +43755,8 @@ namespace NET_ASAM_OPENSCENARIO
         void RelativeObjectPositionImpl::SetOrientation(std::shared_ptr<IOrientationWriter> orientation)
         {
             _orientation = orientation;
+			// set the indicator to true
+            isSetOrientation = true;          
         }
 
         std::shared_ptr<void> RelativeObjectPositionImpl::GetAdapter(const std::string classifier)
@@ -41977,6 +44029,7 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->_entityRef = proxy;
             
             // clone indicators
+            	clonedObject->isSetDz = isSetDz;
             // clone children
             const auto kOrientation =  GetWriterOrientation();
             if (kOrientation)
@@ -42069,6 +44122,26 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void RelativeObjectPositionImpl::ResetDz()
+	   {
+	   		isSetDz = false; 
+			_dz = {0};
+			
+	   }
+       bool RelativeObjectPositionImpl::IsSetDz() const
+	   {
+			return isSetDz;
+	   }
+       void RelativeObjectPositionImpl::ResetOrientation()
+	   {
+	   		isSetOrientation = false; 
+			_orientation = {};
+			
+	   }
+       bool RelativeObjectPositionImpl::IsSetOrientation() const
+	   {
+			return isSetOrientation;
+	   }
 
         IOpenScenarioFlexElement* RelativeRoadPositionImpl::GetOpenScenarioFlexElement()
         {
@@ -42113,6 +44186,8 @@ namespace NET_ASAM_OPENSCENARIO
         void RelativeRoadPositionImpl::SetOrientation(std::shared_ptr<IOrientationWriter> orientation)
         {
             _orientation = orientation;
+			// set the indicator to true
+            isSetOrientation = true;          
         }
 
         std::shared_ptr<void> RelativeRoadPositionImpl::GetAdapter(const std::string classifier)
@@ -42436,6 +44511,16 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void RelativeRoadPositionImpl::ResetOrientation()
+	   {
+	   		isSetOrientation = false; 
+			_orientation = {};
+			
+	   }
+       bool RelativeRoadPositionImpl::IsSetOrientation() const
+	   {
+			return isSetOrientation;
+	   }
 
         IOpenScenarioFlexElement* RelativeSpeedConditionImpl::GetOpenScenarioFlexElement()
         {
@@ -42815,6 +44900,8 @@ namespace NET_ASAM_OPENSCENARIO
         void RelativeSpeedToMasterImpl::SetSteadyState(std::shared_ptr<ISteadyStateWriter> steadyState)
         {
             _steadyState = steadyState;
+			// set the indicator to true
+            isSetSteadyState = true;          
         }
 
         std::shared_ptr<void> RelativeSpeedToMasterImpl::GetAdapter(const std::string classifier)
@@ -43094,6 +45181,16 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void RelativeSpeedToMasterImpl::ResetSteadyState()
+	   {
+	   		isSetSteadyState = false; 
+			_steadyState = {};
+			
+	   }
+       bool RelativeSpeedToMasterImpl::IsSetSteadyState() const
+	   {
+			return isSetSteadyState;
+	   }
 
         IOpenScenarioFlexElement* RelativeTargetLaneImpl::GetOpenScenarioFlexElement()
         {
@@ -44104,6 +46201,8 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _dz = dz;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DZ);
+			// set the indicator to true
+            isSetDz = true;          
         }
 
         void RelativeWorldPositionImpl::SetEntityRef(std::shared_ptr<INamedReference<IEntity>> entityRef)
@@ -44115,6 +46214,8 @@ namespace NET_ASAM_OPENSCENARIO
         void RelativeWorldPositionImpl::SetOrientation(std::shared_ptr<IOrientationWriter> orientation)
         {
             _orientation = orientation;
+			// set the indicator to true
+            isSetOrientation = true;          
         }
 
         std::shared_ptr<void> RelativeWorldPositionImpl::GetAdapter(const std::string classifier)
@@ -44387,6 +46488,7 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->_entityRef = proxy;
             
             // clone indicators
+            	clonedObject->isSetDz = isSetDz;
             // clone children
             const auto kOrientation =  GetWriterOrientation();
             if (kOrientation)
@@ -44479,6 +46581,26 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void RelativeWorldPositionImpl::ResetDz()
+	   {
+	   		isSetDz = false; 
+			_dz = {0};
+			
+	   }
+       bool RelativeWorldPositionImpl::IsSetDz() const
+	   {
+			return isSetDz;
+	   }
+       void RelativeWorldPositionImpl::ResetOrientation()
+	   {
+	   		isSetOrientation = false; 
+			_orientation = {};
+			
+	   }
+       bool RelativeWorldPositionImpl::IsSetOrientation() const
+	   {
+			return isSetOrientation;
+	   }
 
         IOpenScenarioFlexElement* RoadConditionImpl::GetOpenScenarioFlexElement()
         {
@@ -44503,6 +46625,8 @@ namespace NET_ASAM_OPENSCENARIO
         void RoadConditionImpl::SetProperties(std::shared_ptr<IPropertiesWriter> properties)
         {
             _properties = properties;
+			// set the indicator to true
+            isSetProperties = true;          
         }
 
         std::shared_ptr<void> RoadConditionImpl::GetAdapter(const std::string classifier)
@@ -44728,6 +46852,16 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void RoadConditionImpl::ResetProperties()
+	   {
+	   		isSetProperties = false; 
+			_properties = {};
+			
+	   }
+       bool RoadConditionImpl::IsSetProperties() const
+	   {
+			return isSetProperties;
+	   }
 
         IOpenScenarioFlexElement* RoadNetworkImpl::GetOpenScenarioFlexElement()
         {
@@ -44775,21 +46909,29 @@ namespace NET_ASAM_OPENSCENARIO
         void RoadNetworkImpl::SetLogicFile(std::shared_ptr<IFileWriter> logicFile)
         {
             _logicFile = logicFile;
+			// set the indicator to true
+            isSetLogicFile = true;          
         }
 
         void RoadNetworkImpl::SetSceneGraphFile(std::shared_ptr<IFileWriter> sceneGraphFile)
         {
             _sceneGraphFile = sceneGraphFile;
+			// set the indicator to true
+            isSetSceneGraphFile = true;          
         }
 
         void RoadNetworkImpl::SetTrafficSignals(std::vector<std::shared_ptr<ITrafficSignalControllerWriter>>& trafficSignals)
         {
             _trafficSignals = trafficSignals;
+			// set the indicator to true
+            isSetTrafficSignals = true;          
         }
 
         void RoadNetworkImpl::SetUsedArea(std::shared_ptr<IUsedAreaWriter> usedArea)
         {
             _usedArea = usedArea;
+			// set the indicator to true
+            isSetUsedArea = true;          
         }
 
         std::shared_ptr<void> RoadNetworkImpl::GetAdapter(const std::string classifier)
@@ -45041,6 +47183,46 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+       void RoadNetworkImpl::ResetLogicFile()
+	   {
+	   		isSetLogicFile = false; 
+			_logicFile = {};
+			
+	   }
+       bool RoadNetworkImpl::IsSetLogicFile() const
+	   {
+			return isSetLogicFile;
+	   }
+       void RoadNetworkImpl::ResetSceneGraphFile()
+	   {
+	   		isSetSceneGraphFile = false; 
+			_sceneGraphFile = {};
+			
+	   }
+       bool RoadNetworkImpl::IsSetSceneGraphFile() const
+	   {
+			return isSetSceneGraphFile;
+	   }
+       void RoadNetworkImpl::ResetTrafficSignals()
+	   {
+	   		isSetTrafficSignals = false; 
+			_trafficSignals = {};
+			
+	   }
+       bool RoadNetworkImpl::IsSetTrafficSignals() const
+	   {
+			return isSetTrafficSignals;
+	   }
+       void RoadNetworkImpl::ResetUsedArea()
+	   {
+	   		isSetUsedArea = false; 
+			_usedArea = {};
+			
+	   }
+       bool RoadNetworkImpl::IsSetUsedArea() const
+	   {
+			return isSetUsedArea;
+	   }
 
         IOpenScenarioFlexElement* RoadPositionImpl::GetOpenScenarioFlexElement()
         {
@@ -45085,6 +47267,8 @@ namespace NET_ASAM_OPENSCENARIO
         void RoadPositionImpl::SetOrientation(std::shared_ptr<IOrientationWriter> orientation)
         {
             _orientation = orientation;
+			// set the indicator to true
+            isSetOrientation = true;          
         }
 
         std::shared_ptr<void> RoadPositionImpl::GetAdapter(const std::string classifier)
@@ -45401,6 +47585,16 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void RoadPositionImpl::ResetOrientation()
+	   {
+	   		isSetOrientation = false; 
+			_orientation = {};
+			
+	   }
+       bool RoadPositionImpl::IsSetOrientation() const
+	   {
+			return isSetOrientation;
+	   }
 
         IOpenScenarioFlexElement* RouteImpl::GetOpenScenarioFlexElement()
         {
@@ -45481,6 +47675,8 @@ namespace NET_ASAM_OPENSCENARIO
         void RouteImpl::SetParameterDeclarations(std::vector<std::shared_ptr<IParameterDeclarationWriter>>& parameterDeclarations)
         {
             _parameterDeclarations = parameterDeclarations;
+			// set the indicator to true
+            isSetParameterDeclarations = true;          
         }
 
         void RouteImpl::SetWaypoints(std::vector<std::shared_ptr<IWaypointWriter>>& waypoints)
@@ -45815,6 +48011,16 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void RouteImpl::ResetParameterDeclarations()
+	   {
+	   		isSetParameterDeclarations = false; 
+			_parameterDeclarations = {};
+			
+	   }
+       bool RouteImpl::IsSetParameterDeclarations() const
+	   {
+			return isSetParameterDeclarations;
+	   }
 
         IOpenScenarioFlexElement* RouteCatalogLocationImpl::GetOpenScenarioFlexElement()
         {
@@ -46031,6 +48237,8 @@ namespace NET_ASAM_OPENSCENARIO
         void RoutePositionImpl::SetOrientation(std::shared_ptr<IOrientationWriter> orientation)
         {
             _orientation = orientation;
+			// set the indicator to true
+            isSetOrientation = true;          
         }
 
         void RoutePositionImpl::SetInRoutePosition(std::shared_ptr<IInRoutePositionWriter> inRoutePosition)
@@ -46255,6 +48463,16 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+       void RoutePositionImpl::ResetOrientation()
+	   {
+	   		isSetOrientation = false; 
+			_orientation = {};
+			
+	   }
+       bool RoutePositionImpl::IsSetOrientation() const
+	   {
+			return isSetOrientation;
+	   }
 
         IOpenScenarioFlexElement* RouteRefImpl::GetOpenScenarioFlexElement()
         {
@@ -46274,12 +48492,16 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _route = route;
             _catalogReference = {};
+			// set the indicator to true
+            isSetRoute = true;          
         }
 
         void RouteRefImpl::SetCatalogReference(std::shared_ptr<ICatalogReferenceWriter> catalogReference)
         {
             _catalogReference = catalogReference;
             _route = {};
+			// set the indicator to true
+            isSetCatalogReference = true;          
         }
 
         std::shared_ptr<void> RouteRefImpl::GetAdapter(const std::string classifier)
@@ -46477,6 +48699,26 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+       void RouteRefImpl::ResetRoute()
+	   {
+	   		isSetRoute = false; 
+			_route = {};
+			
+	   }
+       bool RouteRefImpl::IsSetRoute() const
+	   {
+			return isSetRoute;
+	   }
+       void RouteRefImpl::ResetCatalogReference()
+	   {
+	   		isSetCatalogReference = false; 
+			_catalogReference = {};
+			
+	   }
+       bool RouteRefImpl::IsSetCatalogReference() const
+	   {
+			return isSetCatalogReference;
+	   }
 
         IOpenScenarioFlexElement* RoutingActionImpl::GetOpenScenarioFlexElement()
         {
@@ -46501,6 +48743,8 @@ namespace NET_ASAM_OPENSCENARIO
             _assignRouteAction = assignRouteAction;
             _followTrajectoryAction = {};
             _acquirePositionAction = {};
+			// set the indicator to true
+            isSetAssignRouteAction = true;          
         }
 
         void RoutingActionImpl::SetFollowTrajectoryAction(std::shared_ptr<IFollowTrajectoryActionWriter> followTrajectoryAction)
@@ -46508,6 +48752,8 @@ namespace NET_ASAM_OPENSCENARIO
             _followTrajectoryAction = followTrajectoryAction;
             _assignRouteAction = {};
             _acquirePositionAction = {};
+			// set the indicator to true
+            isSetFollowTrajectoryAction = true;          
         }
 
         void RoutingActionImpl::SetAcquirePositionAction(std::shared_ptr<IAcquirePositionActionWriter> acquirePositionAction)
@@ -46515,6 +48761,8 @@ namespace NET_ASAM_OPENSCENARIO
             _acquirePositionAction = acquirePositionAction;
             _assignRouteAction = {};
             _followTrajectoryAction = {};
+			// set the indicator to true
+            isSetAcquirePositionAction = true;          
         }
 
         std::shared_ptr<void> RoutingActionImpl::GetAdapter(const std::string classifier)
@@ -46734,6 +48982,36 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+       void RoutingActionImpl::ResetAssignRouteAction()
+	   {
+	   		isSetAssignRouteAction = false; 
+			_assignRouteAction = {};
+			
+	   }
+       bool RoutingActionImpl::IsSetAssignRouteAction() const
+	   {
+			return isSetAssignRouteAction;
+	   }
+       void RoutingActionImpl::ResetFollowTrajectoryAction()
+	   {
+	   		isSetFollowTrajectoryAction = false; 
+			_followTrajectoryAction = {};
+			
+	   }
+       bool RoutingActionImpl::IsSetFollowTrajectoryAction() const
+	   {
+			return isSetFollowTrajectoryAction;
+	   }
+       void RoutingActionImpl::ResetAcquirePositionAction()
+	   {
+	   		isSetAcquirePositionAction = false; 
+			_acquirePositionAction = {};
+			
+	   }
+       bool RoutingActionImpl::IsSetAcquirePositionAction() const
+	   {
+			return isSetAcquirePositionAction;
+	   }
 
         IOpenScenarioFlexElement* ScenarioDefinitionImpl::GetOpenScenarioFlexElement()
         {
@@ -46785,6 +49063,8 @@ namespace NET_ASAM_OPENSCENARIO
         void ScenarioDefinitionImpl::SetParameterDeclarations(std::vector<std::shared_ptr<IParameterDeclarationWriter>>& parameterDeclarations)
         {
             _parameterDeclarations = parameterDeclarations;
+			// set the indicator to true
+            isSetParameterDeclarations = true;          
         }
 
         void ScenarioDefinitionImpl::SetCatalogLocations(std::shared_ptr<ICatalogLocationsWriter> catalogLocations)
@@ -47098,6 +49378,16 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+       void ScenarioDefinitionImpl::ResetParameterDeclarations()
+	   {
+	   		isSetParameterDeclarations = false; 
+			_parameterDeclarations = {};
+			
+	   }
+       bool ScenarioDefinitionImpl::IsSetParameterDeclarations() const
+	   {
+			return isSetParameterDeclarations;
+	   }
 
         IOpenScenarioFlexElement* ScenarioObjectImpl::GetOpenScenarioFlexElement()
         {
@@ -47131,6 +49421,8 @@ namespace NET_ASAM_OPENSCENARIO
         void ScenarioObjectImpl::SetObjectController(std::shared_ptr<IObjectControllerWriter> objectController)
         {
             _objectController = objectController;
+			// set the indicator to true
+            isSetObjectController = true;          
         }
 
         std::shared_ptr<void> ScenarioObjectImpl::GetAdapter(const std::string classifier)
@@ -47378,6 +49670,16 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void ScenarioObjectImpl::ResetObjectController()
+	   {
+	   		isSetObjectController = false; 
+			_objectController = {};
+			
+	   }
+       bool ScenarioObjectImpl::IsSetObjectController() const
+	   {
+			return isSetObjectController;
+	   }
 
         IOpenScenarioFlexElement* SelectedEntitiesImpl::GetOpenScenarioFlexElement()
         {
@@ -47439,12 +49741,16 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _entityRef = entityRef;
             _byType = {};
+			// set the indicator to true
+            isSetEntityRef = true;          
         }
 
         void SelectedEntitiesImpl::SetByType(std::vector<std::shared_ptr<IByTypeWriter>>& byType)
         {
             _byType = byType;
             _entityRef = {};
+			// set the indicator to true
+            isSetByType = true;          
         }
 
         std::shared_ptr<void> SelectedEntitiesImpl::GetAdapter(const std::string classifier)
@@ -47655,6 +49961,26 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+       void SelectedEntitiesImpl::ResetEntityRef()
+	   {
+	   		isSetEntityRef = false; 
+			_entityRef = {};
+			
+	   }
+       bool SelectedEntitiesImpl::IsSetEntityRef() const
+	   {
+			return isSetEntityRef;
+	   }
+       void SelectedEntitiesImpl::ResetByType()
+	   {
+	   		isSetByType = false; 
+			_byType = {};
+			
+	   }
+       bool SelectedEntitiesImpl::IsSetByType() const
+	   {
+			return isSetByType;
+	   }
 
         IOpenScenarioFlexElement* ShapeImpl::GetOpenScenarioFlexElement()
         {
@@ -47679,6 +50005,8 @@ namespace NET_ASAM_OPENSCENARIO
             _polyline = polyline;
             _clothoid = {};
             _nurbs = {};
+			// set the indicator to true
+            isSetPolyline = true;          
         }
 
         void ShapeImpl::SetClothoid(std::shared_ptr<IClothoidWriter> clothoid)
@@ -47686,6 +50014,8 @@ namespace NET_ASAM_OPENSCENARIO
             _clothoid = clothoid;
             _polyline = {};
             _nurbs = {};
+			// set the indicator to true
+            isSetClothoid = true;          
         }
 
         void ShapeImpl::SetNurbs(std::shared_ptr<INurbsWriter> nurbs)
@@ -47693,6 +50023,8 @@ namespace NET_ASAM_OPENSCENARIO
             _nurbs = nurbs;
             _polyline = {};
             _clothoid = {};
+			// set the indicator to true
+            isSetNurbs = true;          
         }
 
         std::shared_ptr<void> ShapeImpl::GetAdapter(const std::string classifier)
@@ -47912,6 +50244,36 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+       void ShapeImpl::ResetPolyline()
+	   {
+	   		isSetPolyline = false; 
+			_polyline = {};
+			
+	   }
+       bool ShapeImpl::IsSetPolyline() const
+	   {
+			return isSetPolyline;
+	   }
+       void ShapeImpl::ResetClothoid()
+	   {
+	   		isSetClothoid = false; 
+			_clothoid = {};
+			
+	   }
+       bool ShapeImpl::IsSetClothoid() const
+	   {
+			return isSetClothoid;
+	   }
+       void ShapeImpl::ResetNurbs()
+	   {
+	   		isSetNurbs = false; 
+			_nurbs = {};
+			
+	   }
+       bool ShapeImpl::IsSetNurbs() const
+	   {
+			return isSetNurbs;
+	   }
 
         IOpenScenarioFlexElement* SimulationTimeConditionImpl::GetOpenScenarioFlexElement()
         {
@@ -48429,12 +50791,16 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _relativeTargetSpeed = relativeTargetSpeed;
             _absoluteTargetSpeed = {};
+			// set the indicator to true
+            isSetRelativeTargetSpeed = true;          
         }
 
         void SpeedActionTargetImpl::SetAbsoluteTargetSpeed(std::shared_ptr<IAbsoluteTargetSpeedWriter> absoluteTargetSpeed)
         {
             _absoluteTargetSpeed = absoluteTargetSpeed;
             _relativeTargetSpeed = {};
+			// set the indicator to true
+            isSetAbsoluteTargetSpeed = true;          
         }
 
         std::shared_ptr<void> SpeedActionTargetImpl::GetAdapter(const std::string classifier)
@@ -48632,6 +50998,26 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+       void SpeedActionTargetImpl::ResetRelativeTargetSpeed()
+	   {
+	   		isSetRelativeTargetSpeed = false; 
+			_relativeTargetSpeed = {};
+			
+	   }
+       bool SpeedActionTargetImpl::IsSetRelativeTargetSpeed() const
+	   {
+			return isSetRelativeTargetSpeed;
+	   }
+       void SpeedActionTargetImpl::ResetAbsoluteTargetSpeed()
+	   {
+	   		isSetAbsoluteTargetSpeed = false; 
+			_absoluteTargetSpeed = {};
+			
+	   }
+       bool SpeedActionTargetImpl::IsSetAbsoluteTargetSpeed() const
+	   {
+			return isSetAbsoluteTargetSpeed;
+	   }
 
         IOpenScenarioFlexElement* SpeedConditionImpl::GetOpenScenarioFlexElement()
         {
@@ -50389,6 +52775,8 @@ namespace NET_ASAM_OPENSCENARIO
         void StoryImpl::SetParameterDeclarations(std::vector<std::shared_ptr<IParameterDeclarationWriter>>& parameterDeclarations)
         {
             _parameterDeclarations = parameterDeclarations;
+			// set the indicator to true
+            isSetParameterDeclarations = true;          
         }
 
         void StoryImpl::SetActs(std::vector<std::shared_ptr<IActWriter>>& acts)
@@ -50673,6 +53061,16 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void StoryImpl::ResetParameterDeclarations()
+	   {
+	   		isSetParameterDeclarations = false; 
+			_parameterDeclarations = {};
+			
+	   }
+       bool StoryImpl::IsSetParameterDeclarations() const
+	   {
+			return isSetParameterDeclarations;
+	   }
 
         IOpenScenarioFlexElement* StoryboardImpl::GetOpenScenarioFlexElement()
         {
@@ -51682,6 +54080,8 @@ namespace NET_ASAM_OPENSCENARIO
         void SynchronizeActionImpl::SetFinalSpeed(std::shared_ptr<IFinalSpeedWriter> finalSpeed)
         {
             _finalSpeed = finalSpeed;
+			// set the indicator to true
+            isSetFinalSpeed = true;          
         }
 
         std::shared_ptr<void> SynchronizeActionImpl::GetAdapter(const std::string classifier)
@@ -52070,6 +54470,16 @@ namespace NET_ASAM_OPENSCENARIO
        bool SynchronizeActionImpl::IsSetTargetToleranceMaster() const
 	   {
 			return isSetTargetToleranceMaster;
+	   }
+       void SynchronizeActionImpl::ResetFinalSpeed()
+	   {
+	   		isSetFinalSpeed = false; 
+			_finalSpeed = {};
+			
+	   }
+       bool SynchronizeActionImpl::IsSetFinalSpeed() const
+	   {
+			return isSetFinalSpeed;
 	   }
 
         IOpenScenarioFlexElement* TargetDistanceSteadyStateImpl::GetOpenScenarioFlexElement()
@@ -52735,6 +55145,8 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _coordinateSystem = coordinateSystem;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__COORDINATE_SYSTEM);
+			// set the indicator to true
+            isSetCoordinateSystem = true;          
         }
 
         void TimeHeadwayConditionImpl::SetEntityRef(std::shared_ptr<INamedReference<IEntity>> entityRef)
@@ -52753,6 +55165,8 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _relativeDistanceType = relativeDistanceType;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RELATIVE_DISTANCE_TYPE);
+			// set the indicator to true
+            isSetRelativeDistanceType = true;          
         }
 
         void TimeHeadwayConditionImpl::SetRule(const Rule rule)
@@ -53166,6 +55580,8 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->_value = GetValue();
             // clone indicators
             	clonedObject->isSetAlongRoute = isSetAlongRoute;
+            	clonedObject->isSetCoordinateSystem = isSetCoordinateSystem;
+            	clonedObject->isSetRelativeDistanceType = isSetRelativeDistanceType;
             // clone children
             return clonedObject;
         }
@@ -53274,6 +55690,26 @@ namespace NET_ASAM_OPENSCENARIO
        bool TimeHeadwayConditionImpl::IsSetAlongRoute() const
 	   {
 			return isSetAlongRoute;
+	   }
+       void TimeHeadwayConditionImpl::ResetCoordinateSystem()
+	   {
+	   		isSetCoordinateSystem = false; 
+			_coordinateSystem = {CoordinateSystem::CoordinateSystemEnum::ENTITY};
+			
+	   }
+       bool TimeHeadwayConditionImpl::IsSetCoordinateSystem() const
+	   {
+			return isSetCoordinateSystem;
+	   }
+       void TimeHeadwayConditionImpl::ResetRelativeDistanceType()
+	   {
+	   		isSetRelativeDistanceType = false; 
+			_relativeDistanceType = {RelativeDistanceType::RelativeDistanceTypeEnum::EUCLIDIAN_DISTANCE};
+			
+	   }
+       bool TimeHeadwayConditionImpl::IsSetRelativeDistanceType() const
+	   {
+			return isSetRelativeDistanceType;
 	   }
 
         IOpenScenarioFlexElement* TimeOfDayImpl::GetOpenScenarioFlexElement()
@@ -53846,12 +56282,16 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _none = none;
             _timing = {};
+			// set the indicator to true
+            isSetNone = true;          
         }
 
         void TimeReferenceImpl::SetTiming(std::shared_ptr<ITimingWriter> timing)
         {
             _timing = timing;
             _none = {};
+			// set the indicator to true
+            isSetTiming = true;          
         }
 
         std::shared_ptr<void> TimeReferenceImpl::GetAdapter(const std::string classifier)
@@ -54049,6 +56489,26 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+       void TimeReferenceImpl::ResetNone()
+	   {
+	   		isSetNone = false; 
+			_none = {};
+			
+	   }
+       bool TimeReferenceImpl::IsSetNone() const
+	   {
+			return isSetNone;
+	   }
+       void TimeReferenceImpl::ResetTiming()
+	   {
+	   		isSetTiming = false; 
+			_timing = {};
+			
+	   }
+       bool TimeReferenceImpl::IsSetTiming() const
+	   {
+			return isSetTiming;
+	   }
 
         IOpenScenarioFlexElement* TimeToCollisionConditionImpl::GetOpenScenarioFlexElement()
         {
@@ -54096,6 +56556,8 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _coordinateSystem = coordinateSystem;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__COORDINATE_SYSTEM);
+			// set the indicator to true
+            isSetCoordinateSystem = true;          
         }
 
         void TimeToCollisionConditionImpl::SetFreespace(const bool freespace)
@@ -54108,6 +56570,8 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _relativeDistanceType = relativeDistanceType;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RELATIVE_DISTANCE_TYPE);
+			// set the indicator to true
+            isSetRelativeDistanceType = true;          
         }
 
         void TimeToCollisionConditionImpl::SetRule(const Rule rule)
@@ -54500,6 +56964,8 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->_value = GetValue();
             // clone indicators
             	clonedObject->isSetAlongRoute = isSetAlongRoute;
+            	clonedObject->isSetCoordinateSystem = isSetCoordinateSystem;
+            	clonedObject->isSetRelativeDistanceType = isSetRelativeDistanceType;
             // clone children
             const auto kTimeToCollisionConditionTarget =  GetWriterTimeToCollisionConditionTarget();
             if (kTimeToCollisionConditionTarget)
@@ -54604,6 +57070,26 @@ namespace NET_ASAM_OPENSCENARIO
 	   {
 			return isSetAlongRoute;
 	   }
+       void TimeToCollisionConditionImpl::ResetCoordinateSystem()
+	   {
+	   		isSetCoordinateSystem = false; 
+			_coordinateSystem = {CoordinateSystem::CoordinateSystemEnum::ENTITY};
+			
+	   }
+       bool TimeToCollisionConditionImpl::IsSetCoordinateSystem() const
+	   {
+			return isSetCoordinateSystem;
+	   }
+       void TimeToCollisionConditionImpl::ResetRelativeDistanceType()
+	   {
+	   		isSetRelativeDistanceType = false; 
+			_relativeDistanceType = {RelativeDistanceType::RelativeDistanceTypeEnum::EUCLIDIAN_DISTANCE};
+			
+	   }
+       bool TimeToCollisionConditionImpl::IsSetRelativeDistanceType() const
+	   {
+			return isSetRelativeDistanceType;
+	   }
 
         IOpenScenarioFlexElement* TimeToCollisionConditionTargetImpl::GetOpenScenarioFlexElement()
         {
@@ -54623,12 +57109,16 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _position = position;
             _entityRef = {};
+			// set the indicator to true
+            isSetPosition = true;          
         }
 
         void TimeToCollisionConditionTargetImpl::SetEntityRef(std::shared_ptr<IEntityRefWriter> entityRef)
         {
             _entityRef = entityRef;
             _position = {};
+			// set the indicator to true
+            isSetEntityRef = true;          
         }
 
         std::shared_ptr<void> TimeToCollisionConditionTargetImpl::GetAdapter(const std::string classifier)
@@ -54826,6 +57316,26 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+       void TimeToCollisionConditionTargetImpl::ResetPosition()
+	   {
+	   		isSetPosition = false; 
+			_position = {};
+			
+	   }
+       bool TimeToCollisionConditionTargetImpl::IsSetPosition() const
+	   {
+			return isSetPosition;
+	   }
+       void TimeToCollisionConditionTargetImpl::ResetEntityRef()
+	   {
+	   		isSetEntityRef = false; 
+			_entityRef = {};
+			
+	   }
+       bool TimeToCollisionConditionTargetImpl::IsSetEntityRef() const
+	   {
+			return isSetEntityRef;
+	   }
 
         IOpenScenarioFlexElement* TimingImpl::GetOpenScenarioFlexElement()
         {
@@ -55196,6 +57706,8 @@ namespace NET_ASAM_OPENSCENARIO
             _trafficSinkAction = {};
             _trafficSwarmAction = {};
             _trafficStopAction = {};
+			// set the indicator to true
+            isSetTrafficSourceAction = true;          
         }
 
         void TrafficActionImpl::SetTrafficSinkAction(std::shared_ptr<ITrafficSinkActionWriter> trafficSinkAction)
@@ -55204,6 +57716,8 @@ namespace NET_ASAM_OPENSCENARIO
             _trafficSourceAction = {};
             _trafficSwarmAction = {};
             _trafficStopAction = {};
+			// set the indicator to true
+            isSetTrafficSinkAction = true;          
         }
 
         void TrafficActionImpl::SetTrafficSwarmAction(std::shared_ptr<ITrafficSwarmActionWriter> trafficSwarmAction)
@@ -55212,6 +57726,8 @@ namespace NET_ASAM_OPENSCENARIO
             _trafficSourceAction = {};
             _trafficSinkAction = {};
             _trafficStopAction = {};
+			// set the indicator to true
+            isSetTrafficSwarmAction = true;          
         }
 
         void TrafficActionImpl::SetTrafficStopAction(std::shared_ptr<ITrafficStopActionWriter> trafficStopAction)
@@ -55220,6 +57736,8 @@ namespace NET_ASAM_OPENSCENARIO
             _trafficSourceAction = {};
             _trafficSinkAction = {};
             _trafficSwarmAction = {};
+			// set the indicator to true
+            isSetTrafficStopAction = true;          
         }
 
         std::shared_ptr<void> TrafficActionImpl::GetAdapter(const std::string classifier)
@@ -55522,6 +58040,46 @@ namespace NET_ASAM_OPENSCENARIO
 	   {
 			return isSetTrafficName;
 	   }
+       void TrafficActionImpl::ResetTrafficSourceAction()
+	   {
+	   		isSetTrafficSourceAction = false; 
+			_trafficSourceAction = {};
+			
+	   }
+       bool TrafficActionImpl::IsSetTrafficSourceAction() const
+	   {
+			return isSetTrafficSourceAction;
+	   }
+       void TrafficActionImpl::ResetTrafficSinkAction()
+	   {
+	   		isSetTrafficSinkAction = false; 
+			_trafficSinkAction = {};
+			
+	   }
+       bool TrafficActionImpl::IsSetTrafficSinkAction() const
+	   {
+			return isSetTrafficSinkAction;
+	   }
+       void TrafficActionImpl::ResetTrafficSwarmAction()
+	   {
+	   		isSetTrafficSwarmAction = false; 
+			_trafficSwarmAction = {};
+			
+	   }
+       bool TrafficActionImpl::IsSetTrafficSwarmAction() const
+	   {
+			return isSetTrafficSwarmAction;
+	   }
+       void TrafficActionImpl::ResetTrafficStopAction()
+	   {
+	   		isSetTrafficStopAction = false; 
+			_trafficStopAction = {};
+			
+	   }
+       bool TrafficActionImpl::IsSetTrafficStopAction() const
+	   {
+			return isSetTrafficStopAction;
+	   }
 
         IOpenScenarioFlexElement* TrafficDefinitionImpl::GetOpenScenarioFlexElement()
         {
@@ -55821,12 +58379,16 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _trafficSignalControllerAction = trafficSignalControllerAction;
             _trafficSignalStateAction = {};
+			// set the indicator to true
+            isSetTrafficSignalControllerAction = true;          
         }
 
         void TrafficSignalActionImpl::SetTrafficSignalStateAction(std::shared_ptr<ITrafficSignalStateActionWriter> trafficSignalStateAction)
         {
             _trafficSignalStateAction = trafficSignalStateAction;
             _trafficSignalControllerAction = {};
+			// set the indicator to true
+            isSetTrafficSignalStateAction = true;          
         }
 
         std::shared_ptr<void> TrafficSignalActionImpl::GetAdapter(const std::string classifier)
@@ -56024,6 +58586,26 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+       void TrafficSignalActionImpl::ResetTrafficSignalControllerAction()
+	   {
+	   		isSetTrafficSignalControllerAction = false; 
+			_trafficSignalControllerAction = {};
+			
+	   }
+       bool TrafficSignalActionImpl::IsSetTrafficSignalControllerAction() const
+	   {
+			return isSetTrafficSignalControllerAction;
+	   }
+       void TrafficSignalActionImpl::ResetTrafficSignalStateAction()
+	   {
+	   		isSetTrafficSignalStateAction = false; 
+			_trafficSignalStateAction = {};
+			
+	   }
+       bool TrafficSignalActionImpl::IsSetTrafficSignalStateAction() const
+	   {
+			return isSetTrafficSignalStateAction;
+	   }
 
         IOpenScenarioFlexElement* TrafficSignalConditionImpl::GetOpenScenarioFlexElement()
         {
@@ -56338,6 +58920,8 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _delay = delay;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DELAY);
+			// set the indicator to true
+            isSetDelay = true;          
         }
 
         void TrafficSignalControllerImpl::SetName(const std::string name)
@@ -56357,6 +58941,8 @@ namespace NET_ASAM_OPENSCENARIO
         void TrafficSignalControllerImpl::SetPhases(std::vector<std::shared_ptr<IPhaseWriter>>& phases)
         {
             _phases = phases;
+			// set the indicator to true
+            isSetPhases = true;          
         }
 
         std::shared_ptr<void> TrafficSignalControllerImpl::GetAdapter(const std::string classifier)
@@ -56585,6 +59171,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_reference = GetReference();
             // clone indicators
+            	clonedObject->isSetDelay = isSetDelay;
             	clonedObject->isSetReference = isSetReference;
             // clone children
             const auto kPhases =  GetWriterPhases();
@@ -56682,6 +59269,16 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void TrafficSignalControllerImpl::ResetDelay()
+	   {
+	   		isSetDelay = false; 
+			_delay = {0};
+			
+	   }
+       bool TrafficSignalControllerImpl::IsSetDelay() const
+	   {
+			return isSetDelay;
+	   }
        void TrafficSignalControllerImpl::ResetReference()
 	   {
 	   		isSetReference = false; 
@@ -56691,6 +59288,16 @@ namespace NET_ASAM_OPENSCENARIO
        bool TrafficSignalControllerImpl::IsSetReference() const
 	   {
 			return isSetReference;
+	   }
+       void TrafficSignalControllerImpl::ResetPhases()
+	   {
+	   		isSetPhases = false; 
+			_phases = {};
+			
+	   }
+       bool TrafficSignalControllerImpl::IsSetPhases() const
+	   {
+			return isSetPhases;
 	   }
 
         IOpenScenarioFlexElement* TrafficSignalControllerActionImpl::GetOpenScenarioFlexElement()
@@ -56743,6 +59350,8 @@ namespace NET_ASAM_OPENSCENARIO
         void TrafficSignalControllerActionImpl::SetPhaseRef(std::vector<std::shared_ptr<IPhase>>& phaseRef)
         {
             _phaseRef = phaseRef;
+			// set the indicator to true
+            isSetPhaseRef = true;          
         }
 
         std::shared_ptr<void> TrafficSignalControllerActionImpl::GetAdapter(const std::string classifier)
@@ -56995,6 +59604,16 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void TrafficSignalControllerActionImpl::ResetPhaseRef()
+	   {
+	   		isSetPhaseRef = false; 
+			_phaseRef = {};
+			
+	   }
+       bool TrafficSignalControllerActionImpl::IsSetPhaseRef() const
+	   {
+			return isSetPhaseRef;
+	   }
 
         IOpenScenarioFlexElement* TrafficSignalControllerConditionImpl::GetOpenScenarioFlexElement()
         {
@@ -57046,6 +59665,8 @@ namespace NET_ASAM_OPENSCENARIO
         void TrafficSignalControllerConditionImpl::SetPhaseRef(std::vector<std::shared_ptr<IPhase>>& phaseRef)
         {
             _phaseRef = phaseRef;
+			// set the indicator to true
+            isSetPhaseRef = true;          
         }
 
         std::shared_ptr<void> TrafficSignalControllerConditionImpl::GetAdapter(const std::string classifier)
@@ -57298,6 +59919,16 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void TrafficSignalControllerConditionImpl::ResetPhaseRef()
+	   {
+	   		isSetPhaseRef = false; 
+			_phaseRef = {};
+			
+	   }
+       bool TrafficSignalControllerConditionImpl::IsSetPhaseRef() const
+	   {
+			return isSetPhaseRef;
+	   }
 
         IOpenScenarioFlexElement* TrafficSignalStateImpl::GetOpenScenarioFlexElement()
         {
@@ -57875,6 +60506,8 @@ namespace NET_ASAM_OPENSCENARIO
         void TrafficSinkActionImpl::SetTrafficDefinition(std::shared_ptr<ITrafficDefinitionWriter> trafficDefinition)
         {
             _trafficDefinition = trafficDefinition;
+			// set the indicator to true
+            isSetTrafficDefinition = true;          
         }
 
         std::shared_ptr<void> TrafficSinkActionImpl::GetAdapter(const std::string classifier)
@@ -58174,6 +60807,16 @@ namespace NET_ASAM_OPENSCENARIO
 	   {
 			return isSetRate;
 	   }
+       void TrafficSinkActionImpl::ResetTrafficDefinition()
+	   {
+	   		isSetTrafficDefinition = false; 
+			_trafficDefinition = {};
+			
+	   }
+       bool TrafficSinkActionImpl::IsSetTrafficDefinition() const
+	   {
+			return isSetTrafficDefinition;
+	   }
 
         IOpenScenarioFlexElement* TrafficSourceActionImpl::GetOpenScenarioFlexElement()
         {
@@ -58217,6 +60860,8 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _velocity = velocity;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VELOCITY);
+			// set the indicator to true
+            isSetVelocity = true;          
         }
 
         void TrafficSourceActionImpl::SetPosition(std::shared_ptr<IPositionWriter> position)
@@ -58473,6 +61118,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_velocity = GetVelocity();
             // clone indicators
+            	clonedObject->isSetVelocity = isSetVelocity;
             // clone children
             const auto kPosition =  GetWriterPosition();
             if (kPosition)
@@ -58556,6 +61202,16 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void TrafficSourceActionImpl::ResetVelocity()
+	   {
+	   		isSetVelocity = false; 
+			_velocity = {0};
+			
+	   }
+       bool TrafficSourceActionImpl::IsSetVelocity() const
+	   {
+			return isSetVelocity;
+	   }
 
         IOpenScenarioFlexElement* TrafficStopActionImpl::GetOpenScenarioFlexElement()
         {
@@ -58783,6 +61439,8 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _velocity = velocity;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VELOCITY);
+			// set the indicator to true
+            isSetVelocity = true;          
         }
 
         void TrafficSwarmActionImpl::SetCentralObject(std::shared_ptr<ICentralSwarmObjectWriter> centralObject)
@@ -59149,6 +61807,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_velocity = GetVelocity();
             // clone indicators
+            	clonedObject->isSetVelocity = isSetVelocity;
             // clone children
             const auto kCentralObject =  GetWriterCentralObject();
             if (kCentralObject)
@@ -59254,6 +61913,16 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void TrafficSwarmActionImpl::ResetVelocity()
+	   {
+	   		isSetVelocity = false; 
+			_velocity = {0};
+			
+	   }
+       bool TrafficSwarmActionImpl::IsSetVelocity() const
+	   {
+			return isSetVelocity;
+	   }
 
         IOpenScenarioFlexElement* TrajectoryImpl::GetOpenScenarioFlexElement()
         {
@@ -59313,6 +61982,8 @@ namespace NET_ASAM_OPENSCENARIO
         void TrajectoryImpl::SetParameterDeclarations(std::vector<std::shared_ptr<IParameterDeclarationWriter>>& parameterDeclarations)
         {
             _parameterDeclarations = parameterDeclarations;
+			// set the indicator to true
+            isSetParameterDeclarations = true;          
         }
 
         void TrajectoryImpl::SetShape(std::shared_ptr<IShapeWriter> shape)
@@ -59645,6 +62316,16 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void TrajectoryImpl::ResetParameterDeclarations()
+	   {
+	   		isSetParameterDeclarations = false; 
+			_parameterDeclarations = {};
+			
+	   }
+       bool TrajectoryImpl::IsSetParameterDeclarations() const
+	   {
+			return isSetParameterDeclarations;
+	   }
 
         IOpenScenarioFlexElement* TrajectoryCatalogLocationImpl::GetOpenScenarioFlexElement()
         {
@@ -60085,11 +62766,15 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _t = t;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__T);
+			// set the indicator to true
+            isSetT = true;          
         }
 
         void TrajectoryPositionImpl::SetOrientation(std::shared_ptr<IOrientationWriter> orientation)
         {
             _orientation = orientation;
+			// set the indicator to true
+            isSetOrientation = true;          
         }
 
         void TrajectoryPositionImpl::SetTrajectoryRef(std::shared_ptr<ITrajectoryRefWriter> trajectoryRef)
@@ -60306,6 +62991,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_t = GetT();
             // clone indicators
+            	clonedObject->isSetT = isSetT;
             // clone children
             const auto kOrientation =  GetWriterOrientation();
             if (kOrientation)
@@ -60383,6 +63069,26 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void TrajectoryPositionImpl::ResetT()
+	   {
+	   		isSetT = false; 
+			_t = {0};
+			
+	   }
+       bool TrajectoryPositionImpl::IsSetT() const
+	   {
+			return isSetT;
+	   }
+       void TrajectoryPositionImpl::ResetOrientation()
+	   {
+	   		isSetOrientation = false; 
+			_orientation = {};
+			
+	   }
+       bool TrajectoryPositionImpl::IsSetOrientation() const
+	   {
+			return isSetOrientation;
+	   }
 
         IOpenScenarioFlexElement* TrajectoryRefImpl::GetOpenScenarioFlexElement()
         {
@@ -61191,6 +63897,8 @@ namespace NET_ASAM_OPENSCENARIO
         void TriggerImpl::SetConditionGroups(std::vector<std::shared_ptr<IConditionGroupWriter>>& conditionGroups)
         {
             _conditionGroups = conditionGroups;
+			// set the indicator to true
+            isSetConditionGroups = true;          
         }
 
         std::shared_ptr<void> TriggerImpl::GetAdapter(const std::string classifier)
@@ -61373,6 +64081,16 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+       void TriggerImpl::ResetConditionGroups()
+	   {
+	   		isSetConditionGroups = false; 
+			_conditionGroups = {};
+			
+	   }
+       bool TriggerImpl::IsSetConditionGroups() const
+	   {
+			return isSetConditionGroups;
+	   }
 
         IOpenScenarioFlexElement* TriggeringEntitiesImpl::GetOpenScenarioFlexElement()
         {
@@ -63654,6 +66372,8 @@ namespace NET_ASAM_OPENSCENARIO
         void VehicleImpl::SetParameterDeclarations(std::vector<std::shared_ptr<IParameterDeclarationWriter>>& parameterDeclarations)
         {
             _parameterDeclarations = parameterDeclarations;
+			// set the indicator to true
+            isSetParameterDeclarations = true;          
         }
 
         void VehicleImpl::SetBoundingBox(std::shared_ptr<IBoundingBoxWriter> boundingBox)
@@ -64184,6 +66904,16 @@ namespace NET_ASAM_OPENSCENARIO
        bool VehicleImpl::IsSetModel3d() const
 	   {
 			return isSetModel3d;
+	   }
+       void VehicleImpl::ResetParameterDeclarations()
+	   {
+	   		isSetParameterDeclarations = false; 
+			_parameterDeclarations = {};
+			
+	   }
+       bool VehicleImpl::IsSetParameterDeclarations() const
+	   {
+			return isSetParameterDeclarations;
 	   }
 
         IOpenScenarioFlexElement* VehicleCatalogLocationImpl::GetOpenScenarioFlexElement()
@@ -65762,21 +68492,29 @@ namespace NET_ASAM_OPENSCENARIO
         void WeatherImpl::SetSun(std::shared_ptr<ISunWriter> sun)
         {
             _sun = sun;
+			// set the indicator to true
+            isSetSun = true;          
         }
 
         void WeatherImpl::SetFog(std::shared_ptr<IFogWriter> fog)
         {
             _fog = fog;
+			// set the indicator to true
+            isSetFog = true;          
         }
 
         void WeatherImpl::SetPrecipitation(std::shared_ptr<IPrecipitationWriter> precipitation)
         {
             _precipitation = precipitation;
+			// set the indicator to true
+            isSetPrecipitation = true;          
         }
 
         void WeatherImpl::SetWind(std::shared_ptr<IWindWriter> wind)
         {
             _wind = wind;
+			// set the indicator to true
+            isSetWind = true;          
         }
 
         std::shared_ptr<void> WeatherImpl::GetAdapter(const std::string classifier)
@@ -66196,6 +68934,46 @@ namespace NET_ASAM_OPENSCENARIO
 	   {
 			return isSetTemperature;
 	   }
+       void WeatherImpl::ResetSun()
+	   {
+	   		isSetSun = false; 
+			_sun = {};
+			
+	   }
+       bool WeatherImpl::IsSetSun() const
+	   {
+			return isSetSun;
+	   }
+       void WeatherImpl::ResetFog()
+	   {
+	   		isSetFog = false; 
+			_fog = {};
+			
+	   }
+       bool WeatherImpl::IsSetFog() const
+	   {
+			return isSetFog;
+	   }
+       void WeatherImpl::ResetPrecipitation()
+	   {
+	   		isSetPrecipitation = false; 
+			_precipitation = {};
+			
+	   }
+       bool WeatherImpl::IsSetPrecipitation() const
+	   {
+			return isSetPrecipitation;
+	   }
+       void WeatherImpl::ResetWind()
+	   {
+	   		isSetWind = false; 
+			_wind = {};
+			
+	   }
+       bool WeatherImpl::IsSetWind() const
+	   {
+			return isSetWind;
+	   }
 
         IOpenScenarioFlexElement* WindImpl::GetOpenScenarioFlexElement()
         {
@@ -66496,18 +69274,24 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _h = h;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__H);
+			// set the indicator to true
+            isSetH = true;          
         }
 
         void WorldPositionImpl::SetP(const double p)
         {
             _p = p;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__P);
+			// set the indicator to true
+            isSetP = true;          
         }
 
         void WorldPositionImpl::SetR(const double r)
         {
             _r = r;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__R);
+			// set the indicator to true
+            isSetR = true;          
         }
 
         void WorldPositionImpl::SetX(const double x)
@@ -66526,6 +69310,8 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _z = z;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__Z);
+			// set the indicator to true
+            isSetZ = true;          
         }
 
         std::shared_ptr<void> WorldPositionImpl::GetAdapter(const std::string classifier)
@@ -66859,6 +69645,10 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_z = GetZ();
             // clone indicators
+            	clonedObject->isSetH = isSetH;
+            	clonedObject->isSetP = isSetP;
+            	clonedObject->isSetR = isSetR;
+            	clonedObject->isSetZ = isSetZ;
             // clone children
             return clonedObject;
         }
@@ -66930,6 +69720,46 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 
 
+       void WorldPositionImpl::ResetH()
+	   {
+	   		isSetH = false; 
+			_h = {0};
+			
+	   }
+       bool WorldPositionImpl::IsSetH() const
+	   {
+			return isSetH;
+	   }
+       void WorldPositionImpl::ResetP()
+	   {
+	   		isSetP = false; 
+			_p = {0};
+			
+	   }
+       bool WorldPositionImpl::IsSetP() const
+	   {
+			return isSetP;
+	   }
+       void WorldPositionImpl::ResetR()
+	   {
+	   		isSetR = false; 
+			_r = {0};
+			
+	   }
+       bool WorldPositionImpl::IsSetR() const
+	   {
+			return isSetR;
+	   }
+       void WorldPositionImpl::ResetZ()
+	   {
+	   		isSetZ = false; 
+			_z = {0};
+			
+	   }
+       bool WorldPositionImpl::IsSetZ() const
+	   {
+			return isSetZ;
+	   }
     }
 }
 

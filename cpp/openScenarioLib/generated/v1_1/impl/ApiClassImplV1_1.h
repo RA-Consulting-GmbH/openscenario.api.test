@@ -65,6 +65,7 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP double GetValue() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<ISteadyState> GetSteadyState() const override;
 
+    bool isSetSteadyState = false;          
 
 
             OPENSCENARIOLIB_EXP void SetValue(const double value) override;
@@ -128,6 +129,8 @@ namespace NET_ASAM_OPENSCENARIO
 
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<ISteadyStateWriter> GetWriterSteadyState() const override;
+            OPENSCENARIOLIB_EXP virtual void ResetSteadyState() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetSteadyState() const override;          
         };
 
         /**
@@ -622,6 +625,7 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<ITrigger> GetStartTrigger() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<ITrigger> GetStopTrigger() const override;
 
+    bool isSetStopTrigger = false;          
 
 
             OPENSCENARIOLIB_EXP void SetName(const std::string name) override;
@@ -690,6 +694,8 @@ namespace NET_ASAM_OPENSCENARIO
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<ITriggerWriter> GetWriterStartTrigger() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<ITriggerWriter> GetWriterStopTrigger() const override;
+            OPENSCENARIOLIB_EXP virtual void ResetStopTrigger() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetStopTrigger() const override;          
         };
 
         /**
@@ -726,6 +732,9 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<IUserDefinedAction> GetUserDefinedAction() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IPrivateAction> GetPrivateAction() const override;
 
+    bool isSetGlobalAction = false;          
+    bool isSetUserDefinedAction = false;          
+    bool isSetPrivateAction = false;          
 
 
             OPENSCENARIOLIB_EXP void SetName(const std::string name) override;
@@ -795,6 +804,12 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<IGlobalActionWriter> GetWriterGlobalAction() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IUserDefinedActionWriter> GetWriterUserDefinedAction() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IPrivateActionWriter> GetWriterPrivateAction() const override;
+            OPENSCENARIOLIB_EXP virtual void ResetGlobalAction() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetGlobalAction() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetUserDefinedAction() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetUserDefinedAction() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetPrivateAction() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetPrivateAction() const override;          
         };
 
         /**
@@ -827,8 +842,8 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP bool GetLateral() const override;
             OPENSCENARIOLIB_EXP bool GetLongitudinal() const override;
 
-            bool isSetLateral = false;          
-            bool isSetLongitudinal = false;          
+    bool isSetLateral = false;          
+    bool isSetLongitudinal = false;          
 
 
             OPENSCENARIOLIB_EXP void SetLateral(const bool lateral) override;
@@ -937,6 +952,7 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP int GetEntityRefsSize() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IEntityRef> GetEntityRefsAtIndex(unsigned int index) const override;
 
+    bool isSetEntityRefs = false;          
 
 
             OPENSCENARIOLIB_EXP void SetSelectTriggeringEntities(const bool selectTriggeringEntities) override;
@@ -999,6 +1015,8 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP bool IsSelectTriggeringEntitiesParameterized() override;
 
             // children
+            OPENSCENARIOLIB_EXP virtual void ResetEntityRefs() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetEntityRefs() const override;          
         };
 
         /**
@@ -1119,8 +1137,10 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<IController> GetController() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<ICatalogReference> GetCatalogReference() const override;
 
-            bool isSetActivateLateral = false;          
-            bool isSetActivateLongitudinal = false;          
+    bool isSetActivateLateral = false;          
+    bool isSetActivateLongitudinal = false;          
+    bool isSetController = false;          
+    bool isSetCatalogReference = false;          
 
 
             OPENSCENARIOLIB_EXP void SetActivateLateral(const bool activateLateral) override;
@@ -1199,6 +1219,10 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP virtual bool IsSetActivateLateral() const override;          
             OPENSCENARIOLIB_EXP virtual void ResetActivateLongitudinal() override;
             OPENSCENARIOLIB_EXP virtual bool IsSetActivateLongitudinal() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetController() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetController() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetCatalogReference() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetCatalogReference() const override;          
         };
 
         /**
@@ -1230,6 +1254,8 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<IRoute> GetRoute() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<ICatalogReference> GetCatalogReference() const override;
 
+    bool isSetRoute = false;          
+    bool isSetCatalogReference = false;          
 
 
             OPENSCENARIOLIB_EXP void SetRoute(std::shared_ptr<IRouteWriter> route) override;
@@ -1288,6 +1314,10 @@ namespace NET_ASAM_OPENSCENARIO
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IRouteWriter> GetWriterRoute() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<ICatalogReferenceWriter> GetWriterCatalogReference() const override;
+            OPENSCENARIOLIB_EXP virtual void ResetRoute() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetRoute() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetCatalogReference() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetCatalogReference() const override;          
         };
 
         /**
@@ -1455,6 +1485,7 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP int GetAdditionalAxlesSize() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IAxle> GetAdditionalAxlesAtIndex(unsigned int index) const override;
 
+    bool isSetAdditionalAxles = false;          
 
 
             OPENSCENARIOLIB_EXP void SetFrontAxle(std::shared_ptr<IAxleWriter> frontAxle) override;
@@ -1515,6 +1546,8 @@ namespace NET_ASAM_OPENSCENARIO
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IAxleWriter> GetWriterFrontAxle() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IAxleWriter> GetWriterRearAxle() const override;
+            OPENSCENARIOLIB_EXP virtual void ResetAdditionalAxles() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetAdditionalAxles() const override;          
         };
 
         /**
@@ -1912,6 +1945,13 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<ITrafficSignalCondition> GetTrafficSignalCondition() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<ITrafficSignalControllerCondition> GetTrafficSignalControllerCondition() const override;
 
+    bool isSetParameterCondition = false;          
+    bool isSetTimeOfDayCondition = false;          
+    bool isSetSimulationTimeCondition = false;          
+    bool isSetStoryboardElementStateCondition = false;          
+    bool isSetUserDefinedValueCondition = false;          
+    bool isSetTrafficSignalCondition = false;          
+    bool isSetTrafficSignalControllerCondition = false;          
 
 
             OPENSCENARIOLIB_EXP void SetParameterCondition(std::shared_ptr<IParameterConditionWriter> parameterCondition) override;
@@ -1985,6 +2025,20 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<IUserDefinedValueConditionWriter> GetWriterUserDefinedValueCondition() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<ITrafficSignalConditionWriter> GetWriterTrafficSignalCondition() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<ITrafficSignalControllerConditionWriter> GetWriterTrafficSignalControllerCondition() const override;
+            OPENSCENARIOLIB_EXP virtual void ResetParameterCondition() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetParameterCondition() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetTimeOfDayCondition() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetTimeOfDayCondition() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetSimulationTimeCondition() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetSimulationTimeCondition() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetStoryboardElementStateCondition() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetStoryboardElementStateCondition() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetUserDefinedValueCondition() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetUserDefinedValueCondition() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetTrafficSignalCondition() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetTrafficSignalCondition() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetTrafficSignalControllerCondition() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetTrafficSignalControllerCondition() const override;          
         };
 
         /**
@@ -2063,6 +2117,15 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP int GetRoutesSize() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IRoute> GetRoutesAtIndex(unsigned int index) const override;
 
+    bool isSetName = false;          
+    bool isSetVehicles = false;          
+    bool isSetControllers = false;          
+    bool isSetPedestrians = false;          
+    bool isSetMiscObjects = false;          
+    bool isSetEnvironments = false;          
+    bool isSetManeuvers = false;          
+    bool isSetTrajectories = false;          
+    bool isSetRoutes = false;          
 
 
             OPENSCENARIOLIB_EXP void SetName(const std::string name) override;
@@ -2139,6 +2202,24 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP bool IsNameParameterized() override;
 
             // children
+            OPENSCENARIOLIB_EXP virtual void ResetName() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetName() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetVehicles() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetVehicles() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetControllers() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetControllers() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetPedestrians() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetPedestrians() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetMiscObjects() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetMiscObjects() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetEnvironments() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetEnvironments() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetManeuvers() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetManeuvers() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetTrajectories() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetTrajectories() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetRoutes() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetRoutes() const override;          
         };
 
         /**
@@ -2266,6 +2347,14 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<ITrajectoryCatalogLocation> GetTrajectoryCatalog() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IRouteCatalogLocation> GetRouteCatalog() const override;
 
+    bool isSetVehicleCatalog = false;          
+    bool isSetControllerCatalog = false;          
+    bool isSetPedestrianCatalog = false;          
+    bool isSetMiscObjectCatalog = false;          
+    bool isSetEnvironmentCatalog = false;          
+    bool isSetManeuverCatalog = false;          
+    bool isSetTrajectoryCatalog = false;          
+    bool isSetRouteCatalog = false;          
 
 
             OPENSCENARIOLIB_EXP void SetVehicleCatalog(std::shared_ptr<IVehicleCatalogLocationWriter> vehicleCatalog) override;
@@ -2342,6 +2431,22 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<IManeuverCatalogLocationWriter> GetWriterManeuverCatalog() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<ITrajectoryCatalogLocationWriter> GetWriterTrajectoryCatalog() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IRouteCatalogLocationWriter> GetWriterRouteCatalog() const override;
+            OPENSCENARIOLIB_EXP virtual void ResetVehicleCatalog() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetVehicleCatalog() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetControllerCatalog() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetControllerCatalog() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetPedestrianCatalog() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetPedestrianCatalog() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetMiscObjectCatalog() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetMiscObjectCatalog() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetEnvironmentCatalog() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetEnvironmentCatalog() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetManeuverCatalog() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetManeuverCatalog() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetTrajectoryCatalog() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetTrajectoryCatalog() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetRouteCatalog() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetRouteCatalog() const override;          
         };
 
         /**
@@ -2382,6 +2487,7 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<IParameterAssignment> GetParameterAssignmentsAtIndex(unsigned int index) const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<ICatalogElement> GetRef() const override;
 
+    bool isSetParameterAssignments = false;          
 
 
             OPENSCENARIOLIB_EXP void SetCatalogName(const std::string catalogName) override;
@@ -2454,6 +2560,8 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP bool IsEntryNameParameterized() override;
 
             // children
+            OPENSCENARIOLIB_EXP virtual void ResetParameterAssignments() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetParameterAssignments() const override;          
         };
 
         /**
@@ -2695,10 +2803,10 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP double GetStopTime() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IPosition> GetPosition() const override;
 
-            bool isSetCurvatureDot = false;          
-            bool isSetCurvaturePrime = false;          
-            bool isSetStartTime = false;          
-            bool isSetStopTime = false;          
+    bool isSetCurvatureDot = false;          
+    bool isSetCurvaturePrime = false;          
+    bool isSetStartTime = false;          
+    bool isSetStopTime = false;          
 
 
             OPENSCENARIOLIB_EXP void SetCurvature(const double curvature) override;
@@ -2841,6 +2949,8 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<IEntityRef> GetEntityRef() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IByObjectType> GetByType() const override;
 
+    bool isSetEntityRef = false;          
+    bool isSetByType = false;          
 
 
             OPENSCENARIOLIB_EXP void SetEntityRef(std::shared_ptr<IEntityRefWriter> entityRef) override;
@@ -2899,6 +3009,10 @@ namespace NET_ASAM_OPENSCENARIO
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IEntityRefWriter> GetWriterEntityRef() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IByObjectTypeWriter> GetWriterByType() const override;
+            OPENSCENARIOLIB_EXP virtual void ResetEntityRef() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetEntityRef() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetByType() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetByType() const override;          
         };
 
         /**
@@ -2938,6 +3052,8 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<IByEntityCondition> GetByEntityCondition() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IByValueCondition> GetByValueCondition() const override;
 
+    bool isSetByEntityCondition = false;          
+    bool isSetByValueCondition = false;          
 
 
             OPENSCENARIOLIB_EXP void SetConditionEdge(const ConditionEdge conditionEdge) override;
@@ -3020,6 +3136,10 @@ namespace NET_ASAM_OPENSCENARIO
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IByEntityConditionWriter> GetWriterByEntityCondition() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IByValueConditionWriter> GetWriterByValueCondition() const override;
+            OPENSCENARIOLIB_EXP virtual void ResetByEntityCondition() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetByEntityCondition() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetByValueCondition() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetByValueCondition() const override;          
         };
 
         /**
@@ -3141,8 +3261,8 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP double GetWeight() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IPosition> GetPosition() const override;
 
-            bool isSetTime = false;          
-            bool isSetWeight = false;          
+    bool isSetTime = false;          
+    bool isSetWeight = false;          
 
 
             OPENSCENARIOLIB_EXP void SetTime(const double time) override;
@@ -3256,6 +3376,7 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<IParameterDeclaration> GetParameterDeclarationsAtIndex(unsigned int index) const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IProperties> GetProperties() const override;
 
+    bool isSetParameterDeclarations = false;          
 
 
             OPENSCENARIOLIB_EXP void SetName(const std::string name) override;
@@ -3323,6 +3444,8 @@ namespace NET_ASAM_OPENSCENARIO
 
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IPropertiesWriter> GetWriterProperties() const override;
+            OPENSCENARIOLIB_EXP virtual void ResetParameterDeclarations() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetParameterDeclarations() const override;          
         };
 
         /**
@@ -3356,6 +3479,9 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<IOverrideControllerValueAction> GetOverrideControllerValueAction() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IActivateControllerAction> GetActivateControllerAction() const override;
 
+    bool isSetAssignControllerAction = false;          
+    bool isSetOverrideControllerValueAction = false;          
+    bool isSetActivateControllerAction = false;          
 
 
             OPENSCENARIOLIB_EXP void SetAssignControllerAction(std::shared_ptr<IAssignControllerActionWriter> assignControllerAction) override;
@@ -3417,6 +3543,12 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<IAssignControllerActionWriter> GetWriterAssignControllerAction() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IOverrideControllerValueActionWriter> GetWriterOverrideControllerValueAction() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IActivateControllerActionWriter> GetWriterActivateControllerAction() const override;
+            OPENSCENARIOLIB_EXP virtual void ResetAssignControllerAction() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetAssignControllerAction() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetOverrideControllerValueAction() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetOverrideControllerValueAction() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetActivateControllerAction() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetActivateControllerAction() const override;          
         };
 
         /**
@@ -3622,6 +3754,8 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<IController> GetController() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<ICatalogReference> GetCatalogReference() const override;
 
+    bool isSetController = false;          
+    bool isSetCatalogReference = false;          
 
 
             OPENSCENARIOLIB_EXP void SetWeight(const double weight) override;
@@ -3688,6 +3822,10 @@ namespace NET_ASAM_OPENSCENARIO
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IControllerWriter> GetWriterController() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<ICatalogReferenceWriter> GetWriterCatalogReference() const override;
+            OPENSCENARIOLIB_EXP virtual void ResetController() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetController() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetCatalogReference() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetCatalogReference() const override;          
         };
 
         /**
@@ -3900,6 +4038,7 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP int GetDeterministicParameterDistributionsSize() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IDeterministicParameterDistribution> GetDeterministicParameterDistributionsAtIndex(unsigned int index) const override;
 
+    bool isSetDeterministicParameterDistributions = false;          
 
 
             OPENSCENARIOLIB_EXP void SetDeterministicParameterDistributions(std::vector<std::shared_ptr<IDeterministicParameterDistributionWriter>>& deterministicParameterDistributions) override;
@@ -3954,6 +4093,8 @@ namespace NET_ASAM_OPENSCENARIO
             std::string GetModelType() const override;
 
             // children
+            OPENSCENARIOLIB_EXP virtual void ResetDeterministicParameterDistributions() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetDeterministicParameterDistributions() const override;          
         };
 
         /**
@@ -4643,7 +4784,9 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP double GetValue() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IPosition> GetPosition() const override;
 
-            bool isSetAlongRoute = false;          
+    bool isSetAlongRoute = false;          
+    bool isSetCoordinateSystem = false;          
+    bool isSetRelativeDistanceType = false;          
 
 
             OPENSCENARIOLIB_EXP void SetAlongRoute(const bool alongRoute) override;
@@ -4749,6 +4892,10 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<IPositionWriter> GetWriterPosition() const override;
             OPENSCENARIOLIB_EXP virtual void ResetAlongRoute() override;
             OPENSCENARIOLIB_EXP virtual bool IsSetAlongRoute() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetCoordinateSystem() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetCoordinateSystem() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetRelativeDistanceType() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetRelativeDistanceType() const override;          
         };
 
         /**
@@ -5144,9 +5291,9 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP double GetMaxDeceleration() const override;
             OPENSCENARIOLIB_EXP double GetMaxSpeed() const override;
 
-            bool isSetMaxAcceleration = false;          
-            bool isSetMaxDeceleration = false;          
-            bool isSetMaxSpeed = false;          
+    bool isSetMaxAcceleration = false;          
+    bool isSetMaxDeceleration = false;          
+    bool isSetMaxSpeed = false;          
 
 
             OPENSCENARIOLIB_EXP void SetMaxAcceleration(const double maxAcceleration) override;
@@ -5358,6 +5505,8 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP int GetEntitySelectionsSize() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IEntitySelection> GetEntitySelectionsAtIndex(unsigned int index) const override;
 
+    bool isSetScenarioObjects = false;          
+    bool isSetEntitySelections = false;          
 
 
             OPENSCENARIOLIB_EXP void SetScenarioObjects(std::vector<std::shared_ptr<IScenarioObjectWriter>>& scenarioObjects) override;
@@ -5414,6 +5563,10 @@ namespace NET_ASAM_OPENSCENARIO
             std::string GetModelType() const override;
 
             // children
+            OPENSCENARIOLIB_EXP virtual void ResetScenarioObjects() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetScenarioObjects() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetEntitySelections() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetEntitySelections() const override;          
         };
 
         /**
@@ -5447,6 +5600,8 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<IAddEntityAction> GetAddEntityAction() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IDeleteEntityAction> GetDeleteEntityAction() const override;
 
+    bool isSetAddEntityAction = false;          
+    bool isSetDeleteEntityAction = false;          
 
 
             OPENSCENARIOLIB_EXP void SetEntityRef(std::shared_ptr<INamedReference<IEntity>> entityRef) override;
@@ -5513,6 +5668,10 @@ namespace NET_ASAM_OPENSCENARIO
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IAddEntityActionWriter> GetWriterAddEntityAction() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IDeleteEntityActionWriter> GetWriterDeleteEntityAction() const override;
+            OPENSCENARIOLIB_EXP virtual void ResetAddEntityAction() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetAddEntityAction() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetDeleteEntityAction() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetDeleteEntityAction() const override;          
         };
 
         /**
@@ -5566,6 +5725,19 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<IDistanceCondition> GetDistanceCondition() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IRelativeDistanceCondition> GetRelativeDistanceCondition() const override;
 
+    bool isSetEndOfRoadCondition = false;          
+    bool isSetCollisionCondition = false;          
+    bool isSetOffroadCondition = false;          
+    bool isSetTimeHeadwayCondition = false;          
+    bool isSetTimeToCollisionCondition = false;          
+    bool isSetAccelerationCondition = false;          
+    bool isSetStandStillCondition = false;          
+    bool isSetSpeedCondition = false;          
+    bool isSetRelativeSpeedCondition = false;          
+    bool isSetTraveledDistanceCondition = false;          
+    bool isSetReachPositionCondition = false;          
+    bool isSetDistanceCondition = false;          
+    bool isSetRelativeDistanceCondition = false;          
 
 
             OPENSCENARIOLIB_EXP void SetEndOfRoadCondition(std::shared_ptr<IEndOfRoadConditionWriter> endOfRoadCondition) override;
@@ -5657,6 +5829,32 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<IReachPositionConditionWriter> GetWriterReachPositionCondition() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IDistanceConditionWriter> GetWriterDistanceCondition() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IRelativeDistanceConditionWriter> GetWriterRelativeDistanceCondition() const override;
+            OPENSCENARIOLIB_EXP virtual void ResetEndOfRoadCondition() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetEndOfRoadCondition() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetCollisionCondition() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetCollisionCondition() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetOffroadCondition() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetOffroadCondition() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetTimeHeadwayCondition() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetTimeHeadwayCondition() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetTimeToCollisionCondition() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetTimeToCollisionCondition() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetAccelerationCondition() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetAccelerationCondition() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetStandStillCondition() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetStandStillCondition() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetSpeedCondition() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetSpeedCondition() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetRelativeSpeedCondition() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetRelativeSpeedCondition() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetTraveledDistanceCondition() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetTraveledDistanceCondition() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetReachPositionCondition() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetReachPositionCondition() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetDistanceCondition() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetDistanceCondition() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetRelativeDistanceCondition() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetRelativeDistanceCondition() const override;          
         };
 
         /**
@@ -5694,6 +5892,11 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<IMiscObject> GetMiscObject() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IExternalObjectReference> GetExternalObjectReference() const override;
 
+    bool isSetCatalogReference = false;          
+    bool isSetVehicle = false;          
+    bool isSetPedestrian = false;          
+    bool isSetMiscObject = false;          
+    bool isSetExternalObjectReference = false;          
 
 
             OPENSCENARIOLIB_EXP void SetCatalogReference(std::shared_ptr<ICatalogReferenceWriter> catalogReference) override;
@@ -5761,6 +5964,16 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<IPedestrianWriter> GetWriterPedestrian() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IMiscObjectWriter> GetWriterMiscObject() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IExternalObjectReferenceWriter> GetWriterExternalObjectReference() const override;
+            OPENSCENARIOLIB_EXP virtual void ResetCatalogReference() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetCatalogReference() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetVehicle() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetVehicle() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetPedestrian() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetPedestrian() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetMiscObject() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetMiscObject() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetExternalObjectReference() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetExternalObjectReference() const override;          
         };
 
         /**
@@ -5987,6 +6200,10 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<IWeather> GetWeather() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IRoadCondition> GetRoadCondition() const override;
 
+    bool isSetParameterDeclarations = false;          
+    bool isSetTimeOfDay = false;          
+    bool isSetWeather = false;          
+    bool isSetRoadCondition = false;          
 
 
             OPENSCENARIOLIB_EXP void SetName(const std::string name) override;
@@ -6060,6 +6277,14 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<ITimeOfDayWriter> GetWriterTimeOfDay() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IWeatherWriter> GetWriterWeather() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IRoadConditionWriter> GetWriterRoadCondition() const override;
+            OPENSCENARIOLIB_EXP virtual void ResetParameterDeclarations() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetParameterDeclarations() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetTimeOfDay() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetTimeOfDay() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetWeather() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetWeather() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetRoadCondition() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetRoadCondition() const override;          
         };
 
         /**
@@ -6091,6 +6316,8 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<IEnvironment> GetEnvironment() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<ICatalogReference> GetCatalogReference() const override;
 
+    bool isSetEnvironment = false;          
+    bool isSetCatalogReference = false;          
 
 
             OPENSCENARIOLIB_EXP void SetEnvironment(std::shared_ptr<IEnvironmentWriter> environment) override;
@@ -6149,6 +6376,10 @@ namespace NET_ASAM_OPENSCENARIO
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IEnvironmentWriter> GetWriterEnvironment() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<ICatalogReferenceWriter> GetWriterCatalogReference() const override;
+            OPENSCENARIOLIB_EXP virtual void ResetEnvironment() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetEnvironment() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetCatalogReference() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetCatalogReference() const override;          
         };
 
         /**
@@ -6276,6 +6507,8 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<IAction> GetActionsAtIndex(unsigned int index) const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<ITrigger> GetStartTrigger() const override;
 
+    bool isSetMaximumExecutionCount = false;          
+    bool isSetStartTrigger = false;          
 
 
             OPENSCENARIOLIB_EXP void SetMaximumExecutionCount(const uint32_t maximumExecutionCount) override;
@@ -6357,6 +6590,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<ITriggerWriter> GetWriterStartTrigger() const override;
+            OPENSCENARIOLIB_EXP virtual void ResetMaximumExecutionCount() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetMaximumExecutionCount() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetStartTrigger() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetStartTrigger() const override;          
         };
 
         /**
@@ -6579,6 +6816,7 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP uint16_t GetRevMinor() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<ILicense> GetLicense() const override;
 
+    bool isSetLicense = false;          
 
 
             OPENSCENARIOLIB_EXP void SetAuthor(const std::string author) override;
@@ -6674,6 +6912,8 @@ namespace NET_ASAM_OPENSCENARIO
 
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<ILicenseWriter> GetWriterLicense() const override;
+            OPENSCENARIOLIB_EXP virtual void ResetLicense() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetLicense() const override;          
         };
 
         /**
@@ -6705,6 +6945,8 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<IAbsoluteSpeed> GetAbsoluteSpeed() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IRelativeSpeedToMaster> GetRelativeSpeedToMaster() const override;
 
+    bool isSetAbsoluteSpeed = false;          
+    bool isSetRelativeSpeedToMaster = false;          
 
 
             OPENSCENARIOLIB_EXP void SetAbsoluteSpeed(std::shared_ptr<IAbsoluteSpeedWriter> absoluteSpeed) override;
@@ -6763,6 +7005,10 @@ namespace NET_ASAM_OPENSCENARIO
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IAbsoluteSpeedWriter> GetWriterAbsoluteSpeed() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IRelativeSpeedToMasterWriter> GetWriterRelativeSpeedToMaster() const override;
+            OPENSCENARIOLIB_EXP virtual void ResetAbsoluteSpeed() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetAbsoluteSpeed() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetRelativeSpeedToMaster() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetRelativeSpeedToMaster() const override;          
         };
 
         /**
@@ -6795,6 +7041,7 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP double GetVisualRange() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IBoundingBox> GetBoundingBox() const override;
 
+    bool isSetBoundingBox = false;          
 
 
             OPENSCENARIOLIB_EXP void SetVisualRange(const double visualRange) override;
@@ -6858,6 +7105,8 @@ namespace NET_ASAM_OPENSCENARIO
 
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IBoundingBoxWriter> GetWriterBoundingBox() const override;
+            OPENSCENARIOLIB_EXP virtual void ResetBoundingBox() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetBoundingBox() const override;          
         };
 
         /**
@@ -6898,6 +7147,10 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<ITrajectoryFollowingMode> GetTrajectoryFollowingMode() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<ITrajectoryRef> GetTrajectoryRef() const override;
 
+    bool isSetInitialDistanceOffset = false;          
+    bool isSetTrajectory = false;          
+    bool isSetCatalogReference = false;          
+    bool isSetTrajectoryRef = false;          
 
 
             OPENSCENARIOLIB_EXP void SetInitialDistanceOffset(const double initialDistanceOffset) override;
@@ -6973,6 +7226,14 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<ITimeReferenceWriter> GetWriterTimeReference() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<ITrajectoryFollowingModeWriter> GetWriterTrajectoryFollowingMode() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<ITrajectoryRefWriter> GetWriterTrajectoryRef() const override;
+            OPENSCENARIOLIB_EXP virtual void ResetInitialDistanceOffset() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetInitialDistanceOffset() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetTrajectory() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetTrajectory() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetCatalogReference() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetCatalogReference() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetTrajectoryRef() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetTrajectoryRef() const override;          
         };
 
         /**
@@ -7009,6 +7270,8 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP double GetLongitude() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IOrientation> GetOrientation() const override;
 
+    bool isSetHeight = false;          
+    bool isSetOrientation = false;          
 
 
             OPENSCENARIOLIB_EXP void SetHeight(const double height) override;
@@ -7088,6 +7351,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IOrientationWriter> GetWriterOrientation() const override;
+            OPENSCENARIOLIB_EXP virtual void ResetHeight() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetHeight() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetOrientation() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetOrientation() const override;          
         };
 
         /**
@@ -7125,6 +7392,11 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<IInfrastructureAction> GetInfrastructureAction() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<ITrafficAction> GetTrafficAction() const override;
 
+    bool isSetEnvironmentAction = false;          
+    bool isSetEntityAction = false;          
+    bool isSetParameterAction = false;          
+    bool isSetInfrastructureAction = false;          
+    bool isSetTrafficAction = false;          
 
 
             OPENSCENARIOLIB_EXP void SetEnvironmentAction(std::shared_ptr<IEnvironmentActionWriter> environmentAction) override;
@@ -7192,6 +7464,16 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<IParameterActionWriter> GetWriterParameterAction() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IInfrastructureActionWriter> GetWriterInfrastructureAction() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<ITrafficActionWriter> GetWriterTrafficAction() const override;
+            OPENSCENARIOLIB_EXP virtual void ResetEnvironmentAction() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetEnvironmentAction() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetEntityAction() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetEntityAction() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetParameterAction() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetParameterAction() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetInfrastructureAction() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetInfrastructureAction() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetTrafficAction() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetTrafficAction() const override;          
         };
 
         /**
@@ -7407,6 +7689,9 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<IPositionInRoadCoordinates> GetFromRoadCoordinates() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IPositionInLaneCoordinates> GetFromLaneCoordinates() const override;
 
+    bool isSetFromCurrentEntity = false;          
+    bool isSetFromRoadCoordinates = false;          
+    bool isSetFromLaneCoordinates = false;          
 
 
             OPENSCENARIOLIB_EXP void SetFromCurrentEntity(std::shared_ptr<IPositionOfCurrentEntityWriter> fromCurrentEntity) override;
@@ -7468,6 +7753,12 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<IPositionOfCurrentEntityWriter> GetWriterFromCurrentEntity() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IPositionInRoadCoordinatesWriter> GetWriterFromRoadCoordinates() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IPositionInLaneCoordinatesWriter> GetWriterFromLaneCoordinates() const override;
+            OPENSCENARIOLIB_EXP virtual void ResetFromCurrentEntity() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetFromCurrentEntity() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetFromRoadCoordinates() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetFromRoadCoordinates() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetFromLaneCoordinates() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetFromLaneCoordinates() const override;          
         };
 
         /**
@@ -7681,6 +7972,9 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP int GetPrivatesSize() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IPrivate> GetPrivatesAtIndex(unsigned int index) const override;
 
+    bool isSetGlobalActions = false;          
+    bool isSetUserDefinedActions = false;          
+    bool isSetPrivates = false;          
 
 
             OPENSCENARIOLIB_EXP void SetGlobalActions(std::vector<std::shared_ptr<IGlobalActionWriter>>& globalActions) override;
@@ -7739,6 +8033,12 @@ namespace NET_ASAM_OPENSCENARIO
             std::string GetModelType() const override;
 
             // children
+            OPENSCENARIOLIB_EXP virtual void ResetGlobalActions() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetGlobalActions() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetUserDefinedActions() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetUserDefinedActions() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetPrivates() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetPrivates() const override;          
         };
 
         /**
@@ -7863,6 +8163,7 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<ITransitionDynamics> GetLaneChangeActionDynamics() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<ILaneChangeTarget> GetLaneChangeTarget() const override;
 
+    bool isSetTargetLaneOffset = false;          
 
 
             OPENSCENARIOLIB_EXP void SetTargetLaneOffset(const double targetLaneOffset) override;
@@ -7929,6 +8230,8 @@ namespace NET_ASAM_OPENSCENARIO
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<ITransitionDynamicsWriter> GetWriterLaneChangeActionDynamics() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<ILaneChangeTargetWriter> GetWriterLaneChangeTarget() const override;
+            OPENSCENARIOLIB_EXP virtual void ResetTargetLaneOffset() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetTargetLaneOffset() const override;          
         };
 
         /**
@@ -7960,6 +8263,8 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<IRelativeTargetLane> GetRelativeTargetLane() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IAbsoluteTargetLane> GetAbsoluteTargetLane() const override;
 
+    bool isSetRelativeTargetLane = false;          
+    bool isSetAbsoluteTargetLane = false;          
 
 
             OPENSCENARIOLIB_EXP void SetRelativeTargetLane(std::shared_ptr<IRelativeTargetLaneWriter> relativeTargetLane) override;
@@ -8018,6 +8323,10 @@ namespace NET_ASAM_OPENSCENARIO
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IRelativeTargetLaneWriter> GetWriterRelativeTargetLane() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IAbsoluteTargetLaneWriter> GetWriterAbsoluteTargetLane() const override;
+            OPENSCENARIOLIB_EXP virtual void ResetRelativeTargetLane() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetRelativeTargetLane() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetAbsoluteTargetLane() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetAbsoluteTargetLane() const override;          
         };
 
         /**
@@ -8150,7 +8459,7 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP DynamicsShape GetDynamicsShape() const override;
             OPENSCENARIOLIB_EXP double GetMaxLateralAcc() const override;
 
-            bool isSetMaxLateralAcc = false;          
+    bool isSetMaxLateralAcc = false;          
 
 
             OPENSCENARIOLIB_EXP void SetDynamicsShape(const DynamicsShape dynamicsShape) override;
@@ -8252,6 +8561,8 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<IRelativeTargetLaneOffset> GetRelativeTargetLaneOffset() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IAbsoluteTargetLaneOffset> GetAbsoluteTargetLaneOffset() const override;
 
+    bool isSetRelativeTargetLaneOffset = false;          
+    bool isSetAbsoluteTargetLaneOffset = false;          
 
 
             OPENSCENARIOLIB_EXP void SetRelativeTargetLaneOffset(std::shared_ptr<IRelativeTargetLaneOffsetWriter> relativeTargetLaneOffset) override;
@@ -8310,6 +8621,10 @@ namespace NET_ASAM_OPENSCENARIO
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IRelativeTargetLaneOffsetWriter> GetWriterRelativeTargetLaneOffset() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IAbsoluteTargetLaneOffsetWriter> GetWriterAbsoluteTargetLaneOffset() const override;
+            OPENSCENARIOLIB_EXP virtual void ResetRelativeTargetLaneOffset() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetRelativeTargetLaneOffset() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetAbsoluteTargetLaneOffset() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetAbsoluteTargetLaneOffset() const override;          
         };
 
         /**
@@ -8349,6 +8664,8 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP double GetS() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IOrientation> GetOrientation() const override;
 
+    bool isSetOffset = false;          
+    bool isSetOrientation = false;          
 
 
             OPENSCENARIOLIB_EXP void SetLaneId(const std::string laneId) override;
@@ -8436,6 +8753,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IOrientationWriter> GetWriterOrientation() const override;
+            OPENSCENARIOLIB_EXP virtual void ResetOffset() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetOffset() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetOrientation() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetOrientation() const override;          
         };
 
         /**
@@ -8469,6 +8790,9 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<ILaneOffsetAction> GetLaneOffsetAction() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<ILateralDistanceAction> GetLateralDistanceAction() const override;
 
+    bool isSetLaneChangeAction = false;          
+    bool isSetLaneOffsetAction = false;          
+    bool isSetLateralDistanceAction = false;          
 
 
             OPENSCENARIOLIB_EXP void SetLaneChangeAction(std::shared_ptr<ILaneChangeActionWriter> laneChangeAction) override;
@@ -8530,6 +8854,12 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<ILaneChangeActionWriter> GetWriterLaneChangeAction() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<ILaneOffsetActionWriter> GetWriterLaneOffsetAction() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<ILateralDistanceActionWriter> GetWriterLateralDistanceAction() const override;
+            OPENSCENARIOLIB_EXP virtual void ResetLaneChangeAction() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetLaneChangeAction() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetLaneOffsetAction() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetLaneOffsetAction() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetLateralDistanceAction() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetLateralDistanceAction() const override;          
         };
 
         /**
@@ -8573,6 +8903,10 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP bool GetFreespace() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IDynamicConstraints> GetDynamicConstraints() const override;
 
+    bool isSetCoordinateSystem = false;          
+    bool isSetDisplacement = false;          
+    bool isSetDistance = false;          
+    bool isSetDynamicConstraints = false;          
 
 
             OPENSCENARIOLIB_EXP void SetContinuous(const bool continuous) override;
@@ -8676,6 +9010,14 @@ namespace NET_ASAM_OPENSCENARIO
 
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IDynamicConstraintsWriter> GetWriterDynamicConstraints() const override;
+            OPENSCENARIOLIB_EXP virtual void ResetCoordinateSystem() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetCoordinateSystem() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetDisplacement() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetDisplacement() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetDistance() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetDistance() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetDynamicConstraints() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetDynamicConstraints() const override;          
         };
 
         /**
@@ -8712,8 +9054,9 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::string GetResource() const override;
             OPENSCENARIOLIB_EXP std::string GetSpdxId() const override;
 
-            bool isSetResource = false;          
-            bool isSetSpdxId = false;          
+    bool isSetText = false;          
+    bool isSetResource = false;          
+    bool isSetSpdxId = false;          
 
 
             OPENSCENARIOLIB_EXP void SetText(const std::string text) override;
@@ -8798,6 +9141,8 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP bool IsSpdxIdParameterized() override;
 
             // children
+            OPENSCENARIOLIB_EXP virtual void ResetText() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetText() const override;          
             OPENSCENARIOLIB_EXP virtual void ResetResource() override;
             OPENSCENARIOLIB_EXP virtual bool IsSetResource() const override;          
             OPENSCENARIOLIB_EXP virtual void ResetSpdxId() override;
@@ -8833,6 +9178,8 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<ISpeedAction> GetSpeedAction() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<ILongitudinalDistanceAction> GetLongitudinalDistanceAction() const override;
 
+    bool isSetSpeedAction = false;          
+    bool isSetLongitudinalDistanceAction = false;          
 
 
             OPENSCENARIOLIB_EXP void SetSpeedAction(std::shared_ptr<ISpeedActionWriter> speedAction) override;
@@ -8891,6 +9238,10 @@ namespace NET_ASAM_OPENSCENARIO
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<ISpeedActionWriter> GetWriterSpeedAction() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<ILongitudinalDistanceActionWriter> GetWriterLongitudinalDistanceAction() const override;
+            OPENSCENARIOLIB_EXP virtual void ResetSpeedAction() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetSpeedAction() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetLongitudinalDistanceAction() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetLongitudinalDistanceAction() const override;          
         };
 
         /**
@@ -8936,8 +9287,11 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP double GetTimeGap() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IDynamicConstraints> GetDynamicConstraints() const override;
 
-            bool isSetDistance = false;          
-            bool isSetTimeGap = false;          
+    bool isSetCoordinateSystem = false;          
+    bool isSetDisplacement = false;          
+    bool isSetDistance = false;          
+    bool isSetTimeGap = false;          
+    bool isSetDynamicConstraints = false;          
 
 
             OPENSCENARIOLIB_EXP void SetContinuous(const bool continuous) override;
@@ -9049,10 +9403,16 @@ namespace NET_ASAM_OPENSCENARIO
 
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IDynamicConstraintsWriter> GetWriterDynamicConstraints() const override;
+            OPENSCENARIOLIB_EXP virtual void ResetCoordinateSystem() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetCoordinateSystem() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetDisplacement() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetDisplacement() const override;          
             OPENSCENARIOLIB_EXP virtual void ResetDistance() override;
             OPENSCENARIOLIB_EXP virtual bool IsSetDistance() const override;          
             OPENSCENARIOLIB_EXP virtual void ResetTimeGap() override;
             OPENSCENARIOLIB_EXP virtual bool IsSetTimeGap() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetDynamicConstraints() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetDynamicConstraints() const override;          
         };
 
         /**
@@ -9095,6 +9455,7 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP int GetEventsSize() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IEvent> GetEventsAtIndex(unsigned int index) const override;
 
+    bool isSetParameterDeclarations = false;          
 
 
             OPENSCENARIOLIB_EXP void SetName(const std::string name) override;
@@ -9161,6 +9522,8 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP bool IsNameParameterized() override;
 
             // children
+            OPENSCENARIOLIB_EXP virtual void ResetParameterDeclarations() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetParameterDeclarations() const override;          
         };
 
         /**
@@ -9292,6 +9655,8 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP int GetManeuversSize() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IManeuver> GetManeuversAtIndex(unsigned int index) const override;
 
+    bool isSetCatalogReferences = false;          
+    bool isSetManeuvers = false;          
 
 
             OPENSCENARIOLIB_EXP void SetMaximumExecutionCount(const uint32_t maximumExecutionCount) override;
@@ -9367,6 +9732,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IActorsWriter> GetWriterActors() const override;
+            OPENSCENARIOLIB_EXP virtual void ResetCatalogReferences() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetCatalogReferences() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetManeuvers() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetManeuvers() const override;          
         };
 
         /**
@@ -9414,7 +9783,8 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<IBoundingBox> GetBoundingBox() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IProperties> GetProperties() const override;
 
-            bool isSetModel3d = false;          
+    bool isSetModel3d = false;          
+    bool isSetParameterDeclarations = false;          
 
 
             OPENSCENARIOLIB_EXP void SetMass(const double mass) override;
@@ -9511,6 +9881,8 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<IPropertiesWriter> GetWriterProperties() const override;
             OPENSCENARIOLIB_EXP virtual void ResetModel3d() override;
             OPENSCENARIOLIB_EXP virtual bool IsSetModel3d() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetParameterDeclarations() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetParameterDeclarations() const override;          
         };
 
         /**
@@ -9626,6 +9998,8 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<IParameterAddValueRule> GetAddValue() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IParameterMultiplyByValueRule> GetMultiplyByValue() const override;
 
+    bool isSetAddValue = false;          
+    bool isSetMultiplyByValue = false;          
 
 
             OPENSCENARIOLIB_EXP void SetAddValue(std::shared_ptr<IParameterAddValueRuleWriter> addValue) override;
@@ -9684,6 +10058,10 @@ namespace NET_ASAM_OPENSCENARIO
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IParameterAddValueRuleWriter> GetWriterAddValue() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IParameterMultiplyByValueRuleWriter> GetWriterMultiplyByValue() const override;
+            OPENSCENARIOLIB_EXP virtual void ResetAddValue() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetAddValue() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetMultiplyByValue() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetMultiplyByValue() const override;          
         };
 
         /**
@@ -9797,6 +10175,7 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP double GetVariance() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IRange> GetRange() const override;
 
+    bool isSetRange = false;          
 
 
             OPENSCENARIOLIB_EXP void SetExpectedValue(const double expectedValue) override;
@@ -9868,6 +10247,8 @@ namespace NET_ASAM_OPENSCENARIO
 
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IRangeWriter> GetWriterRange() const override;
+            OPENSCENARIOLIB_EXP virtual void ResetRange() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetRange() const override;          
         };
 
         /**
@@ -10005,6 +10386,8 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<ICatalogReference> GetCatalogReference() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IController> GetController() const override;
 
+    bool isSetCatalogReference = false;          
+    bool isSetController = false;          
 
 
             OPENSCENARIOLIB_EXP void SetCatalogReference(std::shared_ptr<ICatalogReferenceWriter> catalogReference) override;
@@ -10063,6 +10446,10 @@ namespace NET_ASAM_OPENSCENARIO
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<ICatalogReferenceWriter> GetWriterCatalogReference() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IControllerWriter> GetWriterController() const override;
+            OPENSCENARIOLIB_EXP virtual void ResetCatalogReference() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetCatalogReference() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetController() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetController() const override;          
         };
 
         /**
@@ -10372,6 +10759,10 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP double GetR() const override;
             OPENSCENARIOLIB_EXP ReferenceContext GetType() const override;
 
+    bool isSetH = false;          
+    bool isSetP = false;          
+    bool isSetR = false;          
+    bool isSetType = false;          
 
 
             OPENSCENARIOLIB_EXP void SetH(const double h) override;
@@ -10456,6 +10847,14 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP bool IsTypeParameterized() override;
 
             // children
+            OPENSCENARIOLIB_EXP virtual void ResetH() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetH() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetP() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetP() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetR() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetR() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetType() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetType() const override;          
         };
 
         /**
@@ -10697,6 +11096,12 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<IOverrideSteeringWheelAction> GetSteeringWheel() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IOverrideGearAction> GetGear() const override;
 
+    bool isSetThrottle = false;          
+    bool isSetBrake = false;          
+    bool isSetClutch = false;          
+    bool isSetParkingBrake = false;          
+    bool isSetSteeringWheel = false;          
+    bool isSetGear = false;          
 
 
             OPENSCENARIOLIB_EXP void SetThrottle(std::shared_ptr<IOverrideThrottleActionWriter> throttle) override;
@@ -10767,6 +11172,18 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<IOverrideParkingBrakeActionWriter> GetWriterParkingBrake() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IOverrideSteeringWheelActionWriter> GetWriterSteeringWheel() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IOverrideGearActionWriter> GetWriterGear() const override;
+            OPENSCENARIOLIB_EXP virtual void ResetThrottle() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetThrottle() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetBrake() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetBrake() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetClutch() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetClutch() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetParkingBrake() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetParkingBrake() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetSteeringWheel() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetSteeringWheel() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetGear() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetGear() const override;          
         };
 
         /**
@@ -11204,6 +11621,8 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<IParameterSetAction> GetSetAction() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IParameterModifyAction> GetModifyAction() const override;
 
+    bool isSetSetAction = false;          
+    bool isSetModifyAction = false;          
 
 
             OPENSCENARIOLIB_EXP void SetParameterRef(std::shared_ptr<INamedReference<IParameterDeclaration>> parameterRef) override;
@@ -11270,6 +11689,10 @@ namespace NET_ASAM_OPENSCENARIO
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IParameterSetActionWriter> GetWriterSetAction() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IParameterModifyActionWriter> GetWriterModifyAction() const override;
+            OPENSCENARIOLIB_EXP virtual void ResetSetAction() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetSetAction() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetModifyAction() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetModifyAction() const override;          
         };
 
         /**
@@ -11608,6 +12031,7 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP int GetConstraintGroupsSize() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IValueConstraintGroup> GetConstraintGroupsAtIndex(unsigned int index) const override;
 
+    bool isSetConstraintGroups = false;          
 
 
             OPENSCENARIOLIB_EXP void SetName(const std::string name) override;
@@ -11680,6 +12104,8 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP bool IsValueParameterized() override;
 
             // children
+            OPENSCENARIOLIB_EXP virtual void ResetConstraintGroups() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetConstraintGroups() const override;          
         };
 
         /**
@@ -12253,8 +12679,9 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<IBoundingBox> GetBoundingBox() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IProperties> GetProperties() const override;
 
-            bool isSetModel = false;          
-            bool isSetModel3d = false;          
+    bool isSetModel = false;          
+    bool isSetModel3d = false;          
+    bool isSetParameterDeclarations = false;          
 
 
             OPENSCENARIOLIB_EXP void SetMass(const double mass) override;
@@ -12361,6 +12788,8 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP virtual bool IsSetModel() const override;          
             OPENSCENARIOLIB_EXP virtual void ResetModel3d() override;
             OPENSCENARIOLIB_EXP virtual bool IsSetModel3d() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetParameterDeclarations() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetParameterDeclarations() const override;          
         };
 
         /**
@@ -12594,6 +13023,7 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP int GetTrafficSignalStatesSize() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<ITrafficSignalState> GetTrafficSignalStatesAtIndex(unsigned int index) const override;
 
+    bool isSetTrafficSignalStates = false;          
 
 
             OPENSCENARIOLIB_EXP void SetDuration(const double duration) override;
@@ -12664,6 +13094,8 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP bool IsNameParameterized() override;
 
             // children
+            OPENSCENARIOLIB_EXP virtual void ResetTrafficSignalStates() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetTrafficSignalStates() const override;          
         };
 
         /**
@@ -12696,6 +13128,7 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP double GetExpectedValue() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IRange> GetRange() const override;
 
+    bool isSetRange = false;          
 
 
             OPENSCENARIOLIB_EXP void SetExpectedValue(const double expectedValue) override;
@@ -12759,6 +13192,8 @@ namespace NET_ASAM_OPENSCENARIO
 
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IRangeWriter> GetWriterRange() const override;
+            OPENSCENARIOLIB_EXP virtual void ResetRange() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetRange() const override;          
         };
 
         /**
@@ -12893,6 +13328,16 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<IGeoPosition> GetGeoPosition() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<ITrajectoryPosition> GetTrajectoryPosition() const override;
 
+    bool isSetWorldPosition = false;          
+    bool isSetRelativeWorldPosition = false;          
+    bool isSetRelativeObjectPosition = false;          
+    bool isSetRoadPosition = false;          
+    bool isSetRelativeRoadPosition = false;          
+    bool isSetLanePosition = false;          
+    bool isSetRelativeLanePosition = false;          
+    bool isSetRoutePosition = false;          
+    bool isSetGeoPosition = false;          
+    bool isSetTrajectoryPosition = false;          
 
 
             OPENSCENARIOLIB_EXP void SetWorldPosition(std::shared_ptr<IWorldPositionWriter> worldPosition) override;
@@ -12975,6 +13420,26 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<IRoutePositionWriter> GetWriterRoutePosition() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IGeoPositionWriter> GetWriterGeoPosition() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<ITrajectoryPositionWriter> GetWriterTrajectoryPosition() const override;
+            OPENSCENARIOLIB_EXP virtual void ResetWorldPosition() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetWorldPosition() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetRelativeWorldPosition() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetRelativeWorldPosition() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetRelativeObjectPosition() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetRelativeObjectPosition() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetRoadPosition() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetRoadPosition() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetRelativeRoadPosition() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetRelativeRoadPosition() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetLanePosition() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetLanePosition() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetRelativeLanePosition() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetRelativeLanePosition() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetRoutePosition() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetRoutePosition() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetGeoPosition() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetGeoPosition() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetTrajectoryPosition() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetTrajectoryPosition() const override;          
         };
 
         /**
@@ -13010,6 +13475,7 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP double GetLaneOffset() const override;
             OPENSCENARIOLIB_EXP double GetPathS() const override;
 
+    bool isSetLaneOffset = false;          
 
 
             OPENSCENARIOLIB_EXP void SetLaneId(const std::string laneId) override;
@@ -13086,6 +13552,8 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP bool IsPathSParameterized() override;
 
             // children
+            OPENSCENARIOLIB_EXP virtual void ResetLaneOffset() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetLaneOffset() const override;          
         };
 
         /**
@@ -13309,8 +13777,8 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP double GetPrecipitationIntensity() const override;
             OPENSCENARIOLIB_EXP PrecipitationType GetPrecipitationType() const override;
 
-            bool isSetIntensity = false;          
-            bool isSetPrecipitationIntensity = false;          
+    bool isSetIntensity = false;          
+    bool isSetPrecipitationIntensity = false;          
 
 
             OPENSCENARIOLIB_EXP void SetIntensity(const double intensity) override;
@@ -13531,6 +13999,14 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<ITeleportAction> GetTeleportAction() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IRoutingAction> GetRoutingAction() const override;
 
+    bool isSetLongitudinalAction = false;          
+    bool isSetLateralAction = false;          
+    bool isSetVisibilityAction = false;          
+    bool isSetSynchronizeAction = false;          
+    bool isSetActivateControllerAction = false;          
+    bool isSetControllerAction = false;          
+    bool isSetTeleportAction = false;          
+    bool isSetRoutingAction = false;          
 
 
             OPENSCENARIOLIB_EXP void SetLongitudinalAction(std::shared_ptr<ILongitudinalActionWriter> longitudinalAction) override;
@@ -13607,6 +14083,22 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<IControllerActionWriter> GetWriterControllerAction() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<ITeleportActionWriter> GetWriterTeleportAction() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IRoutingActionWriter> GetWriterRoutingAction() const override;
+            OPENSCENARIOLIB_EXP virtual void ResetLongitudinalAction() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetLongitudinalAction() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetLateralAction() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetLateralAction() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetVisibilityAction() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetVisibilityAction() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetSynchronizeAction() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetSynchronizeAction() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetActivateControllerAction() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetActivateControllerAction() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetControllerAction() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetControllerAction() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetTeleportAction() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetTeleportAction() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetRoutingAction() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetRoutingAction() const override;          
         };
 
         /**
@@ -13834,6 +14326,8 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP int GetFilesSize() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IFile> GetFilesAtIndex(unsigned int index) const override;
 
+    bool isSetProperties = false;          
+    bool isSetFiles = false;          
 
 
             OPENSCENARIOLIB_EXP void SetProperties(std::vector<std::shared_ptr<IPropertyWriter>>& properties) override;
@@ -13890,6 +14384,10 @@ namespace NET_ASAM_OPENSCENARIO
             std::string GetModelType() const override;
 
             // children
+            OPENSCENARIOLIB_EXP virtual void ResetProperties() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetProperties() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetFiles() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetFiles() const override;          
         };
 
         /**
@@ -14226,6 +14724,7 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP Rule GetRule() const override;
             OPENSCENARIOLIB_EXP double GetValue() const override;
 
+    bool isSetCoordinateSystem = false;          
 
 
             OPENSCENARIOLIB_EXP void SetCoordinateSystem(const CoordinateSystem coordinateSystem) override;
@@ -14326,6 +14825,8 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP bool IsValueParameterized() override;
 
             // children
+            OPENSCENARIOLIB_EXP virtual void ResetCoordinateSystem() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetCoordinateSystem() const override;          
         };
 
         /**
@@ -14367,8 +14868,10 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP double GetOffset() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IOrientation> GetOrientation() const override;
 
-            bool isSetDs = false;          
-            bool isSetDsLane = false;          
+    bool isSetDs = false;          
+    bool isSetDsLane = false;          
+    bool isSetOffset = false;          
+    bool isSetOrientation = false;          
 
 
             OPENSCENARIOLIB_EXP void SetDLane(const int dLane) override;
@@ -14468,6 +14971,10 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP virtual bool IsSetDs() const override;          
             OPENSCENARIOLIB_EXP virtual void ResetDsLane() override;
             OPENSCENARIOLIB_EXP virtual bool IsSetDsLane() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetOffset() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetOffset() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetOrientation() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetOrientation() const override;          
         };
 
         /**
@@ -14506,6 +15013,8 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<INamedReference<IEntity>> GetEntityRef() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IOrientation> GetOrientation() const override;
 
+    bool isSetDz = false;          
+    bool isSetOrientation = false;          
 
 
             OPENSCENARIOLIB_EXP void SetDx(const double dx) override;
@@ -14593,6 +15102,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IOrientationWriter> GetWriterOrientation() const override;
+            OPENSCENARIOLIB_EXP virtual void ResetDz() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetDz() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetOrientation() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetOrientation() const override;          
         };
 
         /**
@@ -14629,6 +15142,7 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<INamedReference<IEntity>> GetEntityRef() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IOrientation> GetOrientation() const override;
 
+    bool isSetOrientation = false;          
 
 
             OPENSCENARIOLIB_EXP void SetDs(const double ds) override;
@@ -14708,6 +15222,8 @@ namespace NET_ASAM_OPENSCENARIO
 
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IOrientationWriter> GetWriterOrientation() const override;
+            OPENSCENARIOLIB_EXP virtual void ResetOrientation() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetOrientation() const override;          
         };
 
         /**
@@ -14852,6 +15368,7 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP double GetValue() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<ISteadyState> GetSteadyState() const override;
 
+    bool isSetSteadyState = false;          
 
 
             OPENSCENARIOLIB_EXP void SetSpeedTargetValueType(const SpeedTargetValueType speedTargetValueType) override;
@@ -14923,6 +15440,8 @@ namespace NET_ASAM_OPENSCENARIO
 
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<ISteadyStateWriter> GetWriterSteadyState() const override;
+            OPENSCENARIOLIB_EXP virtual void ResetSteadyState() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetSteadyState() const override;          
         };
 
         /**
@@ -15282,6 +15801,8 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<INamedReference<IEntity>> GetEntityRef() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IOrientation> GetOrientation() const override;
 
+    bool isSetDz = false;          
+    bool isSetOrientation = false;          
 
 
             OPENSCENARIOLIB_EXP void SetDx(const double dx) override;
@@ -15369,6 +15890,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IOrientationWriter> GetWriterOrientation() const override;
+            OPENSCENARIOLIB_EXP virtual void ResetDz() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetDz() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetOrientation() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetOrientation() const override;          
         };
 
         /**
@@ -15401,6 +15926,7 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP double GetFrictionScaleFactor() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IProperties> GetProperties() const override;
 
+    bool isSetProperties = false;          
 
 
             OPENSCENARIOLIB_EXP void SetFrictionScaleFactor(const double frictionScaleFactor) override;
@@ -15464,6 +15990,8 @@ namespace NET_ASAM_OPENSCENARIO
 
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IPropertiesWriter> GetWriterProperties() const override;
+            OPENSCENARIOLIB_EXP virtual void ResetProperties() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetProperties() const override;          
         };
 
         /**
@@ -15503,6 +16031,10 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<ITrafficSignalController> GetTrafficSignalsAtIndex(unsigned int index) const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IUsedArea> GetUsedArea() const override;
 
+    bool isSetLogicFile = false;          
+    bool isSetSceneGraphFile = false;          
+    bool isSetTrafficSignals = false;          
+    bool isSetUsedArea = false;          
 
 
             OPENSCENARIOLIB_EXP void SetLogicFile(std::shared_ptr<IFileWriter> logicFile) override;
@@ -15566,6 +16098,14 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<IFileWriter> GetWriterLogicFile() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IFileWriter> GetWriterSceneGraphFile() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IUsedAreaWriter> GetWriterUsedArea() const override;
+            OPENSCENARIOLIB_EXP virtual void ResetLogicFile() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetLogicFile() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetSceneGraphFile() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetSceneGraphFile() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetTrafficSignals() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetTrafficSignals() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetUsedArea() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetUsedArea() const override;          
         };
 
         /**
@@ -15603,6 +16143,7 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP double GetT() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IOrientation> GetOrientation() const override;
 
+    bool isSetOrientation = false;          
 
 
             OPENSCENARIOLIB_EXP void SetRoadId(const std::string roadId) override;
@@ -15682,6 +16223,8 @@ namespace NET_ASAM_OPENSCENARIO
 
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IOrientationWriter> GetWriterOrientation() const override;
+            OPENSCENARIOLIB_EXP virtual void ResetOrientation() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetOrientation() const override;          
         };
 
         /**
@@ -15727,6 +16270,7 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP int GetWaypointsSize() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IWaypoint> GetWaypointsAtIndex(unsigned int index) const override;
 
+    bool isSetParameterDeclarations = false;          
 
 
             OPENSCENARIOLIB_EXP void SetClosed(const bool closed) override;
@@ -15801,6 +16345,8 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP bool IsNameParameterized() override;
 
             // children
+            OPENSCENARIOLIB_EXP virtual void ResetParameterDeclarations() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetParameterDeclarations() const override;          
         };
 
         /**
@@ -15918,6 +16464,7 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<IOrientation> GetOrientation() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IInRoutePosition> GetInRoutePosition() const override;
 
+    bool isSetOrientation = false;          
 
 
             OPENSCENARIOLIB_EXP void SetRouteRef(std::shared_ptr<IRouteRefWriter> routeRef) override;
@@ -15979,6 +16526,8 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<IRouteRefWriter> GetWriterRouteRef() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IOrientationWriter> GetWriterOrientation() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IInRoutePositionWriter> GetWriterInRoutePosition() const override;
+            OPENSCENARIOLIB_EXP virtual void ResetOrientation() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetOrientation() const override;          
         };
 
         /**
@@ -16010,6 +16559,8 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<IRoute> GetRoute() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<ICatalogReference> GetCatalogReference() const override;
 
+    bool isSetRoute = false;          
+    bool isSetCatalogReference = false;          
 
 
             OPENSCENARIOLIB_EXP void SetRoute(std::shared_ptr<IRouteWriter> route) override;
@@ -16068,6 +16619,10 @@ namespace NET_ASAM_OPENSCENARIO
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IRouteWriter> GetWriterRoute() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<ICatalogReferenceWriter> GetWriterCatalogReference() const override;
+            OPENSCENARIOLIB_EXP virtual void ResetRoute() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetRoute() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetCatalogReference() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetCatalogReference() const override;          
         };
 
         /**
@@ -16101,6 +16656,9 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<IFollowTrajectoryAction> GetFollowTrajectoryAction() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IAcquirePositionAction> GetAcquirePositionAction() const override;
 
+    bool isSetAssignRouteAction = false;          
+    bool isSetFollowTrajectoryAction = false;          
+    bool isSetAcquirePositionAction = false;          
 
 
             OPENSCENARIOLIB_EXP void SetAssignRouteAction(std::shared_ptr<IAssignRouteActionWriter> assignRouteAction) override;
@@ -16162,6 +16720,12 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<IAssignRouteActionWriter> GetWriterAssignRouteAction() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IFollowTrajectoryActionWriter> GetWriterFollowTrajectoryAction() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IAcquirePositionActionWriter> GetWriterAcquirePositionAction() const override;
+            OPENSCENARIOLIB_EXP virtual void ResetAssignRouteAction() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetAssignRouteAction() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetFollowTrajectoryAction() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetFollowTrajectoryAction() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetAcquirePositionAction() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetAcquirePositionAction() const override;          
         };
 
         /**
@@ -16203,6 +16767,7 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<IEntities> GetEntities() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IStoryboard> GetStoryboard() const override;
 
+    bool isSetParameterDeclarations = false;          
 
 
             OPENSCENARIOLIB_EXP void SetParameterDeclarations(std::vector<std::shared_ptr<IParameterDeclarationWriter>>& parameterDeclarations) override;
@@ -16271,6 +16836,8 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<IRoadNetworkWriter> GetWriterRoadNetwork() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IEntitiesWriter> GetWriterEntities() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IStoryboardWriter> GetWriterStoryboard() const override;
+            OPENSCENARIOLIB_EXP virtual void ResetParameterDeclarations() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetParameterDeclarations() const override;          
         };
 
         /**
@@ -16305,6 +16872,7 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<IEntityObject> GetEntityObject() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IObjectController> GetObjectController() const override;
 
+    bool isSetObjectController = false;          
 
 
             OPENSCENARIOLIB_EXP void SetName(const std::string name) override;
@@ -16371,6 +16939,8 @@ namespace NET_ASAM_OPENSCENARIO
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IEntityObjectWriter> GetWriterEntityObject() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IObjectControllerWriter> GetWriterObjectController() const override;
+            OPENSCENARIOLIB_EXP virtual void ResetObjectController() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetObjectController() const override;          
         };
 
         /**
@@ -16410,6 +16980,8 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP int GetByTypeSize() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IByType> GetByTypeAtIndex(unsigned int index) const override;
 
+    bool isSetEntityRef = false;          
+    bool isSetByType = false;          
 
 
             OPENSCENARIOLIB_EXP void SetEntityRef(std::vector<std::shared_ptr<IEntityRefWriter>>& entityRef) override;
@@ -16466,6 +17038,10 @@ namespace NET_ASAM_OPENSCENARIO
             std::string GetModelType() const override;
 
             // children
+            OPENSCENARIOLIB_EXP virtual void ResetEntityRef() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetEntityRef() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetByType() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetByType() const override;          
         };
 
         /**
@@ -16499,6 +17075,9 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<IClothoid> GetClothoid() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<INurbs> GetNurbs() const override;
 
+    bool isSetPolyline = false;          
+    bool isSetClothoid = false;          
+    bool isSetNurbs = false;          
 
 
             OPENSCENARIOLIB_EXP void SetPolyline(std::shared_ptr<IPolylineWriter> polyline) override;
@@ -16560,6 +17139,12 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<IPolylineWriter> GetWriterPolyline() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IClothoidWriter> GetWriterClothoid() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<INurbsWriter> GetWriterNurbs() const override;
+            OPENSCENARIOLIB_EXP virtual void ResetPolyline() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetPolyline() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetClothoid() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetClothoid() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetNurbs() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetNurbs() const override;          
         };
 
         /**
@@ -16780,6 +17365,8 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<IRelativeTargetSpeed> GetRelativeTargetSpeed() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IAbsoluteTargetSpeed> GetAbsoluteTargetSpeed() const override;
 
+    bool isSetRelativeTargetSpeed = false;          
+    bool isSetAbsoluteTargetSpeed = false;          
 
 
             OPENSCENARIOLIB_EXP void SetRelativeTargetSpeed(std::shared_ptr<IRelativeTargetSpeedWriter> relativeTargetSpeed) override;
@@ -16838,6 +17425,10 @@ namespace NET_ASAM_OPENSCENARIO
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IRelativeTargetSpeedWriter> GetWriterRelativeTargetSpeed() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IAbsoluteTargetSpeedWriter> GetWriterAbsoluteTargetSpeed() const override;
+            OPENSCENARIOLIB_EXP virtual void ResetRelativeTargetSpeed() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetRelativeTargetSpeed() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetAbsoluteTargetSpeed() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetAbsoluteTargetSpeed() const override;          
         };
 
         /**
@@ -17156,7 +17747,7 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP int GetStochasticDistributionsSize() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IStochasticDistribution> GetStochasticDistributionsAtIndex(unsigned int index) const override;
 
-            bool isSetRandomSeed = false;          
+    bool isSetRandomSeed = false;          
 
 
             OPENSCENARIOLIB_EXP void SetNumberOfTestRuns(const uint32_t numberOfTestRuns) override;
@@ -17475,6 +18066,7 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP int GetActsSize() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IAct> GetActsAtIndex(unsigned int index) const override;
 
+    bool isSetParameterDeclarations = false;          
 
 
             OPENSCENARIOLIB_EXP void SetName(const std::string name) override;
@@ -17541,6 +18133,8 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP bool IsNameParameterized() override;
 
             // children
+            OPENSCENARIOLIB_EXP virtual void ResetParameterDeclarations() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetParameterDeclarations() const override;          
         };
 
         /**
@@ -17897,8 +18491,9 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<IPosition> GetTargetPosition() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IFinalSpeed> GetFinalSpeed() const override;
 
-            bool isSetTargetTolerance = false;          
-            bool isSetTargetToleranceMaster = false;          
+    bool isSetTargetTolerance = false;          
+    bool isSetTargetToleranceMaster = false;          
+    bool isSetFinalSpeed = false;          
 
 
             OPENSCENARIOLIB_EXP void SetMasterEntityRef(std::shared_ptr<INamedReference<IEntity>> masterEntityRef) override;
@@ -17988,6 +18583,8 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP virtual bool IsSetTargetTolerance() const override;          
             OPENSCENARIOLIB_EXP virtual void ResetTargetToleranceMaster() override;
             OPENSCENARIOLIB_EXP virtual bool IsSetTargetToleranceMaster() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetFinalSpeed() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetFinalSpeed() const override;          
         };
 
         /**
@@ -18295,7 +18892,9 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP Rule GetRule() const override;
             OPENSCENARIOLIB_EXP double GetValue() const override;
 
-            bool isSetAlongRoute = false;          
+    bool isSetAlongRoute = false;          
+    bool isSetCoordinateSystem = false;          
+    bool isSetRelativeDistanceType = false;          
 
 
             OPENSCENARIOLIB_EXP void SetAlongRoute(const bool alongRoute) override;
@@ -18406,6 +19005,10 @@ namespace NET_ASAM_OPENSCENARIO
             // children
             OPENSCENARIOLIB_EXP virtual void ResetAlongRoute() override;
             OPENSCENARIOLIB_EXP virtual bool IsSetAlongRoute() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetCoordinateSystem() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetCoordinateSystem() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetRelativeDistanceType() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetRelativeDistanceType() const override;          
         };
 
         /**
@@ -18638,6 +19241,8 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<INone> GetNone() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<ITiming> GetTiming() const override;
 
+    bool isSetNone = false;          
+    bool isSetTiming = false;          
 
 
             OPENSCENARIOLIB_EXP void SetNone(std::shared_ptr<INoneWriter> none) override;
@@ -18696,6 +19301,10 @@ namespace NET_ASAM_OPENSCENARIO
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<INoneWriter> GetWriterNone() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<ITimingWriter> GetWriterTiming() const override;
+            OPENSCENARIOLIB_EXP virtual void ResetNone() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetNone() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetTiming() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetTiming() const override;          
         };
 
         /**
@@ -18739,7 +19348,9 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP double GetValue() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<ITimeToCollisionConditionTarget> GetTimeToCollisionConditionTarget() const override;
 
-            bool isSetAlongRoute = false;          
+    bool isSetAlongRoute = false;          
+    bool isSetCoordinateSystem = false;          
+    bool isSetRelativeDistanceType = false;          
 
 
             OPENSCENARIOLIB_EXP void SetAlongRoute(const bool alongRoute) override;
@@ -18845,6 +19456,10 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<ITimeToCollisionConditionTargetWriter> GetWriterTimeToCollisionConditionTarget() const override;
             OPENSCENARIOLIB_EXP virtual void ResetAlongRoute() override;
             OPENSCENARIOLIB_EXP virtual bool IsSetAlongRoute() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetCoordinateSystem() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetCoordinateSystem() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetRelativeDistanceType() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetRelativeDistanceType() const override;          
         };
 
         /**
@@ -18876,6 +19491,8 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<IPosition> GetPosition() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IEntityRef> GetEntityRef() const override;
 
+    bool isSetPosition = false;          
+    bool isSetEntityRef = false;          
 
 
             OPENSCENARIOLIB_EXP void SetPosition(std::shared_ptr<IPositionWriter> position) override;
@@ -18934,6 +19551,10 @@ namespace NET_ASAM_OPENSCENARIO
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IPositionWriter> GetWriterPosition() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IEntityRefWriter> GetWriterEntityRef() const override;
+            OPENSCENARIOLIB_EXP virtual void ResetPosition() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetPosition() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetEntityRef() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetEntityRef() const override;          
         };
 
         /**
@@ -19082,7 +19703,11 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<ITrafficSwarmAction> GetTrafficSwarmAction() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<ITrafficStopAction> GetTrafficStopAction() const override;
 
-            bool isSetTrafficName = false;          
+    bool isSetTrafficName = false;          
+    bool isSetTrafficSourceAction = false;          
+    bool isSetTrafficSinkAction = false;          
+    bool isSetTrafficSwarmAction = false;          
+    bool isSetTrafficStopAction = false;          
 
 
             OPENSCENARIOLIB_EXP void SetTrafficName(const std::string trafficName) override;
@@ -19157,6 +19782,14 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<ITrafficStopActionWriter> GetWriterTrafficStopAction() const override;
             OPENSCENARIOLIB_EXP virtual void ResetTrafficName() override;
             OPENSCENARIOLIB_EXP virtual bool IsSetTrafficName() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetTrafficSourceAction() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetTrafficSourceAction() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetTrafficSinkAction() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetTrafficSinkAction() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetTrafficSwarmAction() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetTrafficSwarmAction() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetTrafficStopAction() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetTrafficStopAction() const override;          
         };
 
         /**
@@ -19288,6 +19921,8 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<ITrafficSignalControllerAction> GetTrafficSignalControllerAction() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<ITrafficSignalStateAction> GetTrafficSignalStateAction() const override;
 
+    bool isSetTrafficSignalControllerAction = false;          
+    bool isSetTrafficSignalStateAction = false;          
 
 
             OPENSCENARIOLIB_EXP void SetTrafficSignalControllerAction(std::shared_ptr<ITrafficSignalControllerActionWriter> trafficSignalControllerAction) override;
@@ -19346,6 +19981,10 @@ namespace NET_ASAM_OPENSCENARIO
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<ITrafficSignalControllerActionWriter> GetWriterTrafficSignalControllerAction() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<ITrafficSignalStateActionWriter> GetWriterTrafficSignalStateAction() const override;
+            OPENSCENARIOLIB_EXP virtual void ResetTrafficSignalControllerAction() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetTrafficSignalControllerAction() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetTrafficSignalStateAction() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetTrafficSignalStateAction() const override;          
         };
 
         /**
@@ -19487,7 +20126,9 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP int GetPhasesSize() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IPhase> GetPhasesAtIndex(unsigned int index) const override;
 
-            bool isSetReference = false;          
+    bool isSetDelay = false;          
+    bool isSetReference = false;          
+    bool isSetPhases = false;          
 
 
             OPENSCENARIOLIB_EXP void SetDelay(const double delay) override;
@@ -19566,8 +20207,12 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP bool IsReferenceParameterized() override;
 
             // children
+            OPENSCENARIOLIB_EXP virtual void ResetDelay() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetDelay() const override;          
             OPENSCENARIOLIB_EXP virtual void ResetReference() override;
             OPENSCENARIOLIB_EXP virtual bool IsSetReference() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetPhases() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetPhases() const override;          
         };
 
         /**
@@ -19605,6 +20250,7 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP int GetPhaseRefSize() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IPhase> GetPhaseRefAtIndex(unsigned int index) const override;
 
+    bool isSetPhaseRef = false;          
 
 
             OPENSCENARIOLIB_EXP void SetPhase(const std::string phase) override;
@@ -19675,6 +20321,8 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP bool IsTrafficSignalControllerRefParameterized() override;
 
             // children
+            OPENSCENARIOLIB_EXP virtual void ResetPhaseRef() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetPhaseRef() const override;          
         };
 
         /**
@@ -19712,6 +20360,7 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP int GetPhaseRefSize() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IPhase> GetPhaseRefAtIndex(unsigned int index) const override;
 
+    bool isSetPhaseRef = false;          
 
 
             OPENSCENARIOLIB_EXP void SetPhase(const std::string phase) override;
@@ -19782,6 +20431,8 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP bool IsTrafficSignalControllerRefParameterized() override;
 
             // children
+            OPENSCENARIOLIB_EXP virtual void ResetPhaseRef() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetPhaseRef() const override;          
         };
 
         /**
@@ -20018,7 +20669,8 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<IPosition> GetPosition() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<ITrafficDefinition> GetTrafficDefinition() const override;
 
-            bool isSetRate = false;          
+    bool isSetRate = false;          
+    bool isSetTrafficDefinition = false;          
 
 
             OPENSCENARIOLIB_EXP void SetRadius(const double radius) override;
@@ -20095,6 +20747,8 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<ITrafficDefinitionWriter> GetWriterTrafficDefinition() const override;
             OPENSCENARIOLIB_EXP virtual void ResetRate() override;
             OPENSCENARIOLIB_EXP virtual bool IsSetRate() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetTrafficDefinition() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetTrafficDefinition() const override;          
         };
 
         /**
@@ -20133,6 +20787,7 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<IPosition> GetPosition() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<ITrafficDefinition> GetTrafficDefinition() const override;
 
+    bool isSetVelocity = false;          
 
 
             OPENSCENARIOLIB_EXP void SetRadius(const double radius) override;
@@ -20215,6 +20870,8 @@ namespace NET_ASAM_OPENSCENARIO
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IPositionWriter> GetWriterPosition() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<ITrafficDefinitionWriter> GetWriterTrafficDefinition() const override;
+            OPENSCENARIOLIB_EXP virtual void ResetVelocity() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetVelocity() const override;          
         };
 
         /**
@@ -20339,6 +20996,7 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<ICentralSwarmObject> GetCentralObject() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<ITrafficDefinition> GetTrafficDefinition() const override;
 
+    bool isSetVelocity = false;          
 
 
             OPENSCENARIOLIB_EXP void SetInnerRadius(const double innerRadius) override;
@@ -20445,6 +21103,8 @@ namespace NET_ASAM_OPENSCENARIO
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<ICentralSwarmObjectWriter> GetWriterCentralObject() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<ITrafficDefinitionWriter> GetWriterTrafficDefinition() const override;
+            OPENSCENARIOLIB_EXP virtual void ResetVelocity() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetVelocity() const override;          
         };
 
         /**
@@ -20486,6 +21146,7 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<IParameterDeclaration> GetParameterDeclarationsAtIndex(unsigned int index) const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IShape> GetShape() const override;
 
+    bool isSetParameterDeclarations = false;          
 
 
             OPENSCENARIOLIB_EXP void SetClosed(const bool closed) override;
@@ -20561,6 +21222,8 @@ namespace NET_ASAM_OPENSCENARIO
 
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IShapeWriter> GetWriterShape() const override;
+            OPENSCENARIOLIB_EXP virtual void ResetParameterDeclarations() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetParameterDeclarations() const override;          
         };
 
         /**
@@ -20770,6 +21433,8 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<IOrientation> GetOrientation() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<ITrajectoryRef> GetTrajectoryRef() const override;
 
+    bool isSetT = false;          
+    bool isSetOrientation = false;          
 
 
             OPENSCENARIOLIB_EXP void SetS(const double s) override;
@@ -20844,6 +21509,10 @@ namespace NET_ASAM_OPENSCENARIO
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IOrientationWriter> GetWriterOrientation() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<ITrajectoryRefWriter> GetWriterTrajectoryRef() const override;
+            OPENSCENARIOLIB_EXP virtual void ResetT() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetT() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetOrientation() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetOrientation() const override;          
         };
 
         /**
@@ -21166,6 +21835,7 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP int GetConditionGroupsSize() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IConditionGroup> GetConditionGroupsAtIndex(unsigned int index) const override;
 
+    bool isSetConditionGroups = false;          
 
 
             OPENSCENARIOLIB_EXP void SetConditionGroups(std::vector<std::shared_ptr<IConditionGroupWriter>>& conditionGroups) override;
@@ -21220,6 +21890,8 @@ namespace NET_ASAM_OPENSCENARIO
             std::string GetModelType() const override;
 
             // children
+            OPENSCENARIOLIB_EXP virtual void ResetConditionGroups() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetConditionGroups() const override;          
         };
 
         /**
@@ -22109,8 +22781,9 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<IAxles> GetAxles() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IProperties> GetProperties() const override;
 
-            bool isSetMass = false;          
-            bool isSetModel3d = false;          
+    bool isSetMass = false;          
+    bool isSetModel3d = false;          
+    bool isSetParameterDeclarations = false;          
 
 
             OPENSCENARIOLIB_EXP void SetMass(const double mass) override;
@@ -22215,6 +22888,8 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP virtual bool IsSetMass() const override;          
             OPENSCENARIOLIB_EXP virtual void ResetModel3d() override;
             OPENSCENARIOLIB_EXP virtual bool IsSetModel3d() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetParameterDeclarations() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetParameterDeclarations() const override;          
         };
 
         /**
@@ -22518,7 +23193,7 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP double GetTime() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IPosition> GetPosition() const override;
 
-            bool isSetTime = false;          
+    bool isSetTime = false;          
 
 
             OPENSCENARIOLIB_EXP void SetTime(const double time) override;
@@ -22830,9 +23505,13 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP std::shared_ptr<IPrecipitation> GetPrecipitation() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IWind> GetWind() const override;
 
-            bool isSetAtmosphericPressure = false;          
-            bool isSetCloudState = false;          
-            bool isSetTemperature = false;          
+    bool isSetAtmosphericPressure = false;          
+    bool isSetCloudState = false;          
+    bool isSetTemperature = false;          
+    bool isSetSun = false;          
+    bool isSetFog = false;          
+    bool isSetPrecipitation = false;          
+    bool isSetWind = false;          
 
 
             OPENSCENARIOLIB_EXP void SetAtmosphericPressure(const double atmosphericPressure) override;
@@ -22927,6 +23606,14 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP virtual bool IsSetCloudState() const override;          
             OPENSCENARIOLIB_EXP virtual void ResetTemperature() override;
             OPENSCENARIOLIB_EXP virtual bool IsSetTemperature() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetSun() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetSun() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetFog() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetFog() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetPrecipitation() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetPrecipitation() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetWind() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetWind() const override;          
         };
 
         /**
@@ -23067,6 +23754,10 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP double GetY() const override;
             OPENSCENARIOLIB_EXP double GetZ() const override;
 
+    bool isSetH = false;          
+    bool isSetP = false;          
+    bool isSetR = false;          
+    bool isSetZ = false;          
 
 
             OPENSCENARIOLIB_EXP void SetH(const double h) override;
@@ -23167,6 +23858,14 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP bool IsZParameterized() override;
 
             // children
+            OPENSCENARIOLIB_EXP virtual void ResetH() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetH() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetP() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetP() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetR() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetR() const override;          
+            OPENSCENARIOLIB_EXP virtual void ResetZ() override;
+            OPENSCENARIOLIB_EXP virtual bool IsSetZ() const override;          
         };
 
 

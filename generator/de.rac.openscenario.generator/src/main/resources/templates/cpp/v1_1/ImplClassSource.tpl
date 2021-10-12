@@ -112,7 +112,7 @@ namespace NET_ASAM_OPENSCENARIO
 <%-if (property.isParameterizableProperty()){-%>
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>);
 <%-}-%>
-<%-if (defaultValueHelper.hasNoneAsDefault(element.name.toClassName(),property.name.toMemberName())) {-%>
+<%-if (property.lower == 0) {-%>
 			// set the indicator to true
             isSet<%=property.name.toClassName()%> = true;          
 <%-}-%>
@@ -368,7 +368,7 @@ namespace NET_ASAM_OPENSCENARIO
             <%-}-%>
             <%-}-%>
             // clone indicators
-            <%-properties.findAll(){property -> defaultValueHelper.hasNoneAsDefault(element.name.toClassName(),property.name.toMemberName())}.each{ property ->-%>          
+            <%-properties.findAll(){property -> property.lower == 0}.each{ property ->-%>          
             	clonedObject->isSet<%=property.name.toClassName()%> = isSet<%=property.name.toClassName()%>;
             <%-}-%>
             // clone children
@@ -543,14 +543,14 @@ namespace NET_ASAM_OPENSCENARIO
 
 <%-properties = element.umlProperties-%>
 <%-properties.each{ property ->-%>
-<%-if (defaultValueHelper.hasNoneAsDefault(element.name.toClassName(),property.name.toMemberName())) {-%>
+<%-if (property.lower == 0) {-%>
        void <%=element.name.toClassName()%>Impl::Reset<%=property.name.toClassName()%>()
 	   {
 	   		isSet<%=property.name.toClassName()%> = false; 
 	   		<%- if (property.isProxy() && !property.isList()){-%>
         	_<%=property.name.toMemberName()%> = nullptr;
 			<%-}else{-%>
-			_<%=property.name.toMemberName()%> = {};
+			_<%=property.name.toMemberName()%> = {<%=defaultValueHelper.getDefaultValue(element.name.toClassName(),property.name.toMemberName())%>};
 			<%-}-%>
 			
 	   }

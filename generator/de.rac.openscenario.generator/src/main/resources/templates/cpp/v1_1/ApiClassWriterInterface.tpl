@@ -100,7 +100,7 @@ namespace NET_ASAM_OPENSCENARIO
 <%-}-%>
 <%-properties = element.umlProperties-%>
 <%-properties.each{ property ->-%>
-<%-if (defaultValueHelper.hasNoneAsDefault(element.name.toClassName(),property.name.toMemberName())) {-%>
+<%-if (property.lower == 0) {-%>
             /**
             * Resets the optional property (IsSet<%=property.name.toClassName()%>() will return false);
             */

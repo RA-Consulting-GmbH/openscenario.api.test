@@ -324,6 +324,11 @@ namespace NET_ASAM_OPENSCENARIO
             */
             virtual std::shared_ptr<ISteadyStateWriter> GetWriterSteadyState() const  = 0;
 
+            /**
+            * Resets the optional property (IsSetSteadyState() will return false);
+            */
+            virtual void ResetSteadyState() = 0;
+            
         };
 
 
@@ -686,6 +691,11 @@ namespace NET_ASAM_OPENSCENARIO
              * @return a list of writers for model property maneuverGroups
             */
             virtual std::vector<std::shared_ptr<IManeuverGroupWriter>> GetWriterManeuverGroups() const = 0;
+            /**
+            * Resets the optional property (IsSetStopTrigger() will return false);
+            */
+            virtual void ResetStopTrigger() = 0;
+            
         };
 
 
@@ -781,6 +791,21 @@ namespace NET_ASAM_OPENSCENARIO
             */
             virtual std::shared_ptr<IPrivateActionWriter> GetWriterPrivateAction() const  = 0;
 
+            /**
+            * Resets the optional property (IsSetGlobalAction() will return false);
+            */
+            virtual void ResetGlobalAction() = 0;
+            
+            /**
+            * Resets the optional property (IsSetUserDefinedAction() will return false);
+            */
+            virtual void ResetUserDefinedAction() = 0;
+            
+            /**
+            * Resets the optional property (IsSetPrivateAction() will return false);
+            */
+            virtual void ResetPrivateAction() = 0;
+            
         };
 
 
@@ -932,6 +957,11 @@ namespace NET_ASAM_OPENSCENARIO
              * @return a list of writers for model property entityRefs
             */
             virtual std::vector<std::shared_ptr<IEntityRefWriter>> GetWriterEntityRefs() const = 0;
+            /**
+            * Resets the optional property (IsSetEntityRefs() will return false);
+            */
+            virtual void ResetEntityRefs() = 0;
+            
         };
 
 
@@ -1091,6 +1121,16 @@ namespace NET_ASAM_OPENSCENARIO
             */
             virtual void ResetActivateLongitudinal() = 0;
             
+            /**
+            * Resets the optional property (IsSetController() will return false);
+            */
+            virtual void ResetController() = 0;
+            
+            /**
+            * Resets the optional property (IsSetCatalogReference() will return false);
+            */
+            virtual void ResetCatalogReference() = 0;
+            
         };
 
 
@@ -1147,6 +1187,16 @@ namespace NET_ASAM_OPENSCENARIO
             */
             virtual std::shared_ptr<ICatalogReferenceWriter> GetWriterCatalogReference() const  = 0;
 
+            /**
+            * Resets the optional property (IsSetRoute() will return false);
+            */
+            virtual void ResetRoute() = 0;
+            
+            /**
+            * Resets the optional property (IsSetCatalogReference() will return false);
+            */
+            virtual void ResetCatalogReference() = 0;
+            
         };
 
 
@@ -1371,6 +1421,11 @@ namespace NET_ASAM_OPENSCENARIO
              * @return a list of writers for model property additionalAxles
             */
             virtual std::vector<std::shared_ptr<IAxleWriter>> GetWriterAdditionalAxles() const = 0;
+            /**
+            * Resets the optional property (IsSetAdditionalAxles() will return false);
+            */
+            virtual void ResetAdditionalAxles() = 0;
+            
         };
 
 
@@ -1712,6 +1767,41 @@ namespace NET_ASAM_OPENSCENARIO
             */
             virtual std::shared_ptr<ITrafficSignalControllerConditionWriter> GetWriterTrafficSignalControllerCondition() const  = 0;
 
+            /**
+            * Resets the optional property (IsSetParameterCondition() will return false);
+            */
+            virtual void ResetParameterCondition() = 0;
+            
+            /**
+            * Resets the optional property (IsSetTimeOfDayCondition() will return false);
+            */
+            virtual void ResetTimeOfDayCondition() = 0;
+            
+            /**
+            * Resets the optional property (IsSetSimulationTimeCondition() will return false);
+            */
+            virtual void ResetSimulationTimeCondition() = 0;
+            
+            /**
+            * Resets the optional property (IsSetStoryboardElementStateCondition() will return false);
+            */
+            virtual void ResetStoryboardElementStateCondition() = 0;
+            
+            /**
+            * Resets the optional property (IsSetUserDefinedValueCondition() will return false);
+            */
+            virtual void ResetUserDefinedValueCondition() = 0;
+            
+            /**
+            * Resets the optional property (IsSetTrafficSignalCondition() will return false);
+            */
+            virtual void ResetTrafficSignalCondition() = 0;
+            
+            /**
+            * Resets the optional property (IsSetTrafficSignalControllerCondition() will return false);
+            */
+            virtual void ResetTrafficSignalControllerCondition() = 0;
+            
         };
 
 
@@ -1883,6 +1973,51 @@ namespace NET_ASAM_OPENSCENARIO
              * @return a list of writers for model property routes
             */
             virtual std::vector<std::shared_ptr<IRouteWriter>> GetWriterRoutes() const = 0;
+            /**
+            * Resets the optional property (IsSetName() will return false);
+            */
+            virtual void ResetName() = 0;
+            
+            /**
+            * Resets the optional property (IsSetVehicles() will return false);
+            */
+            virtual void ResetVehicles() = 0;
+            
+            /**
+            * Resets the optional property (IsSetControllers() will return false);
+            */
+            virtual void ResetControllers() = 0;
+            
+            /**
+            * Resets the optional property (IsSetPedestrians() will return false);
+            */
+            virtual void ResetPedestrians() = 0;
+            
+            /**
+            * Resets the optional property (IsSetMiscObjects() will return false);
+            */
+            virtual void ResetMiscObjects() = 0;
+            
+            /**
+            * Resets the optional property (IsSetEnvironments() will return false);
+            */
+            virtual void ResetEnvironments() = 0;
+            
+            /**
+            * Resets the optional property (IsSetManeuvers() will return false);
+            */
+            virtual void ResetManeuvers() = 0;
+            
+            /**
+            * Resets the optional property (IsSetTrajectories() will return false);
+            */
+            virtual void ResetTrajectories() = 0;
+            
+            /**
+            * Resets the optional property (IsSetRoutes() will return false);
+            */
+            virtual void ResetRoutes() = 0;
+            
         };
 
 
@@ -2066,6 +2201,46 @@ namespace NET_ASAM_OPENSCENARIO
             */
             virtual std::shared_ptr<IRouteCatalogLocationWriter> GetWriterRouteCatalog() const  = 0;
 
+            /**
+            * Resets the optional property (IsSetVehicleCatalog() will return false);
+            */
+            virtual void ResetVehicleCatalog() = 0;
+            
+            /**
+            * Resets the optional property (IsSetControllerCatalog() will return false);
+            */
+            virtual void ResetControllerCatalog() = 0;
+            
+            /**
+            * Resets the optional property (IsSetPedestrianCatalog() will return false);
+            */
+            virtual void ResetPedestrianCatalog() = 0;
+            
+            /**
+            * Resets the optional property (IsSetMiscObjectCatalog() will return false);
+            */
+            virtual void ResetMiscObjectCatalog() = 0;
+            
+            /**
+            * Resets the optional property (IsSetEnvironmentCatalog() will return false);
+            */
+            virtual void ResetEnvironmentCatalog() = 0;
+            
+            /**
+            * Resets the optional property (IsSetManeuverCatalog() will return false);
+            */
+            virtual void ResetManeuverCatalog() = 0;
+            
+            /**
+            * Resets the optional property (IsSetTrajectoryCatalog() will return false);
+            */
+            virtual void ResetTrajectoryCatalog() = 0;
+            
+            /**
+            * Resets the optional property (IsSetRouteCatalog() will return false);
+            */
+            virtual void ResetRouteCatalog() = 0;
+            
         };
 
 
@@ -2167,6 +2342,11 @@ namespace NET_ASAM_OPENSCENARIO
              * @return a list of writers for model property parameterAssignments
             */
             virtual std::vector<std::shared_ptr<IParameterAssignmentWriter>> GetWriterParameterAssignments() const = 0;
+            /**
+            * Resets the optional property (IsSetParameterAssignments() will return false);
+            */
+            virtual void ResetParameterAssignments() = 0;
+            
         };
 
 
@@ -2594,6 +2774,16 @@ namespace NET_ASAM_OPENSCENARIO
             */
             virtual std::shared_ptr<IByObjectTypeWriter> GetWriterByType() const  = 0;
 
+            /**
+            * Resets the optional property (IsSetEntityRef() will return false);
+            */
+            virtual void ResetEntityRef() = 0;
+            
+            /**
+            * Resets the optional property (IsSetByType() will return false);
+            */
+            virtual void ResetByType() = 0;
+            
         };
 
 
@@ -2729,6 +2919,16 @@ namespace NET_ASAM_OPENSCENARIO
             */
             virtual std::shared_ptr<IByValueConditionWriter> GetWriterByValueCondition() const  = 0;
 
+            /**
+            * Resets the optional property (IsSetByEntityCondition() will return false);
+            */
+            virtual void ResetByEntityCondition() = 0;
+            
+            /**
+            * Resets the optional property (IsSetByValueCondition() will return false);
+            */
+            virtual void ResetByValueCondition() = 0;
+            
         };
 
 
@@ -2951,6 +3151,11 @@ namespace NET_ASAM_OPENSCENARIO
              * @return a list of writers for model property parameterDeclarations
             */
             virtual std::vector<std::shared_ptr<IParameterDeclarationWriter>> GetWriterParameterDeclarations() const = 0;
+            /**
+            * Resets the optional property (IsSetParameterDeclarations() will return false);
+            */
+            virtual void ResetParameterDeclarations() = 0;
+            
         };
 
 
@@ -3022,6 +3227,21 @@ namespace NET_ASAM_OPENSCENARIO
             */
             virtual std::shared_ptr<IActivateControllerActionWriter> GetWriterActivateControllerAction() const  = 0;
 
+            /**
+            * Resets the optional property (IsSetAssignControllerAction() will return false);
+            */
+            virtual void ResetAssignControllerAction() = 0;
+            
+            /**
+            * Resets the optional property (IsSetOverrideControllerValueAction() will return false);
+            */
+            virtual void ResetOverrideControllerValueAction() = 0;
+            
+            /**
+            * Resets the optional property (IsSetActivateControllerAction() will return false);
+            */
+            virtual void ResetActivateControllerAction() = 0;
+            
         };
 
 
@@ -3180,6 +3400,16 @@ namespace NET_ASAM_OPENSCENARIO
             */
             virtual std::shared_ptr<ICatalogReferenceWriter> GetWriterCatalogReference() const  = 0;
 
+            /**
+            * Resets the optional property (IsSetController() will return false);
+            */
+            virtual void ResetController() = 0;
+            
+            /**
+            * Resets the optional property (IsSetCatalogReference() will return false);
+            */
+            virtual void ResetCatalogReference() = 0;
+            
         };
 
 
@@ -3319,6 +3549,11 @@ namespace NET_ASAM_OPENSCENARIO
              * @return a list of writers for model property deterministicParameterDistributions
             */
             virtual std::vector<std::shared_ptr<IDeterministicParameterDistributionWriter>> GetWriterDeterministicParameterDistributions() const = 0;
+            /**
+            * Resets the optional property (IsSetDeterministicParameterDistributions() will return false);
+            */
+            virtual void ResetDeterministicParameterDistributions() = 0;
+            
         };
 
 
@@ -3942,6 +4177,16 @@ namespace NET_ASAM_OPENSCENARIO
             */
             virtual void ResetAlongRoute() = 0;
             
+            /**
+            * Resets the optional property (IsSetCoordinateSystem() will return false);
+            */
+            virtual void ResetCoordinateSystem() = 0;
+            
+            /**
+            * Resets the optional property (IsSetRelativeDistanceType() will return false);
+            */
+            virtual void ResetRelativeDistanceType() = 0;
+            
         };
 
 
@@ -4376,6 +4621,16 @@ namespace NET_ASAM_OPENSCENARIO
              * @return a list of writers for model property entitySelections
             */
             virtual std::vector<std::shared_ptr<IEntitySelectionWriter>> GetWriterEntitySelections() const = 0;
+            /**
+            * Resets the optional property (IsSetScenarioObjects() will return false);
+            */
+            virtual void ResetScenarioObjects() = 0;
+            
+            /**
+            * Resets the optional property (IsSetEntitySelections() will return false);
+            */
+            virtual void ResetEntitySelections() = 0;
+            
         };
 
 
@@ -4456,6 +4711,16 @@ namespace NET_ASAM_OPENSCENARIO
             */
             virtual std::shared_ptr<IDeleteEntityActionWriter> GetWriterDeleteEntityAction() const  = 0;
 
+            /**
+            * Resets the optional property (IsSetAddEntityAction() will return false);
+            */
+            virtual void ResetAddEntityAction() = 0;
+            
+            /**
+            * Resets the optional property (IsSetDeleteEntityAction() will return false);
+            */
+            virtual void ResetDeleteEntityAction() = 0;
+            
         };
 
 
@@ -4675,6 +4940,71 @@ namespace NET_ASAM_OPENSCENARIO
             */
             virtual std::shared_ptr<IRelativeDistanceConditionWriter> GetWriterRelativeDistanceCondition() const  = 0;
 
+            /**
+            * Resets the optional property (IsSetEndOfRoadCondition() will return false);
+            */
+            virtual void ResetEndOfRoadCondition() = 0;
+            
+            /**
+            * Resets the optional property (IsSetCollisionCondition() will return false);
+            */
+            virtual void ResetCollisionCondition() = 0;
+            
+            /**
+            * Resets the optional property (IsSetOffroadCondition() will return false);
+            */
+            virtual void ResetOffroadCondition() = 0;
+            
+            /**
+            * Resets the optional property (IsSetTimeHeadwayCondition() will return false);
+            */
+            virtual void ResetTimeHeadwayCondition() = 0;
+            
+            /**
+            * Resets the optional property (IsSetTimeToCollisionCondition() will return false);
+            */
+            virtual void ResetTimeToCollisionCondition() = 0;
+            
+            /**
+            * Resets the optional property (IsSetAccelerationCondition() will return false);
+            */
+            virtual void ResetAccelerationCondition() = 0;
+            
+            /**
+            * Resets the optional property (IsSetStandStillCondition() will return false);
+            */
+            virtual void ResetStandStillCondition() = 0;
+            
+            /**
+            * Resets the optional property (IsSetSpeedCondition() will return false);
+            */
+            virtual void ResetSpeedCondition() = 0;
+            
+            /**
+            * Resets the optional property (IsSetRelativeSpeedCondition() will return false);
+            */
+            virtual void ResetRelativeSpeedCondition() = 0;
+            
+            /**
+            * Resets the optional property (IsSetTraveledDistanceCondition() will return false);
+            */
+            virtual void ResetTraveledDistanceCondition() = 0;
+            
+            /**
+            * Resets the optional property (IsSetReachPositionCondition() will return false);
+            */
+            virtual void ResetReachPositionCondition() = 0;
+            
+            /**
+            * Resets the optional property (IsSetDistanceCondition() will return false);
+            */
+            virtual void ResetDistanceCondition() = 0;
+            
+            /**
+            * Resets the optional property (IsSetRelativeDistanceCondition() will return false);
+            */
+            virtual void ResetRelativeDistanceCondition() = 0;
+            
         };
 
 
@@ -4774,6 +5104,31 @@ namespace NET_ASAM_OPENSCENARIO
             */
             virtual std::shared_ptr<IExternalObjectReferenceWriter> GetWriterExternalObjectReference() const  = 0;
 
+            /**
+            * Resets the optional property (IsSetCatalogReference() will return false);
+            */
+            virtual void ResetCatalogReference() = 0;
+            
+            /**
+            * Resets the optional property (IsSetVehicle() will return false);
+            */
+            virtual void ResetVehicle() = 0;
+            
+            /**
+            * Resets the optional property (IsSetPedestrian() will return false);
+            */
+            virtual void ResetPedestrian() = 0;
+            
+            /**
+            * Resets the optional property (IsSetMiscObject() will return false);
+            */
+            virtual void ResetMiscObject() = 0;
+            
+            /**
+            * Resets the optional property (IsSetExternalObjectReference() will return false);
+            */
+            virtual void ResetExternalObjectReference() = 0;
+            
         };
 
 
@@ -5001,6 +5356,26 @@ namespace NET_ASAM_OPENSCENARIO
              * @return a list of writers for model property parameterDeclarations
             */
             virtual std::vector<std::shared_ptr<IParameterDeclarationWriter>> GetWriterParameterDeclarations() const = 0;
+            /**
+            * Resets the optional property (IsSetParameterDeclarations() will return false);
+            */
+            virtual void ResetParameterDeclarations() = 0;
+            
+            /**
+            * Resets the optional property (IsSetTimeOfDay() will return false);
+            */
+            virtual void ResetTimeOfDay() = 0;
+            
+            /**
+            * Resets the optional property (IsSetWeather() will return false);
+            */
+            virtual void ResetWeather() = 0;
+            
+            /**
+            * Resets the optional property (IsSetRoadCondition() will return false);
+            */
+            virtual void ResetRoadCondition() = 0;
+            
         };
 
 
@@ -5056,6 +5431,16 @@ namespace NET_ASAM_OPENSCENARIO
             */
             virtual std::shared_ptr<ICatalogReferenceWriter> GetWriterCatalogReference() const  = 0;
 
+            /**
+            * Resets the optional property (IsSetEnvironment() will return false);
+            */
+            virtual void ResetEnvironment() = 0;
+            
+            /**
+            * Resets the optional property (IsSetCatalogReference() will return false);
+            */
+            virtual void ResetCatalogReference() = 0;
+            
         };
 
 
@@ -5230,6 +5615,16 @@ namespace NET_ASAM_OPENSCENARIO
              * @return a list of writers for model property actions
             */
             virtual std::vector<std::shared_ptr<IActionWriter>> GetWriterActions() const = 0;
+            /**
+            * Resets the optional property (IsSetMaximumExecutionCount() will return false);
+            */
+            virtual void ResetMaximumExecutionCount() = 0;
+            
+            /**
+            * Resets the optional property (IsSetStartTrigger() will return false);
+            */
+            virtual void ResetStartTrigger() = 0;
+            
         };
 
 
@@ -5500,6 +5895,11 @@ namespace NET_ASAM_OPENSCENARIO
             */
             virtual std::shared_ptr<ILicenseWriter> GetWriterLicense() const  = 0;
 
+            /**
+            * Resets the optional property (IsSetLicense() will return false);
+            */
+            virtual void ResetLicense() = 0;
+            
         };
 
 
@@ -5554,6 +5954,16 @@ namespace NET_ASAM_OPENSCENARIO
             */
             virtual std::shared_ptr<IRelativeSpeedToMasterWriter> GetWriterRelativeSpeedToMaster() const  = 0;
 
+            /**
+            * Resets the optional property (IsSetAbsoluteSpeed() will return false);
+            */
+            virtual void ResetAbsoluteSpeed() = 0;
+            
+            /**
+            * Resets the optional property (IsSetRelativeSpeedToMaster() will return false);
+            */
+            virtual void ResetRelativeSpeedToMaster() = 0;
+            
         };
 
 
@@ -5619,6 +6029,11 @@ namespace NET_ASAM_OPENSCENARIO
             */
             virtual std::shared_ptr<IBoundingBoxWriter> GetWriterBoundingBox() const  = 0;
 
+            /**
+            * Resets the optional property (IsSetBoundingBox() will return false);
+            */
+            virtual void ResetBoundingBox() = 0;
+            
         };
 
 
@@ -5753,6 +6168,26 @@ namespace NET_ASAM_OPENSCENARIO
             */
             virtual std::shared_ptr<ITrajectoryRefWriter> GetWriterTrajectoryRef() const  = 0;
 
+            /**
+            * Resets the optional property (IsSetInitialDistanceOffset() will return false);
+            */
+            virtual void ResetInitialDistanceOffset() = 0;
+            
+            /**
+            * Resets the optional property (IsSetTrajectory() will return false);
+            */
+            virtual void ResetTrajectory() = 0;
+            
+            /**
+            * Resets the optional property (IsSetCatalogReference() will return false);
+            */
+            virtual void ResetCatalogReference() = 0;
+            
+            /**
+            * Resets the optional property (IsSetTrajectoryRef() will return false);
+            */
+            virtual void ResetTrajectoryRef() = 0;
+            
         };
 
 
@@ -5875,6 +6310,16 @@ namespace NET_ASAM_OPENSCENARIO
             */
             virtual std::shared_ptr<IOrientationWriter> GetWriterOrientation() const  = 0;
 
+            /**
+            * Resets the optional property (IsSetHeight() will return false);
+            */
+            virtual void ResetHeight() = 0;
+            
+            /**
+            * Resets the optional property (IsSetOrientation() will return false);
+            */
+            virtual void ResetOrientation() = 0;
+            
         };
 
 
@@ -5974,6 +6419,31 @@ namespace NET_ASAM_OPENSCENARIO
             */
             virtual std::shared_ptr<ITrafficActionWriter> GetWriterTrafficAction() const  = 0;
 
+            /**
+            * Resets the optional property (IsSetEnvironmentAction() will return false);
+            */
+            virtual void ResetEnvironmentAction() = 0;
+            
+            /**
+            * Resets the optional property (IsSetEntityAction() will return false);
+            */
+            virtual void ResetEntityAction() = 0;
+            
+            /**
+            * Resets the optional property (IsSetParameterAction() will return false);
+            */
+            virtual void ResetParameterAction() = 0;
+            
+            /**
+            * Resets the optional property (IsSetInfrastructureAction() will return false);
+            */
+            virtual void ResetInfrastructureAction() = 0;
+            
+            /**
+            * Resets the optional property (IsSetTrafficAction() will return false);
+            */
+            virtual void ResetTrafficAction() = 0;
+            
         };
 
 
@@ -6150,6 +6620,21 @@ namespace NET_ASAM_OPENSCENARIO
             */
             virtual std::shared_ptr<IPositionInLaneCoordinatesWriter> GetWriterFromLaneCoordinates() const  = 0;
 
+            /**
+            * Resets the optional property (IsSetFromCurrentEntity() will return false);
+            */
+            virtual void ResetFromCurrentEntity() = 0;
+            
+            /**
+            * Resets the optional property (IsSetFromRoadCoordinates() will return false);
+            */
+            virtual void ResetFromRoadCoordinates() = 0;
+            
+            /**
+            * Resets the optional property (IsSetFromLaneCoordinates() will return false);
+            */
+            virtual void ResetFromLaneCoordinates() = 0;
+            
         };
 
 
@@ -6298,6 +6783,21 @@ namespace NET_ASAM_OPENSCENARIO
              * @return a list of writers for model property privates
             */
             virtual std::vector<std::shared_ptr<IPrivateWriter>> GetWriterPrivates() const = 0;
+            /**
+            * Resets the optional property (IsSetGlobalActions() will return false);
+            */
+            virtual void ResetGlobalActions() = 0;
+            
+            /**
+            * Resets the optional property (IsSetUserDefinedActions() will return false);
+            */
+            virtual void ResetUserDefinedActions() = 0;
+            
+            /**
+            * Resets the optional property (IsSetPrivates() will return false);
+            */
+            virtual void ResetPrivates() = 0;
+            
         };
 
 
@@ -6433,6 +6933,11 @@ namespace NET_ASAM_OPENSCENARIO
             */
             virtual std::shared_ptr<ILaneChangeTargetWriter> GetWriterLaneChangeTarget() const  = 0;
 
+            /**
+            * Resets the optional property (IsSetTargetLaneOffset() will return false);
+            */
+            virtual void ResetTargetLaneOffset() = 0;
+            
         };
 
 
@@ -6487,6 +6992,16 @@ namespace NET_ASAM_OPENSCENARIO
             */
             virtual std::shared_ptr<IAbsoluteTargetLaneWriter> GetWriterAbsoluteTargetLane() const  = 0;
 
+            /**
+            * Resets the optional property (IsSetRelativeTargetLane() will return false);
+            */
+            virtual void ResetRelativeTargetLane() = 0;
+            
+            /**
+            * Resets the optional property (IsSetAbsoluteTargetLane() will return false);
+            */
+            virtual void ResetAbsoluteTargetLane() = 0;
+            
         };
 
 
@@ -6712,6 +7227,16 @@ namespace NET_ASAM_OPENSCENARIO
             */
             virtual std::shared_ptr<IAbsoluteTargetLaneOffsetWriter> GetWriterAbsoluteTargetLaneOffset() const  = 0;
 
+            /**
+            * Resets the optional property (IsSetRelativeTargetLaneOffset() will return false);
+            */
+            virtual void ResetRelativeTargetLaneOffset() = 0;
+            
+            /**
+            * Resets the optional property (IsSetAbsoluteTargetLaneOffset() will return false);
+            */
+            virtual void ResetAbsoluteTargetLaneOffset() = 0;
+            
         };
 
 
@@ -6857,6 +7382,16 @@ namespace NET_ASAM_OPENSCENARIO
             */
             virtual std::shared_ptr<IOrientationWriter> GetWriterOrientation() const  = 0;
 
+            /**
+            * Resets the optional property (IsSetOffset() will return false);
+            */
+            virtual void ResetOffset() = 0;
+            
+            /**
+            * Resets the optional property (IsSetOrientation() will return false);
+            */
+            virtual void ResetOrientation() = 0;
+            
         };
 
 
@@ -6926,6 +7461,21 @@ namespace NET_ASAM_OPENSCENARIO
             */
             virtual std::shared_ptr<ILateralDistanceActionWriter> GetWriterLateralDistanceAction() const  = 0;
 
+            /**
+            * Resets the optional property (IsSetLaneChangeAction() will return false);
+            */
+            virtual void ResetLaneChangeAction() = 0;
+            
+            /**
+            * Resets the optional property (IsSetLaneOffsetAction() will return false);
+            */
+            virtual void ResetLaneOffsetAction() = 0;
+            
+            /**
+            * Resets the optional property (IsSetLateralDistanceAction() will return false);
+            */
+            virtual void ResetLateralDistanceAction() = 0;
+            
         };
 
 
@@ -7129,6 +7679,26 @@ namespace NET_ASAM_OPENSCENARIO
             */
             virtual std::shared_ptr<IDynamicConstraintsWriter> GetWriterDynamicConstraints() const  = 0;
 
+            /**
+            * Resets the optional property (IsSetCoordinateSystem() will return false);
+            */
+            virtual void ResetCoordinateSystem() = 0;
+            
+            /**
+            * Resets the optional property (IsSetDisplacement() will return false);
+            */
+            virtual void ResetDisplacement() = 0;
+            
+            /**
+            * Resets the optional property (IsSetDistance() will return false);
+            */
+            virtual void ResetDistance() = 0;
+            
+            /**
+            * Resets the optional property (IsSetDynamicConstraints() will return false);
+            */
+            virtual void ResetDynamicConstraints() = 0;
+            
         };
 
 
@@ -7260,6 +7830,11 @@ namespace NET_ASAM_OPENSCENARIO
             // children
 
             /**
+            * Resets the optional property (IsSetText() will return false);
+            */
+            virtual void ResetText() = 0;
+            
+            /**
             * Resets the optional property (IsSetResource() will return false);
             */
             virtual void ResetResource() = 0;
@@ -7323,6 +7898,16 @@ namespace NET_ASAM_OPENSCENARIO
             */
             virtual std::shared_ptr<ILongitudinalDistanceActionWriter> GetWriterLongitudinalDistanceAction() const  = 0;
 
+            /**
+            * Resets the optional property (IsSetSpeedAction() will return false);
+            */
+            virtual void ResetSpeedAction() = 0;
+            
+            /**
+            * Resets the optional property (IsSetLongitudinalDistanceAction() will return false);
+            */
+            virtual void ResetLongitudinalDistanceAction() = 0;
+            
         };
 
 
@@ -7550,6 +8135,16 @@ namespace NET_ASAM_OPENSCENARIO
             virtual std::shared_ptr<IDynamicConstraintsWriter> GetWriterDynamicConstraints() const  = 0;
 
             /**
+            * Resets the optional property (IsSetCoordinateSystem() will return false);
+            */
+            virtual void ResetCoordinateSystem() = 0;
+            
+            /**
+            * Resets the optional property (IsSetDisplacement() will return false);
+            */
+            virtual void ResetDisplacement() = 0;
+            
+            /**
             * Resets the optional property (IsSetDistance() will return false);
             */
             virtual void ResetDistance() = 0;
@@ -7558,6 +8153,11 @@ namespace NET_ASAM_OPENSCENARIO
             * Resets the optional property (IsSetTimeGap() will return false);
             */
             virtual void ResetTimeGap() = 0;
+            
+            /**
+            * Resets the optional property (IsSetDynamicConstraints() will return false);
+            */
+            virtual void ResetDynamicConstraints() = 0;
             
         };
 
@@ -7639,6 +8239,11 @@ namespace NET_ASAM_OPENSCENARIO
              * @return a list of writers for model property events
             */
             virtual std::vector<std::shared_ptr<IEventWriter>> GetWriterEvents() const = 0;
+            /**
+            * Resets the optional property (IsSetParameterDeclarations() will return false);
+            */
+            virtual void ResetParameterDeclarations() = 0;
+            
         };
 
 
@@ -7800,6 +8405,16 @@ namespace NET_ASAM_OPENSCENARIO
              * @return a list of writers for model property maneuvers
             */
             virtual std::vector<std::shared_ptr<IManeuverWriter>> GetWriterManeuvers() const = 0;
+            /**
+            * Resets the optional property (IsSetCatalogReferences() will return false);
+            */
+            virtual void ResetCatalogReferences() = 0;
+            
+            /**
+            * Resets the optional property (IsSetManeuvers() will return false);
+            */
+            virtual void ResetManeuvers() = 0;
+            
         };
 
 
@@ -7978,6 +8593,11 @@ namespace NET_ASAM_OPENSCENARIO
             */
             virtual void ResetModel3d() = 0;
             
+            /**
+            * Resets the optional property (IsSetParameterDeclarations() will return false);
+            */
+            virtual void ResetParameterDeclarations() = 0;
+            
         };
 
 
@@ -8072,6 +8692,16 @@ namespace NET_ASAM_OPENSCENARIO
             */
             virtual std::shared_ptr<IParameterMultiplyByValueRuleWriter> GetWriterMultiplyByValue() const  = 0;
 
+            /**
+            * Resets the optional property (IsSetAddValue() will return false);
+            */
+            virtual void ResetAddValue() = 0;
+            
+            /**
+            * Resets the optional property (IsSetMultiplyByValue() will return false);
+            */
+            virtual void ResetMultiplyByValue() = 0;
+            
         };
 
 
@@ -8186,6 +8816,11 @@ namespace NET_ASAM_OPENSCENARIO
             */
             virtual std::shared_ptr<IRangeWriter> GetWriterRange() const  = 0;
 
+            /**
+            * Resets the optional property (IsSetRange() will return false);
+            */
+            virtual void ResetRange() = 0;
+            
         };
 
 
@@ -8327,6 +8962,16 @@ namespace NET_ASAM_OPENSCENARIO
             */
             virtual std::shared_ptr<IControllerWriter> GetWriterController() const  = 0;
 
+            /**
+            * Resets the optional property (IsSetCatalogReference() will return false);
+            */
+            virtual void ResetCatalogReference() = 0;
+            
+            /**
+            * Resets the optional property (IsSetController() will return false);
+            */
+            virtual void ResetController() = 0;
+            
         };
 
 
@@ -8629,6 +9274,26 @@ namespace NET_ASAM_OPENSCENARIO
 
             // children
 
+            /**
+            * Resets the optional property (IsSetH() will return false);
+            */
+            virtual void ResetH() = 0;
+            
+            /**
+            * Resets the optional property (IsSetP() will return false);
+            */
+            virtual void ResetP() = 0;
+            
+            /**
+            * Resets the optional property (IsSetR() will return false);
+            */
+            virtual void ResetR() = 0;
+            
+            /**
+            * Resets the optional property (IsSetType() will return false);
+            */
+            virtual void ResetType() = 0;
+            
         };
 
 
@@ -8895,6 +9560,36 @@ namespace NET_ASAM_OPENSCENARIO
             */
             virtual std::shared_ptr<IOverrideGearActionWriter> GetWriterGear() const  = 0;
 
+            /**
+            * Resets the optional property (IsSetThrottle() will return false);
+            */
+            virtual void ResetThrottle() = 0;
+            
+            /**
+            * Resets the optional property (IsSetBrake() will return false);
+            */
+            virtual void ResetBrake() = 0;
+            
+            /**
+            * Resets the optional property (IsSetClutch() will return false);
+            */
+            virtual void ResetClutch() = 0;
+            
+            /**
+            * Resets the optional property (IsSetParkingBrake() will return false);
+            */
+            virtual void ResetParkingBrake() = 0;
+            
+            /**
+            * Resets the optional property (IsSetSteeringWheel() will return false);
+            */
+            virtual void ResetSteeringWheel() = 0;
+            
+            /**
+            * Resets the optional property (IsSetGear() will return false);
+            */
+            virtual void ResetGear() = 0;
+            
         };
 
 
@@ -9279,6 +9974,16 @@ namespace NET_ASAM_OPENSCENARIO
             */
             virtual std::shared_ptr<IParameterModifyActionWriter> GetWriterModifyAction() const  = 0;
 
+            /**
+            * Resets the optional property (IsSetSetAction() will return false);
+            */
+            virtual void ResetSetAction() = 0;
+            
+            /**
+            * Resets the optional property (IsSetModifyAction() will return false);
+            */
+            virtual void ResetModifyAction() = 0;
+            
         };
 
 
@@ -9597,6 +10302,11 @@ namespace NET_ASAM_OPENSCENARIO
              * @return a list of writers for model property constraintGroups
             */
             virtual std::vector<std::shared_ptr<IValueConstraintGroupWriter>> GetWriterConstraintGroups() const = 0;
+            /**
+            * Resets the optional property (IsSetConstraintGroups() will return false);
+            */
+            virtual void ResetConstraintGroups() = 0;
+            
         };
 
 
@@ -10077,6 +10787,11 @@ namespace NET_ASAM_OPENSCENARIO
             */
             virtual void ResetModel3d() = 0;
             
+            /**
+            * Resets the optional property (IsSetParameterDeclarations() will return false);
+            */
+            virtual void ResetParameterDeclarations() = 0;
+            
         };
 
 
@@ -10312,6 +11027,11 @@ namespace NET_ASAM_OPENSCENARIO
              * @return a list of writers for model property trafficSignalStates
             */
             virtual std::vector<std::shared_ptr<ITrafficSignalStateWriter>> GetWriterTrafficSignalStates() const = 0;
+            /**
+            * Resets the optional property (IsSetTrafficSignalStates() will return false);
+            */
+            virtual void ResetTrafficSignalStates() = 0;
+            
         };
 
 
@@ -10377,6 +11097,11 @@ namespace NET_ASAM_OPENSCENARIO
             */
             virtual std::shared_ptr<IRangeWriter> GetWriterRange() const  = 0;
 
+            /**
+            * Resets the optional property (IsSetRange() will return false);
+            */
+            virtual void ResetRange() = 0;
+            
         };
 
 
@@ -10592,6 +11317,56 @@ namespace NET_ASAM_OPENSCENARIO
             */
             virtual std::shared_ptr<ITrajectoryPositionWriter> GetWriterTrajectoryPosition() const  = 0;
 
+            /**
+            * Resets the optional property (IsSetWorldPosition() will return false);
+            */
+            virtual void ResetWorldPosition() = 0;
+            
+            /**
+            * Resets the optional property (IsSetRelativeWorldPosition() will return false);
+            */
+            virtual void ResetRelativeWorldPosition() = 0;
+            
+            /**
+            * Resets the optional property (IsSetRelativeObjectPosition() will return false);
+            */
+            virtual void ResetRelativeObjectPosition() = 0;
+            
+            /**
+            * Resets the optional property (IsSetRoadPosition() will return false);
+            */
+            virtual void ResetRoadPosition() = 0;
+            
+            /**
+            * Resets the optional property (IsSetRelativeRoadPosition() will return false);
+            */
+            virtual void ResetRelativeRoadPosition() = 0;
+            
+            /**
+            * Resets the optional property (IsSetLanePosition() will return false);
+            */
+            virtual void ResetLanePosition() = 0;
+            
+            /**
+            * Resets the optional property (IsSetRelativeLanePosition() will return false);
+            */
+            virtual void ResetRelativeLanePosition() = 0;
+            
+            /**
+            * Resets the optional property (IsSetRoutePosition() will return false);
+            */
+            virtual void ResetRoutePosition() = 0;
+            
+            /**
+            * Resets the optional property (IsSetGeoPosition() will return false);
+            */
+            virtual void ResetGeoPosition() = 0;
+            
+            /**
+            * Resets the optional property (IsSetTrajectoryPosition() will return false);
+            */
+            virtual void ResetTrajectoryPosition() = 0;
+            
         };
 
 
@@ -10695,6 +11470,11 @@ namespace NET_ASAM_OPENSCENARIO
 
             // children
 
+            /**
+            * Resets the optional property (IsSetLaneOffset() will return false);
+            */
+            virtual void ResetLaneOffset() = 0;
+            
         };
 
 
@@ -11151,6 +11931,46 @@ namespace NET_ASAM_OPENSCENARIO
             */
             virtual std::shared_ptr<IRoutingActionWriter> GetWriterRoutingAction() const  = 0;
 
+            /**
+            * Resets the optional property (IsSetLongitudinalAction() will return false);
+            */
+            virtual void ResetLongitudinalAction() = 0;
+            
+            /**
+            * Resets the optional property (IsSetLateralAction() will return false);
+            */
+            virtual void ResetLateralAction() = 0;
+            
+            /**
+            * Resets the optional property (IsSetVisibilityAction() will return false);
+            */
+            virtual void ResetVisibilityAction() = 0;
+            
+            /**
+            * Resets the optional property (IsSetSynchronizeAction() will return false);
+            */
+            virtual void ResetSynchronizeAction() = 0;
+            
+            /**
+            * Resets the optional property (IsSetActivateControllerAction() will return false);
+            */
+            virtual void ResetActivateControllerAction() = 0;
+            
+            /**
+            * Resets the optional property (IsSetControllerAction() will return false);
+            */
+            virtual void ResetControllerAction() = 0;
+            
+            /**
+            * Resets the optional property (IsSetTeleportAction() will return false);
+            */
+            virtual void ResetTeleportAction() = 0;
+            
+            /**
+            * Resets the optional property (IsSetRoutingAction() will return false);
+            */
+            virtual void ResetRoutingAction() = 0;
+            
         };
 
 
@@ -11326,6 +12146,16 @@ namespace NET_ASAM_OPENSCENARIO
              * @return a list of writers for model property files
             */
             virtual std::vector<std::shared_ptr<IFileWriter>> GetWriterFiles() const = 0;
+            /**
+            * Resets the optional property (IsSetProperties() will return false);
+            */
+            virtual void ResetProperties() = 0;
+            
+            /**
+            * Resets the optional property (IsSetFiles() will return false);
+            */
+            virtual void ResetFiles() = 0;
+            
         };
 
 
@@ -11724,6 +12554,11 @@ namespace NET_ASAM_OPENSCENARIO
 
             // children
 
+            /**
+            * Resets the optional property (IsSetCoordinateSystem() will return false);
+            */
+            virtual void ResetCoordinateSystem() = 0;
+            
         };
 
 
@@ -11929,6 +12764,16 @@ Alternatively
             */
             virtual void ResetDsLane() = 0;
             
+            /**
+            * Resets the optional property (IsSetOffset() will return false);
+            */
+            virtual void ResetOffset() = 0;
+            
+            /**
+            * Resets the optional property (IsSetOrientation() will return false);
+            */
+            virtual void ResetOrientation() = 0;
+            
         };
 
 
@@ -12076,6 +12921,16 @@ Alternatively
             */
             virtual std::shared_ptr<IOrientationWriter> GetWriterOrientation() const  = 0;
 
+            /**
+            * Resets the optional property (IsSetDz() will return false);
+            */
+            virtual void ResetDz() = 0;
+            
+            /**
+            * Resets the optional property (IsSetOrientation() will return false);
+            */
+            virtual void ResetOrientation() = 0;
+            
         };
 
 
@@ -12193,6 +13048,11 @@ Alternatively
             */
             virtual std::shared_ptr<IOrientationWriter> GetWriterOrientation() const  = 0;
 
+            /**
+            * Resets the optional property (IsSetOrientation() will return false);
+            */
+            virtual void ResetOrientation() = 0;
+            
         };
 
 
@@ -12387,6 +13247,11 @@ Alternatively
             */
             virtual std::shared_ptr<ISteadyStateWriter> GetWriterSteadyState() const  = 0;
 
+            /**
+            * Resets the optional property (IsSetSteadyState() will return false);
+            */
+            virtual void ResetSteadyState() = 0;
+            
         };
 
 
@@ -12818,6 +13683,16 @@ Alternatively
             */
             virtual std::shared_ptr<IOrientationWriter> GetWriterOrientation() const  = 0;
 
+            /**
+            * Resets the optional property (IsSetDz() will return false);
+            */
+            virtual void ResetDz() = 0;
+            
+            /**
+            * Resets the optional property (IsSetOrientation() will return false);
+            */
+            virtual void ResetOrientation() = 0;
+            
         };
 
 
@@ -12883,6 +13758,11 @@ Alternatively
             */
             virtual std::shared_ptr<IPropertiesWriter> GetWriterProperties() const  = 0;
 
+            /**
+            * Resets the optional property (IsSetProperties() will return false);
+            */
+            virtual void ResetProperties() = 0;
+            
         };
 
 
@@ -12972,6 +13852,26 @@ Alternatively
              * @return a list of writers for model property trafficSignals
             */
             virtual std::vector<std::shared_ptr<ITrafficSignalControllerWriter>> GetWriterTrafficSignals() const = 0;
+            /**
+            * Resets the optional property (IsSetLogicFile() will return false);
+            */
+            virtual void ResetLogicFile() = 0;
+            
+            /**
+            * Resets the optional property (IsSetSceneGraphFile() will return false);
+            */
+            virtual void ResetSceneGraphFile() = 0;
+            
+            /**
+            * Resets the optional property (IsSetTrafficSignals() will return false);
+            */
+            virtual void ResetTrafficSignals() = 0;
+            
+            /**
+            * Resets the optional property (IsSetUsedArea() will return false);
+            */
+            virtual void ResetUsedArea() = 0;
+            
         };
 
 
@@ -13092,6 +13992,11 @@ Alternatively
             */
             virtual std::shared_ptr<IOrientationWriter> GetWriterOrientation() const  = 0;
 
+            /**
+            * Resets the optional property (IsSetOrientation() will return false);
+            */
+            virtual void ResetOrientation() = 0;
+            
         };
 
 
@@ -13199,6 +14104,11 @@ Alternatively
              * @return a list of writers for model property waypoints
             */
             virtual std::vector<std::shared_ptr<IWaypointWriter>> GetWriterWaypoints() const = 0;
+            /**
+            * Resets the optional property (IsSetParameterDeclarations() will return false);
+            */
+            virtual void ResetParameterDeclarations() = 0;
+            
         };
 
 
@@ -13312,6 +14222,11 @@ Alternatively
             */
             virtual std::shared_ptr<IInRoutePositionWriter> GetWriterInRoutePosition() const  = 0;
 
+            /**
+            * Resets the optional property (IsSetOrientation() will return false);
+            */
+            virtual void ResetOrientation() = 0;
+            
         };
 
 
@@ -13366,6 +14281,16 @@ Alternatively
             */
             virtual std::shared_ptr<ICatalogReferenceWriter> GetWriterCatalogReference() const  = 0;
 
+            /**
+            * Resets the optional property (IsSetRoute() will return false);
+            */
+            virtual void ResetRoute() = 0;
+            
+            /**
+            * Resets the optional property (IsSetCatalogReference() will return false);
+            */
+            virtual void ResetCatalogReference() = 0;
+            
         };
 
 
@@ -13438,6 +14363,21 @@ Alternatively
             */
             virtual std::shared_ptr<IAcquirePositionActionWriter> GetWriterAcquirePositionAction() const  = 0;
 
+            /**
+            * Resets the optional property (IsSetAssignRouteAction() will return false);
+            */
+            virtual void ResetAssignRouteAction() = 0;
+            
+            /**
+            * Resets the optional property (IsSetFollowTrajectoryAction() will return false);
+            */
+            virtual void ResetFollowTrajectoryAction() = 0;
+            
+            /**
+            * Resets the optional property (IsSetAcquirePositionAction() will return false);
+            */
+            virtual void ResetAcquirePositionAction() = 0;
+            
         };
 
 
@@ -13543,6 +14483,11 @@ Alternatively
              * @return a list of writers for model property parameterDeclarations
             */
             virtual std::vector<std::shared_ptr<IParameterDeclarationWriter>> GetWriterParameterDeclarations() const = 0;
+            /**
+            * Resets the optional property (IsSetParameterDeclarations() will return false);
+            */
+            virtual void ResetParameterDeclarations() = 0;
+            
         };
 
 
@@ -13624,6 +14569,11 @@ Alternatively
             */
             virtual std::shared_ptr<IObjectControllerWriter> GetWriterObjectController() const  = 0;
 
+            /**
+            * Resets the optional property (IsSetObjectController() will return false);
+            */
+            virtual void ResetObjectController() = 0;
+            
         };
 
 
@@ -13678,6 +14628,16 @@ Alternatively
              * @return a list of writers for model property byType
             */
             virtual std::vector<std::shared_ptr<IByTypeWriter>> GetWriterByType() const = 0;
+            /**
+            * Resets the optional property (IsSetEntityRef() will return false);
+            */
+            virtual void ResetEntityRef() = 0;
+            
+            /**
+            * Resets the optional property (IsSetByType() will return false);
+            */
+            virtual void ResetByType() = 0;
+            
         };
 
 
@@ -13747,6 +14707,21 @@ Alternatively
             */
             virtual std::shared_ptr<INurbsWriter> GetWriterNurbs() const  = 0;
 
+            /**
+            * Resets the optional property (IsSetPolyline() will return false);
+            */
+            virtual void ResetPolyline() = 0;
+            
+            /**
+            * Resets the optional property (IsSetClothoid() will return false);
+            */
+            virtual void ResetClothoid() = 0;
+            
+            /**
+            * Resets the optional property (IsSetNurbs() will return false);
+            */
+            virtual void ResetNurbs() = 0;
+            
         };
 
 
@@ -13933,6 +14908,16 @@ Alternatively
             */
             virtual std::shared_ptr<IAbsoluteTargetSpeedWriter> GetWriterAbsoluteTargetSpeed() const  = 0;
 
+            /**
+            * Resets the optional property (IsSetRelativeTargetSpeed() will return false);
+            */
+            virtual void ResetRelativeTargetSpeed() = 0;
+            
+            /**
+            * Resets the optional property (IsSetAbsoluteTargetSpeed() will return false);
+            */
+            virtual void ResetAbsoluteTargetSpeed() = 0;
+            
         };
 
 
@@ -14470,6 +15455,11 @@ Alternatively
              * @return a list of writers for model property acts
             */
             virtual std::vector<std::shared_ptr<IActWriter>> GetWriterActs() const = 0;
+            /**
+            * Resets the optional property (IsSetParameterDeclarations() will return false);
+            */
+            virtual void ResetParameterDeclarations() = 0;
+            
         };
 
 
@@ -14905,6 +15895,11 @@ Alternatively
             */
             virtual void ResetTargetToleranceMaster() = 0;
             
+            /**
+            * Resets the optional property (IsSetFinalSpeed() will return false);
+            */
+            virtual void ResetFinalSpeed() = 0;
+            
         };
 
 
@@ -15264,6 +16259,16 @@ Alternatively
             */
             virtual void ResetAlongRoute() = 0;
             
+            /**
+            * Resets the optional property (IsSetCoordinateSystem() will return false);
+            */
+            virtual void ResetCoordinateSystem() = 0;
+            
+            /**
+            * Resets the optional property (IsSetRelativeDistanceType() will return false);
+            */
+            virtual void ResetRelativeDistanceType() = 0;
+            
         };
 
 
@@ -15474,6 +16479,16 @@ Alternatively
             */
             virtual std::shared_ptr<ITimingWriter> GetWriterTiming() const  = 0;
 
+            /**
+            * Resets the optional property (IsSetNone() will return false);
+            */
+            virtual void ResetNone() = 0;
+            
+            /**
+            * Resets the optional property (IsSetTiming() will return false);
+            */
+            virtual void ResetTiming() = 0;
+            
         };
 
 
@@ -15685,6 +16700,16 @@ Alternatively
             */
             virtual void ResetAlongRoute() = 0;
             
+            /**
+            * Resets the optional property (IsSetCoordinateSystem() will return false);
+            */
+            virtual void ResetCoordinateSystem() = 0;
+            
+            /**
+            * Resets the optional property (IsSetRelativeDistanceType() will return false);
+            */
+            virtual void ResetRelativeDistanceType() = 0;
+            
         };
 
 
@@ -15740,6 +16765,16 @@ Alternatively
             */
             virtual std::shared_ptr<IEntityRefWriter> GetWriterEntityRef() const  = 0;
 
+            /**
+            * Resets the optional property (IsSetPosition() will return false);
+            */
+            virtual void ResetPosition() = 0;
+            
+            /**
+            * Resets the optional property (IsSetEntityRef() will return false);
+            */
+            virtual void ResetEntityRef() = 0;
+            
         };
 
 
@@ -15958,6 +16993,26 @@ Alternatively
             */
             virtual void ResetTrafficName() = 0;
             
+            /**
+            * Resets the optional property (IsSetTrafficSourceAction() will return false);
+            */
+            virtual void ResetTrafficSourceAction() = 0;
+            
+            /**
+            * Resets the optional property (IsSetTrafficSinkAction() will return false);
+            */
+            virtual void ResetTrafficSinkAction() = 0;
+            
+            /**
+            * Resets the optional property (IsSetTrafficSwarmAction() will return false);
+            */
+            virtual void ResetTrafficSwarmAction() = 0;
+            
+            /**
+            * Resets the optional property (IsSetTrafficStopAction() will return false);
+            */
+            virtual void ResetTrafficStopAction() = 0;
+            
         };
 
 
@@ -16092,6 +17147,16 @@ Alternatively
             */
             virtual std::shared_ptr<ITrafficSignalStateActionWriter> GetWriterTrafficSignalStateAction() const  = 0;
 
+            /**
+            * Resets the optional property (IsSetTrafficSignalControllerAction() will return false);
+            */
+            virtual void ResetTrafficSignalControllerAction() = 0;
+            
+            /**
+            * Resets the optional property (IsSetTrafficSignalStateAction() will return false);
+            */
+            virtual void ResetTrafficSignalStateAction() = 0;
+            
         };
 
 
@@ -16292,9 +17357,19 @@ Alternatively
             */
             virtual std::vector<std::shared_ptr<IPhaseWriter>> GetWriterPhases() const = 0;
             /**
+            * Resets the optional property (IsSetDelay() will return false);
+            */
+            virtual void ResetDelay() = 0;
+            
+            /**
             * Resets the optional property (IsSetReference() will return false);
             */
             virtual void ResetReference() = 0;
+            
+            /**
+            * Resets the optional property (IsSetPhases() will return false);
+            */
+            virtual void ResetPhases() = 0;
             
         };
 
@@ -16381,6 +17456,11 @@ Alternatively
 
             // children
 
+            /**
+            * Resets the optional property (IsSetPhaseRef() will return false);
+            */
+            virtual void ResetPhaseRef() = 0;
+            
         };
 
 
@@ -16467,6 +17547,11 @@ Alternatively
 
             // children
 
+            /**
+            * Resets the optional property (IsSetPhaseRef() will return false);
+            */
+            virtual void ResetPhaseRef() = 0;
+            
         };
 
 
@@ -16731,6 +17816,11 @@ Alternatively
             */
             virtual void ResetRate() = 0;
             
+            /**
+            * Resets the optional property (IsSetTrafficDefinition() will return false);
+            */
+            virtual void ResetTrafficDefinition() = 0;
+            
         };
 
 
@@ -16863,6 +17953,11 @@ Alternatively
             */
             virtual std::shared_ptr<ITrafficDefinitionWriter> GetWriterTrafficDefinition() const  = 0;
 
+            /**
+            * Resets the optional property (IsSetVelocity() will return false);
+            */
+            virtual void ResetVelocity() = 0;
+            
         };
 
 
@@ -17105,6 +18200,11 @@ Alternatively
             */
             virtual std::shared_ptr<ITrafficDefinitionWriter> GetWriterTrafficDefinition() const  = 0;
 
+            /**
+            * Resets the optional property (IsSetVelocity() will return false);
+            */
+            virtual void ResetVelocity() = 0;
+            
         };
 
 
@@ -17211,6 +18311,11 @@ Alternatively
              * @return a list of writers for model property parameterDeclarations
             */
             virtual std::vector<std::shared_ptr<IParameterDeclarationWriter>> GetWriterParameterDeclarations() const = 0;
+            /**
+            * Resets the optional property (IsSetParameterDeclarations() will return false);
+            */
+            virtual void ResetParameterDeclarations() = 0;
+            
         };
 
 
@@ -17412,6 +18517,16 @@ Alternatively
             */
             virtual std::shared_ptr<ITrajectoryRefWriter> GetWriterTrajectoryRef() const  = 0;
 
+            /**
+            * Resets the optional property (IsSetT() will return false);
+            */
+            virtual void ResetT() = 0;
+            
+            /**
+            * Resets the optional property (IsSetOrientation() will return false);
+            */
+            virtual void ResetOrientation() = 0;
+            
         };
 
 
@@ -17662,6 +18777,11 @@ Alternatively
              * @return a list of writers for model property conditionGroups
             */
             virtual std::vector<std::shared_ptr<IConditionGroupWriter>> GetWriterConditionGroups() const = 0;
+            /**
+            * Resets the optional property (IsSetConditionGroups() will return false);
+            */
+            virtual void ResetConditionGroups() = 0;
+            
         };
 
 
@@ -18402,6 +19522,11 @@ Multiple constraint groups are
             */
             virtual void ResetModel3d() = 0;
             
+            /**
+            * Resets the optional property (IsSetParameterDeclarations() will return false);
+            */
+            virtual void ResetParameterDeclarations() = 0;
+            
         };
 
 
@@ -18979,6 +20104,26 @@ Multiple constraint groups are
             */
             virtual void ResetTemperature() = 0;
             
+            /**
+            * Resets the optional property (IsSetSun() will return false);
+            */
+            virtual void ResetSun() = 0;
+            
+            /**
+            * Resets the optional property (IsSetFog() will return false);
+            */
+            virtual void ResetFog() = 0;
+            
+            /**
+            * Resets the optional property (IsSetPrecipitation() will return false);
+            */
+            virtual void ResetPrecipitation() = 0;
+            
+            /**
+            * Resets the optional property (IsSetWind() will return false);
+            */
+            virtual void ResetWind() = 0;
+            
         };
 
 
@@ -19240,6 +20385,26 @@ Multiple constraint groups are
 
             // children
 
+            /**
+            * Resets the optional property (IsSetH() will return false);
+            */
+            virtual void ResetH() = 0;
+            
+            /**
+            * Resets the optional property (IsSetP() will return false);
+            */
+            virtual void ResetP() = 0;
+            
+            /**
+            * Resets the optional property (IsSetR() will return false);
+            */
+            virtual void ResetR() = 0;
+            
+            /**
+            * Resets the optional property (IsSetZ() will return false);
+            */
+            virtual void ResetZ() = 0;
+            
         };
 
     }

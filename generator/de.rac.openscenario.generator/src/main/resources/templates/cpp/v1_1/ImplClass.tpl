@@ -94,7 +94,7 @@ namespace NET_ASAM_OPENSCENARIO
 
 	<%-properties = element.umlProperties-%>
 	<%-properties.each{ property ->-%>
-	<%-if (defaultValueHelper.hasNoneAsDefault(element.name.toClassName(),property.name.toMemberName())) {-%>
+	<%-if (property.lower == 0) {-%>
             bool isSet<%=property.name.toClassName()%> = false;          
 	<%-}}-%>
 
@@ -192,7 +192,7 @@ namespace NET_ASAM_OPENSCENARIO
 <%-}-%>
 <%-properties = element.umlProperties-%>
 <%-properties.each{ property ->-%>
-<%-if (defaultValueHelper.hasNoneAsDefault(element.name.toClassName(),property.name.toMemberName())) {-%>
+<%-if (property.lower == 0) {-%>
             OPENSCENARIOLIB_EXP virtual void Reset<%=property.name.toClassName()%>() override;
             OPENSCENARIOLIB_EXP virtual bool IsSet<%=property.name.toClassName()%>() const override;          
 <%-}}-%>
