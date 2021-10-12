@@ -108,7 +108,7 @@ namespace NET_ASAM_OPENSCENARIO
 			command += " Test ";
 			command += " > " + _executablePath + "/" + kInputDir + kResultFileName;
 			auto res = Assert( USAGE_RESULT == ExecuteSystemCommand( command ), ASSERT_LOCATION );
-			res = res && Assert( "OpenScenarioChecker [[{-i <filename>|-d <dirname>} [-p <paramfilename>]] | -v]" == GetLine( kResultFileName, 4 ), ASSERT_LOCATION );
+			res = res && Assert( "OpenScenarioChecker [[{-i <filename>|-d <dirname>} [-p <paramfilename>] [-v1_1]] | -v]" == GetLine( kResultFileName, 4 ), ASSERT_LOCATION );
 			return res;
 		}
 
