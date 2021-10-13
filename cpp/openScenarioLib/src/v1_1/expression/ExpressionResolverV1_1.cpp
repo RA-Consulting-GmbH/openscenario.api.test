@@ -19,6 +19,12 @@
 #include <set>
 #include <map>
 #include "ExpressionResolverV1_1.h"
+#include <cmath>
+#include <limits>
+#include <iomanip>
+#include <iostream>
+#include <type_traits>
+#include <algorithm>
 
 #include <iostream>
 
@@ -37,6 +43,13 @@ namespace NET_ASAM_OPENSCENARIO
 {
     namespace v1_1
     {
+		bool ExpressionResolver::AlmostEqual(double x, double y, int ulp)
+		{
+			// https://en.cppreference.com/w/cpp/types/numeric_limits/epsilon
+			return std::fabs(x - y) <= std::numeric_limits<double>::epsilon() * std::fabs(x + y) * ulp
+				// unless the result is subnormal
+				|| std::fabs(x - y) < std::numeric_limits<double>::min();
+		}
 	    std::shared_ptr<OscExpression::ExprValue> ExpressionResolver::CreateExprValueFromParameterValue(
 		    std::shared_ptr<ParameterValue> paramterValue)
 	    {
@@ -253,35 +266,30 @@ namespace NET_ASAM_OPENSCENARIO
 			Rule rule = constraint->GetRule();
 			if (parameterType == OscExpression::ExprType::GetDoubleType())
 			{
+				double firstOperand = parameterResolvedValue->getDoubleValue();
+				double secondOperand = constraintValue->getDoubleValue();
 				if (rule == Rule::RuleEnum::EQUAL_TO || rule == Rule::RuleEnum::NOT_EQUAL_TO)
 				{
-					auto locator = std::static_pointer_cast<NET_ASAM_OPENSCENARIO::ILocator>(constraint->GetAdapter(typeid(NET_ASAM_OPENSCENARIO::ILocator).name()));
-					if (locator != nullptr)
-					{
-						auto msg = FileContentMessage("'==' or '!=' comparison with 'double' types is not recommended due to precision issues.", WARNING, locator->GetStartMarkerOfProperty(OSC_CONSTANTS::ATTRIBUTE__RULE));
-						logger->LogMessage(msg);
-					}
-					bool equalResult = parameterResolvedValue->getDoubleValue() == constraintValue->getDoubleValue();
-					
+					bool equalResult = AlmostEqual(firstOperand, secondOperand);					
 					result =  rule == Rule::RuleEnum::EQUAL_TO ? equalResult : !equalResult;
 					
 				}else if (rule == Rule::RuleEnum::LESS_THAN)
 				{
-					result = parameterResolvedValue->getDoubleValue() < constraintValue->getDoubleValue();
+					result = firstOperand < secondOperand;
 				}
 				else if (rule == Rule::RuleEnum::LESS_OR_EQUAL)
 				{
-
-					result = parameterResolvedValue->getDoubleValue() <= constraintValue->getDoubleValue();
+					
+					result = firstOperand < secondOperand || AlmostEqual(firstOperand, secondOperand);
 				
 				}
 				else if (rule == Rule::RuleEnum::GREATER_THAN)
 				{
-					result = parameterResolvedValue->getDoubleValue() > constraintValue->getDoubleValue();
+					result = firstOperand > secondOperand;
 				}
 				else if (rule == Rule::RuleEnum::GREATER_OR_EQUAL)
 				{
-					result = parameterResolvedValue->getDoubleValue() >= constraintValue->getDoubleValue();
+					result = firstOperand >= secondOperand || AlmostEqual(firstOperand, secondOperand); ;
 				}
 				
 			}

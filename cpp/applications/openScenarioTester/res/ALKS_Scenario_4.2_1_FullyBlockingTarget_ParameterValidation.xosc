@@ -64,9 +64,9 @@
 			<ValueConstraint rule="lessOrEqual" value="2021-07-09T11:00:00.34+03:00" />
 		</ConstraintGroup>
 	</ParameterDeclaration>
-	<ParameterDeclaration name="double_equalTo" parameterType="double" value="60">
+	<ParameterDeclaration name="double_equalTo" parameterType="double" value="${1.2+3.1}">
 		<ConstraintGroup>
-			<ValueConstraint rule="equalTo" value="60.0" />
+			<ValueConstraint rule="equalTo" value="4.3" />
 		</ConstraintGroup>
 	</ParameterDeclaration>
 	<ParameterDeclaration name="double_greaterThan" parameterType="double" value="61">
