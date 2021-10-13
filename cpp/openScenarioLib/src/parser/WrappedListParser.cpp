@@ -23,8 +23,8 @@
 
 namespace NET_ASAM_OPENSCENARIO
 {
-		WrappedListParser::WrappedListParser(IParserMessageLogger& messageLogger, std::string& filename, const std::shared_ptr<IElementParser> innerParser, const std::string wrapperTagName):
-            XmlParserBase(messageLogger, filename), _innerElementParser(innerParser), _wrapperTagName(wrapperTagName), _wrapperTagNameEndPosition(-1,-1) {}
+		WrappedListParser::WrappedListParser(IParserMessageLogger& messageLogger, std::string& filename, const std::shared_ptr<IElementParser> innerParser, const std::string wrapperTagName, ParserOptions& parserOptions):
+            XmlParserBase(messageLogger, filename, parserOptions), _innerElementParser(innerParser), _wrapperTagName(wrapperTagName), _wrapperTagNameEndPosition(-1,-1) {}
 
 		void WrappedListParser::ParseSubElements(std::vector<std::shared_ptr<IndexedElement>>& parentElements, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
         {

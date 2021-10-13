@@ -39,8 +39,9 @@ namespace NET_ASAM_OPENSCENARIO
          * Constructor
          * @param messageLogger to log messages during parsing process
          * @param filename of the file the parser is operating on.
+         * @param parserOptions options for the parser
          */
-		XmlGroupParser(IParserMessageLogger& messageLogger, std::string& filename);
+		XmlGroupParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 		virtual ~XmlGroupParser();
 
 		void ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr <ParserContext>& parserContext, std::shared_ptr <BaseImpl> object) override;

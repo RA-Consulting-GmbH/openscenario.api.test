@@ -19,7 +19,7 @@
 
 namespace NET_ASAM_OPENSCENARIO
 {
-	XmlSequenceParser::XmlSequenceParser(IParserMessageLogger& messageLogger, std::string& filename) : XmlModelGroupParser(messageLogger, filename) {}
+	XmlSequenceParser::XmlSequenceParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions) : XmlModelGroupParser(messageLogger, filename, parserOptions) {}
 	XmlSequenceParser::~XmlSequenceParser() = default;
 	
     void XmlSequenceParser::ParseSubElementsInternal(std::vector<std::shared_ptr<IndexedElement>>& indexedElements, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)

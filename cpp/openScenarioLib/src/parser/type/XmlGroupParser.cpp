@@ -20,7 +20,7 @@
 
 namespace NET_ASAM_OPENSCENARIO
 {
-	XmlGroupParser::XmlGroupParser(IParserMessageLogger& messageLogger, std::string& filename): XmlParserBase(messageLogger, filename) {}
+	XmlGroupParser::XmlGroupParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlParserBase(messageLogger, filename, parserOptions) {}
 	XmlGroupParser::~XmlGroupParser() = default;
 	
     void XmlGroupParser::ParseElement(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr <ParserContext>& parserContext, std::shared_ptr <BaseImpl> object)

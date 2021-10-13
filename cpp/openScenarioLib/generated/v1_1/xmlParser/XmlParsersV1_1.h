@@ -287,8 +287,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -308,7 +309,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementSteadyStateParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementSteadyStateParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -327,8 +328,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            AbsoluteSpeedXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            AbsoluteSpeedXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -354,8 +355,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -369,8 +371,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            AbsoluteTargetLaneXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            AbsoluteTargetLaneXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -396,8 +398,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -411,8 +414,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            AbsoluteTargetLaneOffsetXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            AbsoluteTargetLaneOffsetXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -438,8 +441,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -453,8 +457,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            AbsoluteTargetSpeedXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            AbsoluteTargetSpeedXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -480,8 +484,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -495,8 +500,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            AccelerationConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            AccelerationConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -522,8 +527,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -544,7 +550,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -563,8 +569,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            AcquirePositionActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            AcquirePositionActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -590,8 +596,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -611,7 +618,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementManeuverGroupsParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementManeuverGroupsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -636,7 +643,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementStartTriggerParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementStartTriggerParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -661,7 +668,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementStopTriggerParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementStopTriggerParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -680,8 +687,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            ActXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            ActXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -707,8 +714,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -729,7 +737,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementGlobalActionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementGlobalActionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -754,7 +762,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementUserDefinedActionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementUserDefinedActionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -779,7 +787,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementPrivateActionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementPrivateActionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -798,8 +806,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            ActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            ActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -825,8 +833,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -840,8 +849,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            ActivateControllerActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            ActivateControllerActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -867,8 +876,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -888,7 +898,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementEntityRefsParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementEntityRefsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -907,8 +917,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            ActorsXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            ActorsXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -934,8 +944,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -956,7 +967,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -975,8 +986,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            AddEntityActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            AddEntityActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -1002,8 +1013,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -1024,7 +1036,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementControllerParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementControllerParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -1049,7 +1061,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementCatalogReferenceParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementCatalogReferenceParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -1068,8 +1080,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            AssignControllerActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            AssignControllerActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -1095,8 +1107,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -1117,7 +1130,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementRouteParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementRouteParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -1142,7 +1155,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementCatalogReferenceParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementCatalogReferenceParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -1161,8 +1174,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            AssignRouteActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            AssignRouteActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -1188,8 +1201,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -1203,8 +1217,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            AxleXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            AxleXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -1230,8 +1244,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -1251,7 +1266,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementFrontAxleParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementFrontAxleParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -1276,7 +1291,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementRearAxleParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementRearAxleParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -1301,7 +1316,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementAdditionalAxlesParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementAdditionalAxlesParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -1320,8 +1335,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            AxlesXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            AxlesXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -1347,8 +1362,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -1369,7 +1385,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementCenterParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementCenterParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -1394,7 +1410,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementDimensionsParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementDimensionsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -1413,8 +1429,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            BoundingBoxXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            BoundingBoxXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -1440,8 +1456,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -1462,7 +1479,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementTriggeringEntitiesParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementTriggeringEntitiesParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -1487,7 +1504,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementEntityConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementEntityConditionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -1506,8 +1523,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            ByEntityConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            ByEntityConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -1533,8 +1550,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -1548,8 +1566,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            ByObjectTypeXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            ByObjectTypeXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -1575,8 +1593,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -1590,8 +1609,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            ByTypeXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            ByTypeXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -1617,8 +1636,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -1639,7 +1659,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementParameterConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParameterConditionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -1664,7 +1684,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementTimeOfDayConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementTimeOfDayConditionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -1689,7 +1709,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementSimulationTimeConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementSimulationTimeConditionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -1714,7 +1734,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementStoryboardElementStateConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementStoryboardElementStateConditionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -1739,7 +1759,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementUserDefinedValueConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementUserDefinedValueConditionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -1764,7 +1784,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementTrafficSignalConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementTrafficSignalConditionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -1789,7 +1809,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementTrafficSignalControllerConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementTrafficSignalControllerConditionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -1808,8 +1828,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            ByValueConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            ByValueConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -1835,8 +1855,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -1856,7 +1877,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementVehiclesParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementVehiclesParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -1881,7 +1902,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementControllersParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementControllersParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -1906,7 +1927,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementPedestriansParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementPedestriansParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -1931,7 +1952,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementMiscObjectsParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementMiscObjectsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -1956,7 +1977,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementEnvironmentsParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementEnvironmentsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -1981,7 +2002,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementManeuversParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementManeuversParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -2006,7 +2027,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementTrajectoriesParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementTrajectoriesParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -2031,7 +2052,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementRoutesParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementRoutesParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -2050,8 +2071,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            CatalogXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            CatalogXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -2076,8 +2097,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -2097,7 +2119,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementCatalogParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementCatalogParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -2116,8 +2138,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            CatalogDefinitionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            CatalogDefinitionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -2143,8 +2165,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -2165,7 +2188,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementVehicleCatalogParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementVehicleCatalogParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -2190,7 +2213,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementControllerCatalogParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementControllerCatalogParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -2215,7 +2238,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementPedestrianCatalogParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementPedestrianCatalogParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -2240,7 +2263,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementMiscObjectCatalogParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementMiscObjectCatalogParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -2265,7 +2288,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementEnvironmentCatalogParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementEnvironmentCatalogParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -2290,7 +2313,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementManeuverCatalogParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementManeuverCatalogParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -2315,7 +2338,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementTrajectoryCatalogParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementTrajectoryCatalogParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -2340,7 +2363,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementRouteCatalogParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementRouteCatalogParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -2359,8 +2382,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            CatalogLocationsXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            CatalogLocationsXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -2386,8 +2409,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -2407,7 +2431,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementParameterAssignmentsParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParameterAssignmentsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -2426,8 +2450,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            CatalogReferenceXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            CatalogReferenceXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -2453,8 +2477,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -2468,8 +2493,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            CenterXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            CenterXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -2495,8 +2520,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -2510,8 +2536,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            CentralSwarmObjectXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            CentralSwarmObjectXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -2537,8 +2563,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -2558,7 +2585,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -2577,8 +2604,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            ClothoidXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            ClothoidXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -2604,8 +2631,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -2626,7 +2654,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementEntityRefParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementEntityRefParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -2651,7 +2679,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementByTypeParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementByTypeParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -2670,8 +2698,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            CollisionConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            CollisionConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -2697,8 +2725,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -2719,7 +2748,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementByEntityConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementByEntityConditionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -2744,7 +2773,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementByValueConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementByValueConditionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -2763,8 +2792,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            ConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            ConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -2790,8 +2819,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -2811,7 +2841,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementConditionsParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementConditionsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -2830,8 +2860,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            ConditionGroupXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            ConditionGroupXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -2857,8 +2887,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -2878,7 +2909,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -2897,8 +2928,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            ControlPointXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            ControlPointXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -2924,8 +2955,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -2946,7 +2978,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementParameterDeclarationsParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParameterDeclarationsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -2971,7 +3003,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementPropertiesParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementPropertiesParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -2990,8 +3022,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            ControllerXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            ControllerXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -3017,8 +3049,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -3039,7 +3072,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementAssignControllerActionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementAssignControllerActionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -3064,7 +3097,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementOverrideControllerValueActionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementOverrideControllerValueActionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -3089,7 +3122,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementActivateControllerActionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementActivateControllerActionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -3108,8 +3141,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            ControllerActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            ControllerActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -3135,8 +3168,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -3157,7 +3191,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementDirectoryParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementDirectoryParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -3176,8 +3210,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            ControllerCatalogLocationXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            ControllerCatalogLocationXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -3203,8 +3237,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -3224,7 +3259,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementControllerDistributionEntriesParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementControllerDistributionEntriesParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -3243,8 +3278,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            ControllerDistributionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            ControllerDistributionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -3270,8 +3305,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -3292,7 +3328,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementControllerParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementControllerParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -3317,7 +3353,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementCatalogReferenceParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementCatalogReferenceParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -3336,8 +3372,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            ControllerDistributionEntryXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            ControllerDistributionEntryXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -3363,8 +3399,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            CustomCommandActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            CustomCommandActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -3390,8 +3426,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -3405,8 +3442,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            DeleteEntityActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            DeleteEntityActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -3432,8 +3469,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -3453,7 +3491,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementDeterministicParameterDistributionsParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementDeterministicParameterDistributionsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -3472,8 +3510,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            DeterministicXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            DeterministicXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -3499,8 +3537,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -3520,7 +3559,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementDeterministicMultiParameterDistributionTypeParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementDeterministicMultiParameterDistributionTypeParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -3539,8 +3578,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            DeterministicMultiParameterDistributionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            DeterministicMultiParameterDistributionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -3565,8 +3604,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -3586,7 +3626,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementValueSetDistributionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementValueSetDistributionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -3605,8 +3645,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            DeterministicMultiParameterDistributionTypeXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            DeterministicMultiParameterDistributionTypeXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -3631,8 +3671,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -3653,7 +3694,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementDeterministicMultiParameterDistributionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementDeterministicMultiParameterDistributionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -3678,7 +3719,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementDeterministicSingleParameterDistributionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementDeterministicSingleParameterDistributionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -3697,8 +3738,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            DeterministicParameterDistributionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            DeterministicParameterDistributionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -3724,8 +3765,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -3745,7 +3787,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementDeterministicSingleParameterDistributionTypeParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementDeterministicSingleParameterDistributionTypeParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -3764,8 +3806,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            DeterministicSingleParameterDistributionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            DeterministicSingleParameterDistributionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -3790,8 +3832,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -3812,7 +3855,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementDistributionSetParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementDistributionSetParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -3837,7 +3880,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementDistributionRangeParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementDistributionRangeParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -3862,7 +3905,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementUserDefinedDistributionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementUserDefinedDistributionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -3881,8 +3924,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            DeterministicSingleParameterDistributionTypeXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            DeterministicSingleParameterDistributionTypeXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -3908,8 +3951,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -3923,8 +3967,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            DimensionsXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            DimensionsXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -3950,8 +3994,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -3965,8 +4010,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            DirectoryXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            DirectoryXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -3992,8 +4037,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -4014,7 +4060,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -4033,8 +4079,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            DistanceConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            DistanceConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -4059,8 +4105,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -4081,7 +4128,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementDeterministicParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementDeterministicParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -4106,7 +4153,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementStochasticParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementStochasticParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -4125,8 +4172,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            DistributionDefinitionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            DistributionDefinitionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -4152,8 +4199,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -4174,7 +4222,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementRangeParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementRangeParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -4193,8 +4241,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            DistributionRangeXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            DistributionRangeXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -4220,8 +4268,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -4241,7 +4290,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementElementsParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementElementsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -4260,8 +4309,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            DistributionSetXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            DistributionSetXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -4287,8 +4336,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -4303,8 +4353,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            DistributionSetElementXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            DistributionSetElementXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -4330,8 +4380,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -4345,8 +4396,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            DynamicConstraintsXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            DynamicConstraintsXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -4372,8 +4423,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -4387,8 +4439,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            EndOfRoadConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            EndOfRoadConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -4414,8 +4466,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -4435,7 +4488,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementScenarioObjectsParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementScenarioObjectsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -4460,7 +4513,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementEntitySelectionsParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementEntitySelectionsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -4479,8 +4532,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            EntitiesXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            EntitiesXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -4506,8 +4559,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -4528,7 +4582,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementAddEntityActionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementAddEntityActionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -4553,7 +4607,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementDeleteEntityActionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementDeleteEntityActionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -4572,8 +4626,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            EntityActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            EntityActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -4599,8 +4653,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -4621,7 +4676,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementEndOfRoadConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementEndOfRoadConditionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -4646,7 +4701,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementCollisionConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementCollisionConditionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -4671,7 +4726,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementOffroadConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementOffroadConditionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -4696,7 +4751,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementTimeHeadwayConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementTimeHeadwayConditionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -4721,7 +4776,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementTimeToCollisionConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementTimeToCollisionConditionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -4746,7 +4801,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementAccelerationConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementAccelerationConditionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -4771,7 +4826,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementStandStillConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementStandStillConditionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -4796,7 +4851,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementSpeedConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementSpeedConditionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -4821,7 +4876,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementRelativeSpeedConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementRelativeSpeedConditionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -4846,7 +4901,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementTraveledDistanceConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementTraveledDistanceConditionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -4871,7 +4926,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementReachPositionConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementReachPositionConditionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -4896,7 +4951,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementDistanceConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementDistanceConditionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -4921,7 +4976,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementRelativeDistanceConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementRelativeDistanceConditionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -4940,8 +4995,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            EntityConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            EntityConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -4966,8 +5021,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -4988,7 +5044,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementCatalogReferenceParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementCatalogReferenceParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -5013,7 +5069,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementVehicleParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementVehicleParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -5038,7 +5094,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementPedestrianParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementPedestrianParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -5063,7 +5119,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementMiscObjectParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementMiscObjectParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -5088,7 +5144,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementExternalObjectReferenceParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementExternalObjectReferenceParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -5107,8 +5163,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            EntityObjectXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            EntityObjectXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -5134,8 +5190,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -5149,8 +5206,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            EntityRefXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            EntityRefXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -5176,8 +5233,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -5197,7 +5255,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementMembersParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementMembersParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -5216,8 +5274,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            EntitySelectionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            EntitySelectionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -5243,8 +5301,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -5265,7 +5324,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementParameterDeclarationsParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParameterDeclarationsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -5290,7 +5349,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementTimeOfDayParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementTimeOfDayParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -5315,7 +5374,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementWeatherParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementWeatherParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -5340,7 +5399,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementRoadConditionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementRoadConditionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -5359,8 +5418,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            EnvironmentXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            EnvironmentXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -5386,8 +5445,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -5408,7 +5468,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementEnvironmentParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementEnvironmentParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -5433,7 +5493,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementCatalogReferenceParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementCatalogReferenceParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -5452,8 +5512,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            EnvironmentActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            EnvironmentActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -5479,8 +5539,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -5501,7 +5562,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementDirectoryParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementDirectoryParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -5520,8 +5581,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            EnvironmentCatalogLocationXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            EnvironmentCatalogLocationXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -5547,8 +5608,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -5568,7 +5630,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementActionsParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementActionsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -5593,7 +5655,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementStartTriggerParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementStartTriggerParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -5612,8 +5674,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            EventXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            EventXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -5639,8 +5701,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -5655,8 +5718,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            ExternalObjectReferenceXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            ExternalObjectReferenceXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -5682,8 +5745,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -5697,8 +5761,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            FileXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            FileXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -5724,8 +5788,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -5745,7 +5810,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementLicenseParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementLicenseParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -5764,8 +5829,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            FileHeaderXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            FileHeaderXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -5791,8 +5856,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -5813,7 +5879,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementAbsoluteSpeedParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementAbsoluteSpeedParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -5838,7 +5904,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementRelativeSpeedToMasterParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementRelativeSpeedToMasterParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -5857,8 +5923,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            FinalSpeedXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            FinalSpeedXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -5884,8 +5950,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -5906,7 +5973,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementBoundingBoxParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementBoundingBoxParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -5925,8 +5992,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            FogXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            FogXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -5952,8 +6019,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -5974,7 +6042,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementTrajectoryParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementTrajectoryParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -5999,7 +6067,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementCatalogReferenceParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementCatalogReferenceParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -6024,7 +6092,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementTimeReferenceParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementTimeReferenceParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -6049,7 +6117,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementTrajectoryFollowingModeParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementTrajectoryFollowingModeParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -6074,7 +6142,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementTrajectoryRefParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementTrajectoryRefParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -6093,8 +6161,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            FollowTrajectoryActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            FollowTrajectoryActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -6120,8 +6188,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -6142,7 +6211,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementOrientationParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementOrientationParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -6161,8 +6230,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            GeoPositionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            GeoPositionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -6188,8 +6257,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -6210,7 +6280,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementEnvironmentActionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementEnvironmentActionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -6235,7 +6305,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementEntityActionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementEntityActionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -6260,7 +6330,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementParameterActionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParameterActionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -6285,7 +6355,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementInfrastructureActionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementInfrastructureActionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -6310,7 +6380,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementTrafficActionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementTrafficActionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -6329,8 +6399,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            GlobalActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            GlobalActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -6356,8 +6426,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -6377,7 +6448,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementBinsParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementBinsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -6396,8 +6467,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            HistogramXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            HistogramXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -6423,8 +6494,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -6444,7 +6516,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementRangeParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementRangeParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -6463,8 +6535,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            HistogramBinXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            HistogramBinXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -6490,8 +6562,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -6512,7 +6585,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementFromCurrentEntityParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementFromCurrentEntityParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -6537,7 +6610,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementFromRoadCoordinatesParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementFromRoadCoordinatesParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -6562,7 +6635,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementFromLaneCoordinatesParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementFromLaneCoordinatesParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -6581,8 +6654,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            InRoutePositionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            InRoutePositionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -6608,8 +6681,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -6630,7 +6704,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementTrafficSignalActionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementTrafficSignalActionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -6649,8 +6723,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            InfrastructureActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            InfrastructureActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -6676,8 +6750,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -6697,7 +6772,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementActionsParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementActionsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -6716,8 +6791,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            InitXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            InitXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -6743,8 +6818,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -6764,7 +6840,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementGlobalActionsParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementGlobalActionsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -6789,7 +6865,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementUserDefinedActionsParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementUserDefinedActionsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -6814,7 +6890,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementPrivatesParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementPrivatesParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -6833,8 +6909,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            InitActionsXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            InitActionsXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -6860,8 +6936,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -6875,8 +6952,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            KnotXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            KnotXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -6902,8 +6979,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -6924,7 +7002,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementLaneChangeActionDynamicsParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementLaneChangeActionDynamicsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -6949,7 +7027,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementLaneChangeTargetParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementLaneChangeTargetParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -6968,8 +7046,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            LaneChangeActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            LaneChangeActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -6995,8 +7073,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -7017,7 +7096,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementRelativeTargetLaneParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementRelativeTargetLaneParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -7042,7 +7121,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementAbsoluteTargetLaneParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementAbsoluteTargetLaneParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -7061,8 +7140,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            LaneChangeTargetXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            LaneChangeTargetXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -7088,8 +7167,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -7110,7 +7190,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementLaneOffsetActionDynamicsParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementLaneOffsetActionDynamicsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -7135,7 +7215,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementLaneOffsetTargetParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementLaneOffsetTargetParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -7154,8 +7234,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            LaneOffsetActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            LaneOffsetActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -7181,8 +7261,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -7196,8 +7277,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            LaneOffsetActionDynamicsXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            LaneOffsetActionDynamicsXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -7223,8 +7304,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -7245,7 +7327,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementRelativeTargetLaneOffsetParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementRelativeTargetLaneOffsetParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -7270,7 +7352,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementAbsoluteTargetLaneOffsetParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementAbsoluteTargetLaneOffsetParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -7289,8 +7371,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            LaneOffsetTargetXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            LaneOffsetTargetXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -7316,8 +7398,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -7338,7 +7421,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementOrientationParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementOrientationParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -7357,8 +7440,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            LanePositionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            LanePositionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -7384,8 +7467,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -7406,7 +7490,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementLaneChangeActionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementLaneChangeActionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -7431,7 +7515,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementLaneOffsetActionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementLaneOffsetActionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -7456,7 +7540,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementLateralDistanceActionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementLateralDistanceActionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -7475,8 +7559,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            LateralActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            LateralActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -7502,8 +7586,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -7524,7 +7609,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementDynamicConstraintsParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementDynamicConstraintsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -7543,8 +7628,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            LateralDistanceActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            LateralDistanceActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -7570,8 +7655,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            LicenseXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            LicenseXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -7597,8 +7682,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -7619,7 +7705,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementSpeedActionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementSpeedActionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -7644,7 +7730,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementLongitudinalDistanceActionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementLongitudinalDistanceActionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -7663,8 +7749,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            LongitudinalActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            LongitudinalActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -7690,8 +7776,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -7712,7 +7799,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementDynamicConstraintsParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementDynamicConstraintsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -7731,8 +7818,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            LongitudinalDistanceActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            LongitudinalDistanceActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -7758,8 +7845,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -7779,7 +7867,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementParameterDeclarationsParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParameterDeclarationsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -7804,7 +7892,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementEventsParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementEventsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -7823,8 +7911,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            ManeuverXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            ManeuverXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -7850,8 +7938,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -7872,7 +7961,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementDirectoryParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementDirectoryParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -7891,8 +7980,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            ManeuverCatalogLocationXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            ManeuverCatalogLocationXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -7918,8 +8007,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -7939,7 +8029,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementActorsParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementActorsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -7964,7 +8054,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementCatalogReferencesParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementCatalogReferencesParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -7989,7 +8079,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementManeuversParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementManeuversParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -8008,8 +8098,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            ManeuverGroupXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            ManeuverGroupXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -8035,8 +8125,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -8057,7 +8148,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementParameterDeclarationsParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParameterDeclarationsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -8082,7 +8173,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementBoundingBoxParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementBoundingBoxParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -8107,7 +8198,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementPropertiesParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementPropertiesParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -8126,8 +8217,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            MiscObjectXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            MiscObjectXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -8153,8 +8244,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -8175,7 +8267,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementDirectoryParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementDirectoryParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -8194,8 +8286,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            MiscObjectCatalogLocationXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            MiscObjectCatalogLocationXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -8221,8 +8313,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -8243,7 +8336,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementAddValueParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementAddValueParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -8268,7 +8361,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementMultiplyByValueParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementMultiplyByValueParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -8287,8 +8380,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            ModifyRuleXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            ModifyRuleXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -8314,8 +8407,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -8329,8 +8423,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            NoneXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            NoneXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -8356,8 +8450,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -8377,7 +8472,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementRangeParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementRangeParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -8396,8 +8491,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            NormalDistributionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            NormalDistributionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -8423,8 +8518,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -8444,7 +8540,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementControlPointsParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementControlPointsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -8469,7 +8565,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementKnotsParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementKnotsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -8488,8 +8584,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            NurbsXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            NurbsXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -8515,8 +8611,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -8537,7 +8634,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementCatalogReferenceParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementCatalogReferenceParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -8562,7 +8659,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementControllerParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementControllerParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -8581,8 +8678,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            ObjectControllerXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            ObjectControllerXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -8608,8 +8705,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -8623,8 +8721,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            OffroadConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            OffroadConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -8650,8 +8748,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -8671,7 +8770,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementFileHeaderParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementFileHeaderParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -8696,7 +8795,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementOpenScenarioCategoryParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementOpenScenarioCategoryParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -8715,8 +8814,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            OpenScenarioXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            OpenScenarioXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -8741,8 +8840,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -8763,7 +8863,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementScenarioDefinitionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementScenarioDefinitionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -8788,7 +8888,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementCatalogDefinitionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementCatalogDefinitionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -8813,7 +8913,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementParameterValueDistributionDefinitionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParameterValueDistributionDefinitionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -8832,8 +8932,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            OpenScenarioCategoryXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            OpenScenarioCategoryXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -8859,8 +8959,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -8874,8 +8975,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            OrientationXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            OrientationXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -8901,8 +9002,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -8916,8 +9018,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            OverrideBrakeActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            OverrideBrakeActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -8943,8 +9045,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -8958,8 +9061,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            OverrideClutchActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            OverrideClutchActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -8985,8 +9088,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -9007,7 +9111,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementThrottleParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementThrottleParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -9032,7 +9136,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementBrakeParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementBrakeParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -9057,7 +9161,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementClutchParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementClutchParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -9082,7 +9186,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementParkingBrakeParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParkingBrakeParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -9107,7 +9211,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementSteeringWheelParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementSteeringWheelParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -9132,7 +9236,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementGearParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementGearParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -9151,8 +9255,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            OverrideControllerValueActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            OverrideControllerValueActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -9178,8 +9282,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -9193,8 +9298,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            OverrideGearActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            OverrideGearActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -9220,8 +9325,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -9235,8 +9341,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            OverrideParkingBrakeActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            OverrideParkingBrakeActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -9262,8 +9368,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -9277,8 +9384,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            OverrideSteeringWheelActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            OverrideSteeringWheelActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -9304,8 +9411,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -9319,8 +9427,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            OverrideThrottleActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            OverrideThrottleActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -9346,8 +9454,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -9368,7 +9477,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementSetActionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementSetActionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -9393,7 +9502,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementModifyActionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementModifyActionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -9412,8 +9521,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            ParameterActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            ParameterActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -9439,8 +9548,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -9454,8 +9564,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            ParameterAddValueRuleXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            ParameterAddValueRuleXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -9481,8 +9591,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -9496,8 +9607,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            ParameterAssignmentXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            ParameterAssignmentXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -9523,8 +9634,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -9538,8 +9650,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            ParameterConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            ParameterConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -9565,8 +9677,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -9586,7 +9699,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementConstraintGroupsParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementConstraintGroupsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -9605,8 +9718,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            ParameterDeclarationXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            ParameterDeclarationXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -9632,8 +9745,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -9654,7 +9768,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementRuleParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementRuleParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -9673,8 +9787,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            ParameterModifyActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            ParameterModifyActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -9700,8 +9814,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -9715,8 +9830,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            ParameterMultiplyByValueRuleXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            ParameterMultiplyByValueRuleXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -9742,8 +9857,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -9757,8 +9873,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            ParameterSetActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            ParameterSetActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -9784,8 +9900,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -9805,7 +9922,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementScenarioFileParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementScenarioFileParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -9830,7 +9947,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementDistributionDefinitionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementDistributionDefinitionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -9849,8 +9966,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            ParameterValueDistributionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            ParameterValueDistributionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -9875,8 +9992,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -9896,7 +10014,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementParameterValueDistributionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParameterValueDistributionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -9915,8 +10033,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            ParameterValueDistributionDefinitionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            ParameterValueDistributionDefinitionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -9942,8 +10060,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -9963,7 +10082,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementParameterAssignmentsParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParameterAssignmentsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -9982,8 +10101,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            ParameterValueSetXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            ParameterValueSetXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -10009,8 +10128,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -10031,7 +10151,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementParameterDeclarationsParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParameterDeclarationsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -10056,7 +10176,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementBoundingBoxParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementBoundingBoxParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -10081,7 +10201,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementPropertiesParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementPropertiesParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -10100,8 +10220,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            PedestrianXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            PedestrianXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -10127,8 +10247,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -10149,7 +10270,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementDirectoryParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementDirectoryParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -10168,8 +10289,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            PedestrianCatalogLocationXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            PedestrianCatalogLocationXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -10195,8 +10316,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -10210,8 +10332,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            PerformanceXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            PerformanceXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -10237,8 +10359,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -10258,7 +10381,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementTrafficSignalStatesParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementTrafficSignalStatesParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -10277,8 +10400,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            PhaseXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            PhaseXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -10304,8 +10427,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -10325,7 +10449,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementRangeParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementRangeParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -10344,8 +10468,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            PoissonDistributionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            PoissonDistributionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -10371,8 +10495,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -10392,7 +10517,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementVerticesParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementVerticesParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -10411,8 +10536,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            PolylineXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            PolylineXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -10438,8 +10563,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -10460,7 +10586,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementWorldPositionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementWorldPositionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -10485,7 +10611,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementRelativeWorldPositionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementRelativeWorldPositionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -10510,7 +10636,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementRelativeObjectPositionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementRelativeObjectPositionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -10535,7 +10661,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementRoadPositionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementRoadPositionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -10560,7 +10686,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementRelativeRoadPositionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementRelativeRoadPositionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -10585,7 +10711,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementLanePositionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementLanePositionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -10610,7 +10736,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementRelativeLanePositionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementRelativeLanePositionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -10635,7 +10761,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementRoutePositionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementRoutePositionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -10660,7 +10786,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementGeoPositionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementGeoPositionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -10685,7 +10811,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementTrajectoryPositionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementTrajectoryPositionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -10704,8 +10830,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            PositionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            PositionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -10731,8 +10857,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -10746,8 +10873,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            PositionInLaneCoordinatesXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            PositionInLaneCoordinatesXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -10773,8 +10900,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -10788,8 +10916,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            PositionInRoadCoordinatesXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            PositionInRoadCoordinatesXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -10815,8 +10943,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -10830,8 +10959,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            PositionOfCurrentEntityXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            PositionOfCurrentEntityXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -10857,8 +10986,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -10872,8 +11002,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            PrecipitationXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            PrecipitationXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -10899,8 +11029,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -10920,7 +11051,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementPrivateActionsParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementPrivateActionsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -10939,8 +11070,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            PrivateXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            PrivateXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -10966,8 +11097,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -10988,7 +11120,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementLongitudinalActionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementLongitudinalActionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -11013,7 +11145,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementLateralActionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementLateralActionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -11038,7 +11170,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementVisibilityActionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementVisibilityActionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -11063,7 +11195,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementSynchronizeActionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementSynchronizeActionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -11088,7 +11220,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementActivateControllerActionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementActivateControllerActionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -11113,7 +11245,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementControllerActionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementControllerActionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -11138,7 +11270,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementTeleportActionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementTeleportActionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -11163,7 +11295,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementRoutingActionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementRoutingActionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -11182,8 +11314,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            PrivateActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            PrivateActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -11209,8 +11341,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -11230,7 +11363,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementElementsParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementElementsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -11249,8 +11382,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            ProbabilityDistributionSetXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            ProbabilityDistributionSetXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -11276,8 +11409,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -11292,8 +11426,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            ProbabilityDistributionSetElementXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            ProbabilityDistributionSetElementXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -11319,8 +11453,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -11340,7 +11475,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementPropertiesParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementPropertiesParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -11365,7 +11500,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementFilesParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementFilesParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -11384,8 +11519,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            PropertiesXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            PropertiesXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -11411,8 +11546,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -11426,8 +11562,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            PropertyXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            PropertyXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -11453,8 +11589,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -11468,8 +11605,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            RangeXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            RangeXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -11495,8 +11632,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -11517,7 +11655,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -11536,8 +11674,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            ReachPositionConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            ReachPositionConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -11563,8 +11701,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -11578,8 +11717,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            RelativeDistanceConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            RelativeDistanceConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -11605,8 +11744,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -11627,7 +11767,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementOrientationParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementOrientationParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -11646,8 +11786,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            RelativeLanePositionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            RelativeLanePositionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -11673,8 +11813,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -11695,7 +11836,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementOrientationParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementOrientationParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -11714,8 +11855,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            RelativeObjectPositionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            RelativeObjectPositionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -11741,8 +11882,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -11763,7 +11905,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementOrientationParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementOrientationParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -11782,8 +11924,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            RelativeRoadPositionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            RelativeRoadPositionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -11809,8 +11951,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -11824,8 +11967,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            RelativeSpeedConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            RelativeSpeedConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -11851,8 +11994,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -11872,7 +12016,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementSteadyStateParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementSteadyStateParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -11891,8 +12035,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            RelativeSpeedToMasterXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            RelativeSpeedToMasterXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -11918,8 +12062,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -11933,8 +12078,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            RelativeTargetLaneXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            RelativeTargetLaneXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -11960,8 +12105,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -11975,8 +12121,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            RelativeTargetLaneOffsetXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            RelativeTargetLaneOffsetXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -12002,8 +12148,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -12017,8 +12164,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            RelativeTargetSpeedXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            RelativeTargetSpeedXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -12044,8 +12191,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -12066,7 +12214,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementOrientationParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementOrientationParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -12085,8 +12233,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            RelativeWorldPositionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            RelativeWorldPositionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -12112,8 +12260,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -12133,7 +12282,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementPropertiesParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementPropertiesParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -12152,8 +12301,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            RoadConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            RoadConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -12179,8 +12328,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -12200,7 +12350,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementLogicFileParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementLogicFileParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -12225,7 +12375,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementSceneGraphFileParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementSceneGraphFileParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -12250,7 +12400,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementTrafficSignalsParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementTrafficSignalsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -12275,7 +12425,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementUsedAreaParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementUsedAreaParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -12294,8 +12444,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            RoadNetworkXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            RoadNetworkXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -12321,8 +12471,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -12343,7 +12494,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementOrientationParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementOrientationParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -12362,8 +12513,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            RoadPositionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            RoadPositionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -12389,8 +12540,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -12410,7 +12562,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementParameterDeclarationsParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParameterDeclarationsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -12435,7 +12587,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementWaypointsParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementWaypointsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -12454,8 +12606,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            RouteXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            RouteXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -12481,8 +12633,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -12503,7 +12656,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementDirectoryParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementDirectoryParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -12522,8 +12675,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            RouteCatalogLocationXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            RouteCatalogLocationXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -12549,8 +12702,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -12571,7 +12725,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementRouteRefParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementRouteRefParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -12596,7 +12750,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementOrientationParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementOrientationParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -12621,7 +12775,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementInRoutePositionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementInRoutePositionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -12640,8 +12794,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            RoutePositionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            RoutePositionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -12667,8 +12821,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -12689,7 +12844,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementRouteParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementRouteParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -12714,7 +12869,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementCatalogReferenceParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementCatalogReferenceParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -12733,8 +12888,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            RouteRefXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            RouteRefXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -12760,8 +12915,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -12782,7 +12938,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementAssignRouteActionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementAssignRouteActionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -12807,7 +12963,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementFollowTrajectoryActionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementFollowTrajectoryActionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -12832,7 +12988,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementAcquirePositionActionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementAcquirePositionActionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -12851,8 +13007,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            RoutingActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            RoutingActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -12877,8 +13033,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -12898,7 +13055,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementParameterDeclarationsParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParameterDeclarationsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -12923,7 +13080,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementCatalogLocationsParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementCatalogLocationsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -12948,7 +13105,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementRoadNetworkParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementRoadNetworkParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -12973,7 +13130,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementEntitiesParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementEntitiesParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -12998,7 +13155,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementStoryboardParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementStoryboardParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -13017,8 +13174,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            ScenarioDefinitionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            ScenarioDefinitionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -13044,8 +13201,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -13065,7 +13223,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementEntityObjectParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementEntityObjectParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -13090,7 +13248,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementObjectControllerParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementObjectControllerParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -13109,8 +13267,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            ScenarioObjectXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            ScenarioObjectXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -13136,8 +13294,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -13158,7 +13317,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementEntityRefParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementEntityRefParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -13183,7 +13342,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementByTypeParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementByTypeParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -13202,8 +13361,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            SelectedEntitiesXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            SelectedEntitiesXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -13229,8 +13388,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -13251,7 +13411,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementPolylineParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementPolylineParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -13276,7 +13436,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementClothoidParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementClothoidParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -13301,7 +13461,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementNurbsParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementNurbsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -13320,8 +13480,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            ShapeXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            ShapeXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -13347,8 +13507,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -13362,8 +13523,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            SimulationTimeConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            SimulationTimeConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -13389,8 +13550,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -13411,7 +13573,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementSpeedActionDynamicsParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementSpeedActionDynamicsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -13436,7 +13598,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementSpeedActionTargetParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementSpeedActionTargetParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -13455,8 +13617,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            SpeedActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            SpeedActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -13482,8 +13644,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -13504,7 +13667,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementRelativeTargetSpeedParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementRelativeTargetSpeedParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -13529,7 +13692,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementAbsoluteTargetSpeedParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementAbsoluteTargetSpeedParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -13548,8 +13711,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            SpeedActionTargetXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            SpeedActionTargetXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -13575,8 +13738,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -13590,8 +13754,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            SpeedConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            SpeedConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -13617,8 +13781,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -13632,8 +13797,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            StandStillConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            StandStillConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -13658,8 +13823,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -13680,7 +13846,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementTargetDistanceSteadyStateParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementTargetDistanceSteadyStateParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -13705,7 +13871,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementTargetTimeSteadyStateParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementTargetTimeSteadyStateParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -13724,8 +13890,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            SteadyStateXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            SteadyStateXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -13751,8 +13917,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -13772,7 +13939,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementStochasticDistributionsParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementStochasticDistributionsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -13791,8 +13958,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            StochasticXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            StochasticXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -13818,8 +13985,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -13839,7 +14007,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementStochasticDistributionTypeParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementStochasticDistributionTypeParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -13858,8 +14026,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            StochasticDistributionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            StochasticDistributionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -13884,8 +14052,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -13906,7 +14075,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementProbabilityDistributionSetParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementProbabilityDistributionSetParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -13931,7 +14100,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementNormalDistributionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementNormalDistributionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -13956,7 +14125,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementUniformDistributionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementUniformDistributionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -13981,7 +14150,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementPoissonDistributionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementPoissonDistributionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -14006,7 +14175,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementHistogramParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementHistogramParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -14031,7 +14200,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementUserDefinedDistributionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementUserDefinedDistributionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -14050,8 +14219,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            StochasticDistributionTypeXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            StochasticDistributionTypeXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -14077,8 +14246,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -14098,7 +14268,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementParameterDeclarationsParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParameterDeclarationsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -14123,7 +14293,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementActsParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementActsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -14142,8 +14312,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            StoryXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            StoryXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -14169,8 +14339,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -14190,7 +14361,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementInitParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementInitParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -14215,7 +14386,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementStoriesParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementStoriesParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -14240,7 +14411,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementStopTriggerParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementStopTriggerParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -14259,8 +14430,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            StoryboardXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            StoryboardXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -14286,8 +14457,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -14301,8 +14473,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            StoryboardElementStateConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            StoryboardElementStateConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -14328,8 +14500,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -14343,8 +14516,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            SunXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            SunXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -14370,8 +14543,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -14392,7 +14566,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementTargetPositionMasterParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementTargetPositionMasterParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -14417,7 +14591,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementTargetPositionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementTargetPositionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -14442,7 +14616,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementFinalSpeedParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementFinalSpeedParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -14461,8 +14635,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            SynchronizeActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            SynchronizeActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -14488,8 +14662,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -14504,8 +14679,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            TargetDistanceSteadyStateXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            TargetDistanceSteadyStateXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -14531,8 +14706,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -14547,8 +14723,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            TargetTimeSteadyStateXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            TargetTimeSteadyStateXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -14574,8 +14750,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -14595,7 +14772,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -14614,8 +14791,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            TeleportActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            TeleportActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -14641,8 +14818,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -14656,8 +14834,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            TimeHeadwayConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            TimeHeadwayConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -14683,8 +14861,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -14698,8 +14877,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            TimeOfDayXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            TimeOfDayXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -14725,8 +14904,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -14740,8 +14920,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            TimeOfDayConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            TimeOfDayConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -14767,8 +14947,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -14789,7 +14970,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementNoneParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementNoneParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -14814,7 +14995,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementTimingParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementTimingParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -14833,8 +15014,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            TimeReferenceXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            TimeReferenceXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -14860,8 +15041,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -14882,7 +15064,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementTimeToCollisionConditionTargetParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementTimeToCollisionConditionTargetParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -14901,8 +15083,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            TimeToCollisionConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            TimeToCollisionConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -14928,8 +15110,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -14950,7 +15133,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -14975,7 +15158,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementEntityRefParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementEntityRefParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -14994,8 +15177,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            TimeToCollisionConditionTargetXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            TimeToCollisionConditionTargetXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -15021,8 +15204,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -15036,8 +15220,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            TimingXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            TimingXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -15063,8 +15247,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -15085,7 +15270,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementTrafficSourceActionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementTrafficSourceActionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -15110,7 +15295,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementTrafficSinkActionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementTrafficSinkActionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -15135,7 +15320,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementTrafficSwarmActionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementTrafficSwarmActionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -15160,7 +15345,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementTrafficStopActionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementTrafficStopActionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -15179,8 +15364,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            TrafficActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            TrafficActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -15206,8 +15391,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -15228,7 +15414,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementVehicleCategoryDistributionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementVehicleCategoryDistributionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -15253,7 +15439,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementControllerDistributionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementControllerDistributionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -15272,8 +15458,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            TrafficDefinitionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            TrafficDefinitionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -15299,8 +15485,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -15321,7 +15508,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementTrafficSignalControllerActionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementTrafficSignalControllerActionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -15346,7 +15533,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementTrafficSignalStateActionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementTrafficSignalStateActionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -15365,8 +15552,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            TrafficSignalActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            TrafficSignalActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -15392,8 +15579,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -15407,8 +15595,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            TrafficSignalConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            TrafficSignalConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -15434,8 +15622,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -15455,7 +15644,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementPhasesParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementPhasesParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -15474,8 +15663,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            TrafficSignalControllerXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            TrafficSignalControllerXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -15501,8 +15690,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -15516,8 +15706,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            TrafficSignalControllerActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            TrafficSignalControllerActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -15543,8 +15733,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -15558,8 +15749,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            TrafficSignalControllerConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            TrafficSignalControllerConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -15585,8 +15776,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -15600,8 +15792,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            TrafficSignalStateXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            TrafficSignalStateXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -15627,8 +15819,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -15642,8 +15835,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            TrafficSignalStateActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            TrafficSignalStateActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -15669,8 +15862,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -15691,7 +15885,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -15716,7 +15910,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementTrafficDefinitionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementTrafficDefinitionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -15735,8 +15929,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            TrafficSinkActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            TrafficSinkActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -15762,8 +15956,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -15784,7 +15979,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -15809,7 +16004,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementTrafficDefinitionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementTrafficDefinitionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -15828,8 +16023,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            TrafficSourceActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            TrafficSourceActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -15855,8 +16050,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -15870,8 +16066,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            TrafficStopActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            TrafficStopActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -15897,8 +16093,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -15919,7 +16116,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementCentralObjectParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementCentralObjectParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -15944,7 +16141,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementTrafficDefinitionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementTrafficDefinitionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -15963,8 +16160,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            TrafficSwarmActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            TrafficSwarmActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -15990,8 +16187,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -16011,7 +16209,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementParameterDeclarationsParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParameterDeclarationsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -16036,7 +16234,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementShapeParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementShapeParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -16055,8 +16253,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            TrajectoryXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            TrajectoryXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -16082,8 +16280,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -16104,7 +16303,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementDirectoryParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementDirectoryParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -16123,8 +16322,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            TrajectoryCatalogLocationXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            TrajectoryCatalogLocationXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -16150,8 +16349,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -16165,8 +16365,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            TrajectoryFollowingModeXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            TrajectoryFollowingModeXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -16192,8 +16392,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -16214,7 +16415,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementOrientationParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementOrientationParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -16239,7 +16440,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementTrajectoryRefParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementTrajectoryRefParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -16258,8 +16459,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            TrajectoryPositionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            TrajectoryPositionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -16285,8 +16486,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -16307,7 +16509,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementTrajectoryParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementTrajectoryParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -16332,7 +16534,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementCatalogReferenceParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementCatalogReferenceParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -16351,8 +16553,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            TrajectoryRefXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            TrajectoryRefXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -16378,8 +16580,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -16393,8 +16596,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            TransitionDynamicsXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            TransitionDynamicsXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -16420,8 +16623,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -16435,8 +16639,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            TraveledDistanceConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            TraveledDistanceConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -16462,8 +16666,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -16483,7 +16688,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementConditionGroupsParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementConditionGroupsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -16502,8 +16707,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            TriggerXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            TriggerXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -16529,8 +16734,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -16550,7 +16756,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementEntityRefsParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementEntityRefsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -16569,8 +16775,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            TriggeringEntitiesXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            TriggeringEntitiesXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -16596,8 +16802,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -16617,7 +16824,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementRangeParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementRangeParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -16636,8 +16843,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            UniformDistributionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            UniformDistributionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -16663,8 +16870,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -16684,7 +16892,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementPositionsParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementPositionsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -16703,8 +16911,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            UsedAreaXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            UsedAreaXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -16730,8 +16938,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -16751,7 +16960,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementCustomCommandActionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementCustomCommandActionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -16770,8 +16979,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            UserDefinedActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            UserDefinedActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -16797,8 +17006,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            UserDefinedDistributionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            UserDefinedDistributionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -16824,8 +17033,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -16839,8 +17049,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            UserDefinedValueConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            UserDefinedValueConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -16866,8 +17076,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -16882,8 +17093,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            ValueConstraintXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            ValueConstraintXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -16909,8 +17120,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -16930,7 +17142,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementConstraintsParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementConstraintsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -16949,8 +17161,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            ValueConstraintGroupXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            ValueConstraintGroupXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -16976,8 +17188,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -16997,7 +17210,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementParameterValueSetsParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParameterValueSetsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -17016,8 +17229,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            ValueSetDistributionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            ValueSetDistributionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -17043,8 +17256,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -17065,7 +17279,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementParameterDeclarationsParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParameterDeclarationsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -17090,7 +17304,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementBoundingBoxParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementBoundingBoxParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -17115,7 +17329,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementPerformanceParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementPerformanceParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -17140,7 +17354,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementAxlesParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementAxlesParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -17165,7 +17379,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementPropertiesParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementPropertiesParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -17184,8 +17398,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            VehicleXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            VehicleXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -17211,8 +17425,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -17233,7 +17448,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementDirectoryParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementDirectoryParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -17252,8 +17467,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            VehicleCatalogLocationXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            VehicleCatalogLocationXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -17279,8 +17494,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -17300,7 +17516,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementVehicleCategoryDistributionEntriesParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementVehicleCategoryDistributionEntriesParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -17319,8 +17535,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            VehicleCategoryDistributionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            VehicleCategoryDistributionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -17346,8 +17562,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -17361,8 +17578,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            VehicleCategoryDistributionEntryXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            VehicleCategoryDistributionEntryXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -17388,8 +17605,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -17409,7 +17627,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -17428,8 +17646,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            VertexXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            VertexXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -17455,8 +17673,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -17470,8 +17689,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            VisibilityActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            VisibilityActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -17497,8 +17716,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -17518,7 +17738,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -17537,8 +17757,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            WaypointXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            WaypointXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -17564,8 +17784,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
             protected:
                 /*
@@ -17586,7 +17807,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementSunParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementSunParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -17611,7 +17832,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementFogParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementFogParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -17636,7 +17857,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementPrecipitationParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementPrecipitationParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -17661,7 +17882,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElementWindParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementWindParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -17680,8 +17901,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            WeatherXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            WeatherXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -17707,8 +17928,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -17722,8 +17944,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            WindXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            WindXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 
@@ -17749,8 +17971,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
             protected:
                 /*
                 * Creates a list of parser
@@ -17764,8 +17987,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            WorldPositionXmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            WorldPositionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
     }

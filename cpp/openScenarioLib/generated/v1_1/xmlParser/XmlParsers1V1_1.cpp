@@ -35,7 +35,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            AbsoluteSpeedXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+            AbsoluteSpeedXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlSequenceParser(messageLogger, filename, parserOptions) {}
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> AbsoluteSpeedXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -44,7 +44,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeValue: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeValue(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeValue(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -79,20 +79,20 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<AttributeValue>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<AttributeValue>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
         std::vector<std::shared_ptr<IElementParser>> AbsoluteSpeedXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementSteadyStateParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementSteadyStateParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        AbsoluteSpeedXmlParser::SubElementSteadyStateParser::SubElementSteadyStateParser(IParserMessageLogger& messageLogger, std::string& filename)
+        AbsoluteSpeedXmlParser::SubElementSteadyStateParser::SubElementSteadyStateParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _steadyStateXmlParser = std::make_shared<SteadyStateXmlParser>(messageLogger, filename);
+            _steadyStateXmlParser = std::make_shared<SteadyStateXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void AbsoluteSpeedXmlParser::SubElementSteadyStateParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -133,10 +133,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        AbsoluteSpeedXmlParser::AbsoluteSpeedXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        AbsoluteSpeedXmlParser::AbsoluteSpeedXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -146,7 +146,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            AbsoluteTargetLaneXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+            AbsoluteTargetLaneXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlSequenceParser(messageLogger, filename, parserOptions) {}
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> AbsoluteTargetLaneXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -155,7 +155,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeValue: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeValue(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeValue(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -190,7 +190,7 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<AttributeValue>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<AttributeValue>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
@@ -201,10 +201,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
   
-        AbsoluteTargetLaneXmlParser::AbsoluteTargetLaneXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        AbsoluteTargetLaneXmlParser::AbsoluteTargetLaneXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -214,7 +214,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            AbsoluteTargetLaneOffsetXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+            AbsoluteTargetLaneOffsetXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlSequenceParser(messageLogger, filename, parserOptions) {}
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> AbsoluteTargetLaneOffsetXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -223,7 +223,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeValue: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeValue(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeValue(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -258,7 +258,7 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<AttributeValue>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<AttributeValue>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
@@ -269,10 +269,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
   
-        AbsoluteTargetLaneOffsetXmlParser::AbsoluteTargetLaneOffsetXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        AbsoluteTargetLaneOffsetXmlParser::AbsoluteTargetLaneOffsetXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -282,7 +282,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            AbsoluteTargetSpeedXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+            AbsoluteTargetSpeedXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlSequenceParser(messageLogger, filename, parserOptions) {}
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> AbsoluteTargetSpeedXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -291,7 +291,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeValue: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeValue(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeValue(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -326,7 +326,7 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<AttributeValue>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<AttributeValue>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
@@ -337,10 +337,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
   
-        AbsoluteTargetSpeedXmlParser::AbsoluteTargetSpeedXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        AbsoluteTargetSpeedXmlParser::AbsoluteTargetSpeedXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -350,7 +350,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            AccelerationConditionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+            AccelerationConditionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlSequenceParser(messageLogger, filename, parserOptions) {}
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> AccelerationConditionXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -359,7 +359,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeRule: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeRule(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeRule(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -386,7 +386,7 @@ namespace NET_ASAM_OPENSCENARIO
                             auto msg = FileContentMessage("Value '" + attributeValue + "' is not allowed.", ERROR, startMarker);
                             _messageLogger.LogMessage(msg);
                         }
-                        if (Rule::IsDeprecated(kResult))
+                        if (Rule::IsDeprecated(kResult) && !_parserOptions.IsOptionSetSupressDeprecationWarnings())
 				    	{
 							auto msg = FileContentMessage("Enumeration literal '" + attributeValue + "' is deprecated since standard version '" +  Rule::GetDeprecatedVersion(kResult) +"'. " + Rule::GetDeprecatedComment(kResult) + "'.", WARNING, Textmarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), this->_filename));
 							this->_messageLogger.LogMessage(msg);
@@ -403,11 +403,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__RULE, std::make_shared<AttributeRule>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__RULE, std::make_shared<AttributeRule>(_messageLogger, _filename, _parserOptions)));
             class AttributeValue: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeValue(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeValue(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -442,7 +442,7 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<AttributeValue>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<AttributeValue>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
@@ -453,10 +453,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
   
-        AccelerationConditionXmlParser::AccelerationConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        AccelerationConditionXmlParser::AccelerationConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -466,7 +466,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            AcquirePositionActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+            AcquirePositionActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlAllParser(messageLogger, filename, parserOptions) {}
 
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> AcquirePositionActionXmlParser::GetAttributeNameToAttributeParserMap()
@@ -479,13 +479,13 @@ namespace NET_ASAM_OPENSCENARIO
         std::vector<std::shared_ptr<IElementParser>> AcquirePositionActionXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementPositionParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementPositionParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        AcquirePositionActionXmlParser::SubElementPositionParser::SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename)
+        AcquirePositionActionXmlParser::SubElementPositionParser::SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _positionXmlParser = std::make_shared<PositionXmlParser>(messageLogger, filename);
+            _positionXmlParser = std::make_shared<PositionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void AcquirePositionActionXmlParser::SubElementPositionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -524,10 +524,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        AcquirePositionActionXmlParser::AcquirePositionActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        AcquirePositionActionXmlParser::AcquirePositionActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -537,7 +537,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            ActXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+            ActXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlSequenceParser(messageLogger, filename, parserOptions) {}
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> ActXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -546,7 +546,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeName: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeName(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeName(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -581,22 +581,22 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<AttributeName>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<AttributeName>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
         std::vector<std::shared_ptr<IElementParser>> ActXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementManeuverGroupsParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementStartTriggerParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementStopTriggerParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementManeuverGroupsParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementStartTriggerParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementStopTriggerParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        ActXmlParser::SubElementManeuverGroupsParser::SubElementManeuverGroupsParser(IParserMessageLogger& messageLogger, std::string& filename)
+        ActXmlParser::SubElementManeuverGroupsParser::SubElementManeuverGroupsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _maneuverGroupXmlParser = std::make_shared<ManeuverGroupXmlParser>(messageLogger, filename);
+            _maneuverGroupXmlParser = std::make_shared<ManeuverGroupXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void ActXmlParser::SubElementManeuverGroupsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -635,9 +635,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__MANEUVER_GROUP
                     };
         }
-        ActXmlParser::SubElementStartTriggerParser::SubElementStartTriggerParser(IParserMessageLogger& messageLogger, std::string& filename)
+        ActXmlParser::SubElementStartTriggerParser::SubElementStartTriggerParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _triggerXmlParser = std::make_shared<TriggerXmlParser>(messageLogger, filename);
+            _triggerXmlParser = std::make_shared<TriggerXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void ActXmlParser::SubElementStartTriggerParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -675,9 +675,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__START_TRIGGER
                     };
         }
-        ActXmlParser::SubElementStopTriggerParser::SubElementStopTriggerParser(IParserMessageLogger& messageLogger, std::string& filename)
+        ActXmlParser::SubElementStopTriggerParser::SubElementStopTriggerParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _triggerXmlParser = std::make_shared<TriggerXmlParser>(messageLogger, filename);
+            _triggerXmlParser = std::make_shared<TriggerXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void ActXmlParser::SubElementStopTriggerParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -716,10 +716,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        ActXmlParser::ActXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        ActXmlParser::ActXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -729,7 +729,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            ActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+            ActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlChoiceParser(messageLogger, filename, parserOptions) {}
 
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> ActionXmlParser::GetAttributeNameToAttributeParserMap()
@@ -739,7 +739,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeName: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeName(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeName(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -774,22 +774,22 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<AttributeName>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<AttributeName>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
         std::vector<std::shared_ptr<IElementParser>> ActionXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementGlobalActionParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementUserDefinedActionParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementPrivateActionParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementGlobalActionParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementUserDefinedActionParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementPrivateActionParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        ActionXmlParser::SubElementGlobalActionParser::SubElementGlobalActionParser(IParserMessageLogger& messageLogger, std::string& filename)
+        ActionXmlParser::SubElementGlobalActionParser::SubElementGlobalActionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _globalActionXmlParser = std::make_shared<GlobalActionXmlParser>(messageLogger, filename);
+            _globalActionXmlParser = std::make_shared<GlobalActionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void ActionXmlParser::SubElementGlobalActionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -827,9 +827,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__GLOBAL_ACTION
                     };
         }
-        ActionXmlParser::SubElementUserDefinedActionParser::SubElementUserDefinedActionParser(IParserMessageLogger& messageLogger, std::string& filename)
+        ActionXmlParser::SubElementUserDefinedActionParser::SubElementUserDefinedActionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _userDefinedActionXmlParser = std::make_shared<UserDefinedActionXmlParser>(messageLogger, filename);
+            _userDefinedActionXmlParser = std::make_shared<UserDefinedActionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void ActionXmlParser::SubElementUserDefinedActionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -867,9 +867,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__USER_DEFINED_ACTION
                     };
         }
-        ActionXmlParser::SubElementPrivateActionParser::SubElementPrivateActionParser(IParserMessageLogger& messageLogger, std::string& filename)
+        ActionXmlParser::SubElementPrivateActionParser::SubElementPrivateActionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _privateActionXmlParser = std::make_shared<PrivateActionXmlParser>(messageLogger, filename);
+            _privateActionXmlParser = std::make_shared<PrivateActionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void ActionXmlParser::SubElementPrivateActionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -908,10 +908,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        ActionXmlParser::ActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        ActionXmlParser::ActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -921,7 +921,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            ActivateControllerActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+            ActivateControllerActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlSequenceParser(messageLogger, filename, parserOptions) {}
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> ActivateControllerActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -930,7 +930,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeLateral: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeLateral(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeLateral(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -960,11 +960,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 0;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__LATERAL, std::make_shared<AttributeLateral>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__LATERAL, std::make_shared<AttributeLateral>(_messageLogger, _filename, _parserOptions)));
             class AttributeLongitudinal: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeLongitudinal(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeLongitudinal(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -994,7 +994,7 @@ namespace NET_ASAM_OPENSCENARIO
                     return 0;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__LONGITUDINAL, std::make_shared<AttributeLongitudinal>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__LONGITUDINAL, std::make_shared<AttributeLongitudinal>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
@@ -1005,10 +1005,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
   
-        ActivateControllerActionXmlParser::ActivateControllerActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        ActivateControllerActionXmlParser::ActivateControllerActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -1018,7 +1018,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            ActorsXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+            ActorsXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlSequenceParser(messageLogger, filename, parserOptions) {}
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> ActorsXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -1027,7 +1027,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeSelectTriggeringEntities: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeSelectTriggeringEntities(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeSelectTriggeringEntities(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -1057,20 +1057,20 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__SELECT_TRIGGERING_ENTITIES, std::make_shared<AttributeSelectTriggeringEntities>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__SELECT_TRIGGERING_ENTITIES, std::make_shared<AttributeSelectTriggeringEntities>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
         std::vector<std::shared_ptr<IElementParser>> ActorsXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementEntityRefsParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementEntityRefsParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        ActorsXmlParser::SubElementEntityRefsParser::SubElementEntityRefsParser(IParserMessageLogger& messageLogger, std::string& filename)
+        ActorsXmlParser::SubElementEntityRefsParser::SubElementEntityRefsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _entityRefXmlParser = std::make_shared<EntityRefXmlParser>(messageLogger, filename);
+            _entityRefXmlParser = std::make_shared<EntityRefXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void ActorsXmlParser::SubElementEntityRefsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -1110,10 +1110,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        ActorsXmlParser::ActorsXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        ActorsXmlParser::ActorsXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -1123,7 +1123,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            AddEntityActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+            AddEntityActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlAllParser(messageLogger, filename, parserOptions) {}
 
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> AddEntityActionXmlParser::GetAttributeNameToAttributeParserMap()
@@ -1136,13 +1136,13 @@ namespace NET_ASAM_OPENSCENARIO
         std::vector<std::shared_ptr<IElementParser>> AddEntityActionXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementPositionParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementPositionParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        AddEntityActionXmlParser::SubElementPositionParser::SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename)
+        AddEntityActionXmlParser::SubElementPositionParser::SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _positionXmlParser = std::make_shared<PositionXmlParser>(messageLogger, filename);
+            _positionXmlParser = std::make_shared<PositionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void AddEntityActionXmlParser::SubElementPositionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -1181,10 +1181,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        AddEntityActionXmlParser::AddEntityActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        AddEntityActionXmlParser::AddEntityActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -1194,7 +1194,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            AssignControllerActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+            AssignControllerActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlChoiceParser(messageLogger, filename, parserOptions) {}
 
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> AssignControllerActionXmlParser::GetAttributeNameToAttributeParserMap()
@@ -1204,7 +1204,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeActivateLateral: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeActivateLateral(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeActivateLateral(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -1234,11 +1234,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 0;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__ACTIVATE_LATERAL, std::make_shared<AttributeActivateLateral>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__ACTIVATE_LATERAL, std::make_shared<AttributeActivateLateral>(_messageLogger, _filename, _parserOptions)));
             class AttributeActivateLongitudinal: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeActivateLongitudinal(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeActivateLongitudinal(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -1268,21 +1268,21 @@ namespace NET_ASAM_OPENSCENARIO
                     return 0;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__ACTIVATE_LONGITUDINAL, std::make_shared<AttributeActivateLongitudinal>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__ACTIVATE_LONGITUDINAL, std::make_shared<AttributeActivateLongitudinal>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
         std::vector<std::shared_ptr<IElementParser>> AssignControllerActionXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementControllerParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementCatalogReferenceParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementControllerParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementCatalogReferenceParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        AssignControllerActionXmlParser::SubElementControllerParser::SubElementControllerParser(IParserMessageLogger& messageLogger, std::string& filename)
+        AssignControllerActionXmlParser::SubElementControllerParser::SubElementControllerParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _controllerXmlParser = std::make_shared<ControllerXmlParser>(messageLogger, filename);
+            _controllerXmlParser = std::make_shared<ControllerXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void AssignControllerActionXmlParser::SubElementControllerParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -1320,9 +1320,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__CONTROLLER
                     };
         }
-        AssignControllerActionXmlParser::SubElementCatalogReferenceParser::SubElementCatalogReferenceParser(IParserMessageLogger& messageLogger, std::string& filename)
+        AssignControllerActionXmlParser::SubElementCatalogReferenceParser::SubElementCatalogReferenceParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _catalogReferenceXmlParser = std::make_shared<CatalogReferenceXmlParser>(messageLogger, filename);
+            _catalogReferenceXmlParser = std::make_shared<CatalogReferenceXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void AssignControllerActionXmlParser::SubElementCatalogReferenceParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -1362,10 +1362,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        AssignControllerActionXmlParser::AssignControllerActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        AssignControllerActionXmlParser::AssignControllerActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -1375,7 +1375,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            AssignRouteActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+            AssignRouteActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlChoiceParser(messageLogger, filename, parserOptions) {}
 
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> AssignRouteActionXmlParser::GetAttributeNameToAttributeParserMap()
@@ -1388,14 +1388,14 @@ namespace NET_ASAM_OPENSCENARIO
         std::vector<std::shared_ptr<IElementParser>> AssignRouteActionXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementRouteParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementCatalogReferenceParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementRouteParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementCatalogReferenceParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        AssignRouteActionXmlParser::SubElementRouteParser::SubElementRouteParser(IParserMessageLogger& messageLogger, std::string& filename)
+        AssignRouteActionXmlParser::SubElementRouteParser::SubElementRouteParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _routeXmlParser = std::make_shared<RouteXmlParser>(messageLogger, filename);
+            _routeXmlParser = std::make_shared<RouteXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void AssignRouteActionXmlParser::SubElementRouteParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -1433,9 +1433,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__ROUTE
                     };
         }
-        AssignRouteActionXmlParser::SubElementCatalogReferenceParser::SubElementCatalogReferenceParser(IParserMessageLogger& messageLogger, std::string& filename)
+        AssignRouteActionXmlParser::SubElementCatalogReferenceParser::SubElementCatalogReferenceParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _catalogReferenceXmlParser = std::make_shared<CatalogReferenceXmlParser>(messageLogger, filename);
+            _catalogReferenceXmlParser = std::make_shared<CatalogReferenceXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void AssignRouteActionXmlParser::SubElementCatalogReferenceParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -1475,10 +1475,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        AssignRouteActionXmlParser::AssignRouteActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        AssignRouteActionXmlParser::AssignRouteActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -1488,7 +1488,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            AxleXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+            AxleXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlSequenceParser(messageLogger, filename, parserOptions) {}
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> AxleXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -1497,7 +1497,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeMaxSteering: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeMaxSteering(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeMaxSteering(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -1532,11 +1532,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__MAX_STEERING, std::make_shared<AttributeMaxSteering>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__MAX_STEERING, std::make_shared<AttributeMaxSteering>(_messageLogger, _filename, _parserOptions)));
             class AttributePositionX: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributePositionX(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributePositionX(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -1571,11 +1571,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__POSITION_X, std::make_shared<AttributePositionX>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__POSITION_X, std::make_shared<AttributePositionX>(_messageLogger, _filename, _parserOptions)));
             class AttributePositionZ: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributePositionZ(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributePositionZ(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -1610,11 +1610,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__POSITION_Z, std::make_shared<AttributePositionZ>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__POSITION_Z, std::make_shared<AttributePositionZ>(_messageLogger, _filename, _parserOptions)));
             class AttributeTrackWidth: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeTrackWidth(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeTrackWidth(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -1649,11 +1649,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__TRACK_WIDTH, std::make_shared<AttributeTrackWidth>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__TRACK_WIDTH, std::make_shared<AttributeTrackWidth>(_messageLogger, _filename, _parserOptions)));
             class AttributeWheelDiameter: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeWheelDiameter(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeWheelDiameter(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -1688,7 +1688,7 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__WHEEL_DIAMETER, std::make_shared<AttributeWheelDiameter>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__WHEEL_DIAMETER, std::make_shared<AttributeWheelDiameter>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
@@ -1699,10 +1699,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
   
-        AxleXmlParser::AxleXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        AxleXmlParser::AxleXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -1712,7 +1712,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            AxlesXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+            AxlesXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlSequenceParser(messageLogger, filename, parserOptions) {}
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> AxlesXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -1724,15 +1724,15 @@ namespace NET_ASAM_OPENSCENARIO
         std::vector<std::shared_ptr<IElementParser>> AxlesXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementFrontAxleParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementRearAxleParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementAdditionalAxlesParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementFrontAxleParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementRearAxleParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementAdditionalAxlesParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        AxlesXmlParser::SubElementFrontAxleParser::SubElementFrontAxleParser(IParserMessageLogger& messageLogger, std::string& filename)
+        AxlesXmlParser::SubElementFrontAxleParser::SubElementFrontAxleParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _axleXmlParser = std::make_shared<AxleXmlParser>(messageLogger, filename);
+            _axleXmlParser = std::make_shared<AxleXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void AxlesXmlParser::SubElementFrontAxleParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -1770,9 +1770,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__FRONT_AXLE
                     };
         }
-        AxlesXmlParser::SubElementRearAxleParser::SubElementRearAxleParser(IParserMessageLogger& messageLogger, std::string& filename)
+        AxlesXmlParser::SubElementRearAxleParser::SubElementRearAxleParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _axleXmlParser = std::make_shared<AxleXmlParser>(messageLogger, filename);
+            _axleXmlParser = std::make_shared<AxleXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void AxlesXmlParser::SubElementRearAxleParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -1810,9 +1810,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__REAR_AXLE
                     };
         }
-        AxlesXmlParser::SubElementAdditionalAxlesParser::SubElementAdditionalAxlesParser(IParserMessageLogger& messageLogger, std::string& filename)
+        AxlesXmlParser::SubElementAdditionalAxlesParser::SubElementAdditionalAxlesParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _axleXmlParser = std::make_shared<AxleXmlParser>(messageLogger, filename);
+            _axleXmlParser = std::make_shared<AxleXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void AxlesXmlParser::SubElementAdditionalAxlesParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -1852,10 +1852,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        AxlesXmlParser::AxlesXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        AxlesXmlParser::AxlesXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -1865,7 +1865,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            BoundingBoxXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+            BoundingBoxXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlAllParser(messageLogger, filename, parserOptions) {}
 
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> BoundingBoxXmlParser::GetAttributeNameToAttributeParserMap()
@@ -1878,14 +1878,14 @@ namespace NET_ASAM_OPENSCENARIO
         std::vector<std::shared_ptr<IElementParser>> BoundingBoxXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementCenterParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementDimensionsParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementCenterParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementDimensionsParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        BoundingBoxXmlParser::SubElementCenterParser::SubElementCenterParser(IParserMessageLogger& messageLogger, std::string& filename)
+        BoundingBoxXmlParser::SubElementCenterParser::SubElementCenterParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _centerXmlParser = std::make_shared<CenterXmlParser>(messageLogger, filename);
+            _centerXmlParser = std::make_shared<CenterXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void BoundingBoxXmlParser::SubElementCenterParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -1923,9 +1923,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__CENTER
                     };
         }
-        BoundingBoxXmlParser::SubElementDimensionsParser::SubElementDimensionsParser(IParserMessageLogger& messageLogger, std::string& filename)
+        BoundingBoxXmlParser::SubElementDimensionsParser::SubElementDimensionsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _dimensionsXmlParser = std::make_shared<DimensionsXmlParser>(messageLogger, filename);
+            _dimensionsXmlParser = std::make_shared<DimensionsXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void BoundingBoxXmlParser::SubElementDimensionsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -1964,10 +1964,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        BoundingBoxXmlParser::BoundingBoxXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        BoundingBoxXmlParser::BoundingBoxXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -1977,7 +1977,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            ByEntityConditionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+            ByEntityConditionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlAllParser(messageLogger, filename, parserOptions) {}
 
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> ByEntityConditionXmlParser::GetAttributeNameToAttributeParserMap()
@@ -1990,14 +1990,14 @@ namespace NET_ASAM_OPENSCENARIO
         std::vector<std::shared_ptr<IElementParser>> ByEntityConditionXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementTriggeringEntitiesParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementEntityConditionParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementTriggeringEntitiesParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementEntityConditionParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        ByEntityConditionXmlParser::SubElementTriggeringEntitiesParser::SubElementTriggeringEntitiesParser(IParserMessageLogger& messageLogger, std::string& filename)
+        ByEntityConditionXmlParser::SubElementTriggeringEntitiesParser::SubElementTriggeringEntitiesParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _triggeringEntitiesXmlParser = std::make_shared<TriggeringEntitiesXmlParser>(messageLogger, filename);
+            _triggeringEntitiesXmlParser = std::make_shared<TriggeringEntitiesXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void ByEntityConditionXmlParser::SubElementTriggeringEntitiesParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -2035,9 +2035,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__TRIGGERING_ENTITIES
                     };
         }
-        ByEntityConditionXmlParser::SubElementEntityConditionParser::SubElementEntityConditionParser(IParserMessageLogger& messageLogger, std::string& filename)
+        ByEntityConditionXmlParser::SubElementEntityConditionParser::SubElementEntityConditionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _entityConditionXmlParser = std::make_shared<EntityConditionXmlParser>(messageLogger, filename);
+            _entityConditionXmlParser = std::make_shared<EntityConditionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void ByEntityConditionXmlParser::SubElementEntityConditionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -2076,10 +2076,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        ByEntityConditionXmlParser::ByEntityConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        ByEntityConditionXmlParser::ByEntityConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -2089,7 +2089,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            ByObjectTypeXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+            ByObjectTypeXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlSequenceParser(messageLogger, filename, parserOptions) {}
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> ByObjectTypeXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -2098,7 +2098,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeType: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeType(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeType(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -2125,7 +2125,7 @@ namespace NET_ASAM_OPENSCENARIO
                             auto msg = FileContentMessage("Value '" + attributeValue + "' is not allowed.", ERROR, startMarker);
                             _messageLogger.LogMessage(msg);
                         }
-                        if (ObjectType::IsDeprecated(kResult))
+                        if (ObjectType::IsDeprecated(kResult) && !_parserOptions.IsOptionSetSupressDeprecationWarnings())
 				    	{
 							auto msg = FileContentMessage("Enumeration literal '" + attributeValue + "' is deprecated since standard version '" +  ObjectType::GetDeprecatedVersion(kResult) +"'. " + ObjectType::GetDeprecatedComment(kResult) + "'.", WARNING, Textmarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), this->_filename));
 							this->_messageLogger.LogMessage(msg);
@@ -2142,7 +2142,7 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__TYPE, std::make_shared<AttributeType>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__TYPE, std::make_shared<AttributeType>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
@@ -2153,10 +2153,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
   
-        ByObjectTypeXmlParser::ByObjectTypeXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        ByObjectTypeXmlParser::ByObjectTypeXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -2166,7 +2166,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            ByTypeXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+            ByTypeXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlSequenceParser(messageLogger, filename, parserOptions) {}
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> ByTypeXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -2175,7 +2175,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeObjectType: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeObjectType(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeObjectType(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -2202,7 +2202,7 @@ namespace NET_ASAM_OPENSCENARIO
                             auto msg = FileContentMessage("Value '" + attributeValue + "' is not allowed.", ERROR, startMarker);
                             _messageLogger.LogMessage(msg);
                         }
-                        if (ObjectType::IsDeprecated(kResult))
+                        if (ObjectType::IsDeprecated(kResult) && !_parserOptions.IsOptionSetSupressDeprecationWarnings())
 				    	{
 							auto msg = FileContentMessage("Enumeration literal '" + attributeValue + "' is deprecated since standard version '" +  ObjectType::GetDeprecatedVersion(kResult) +"'. " + ObjectType::GetDeprecatedComment(kResult) + "'.", WARNING, Textmarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), this->_filename));
 							this->_messageLogger.LogMessage(msg);
@@ -2219,7 +2219,7 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__OBJECT_TYPE, std::make_shared<AttributeObjectType>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__OBJECT_TYPE, std::make_shared<AttributeObjectType>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
@@ -2230,10 +2230,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
   
-        ByTypeXmlParser::ByTypeXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        ByTypeXmlParser::ByTypeXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -2243,7 +2243,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            ByValueConditionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+            ByValueConditionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlChoiceParser(messageLogger, filename, parserOptions) {}
 
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> ByValueConditionXmlParser::GetAttributeNameToAttributeParserMap()
@@ -2256,19 +2256,19 @@ namespace NET_ASAM_OPENSCENARIO
         std::vector<std::shared_ptr<IElementParser>> ByValueConditionXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementParameterConditionParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementTimeOfDayConditionParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementSimulationTimeConditionParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementStoryboardElementStateConditionParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementUserDefinedValueConditionParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementTrafficSignalConditionParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementTrafficSignalControllerConditionParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementParameterConditionParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementTimeOfDayConditionParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementSimulationTimeConditionParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementStoryboardElementStateConditionParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementUserDefinedValueConditionParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementTrafficSignalConditionParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementTrafficSignalControllerConditionParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        ByValueConditionXmlParser::SubElementParameterConditionParser::SubElementParameterConditionParser(IParserMessageLogger& messageLogger, std::string& filename)
+        ByValueConditionXmlParser::SubElementParameterConditionParser::SubElementParameterConditionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _parameterConditionXmlParser = std::make_shared<ParameterConditionXmlParser>(messageLogger, filename);
+            _parameterConditionXmlParser = std::make_shared<ParameterConditionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void ByValueConditionXmlParser::SubElementParameterConditionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -2306,9 +2306,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__PARAMETER_CONDITION
                     };
         }
-        ByValueConditionXmlParser::SubElementTimeOfDayConditionParser::SubElementTimeOfDayConditionParser(IParserMessageLogger& messageLogger, std::string& filename)
+        ByValueConditionXmlParser::SubElementTimeOfDayConditionParser::SubElementTimeOfDayConditionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _timeOfDayConditionXmlParser = std::make_shared<TimeOfDayConditionXmlParser>(messageLogger, filename);
+            _timeOfDayConditionXmlParser = std::make_shared<TimeOfDayConditionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void ByValueConditionXmlParser::SubElementTimeOfDayConditionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -2346,9 +2346,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__TIME_OF_DAY_CONDITION
                     };
         }
-        ByValueConditionXmlParser::SubElementSimulationTimeConditionParser::SubElementSimulationTimeConditionParser(IParserMessageLogger& messageLogger, std::string& filename)
+        ByValueConditionXmlParser::SubElementSimulationTimeConditionParser::SubElementSimulationTimeConditionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _simulationTimeConditionXmlParser = std::make_shared<SimulationTimeConditionXmlParser>(messageLogger, filename);
+            _simulationTimeConditionXmlParser = std::make_shared<SimulationTimeConditionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void ByValueConditionXmlParser::SubElementSimulationTimeConditionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -2386,9 +2386,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__SIMULATION_TIME_CONDITION
                     };
         }
-        ByValueConditionXmlParser::SubElementStoryboardElementStateConditionParser::SubElementStoryboardElementStateConditionParser(IParserMessageLogger& messageLogger, std::string& filename)
+        ByValueConditionXmlParser::SubElementStoryboardElementStateConditionParser::SubElementStoryboardElementStateConditionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _storyboardElementStateConditionXmlParser = std::make_shared<StoryboardElementStateConditionXmlParser>(messageLogger, filename);
+            _storyboardElementStateConditionXmlParser = std::make_shared<StoryboardElementStateConditionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void ByValueConditionXmlParser::SubElementStoryboardElementStateConditionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -2426,9 +2426,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__STORYBOARD_ELEMENT_STATE_CONDITION
                     };
         }
-        ByValueConditionXmlParser::SubElementUserDefinedValueConditionParser::SubElementUserDefinedValueConditionParser(IParserMessageLogger& messageLogger, std::string& filename)
+        ByValueConditionXmlParser::SubElementUserDefinedValueConditionParser::SubElementUserDefinedValueConditionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _userDefinedValueConditionXmlParser = std::make_shared<UserDefinedValueConditionXmlParser>(messageLogger, filename);
+            _userDefinedValueConditionXmlParser = std::make_shared<UserDefinedValueConditionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void ByValueConditionXmlParser::SubElementUserDefinedValueConditionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -2466,9 +2466,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__USER_DEFINED_VALUE_CONDITION
                     };
         }
-        ByValueConditionXmlParser::SubElementTrafficSignalConditionParser::SubElementTrafficSignalConditionParser(IParserMessageLogger& messageLogger, std::string& filename)
+        ByValueConditionXmlParser::SubElementTrafficSignalConditionParser::SubElementTrafficSignalConditionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _trafficSignalConditionXmlParser = std::make_shared<TrafficSignalConditionXmlParser>(messageLogger, filename);
+            _trafficSignalConditionXmlParser = std::make_shared<TrafficSignalConditionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void ByValueConditionXmlParser::SubElementTrafficSignalConditionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -2506,9 +2506,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__TRAFFIC_SIGNAL_CONDITION
                     };
         }
-        ByValueConditionXmlParser::SubElementTrafficSignalControllerConditionParser::SubElementTrafficSignalControllerConditionParser(IParserMessageLogger& messageLogger, std::string& filename)
+        ByValueConditionXmlParser::SubElementTrafficSignalControllerConditionParser::SubElementTrafficSignalControllerConditionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _trafficSignalControllerConditionXmlParser = std::make_shared<TrafficSignalControllerConditionXmlParser>(messageLogger, filename);
+            _trafficSignalControllerConditionXmlParser = std::make_shared<TrafficSignalControllerConditionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void ByValueConditionXmlParser::SubElementTrafficSignalControllerConditionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -2547,10 +2547,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        ByValueConditionXmlParser::ByValueConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        ByValueConditionXmlParser::ByValueConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -2560,7 +2560,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            CatalogXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+            CatalogXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlSequenceParser(messageLogger, filename, parserOptions) {}
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> CatalogXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -2569,7 +2569,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeName: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeName(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeName(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -2604,27 +2604,27 @@ namespace NET_ASAM_OPENSCENARIO
                     return 0;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<AttributeName>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<AttributeName>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
         std::vector<std::shared_ptr<IElementParser>> CatalogXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementVehiclesParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementControllersParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementPedestriansParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementMiscObjectsParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementEnvironmentsParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementManeuversParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementTrajectoriesParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementRoutesParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementVehiclesParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementControllersParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementPedestriansParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementMiscObjectsParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementEnvironmentsParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementManeuversParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementTrajectoriesParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementRoutesParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        CatalogXmlParser::SubElementVehiclesParser::SubElementVehiclesParser(IParserMessageLogger& messageLogger, std::string& filename)
+        CatalogXmlParser::SubElementVehiclesParser::SubElementVehiclesParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _vehicleXmlParser = std::make_shared<VehicleXmlParser>(messageLogger, filename);
+            _vehicleXmlParser = std::make_shared<VehicleXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void CatalogXmlParser::SubElementVehiclesParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -2663,9 +2663,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__VEHICLE
                     };
         }
-        CatalogXmlParser::SubElementControllersParser::SubElementControllersParser(IParserMessageLogger& messageLogger, std::string& filename)
+        CatalogXmlParser::SubElementControllersParser::SubElementControllersParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _controllerXmlParser = std::make_shared<ControllerXmlParser>(messageLogger, filename);
+            _controllerXmlParser = std::make_shared<ControllerXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void CatalogXmlParser::SubElementControllersParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -2704,9 +2704,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__CONTROLLER
                     };
         }
-        CatalogXmlParser::SubElementPedestriansParser::SubElementPedestriansParser(IParserMessageLogger& messageLogger, std::string& filename)
+        CatalogXmlParser::SubElementPedestriansParser::SubElementPedestriansParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _pedestrianXmlParser = std::make_shared<PedestrianXmlParser>(messageLogger, filename);
+            _pedestrianXmlParser = std::make_shared<PedestrianXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void CatalogXmlParser::SubElementPedestriansParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -2745,9 +2745,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__PEDESTRIAN
                     };
         }
-        CatalogXmlParser::SubElementMiscObjectsParser::SubElementMiscObjectsParser(IParserMessageLogger& messageLogger, std::string& filename)
+        CatalogXmlParser::SubElementMiscObjectsParser::SubElementMiscObjectsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _miscObjectXmlParser = std::make_shared<MiscObjectXmlParser>(messageLogger, filename);
+            _miscObjectXmlParser = std::make_shared<MiscObjectXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void CatalogXmlParser::SubElementMiscObjectsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -2786,9 +2786,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__MISC_OBJECT
                     };
         }
-        CatalogXmlParser::SubElementEnvironmentsParser::SubElementEnvironmentsParser(IParserMessageLogger& messageLogger, std::string& filename)
+        CatalogXmlParser::SubElementEnvironmentsParser::SubElementEnvironmentsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _environmentXmlParser = std::make_shared<EnvironmentXmlParser>(messageLogger, filename);
+            _environmentXmlParser = std::make_shared<EnvironmentXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void CatalogXmlParser::SubElementEnvironmentsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -2827,9 +2827,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__ENVIRONMENT
                     };
         }
-        CatalogXmlParser::SubElementManeuversParser::SubElementManeuversParser(IParserMessageLogger& messageLogger, std::string& filename)
+        CatalogXmlParser::SubElementManeuversParser::SubElementManeuversParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _maneuverXmlParser = std::make_shared<ManeuverXmlParser>(messageLogger, filename);
+            _maneuverXmlParser = std::make_shared<ManeuverXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void CatalogXmlParser::SubElementManeuversParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -2868,9 +2868,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__MANEUVER
                     };
         }
-        CatalogXmlParser::SubElementTrajectoriesParser::SubElementTrajectoriesParser(IParserMessageLogger& messageLogger, std::string& filename)
+        CatalogXmlParser::SubElementTrajectoriesParser::SubElementTrajectoriesParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _trajectoryXmlParser = std::make_shared<TrajectoryXmlParser>(messageLogger, filename);
+            _trajectoryXmlParser = std::make_shared<TrajectoryXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void CatalogXmlParser::SubElementTrajectoriesParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -2909,9 +2909,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__TRAJECTORY
                     };
         }
-        CatalogXmlParser::SubElementRoutesParser::SubElementRoutesParser(IParserMessageLogger& messageLogger, std::string& filename)
+        CatalogXmlParser::SubElementRoutesParser::SubElementRoutesParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _routeXmlParser = std::make_shared<RouteXmlParser>(messageLogger, filename);
+            _routeXmlParser = std::make_shared<RouteXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void CatalogXmlParser::SubElementRoutesParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -2951,10 +2951,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        CatalogXmlParser::CatalogXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        CatalogXmlParser::CatalogXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -2964,19 +2964,19 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            CatalogDefinitionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+            CatalogDefinitionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlSequenceParser(messageLogger, filename, parserOptions) {}
 
 
         std::vector<std::shared_ptr<IElementParser>> CatalogDefinitionXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementCatalogParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementCatalogParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        CatalogDefinitionXmlParser::SubElementCatalogParser::SubElementCatalogParser(IParserMessageLogger& messageLogger, std::string& filename)
+        CatalogDefinitionXmlParser::SubElementCatalogParser::SubElementCatalogParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _catalogXmlParser = std::make_shared<CatalogXmlParser>(messageLogger, filename);
+            _catalogXmlParser = std::make_shared<CatalogXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void CatalogDefinitionXmlParser::SubElementCatalogParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -3015,10 +3015,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        CatalogDefinitionXmlParser::CatalogDefinitionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlGroupParser(messageLogger, filename)
+        CatalogDefinitionXmlParser::CatalogDefinitionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlGroupParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -3028,7 +3028,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            CatalogLocationsXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+            CatalogLocationsXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlAllParser(messageLogger, filename, parserOptions) {}
 
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> CatalogLocationsXmlParser::GetAttributeNameToAttributeParserMap()
@@ -3041,20 +3041,20 @@ namespace NET_ASAM_OPENSCENARIO
         std::vector<std::shared_ptr<IElementParser>> CatalogLocationsXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementVehicleCatalogParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementControllerCatalogParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementPedestrianCatalogParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementMiscObjectCatalogParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementEnvironmentCatalogParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementManeuverCatalogParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementTrajectoryCatalogParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementRouteCatalogParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementVehicleCatalogParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementControllerCatalogParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementPedestrianCatalogParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementMiscObjectCatalogParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementEnvironmentCatalogParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementManeuverCatalogParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementTrajectoryCatalogParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementRouteCatalogParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        CatalogLocationsXmlParser::SubElementVehicleCatalogParser::SubElementVehicleCatalogParser(IParserMessageLogger& messageLogger, std::string& filename)
+        CatalogLocationsXmlParser::SubElementVehicleCatalogParser::SubElementVehicleCatalogParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _vehicleCatalogLocationXmlParser = std::make_shared<VehicleCatalogLocationXmlParser>(messageLogger, filename);
+            _vehicleCatalogLocationXmlParser = std::make_shared<VehicleCatalogLocationXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void CatalogLocationsXmlParser::SubElementVehicleCatalogParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -3092,9 +3092,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__VEHICLE_CATALOG
                     };
         }
-        CatalogLocationsXmlParser::SubElementControllerCatalogParser::SubElementControllerCatalogParser(IParserMessageLogger& messageLogger, std::string& filename)
+        CatalogLocationsXmlParser::SubElementControllerCatalogParser::SubElementControllerCatalogParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _controllerCatalogLocationXmlParser = std::make_shared<ControllerCatalogLocationXmlParser>(messageLogger, filename);
+            _controllerCatalogLocationXmlParser = std::make_shared<ControllerCatalogLocationXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void CatalogLocationsXmlParser::SubElementControllerCatalogParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -3132,9 +3132,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__CONTROLLER_CATALOG
                     };
         }
-        CatalogLocationsXmlParser::SubElementPedestrianCatalogParser::SubElementPedestrianCatalogParser(IParserMessageLogger& messageLogger, std::string& filename)
+        CatalogLocationsXmlParser::SubElementPedestrianCatalogParser::SubElementPedestrianCatalogParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _pedestrianCatalogLocationXmlParser = std::make_shared<PedestrianCatalogLocationXmlParser>(messageLogger, filename);
+            _pedestrianCatalogLocationXmlParser = std::make_shared<PedestrianCatalogLocationXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void CatalogLocationsXmlParser::SubElementPedestrianCatalogParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -3172,9 +3172,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__PEDESTRIAN_CATALOG
                     };
         }
-        CatalogLocationsXmlParser::SubElementMiscObjectCatalogParser::SubElementMiscObjectCatalogParser(IParserMessageLogger& messageLogger, std::string& filename)
+        CatalogLocationsXmlParser::SubElementMiscObjectCatalogParser::SubElementMiscObjectCatalogParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _miscObjectCatalogLocationXmlParser = std::make_shared<MiscObjectCatalogLocationXmlParser>(messageLogger, filename);
+            _miscObjectCatalogLocationXmlParser = std::make_shared<MiscObjectCatalogLocationXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void CatalogLocationsXmlParser::SubElementMiscObjectCatalogParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -3212,9 +3212,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__MISC_OBJECT_CATALOG
                     };
         }
-        CatalogLocationsXmlParser::SubElementEnvironmentCatalogParser::SubElementEnvironmentCatalogParser(IParserMessageLogger& messageLogger, std::string& filename)
+        CatalogLocationsXmlParser::SubElementEnvironmentCatalogParser::SubElementEnvironmentCatalogParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _environmentCatalogLocationXmlParser = std::make_shared<EnvironmentCatalogLocationXmlParser>(messageLogger, filename);
+            _environmentCatalogLocationXmlParser = std::make_shared<EnvironmentCatalogLocationXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void CatalogLocationsXmlParser::SubElementEnvironmentCatalogParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -3252,9 +3252,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__ENVIRONMENT_CATALOG
                     };
         }
-        CatalogLocationsXmlParser::SubElementManeuverCatalogParser::SubElementManeuverCatalogParser(IParserMessageLogger& messageLogger, std::string& filename)
+        CatalogLocationsXmlParser::SubElementManeuverCatalogParser::SubElementManeuverCatalogParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _maneuverCatalogLocationXmlParser = std::make_shared<ManeuverCatalogLocationXmlParser>(messageLogger, filename);
+            _maneuverCatalogLocationXmlParser = std::make_shared<ManeuverCatalogLocationXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void CatalogLocationsXmlParser::SubElementManeuverCatalogParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -3292,9 +3292,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__MANEUVER_CATALOG
                     };
         }
-        CatalogLocationsXmlParser::SubElementTrajectoryCatalogParser::SubElementTrajectoryCatalogParser(IParserMessageLogger& messageLogger, std::string& filename)
+        CatalogLocationsXmlParser::SubElementTrajectoryCatalogParser::SubElementTrajectoryCatalogParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _trajectoryCatalogLocationXmlParser = std::make_shared<TrajectoryCatalogLocationXmlParser>(messageLogger, filename);
+            _trajectoryCatalogLocationXmlParser = std::make_shared<TrajectoryCatalogLocationXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void CatalogLocationsXmlParser::SubElementTrajectoryCatalogParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -3332,9 +3332,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__TRAJECTORY_CATALOG
                     };
         }
-        CatalogLocationsXmlParser::SubElementRouteCatalogParser::SubElementRouteCatalogParser(IParserMessageLogger& messageLogger, std::string& filename)
+        CatalogLocationsXmlParser::SubElementRouteCatalogParser::SubElementRouteCatalogParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _routeCatalogLocationXmlParser = std::make_shared<RouteCatalogLocationXmlParser>(messageLogger, filename);
+            _routeCatalogLocationXmlParser = std::make_shared<RouteCatalogLocationXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void CatalogLocationsXmlParser::SubElementRouteCatalogParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -3373,10 +3373,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        CatalogLocationsXmlParser::CatalogLocationsXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        CatalogLocationsXmlParser::CatalogLocationsXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -3386,7 +3386,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            CatalogReferenceXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+            CatalogReferenceXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlSequenceParser(messageLogger, filename, parserOptions) {}
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> CatalogReferenceXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -3395,7 +3395,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeCatalogName: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeCatalogName(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeCatalogName(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -3430,11 +3430,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__CATALOG_NAME, std::make_shared<AttributeCatalogName>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__CATALOG_NAME, std::make_shared<AttributeCatalogName>(_messageLogger, _filename, _parserOptions)));
             class AttributeEntryName: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeEntryName(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeEntryName(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -3469,20 +3469,20 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__ENTRY_NAME, std::make_shared<AttributeEntryName>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__ENTRY_NAME, std::make_shared<AttributeEntryName>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
         std::vector<std::shared_ptr<IElementParser>> CatalogReferenceXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<WrappedListParser>(_messageLogger, _filename, std::make_shared<SubElementParameterAssignmentsParser>(_messageLogger, _filename), OSC_CONSTANTS::ELEMENT__PARAMETER_ASSIGNMENTS) );
+            result.push_back(std::make_shared<WrappedListParser>(_messageLogger, _filename, std::make_shared<SubElementParameterAssignmentsParser>(_messageLogger, _filename, _parserOptions), OSC_CONSTANTS::ELEMENT__PARAMETER_ASSIGNMENTS, _parserOptions) );
             return result;
         }
 
-        CatalogReferenceXmlParser::SubElementParameterAssignmentsParser::SubElementParameterAssignmentsParser(IParserMessageLogger& messageLogger, std::string& filename)
+        CatalogReferenceXmlParser::SubElementParameterAssignmentsParser::SubElementParameterAssignmentsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _parameterAssignmentXmlParser = std::make_shared<ParameterAssignmentXmlParser>(messageLogger, filename);
+            _parameterAssignmentXmlParser = std::make_shared<ParameterAssignmentXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void CatalogReferenceXmlParser::SubElementParameterAssignmentsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -3519,10 +3519,10 @@ namespace NET_ASAM_OPENSCENARIO
             return {OSC_CONSTANTS::ELEMENT__PARAMETER_ASSIGNMENT};
         }
   
-        CatalogReferenceXmlParser::CatalogReferenceXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        CatalogReferenceXmlParser::CatalogReferenceXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -3532,7 +3532,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            CenterXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+            CenterXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlSequenceParser(messageLogger, filename, parserOptions) {}
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> CenterXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -3541,7 +3541,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeX: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeX(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeX(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -3576,11 +3576,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__X, std::make_shared<AttributeX>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__X, std::make_shared<AttributeX>(_messageLogger, _filename, _parserOptions)));
             class AttributeY: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeY(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeY(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -3615,11 +3615,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__Y, std::make_shared<AttributeY>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__Y, std::make_shared<AttributeY>(_messageLogger, _filename, _parserOptions)));
             class AttributeZ: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeZ(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeZ(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -3654,7 +3654,7 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__Z, std::make_shared<AttributeZ>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__Z, std::make_shared<AttributeZ>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
@@ -3665,10 +3665,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
   
-        CenterXmlParser::CenterXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        CenterXmlParser::CenterXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -3678,7 +3678,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            CentralSwarmObjectXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+            CentralSwarmObjectXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlSequenceParser(messageLogger, filename, parserOptions) {}
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> CentralSwarmObjectXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -3687,7 +3687,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeEntityRef: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeEntityRef(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeEntityRef(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -3719,7 +3719,7 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, std::make_shared<AttributeEntityRef>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, std::make_shared<AttributeEntityRef>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
@@ -3730,10 +3730,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
   
-        CentralSwarmObjectXmlParser::CentralSwarmObjectXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        CentralSwarmObjectXmlParser::CentralSwarmObjectXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -3743,7 +3743,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            ClothoidXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+            ClothoidXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlSequenceParser(messageLogger, filename, parserOptions) {}
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> ClothoidXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -3752,7 +3752,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeCurvature: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeCurvature(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeCurvature(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -3787,11 +3787,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__CURVATURE, std::make_shared<AttributeCurvature>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__CURVATURE, std::make_shared<AttributeCurvature>(_messageLogger, _filename, _parserOptions)));
             class AttributeCurvatureDot: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeCurvatureDot(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeCurvatureDot(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -3819,9 +3819,12 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__CURVATURE_DOT, std::make_shared<Textmarker>(endMarker));
                      
                     
-                    // This element is deprecated
-					auto msg = FileContentMessage("Attribute '" + attributeName + "' is deprecated since standard version '1.1'. Comment: 'Use instead curvaturePrime.'.", WARNING, Textmarker(startPosition.GetLine(), startPosition.GetColumn(), this->_filename));
-					this->_messageLogger.LogMessage(msg);
+					if (!_parserOptions.IsOptionSetSupressDeprecationWarnings())
+					{
+						// This element is deprecated
+						auto msg = FileContentMessage("Attribute '" + attributeName + "' is deprecated since standard version '1.1'. Comment: 'Use instead curvaturePrime.'.", WARNING, Textmarker(startPosition.GetLine(), startPosition.GetColumn(), this->_filename));
+						this->_messageLogger.LogMessage(msg);
+					}
                 }
 
                 int GetMinOccur() override
@@ -3829,11 +3832,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 0;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__CURVATURE_DOT, std::make_shared<AttributeCurvatureDot>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__CURVATURE_DOT, std::make_shared<AttributeCurvatureDot>(_messageLogger, _filename, _parserOptions)));
             class AttributeCurvaturePrime: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeCurvaturePrime(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeCurvaturePrime(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -3868,11 +3871,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 0;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__CURVATURE_PRIME, std::make_shared<AttributeCurvaturePrime>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__CURVATURE_PRIME, std::make_shared<AttributeCurvaturePrime>(_messageLogger, _filename, _parserOptions)));
             class AttributeLength: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeLength(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeLength(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -3907,11 +3910,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__LENGTH, std::make_shared<AttributeLength>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__LENGTH, std::make_shared<AttributeLength>(_messageLogger, _filename, _parserOptions)));
             class AttributeStartTime: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeStartTime(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeStartTime(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -3946,11 +3949,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 0;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__START_TIME, std::make_shared<AttributeStartTime>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__START_TIME, std::make_shared<AttributeStartTime>(_messageLogger, _filename, _parserOptions)));
             class AttributeStopTime: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeStopTime(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeStopTime(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -3985,20 +3988,20 @@ namespace NET_ASAM_OPENSCENARIO
                     return 0;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__STOP_TIME, std::make_shared<AttributeStopTime>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__STOP_TIME, std::make_shared<AttributeStopTime>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
         std::vector<std::shared_ptr<IElementParser>> ClothoidXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementPositionParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementPositionParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        ClothoidXmlParser::SubElementPositionParser::SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename)
+        ClothoidXmlParser::SubElementPositionParser::SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _positionXmlParser = std::make_shared<PositionXmlParser>(messageLogger, filename);
+            _positionXmlParser = std::make_shared<PositionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void ClothoidXmlParser::SubElementPositionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -4037,10 +4040,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        ClothoidXmlParser::ClothoidXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        ClothoidXmlParser::ClothoidXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -4050,7 +4053,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            CollisionConditionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+            CollisionConditionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlChoiceParser(messageLogger, filename, parserOptions) {}
 
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> CollisionConditionXmlParser::GetAttributeNameToAttributeParserMap()
@@ -4063,14 +4066,14 @@ namespace NET_ASAM_OPENSCENARIO
         std::vector<std::shared_ptr<IElementParser>> CollisionConditionXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementEntityRefParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementByTypeParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementEntityRefParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementByTypeParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        CollisionConditionXmlParser::SubElementEntityRefParser::SubElementEntityRefParser(IParserMessageLogger& messageLogger, std::string& filename)
+        CollisionConditionXmlParser::SubElementEntityRefParser::SubElementEntityRefParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _entityRefXmlParser = std::make_shared<EntityRefXmlParser>(messageLogger, filename);
+            _entityRefXmlParser = std::make_shared<EntityRefXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void CollisionConditionXmlParser::SubElementEntityRefParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -4108,9 +4111,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__ENTITY_REF
                     };
         }
-        CollisionConditionXmlParser::SubElementByTypeParser::SubElementByTypeParser(IParserMessageLogger& messageLogger, std::string& filename)
+        CollisionConditionXmlParser::SubElementByTypeParser::SubElementByTypeParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _byObjectTypeXmlParser = std::make_shared<ByObjectTypeXmlParser>(messageLogger, filename);
+            _byObjectTypeXmlParser = std::make_shared<ByObjectTypeXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void CollisionConditionXmlParser::SubElementByTypeParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -4149,10 +4152,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        CollisionConditionXmlParser::CollisionConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        CollisionConditionXmlParser::CollisionConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -4162,7 +4165,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            ConditionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+            ConditionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlChoiceParser(messageLogger, filename, parserOptions) {}
 
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> ConditionXmlParser::GetAttributeNameToAttributeParserMap()
@@ -4172,7 +4175,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeConditionEdge: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeConditionEdge(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeConditionEdge(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -4199,7 +4202,7 @@ namespace NET_ASAM_OPENSCENARIO
                             auto msg = FileContentMessage("Value '" + attributeValue + "' is not allowed.", ERROR, startMarker);
                             _messageLogger.LogMessage(msg);
                         }
-                        if (ConditionEdge::IsDeprecated(kResult))
+                        if (ConditionEdge::IsDeprecated(kResult) && !_parserOptions.IsOptionSetSupressDeprecationWarnings())
 				    	{
 							auto msg = FileContentMessage("Enumeration literal '" + attributeValue + "' is deprecated since standard version '" +  ConditionEdge::GetDeprecatedVersion(kResult) +"'. " + ConditionEdge::GetDeprecatedComment(kResult) + "'.", WARNING, Textmarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), this->_filename));
 							this->_messageLogger.LogMessage(msg);
@@ -4216,11 +4219,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__CONDITION_EDGE, std::make_shared<AttributeConditionEdge>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__CONDITION_EDGE, std::make_shared<AttributeConditionEdge>(_messageLogger, _filename, _parserOptions)));
             class AttributeDelay: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeDelay(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeDelay(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -4255,11 +4258,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__DELAY, std::make_shared<AttributeDelay>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__DELAY, std::make_shared<AttributeDelay>(_messageLogger, _filename, _parserOptions)));
             class AttributeName: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeName(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeName(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -4294,21 +4297,21 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<AttributeName>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<AttributeName>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
         std::vector<std::shared_ptr<IElementParser>> ConditionXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementByEntityConditionParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementByValueConditionParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementByEntityConditionParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementByValueConditionParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        ConditionXmlParser::SubElementByEntityConditionParser::SubElementByEntityConditionParser(IParserMessageLogger& messageLogger, std::string& filename)
+        ConditionXmlParser::SubElementByEntityConditionParser::SubElementByEntityConditionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _byEntityConditionXmlParser = std::make_shared<ByEntityConditionXmlParser>(messageLogger, filename);
+            _byEntityConditionXmlParser = std::make_shared<ByEntityConditionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void ConditionXmlParser::SubElementByEntityConditionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -4346,9 +4349,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__BY_ENTITY_CONDITION
                     };
         }
-        ConditionXmlParser::SubElementByValueConditionParser::SubElementByValueConditionParser(IParserMessageLogger& messageLogger, std::string& filename)
+        ConditionXmlParser::SubElementByValueConditionParser::SubElementByValueConditionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _byValueConditionXmlParser = std::make_shared<ByValueConditionXmlParser>(messageLogger, filename);
+            _byValueConditionXmlParser = std::make_shared<ByValueConditionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void ConditionXmlParser::SubElementByValueConditionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -4387,10 +4390,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        ConditionXmlParser::ConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        ConditionXmlParser::ConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -4400,7 +4403,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            ConditionGroupXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+            ConditionGroupXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlSequenceParser(messageLogger, filename, parserOptions) {}
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> ConditionGroupXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -4412,13 +4415,13 @@ namespace NET_ASAM_OPENSCENARIO
         std::vector<std::shared_ptr<IElementParser>> ConditionGroupXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementConditionsParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementConditionsParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        ConditionGroupXmlParser::SubElementConditionsParser::SubElementConditionsParser(IParserMessageLogger& messageLogger, std::string& filename)
+        ConditionGroupXmlParser::SubElementConditionsParser::SubElementConditionsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _conditionXmlParser = std::make_shared<ConditionXmlParser>(messageLogger, filename);
+            _conditionXmlParser = std::make_shared<ConditionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void ConditionGroupXmlParser::SubElementConditionsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -4458,10 +4461,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        ConditionGroupXmlParser::ConditionGroupXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        ConditionGroupXmlParser::ConditionGroupXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -4471,7 +4474,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            ControlPointXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+            ControlPointXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlSequenceParser(messageLogger, filename, parserOptions) {}
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> ControlPointXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -4480,7 +4483,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeTime: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeTime(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeTime(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -4515,11 +4518,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 0;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__TIME, std::make_shared<AttributeTime>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__TIME, std::make_shared<AttributeTime>(_messageLogger, _filename, _parserOptions)));
             class AttributeWeight: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeWeight(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeWeight(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -4554,20 +4557,20 @@ namespace NET_ASAM_OPENSCENARIO
                     return 0;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__WEIGHT, std::make_shared<AttributeWeight>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__WEIGHT, std::make_shared<AttributeWeight>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
         std::vector<std::shared_ptr<IElementParser>> ControlPointXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementPositionParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementPositionParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        ControlPointXmlParser::SubElementPositionParser::SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename)
+        ControlPointXmlParser::SubElementPositionParser::SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _positionXmlParser = std::make_shared<PositionXmlParser>(messageLogger, filename);
+            _positionXmlParser = std::make_shared<PositionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void ControlPointXmlParser::SubElementPositionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -4606,10 +4609,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        ControlPointXmlParser::ControlPointXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        ControlPointXmlParser::ControlPointXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -4619,7 +4622,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            ControllerXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+            ControllerXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlAllParser(messageLogger, filename, parserOptions) {}
 
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> ControllerXmlParser::GetAttributeNameToAttributeParserMap()
@@ -4629,7 +4632,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeName: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeName(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeName(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -4664,21 +4667,21 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<AttributeName>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<AttributeName>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
         std::vector<std::shared_ptr<IElementParser>> ControllerXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<WrappedListParser>(_messageLogger, _filename, std::make_shared<SubElementParameterDeclarationsParser>(_messageLogger, _filename), OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATIONS) );
-            result.push_back(std::make_shared<SubElementPropertiesParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<WrappedListParser>(_messageLogger, _filename, std::make_shared<SubElementParameterDeclarationsParser>(_messageLogger, _filename, _parserOptions), OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATIONS, _parserOptions) );
+            result.push_back(std::make_shared<SubElementPropertiesParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        ControllerXmlParser::SubElementParameterDeclarationsParser::SubElementParameterDeclarationsParser(IParserMessageLogger& messageLogger, std::string& filename)
+        ControllerXmlParser::SubElementParameterDeclarationsParser::SubElementParameterDeclarationsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _parameterDeclarationXmlParser = std::make_shared<ParameterDeclarationXmlParser>(messageLogger, filename);
+            _parameterDeclarationXmlParser = std::make_shared<ParameterDeclarationXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void ControllerXmlParser::SubElementParameterDeclarationsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -4714,9 +4717,9 @@ namespace NET_ASAM_OPENSCENARIO
         {
             return {OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION};
         }
-        ControllerXmlParser::SubElementPropertiesParser::SubElementPropertiesParser(IParserMessageLogger& messageLogger, std::string& filename)
+        ControllerXmlParser::SubElementPropertiesParser::SubElementPropertiesParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _propertiesXmlParser = std::make_shared<PropertiesXmlParser>(messageLogger, filename);
+            _propertiesXmlParser = std::make_shared<PropertiesXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void ControllerXmlParser::SubElementPropertiesParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -4755,10 +4758,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        ControllerXmlParser::ControllerXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        ControllerXmlParser::ControllerXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -4768,7 +4771,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            ControllerActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+            ControllerActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlAllParser(messageLogger, filename, parserOptions) {}
 
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> ControllerActionXmlParser::GetAttributeNameToAttributeParserMap()
@@ -4781,15 +4784,15 @@ namespace NET_ASAM_OPENSCENARIO
         std::vector<std::shared_ptr<IElementParser>> ControllerActionXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementAssignControllerActionParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementOverrideControllerValueActionParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementActivateControllerActionParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementAssignControllerActionParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementOverrideControllerValueActionParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementActivateControllerActionParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        ControllerActionXmlParser::SubElementAssignControllerActionParser::SubElementAssignControllerActionParser(IParserMessageLogger& messageLogger, std::string& filename)
+        ControllerActionXmlParser::SubElementAssignControllerActionParser::SubElementAssignControllerActionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _assignControllerActionXmlParser = std::make_shared<AssignControllerActionXmlParser>(messageLogger, filename);
+            _assignControllerActionXmlParser = std::make_shared<AssignControllerActionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void ControllerActionXmlParser::SubElementAssignControllerActionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -4827,9 +4830,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__ASSIGN_CONTROLLER_ACTION
                     };
         }
-        ControllerActionXmlParser::SubElementOverrideControllerValueActionParser::SubElementOverrideControllerValueActionParser(IParserMessageLogger& messageLogger, std::string& filename)
+        ControllerActionXmlParser::SubElementOverrideControllerValueActionParser::SubElementOverrideControllerValueActionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _overrideControllerValueActionXmlParser = std::make_shared<OverrideControllerValueActionXmlParser>(messageLogger, filename);
+            _overrideControllerValueActionXmlParser = std::make_shared<OverrideControllerValueActionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void ControllerActionXmlParser::SubElementOverrideControllerValueActionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -4867,9 +4870,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__OVERRIDE_CONTROLLER_VALUE_ACTION
                     };
         }
-        ControllerActionXmlParser::SubElementActivateControllerActionParser::SubElementActivateControllerActionParser(IParserMessageLogger& messageLogger, std::string& filename)
+        ControllerActionXmlParser::SubElementActivateControllerActionParser::SubElementActivateControllerActionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _activateControllerActionXmlParser = std::make_shared<ActivateControllerActionXmlParser>(messageLogger, filename);
+            _activateControllerActionXmlParser = std::make_shared<ActivateControllerActionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void ControllerActionXmlParser::SubElementActivateControllerActionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -4908,10 +4911,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        ControllerActionXmlParser::ControllerActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        ControllerActionXmlParser::ControllerActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -4921,7 +4924,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            ControllerCatalogLocationXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+            ControllerCatalogLocationXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlAllParser(messageLogger, filename, parserOptions) {}
 
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> ControllerCatalogLocationXmlParser::GetAttributeNameToAttributeParserMap()
@@ -4934,13 +4937,13 @@ namespace NET_ASAM_OPENSCENARIO
         std::vector<std::shared_ptr<IElementParser>> ControllerCatalogLocationXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementDirectoryParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementDirectoryParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        ControllerCatalogLocationXmlParser::SubElementDirectoryParser::SubElementDirectoryParser(IParserMessageLogger& messageLogger, std::string& filename)
+        ControllerCatalogLocationXmlParser::SubElementDirectoryParser::SubElementDirectoryParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _directoryXmlParser = std::make_shared<DirectoryXmlParser>(messageLogger, filename);
+            _directoryXmlParser = std::make_shared<DirectoryXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void ControllerCatalogLocationXmlParser::SubElementDirectoryParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -4979,10 +4982,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        ControllerCatalogLocationXmlParser::ControllerCatalogLocationXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        ControllerCatalogLocationXmlParser::ControllerCatalogLocationXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -4992,7 +4995,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            ControllerDistributionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+            ControllerDistributionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlSequenceParser(messageLogger, filename, parserOptions) {}
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> ControllerDistributionXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -5004,13 +5007,13 @@ namespace NET_ASAM_OPENSCENARIO
         std::vector<std::shared_ptr<IElementParser>> ControllerDistributionXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementControllerDistributionEntriesParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementControllerDistributionEntriesParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        ControllerDistributionXmlParser::SubElementControllerDistributionEntriesParser::SubElementControllerDistributionEntriesParser(IParserMessageLogger& messageLogger, std::string& filename)
+        ControllerDistributionXmlParser::SubElementControllerDistributionEntriesParser::SubElementControllerDistributionEntriesParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _controllerDistributionEntryXmlParser = std::make_shared<ControllerDistributionEntryXmlParser>(messageLogger, filename);
+            _controllerDistributionEntryXmlParser = std::make_shared<ControllerDistributionEntryXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void ControllerDistributionXmlParser::SubElementControllerDistributionEntriesParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -5050,10 +5053,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        ControllerDistributionXmlParser::ControllerDistributionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        ControllerDistributionXmlParser::ControllerDistributionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -5063,7 +5066,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            ControllerDistributionEntryXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+            ControllerDistributionEntryXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlChoiceParser(messageLogger, filename, parserOptions) {}
 
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> ControllerDistributionEntryXmlParser::GetAttributeNameToAttributeParserMap()
@@ -5073,7 +5076,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeWeight: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeWeight(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeWeight(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -5108,21 +5111,21 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__WEIGHT, std::make_shared<AttributeWeight>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__WEIGHT, std::make_shared<AttributeWeight>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
         std::vector<std::shared_ptr<IElementParser>> ControllerDistributionEntryXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementControllerParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementCatalogReferenceParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementControllerParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementCatalogReferenceParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        ControllerDistributionEntryXmlParser::SubElementControllerParser::SubElementControllerParser(IParserMessageLogger& messageLogger, std::string& filename)
+        ControllerDistributionEntryXmlParser::SubElementControllerParser::SubElementControllerParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _controllerXmlParser = std::make_shared<ControllerXmlParser>(messageLogger, filename);
+            _controllerXmlParser = std::make_shared<ControllerXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void ControllerDistributionEntryXmlParser::SubElementControllerParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -5160,9 +5163,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__CONTROLLER
                     };
         }
-        ControllerDistributionEntryXmlParser::SubElementCatalogReferenceParser::SubElementCatalogReferenceParser(IParserMessageLogger& messageLogger, std::string& filename)
+        ControllerDistributionEntryXmlParser::SubElementCatalogReferenceParser::SubElementCatalogReferenceParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _catalogReferenceXmlParser = std::make_shared<CatalogReferenceXmlParser>(messageLogger, filename);
+            _catalogReferenceXmlParser = std::make_shared<CatalogReferenceXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void ControllerDistributionEntryXmlParser::SubElementCatalogReferenceParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -5202,10 +5205,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        ControllerDistributionEntryXmlParser::ControllerDistributionEntryXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        ControllerDistributionEntryXmlParser::ControllerDistributionEntryXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -5227,7 +5230,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeType: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeType(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeType(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -5262,7 +5265,7 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__TYPE, std::make_shared<AttributeType>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__TYPE, std::make_shared<AttributeType>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
         void CustomCommandActionXmlParser::SetContentProperty(const std::string content, std::shared_ptr<BaseImpl> object)
@@ -5271,8 +5274,8 @@ namespace NET_ASAM_OPENSCENARIO
             typedObject->SetContent(content);
         }
   
-        CustomCommandActionXmlParser::CustomCommandActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlSimpleContentParser(messageLogger, filename) {}
+        CustomCommandActionXmlParser::CustomCommandActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlSimpleContentParser(messageLogger, filename, parserOptions) {}
         
 
         /**
@@ -5281,7 +5284,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            DeleteEntityActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+            DeleteEntityActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlSequenceParser(messageLogger, filename, parserOptions) {}
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> DeleteEntityActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -5297,10 +5300,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
   
-        DeleteEntityActionXmlParser::DeleteEntityActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        DeleteEntityActionXmlParser::DeleteEntityActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -5310,7 +5313,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            DeterministicXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+            DeterministicXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlSequenceParser(messageLogger, filename, parserOptions) {}
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> DeterministicXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -5322,13 +5325,13 @@ namespace NET_ASAM_OPENSCENARIO
         std::vector<std::shared_ptr<IElementParser>> DeterministicXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementDeterministicParameterDistributionsParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementDeterministicParameterDistributionsParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        DeterministicXmlParser::SubElementDeterministicParameterDistributionsParser::SubElementDeterministicParameterDistributionsParser(IParserMessageLogger& messageLogger, std::string& filename)
+        DeterministicXmlParser::SubElementDeterministicParameterDistributionsParser::SubElementDeterministicParameterDistributionsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _deterministicParameterDistributionXmlParser = std::make_shared<DeterministicParameterDistributionXmlParser>(messageLogger, filename);
+            _deterministicParameterDistributionXmlParser = std::make_shared<DeterministicParameterDistributionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void DeterministicXmlParser::SubElementDeterministicParameterDistributionsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -5370,10 +5373,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        DeterministicXmlParser::DeterministicXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        DeterministicXmlParser::DeterministicXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -5383,7 +5386,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            DeterministicMultiParameterDistributionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+            DeterministicMultiParameterDistributionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlSequenceParser(messageLogger, filename, parserOptions) {}
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> DeterministicMultiParameterDistributionXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -5395,13 +5398,13 @@ namespace NET_ASAM_OPENSCENARIO
         std::vector<std::shared_ptr<IElementParser>> DeterministicMultiParameterDistributionXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementDeterministicMultiParameterDistributionTypeParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementDeterministicMultiParameterDistributionTypeParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        DeterministicMultiParameterDistributionXmlParser::SubElementDeterministicMultiParameterDistributionTypeParser::SubElementDeterministicMultiParameterDistributionTypeParser(IParserMessageLogger& messageLogger, std::string& filename)
+        DeterministicMultiParameterDistributionXmlParser::SubElementDeterministicMultiParameterDistributionTypeParser::SubElementDeterministicMultiParameterDistributionTypeParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _deterministicMultiParameterDistributionTypeXmlParser = std::make_shared<DeterministicMultiParameterDistributionTypeXmlParser>(messageLogger, filename);
+            _deterministicMultiParameterDistributionTypeXmlParser = std::make_shared<DeterministicMultiParameterDistributionTypeXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void DeterministicMultiParameterDistributionXmlParser::SubElementDeterministicMultiParameterDistributionTypeParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -5440,10 +5443,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        DeterministicMultiParameterDistributionXmlParser::DeterministicMultiParameterDistributionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        DeterministicMultiParameterDistributionXmlParser::DeterministicMultiParameterDistributionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -5453,19 +5456,19 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            DeterministicMultiParameterDistributionTypeXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+            DeterministicMultiParameterDistributionTypeXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlSequenceParser(messageLogger, filename, parserOptions) {}
 
 
         std::vector<std::shared_ptr<IElementParser>> DeterministicMultiParameterDistributionTypeXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementValueSetDistributionParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementValueSetDistributionParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        DeterministicMultiParameterDistributionTypeXmlParser::SubElementValueSetDistributionParser::SubElementValueSetDistributionParser(IParserMessageLogger& messageLogger, std::string& filename)
+        DeterministicMultiParameterDistributionTypeXmlParser::SubElementValueSetDistributionParser::SubElementValueSetDistributionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _valueSetDistributionXmlParser = std::make_shared<ValueSetDistributionXmlParser>(messageLogger, filename);
+            _valueSetDistributionXmlParser = std::make_shared<ValueSetDistributionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void DeterministicMultiParameterDistributionTypeXmlParser::SubElementValueSetDistributionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -5504,10 +5507,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        DeterministicMultiParameterDistributionTypeXmlParser::DeterministicMultiParameterDistributionTypeXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlGroupParser(messageLogger, filename)
+        DeterministicMultiParameterDistributionTypeXmlParser::DeterministicMultiParameterDistributionTypeXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlGroupParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -5517,21 +5520,21 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            DeterministicParameterDistributionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+            DeterministicParameterDistributionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlChoiceParser(messageLogger, filename, parserOptions) {}
 
 
 
         std::vector<std::shared_ptr<IElementParser>> DeterministicParameterDistributionXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementDeterministicMultiParameterDistributionParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementDeterministicSingleParameterDistributionParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementDeterministicMultiParameterDistributionParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementDeterministicSingleParameterDistributionParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        DeterministicParameterDistributionXmlParser::SubElementDeterministicMultiParameterDistributionParser::SubElementDeterministicMultiParameterDistributionParser(IParserMessageLogger& messageLogger, std::string& filename)
+        DeterministicParameterDistributionXmlParser::SubElementDeterministicMultiParameterDistributionParser::SubElementDeterministicMultiParameterDistributionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _deterministicMultiParameterDistributionXmlParser = std::make_shared<DeterministicMultiParameterDistributionXmlParser>(messageLogger, filename);
+            _deterministicMultiParameterDistributionXmlParser = std::make_shared<DeterministicMultiParameterDistributionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void DeterministicParameterDistributionXmlParser::SubElementDeterministicMultiParameterDistributionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -5569,9 +5572,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__DETERMINISTIC_MULTI_PARAMETER_DISTRIBUTION
                     };
         }
-        DeterministicParameterDistributionXmlParser::SubElementDeterministicSingleParameterDistributionParser::SubElementDeterministicSingleParameterDistributionParser(IParserMessageLogger& messageLogger, std::string& filename)
+        DeterministicParameterDistributionXmlParser::SubElementDeterministicSingleParameterDistributionParser::SubElementDeterministicSingleParameterDistributionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _deterministicSingleParameterDistributionXmlParser = std::make_shared<DeterministicSingleParameterDistributionXmlParser>(messageLogger, filename);
+            _deterministicSingleParameterDistributionXmlParser = std::make_shared<DeterministicSingleParameterDistributionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void DeterministicParameterDistributionXmlParser::SubElementDeterministicSingleParameterDistributionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -5610,10 +5613,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        DeterministicParameterDistributionXmlParser::DeterministicParameterDistributionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlGroupParser(messageLogger, filename)
+        DeterministicParameterDistributionXmlParser::DeterministicParameterDistributionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlGroupParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -5623,7 +5626,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            DeterministicSingleParameterDistributionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+            DeterministicSingleParameterDistributionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlSequenceParser(messageLogger, filename, parserOptions) {}
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> DeterministicSingleParameterDistributionXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -5632,7 +5635,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeParameterName: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeParameterName(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeParameterName(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -5667,20 +5670,20 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_NAME, std::make_shared<AttributeParameterName>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_NAME, std::make_shared<AttributeParameterName>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
         std::vector<std::shared_ptr<IElementParser>> DeterministicSingleParameterDistributionXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementDeterministicSingleParameterDistributionTypeParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementDeterministicSingleParameterDistributionTypeParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        DeterministicSingleParameterDistributionXmlParser::SubElementDeterministicSingleParameterDistributionTypeParser::SubElementDeterministicSingleParameterDistributionTypeParser(IParserMessageLogger& messageLogger, std::string& filename)
+        DeterministicSingleParameterDistributionXmlParser::SubElementDeterministicSingleParameterDistributionTypeParser::SubElementDeterministicSingleParameterDistributionTypeParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _deterministicSingleParameterDistributionTypeXmlParser = std::make_shared<DeterministicSingleParameterDistributionTypeXmlParser>(messageLogger, filename);
+            _deterministicSingleParameterDistributionTypeXmlParser = std::make_shared<DeterministicSingleParameterDistributionTypeXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void DeterministicSingleParameterDistributionXmlParser::SubElementDeterministicSingleParameterDistributionTypeParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -5723,10 +5726,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        DeterministicSingleParameterDistributionXmlParser::DeterministicSingleParameterDistributionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        DeterministicSingleParameterDistributionXmlParser::DeterministicSingleParameterDistributionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -5736,22 +5739,22 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            DeterministicSingleParameterDistributionTypeXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+            DeterministicSingleParameterDistributionTypeXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlChoiceParser(messageLogger, filename, parserOptions) {}
 
 
 
         std::vector<std::shared_ptr<IElementParser>> DeterministicSingleParameterDistributionTypeXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementDistributionSetParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementDistributionRangeParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementUserDefinedDistributionParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementDistributionSetParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementDistributionRangeParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementUserDefinedDistributionParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        DeterministicSingleParameterDistributionTypeXmlParser::SubElementDistributionSetParser::SubElementDistributionSetParser(IParserMessageLogger& messageLogger, std::string& filename)
+        DeterministicSingleParameterDistributionTypeXmlParser::SubElementDistributionSetParser::SubElementDistributionSetParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _distributionSetXmlParser = std::make_shared<DistributionSetXmlParser>(messageLogger, filename);
+            _distributionSetXmlParser = std::make_shared<DistributionSetXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void DeterministicSingleParameterDistributionTypeXmlParser::SubElementDistributionSetParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -5789,9 +5792,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__DISTRIBUTION_SET
                     };
         }
-        DeterministicSingleParameterDistributionTypeXmlParser::SubElementDistributionRangeParser::SubElementDistributionRangeParser(IParserMessageLogger& messageLogger, std::string& filename)
+        DeterministicSingleParameterDistributionTypeXmlParser::SubElementDistributionRangeParser::SubElementDistributionRangeParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _distributionRangeXmlParser = std::make_shared<DistributionRangeXmlParser>(messageLogger, filename);
+            _distributionRangeXmlParser = std::make_shared<DistributionRangeXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void DeterministicSingleParameterDistributionTypeXmlParser::SubElementDistributionRangeParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -5829,9 +5832,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__DISTRIBUTION_RANGE
                     };
         }
-        DeterministicSingleParameterDistributionTypeXmlParser::SubElementUserDefinedDistributionParser::SubElementUserDefinedDistributionParser(IParserMessageLogger& messageLogger, std::string& filename)
+        DeterministicSingleParameterDistributionTypeXmlParser::SubElementUserDefinedDistributionParser::SubElementUserDefinedDistributionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _userDefinedDistributionXmlParser = std::make_shared<UserDefinedDistributionXmlParser>(messageLogger, filename);
+            _userDefinedDistributionXmlParser = std::make_shared<UserDefinedDistributionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void DeterministicSingleParameterDistributionTypeXmlParser::SubElementUserDefinedDistributionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -5870,10 +5873,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        DeterministicSingleParameterDistributionTypeXmlParser::DeterministicSingleParameterDistributionTypeXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlGroupParser(messageLogger, filename)
+        DeterministicSingleParameterDistributionTypeXmlParser::DeterministicSingleParameterDistributionTypeXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlGroupParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -5883,7 +5886,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            DimensionsXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+            DimensionsXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlSequenceParser(messageLogger, filename, parserOptions) {}
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> DimensionsXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -5892,7 +5895,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeHeight: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeHeight(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeHeight(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -5927,11 +5930,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__HEIGHT, std::make_shared<AttributeHeight>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__HEIGHT, std::make_shared<AttributeHeight>(_messageLogger, _filename, _parserOptions)));
             class AttributeLength: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeLength(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeLength(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -5966,11 +5969,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__LENGTH, std::make_shared<AttributeLength>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__LENGTH, std::make_shared<AttributeLength>(_messageLogger, _filename, _parserOptions)));
             class AttributeWidth: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeWidth(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeWidth(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -6005,7 +6008,7 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__WIDTH, std::make_shared<AttributeWidth>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__WIDTH, std::make_shared<AttributeWidth>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
@@ -6016,10 +6019,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
   
-        DimensionsXmlParser::DimensionsXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        DimensionsXmlParser::DimensionsXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -6029,7 +6032,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            DirectoryXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+            DirectoryXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlSequenceParser(messageLogger, filename, parserOptions) {}
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> DirectoryXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -6038,7 +6041,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributePath: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributePath(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributePath(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -6073,7 +6076,7 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__PATH, std::make_shared<AttributePath>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__PATH, std::make_shared<AttributePath>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
@@ -6084,10 +6087,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
   
-        DirectoryXmlParser::DirectoryXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        DirectoryXmlParser::DirectoryXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -6097,7 +6100,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            DistanceConditionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+            DistanceConditionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlAllParser(messageLogger, filename, parserOptions) {}
 
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> DistanceConditionXmlParser::GetAttributeNameToAttributeParserMap()
@@ -6107,7 +6110,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeAlongRoute: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeAlongRoute(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeAlongRoute(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -6130,9 +6133,12 @@ namespace NET_ASAM_OPENSCENARIO
                     typedObject->PutPropertyEndMarker(OSC_CONSTANTS::ATTRIBUTE__ALONG_ROUTE, std::make_shared<Textmarker>(endMarker));
                      
                     
-                    // This element is deprecated
-					auto msg = FileContentMessage("Attribute '" + attributeName + "' is deprecated since standard version '1.1'. Comment: 'Use \"coordinateSystem\" and \"relativeDistanceType\"'.", WARNING, Textmarker(startPosition.GetLine(), startPosition.GetColumn(), this->_filename));
-					this->_messageLogger.LogMessage(msg);
+					if (!_parserOptions.IsOptionSetSupressDeprecationWarnings())
+					{
+						// This element is deprecated
+						auto msg = FileContentMessage("Attribute '" + attributeName + "' is deprecated since standard version '1.1'. Comment: 'Use \"coordinateSystem\" and \"relativeDistanceType\"'.", WARNING, Textmarker(startPosition.GetLine(), startPosition.GetColumn(), this->_filename));
+						this->_messageLogger.LogMessage(msg);
+					}
                 }
 
                 int GetMinOccur() override
@@ -6140,11 +6146,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 0;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__ALONG_ROUTE, std::make_shared<AttributeAlongRoute>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__ALONG_ROUTE, std::make_shared<AttributeAlongRoute>(_messageLogger, _filename, _parserOptions)));
             class AttributeCoordinateSystem: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeCoordinateSystem(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeCoordinateSystem(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -6171,7 +6177,7 @@ namespace NET_ASAM_OPENSCENARIO
                             auto msg = FileContentMessage("Value '" + attributeValue + "' is not allowed.", ERROR, startMarker);
                             _messageLogger.LogMessage(msg);
                         }
-                        if (CoordinateSystem::IsDeprecated(kResult))
+                        if (CoordinateSystem::IsDeprecated(kResult) && !_parserOptions.IsOptionSetSupressDeprecationWarnings())
 				    	{
 							auto msg = FileContentMessage("Enumeration literal '" + attributeValue + "' is deprecated since standard version '" +  CoordinateSystem::GetDeprecatedVersion(kResult) +"'. " + CoordinateSystem::GetDeprecatedComment(kResult) + "'.", WARNING, Textmarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), this->_filename));
 							this->_messageLogger.LogMessage(msg);
@@ -6188,11 +6194,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 0;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__COORDINATE_SYSTEM, std::make_shared<AttributeCoordinateSystem>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__COORDINATE_SYSTEM, std::make_shared<AttributeCoordinateSystem>(_messageLogger, _filename, _parserOptions)));
             class AttributeFreespace: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeFreespace(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeFreespace(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -6222,11 +6228,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, std::make_shared<AttributeFreespace>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, std::make_shared<AttributeFreespace>(_messageLogger, _filename, _parserOptions)));
             class AttributeRelativeDistanceType: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeRelativeDistanceType(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeRelativeDistanceType(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -6253,7 +6259,7 @@ namespace NET_ASAM_OPENSCENARIO
                             auto msg = FileContentMessage("Value '" + attributeValue + "' is not allowed.", ERROR, startMarker);
                             _messageLogger.LogMessage(msg);
                         }
-                        if (RelativeDistanceType::IsDeprecated(kResult))
+                        if (RelativeDistanceType::IsDeprecated(kResult) && !_parserOptions.IsOptionSetSupressDeprecationWarnings())
 				    	{
 							auto msg = FileContentMessage("Enumeration literal '" + attributeValue + "' is deprecated since standard version '" +  RelativeDistanceType::GetDeprecatedVersion(kResult) +"'. " + RelativeDistanceType::GetDeprecatedComment(kResult) + "'.", WARNING, Textmarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), this->_filename));
 							this->_messageLogger.LogMessage(msg);
@@ -6270,11 +6276,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 0;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__RELATIVE_DISTANCE_TYPE, std::make_shared<AttributeRelativeDistanceType>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__RELATIVE_DISTANCE_TYPE, std::make_shared<AttributeRelativeDistanceType>(_messageLogger, _filename, _parserOptions)));
             class AttributeRule: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeRule(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeRule(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -6301,7 +6307,7 @@ namespace NET_ASAM_OPENSCENARIO
                             auto msg = FileContentMessage("Value '" + attributeValue + "' is not allowed.", ERROR, startMarker);
                             _messageLogger.LogMessage(msg);
                         }
-                        if (Rule::IsDeprecated(kResult))
+                        if (Rule::IsDeprecated(kResult) && !_parserOptions.IsOptionSetSupressDeprecationWarnings())
 				    	{
 							auto msg = FileContentMessage("Enumeration literal '" + attributeValue + "' is deprecated since standard version '" +  Rule::GetDeprecatedVersion(kResult) +"'. " + Rule::GetDeprecatedComment(kResult) + "'.", WARNING, Textmarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), this->_filename));
 							this->_messageLogger.LogMessage(msg);
@@ -6318,11 +6324,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__RULE, std::make_shared<AttributeRule>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__RULE, std::make_shared<AttributeRule>(_messageLogger, _filename, _parserOptions)));
             class AttributeValue: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeValue(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeValue(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -6357,20 +6363,20 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<AttributeValue>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<AttributeValue>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
         std::vector<std::shared_ptr<IElementParser>> DistanceConditionXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementPositionParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementPositionParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        DistanceConditionXmlParser::SubElementPositionParser::SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename)
+        DistanceConditionXmlParser::SubElementPositionParser::SubElementPositionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _positionXmlParser = std::make_shared<PositionXmlParser>(messageLogger, filename);
+            _positionXmlParser = std::make_shared<PositionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void DistanceConditionXmlParser::SubElementPositionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -6409,10 +6415,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        DistanceConditionXmlParser::DistanceConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        DistanceConditionXmlParser::DistanceConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -6422,21 +6428,21 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            DistributionDefinitionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+            DistributionDefinitionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlChoiceParser(messageLogger, filename, parserOptions) {}
 
 
 
         std::vector<std::shared_ptr<IElementParser>> DistributionDefinitionXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementDeterministicParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementStochasticParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementDeterministicParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementStochasticParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        DistributionDefinitionXmlParser::SubElementDeterministicParser::SubElementDeterministicParser(IParserMessageLogger& messageLogger, std::string& filename)
+        DistributionDefinitionXmlParser::SubElementDeterministicParser::SubElementDeterministicParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _deterministicXmlParser = std::make_shared<DeterministicXmlParser>(messageLogger, filename);
+            _deterministicXmlParser = std::make_shared<DeterministicXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void DistributionDefinitionXmlParser::SubElementDeterministicParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -6474,9 +6480,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__DETERMINISTIC
                     };
         }
-        DistributionDefinitionXmlParser::SubElementStochasticParser::SubElementStochasticParser(IParserMessageLogger& messageLogger, std::string& filename)
+        DistributionDefinitionXmlParser::SubElementStochasticParser::SubElementStochasticParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _stochasticXmlParser = std::make_shared<StochasticXmlParser>(messageLogger, filename);
+            _stochasticXmlParser = std::make_shared<StochasticXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void DistributionDefinitionXmlParser::SubElementStochasticParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -6515,10 +6521,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        DistributionDefinitionXmlParser::DistributionDefinitionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlGroupParser(messageLogger, filename)
+        DistributionDefinitionXmlParser::DistributionDefinitionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlGroupParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -6528,7 +6534,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            DistributionRangeXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+            DistributionRangeXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlAllParser(messageLogger, filename, parserOptions) {}
 
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> DistributionRangeXmlParser::GetAttributeNameToAttributeParserMap()
@@ -6538,7 +6544,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeStepWidth: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeStepWidth(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeStepWidth(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -6573,20 +6579,20 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__STEP_WIDTH, std::make_shared<AttributeStepWidth>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__STEP_WIDTH, std::make_shared<AttributeStepWidth>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
         std::vector<std::shared_ptr<IElementParser>> DistributionRangeXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementRangeParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementRangeParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        DistributionRangeXmlParser::SubElementRangeParser::SubElementRangeParser(IParserMessageLogger& messageLogger, std::string& filename)
+        DistributionRangeXmlParser::SubElementRangeParser::SubElementRangeParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _rangeXmlParser = std::make_shared<RangeXmlParser>(messageLogger, filename);
+            _rangeXmlParser = std::make_shared<RangeXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void DistributionRangeXmlParser::SubElementRangeParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -6625,10 +6631,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        DistributionRangeXmlParser::DistributionRangeXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        DistributionRangeXmlParser::DistributionRangeXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -6638,7 +6644,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            DistributionSetXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+            DistributionSetXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlSequenceParser(messageLogger, filename, parserOptions) {}
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> DistributionSetXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -6650,13 +6656,13 @@ namespace NET_ASAM_OPENSCENARIO
         std::vector<std::shared_ptr<IElementParser>> DistributionSetXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementElementsParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementElementsParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        DistributionSetXmlParser::SubElementElementsParser::SubElementElementsParser(IParserMessageLogger& messageLogger, std::string& filename)
+        DistributionSetXmlParser::SubElementElementsParser::SubElementElementsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _distributionSetElementXmlParser = std::make_shared<DistributionSetElementXmlParser>(messageLogger, filename);
+            _distributionSetElementXmlParser = std::make_shared<DistributionSetElementXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void DistributionSetXmlParser::SubElementElementsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -6696,10 +6702,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        DistributionSetXmlParser::DistributionSetXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        DistributionSetXmlParser::DistributionSetXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -6709,7 +6715,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            DistributionSetElementXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+            DistributionSetElementXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlAllParser(messageLogger, filename, parserOptions) {}
 
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> DistributionSetElementXmlParser::GetAttributeNameToAttributeParserMap()
@@ -6719,7 +6725,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeValue: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeValue(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeValue(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -6754,7 +6760,7 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<AttributeValue>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<AttributeValue>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
@@ -6765,10 +6771,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
   
-        DistributionSetElementXmlParser::DistributionSetElementXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        DistributionSetElementXmlParser::DistributionSetElementXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -6778,7 +6784,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            DynamicConstraintsXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+            DynamicConstraintsXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlSequenceParser(messageLogger, filename, parserOptions) {}
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> DynamicConstraintsXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -6787,7 +6793,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeMaxAcceleration: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeMaxAcceleration(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeMaxAcceleration(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -6822,11 +6828,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 0;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__MAX_ACCELERATION, std::make_shared<AttributeMaxAcceleration>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__MAX_ACCELERATION, std::make_shared<AttributeMaxAcceleration>(_messageLogger, _filename, _parserOptions)));
             class AttributeMaxDeceleration: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeMaxDeceleration(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeMaxDeceleration(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -6861,11 +6867,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 0;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__MAX_DECELERATION, std::make_shared<AttributeMaxDeceleration>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__MAX_DECELERATION, std::make_shared<AttributeMaxDeceleration>(_messageLogger, _filename, _parserOptions)));
             class AttributeMaxSpeed: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeMaxSpeed(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeMaxSpeed(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -6900,7 +6906,7 @@ namespace NET_ASAM_OPENSCENARIO
                     return 0;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__MAX_SPEED, std::make_shared<AttributeMaxSpeed>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__MAX_SPEED, std::make_shared<AttributeMaxSpeed>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
@@ -6911,10 +6917,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
   
-        DynamicConstraintsXmlParser::DynamicConstraintsXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        DynamicConstraintsXmlParser::DynamicConstraintsXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -6924,7 +6930,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            EndOfRoadConditionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+            EndOfRoadConditionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlSequenceParser(messageLogger, filename, parserOptions) {}
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> EndOfRoadConditionXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -6933,7 +6939,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeDuration: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeDuration(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeDuration(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -6968,7 +6974,7 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__DURATION, std::make_shared<AttributeDuration>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__DURATION, std::make_shared<AttributeDuration>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
@@ -6979,10 +6985,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
   
-        EndOfRoadConditionXmlParser::EndOfRoadConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        EndOfRoadConditionXmlParser::EndOfRoadConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -6992,7 +6998,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            EntitiesXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+            EntitiesXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlSequenceParser(messageLogger, filename, parserOptions) {}
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> EntitiesXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -7004,14 +7010,14 @@ namespace NET_ASAM_OPENSCENARIO
         std::vector<std::shared_ptr<IElementParser>> EntitiesXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementScenarioObjectsParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementEntitySelectionsParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementScenarioObjectsParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementEntitySelectionsParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        EntitiesXmlParser::SubElementScenarioObjectsParser::SubElementScenarioObjectsParser(IParserMessageLogger& messageLogger, std::string& filename)
+        EntitiesXmlParser::SubElementScenarioObjectsParser::SubElementScenarioObjectsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _scenarioObjectXmlParser = std::make_shared<ScenarioObjectXmlParser>(messageLogger, filename);
+            _scenarioObjectXmlParser = std::make_shared<ScenarioObjectXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void EntitiesXmlParser::SubElementScenarioObjectsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -7050,9 +7056,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__SCENARIO_OBJECT
                     };
         }
-        EntitiesXmlParser::SubElementEntitySelectionsParser::SubElementEntitySelectionsParser(IParserMessageLogger& messageLogger, std::string& filename)
+        EntitiesXmlParser::SubElementEntitySelectionsParser::SubElementEntitySelectionsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _entitySelectionXmlParser = std::make_shared<EntitySelectionXmlParser>(messageLogger, filename);
+            _entitySelectionXmlParser = std::make_shared<EntitySelectionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void EntitiesXmlParser::SubElementEntitySelectionsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -7092,10 +7098,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        EntitiesXmlParser::EntitiesXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        EntitiesXmlParser::EntitiesXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -7105,7 +7111,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            EntityActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+            EntityActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlChoiceParser(messageLogger, filename, parserOptions) {}
 
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> EntityActionXmlParser::GetAttributeNameToAttributeParserMap()
@@ -7115,7 +7121,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeEntityRef: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeEntityRef(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeEntityRef(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -7147,21 +7153,21 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, std::make_shared<AttributeEntityRef>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, std::make_shared<AttributeEntityRef>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
         std::vector<std::shared_ptr<IElementParser>> EntityActionXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementAddEntityActionParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementDeleteEntityActionParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementAddEntityActionParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementDeleteEntityActionParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        EntityActionXmlParser::SubElementAddEntityActionParser::SubElementAddEntityActionParser(IParserMessageLogger& messageLogger, std::string& filename)
+        EntityActionXmlParser::SubElementAddEntityActionParser::SubElementAddEntityActionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _addEntityActionXmlParser = std::make_shared<AddEntityActionXmlParser>(messageLogger, filename);
+            _addEntityActionXmlParser = std::make_shared<AddEntityActionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void EntityActionXmlParser::SubElementAddEntityActionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -7199,9 +7205,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__ADD_ENTITY_ACTION
                     };
         }
-        EntityActionXmlParser::SubElementDeleteEntityActionParser::SubElementDeleteEntityActionParser(IParserMessageLogger& messageLogger, std::string& filename)
+        EntityActionXmlParser::SubElementDeleteEntityActionParser::SubElementDeleteEntityActionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _deleteEntityActionXmlParser = std::make_shared<DeleteEntityActionXmlParser>(messageLogger, filename);
+            _deleteEntityActionXmlParser = std::make_shared<DeleteEntityActionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void EntityActionXmlParser::SubElementDeleteEntityActionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -7240,10 +7246,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        EntityActionXmlParser::EntityActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        EntityActionXmlParser::EntityActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -7253,7 +7259,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            EntityConditionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+            EntityConditionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlChoiceParser(messageLogger, filename, parserOptions) {}
 
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> EntityConditionXmlParser::GetAttributeNameToAttributeParserMap()
@@ -7266,25 +7272,25 @@ namespace NET_ASAM_OPENSCENARIO
         std::vector<std::shared_ptr<IElementParser>> EntityConditionXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementEndOfRoadConditionParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementCollisionConditionParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementOffroadConditionParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementTimeHeadwayConditionParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementTimeToCollisionConditionParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementAccelerationConditionParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementStandStillConditionParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementSpeedConditionParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementRelativeSpeedConditionParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementTraveledDistanceConditionParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementReachPositionConditionParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementDistanceConditionParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementRelativeDistanceConditionParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementEndOfRoadConditionParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementCollisionConditionParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementOffroadConditionParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementTimeHeadwayConditionParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementTimeToCollisionConditionParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementAccelerationConditionParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementStandStillConditionParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementSpeedConditionParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementRelativeSpeedConditionParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementTraveledDistanceConditionParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementReachPositionConditionParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementDistanceConditionParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementRelativeDistanceConditionParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        EntityConditionXmlParser::SubElementEndOfRoadConditionParser::SubElementEndOfRoadConditionParser(IParserMessageLogger& messageLogger, std::string& filename)
+        EntityConditionXmlParser::SubElementEndOfRoadConditionParser::SubElementEndOfRoadConditionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _endOfRoadConditionXmlParser = std::make_shared<EndOfRoadConditionXmlParser>(messageLogger, filename);
+            _endOfRoadConditionXmlParser = std::make_shared<EndOfRoadConditionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void EntityConditionXmlParser::SubElementEndOfRoadConditionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -7322,9 +7328,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__END_OF_ROAD_CONDITION
                     };
         }
-        EntityConditionXmlParser::SubElementCollisionConditionParser::SubElementCollisionConditionParser(IParserMessageLogger& messageLogger, std::string& filename)
+        EntityConditionXmlParser::SubElementCollisionConditionParser::SubElementCollisionConditionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _collisionConditionXmlParser = std::make_shared<CollisionConditionXmlParser>(messageLogger, filename);
+            _collisionConditionXmlParser = std::make_shared<CollisionConditionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void EntityConditionXmlParser::SubElementCollisionConditionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -7362,9 +7368,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__COLLISION_CONDITION
                     };
         }
-        EntityConditionXmlParser::SubElementOffroadConditionParser::SubElementOffroadConditionParser(IParserMessageLogger& messageLogger, std::string& filename)
+        EntityConditionXmlParser::SubElementOffroadConditionParser::SubElementOffroadConditionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _offroadConditionXmlParser = std::make_shared<OffroadConditionXmlParser>(messageLogger, filename);
+            _offroadConditionXmlParser = std::make_shared<OffroadConditionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void EntityConditionXmlParser::SubElementOffroadConditionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -7402,9 +7408,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__OFFROAD_CONDITION
                     };
         }
-        EntityConditionXmlParser::SubElementTimeHeadwayConditionParser::SubElementTimeHeadwayConditionParser(IParserMessageLogger& messageLogger, std::string& filename)
+        EntityConditionXmlParser::SubElementTimeHeadwayConditionParser::SubElementTimeHeadwayConditionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _timeHeadwayConditionXmlParser = std::make_shared<TimeHeadwayConditionXmlParser>(messageLogger, filename);
+            _timeHeadwayConditionXmlParser = std::make_shared<TimeHeadwayConditionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void EntityConditionXmlParser::SubElementTimeHeadwayConditionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -7442,9 +7448,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__TIME_HEADWAY_CONDITION
                     };
         }
-        EntityConditionXmlParser::SubElementTimeToCollisionConditionParser::SubElementTimeToCollisionConditionParser(IParserMessageLogger& messageLogger, std::string& filename)
+        EntityConditionXmlParser::SubElementTimeToCollisionConditionParser::SubElementTimeToCollisionConditionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _timeToCollisionConditionXmlParser = std::make_shared<TimeToCollisionConditionXmlParser>(messageLogger, filename);
+            _timeToCollisionConditionXmlParser = std::make_shared<TimeToCollisionConditionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void EntityConditionXmlParser::SubElementTimeToCollisionConditionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -7482,9 +7488,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__TIME_TO_COLLISION_CONDITION
                     };
         }
-        EntityConditionXmlParser::SubElementAccelerationConditionParser::SubElementAccelerationConditionParser(IParserMessageLogger& messageLogger, std::string& filename)
+        EntityConditionXmlParser::SubElementAccelerationConditionParser::SubElementAccelerationConditionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _accelerationConditionXmlParser = std::make_shared<AccelerationConditionXmlParser>(messageLogger, filename);
+            _accelerationConditionXmlParser = std::make_shared<AccelerationConditionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void EntityConditionXmlParser::SubElementAccelerationConditionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -7522,9 +7528,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__ACCELERATION_CONDITION
                     };
         }
-        EntityConditionXmlParser::SubElementStandStillConditionParser::SubElementStandStillConditionParser(IParserMessageLogger& messageLogger, std::string& filename)
+        EntityConditionXmlParser::SubElementStandStillConditionParser::SubElementStandStillConditionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _standStillConditionXmlParser = std::make_shared<StandStillConditionXmlParser>(messageLogger, filename);
+            _standStillConditionXmlParser = std::make_shared<StandStillConditionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void EntityConditionXmlParser::SubElementStandStillConditionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -7562,9 +7568,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__STAND_STILL_CONDITION
                     };
         }
-        EntityConditionXmlParser::SubElementSpeedConditionParser::SubElementSpeedConditionParser(IParserMessageLogger& messageLogger, std::string& filename)
+        EntityConditionXmlParser::SubElementSpeedConditionParser::SubElementSpeedConditionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _speedConditionXmlParser = std::make_shared<SpeedConditionXmlParser>(messageLogger, filename);
+            _speedConditionXmlParser = std::make_shared<SpeedConditionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void EntityConditionXmlParser::SubElementSpeedConditionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -7602,9 +7608,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__SPEED_CONDITION
                     };
         }
-        EntityConditionXmlParser::SubElementRelativeSpeedConditionParser::SubElementRelativeSpeedConditionParser(IParserMessageLogger& messageLogger, std::string& filename)
+        EntityConditionXmlParser::SubElementRelativeSpeedConditionParser::SubElementRelativeSpeedConditionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _relativeSpeedConditionXmlParser = std::make_shared<RelativeSpeedConditionXmlParser>(messageLogger, filename);
+            _relativeSpeedConditionXmlParser = std::make_shared<RelativeSpeedConditionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void EntityConditionXmlParser::SubElementRelativeSpeedConditionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -7642,9 +7648,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__RELATIVE_SPEED_CONDITION
                     };
         }
-        EntityConditionXmlParser::SubElementTraveledDistanceConditionParser::SubElementTraveledDistanceConditionParser(IParserMessageLogger& messageLogger, std::string& filename)
+        EntityConditionXmlParser::SubElementTraveledDistanceConditionParser::SubElementTraveledDistanceConditionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _traveledDistanceConditionXmlParser = std::make_shared<TraveledDistanceConditionXmlParser>(messageLogger, filename);
+            _traveledDistanceConditionXmlParser = std::make_shared<TraveledDistanceConditionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void EntityConditionXmlParser::SubElementTraveledDistanceConditionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -7682,9 +7688,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__TRAVELED_DISTANCE_CONDITION
                     };
         }
-        EntityConditionXmlParser::SubElementReachPositionConditionParser::SubElementReachPositionConditionParser(IParserMessageLogger& messageLogger, std::string& filename)
+        EntityConditionXmlParser::SubElementReachPositionConditionParser::SubElementReachPositionConditionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _reachPositionConditionXmlParser = std::make_shared<ReachPositionConditionXmlParser>(messageLogger, filename);
+            _reachPositionConditionXmlParser = std::make_shared<ReachPositionConditionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void EntityConditionXmlParser::SubElementReachPositionConditionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -7722,9 +7728,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__REACH_POSITION_CONDITION
                     };
         }
-        EntityConditionXmlParser::SubElementDistanceConditionParser::SubElementDistanceConditionParser(IParserMessageLogger& messageLogger, std::string& filename)
+        EntityConditionXmlParser::SubElementDistanceConditionParser::SubElementDistanceConditionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _distanceConditionXmlParser = std::make_shared<DistanceConditionXmlParser>(messageLogger, filename);
+            _distanceConditionXmlParser = std::make_shared<DistanceConditionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void EntityConditionXmlParser::SubElementDistanceConditionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -7762,9 +7768,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__DISTANCE_CONDITION
                     };
         }
-        EntityConditionXmlParser::SubElementRelativeDistanceConditionParser::SubElementRelativeDistanceConditionParser(IParserMessageLogger& messageLogger, std::string& filename)
+        EntityConditionXmlParser::SubElementRelativeDistanceConditionParser::SubElementRelativeDistanceConditionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _relativeDistanceConditionXmlParser = std::make_shared<RelativeDistanceConditionXmlParser>(messageLogger, filename);
+            _relativeDistanceConditionXmlParser = std::make_shared<RelativeDistanceConditionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void EntityConditionXmlParser::SubElementRelativeDistanceConditionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -7803,10 +7809,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        EntityConditionXmlParser::EntityConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        EntityConditionXmlParser::EntityConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -7816,24 +7822,24 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            EntityObjectXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+            EntityObjectXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlChoiceParser(messageLogger, filename, parserOptions) {}
 
 
 
         std::vector<std::shared_ptr<IElementParser>> EntityObjectXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementCatalogReferenceParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementVehicleParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementPedestrianParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementMiscObjectParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementExternalObjectReferenceParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementCatalogReferenceParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementVehicleParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementPedestrianParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementMiscObjectParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementExternalObjectReferenceParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        EntityObjectXmlParser::SubElementCatalogReferenceParser::SubElementCatalogReferenceParser(IParserMessageLogger& messageLogger, std::string& filename)
+        EntityObjectXmlParser::SubElementCatalogReferenceParser::SubElementCatalogReferenceParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _catalogReferenceXmlParser = std::make_shared<CatalogReferenceXmlParser>(messageLogger, filename);
+            _catalogReferenceXmlParser = std::make_shared<CatalogReferenceXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void EntityObjectXmlParser::SubElementCatalogReferenceParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -7872,9 +7878,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__CATALOG_REFERENCE
                     };
         }
-        EntityObjectXmlParser::SubElementVehicleParser::SubElementVehicleParser(IParserMessageLogger& messageLogger, std::string& filename)
+        EntityObjectXmlParser::SubElementVehicleParser::SubElementVehicleParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _vehicleXmlParser = std::make_shared<VehicleXmlParser>(messageLogger, filename);
+            _vehicleXmlParser = std::make_shared<VehicleXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void EntityObjectXmlParser::SubElementVehicleParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -7912,9 +7918,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__VEHICLE
                     };
         }
-        EntityObjectXmlParser::SubElementPedestrianParser::SubElementPedestrianParser(IParserMessageLogger& messageLogger, std::string& filename)
+        EntityObjectXmlParser::SubElementPedestrianParser::SubElementPedestrianParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _pedestrianXmlParser = std::make_shared<PedestrianXmlParser>(messageLogger, filename);
+            _pedestrianXmlParser = std::make_shared<PedestrianXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void EntityObjectXmlParser::SubElementPedestrianParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -7952,9 +7958,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__PEDESTRIAN
                     };
         }
-        EntityObjectXmlParser::SubElementMiscObjectParser::SubElementMiscObjectParser(IParserMessageLogger& messageLogger, std::string& filename)
+        EntityObjectXmlParser::SubElementMiscObjectParser::SubElementMiscObjectParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _miscObjectXmlParser = std::make_shared<MiscObjectXmlParser>(messageLogger, filename);
+            _miscObjectXmlParser = std::make_shared<MiscObjectXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void EntityObjectXmlParser::SubElementMiscObjectParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -7992,9 +7998,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__MISC_OBJECT
                     };
         }
-        EntityObjectXmlParser::SubElementExternalObjectReferenceParser::SubElementExternalObjectReferenceParser(IParserMessageLogger& messageLogger, std::string& filename)
+        EntityObjectXmlParser::SubElementExternalObjectReferenceParser::SubElementExternalObjectReferenceParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _externalObjectReferenceXmlParser = std::make_shared<ExternalObjectReferenceXmlParser>(messageLogger, filename);
+            _externalObjectReferenceXmlParser = std::make_shared<ExternalObjectReferenceXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void EntityObjectXmlParser::SubElementExternalObjectReferenceParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -8033,10 +8039,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        EntityObjectXmlParser::EntityObjectXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlGroupParser(messageLogger, filename)
+        EntityObjectXmlParser::EntityObjectXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlGroupParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -8046,7 +8052,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            EntityRefXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+            EntityRefXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlSequenceParser(messageLogger, filename, parserOptions) {}
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> EntityRefXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -8055,7 +8061,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeEntityRef: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeEntityRef(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeEntityRef(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -8087,7 +8093,7 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, std::make_shared<AttributeEntityRef>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, std::make_shared<AttributeEntityRef>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
@@ -8098,10 +8104,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
   
-        EntityRefXmlParser::EntityRefXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        EntityRefXmlParser::EntityRefXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -8111,7 +8117,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            EntitySelectionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+            EntitySelectionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlSequenceParser(messageLogger, filename, parserOptions) {}
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> EntitySelectionXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -8120,7 +8126,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeName: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeName(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeName(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -8155,20 +8161,20 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<AttributeName>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<AttributeName>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
         std::vector<std::shared_ptr<IElementParser>> EntitySelectionXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementMembersParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementMembersParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        EntitySelectionXmlParser::SubElementMembersParser::SubElementMembersParser(IParserMessageLogger& messageLogger, std::string& filename)
+        EntitySelectionXmlParser::SubElementMembersParser::SubElementMembersParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _selectedEntitiesXmlParser = std::make_shared<SelectedEntitiesXmlParser>(messageLogger, filename);
+            _selectedEntitiesXmlParser = std::make_shared<SelectedEntitiesXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void EntitySelectionXmlParser::SubElementMembersParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -8207,10 +8213,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        EntitySelectionXmlParser::EntitySelectionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        EntitySelectionXmlParser::EntitySelectionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -8220,7 +8226,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            EnvironmentXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+            EnvironmentXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlAllParser(messageLogger, filename, parserOptions) {}
 
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> EnvironmentXmlParser::GetAttributeNameToAttributeParserMap()
@@ -8230,7 +8236,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeName: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeName(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeName(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -8265,23 +8271,23 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<AttributeName>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<AttributeName>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
         std::vector<std::shared_ptr<IElementParser>> EnvironmentXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<WrappedListParser>(_messageLogger, _filename, std::make_shared<SubElementParameterDeclarationsParser>(_messageLogger, _filename), OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATIONS) );
-            result.push_back(std::make_shared<SubElementTimeOfDayParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementWeatherParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementRoadConditionParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<WrappedListParser>(_messageLogger, _filename, std::make_shared<SubElementParameterDeclarationsParser>(_messageLogger, _filename, _parserOptions), OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATIONS, _parserOptions) );
+            result.push_back(std::make_shared<SubElementTimeOfDayParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementWeatherParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementRoadConditionParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        EnvironmentXmlParser::SubElementParameterDeclarationsParser::SubElementParameterDeclarationsParser(IParserMessageLogger& messageLogger, std::string& filename)
+        EnvironmentXmlParser::SubElementParameterDeclarationsParser::SubElementParameterDeclarationsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _parameterDeclarationXmlParser = std::make_shared<ParameterDeclarationXmlParser>(messageLogger, filename);
+            _parameterDeclarationXmlParser = std::make_shared<ParameterDeclarationXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void EnvironmentXmlParser::SubElementParameterDeclarationsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -8317,9 +8323,9 @@ namespace NET_ASAM_OPENSCENARIO
         {
             return {OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION};
         }
-        EnvironmentXmlParser::SubElementTimeOfDayParser::SubElementTimeOfDayParser(IParserMessageLogger& messageLogger, std::string& filename)
+        EnvironmentXmlParser::SubElementTimeOfDayParser::SubElementTimeOfDayParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _timeOfDayXmlParser = std::make_shared<TimeOfDayXmlParser>(messageLogger, filename);
+            _timeOfDayXmlParser = std::make_shared<TimeOfDayXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void EnvironmentXmlParser::SubElementTimeOfDayParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -8357,9 +8363,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__TIME_OF_DAY
                     };
         }
-        EnvironmentXmlParser::SubElementWeatherParser::SubElementWeatherParser(IParserMessageLogger& messageLogger, std::string& filename)
+        EnvironmentXmlParser::SubElementWeatherParser::SubElementWeatherParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _weatherXmlParser = std::make_shared<WeatherXmlParser>(messageLogger, filename);
+            _weatherXmlParser = std::make_shared<WeatherXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void EnvironmentXmlParser::SubElementWeatherParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -8397,9 +8403,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__WEATHER
                     };
         }
-        EnvironmentXmlParser::SubElementRoadConditionParser::SubElementRoadConditionParser(IParserMessageLogger& messageLogger, std::string& filename)
+        EnvironmentXmlParser::SubElementRoadConditionParser::SubElementRoadConditionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _roadConditionXmlParser = std::make_shared<RoadConditionXmlParser>(messageLogger, filename);
+            _roadConditionXmlParser = std::make_shared<RoadConditionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void EnvironmentXmlParser::SubElementRoadConditionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -8438,10 +8444,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        EnvironmentXmlParser::EnvironmentXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        EnvironmentXmlParser::EnvironmentXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -8451,7 +8457,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            EnvironmentActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+            EnvironmentActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlChoiceParser(messageLogger, filename, parserOptions) {}
 
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> EnvironmentActionXmlParser::GetAttributeNameToAttributeParserMap()
@@ -8464,14 +8470,14 @@ namespace NET_ASAM_OPENSCENARIO
         std::vector<std::shared_ptr<IElementParser>> EnvironmentActionXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementEnvironmentParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementCatalogReferenceParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementEnvironmentParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementCatalogReferenceParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        EnvironmentActionXmlParser::SubElementEnvironmentParser::SubElementEnvironmentParser(IParserMessageLogger& messageLogger, std::string& filename)
+        EnvironmentActionXmlParser::SubElementEnvironmentParser::SubElementEnvironmentParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _environmentXmlParser = std::make_shared<EnvironmentXmlParser>(messageLogger, filename);
+            _environmentXmlParser = std::make_shared<EnvironmentXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void EnvironmentActionXmlParser::SubElementEnvironmentParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -8509,9 +8515,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__ENVIRONMENT
                     };
         }
-        EnvironmentActionXmlParser::SubElementCatalogReferenceParser::SubElementCatalogReferenceParser(IParserMessageLogger& messageLogger, std::string& filename)
+        EnvironmentActionXmlParser::SubElementCatalogReferenceParser::SubElementCatalogReferenceParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _catalogReferenceXmlParser = std::make_shared<CatalogReferenceXmlParser>(messageLogger, filename);
+            _catalogReferenceXmlParser = std::make_shared<CatalogReferenceXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void EnvironmentActionXmlParser::SubElementCatalogReferenceParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -8551,10 +8557,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        EnvironmentActionXmlParser::EnvironmentActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        EnvironmentActionXmlParser::EnvironmentActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -8564,7 +8570,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            EnvironmentCatalogLocationXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+            EnvironmentCatalogLocationXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlAllParser(messageLogger, filename, parserOptions) {}
 
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> EnvironmentCatalogLocationXmlParser::GetAttributeNameToAttributeParserMap()
@@ -8577,13 +8583,13 @@ namespace NET_ASAM_OPENSCENARIO
         std::vector<std::shared_ptr<IElementParser>> EnvironmentCatalogLocationXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementDirectoryParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementDirectoryParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        EnvironmentCatalogLocationXmlParser::SubElementDirectoryParser::SubElementDirectoryParser(IParserMessageLogger& messageLogger, std::string& filename)
+        EnvironmentCatalogLocationXmlParser::SubElementDirectoryParser::SubElementDirectoryParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _directoryXmlParser = std::make_shared<DirectoryXmlParser>(messageLogger, filename);
+            _directoryXmlParser = std::make_shared<DirectoryXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void EnvironmentCatalogLocationXmlParser::SubElementDirectoryParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -8622,10 +8628,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        EnvironmentCatalogLocationXmlParser::EnvironmentCatalogLocationXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        EnvironmentCatalogLocationXmlParser::EnvironmentCatalogLocationXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -8635,7 +8641,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            EventXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+            EventXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlSequenceParser(messageLogger, filename, parserOptions) {}
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> EventXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -8644,7 +8650,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeMaximumExecutionCount: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeMaximumExecutionCount(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeMaximumExecutionCount(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -8679,11 +8685,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 0;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__MAXIMUM_EXECUTION_COUNT, std::make_shared<AttributeMaximumExecutionCount>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__MAXIMUM_EXECUTION_COUNT, std::make_shared<AttributeMaximumExecutionCount>(_messageLogger, _filename, _parserOptions)));
             class AttributeName: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeName(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeName(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -8718,11 +8724,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<AttributeName>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<AttributeName>(_messageLogger, _filename, _parserOptions)));
             class AttributePriority: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributePriority(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributePriority(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -8749,7 +8755,7 @@ namespace NET_ASAM_OPENSCENARIO
                             auto msg = FileContentMessage("Value '" + attributeValue + "' is not allowed.", ERROR, startMarker);
                             _messageLogger.LogMessage(msg);
                         }
-                        if (Priority::IsDeprecated(kResult))
+                        if (Priority::IsDeprecated(kResult) && !_parserOptions.IsOptionSetSupressDeprecationWarnings())
 				    	{
 							auto msg = FileContentMessage("Enumeration literal '" + attributeValue + "' is deprecated since standard version '" +  Priority::GetDeprecatedVersion(kResult) +"'. " + Priority::GetDeprecatedComment(kResult) + "'.", WARNING, Textmarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), this->_filename));
 							this->_messageLogger.LogMessage(msg);
@@ -8766,21 +8772,21 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__PRIORITY, std::make_shared<AttributePriority>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__PRIORITY, std::make_shared<AttributePriority>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
         std::vector<std::shared_ptr<IElementParser>> EventXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementActionsParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementStartTriggerParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementActionsParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementStartTriggerParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        EventXmlParser::SubElementActionsParser::SubElementActionsParser(IParserMessageLogger& messageLogger, std::string& filename)
+        EventXmlParser::SubElementActionsParser::SubElementActionsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _actionXmlParser = std::make_shared<ActionXmlParser>(messageLogger, filename);
+            _actionXmlParser = std::make_shared<ActionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void EventXmlParser::SubElementActionsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -8819,9 +8825,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__ACTION
                     };
         }
-        EventXmlParser::SubElementStartTriggerParser::SubElementStartTriggerParser(IParserMessageLogger& messageLogger, std::string& filename)
+        EventXmlParser::SubElementStartTriggerParser::SubElementStartTriggerParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _triggerXmlParser = std::make_shared<TriggerXmlParser>(messageLogger, filename);
+            _triggerXmlParser = std::make_shared<TriggerXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void EventXmlParser::SubElementStartTriggerParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -8860,10 +8866,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        EventXmlParser::EventXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        EventXmlParser::EventXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -8873,7 +8879,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            ExternalObjectReferenceXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+            ExternalObjectReferenceXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlAllParser(messageLogger, filename, parserOptions) {}
 
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> ExternalObjectReferenceXmlParser::GetAttributeNameToAttributeParserMap()
@@ -8883,7 +8889,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeName: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeName(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeName(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -8918,7 +8924,7 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<AttributeName>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<AttributeName>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
@@ -8929,10 +8935,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
   
-        ExternalObjectReferenceXmlParser::ExternalObjectReferenceXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        ExternalObjectReferenceXmlParser::ExternalObjectReferenceXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -8942,7 +8948,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            FileXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+            FileXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlSequenceParser(messageLogger, filename, parserOptions) {}
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> FileXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -8951,7 +8957,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeFilepath: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeFilepath(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeFilepath(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -8986,7 +8992,7 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__FILEPATH, std::make_shared<AttributeFilepath>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__FILEPATH, std::make_shared<AttributeFilepath>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
@@ -8997,10 +9003,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
   
-        FileXmlParser::FileXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        FileXmlParser::FileXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -9010,7 +9016,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            FileHeaderXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+            FileHeaderXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlSequenceParser(messageLogger, filename, parserOptions) {}
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> FileHeaderXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -9019,7 +9025,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeAuthor: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeAuthor(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeAuthor(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -9054,11 +9060,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__AUTHOR, std::make_shared<AttributeAuthor>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__AUTHOR, std::make_shared<AttributeAuthor>(_messageLogger, _filename, _parserOptions)));
             class AttributeDate: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeDate(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeDate(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -9088,11 +9094,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__DATE, std::make_shared<AttributeDate>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__DATE, std::make_shared<AttributeDate>(_messageLogger, _filename, _parserOptions)));
             class AttributeDescription: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeDescription(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeDescription(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -9127,11 +9133,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__DESCRIPTION, std::make_shared<AttributeDescription>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__DESCRIPTION, std::make_shared<AttributeDescription>(_messageLogger, _filename, _parserOptions)));
             class AttributeRevMajor: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeRevMajor(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeRevMajor(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -9166,11 +9172,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__REV_MAJOR, std::make_shared<AttributeRevMajor>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__REV_MAJOR, std::make_shared<AttributeRevMajor>(_messageLogger, _filename, _parserOptions)));
             class AttributeRevMinor: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeRevMinor(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeRevMinor(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -9205,20 +9211,20 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__REV_MINOR, std::make_shared<AttributeRevMinor>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__REV_MINOR, std::make_shared<AttributeRevMinor>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
         std::vector<std::shared_ptr<IElementParser>> FileHeaderXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementLicenseParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementLicenseParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        FileHeaderXmlParser::SubElementLicenseParser::SubElementLicenseParser(IParserMessageLogger& messageLogger, std::string& filename)
+        FileHeaderXmlParser::SubElementLicenseParser::SubElementLicenseParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _licenseXmlParser = std::make_shared<LicenseXmlParser>(messageLogger, filename);
+            _licenseXmlParser = std::make_shared<LicenseXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void FileHeaderXmlParser::SubElementLicenseParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -9257,10 +9263,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        FileHeaderXmlParser::FileHeaderXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        FileHeaderXmlParser::FileHeaderXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -9270,7 +9276,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            FinalSpeedXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+            FinalSpeedXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlChoiceParser(messageLogger, filename, parserOptions) {}
 
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> FinalSpeedXmlParser::GetAttributeNameToAttributeParserMap()
@@ -9283,14 +9289,14 @@ namespace NET_ASAM_OPENSCENARIO
         std::vector<std::shared_ptr<IElementParser>> FinalSpeedXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementAbsoluteSpeedParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementRelativeSpeedToMasterParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementAbsoluteSpeedParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementRelativeSpeedToMasterParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        FinalSpeedXmlParser::SubElementAbsoluteSpeedParser::SubElementAbsoluteSpeedParser(IParserMessageLogger& messageLogger, std::string& filename)
+        FinalSpeedXmlParser::SubElementAbsoluteSpeedParser::SubElementAbsoluteSpeedParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _absoluteSpeedXmlParser = std::make_shared<AbsoluteSpeedXmlParser>(messageLogger, filename);
+            _absoluteSpeedXmlParser = std::make_shared<AbsoluteSpeedXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void FinalSpeedXmlParser::SubElementAbsoluteSpeedParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -9328,9 +9334,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__ABSOLUTE_SPEED
                     };
         }
-        FinalSpeedXmlParser::SubElementRelativeSpeedToMasterParser::SubElementRelativeSpeedToMasterParser(IParserMessageLogger& messageLogger, std::string& filename)
+        FinalSpeedXmlParser::SubElementRelativeSpeedToMasterParser::SubElementRelativeSpeedToMasterParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _relativeSpeedToMasterXmlParser = std::make_shared<RelativeSpeedToMasterXmlParser>(messageLogger, filename);
+            _relativeSpeedToMasterXmlParser = std::make_shared<RelativeSpeedToMasterXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void FinalSpeedXmlParser::SubElementRelativeSpeedToMasterParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -9369,10 +9375,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        FinalSpeedXmlParser::FinalSpeedXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        FinalSpeedXmlParser::FinalSpeedXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -9382,7 +9388,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            FogXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+            FogXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlAllParser(messageLogger, filename, parserOptions) {}
 
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> FogXmlParser::GetAttributeNameToAttributeParserMap()
@@ -9392,7 +9398,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeVisualRange: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeVisualRange(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeVisualRange(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -9427,20 +9433,20 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__VISUAL_RANGE, std::make_shared<AttributeVisualRange>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__VISUAL_RANGE, std::make_shared<AttributeVisualRange>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
         std::vector<std::shared_ptr<IElementParser>> FogXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementBoundingBoxParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementBoundingBoxParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        FogXmlParser::SubElementBoundingBoxParser::SubElementBoundingBoxParser(IParserMessageLogger& messageLogger, std::string& filename)
+        FogXmlParser::SubElementBoundingBoxParser::SubElementBoundingBoxParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _boundingBoxXmlParser = std::make_shared<BoundingBoxXmlParser>(messageLogger, filename);
+            _boundingBoxXmlParser = std::make_shared<BoundingBoxXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void FogXmlParser::SubElementBoundingBoxParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -9479,10 +9485,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        FogXmlParser::FogXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        FogXmlParser::FogXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -9492,7 +9498,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            FollowTrajectoryActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+            FollowTrajectoryActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlAllParser(messageLogger, filename, parserOptions) {}
 
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> FollowTrajectoryActionXmlParser::GetAttributeNameToAttributeParserMap()
@@ -9502,7 +9508,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeInitialDistanceOffset: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeInitialDistanceOffset(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeInitialDistanceOffset(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -9537,24 +9543,24 @@ namespace NET_ASAM_OPENSCENARIO
                     return 0;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__INITIAL_DISTANCE_OFFSET, std::make_shared<AttributeInitialDistanceOffset>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__INITIAL_DISTANCE_OFFSET, std::make_shared<AttributeInitialDistanceOffset>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
         std::vector<std::shared_ptr<IElementParser>> FollowTrajectoryActionXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementTrajectoryParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementCatalogReferenceParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementTimeReferenceParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementTrajectoryFollowingModeParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementTrajectoryRefParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementTrajectoryParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementCatalogReferenceParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementTimeReferenceParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementTrajectoryFollowingModeParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementTrajectoryRefParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        FollowTrajectoryActionXmlParser::SubElementTrajectoryParser::SubElementTrajectoryParser(IParserMessageLogger& messageLogger, std::string& filename)
+        FollowTrajectoryActionXmlParser::SubElementTrajectoryParser::SubElementTrajectoryParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _trajectoryXmlParser = std::make_shared<TrajectoryXmlParser>(messageLogger, filename);
+            _trajectoryXmlParser = std::make_shared<TrajectoryXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void FollowTrajectoryActionXmlParser::SubElementTrajectoryParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -9568,11 +9574,14 @@ namespace NET_ASAM_OPENSCENARIO
             typedObject->SetTrajectory(trajectory);
             
             
-            // This element is deprecated
-            std::string name = indexedElement->GetElement()->Name();
-        	Position startPosition = indexedElement->GetStartElementLocation();
-			auto msg = FileContentMessage("Element '" + name + "' is deprecated since standard version '1.1'. Comment: 'Use trajectoryRef instead.'.", WARNING, Textmarker(startPosition.GetLine(), startPosition.GetColumn(), _trajectoryXmlParser->_filename));
-			_trajectoryXmlParser->_messageLogger.LogMessage(msg);
+			if (!_trajectoryXmlParser->_parserOptions.IsOptionSetSupressDeprecationWarnings())
+			{
+				// This element is deprecated
+				std::string name = indexedElement->GetElement()->Name();
+				Position startPosition = indexedElement->GetStartElementLocation();
+				auto msg = FileContentMessage("Element '" + name + "' is deprecated since standard version '1.1'. Comment: 'Use trajectoryRef instead.'.", WARNING, Textmarker(startPosition.GetLine(), startPosition.GetColumn(), _trajectoryXmlParser->_filename));
+				_trajectoryXmlParser->_messageLogger.LogMessage(msg);
+			}
         }
         
         int FollowTrajectoryActionXmlParser::SubElementTrajectoryParser::GetMinOccur() 
@@ -9597,9 +9606,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__TRAJECTORY
                     };
         }
-        FollowTrajectoryActionXmlParser::SubElementCatalogReferenceParser::SubElementCatalogReferenceParser(IParserMessageLogger& messageLogger, std::string& filename)
+        FollowTrajectoryActionXmlParser::SubElementCatalogReferenceParser::SubElementCatalogReferenceParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _catalogReferenceXmlParser = std::make_shared<CatalogReferenceXmlParser>(messageLogger, filename);
+            _catalogReferenceXmlParser = std::make_shared<CatalogReferenceXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void FollowTrajectoryActionXmlParser::SubElementCatalogReferenceParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -9614,11 +9623,14 @@ namespace NET_ASAM_OPENSCENARIO
             std::dynamic_pointer_cast<CatalogReferenceParserContext>(parserContext)->AddCatalogReference(std::dynamic_pointer_cast<ICatalogReference>(catalogReference));
             
             
-            // This element is deprecated
-            std::string name = indexedElement->GetElement()->Name();
-        	Position startPosition = indexedElement->GetStartElementLocation();
-			auto msg = FileContentMessage("Element '" + name + "' is deprecated since standard version '1.1'. Comment: 'Use trajectoryRef instead.'.", WARNING, Textmarker(startPosition.GetLine(), startPosition.GetColumn(), _catalogReferenceXmlParser->_filename));
-			_catalogReferenceXmlParser->_messageLogger.LogMessage(msg);
+			if (!_catalogReferenceXmlParser->_parserOptions.IsOptionSetSupressDeprecationWarnings())
+			{
+				// This element is deprecated
+				std::string name = indexedElement->GetElement()->Name();
+				Position startPosition = indexedElement->GetStartElementLocation();
+				auto msg = FileContentMessage("Element '" + name + "' is deprecated since standard version '1.1'. Comment: 'Use trajectoryRef instead.'.", WARNING, Textmarker(startPosition.GetLine(), startPosition.GetColumn(), _catalogReferenceXmlParser->_filename));
+				_catalogReferenceXmlParser->_messageLogger.LogMessage(msg);
+			}
         }
         
         int FollowTrajectoryActionXmlParser::SubElementCatalogReferenceParser::GetMinOccur() 
@@ -9643,9 +9655,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__CATALOG_REFERENCE
                     };
         }
-        FollowTrajectoryActionXmlParser::SubElementTimeReferenceParser::SubElementTimeReferenceParser(IParserMessageLogger& messageLogger, std::string& filename)
+        FollowTrajectoryActionXmlParser::SubElementTimeReferenceParser::SubElementTimeReferenceParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _timeReferenceXmlParser = std::make_shared<TimeReferenceXmlParser>(messageLogger, filename);
+            _timeReferenceXmlParser = std::make_shared<TimeReferenceXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void FollowTrajectoryActionXmlParser::SubElementTimeReferenceParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -9683,9 +9695,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__TIME_REFERENCE
                     };
         }
-        FollowTrajectoryActionXmlParser::SubElementTrajectoryFollowingModeParser::SubElementTrajectoryFollowingModeParser(IParserMessageLogger& messageLogger, std::string& filename)
+        FollowTrajectoryActionXmlParser::SubElementTrajectoryFollowingModeParser::SubElementTrajectoryFollowingModeParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _trajectoryFollowingModeXmlParser = std::make_shared<TrajectoryFollowingModeXmlParser>(messageLogger, filename);
+            _trajectoryFollowingModeXmlParser = std::make_shared<TrajectoryFollowingModeXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void FollowTrajectoryActionXmlParser::SubElementTrajectoryFollowingModeParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -9723,9 +9735,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__TRAJECTORY_FOLLOWING_MODE
                     };
         }
-        FollowTrajectoryActionXmlParser::SubElementTrajectoryRefParser::SubElementTrajectoryRefParser(IParserMessageLogger& messageLogger, std::string& filename)
+        FollowTrajectoryActionXmlParser::SubElementTrajectoryRefParser::SubElementTrajectoryRefParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _trajectoryRefXmlParser = std::make_shared<TrajectoryRefXmlParser>(messageLogger, filename);
+            _trajectoryRefXmlParser = std::make_shared<TrajectoryRefXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void FollowTrajectoryActionXmlParser::SubElementTrajectoryRefParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -9764,10 +9776,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        FollowTrajectoryActionXmlParser::FollowTrajectoryActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        FollowTrajectoryActionXmlParser::FollowTrajectoryActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -9777,7 +9789,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            GeoPositionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+            GeoPositionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlAllParser(messageLogger, filename, parserOptions) {}
 
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> GeoPositionXmlParser::GetAttributeNameToAttributeParserMap()
@@ -9787,7 +9799,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeHeight: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeHeight(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeHeight(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -9822,11 +9834,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 0;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__HEIGHT, std::make_shared<AttributeHeight>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__HEIGHT, std::make_shared<AttributeHeight>(_messageLogger, _filename, _parserOptions)));
             class AttributeLatitude: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeLatitude(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeLatitude(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -9861,11 +9873,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__LATITUDE, std::make_shared<AttributeLatitude>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__LATITUDE, std::make_shared<AttributeLatitude>(_messageLogger, _filename, _parserOptions)));
             class AttributeLongitude: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeLongitude(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeLongitude(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -9900,20 +9912,20 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__LONGITUDE, std::make_shared<AttributeLongitude>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__LONGITUDE, std::make_shared<AttributeLongitude>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
         std::vector<std::shared_ptr<IElementParser>> GeoPositionXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementOrientationParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementOrientationParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        GeoPositionXmlParser::SubElementOrientationParser::SubElementOrientationParser(IParserMessageLogger& messageLogger, std::string& filename)
+        GeoPositionXmlParser::SubElementOrientationParser::SubElementOrientationParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _orientationXmlParser = std::make_shared<OrientationXmlParser>(messageLogger, filename);
+            _orientationXmlParser = std::make_shared<OrientationXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void GeoPositionXmlParser::SubElementOrientationParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -9952,10 +9964,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        GeoPositionXmlParser::GeoPositionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        GeoPositionXmlParser::GeoPositionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -9965,7 +9977,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            GlobalActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+            GlobalActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlChoiceParser(messageLogger, filename, parserOptions) {}
 
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> GlobalActionXmlParser::GetAttributeNameToAttributeParserMap()
@@ -9978,17 +9990,17 @@ namespace NET_ASAM_OPENSCENARIO
         std::vector<std::shared_ptr<IElementParser>> GlobalActionXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementEnvironmentActionParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementEntityActionParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementParameterActionParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementInfrastructureActionParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementTrafficActionParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementEnvironmentActionParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementEntityActionParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementParameterActionParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementInfrastructureActionParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementTrafficActionParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        GlobalActionXmlParser::SubElementEnvironmentActionParser::SubElementEnvironmentActionParser(IParserMessageLogger& messageLogger, std::string& filename)
+        GlobalActionXmlParser::SubElementEnvironmentActionParser::SubElementEnvironmentActionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _environmentActionXmlParser = std::make_shared<EnvironmentActionXmlParser>(messageLogger, filename);
+            _environmentActionXmlParser = std::make_shared<EnvironmentActionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void GlobalActionXmlParser::SubElementEnvironmentActionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -10026,9 +10038,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__ENVIRONMENT_ACTION
                     };
         }
-        GlobalActionXmlParser::SubElementEntityActionParser::SubElementEntityActionParser(IParserMessageLogger& messageLogger, std::string& filename)
+        GlobalActionXmlParser::SubElementEntityActionParser::SubElementEntityActionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _entityActionXmlParser = std::make_shared<EntityActionXmlParser>(messageLogger, filename);
+            _entityActionXmlParser = std::make_shared<EntityActionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void GlobalActionXmlParser::SubElementEntityActionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -10066,9 +10078,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__ENTITY_ACTION
                     };
         }
-        GlobalActionXmlParser::SubElementParameterActionParser::SubElementParameterActionParser(IParserMessageLogger& messageLogger, std::string& filename)
+        GlobalActionXmlParser::SubElementParameterActionParser::SubElementParameterActionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _parameterActionXmlParser = std::make_shared<ParameterActionXmlParser>(messageLogger, filename);
+            _parameterActionXmlParser = std::make_shared<ParameterActionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void GlobalActionXmlParser::SubElementParameterActionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -10106,9 +10118,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__PARAMETER_ACTION
                     };
         }
-        GlobalActionXmlParser::SubElementInfrastructureActionParser::SubElementInfrastructureActionParser(IParserMessageLogger& messageLogger, std::string& filename)
+        GlobalActionXmlParser::SubElementInfrastructureActionParser::SubElementInfrastructureActionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _infrastructureActionXmlParser = std::make_shared<InfrastructureActionXmlParser>(messageLogger, filename);
+            _infrastructureActionXmlParser = std::make_shared<InfrastructureActionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void GlobalActionXmlParser::SubElementInfrastructureActionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -10146,9 +10158,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__INFRASTRUCTURE_ACTION
                     };
         }
-        GlobalActionXmlParser::SubElementTrafficActionParser::SubElementTrafficActionParser(IParserMessageLogger& messageLogger, std::string& filename)
+        GlobalActionXmlParser::SubElementTrafficActionParser::SubElementTrafficActionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _trafficActionXmlParser = std::make_shared<TrafficActionXmlParser>(messageLogger, filename);
+            _trafficActionXmlParser = std::make_shared<TrafficActionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void GlobalActionXmlParser::SubElementTrafficActionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -10187,10 +10199,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        GlobalActionXmlParser::GlobalActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        GlobalActionXmlParser::GlobalActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -10200,7 +10212,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            HistogramXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+            HistogramXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlSequenceParser(messageLogger, filename, parserOptions) {}
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> HistogramXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -10212,13 +10224,13 @@ namespace NET_ASAM_OPENSCENARIO
         std::vector<std::shared_ptr<IElementParser>> HistogramXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementBinsParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementBinsParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        HistogramXmlParser::SubElementBinsParser::SubElementBinsParser(IParserMessageLogger& messageLogger, std::string& filename)
+        HistogramXmlParser::SubElementBinsParser::SubElementBinsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _histogramBinXmlParser = std::make_shared<HistogramBinXmlParser>(messageLogger, filename);
+            _histogramBinXmlParser = std::make_shared<HistogramBinXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void HistogramXmlParser::SubElementBinsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -10258,10 +10270,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        HistogramXmlParser::HistogramXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        HistogramXmlParser::HistogramXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -10271,7 +10283,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            HistogramBinXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+            HistogramBinXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlSequenceParser(messageLogger, filename, parserOptions) {}
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> HistogramBinXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -10280,7 +10292,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeWeight: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeWeight(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeWeight(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -10315,20 +10327,20 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__WEIGHT, std::make_shared<AttributeWeight>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__WEIGHT, std::make_shared<AttributeWeight>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
         std::vector<std::shared_ptr<IElementParser>> HistogramBinXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementRangeParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementRangeParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        HistogramBinXmlParser::SubElementRangeParser::SubElementRangeParser(IParserMessageLogger& messageLogger, std::string& filename)
+        HistogramBinXmlParser::SubElementRangeParser::SubElementRangeParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _rangeXmlParser = std::make_shared<RangeXmlParser>(messageLogger, filename);
+            _rangeXmlParser = std::make_shared<RangeXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void HistogramBinXmlParser::SubElementRangeParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -10367,10 +10379,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        HistogramBinXmlParser::HistogramBinXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        HistogramBinXmlParser::HistogramBinXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -10380,7 +10392,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            InRoutePositionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+            InRoutePositionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlChoiceParser(messageLogger, filename, parserOptions) {}
 
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> InRoutePositionXmlParser::GetAttributeNameToAttributeParserMap()
@@ -10393,15 +10405,15 @@ namespace NET_ASAM_OPENSCENARIO
         std::vector<std::shared_ptr<IElementParser>> InRoutePositionXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementFromCurrentEntityParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementFromRoadCoordinatesParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementFromLaneCoordinatesParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementFromCurrentEntityParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementFromRoadCoordinatesParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementFromLaneCoordinatesParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        InRoutePositionXmlParser::SubElementFromCurrentEntityParser::SubElementFromCurrentEntityParser(IParserMessageLogger& messageLogger, std::string& filename)
+        InRoutePositionXmlParser::SubElementFromCurrentEntityParser::SubElementFromCurrentEntityParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _positionOfCurrentEntityXmlParser = std::make_shared<PositionOfCurrentEntityXmlParser>(messageLogger, filename);
+            _positionOfCurrentEntityXmlParser = std::make_shared<PositionOfCurrentEntityXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void InRoutePositionXmlParser::SubElementFromCurrentEntityParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -10439,9 +10451,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__FROM_CURRENT_ENTITY
                     };
         }
-        InRoutePositionXmlParser::SubElementFromRoadCoordinatesParser::SubElementFromRoadCoordinatesParser(IParserMessageLogger& messageLogger, std::string& filename)
+        InRoutePositionXmlParser::SubElementFromRoadCoordinatesParser::SubElementFromRoadCoordinatesParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _positionInRoadCoordinatesXmlParser = std::make_shared<PositionInRoadCoordinatesXmlParser>(messageLogger, filename);
+            _positionInRoadCoordinatesXmlParser = std::make_shared<PositionInRoadCoordinatesXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void InRoutePositionXmlParser::SubElementFromRoadCoordinatesParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -10479,9 +10491,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__FROM_ROAD_COORDINATES
                     };
         }
-        InRoutePositionXmlParser::SubElementFromLaneCoordinatesParser::SubElementFromLaneCoordinatesParser(IParserMessageLogger& messageLogger, std::string& filename)
+        InRoutePositionXmlParser::SubElementFromLaneCoordinatesParser::SubElementFromLaneCoordinatesParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _positionInLaneCoordinatesXmlParser = std::make_shared<PositionInLaneCoordinatesXmlParser>(messageLogger, filename);
+            _positionInLaneCoordinatesXmlParser = std::make_shared<PositionInLaneCoordinatesXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void InRoutePositionXmlParser::SubElementFromLaneCoordinatesParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -10520,10 +10532,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        InRoutePositionXmlParser::InRoutePositionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        InRoutePositionXmlParser::InRoutePositionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -10533,7 +10545,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            InfrastructureActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+            InfrastructureActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlAllParser(messageLogger, filename, parserOptions) {}
 
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> InfrastructureActionXmlParser::GetAttributeNameToAttributeParserMap()
@@ -10546,13 +10558,13 @@ namespace NET_ASAM_OPENSCENARIO
         std::vector<std::shared_ptr<IElementParser>> InfrastructureActionXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementTrafficSignalActionParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementTrafficSignalActionParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        InfrastructureActionXmlParser::SubElementTrafficSignalActionParser::SubElementTrafficSignalActionParser(IParserMessageLogger& messageLogger, std::string& filename)
+        InfrastructureActionXmlParser::SubElementTrafficSignalActionParser::SubElementTrafficSignalActionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _trafficSignalActionXmlParser = std::make_shared<TrafficSignalActionXmlParser>(messageLogger, filename);
+            _trafficSignalActionXmlParser = std::make_shared<TrafficSignalActionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void InfrastructureActionXmlParser::SubElementTrafficSignalActionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -10591,10 +10603,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        InfrastructureActionXmlParser::InfrastructureActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        InfrastructureActionXmlParser::InfrastructureActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -10604,7 +10616,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            InitXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+            InitXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlSequenceParser(messageLogger, filename, parserOptions) {}
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> InitXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -10616,13 +10628,13 @@ namespace NET_ASAM_OPENSCENARIO
         std::vector<std::shared_ptr<IElementParser>> InitXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementActionsParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementActionsParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        InitXmlParser::SubElementActionsParser::SubElementActionsParser(IParserMessageLogger& messageLogger, std::string& filename)
+        InitXmlParser::SubElementActionsParser::SubElementActionsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _initActionsXmlParser = std::make_shared<InitActionsXmlParser>(messageLogger, filename);
+            _initActionsXmlParser = std::make_shared<InitActionsXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void InitXmlParser::SubElementActionsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -10661,10 +10673,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        InitXmlParser::InitXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        InitXmlParser::InitXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -10674,7 +10686,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            InitActionsXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+            InitActionsXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlSequenceParser(messageLogger, filename, parserOptions) {}
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> InitActionsXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -10686,15 +10698,15 @@ namespace NET_ASAM_OPENSCENARIO
         std::vector<std::shared_ptr<IElementParser>> InitActionsXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementGlobalActionsParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementUserDefinedActionsParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementPrivatesParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementGlobalActionsParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementUserDefinedActionsParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementPrivatesParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        InitActionsXmlParser::SubElementGlobalActionsParser::SubElementGlobalActionsParser(IParserMessageLogger& messageLogger, std::string& filename)
+        InitActionsXmlParser::SubElementGlobalActionsParser::SubElementGlobalActionsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _globalActionXmlParser = std::make_shared<GlobalActionXmlParser>(messageLogger, filename);
+            _globalActionXmlParser = std::make_shared<GlobalActionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void InitActionsXmlParser::SubElementGlobalActionsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -10733,9 +10745,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__GLOBAL_ACTION
                     };
         }
-        InitActionsXmlParser::SubElementUserDefinedActionsParser::SubElementUserDefinedActionsParser(IParserMessageLogger& messageLogger, std::string& filename)
+        InitActionsXmlParser::SubElementUserDefinedActionsParser::SubElementUserDefinedActionsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _userDefinedActionXmlParser = std::make_shared<UserDefinedActionXmlParser>(messageLogger, filename);
+            _userDefinedActionXmlParser = std::make_shared<UserDefinedActionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void InitActionsXmlParser::SubElementUserDefinedActionsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -10774,9 +10786,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__USER_DEFINED_ACTION
                     };
         }
-        InitActionsXmlParser::SubElementPrivatesParser::SubElementPrivatesParser(IParserMessageLogger& messageLogger, std::string& filename)
+        InitActionsXmlParser::SubElementPrivatesParser::SubElementPrivatesParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _privateXmlParser = std::make_shared<PrivateXmlParser>(messageLogger, filename);
+            _privateXmlParser = std::make_shared<PrivateXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void InitActionsXmlParser::SubElementPrivatesParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -10816,10 +10828,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        InitActionsXmlParser::InitActionsXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        InitActionsXmlParser::InitActionsXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -10829,7 +10841,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            KnotXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+            KnotXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlSequenceParser(messageLogger, filename, parserOptions) {}
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> KnotXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -10838,7 +10850,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeValue: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeValue(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeValue(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -10873,7 +10885,7 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<AttributeValue>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<AttributeValue>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
@@ -10884,10 +10896,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
   
-        KnotXmlParser::KnotXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        KnotXmlParser::KnotXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -10897,7 +10909,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            LaneChangeActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+            LaneChangeActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlAllParser(messageLogger, filename, parserOptions) {}
 
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> LaneChangeActionXmlParser::GetAttributeNameToAttributeParserMap()
@@ -10907,7 +10919,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeTargetLaneOffset: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeTargetLaneOffset(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeTargetLaneOffset(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -10942,21 +10954,21 @@ namespace NET_ASAM_OPENSCENARIO
                     return 0;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__TARGET_LANE_OFFSET, std::make_shared<AttributeTargetLaneOffset>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__TARGET_LANE_OFFSET, std::make_shared<AttributeTargetLaneOffset>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
         std::vector<std::shared_ptr<IElementParser>> LaneChangeActionXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementLaneChangeActionDynamicsParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementLaneChangeTargetParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementLaneChangeActionDynamicsParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementLaneChangeTargetParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        LaneChangeActionXmlParser::SubElementLaneChangeActionDynamicsParser::SubElementLaneChangeActionDynamicsParser(IParserMessageLogger& messageLogger, std::string& filename)
+        LaneChangeActionXmlParser::SubElementLaneChangeActionDynamicsParser::SubElementLaneChangeActionDynamicsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _transitionDynamicsXmlParser = std::make_shared<TransitionDynamicsXmlParser>(messageLogger, filename);
+            _transitionDynamicsXmlParser = std::make_shared<TransitionDynamicsXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void LaneChangeActionXmlParser::SubElementLaneChangeActionDynamicsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -10994,9 +11006,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__LANE_CHANGE_ACTION_DYNAMICS
                     };
         }
-        LaneChangeActionXmlParser::SubElementLaneChangeTargetParser::SubElementLaneChangeTargetParser(IParserMessageLogger& messageLogger, std::string& filename)
+        LaneChangeActionXmlParser::SubElementLaneChangeTargetParser::SubElementLaneChangeTargetParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _laneChangeTargetXmlParser = std::make_shared<LaneChangeTargetXmlParser>(messageLogger, filename);
+            _laneChangeTargetXmlParser = std::make_shared<LaneChangeTargetXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void LaneChangeActionXmlParser::SubElementLaneChangeTargetParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -11035,10 +11047,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        LaneChangeActionXmlParser::LaneChangeActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        LaneChangeActionXmlParser::LaneChangeActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -11048,7 +11060,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            LaneChangeTargetXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+            LaneChangeTargetXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlChoiceParser(messageLogger, filename, parserOptions) {}
 
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> LaneChangeTargetXmlParser::GetAttributeNameToAttributeParserMap()
@@ -11061,14 +11073,14 @@ namespace NET_ASAM_OPENSCENARIO
         std::vector<std::shared_ptr<IElementParser>> LaneChangeTargetXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementRelativeTargetLaneParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementAbsoluteTargetLaneParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementRelativeTargetLaneParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementAbsoluteTargetLaneParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        LaneChangeTargetXmlParser::SubElementRelativeTargetLaneParser::SubElementRelativeTargetLaneParser(IParserMessageLogger& messageLogger, std::string& filename)
+        LaneChangeTargetXmlParser::SubElementRelativeTargetLaneParser::SubElementRelativeTargetLaneParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _relativeTargetLaneXmlParser = std::make_shared<RelativeTargetLaneXmlParser>(messageLogger, filename);
+            _relativeTargetLaneXmlParser = std::make_shared<RelativeTargetLaneXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void LaneChangeTargetXmlParser::SubElementRelativeTargetLaneParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -11106,9 +11118,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__RELATIVE_TARGET_LANE
                     };
         }
-        LaneChangeTargetXmlParser::SubElementAbsoluteTargetLaneParser::SubElementAbsoluteTargetLaneParser(IParserMessageLogger& messageLogger, std::string& filename)
+        LaneChangeTargetXmlParser::SubElementAbsoluteTargetLaneParser::SubElementAbsoluteTargetLaneParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _absoluteTargetLaneXmlParser = std::make_shared<AbsoluteTargetLaneXmlParser>(messageLogger, filename);
+            _absoluteTargetLaneXmlParser = std::make_shared<AbsoluteTargetLaneXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void LaneChangeTargetXmlParser::SubElementAbsoluteTargetLaneParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -11147,10 +11159,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        LaneChangeTargetXmlParser::LaneChangeTargetXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        LaneChangeTargetXmlParser::LaneChangeTargetXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -11160,7 +11172,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            LaneOffsetActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+            LaneOffsetActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlAllParser(messageLogger, filename, parserOptions) {}
 
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> LaneOffsetActionXmlParser::GetAttributeNameToAttributeParserMap()
@@ -11170,7 +11182,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeContinuous: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeContinuous(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeContinuous(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -11200,21 +11212,21 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS, std::make_shared<AttributeContinuous>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS, std::make_shared<AttributeContinuous>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
         std::vector<std::shared_ptr<IElementParser>> LaneOffsetActionXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementLaneOffsetActionDynamicsParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementLaneOffsetTargetParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementLaneOffsetActionDynamicsParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementLaneOffsetTargetParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        LaneOffsetActionXmlParser::SubElementLaneOffsetActionDynamicsParser::SubElementLaneOffsetActionDynamicsParser(IParserMessageLogger& messageLogger, std::string& filename)
+        LaneOffsetActionXmlParser::SubElementLaneOffsetActionDynamicsParser::SubElementLaneOffsetActionDynamicsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _laneOffsetActionDynamicsXmlParser = std::make_shared<LaneOffsetActionDynamicsXmlParser>(messageLogger, filename);
+            _laneOffsetActionDynamicsXmlParser = std::make_shared<LaneOffsetActionDynamicsXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void LaneOffsetActionXmlParser::SubElementLaneOffsetActionDynamicsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -11252,9 +11264,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__LANE_OFFSET_ACTION_DYNAMICS
                     };
         }
-        LaneOffsetActionXmlParser::SubElementLaneOffsetTargetParser::SubElementLaneOffsetTargetParser(IParserMessageLogger& messageLogger, std::string& filename)
+        LaneOffsetActionXmlParser::SubElementLaneOffsetTargetParser::SubElementLaneOffsetTargetParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _laneOffsetTargetXmlParser = std::make_shared<LaneOffsetTargetXmlParser>(messageLogger, filename);
+            _laneOffsetTargetXmlParser = std::make_shared<LaneOffsetTargetXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void LaneOffsetActionXmlParser::SubElementLaneOffsetTargetParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -11293,10 +11305,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        LaneOffsetActionXmlParser::LaneOffsetActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        LaneOffsetActionXmlParser::LaneOffsetActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -11306,7 +11318,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            LaneOffsetActionDynamicsXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+            LaneOffsetActionDynamicsXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlSequenceParser(messageLogger, filename, parserOptions) {}
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> LaneOffsetActionDynamicsXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -11315,7 +11327,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeDynamicsShape: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeDynamicsShape(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeDynamicsShape(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -11342,7 +11354,7 @@ namespace NET_ASAM_OPENSCENARIO
                             auto msg = FileContentMessage("Value '" + attributeValue + "' is not allowed.", ERROR, startMarker);
                             _messageLogger.LogMessage(msg);
                         }
-                        if (DynamicsShape::IsDeprecated(kResult))
+                        if (DynamicsShape::IsDeprecated(kResult) && !_parserOptions.IsOptionSetSupressDeprecationWarnings())
 				    	{
 							auto msg = FileContentMessage("Enumeration literal '" + attributeValue + "' is deprecated since standard version '" +  DynamicsShape::GetDeprecatedVersion(kResult) +"'. " + DynamicsShape::GetDeprecatedComment(kResult) + "'.", WARNING, Textmarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), this->_filename));
 							this->_messageLogger.LogMessage(msg);
@@ -11359,11 +11371,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__DYNAMICS_SHAPE, std::make_shared<AttributeDynamicsShape>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__DYNAMICS_SHAPE, std::make_shared<AttributeDynamicsShape>(_messageLogger, _filename, _parserOptions)));
             class AttributeMaxLateralAcc: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeMaxLateralAcc(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeMaxLateralAcc(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -11398,7 +11410,7 @@ namespace NET_ASAM_OPENSCENARIO
                     return 0;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__MAX_LATERAL_ACC, std::make_shared<AttributeMaxLateralAcc>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__MAX_LATERAL_ACC, std::make_shared<AttributeMaxLateralAcc>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
@@ -11409,10 +11421,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
   
-        LaneOffsetActionDynamicsXmlParser::LaneOffsetActionDynamicsXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        LaneOffsetActionDynamicsXmlParser::LaneOffsetActionDynamicsXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -11422,7 +11434,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            LaneOffsetTargetXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+            LaneOffsetTargetXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlChoiceParser(messageLogger, filename, parserOptions) {}
 
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> LaneOffsetTargetXmlParser::GetAttributeNameToAttributeParserMap()
@@ -11435,14 +11447,14 @@ namespace NET_ASAM_OPENSCENARIO
         std::vector<std::shared_ptr<IElementParser>> LaneOffsetTargetXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementRelativeTargetLaneOffsetParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementAbsoluteTargetLaneOffsetParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementRelativeTargetLaneOffsetParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementAbsoluteTargetLaneOffsetParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        LaneOffsetTargetXmlParser::SubElementRelativeTargetLaneOffsetParser::SubElementRelativeTargetLaneOffsetParser(IParserMessageLogger& messageLogger, std::string& filename)
+        LaneOffsetTargetXmlParser::SubElementRelativeTargetLaneOffsetParser::SubElementRelativeTargetLaneOffsetParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _relativeTargetLaneOffsetXmlParser = std::make_shared<RelativeTargetLaneOffsetXmlParser>(messageLogger, filename);
+            _relativeTargetLaneOffsetXmlParser = std::make_shared<RelativeTargetLaneOffsetXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void LaneOffsetTargetXmlParser::SubElementRelativeTargetLaneOffsetParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -11480,9 +11492,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__RELATIVE_TARGET_LANE_OFFSET
                     };
         }
-        LaneOffsetTargetXmlParser::SubElementAbsoluteTargetLaneOffsetParser::SubElementAbsoluteTargetLaneOffsetParser(IParserMessageLogger& messageLogger, std::string& filename)
+        LaneOffsetTargetXmlParser::SubElementAbsoluteTargetLaneOffsetParser::SubElementAbsoluteTargetLaneOffsetParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _absoluteTargetLaneOffsetXmlParser = std::make_shared<AbsoluteTargetLaneOffsetXmlParser>(messageLogger, filename);
+            _absoluteTargetLaneOffsetXmlParser = std::make_shared<AbsoluteTargetLaneOffsetXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void LaneOffsetTargetXmlParser::SubElementAbsoluteTargetLaneOffsetParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -11521,10 +11533,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        LaneOffsetTargetXmlParser::LaneOffsetTargetXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        LaneOffsetTargetXmlParser::LaneOffsetTargetXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -11534,7 +11546,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            LanePositionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+            LanePositionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlAllParser(messageLogger, filename, parserOptions) {}
 
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> LanePositionXmlParser::GetAttributeNameToAttributeParserMap()
@@ -11544,7 +11556,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeLaneId: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeLaneId(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeLaneId(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -11579,11 +11591,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__LANE_ID, std::make_shared<AttributeLaneId>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__LANE_ID, std::make_shared<AttributeLaneId>(_messageLogger, _filename, _parserOptions)));
             class AttributeOffset: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeOffset(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeOffset(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -11618,11 +11630,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 0;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__OFFSET, std::make_shared<AttributeOffset>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__OFFSET, std::make_shared<AttributeOffset>(_messageLogger, _filename, _parserOptions)));
             class AttributeRoadId: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeRoadId(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeRoadId(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -11657,11 +11669,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__ROAD_ID, std::make_shared<AttributeRoadId>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__ROAD_ID, std::make_shared<AttributeRoadId>(_messageLogger, _filename, _parserOptions)));
             class AttributeS: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeS(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeS(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -11696,20 +11708,20 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__S, std::make_shared<AttributeS>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__S, std::make_shared<AttributeS>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
         std::vector<std::shared_ptr<IElementParser>> LanePositionXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementOrientationParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementOrientationParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        LanePositionXmlParser::SubElementOrientationParser::SubElementOrientationParser(IParserMessageLogger& messageLogger, std::string& filename)
+        LanePositionXmlParser::SubElementOrientationParser::SubElementOrientationParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _orientationXmlParser = std::make_shared<OrientationXmlParser>(messageLogger, filename);
+            _orientationXmlParser = std::make_shared<OrientationXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void LanePositionXmlParser::SubElementOrientationParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -11748,10 +11760,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        LanePositionXmlParser::LanePositionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        LanePositionXmlParser::LanePositionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -11761,7 +11773,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            LateralActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+            LateralActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlChoiceParser(messageLogger, filename, parserOptions) {}
 
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> LateralActionXmlParser::GetAttributeNameToAttributeParserMap()
@@ -11774,15 +11786,15 @@ namespace NET_ASAM_OPENSCENARIO
         std::vector<std::shared_ptr<IElementParser>> LateralActionXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementLaneChangeActionParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementLaneOffsetActionParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementLateralDistanceActionParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementLaneChangeActionParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementLaneOffsetActionParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementLateralDistanceActionParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        LateralActionXmlParser::SubElementLaneChangeActionParser::SubElementLaneChangeActionParser(IParserMessageLogger& messageLogger, std::string& filename)
+        LateralActionXmlParser::SubElementLaneChangeActionParser::SubElementLaneChangeActionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _laneChangeActionXmlParser = std::make_shared<LaneChangeActionXmlParser>(messageLogger, filename);
+            _laneChangeActionXmlParser = std::make_shared<LaneChangeActionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void LateralActionXmlParser::SubElementLaneChangeActionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -11820,9 +11832,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__LANE_CHANGE_ACTION
                     };
         }
-        LateralActionXmlParser::SubElementLaneOffsetActionParser::SubElementLaneOffsetActionParser(IParserMessageLogger& messageLogger, std::string& filename)
+        LateralActionXmlParser::SubElementLaneOffsetActionParser::SubElementLaneOffsetActionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _laneOffsetActionXmlParser = std::make_shared<LaneOffsetActionXmlParser>(messageLogger, filename);
+            _laneOffsetActionXmlParser = std::make_shared<LaneOffsetActionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void LateralActionXmlParser::SubElementLaneOffsetActionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -11860,9 +11872,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__LANE_OFFSET_ACTION
                     };
         }
-        LateralActionXmlParser::SubElementLateralDistanceActionParser::SubElementLateralDistanceActionParser(IParserMessageLogger& messageLogger, std::string& filename)
+        LateralActionXmlParser::SubElementLateralDistanceActionParser::SubElementLateralDistanceActionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _lateralDistanceActionXmlParser = std::make_shared<LateralDistanceActionXmlParser>(messageLogger, filename);
+            _lateralDistanceActionXmlParser = std::make_shared<LateralDistanceActionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void LateralActionXmlParser::SubElementLateralDistanceActionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -11901,10 +11913,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        LateralActionXmlParser::LateralActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        LateralActionXmlParser::LateralActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -11914,7 +11926,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            LateralDistanceActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+            LateralDistanceActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlAllParser(messageLogger, filename, parserOptions) {}
 
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> LateralDistanceActionXmlParser::GetAttributeNameToAttributeParserMap()
@@ -11924,7 +11936,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeContinuous: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeContinuous(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeContinuous(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -11954,11 +11966,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS, std::make_shared<AttributeContinuous>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS, std::make_shared<AttributeContinuous>(_messageLogger, _filename, _parserOptions)));
             class AttributeCoordinateSystem: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeCoordinateSystem(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeCoordinateSystem(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -11985,7 +11997,7 @@ namespace NET_ASAM_OPENSCENARIO
                             auto msg = FileContentMessage("Value '" + attributeValue + "' is not allowed.", ERROR, startMarker);
                             _messageLogger.LogMessage(msg);
                         }
-                        if (CoordinateSystem::IsDeprecated(kResult))
+                        if (CoordinateSystem::IsDeprecated(kResult) && !_parserOptions.IsOptionSetSupressDeprecationWarnings())
 				    	{
 							auto msg = FileContentMessage("Enumeration literal '" + attributeValue + "' is deprecated since standard version '" +  CoordinateSystem::GetDeprecatedVersion(kResult) +"'. " + CoordinateSystem::GetDeprecatedComment(kResult) + "'.", WARNING, Textmarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), this->_filename));
 							this->_messageLogger.LogMessage(msg);
@@ -12002,11 +12014,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 0;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__COORDINATE_SYSTEM, std::make_shared<AttributeCoordinateSystem>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__COORDINATE_SYSTEM, std::make_shared<AttributeCoordinateSystem>(_messageLogger, _filename, _parserOptions)));
             class AttributeDisplacement: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeDisplacement(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeDisplacement(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -12033,7 +12045,7 @@ namespace NET_ASAM_OPENSCENARIO
                             auto msg = FileContentMessage("Value '" + attributeValue + "' is not allowed.", ERROR, startMarker);
                             _messageLogger.LogMessage(msg);
                         }
-                        if (LateralDisplacement::IsDeprecated(kResult))
+                        if (LateralDisplacement::IsDeprecated(kResult) && !_parserOptions.IsOptionSetSupressDeprecationWarnings())
 				    	{
 							auto msg = FileContentMessage("Enumeration literal '" + attributeValue + "' is deprecated since standard version '" +  LateralDisplacement::GetDeprecatedVersion(kResult) +"'. " + LateralDisplacement::GetDeprecatedComment(kResult) + "'.", WARNING, Textmarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), this->_filename));
 							this->_messageLogger.LogMessage(msg);
@@ -12050,11 +12062,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 0;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__DISPLACEMENT, std::make_shared<AttributeDisplacement>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__DISPLACEMENT, std::make_shared<AttributeDisplacement>(_messageLogger, _filename, _parserOptions)));
             class AttributeDistance: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeDistance(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeDistance(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -12089,11 +12101,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 0;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__DISTANCE, std::make_shared<AttributeDistance>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__DISTANCE, std::make_shared<AttributeDistance>(_messageLogger, _filename, _parserOptions)));
             class AttributeEntityRef: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeEntityRef(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeEntityRef(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -12125,11 +12137,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, std::make_shared<AttributeEntityRef>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, std::make_shared<AttributeEntityRef>(_messageLogger, _filename, _parserOptions)));
             class AttributeFreespace: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeFreespace(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeFreespace(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -12159,20 +12171,20 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, std::make_shared<AttributeFreespace>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, std::make_shared<AttributeFreespace>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
         std::vector<std::shared_ptr<IElementParser>> LateralDistanceActionXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementDynamicConstraintsParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementDynamicConstraintsParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        LateralDistanceActionXmlParser::SubElementDynamicConstraintsParser::SubElementDynamicConstraintsParser(IParserMessageLogger& messageLogger, std::string& filename)
+        LateralDistanceActionXmlParser::SubElementDynamicConstraintsParser::SubElementDynamicConstraintsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _dynamicConstraintsXmlParser = std::make_shared<DynamicConstraintsXmlParser>(messageLogger, filename);
+            _dynamicConstraintsXmlParser = std::make_shared<DynamicConstraintsXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void LateralDistanceActionXmlParser::SubElementDynamicConstraintsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -12211,10 +12223,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        LateralDistanceActionXmlParser::LateralDistanceActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        LateralDistanceActionXmlParser::LateralDistanceActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -12236,7 +12248,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeName: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeName(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeName(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -12271,11 +12283,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<AttributeName>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<AttributeName>(_messageLogger, _filename, _parserOptions)));
             class AttributeResource: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeResource(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeResource(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -12310,11 +12322,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 0;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__RESOURCE, std::make_shared<AttributeResource>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__RESOURCE, std::make_shared<AttributeResource>(_messageLogger, _filename, _parserOptions)));
             class AttributeSpdxId: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeSpdxId(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeSpdxId(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -12349,7 +12361,7 @@ namespace NET_ASAM_OPENSCENARIO
                     return 0;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__SPDX_ID, std::make_shared<AttributeSpdxId>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__SPDX_ID, std::make_shared<AttributeSpdxId>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
         void LicenseXmlParser::SetContentProperty(const std::string content, std::shared_ptr<BaseImpl> object)
@@ -12358,8 +12370,8 @@ namespace NET_ASAM_OPENSCENARIO
             typedObject->SetText(content);
         }
   
-        LicenseXmlParser::LicenseXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlSimpleContentParser(messageLogger, filename) {}
+        LicenseXmlParser::LicenseXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlSimpleContentParser(messageLogger, filename, parserOptions) {}
         
 
         /**
@@ -12368,7 +12380,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            LongitudinalActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+            LongitudinalActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlChoiceParser(messageLogger, filename, parserOptions) {}
 
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> LongitudinalActionXmlParser::GetAttributeNameToAttributeParserMap()
@@ -12381,14 +12393,14 @@ namespace NET_ASAM_OPENSCENARIO
         std::vector<std::shared_ptr<IElementParser>> LongitudinalActionXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementSpeedActionParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementLongitudinalDistanceActionParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementSpeedActionParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementLongitudinalDistanceActionParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        LongitudinalActionXmlParser::SubElementSpeedActionParser::SubElementSpeedActionParser(IParserMessageLogger& messageLogger, std::string& filename)
+        LongitudinalActionXmlParser::SubElementSpeedActionParser::SubElementSpeedActionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _speedActionXmlParser = std::make_shared<SpeedActionXmlParser>(messageLogger, filename);
+            _speedActionXmlParser = std::make_shared<SpeedActionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void LongitudinalActionXmlParser::SubElementSpeedActionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -12426,9 +12438,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__SPEED_ACTION
                     };
         }
-        LongitudinalActionXmlParser::SubElementLongitudinalDistanceActionParser::SubElementLongitudinalDistanceActionParser(IParserMessageLogger& messageLogger, std::string& filename)
+        LongitudinalActionXmlParser::SubElementLongitudinalDistanceActionParser::SubElementLongitudinalDistanceActionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _longitudinalDistanceActionXmlParser = std::make_shared<LongitudinalDistanceActionXmlParser>(messageLogger, filename);
+            _longitudinalDistanceActionXmlParser = std::make_shared<LongitudinalDistanceActionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void LongitudinalActionXmlParser::SubElementLongitudinalDistanceActionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -12467,10 +12479,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        LongitudinalActionXmlParser::LongitudinalActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        LongitudinalActionXmlParser::LongitudinalActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -12480,7 +12492,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            LongitudinalDistanceActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+            LongitudinalDistanceActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlAllParser(messageLogger, filename, parserOptions) {}
 
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> LongitudinalDistanceActionXmlParser::GetAttributeNameToAttributeParserMap()
@@ -12490,7 +12502,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeContinuous: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeContinuous(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeContinuous(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -12520,11 +12532,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS, std::make_shared<AttributeContinuous>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS, std::make_shared<AttributeContinuous>(_messageLogger, _filename, _parserOptions)));
             class AttributeCoordinateSystem: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeCoordinateSystem(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeCoordinateSystem(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -12551,7 +12563,7 @@ namespace NET_ASAM_OPENSCENARIO
                             auto msg = FileContentMessage("Value '" + attributeValue + "' is not allowed.", ERROR, startMarker);
                             _messageLogger.LogMessage(msg);
                         }
-                        if (CoordinateSystem::IsDeprecated(kResult))
+                        if (CoordinateSystem::IsDeprecated(kResult) && !_parserOptions.IsOptionSetSupressDeprecationWarnings())
 				    	{
 							auto msg = FileContentMessage("Enumeration literal '" + attributeValue + "' is deprecated since standard version '" +  CoordinateSystem::GetDeprecatedVersion(kResult) +"'. " + CoordinateSystem::GetDeprecatedComment(kResult) + "'.", WARNING, Textmarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), this->_filename));
 							this->_messageLogger.LogMessage(msg);
@@ -12568,11 +12580,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 0;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__COORDINATE_SYSTEM, std::make_shared<AttributeCoordinateSystem>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__COORDINATE_SYSTEM, std::make_shared<AttributeCoordinateSystem>(_messageLogger, _filename, _parserOptions)));
             class AttributeDisplacement: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeDisplacement(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeDisplacement(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -12599,7 +12611,7 @@ namespace NET_ASAM_OPENSCENARIO
                             auto msg = FileContentMessage("Value '" + attributeValue + "' is not allowed.", ERROR, startMarker);
                             _messageLogger.LogMessage(msg);
                         }
-                        if (LongitudinalDisplacement::IsDeprecated(kResult))
+                        if (LongitudinalDisplacement::IsDeprecated(kResult) && !_parserOptions.IsOptionSetSupressDeprecationWarnings())
 				    	{
 							auto msg = FileContentMessage("Enumeration literal '" + attributeValue + "' is deprecated since standard version '" +  LongitudinalDisplacement::GetDeprecatedVersion(kResult) +"'. " + LongitudinalDisplacement::GetDeprecatedComment(kResult) + "'.", WARNING, Textmarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), this->_filename));
 							this->_messageLogger.LogMessage(msg);
@@ -12616,11 +12628,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 0;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__DISPLACEMENT, std::make_shared<AttributeDisplacement>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__DISPLACEMENT, std::make_shared<AttributeDisplacement>(_messageLogger, _filename, _parserOptions)));
             class AttributeDistance: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeDistance(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeDistance(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -12655,11 +12667,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 0;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__DISTANCE, std::make_shared<AttributeDistance>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__DISTANCE, std::make_shared<AttributeDistance>(_messageLogger, _filename, _parserOptions)));
             class AttributeEntityRef: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeEntityRef(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeEntityRef(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -12691,11 +12703,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, std::make_shared<AttributeEntityRef>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, std::make_shared<AttributeEntityRef>(_messageLogger, _filename, _parserOptions)));
             class AttributeFreespace: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeFreespace(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeFreespace(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -12725,11 +12737,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, std::make_shared<AttributeFreespace>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, std::make_shared<AttributeFreespace>(_messageLogger, _filename, _parserOptions)));
             class AttributeTimeGap: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeTimeGap(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeTimeGap(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -12764,20 +12776,20 @@ namespace NET_ASAM_OPENSCENARIO
                     return 0;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__TIME_GAP, std::make_shared<AttributeTimeGap>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__TIME_GAP, std::make_shared<AttributeTimeGap>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
         std::vector<std::shared_ptr<IElementParser>> LongitudinalDistanceActionXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementDynamicConstraintsParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementDynamicConstraintsParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        LongitudinalDistanceActionXmlParser::SubElementDynamicConstraintsParser::SubElementDynamicConstraintsParser(IParserMessageLogger& messageLogger, std::string& filename)
+        LongitudinalDistanceActionXmlParser::SubElementDynamicConstraintsParser::SubElementDynamicConstraintsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _dynamicConstraintsXmlParser = std::make_shared<DynamicConstraintsXmlParser>(messageLogger, filename);
+            _dynamicConstraintsXmlParser = std::make_shared<DynamicConstraintsXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void LongitudinalDistanceActionXmlParser::SubElementDynamicConstraintsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -12816,10 +12828,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        LongitudinalDistanceActionXmlParser::LongitudinalDistanceActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        LongitudinalDistanceActionXmlParser::LongitudinalDistanceActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -12829,7 +12841,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            ManeuverXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+            ManeuverXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlSequenceParser(messageLogger, filename, parserOptions) {}
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> ManeuverXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -12838,7 +12850,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeName: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeName(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeName(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -12873,21 +12885,21 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<AttributeName>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<AttributeName>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
         std::vector<std::shared_ptr<IElementParser>> ManeuverXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<WrappedListParser>(_messageLogger, _filename, std::make_shared<SubElementParameterDeclarationsParser>(_messageLogger, _filename), OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATIONS) );
-            result.push_back(std::make_shared<SubElementEventsParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<WrappedListParser>(_messageLogger, _filename, std::make_shared<SubElementParameterDeclarationsParser>(_messageLogger, _filename, _parserOptions), OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATIONS, _parserOptions) );
+            result.push_back(std::make_shared<SubElementEventsParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        ManeuverXmlParser::SubElementParameterDeclarationsParser::SubElementParameterDeclarationsParser(IParserMessageLogger& messageLogger, std::string& filename)
+        ManeuverXmlParser::SubElementParameterDeclarationsParser::SubElementParameterDeclarationsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _parameterDeclarationXmlParser = std::make_shared<ParameterDeclarationXmlParser>(messageLogger, filename);
+            _parameterDeclarationXmlParser = std::make_shared<ParameterDeclarationXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void ManeuverXmlParser::SubElementParameterDeclarationsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -12923,9 +12935,9 @@ namespace NET_ASAM_OPENSCENARIO
         {
             return {OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION};
         }
-        ManeuverXmlParser::SubElementEventsParser::SubElementEventsParser(IParserMessageLogger& messageLogger, std::string& filename)
+        ManeuverXmlParser::SubElementEventsParser::SubElementEventsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _eventXmlParser = std::make_shared<EventXmlParser>(messageLogger, filename);
+            _eventXmlParser = std::make_shared<EventXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void ManeuverXmlParser::SubElementEventsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -12965,10 +12977,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        ManeuverXmlParser::ManeuverXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        ManeuverXmlParser::ManeuverXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -12978,7 +12990,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            ManeuverCatalogLocationXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+            ManeuverCatalogLocationXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlAllParser(messageLogger, filename, parserOptions) {}
 
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> ManeuverCatalogLocationXmlParser::GetAttributeNameToAttributeParserMap()
@@ -12991,13 +13003,13 @@ namespace NET_ASAM_OPENSCENARIO
         std::vector<std::shared_ptr<IElementParser>> ManeuverCatalogLocationXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementDirectoryParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementDirectoryParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        ManeuverCatalogLocationXmlParser::SubElementDirectoryParser::SubElementDirectoryParser(IParserMessageLogger& messageLogger, std::string& filename)
+        ManeuverCatalogLocationXmlParser::SubElementDirectoryParser::SubElementDirectoryParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _directoryXmlParser = std::make_shared<DirectoryXmlParser>(messageLogger, filename);
+            _directoryXmlParser = std::make_shared<DirectoryXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void ManeuverCatalogLocationXmlParser::SubElementDirectoryParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -13036,10 +13048,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        ManeuverCatalogLocationXmlParser::ManeuverCatalogLocationXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        ManeuverCatalogLocationXmlParser::ManeuverCatalogLocationXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -13049,7 +13061,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            ManeuverGroupXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+            ManeuverGroupXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlSequenceParser(messageLogger, filename, parserOptions) {}
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> ManeuverGroupXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -13058,7 +13070,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeMaximumExecutionCount: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeMaximumExecutionCount(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeMaximumExecutionCount(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -13093,11 +13105,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__MAXIMUM_EXECUTION_COUNT, std::make_shared<AttributeMaximumExecutionCount>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__MAXIMUM_EXECUTION_COUNT, std::make_shared<AttributeMaximumExecutionCount>(_messageLogger, _filename, _parserOptions)));
             class AttributeName: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeName(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeName(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -13132,22 +13144,22 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<AttributeName>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<AttributeName>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
         std::vector<std::shared_ptr<IElementParser>> ManeuverGroupXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementActorsParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementCatalogReferencesParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementManeuversParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementActorsParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementCatalogReferencesParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementManeuversParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        ManeuverGroupXmlParser::SubElementActorsParser::SubElementActorsParser(IParserMessageLogger& messageLogger, std::string& filename)
+        ManeuverGroupXmlParser::SubElementActorsParser::SubElementActorsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _actorsXmlParser = std::make_shared<ActorsXmlParser>(messageLogger, filename);
+            _actorsXmlParser = std::make_shared<ActorsXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void ManeuverGroupXmlParser::SubElementActorsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -13185,9 +13197,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__ACTORS
                     };
         }
-        ManeuverGroupXmlParser::SubElementCatalogReferencesParser::SubElementCatalogReferencesParser(IParserMessageLogger& messageLogger, std::string& filename)
+        ManeuverGroupXmlParser::SubElementCatalogReferencesParser::SubElementCatalogReferencesParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _catalogReferenceXmlParser = std::make_shared<CatalogReferenceXmlParser>(messageLogger, filename);
+            _catalogReferenceXmlParser = std::make_shared<CatalogReferenceXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void ManeuverGroupXmlParser::SubElementCatalogReferencesParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -13227,9 +13239,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__CATALOG_REFERENCE
                     };
         }
-        ManeuverGroupXmlParser::SubElementManeuversParser::SubElementManeuversParser(IParserMessageLogger& messageLogger, std::string& filename)
+        ManeuverGroupXmlParser::SubElementManeuversParser::SubElementManeuversParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _maneuverXmlParser = std::make_shared<ManeuverXmlParser>(messageLogger, filename);
+            _maneuverXmlParser = std::make_shared<ManeuverXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void ManeuverGroupXmlParser::SubElementManeuversParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -13269,10 +13281,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        ManeuverGroupXmlParser::ManeuverGroupXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        ManeuverGroupXmlParser::ManeuverGroupXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -13282,7 +13294,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            MiscObjectXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+            MiscObjectXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlAllParser(messageLogger, filename, parserOptions) {}
 
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> MiscObjectXmlParser::GetAttributeNameToAttributeParserMap()
@@ -13292,7 +13304,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeMass: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeMass(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeMass(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -13327,11 +13339,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__MASS, std::make_shared<AttributeMass>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__MASS, std::make_shared<AttributeMass>(_messageLogger, _filename, _parserOptions)));
             class AttributeMiscObjectCategory: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeMiscObjectCategory(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeMiscObjectCategory(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -13358,7 +13370,7 @@ namespace NET_ASAM_OPENSCENARIO
                             auto msg = FileContentMessage("Value '" + attributeValue + "' is not allowed.", ERROR, startMarker);
                             _messageLogger.LogMessage(msg);
                         }
-                        if (MiscObjectCategory::IsDeprecated(kResult))
+                        if (MiscObjectCategory::IsDeprecated(kResult) && !_parserOptions.IsOptionSetSupressDeprecationWarnings())
 				    	{
 							auto msg = FileContentMessage("Enumeration literal '" + attributeValue + "' is deprecated since standard version '" +  MiscObjectCategory::GetDeprecatedVersion(kResult) +"'. " + MiscObjectCategory::GetDeprecatedComment(kResult) + "'.", WARNING, Textmarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), this->_filename));
 							this->_messageLogger.LogMessage(msg);
@@ -13375,11 +13387,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__MISC_OBJECT_CATEGORY, std::make_shared<AttributeMiscObjectCategory>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__MISC_OBJECT_CATEGORY, std::make_shared<AttributeMiscObjectCategory>(_messageLogger, _filename, _parserOptions)));
             class AttributeModel3d: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeModel3d(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeModel3d(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -13414,11 +13426,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 0;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__MODEL3D, std::make_shared<AttributeModel3d>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__MODEL3D, std::make_shared<AttributeModel3d>(_messageLogger, _filename, _parserOptions)));
             class AttributeName: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeName(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeName(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -13453,22 +13465,22 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<AttributeName>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__NAME, std::make_shared<AttributeName>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
         std::vector<std::shared_ptr<IElementParser>> MiscObjectXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<WrappedListParser>(_messageLogger, _filename, std::make_shared<SubElementParameterDeclarationsParser>(_messageLogger, _filename), OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATIONS) );
-            result.push_back(std::make_shared<SubElementBoundingBoxParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementPropertiesParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<WrappedListParser>(_messageLogger, _filename, std::make_shared<SubElementParameterDeclarationsParser>(_messageLogger, _filename, _parserOptions), OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATIONS, _parserOptions) );
+            result.push_back(std::make_shared<SubElementBoundingBoxParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementPropertiesParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        MiscObjectXmlParser::SubElementParameterDeclarationsParser::SubElementParameterDeclarationsParser(IParserMessageLogger& messageLogger, std::string& filename)
+        MiscObjectXmlParser::SubElementParameterDeclarationsParser::SubElementParameterDeclarationsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _parameterDeclarationXmlParser = std::make_shared<ParameterDeclarationXmlParser>(messageLogger, filename);
+            _parameterDeclarationXmlParser = std::make_shared<ParameterDeclarationXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void MiscObjectXmlParser::SubElementParameterDeclarationsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -13504,9 +13516,9 @@ namespace NET_ASAM_OPENSCENARIO
         {
             return {OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION};
         }
-        MiscObjectXmlParser::SubElementBoundingBoxParser::SubElementBoundingBoxParser(IParserMessageLogger& messageLogger, std::string& filename)
+        MiscObjectXmlParser::SubElementBoundingBoxParser::SubElementBoundingBoxParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _boundingBoxXmlParser = std::make_shared<BoundingBoxXmlParser>(messageLogger, filename);
+            _boundingBoxXmlParser = std::make_shared<BoundingBoxXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void MiscObjectXmlParser::SubElementBoundingBoxParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -13544,9 +13556,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__BOUNDING_BOX
                     };
         }
-        MiscObjectXmlParser::SubElementPropertiesParser::SubElementPropertiesParser(IParserMessageLogger& messageLogger, std::string& filename)
+        MiscObjectXmlParser::SubElementPropertiesParser::SubElementPropertiesParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _propertiesXmlParser = std::make_shared<PropertiesXmlParser>(messageLogger, filename);
+            _propertiesXmlParser = std::make_shared<PropertiesXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void MiscObjectXmlParser::SubElementPropertiesParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -13585,10 +13597,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        MiscObjectXmlParser::MiscObjectXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        MiscObjectXmlParser::MiscObjectXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -13598,7 +13610,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            MiscObjectCatalogLocationXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+            MiscObjectCatalogLocationXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlAllParser(messageLogger, filename, parserOptions) {}
 
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> MiscObjectCatalogLocationXmlParser::GetAttributeNameToAttributeParserMap()
@@ -13611,13 +13623,13 @@ namespace NET_ASAM_OPENSCENARIO
         std::vector<std::shared_ptr<IElementParser>> MiscObjectCatalogLocationXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementDirectoryParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementDirectoryParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        MiscObjectCatalogLocationXmlParser::SubElementDirectoryParser::SubElementDirectoryParser(IParserMessageLogger& messageLogger, std::string& filename)
+        MiscObjectCatalogLocationXmlParser::SubElementDirectoryParser::SubElementDirectoryParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _directoryXmlParser = std::make_shared<DirectoryXmlParser>(messageLogger, filename);
+            _directoryXmlParser = std::make_shared<DirectoryXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void MiscObjectCatalogLocationXmlParser::SubElementDirectoryParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -13656,10 +13668,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        MiscObjectCatalogLocationXmlParser::MiscObjectCatalogLocationXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        MiscObjectCatalogLocationXmlParser::MiscObjectCatalogLocationXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -13669,7 +13681,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            ModifyRuleXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+            ModifyRuleXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlChoiceParser(messageLogger, filename, parserOptions) {}
 
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> ModifyRuleXmlParser::GetAttributeNameToAttributeParserMap()
@@ -13682,14 +13694,14 @@ namespace NET_ASAM_OPENSCENARIO
         std::vector<std::shared_ptr<IElementParser>> ModifyRuleXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementAddValueParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementMultiplyByValueParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementAddValueParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementMultiplyByValueParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        ModifyRuleXmlParser::SubElementAddValueParser::SubElementAddValueParser(IParserMessageLogger& messageLogger, std::string& filename)
+        ModifyRuleXmlParser::SubElementAddValueParser::SubElementAddValueParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _parameterAddValueRuleXmlParser = std::make_shared<ParameterAddValueRuleXmlParser>(messageLogger, filename);
+            _parameterAddValueRuleXmlParser = std::make_shared<ParameterAddValueRuleXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void ModifyRuleXmlParser::SubElementAddValueParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -13727,9 +13739,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__ADD_VALUE
                     };
         }
-        ModifyRuleXmlParser::SubElementMultiplyByValueParser::SubElementMultiplyByValueParser(IParserMessageLogger& messageLogger, std::string& filename)
+        ModifyRuleXmlParser::SubElementMultiplyByValueParser::SubElementMultiplyByValueParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _parameterMultiplyByValueRuleXmlParser = std::make_shared<ParameterMultiplyByValueRuleXmlParser>(messageLogger, filename);
+            _parameterMultiplyByValueRuleXmlParser = std::make_shared<ParameterMultiplyByValueRuleXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void ModifyRuleXmlParser::SubElementMultiplyByValueParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -13768,10 +13780,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        ModifyRuleXmlParser::ModifyRuleXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        ModifyRuleXmlParser::ModifyRuleXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -13781,7 +13793,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            NoneXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+            NoneXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlSequenceParser(messageLogger, filename, parserOptions) {}
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> NoneXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -13797,10 +13809,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
   
-        NoneXmlParser::NoneXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        NoneXmlParser::NoneXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -13810,7 +13822,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            NormalDistributionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+            NormalDistributionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlSequenceParser(messageLogger, filename, parserOptions) {}
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> NormalDistributionXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -13819,7 +13831,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeExpectedValue: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeExpectedValue(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeExpectedValue(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -13854,11 +13866,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__EXPECTED_VALUE, std::make_shared<AttributeExpectedValue>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__EXPECTED_VALUE, std::make_shared<AttributeExpectedValue>(_messageLogger, _filename, _parserOptions)));
             class AttributeVariance: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeVariance(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeVariance(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -13893,20 +13905,20 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__VARIANCE, std::make_shared<AttributeVariance>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__VARIANCE, std::make_shared<AttributeVariance>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
         std::vector<std::shared_ptr<IElementParser>> NormalDistributionXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementRangeParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementRangeParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        NormalDistributionXmlParser::SubElementRangeParser::SubElementRangeParser(IParserMessageLogger& messageLogger, std::string& filename)
+        NormalDistributionXmlParser::SubElementRangeParser::SubElementRangeParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _rangeXmlParser = std::make_shared<RangeXmlParser>(messageLogger, filename);
+            _rangeXmlParser = std::make_shared<RangeXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void NormalDistributionXmlParser::SubElementRangeParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -13945,10 +13957,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        NormalDistributionXmlParser::NormalDistributionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        NormalDistributionXmlParser::NormalDistributionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -13958,7 +13970,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            NurbsXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+            NurbsXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlSequenceParser(messageLogger, filename, parserOptions) {}
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> NurbsXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -13967,7 +13979,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeOrder: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeOrder(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeOrder(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -14002,21 +14014,21 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__ORDER, std::make_shared<AttributeOrder>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__ORDER, std::make_shared<AttributeOrder>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
         std::vector<std::shared_ptr<IElementParser>> NurbsXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementControlPointsParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementKnotsParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementControlPointsParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementKnotsParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        NurbsXmlParser::SubElementControlPointsParser::SubElementControlPointsParser(IParserMessageLogger& messageLogger, std::string& filename)
+        NurbsXmlParser::SubElementControlPointsParser::SubElementControlPointsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _controlPointXmlParser = std::make_shared<ControlPointXmlParser>(messageLogger, filename);
+            _controlPointXmlParser = std::make_shared<ControlPointXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void NurbsXmlParser::SubElementControlPointsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -14055,9 +14067,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__CONTROL_POINT
                     };
         }
-        NurbsXmlParser::SubElementKnotsParser::SubElementKnotsParser(IParserMessageLogger& messageLogger, std::string& filename)
+        NurbsXmlParser::SubElementKnotsParser::SubElementKnotsParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _knotXmlParser = std::make_shared<KnotXmlParser>(messageLogger, filename);
+            _knotXmlParser = std::make_shared<KnotXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void NurbsXmlParser::SubElementKnotsParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -14097,10 +14109,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        NurbsXmlParser::NurbsXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        NurbsXmlParser::NurbsXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -14110,7 +14122,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            ObjectControllerXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+            ObjectControllerXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlChoiceParser(messageLogger, filename, parserOptions) {}
 
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> ObjectControllerXmlParser::GetAttributeNameToAttributeParserMap()
@@ -14123,14 +14135,14 @@ namespace NET_ASAM_OPENSCENARIO
         std::vector<std::shared_ptr<IElementParser>> ObjectControllerXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementCatalogReferenceParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementControllerParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementCatalogReferenceParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementControllerParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        ObjectControllerXmlParser::SubElementCatalogReferenceParser::SubElementCatalogReferenceParser(IParserMessageLogger& messageLogger, std::string& filename)
+        ObjectControllerXmlParser::SubElementCatalogReferenceParser::SubElementCatalogReferenceParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _catalogReferenceXmlParser = std::make_shared<CatalogReferenceXmlParser>(messageLogger, filename);
+            _catalogReferenceXmlParser = std::make_shared<CatalogReferenceXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void ObjectControllerXmlParser::SubElementCatalogReferenceParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -14169,9 +14181,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__CATALOG_REFERENCE
                     };
         }
-        ObjectControllerXmlParser::SubElementControllerParser::SubElementControllerParser(IParserMessageLogger& messageLogger, std::string& filename)
+        ObjectControllerXmlParser::SubElementControllerParser::SubElementControllerParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _controllerXmlParser = std::make_shared<ControllerXmlParser>(messageLogger, filename);
+            _controllerXmlParser = std::make_shared<ControllerXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void ObjectControllerXmlParser::SubElementControllerParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -14210,10 +14222,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        ObjectControllerXmlParser::ObjectControllerXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        ObjectControllerXmlParser::ObjectControllerXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -14223,7 +14235,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            OffroadConditionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+            OffroadConditionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlSequenceParser(messageLogger, filename, parserOptions) {}
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> OffroadConditionXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -14232,7 +14244,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeDuration: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeDuration(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeDuration(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -14267,7 +14279,7 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__DURATION, std::make_shared<AttributeDuration>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__DURATION, std::make_shared<AttributeDuration>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
@@ -14278,10 +14290,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
   
-        OffroadConditionXmlParser::OffroadConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        OffroadConditionXmlParser::OffroadConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -14291,7 +14303,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            OpenScenarioXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+            OpenScenarioXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlSequenceParser(messageLogger, filename, parserOptions) {}
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> OpenScenarioXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -14303,14 +14315,14 @@ namespace NET_ASAM_OPENSCENARIO
         std::vector<std::shared_ptr<IElementParser>> OpenScenarioXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementFileHeaderParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementOpenScenarioCategoryParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementFileHeaderParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementOpenScenarioCategoryParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        OpenScenarioXmlParser::SubElementFileHeaderParser::SubElementFileHeaderParser(IParserMessageLogger& messageLogger, std::string& filename)
+        OpenScenarioXmlParser::SubElementFileHeaderParser::SubElementFileHeaderParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _fileHeaderXmlParser = std::make_shared<FileHeaderXmlParser>(messageLogger, filename);
+            _fileHeaderXmlParser = std::make_shared<FileHeaderXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void OpenScenarioXmlParser::SubElementFileHeaderParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -14348,9 +14360,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__FILE_HEADER
                     };
         }
-        OpenScenarioXmlParser::SubElementOpenScenarioCategoryParser::SubElementOpenScenarioCategoryParser(IParserMessageLogger& messageLogger, std::string& filename)
+        OpenScenarioXmlParser::SubElementOpenScenarioCategoryParser::SubElementOpenScenarioCategoryParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _openScenarioCategoryXmlParser = std::make_shared<OpenScenarioCategoryXmlParser>(messageLogger, filename);
+            _openScenarioCategoryXmlParser = std::make_shared<OpenScenarioCategoryXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void OpenScenarioXmlParser::SubElementOpenScenarioCategoryParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -14395,10 +14407,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        OpenScenarioXmlParser::OpenScenarioXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        OpenScenarioXmlParser::OpenScenarioXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -14408,22 +14420,22 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            OpenScenarioCategoryXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+            OpenScenarioCategoryXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlChoiceParser(messageLogger, filename, parserOptions) {}
 
 
 
         std::vector<std::shared_ptr<IElementParser>> OpenScenarioCategoryXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementScenarioDefinitionParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementCatalogDefinitionParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementParameterValueDistributionDefinitionParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementScenarioDefinitionParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementCatalogDefinitionParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementParameterValueDistributionDefinitionParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        OpenScenarioCategoryXmlParser::SubElementScenarioDefinitionParser::SubElementScenarioDefinitionParser(IParserMessageLogger& messageLogger, std::string& filename)
+        OpenScenarioCategoryXmlParser::SubElementScenarioDefinitionParser::SubElementScenarioDefinitionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _scenarioDefinitionXmlParser = std::make_shared<ScenarioDefinitionXmlParser>(messageLogger, filename);
+            _scenarioDefinitionXmlParser = std::make_shared<ScenarioDefinitionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void OpenScenarioCategoryXmlParser::SubElementScenarioDefinitionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -14463,9 +14475,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__CATALOG_LOCATIONS
                     };
         }
-        OpenScenarioCategoryXmlParser::SubElementCatalogDefinitionParser::SubElementCatalogDefinitionParser(IParserMessageLogger& messageLogger, std::string& filename)
+        OpenScenarioCategoryXmlParser::SubElementCatalogDefinitionParser::SubElementCatalogDefinitionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _catalogDefinitionXmlParser = std::make_shared<CatalogDefinitionXmlParser>(messageLogger, filename);
+            _catalogDefinitionXmlParser = std::make_shared<CatalogDefinitionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void OpenScenarioCategoryXmlParser::SubElementCatalogDefinitionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -14503,9 +14515,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__CATALOG
                     };
         }
-        OpenScenarioCategoryXmlParser::SubElementParameterValueDistributionDefinitionParser::SubElementParameterValueDistributionDefinitionParser(IParserMessageLogger& messageLogger, std::string& filename)
+        OpenScenarioCategoryXmlParser::SubElementParameterValueDistributionDefinitionParser::SubElementParameterValueDistributionDefinitionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _parameterValueDistributionDefinitionXmlParser = std::make_shared<ParameterValueDistributionDefinitionXmlParser>(messageLogger, filename);
+            _parameterValueDistributionDefinitionXmlParser = std::make_shared<ParameterValueDistributionDefinitionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void OpenScenarioCategoryXmlParser::SubElementParameterValueDistributionDefinitionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -14544,10 +14556,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        OpenScenarioCategoryXmlParser::OpenScenarioCategoryXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlGroupParser(messageLogger, filename)
+        OpenScenarioCategoryXmlParser::OpenScenarioCategoryXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlGroupParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -14557,7 +14569,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            OrientationXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+            OrientationXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlSequenceParser(messageLogger, filename, parserOptions) {}
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> OrientationXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -14566,7 +14578,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeH: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeH(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeH(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -14601,11 +14613,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 0;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__H, std::make_shared<AttributeH>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__H, std::make_shared<AttributeH>(_messageLogger, _filename, _parserOptions)));
             class AttributeP: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeP(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeP(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -14640,11 +14652,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 0;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__P, std::make_shared<AttributeP>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__P, std::make_shared<AttributeP>(_messageLogger, _filename, _parserOptions)));
             class AttributeR: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeR(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeR(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -14679,11 +14691,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 0;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__R, std::make_shared<AttributeR>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__R, std::make_shared<AttributeR>(_messageLogger, _filename, _parserOptions)));
             class AttributeType: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeType(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeType(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -14710,7 +14722,7 @@ namespace NET_ASAM_OPENSCENARIO
                             auto msg = FileContentMessage("Value '" + attributeValue + "' is not allowed.", ERROR, startMarker);
                             _messageLogger.LogMessage(msg);
                         }
-                        if (ReferenceContext::IsDeprecated(kResult))
+                        if (ReferenceContext::IsDeprecated(kResult) && !_parserOptions.IsOptionSetSupressDeprecationWarnings())
 				    	{
 							auto msg = FileContentMessage("Enumeration literal '" + attributeValue + "' is deprecated since standard version '" +  ReferenceContext::GetDeprecatedVersion(kResult) +"'. " + ReferenceContext::GetDeprecatedComment(kResult) + "'.", WARNING, Textmarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), this->_filename));
 							this->_messageLogger.LogMessage(msg);
@@ -14727,7 +14739,7 @@ namespace NET_ASAM_OPENSCENARIO
                     return 0;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__TYPE, std::make_shared<AttributeType>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__TYPE, std::make_shared<AttributeType>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
@@ -14738,10 +14750,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
   
-        OrientationXmlParser::OrientationXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        OrientationXmlParser::OrientationXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -14751,7 +14763,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            OverrideBrakeActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+            OverrideBrakeActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlSequenceParser(messageLogger, filename, parserOptions) {}
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> OverrideBrakeActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -14760,7 +14772,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeActive: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeActive(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeActive(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -14790,11 +14802,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, std::make_shared<AttributeActive>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, std::make_shared<AttributeActive>(_messageLogger, _filename, _parserOptions)));
             class AttributeValue: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeValue(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeValue(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -14829,7 +14841,7 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<AttributeValue>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<AttributeValue>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
@@ -14840,10 +14852,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
   
-        OverrideBrakeActionXmlParser::OverrideBrakeActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        OverrideBrakeActionXmlParser::OverrideBrakeActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -14853,7 +14865,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            OverrideClutchActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+            OverrideClutchActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlSequenceParser(messageLogger, filename, parserOptions) {}
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> OverrideClutchActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -14862,7 +14874,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeActive: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeActive(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeActive(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -14892,11 +14904,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, std::make_shared<AttributeActive>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, std::make_shared<AttributeActive>(_messageLogger, _filename, _parserOptions)));
             class AttributeValue: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeValue(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeValue(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -14931,7 +14943,7 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<AttributeValue>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<AttributeValue>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
@@ -14942,10 +14954,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
   
-        OverrideClutchActionXmlParser::OverrideClutchActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        OverrideClutchActionXmlParser::OverrideClutchActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -14955,7 +14967,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            OverrideControllerValueActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+            OverrideControllerValueActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlAllParser(messageLogger, filename, parserOptions) {}
 
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> OverrideControllerValueActionXmlParser::GetAttributeNameToAttributeParserMap()
@@ -14968,18 +14980,18 @@ namespace NET_ASAM_OPENSCENARIO
         std::vector<std::shared_ptr<IElementParser>> OverrideControllerValueActionXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementThrottleParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementBrakeParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementClutchParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementParkingBrakeParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementSteeringWheelParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementGearParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementThrottleParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementBrakeParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementClutchParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementParkingBrakeParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementSteeringWheelParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementGearParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        OverrideControllerValueActionXmlParser::SubElementThrottleParser::SubElementThrottleParser(IParserMessageLogger& messageLogger, std::string& filename)
+        OverrideControllerValueActionXmlParser::SubElementThrottleParser::SubElementThrottleParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _overrideThrottleActionXmlParser = std::make_shared<OverrideThrottleActionXmlParser>(messageLogger, filename);
+            _overrideThrottleActionXmlParser = std::make_shared<OverrideThrottleActionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void OverrideControllerValueActionXmlParser::SubElementThrottleParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -15017,9 +15029,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__THROTTLE
                     };
         }
-        OverrideControllerValueActionXmlParser::SubElementBrakeParser::SubElementBrakeParser(IParserMessageLogger& messageLogger, std::string& filename)
+        OverrideControllerValueActionXmlParser::SubElementBrakeParser::SubElementBrakeParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _overrideBrakeActionXmlParser = std::make_shared<OverrideBrakeActionXmlParser>(messageLogger, filename);
+            _overrideBrakeActionXmlParser = std::make_shared<OverrideBrakeActionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void OverrideControllerValueActionXmlParser::SubElementBrakeParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -15057,9 +15069,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__BRAKE
                     };
         }
-        OverrideControllerValueActionXmlParser::SubElementClutchParser::SubElementClutchParser(IParserMessageLogger& messageLogger, std::string& filename)
+        OverrideControllerValueActionXmlParser::SubElementClutchParser::SubElementClutchParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _overrideClutchActionXmlParser = std::make_shared<OverrideClutchActionXmlParser>(messageLogger, filename);
+            _overrideClutchActionXmlParser = std::make_shared<OverrideClutchActionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void OverrideControllerValueActionXmlParser::SubElementClutchParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -15097,9 +15109,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__CLUTCH
                     };
         }
-        OverrideControllerValueActionXmlParser::SubElementParkingBrakeParser::SubElementParkingBrakeParser(IParserMessageLogger& messageLogger, std::string& filename)
+        OverrideControllerValueActionXmlParser::SubElementParkingBrakeParser::SubElementParkingBrakeParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _overrideParkingBrakeActionXmlParser = std::make_shared<OverrideParkingBrakeActionXmlParser>(messageLogger, filename);
+            _overrideParkingBrakeActionXmlParser = std::make_shared<OverrideParkingBrakeActionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void OverrideControllerValueActionXmlParser::SubElementParkingBrakeParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -15137,9 +15149,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__PARKING_BRAKE
                     };
         }
-        OverrideControllerValueActionXmlParser::SubElementSteeringWheelParser::SubElementSteeringWheelParser(IParserMessageLogger& messageLogger, std::string& filename)
+        OverrideControllerValueActionXmlParser::SubElementSteeringWheelParser::SubElementSteeringWheelParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _overrideSteeringWheelActionXmlParser = std::make_shared<OverrideSteeringWheelActionXmlParser>(messageLogger, filename);
+            _overrideSteeringWheelActionXmlParser = std::make_shared<OverrideSteeringWheelActionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void OverrideControllerValueActionXmlParser::SubElementSteeringWheelParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -15177,9 +15189,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__STEERING_WHEEL
                     };
         }
-        OverrideControllerValueActionXmlParser::SubElementGearParser::SubElementGearParser(IParserMessageLogger& messageLogger, std::string& filename)
+        OverrideControllerValueActionXmlParser::SubElementGearParser::SubElementGearParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _overrideGearActionXmlParser = std::make_shared<OverrideGearActionXmlParser>(messageLogger, filename);
+            _overrideGearActionXmlParser = std::make_shared<OverrideGearActionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void OverrideControllerValueActionXmlParser::SubElementGearParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -15218,10 +15230,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        OverrideControllerValueActionXmlParser::OverrideControllerValueActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        OverrideControllerValueActionXmlParser::OverrideControllerValueActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -15231,7 +15243,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            OverrideGearActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+            OverrideGearActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlSequenceParser(messageLogger, filename, parserOptions) {}
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> OverrideGearActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -15240,7 +15252,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeActive: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeActive(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeActive(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -15270,11 +15282,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, std::make_shared<AttributeActive>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, std::make_shared<AttributeActive>(_messageLogger, _filename, _parserOptions)));
             class AttributeNumber: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeNumber(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeNumber(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -15309,7 +15321,7 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__NUMBER, std::make_shared<AttributeNumber>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__NUMBER, std::make_shared<AttributeNumber>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
@@ -15320,10 +15332,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
   
-        OverrideGearActionXmlParser::OverrideGearActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        OverrideGearActionXmlParser::OverrideGearActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -15333,7 +15345,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            OverrideParkingBrakeActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+            OverrideParkingBrakeActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlSequenceParser(messageLogger, filename, parserOptions) {}
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> OverrideParkingBrakeActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -15342,7 +15354,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeActive: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeActive(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeActive(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -15372,11 +15384,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, std::make_shared<AttributeActive>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, std::make_shared<AttributeActive>(_messageLogger, _filename, _parserOptions)));
             class AttributeValue: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeValue(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeValue(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -15411,7 +15423,7 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<AttributeValue>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<AttributeValue>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
@@ -15422,10 +15434,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
   
-        OverrideParkingBrakeActionXmlParser::OverrideParkingBrakeActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        OverrideParkingBrakeActionXmlParser::OverrideParkingBrakeActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -15435,7 +15447,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            OverrideSteeringWheelActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+            OverrideSteeringWheelActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlSequenceParser(messageLogger, filename, parserOptions) {}
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> OverrideSteeringWheelActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -15444,7 +15456,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeActive: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeActive(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeActive(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -15474,11 +15486,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, std::make_shared<AttributeActive>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, std::make_shared<AttributeActive>(_messageLogger, _filename, _parserOptions)));
             class AttributeValue: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeValue(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeValue(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -15513,7 +15525,7 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<AttributeValue>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<AttributeValue>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
@@ -15524,10 +15536,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
   
-        OverrideSteeringWheelActionXmlParser::OverrideSteeringWheelActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        OverrideSteeringWheelActionXmlParser::OverrideSteeringWheelActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -15537,7 +15549,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            OverrideThrottleActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+            OverrideThrottleActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlSequenceParser(messageLogger, filename, parserOptions) {}
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> OverrideThrottleActionXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -15546,7 +15558,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeActive: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeActive(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeActive(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -15576,11 +15588,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, std::make_shared<AttributeActive>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, std::make_shared<AttributeActive>(_messageLogger, _filename, _parserOptions)));
             class AttributeValue: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeValue(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeValue(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -15615,7 +15627,7 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<AttributeValue>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<AttributeValue>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
@@ -15626,10 +15638,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
   
-        OverrideThrottleActionXmlParser::OverrideThrottleActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        OverrideThrottleActionXmlParser::OverrideThrottleActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -15639,7 +15651,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            ParameterActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+            ParameterActionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlChoiceParser(messageLogger, filename, parserOptions) {}
 
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> ParameterActionXmlParser::GetAttributeNameToAttributeParserMap()
@@ -15649,7 +15661,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeParameterRef: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeParameterRef(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeParameterRef(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -15681,21 +15693,21 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_REF, std::make_shared<AttributeParameterRef>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_REF, std::make_shared<AttributeParameterRef>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
         std::vector<std::shared_ptr<IElementParser>> ParameterActionXmlParser::SubElementParser::CreateParserList()
         {
             std::vector<std::shared_ptr<IElementParser>> result;
-            result.push_back(std::make_shared<SubElementSetActionParser>(_messageLogger, _filename));
-            result.push_back(std::make_shared<SubElementModifyActionParser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElementSetActionParser>(_messageLogger, _filename, _parserOptions));
+            result.push_back(std::make_shared<SubElementModifyActionParser>(_messageLogger, _filename, _parserOptions));
             return result;
         }
 
-        ParameterActionXmlParser::SubElementSetActionParser::SubElementSetActionParser(IParserMessageLogger& messageLogger, std::string& filename)
+        ParameterActionXmlParser::SubElementSetActionParser::SubElementSetActionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _parameterSetActionXmlParser = std::make_shared<ParameterSetActionXmlParser>(messageLogger, filename);
+            _parameterSetActionXmlParser = std::make_shared<ParameterSetActionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void ParameterActionXmlParser::SubElementSetActionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -15733,9 +15745,9 @@ namespace NET_ASAM_OPENSCENARIO
                 OSC_CONSTANTS::ELEMENT__SET_ACTION
                     };
         }
-        ParameterActionXmlParser::SubElementModifyActionParser::SubElementModifyActionParser(IParserMessageLogger& messageLogger, std::string& filename)
+        ParameterActionXmlParser::SubElementModifyActionParser::SubElementModifyActionParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _parameterModifyActionXmlParser = std::make_shared<ParameterModifyActionXmlParser>(messageLogger, filename);
+            _parameterModifyActionXmlParser = std::make_shared<ParameterModifyActionXmlParser>(messageLogger, filename, parserOptions);
         }
 
         void ParameterActionXmlParser::SubElementModifyActionParser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -15774,10 +15786,10 @@ namespace NET_ASAM_OPENSCENARIO
                     };
         }
   
-        ParameterActionXmlParser::ParameterActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        ParameterActionXmlParser::ParameterActionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -15787,7 +15799,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            ParameterAddValueRuleXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+            ParameterAddValueRuleXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlSequenceParser(messageLogger, filename, parserOptions) {}
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> ParameterAddValueRuleXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -15796,7 +15808,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeValue: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeValue(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeValue(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -15831,7 +15843,7 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<AttributeValue>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<AttributeValue>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
@@ -15842,10 +15854,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
   
-        ParameterAddValueRuleXmlParser::ParameterAddValueRuleXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        ParameterAddValueRuleXmlParser::ParameterAddValueRuleXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -15855,7 +15867,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            ParameterAssignmentXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+            ParameterAssignmentXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlSequenceParser(messageLogger, filename, parserOptions) {}
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> ParameterAssignmentXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -15864,7 +15876,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeParameterRef: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeParameterRef(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeParameterRef(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -15885,11 +15897,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_REF, std::make_shared<AttributeParameterRef>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_REF, std::make_shared<AttributeParameterRef>(_messageLogger, _filename, _parserOptions)));
             class AttributeValue: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeValue(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeValue(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -15924,7 +15936,7 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<AttributeValue>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<AttributeValue>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
@@ -15935,10 +15947,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
   
-        ParameterAssignmentXmlParser::ParameterAssignmentXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        ParameterAssignmentXmlParser::ParameterAssignmentXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 
@@ -15948,7 +15960,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-            ParameterConditionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+            ParameterConditionXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlSequenceParser(messageLogger, filename, parserOptions) {}
 
         std::map<std::string, std::shared_ptr<IAttributeParser>> ParameterConditionXmlParser::GetAttributeNameToAttributeParserMap()
         {
@@ -15957,7 +15969,7 @@ namespace NET_ASAM_OPENSCENARIO
             class AttributeParameterRef: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeParameterRef(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeParameterRef(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -15989,11 +16001,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_REF, std::make_shared<AttributeParameterRef>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_REF, std::make_shared<AttributeParameterRef>(_messageLogger, _filename, _parserOptions)));
             class AttributeRule: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeRule(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeRule(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -16020,7 +16032,7 @@ namespace NET_ASAM_OPENSCENARIO
                             auto msg = FileContentMessage("Value '" + attributeValue + "' is not allowed.", ERROR, startMarker);
                             _messageLogger.LogMessage(msg);
                         }
-                        if (Rule::IsDeprecated(kResult))
+                        if (Rule::IsDeprecated(kResult) && !_parserOptions.IsOptionSetSupressDeprecationWarnings())
 				    	{
 							auto msg = FileContentMessage("Enumeration literal '" + attributeValue + "' is deprecated since standard version '" +  Rule::GetDeprecatedVersion(kResult) +"'. " + Rule::GetDeprecatedComment(kResult) + "'.", WARNING, Textmarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), this->_filename));
 							this->_messageLogger.LogMessage(msg);
@@ -16037,11 +16049,11 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__RULE, std::make_shared<AttributeRule>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__RULE, std::make_shared<AttributeRule>(_messageLogger, _filename, _parserOptions)));
             class AttributeValue: public IAttributeParser, public XmlParserBase
             {
             public:
-                AttributeValue(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                AttributeValue(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -16076,7 +16088,7 @@ namespace NET_ASAM_OPENSCENARIO
                     return 1;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<AttributeValue>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__VALUE, std::make_shared<AttributeValue>(_messageLogger, _filename, _parserOptions)));
             return result;
         }
 
@@ -16087,10 +16099,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
   
-        ParameterConditionXmlParser::ParameterConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
-        XmlComplexTypeParser(messageLogger, filename)
+        ParameterConditionXmlParser::ParameterConditionXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         
 

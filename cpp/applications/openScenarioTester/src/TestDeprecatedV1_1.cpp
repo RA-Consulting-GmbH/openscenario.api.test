@@ -75,7 +75,25 @@ namespace NET_ASAM_OPENSCENARIO
 				res = res && Assert(false, ASSERT_LOCATION);
 			return res;
 		}
+		bool TestDeprecated::TestDeprecatedSupress()
+		{
 
+			// Creating a message logger to pick up the messages
+			auto msgLogger = std::dynamic_pointer_cast<NET_ASAM_OPENSCENARIO::IParserMessageLogger>(_messageLogger);
+
+			// Instantiating the factory
+			std::string fileName = _executablePath + "/" + kInputDir + "DoubleLaneChangerDeprecated.xosc";
+			auto loaderFactory = XmlScenarioLoaderFactory(fileName, true);
+
+			// Creating the loader
+			auto loader = loaderFactory.CreateLoader(std::make_shared<NET_ASAM_OPENSCENARIO::FileResourceLocator>());
+
+			// Loading 
+			auto openScenario = std::static_pointer_cast<IOpenScenario>(loader->Load(_messageLogger)->GetAdapter(typeid(IOpenScenario).name()));
+
+			return Assert(_messageLogger->GetMessagesFilteredByWorseOrEqualToErrorLevel(NET_ASAM_OPENSCENARIO::WARNING).empty(), ASSERT_LOCATION);
+
+		}
 
 		
 	}

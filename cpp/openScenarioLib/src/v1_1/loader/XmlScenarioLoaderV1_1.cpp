@@ -30,7 +30,7 @@ namespace NET_ASAM_OPENSCENARIO
 {
     namespace v1_1
     {
-		XmlScenarioLoader::XmlScenarioLoader(std::string& filename, std::shared_ptr<IResourceLocator>& resourceLocator) : _filename(filename), _resourceLocator(resourceLocator) {}
+		XmlScenarioLoader::XmlScenarioLoader(std::string& filename, std::shared_ptr<IResourceLocator>& resourceLocator, bool supressDeprecationWarnings) : _filename(filename), _resourceLocator(resourceLocator), _supressDeprecationWarnings(supressDeprecationWarnings){}
 
 		XmlScenarioLoader::~XmlScenarioLoader() = default;
 
@@ -125,7 +125,9 @@ namespace NET_ASAM_OPENSCENARIO
                 auto indexedElement = xmlToSimpleNodeConverter.Convert(doc);
 
                 // Finally do parsing from dom result
-                OpenScenarioXmlParser openScenarioXmlParser(*messageLogger.get(), _filename);
+				ParserOptions parserOptions;
+				parserOptions.SetOptionSupressDeprecationWarnings(_supressDeprecationWarnings);
+                OpenScenarioXmlParser openScenarioXmlParser(*messageLogger.get(), _filename, parserOptions);
 
                 auto openScenarioImpl = std::make_shared<OpenScenarioImpl>();
                 auto parserContext = std::dynamic_pointer_cast<ParserContext>(std::make_shared<CatalogReferenceParserContext>());
@@ -136,9 +138,6 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     // Check 
                     ScenarioCheckerImpl scenarioChecker;
-                    /*auto parameterDeclarationCheckerRule = std::make_shared<ParameterDeclarationChecker>();
-                    scenarioChecker.AddParameterDeclarationCheckerRule(parameterDeclarationCheckerRule);
-                    scenarioChecker.CheckScenarioInFileContext(messageLogger, openScenarioImpl);*/
                     OpenScenarioProcessingHelper::Resolve(messageLogger, openScenarioImpl, injectedParameters);
                     openScenarioImpl->AddAdapter(typeid(ICatalogReferenceProvider).name(), std::dynamic_pointer_cast<ICatalogReferenceProvider>(parserContext));
                     auto scenarioCheckerImpl = std::make_shared<ScenarioCheckerImpl>();

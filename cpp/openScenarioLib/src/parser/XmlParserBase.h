@@ -25,6 +25,7 @@
 #include <vector>
 #include "ParserContext.h"
 #include "ParserHelper.h"
+#include "ParserOptions.h"
 #include "MemLeakDetection.h"
 
 namespace NET_ASAM_OPENSCENARIO
@@ -37,15 +38,19 @@ namespace NET_ASAM_OPENSCENARIO
     {
     public:
         IParserMessageLogger& _messageLogger;
-        std::string _filename;
+		std::string _filename;
+    	
+    public:
+		ParserOptions& _parserOptions;
 
     public:
-        /**
-         * Constructor
-         * @param messageLogger to log messages during parsing process
-         * @param filename of the file the parser is operationg on.
-         */
-        XmlParserBase(IParserMessageLogger& messageLogger, std::string& filename):_messageLogger(messageLogger), _filename(filename) {}
+		/**
+		 * Constructor
+		 * @param messageLogger to log messages during parsing process
+		 * @param filename of the file the parser is operationg on.
+		 * @param parserOptions options for the parser
+		 */
+		XmlParserBase(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions) :_messageLogger(messageLogger), _filename(filename), _parserOptions(parserOptions){}
 
         virtual ~XmlParserBase() = default;
 
@@ -152,7 +157,8 @@ namespace NET_ASAM_OPENSCENARIO
          * @param object the model object to be filled during the parsing process
          */
         virtual void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr <ParserContext>& parserContext, std::shared_ptr <BaseImpl> object) {}
-
+    	
+		
         /**
          * The defined min accur of the element
          * @return the defined min occur value

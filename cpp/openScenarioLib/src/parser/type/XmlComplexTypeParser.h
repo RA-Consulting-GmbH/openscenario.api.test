@@ -49,8 +49,9 @@ namespace NET_ASAM_OPENSCENARIO
          * Constructor
          * @param messageLogger to log messages during parsing process
          * @param filename of the file the parser is operating on.
+         * @param parserOptions options for the parser
          */
-		XmlComplexTypeParser(IParserMessageLogger& messageLogger, std::string& filename);
+		XmlComplexTypeParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 		virtual ~XmlComplexTypeParser();
     protected:
         /**

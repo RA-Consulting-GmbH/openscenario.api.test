@@ -26,7 +26,7 @@
 
 namespace NET_ASAM_OPENSCENARIO
 {
-	XmlAllParser::XmlAllParser(IParserMessageLogger& messageLogger, std::string& filename) : XmlModelGroupParser(messageLogger, filename) {}
+	XmlAllParser::XmlAllParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions) : XmlModelGroupParser(messageLogger, filename, parserOptions) {}
 	XmlAllParser::~XmlAllParser() = default;
 
 

@@ -41,13 +41,13 @@ namespace NET_ASAM_OPENSCENARIO
         }
     <%-}else{-%>
         <%- if (element.isModelGroupAll()){-%>
-            <%=element.name.toClassName()%>XmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlAllParser(messageLogger, filename) {}
+            <%=element.name.toClassName()%>XmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlAllParser(messageLogger, filename, parserOptions) {}
 
         <%-}else if (element.isModelGroupChoice()){-%>
-            <%=element.name.toClassName()%>XmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlChoiceParser(messageLogger, filename) {}
+            <%=element.name.toClassName()%>XmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlChoiceParser(messageLogger, filename, parserOptions) {}
 
         <%-}else if (element.isModelGroupSequence()){-%>
-            <%=element.name.toClassName()%>XmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename): XmlSequenceParser(messageLogger, filename) {}
+            <%=element.name.toClassName()%>XmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlSequenceParser(messageLogger, filename, parserOptions) {}
         <%-}-%>
     <%-}-%>
 
@@ -61,7 +61,7 @@ namespace NET_ASAM_OPENSCENARIO
             class Attribute<%=property.name.toClassName()%>: public IAttributeParser, public XmlParserBase
             {
             public:
-                Attribute<%=property.name.toClassName()%>(IParserMessageLogger& messageLogger, std::string& filename):XmlParserBase(messageLogger, filename) {}
+                Attribute<%=property.name.toClassName()%>(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions):XmlParserBase(messageLogger, filename, parserOptions) {}
 
                 void Parse(Position& startPosition, Position& endPosition, Position& startValuePosition, std::string& attributeName, std::string& attributeValue, std::shared_ptr<BaseImpl> object) override
                 {
@@ -105,7 +105,7 @@ namespace NET_ASAM_OPENSCENARIO
                             auto msg = FileContentMessage("Value '" + attributeValue + "' is not allowed.", ERROR, startMarker);
                             _messageLogger.LogMessage(msg);
                         }
-                        if (<%=property.type.name.toClassName()%>::IsDeprecated(kResult))
+                        if (<%=property.type.name.toClassName()%>::IsDeprecated(kResult) && !_parserOptions.IsOptionSetSupressDeprecationWarnings())
 				    	{
 							auto msg = FileContentMessage("Enumeration literal '" + attributeValue + "' is deprecated since standard version '" +  <%=property.type.name.toClassName()%>::GetDeprecatedVersion(kResult) +"'. " + <%=property.type.name.toClassName()%>::GetDeprecatedComment(kResult) + "'.", WARNING, Textmarker(startValuePosition.GetLine(), startValuePosition.GetColumn(), this->_filename));
 							this->_messageLogger.LogMessage(msg);
@@ -129,14 +129,17 @@ namespace NET_ASAM_OPENSCENARIO
                     <%-}-%>
                     
                     <%-if (property.isDeprecated()){-%>
-                    // This element is deprecated
-                	<%-String version = property.getDeprecatedVersion();-%>
-                	<%- version = version? version.replaceAll("\"", "\\\\\""):"n/a";-%>
-                	<%-String comment = property.getDeprecatedComment();-%>
-                	<%- comment = comment? comment.replaceAll("\"", "\\\\\""):"n/a";-%>	
-					auto msg = FileContentMessage("Attribute '" + attributeName + "' is deprecated since standard version '<%=version%>'. Comment: '<%=comment%>'.", WARNING, Textmarker(startPosition.GetLine(), startPosition.GetColumn(), this->_filename));
-					this->_messageLogger.LogMessage(msg);
-			    	<%-}-%>
+					if (!_parserOptions.IsOptionSetSupressDeprecationWarnings())
+					{
+						// This element is deprecated
+						<%-String version = property.getDeprecatedVersion();-%>
+						<%- version = version? version.replaceAll("\"", "\\\\\""):"n/a";-%>
+						<%-String comment = property.getDeprecatedComment();-%>
+						<%- comment = comment? comment.replaceAll("\"", "\\\\\""):"n/a";-%>	
+						auto msg = FileContentMessage("Attribute '" + attributeName + "' is deprecated since standard version '<%=version%>'. Comment: '<%=comment%>'.", WARNING, Textmarker(startPosition.GetLine(), startPosition.GetColumn(), this->_filename));
+						this->_messageLogger.LogMessage(msg);
+					}
+					<%-}-%>
                 }
 
                 int GetMinOccur() override
@@ -144,7 +147,7 @@ namespace NET_ASAM_OPENSCENARIO
                     return <%=property.lower%>;
                 }
             };
-            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>, std::make_shared<Attribute<%=property.name.toClassName()%>>(_messageLogger, _filename)));
+            result.emplace(std::make_pair(OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>, std::make_shared<Attribute<%=property.name.toClassName()%>>(_messageLogger, _filename, _parserOptions)));
             <%-}-%>
             return result;
         }
@@ -163,9 +166,9 @@ namespace NET_ASAM_OPENSCENARIO
             <%-properties = element.getXmlElementProperties();-%>
             <%-properties.each{ property -> -%>
                 <%- if (property.isWrappedList()){-%>
-            result.push_back(std::make_shared<WrappedListParser>(_messageLogger, _filename, std::make_shared<SubElement<%=property.name.toClassName()%>Parser>(_messageLogger, _filename), OSC_CONSTANTS::ELEMENT__<%=property.name.toClassName().toUpperNameFromMemberName()%>) );
+            result.push_back(std::make_shared<WrappedListParser>(_messageLogger, _filename, std::make_shared<SubElement<%=property.name.toClassName()%>Parser>(_messageLogger, _filename, _parserOptions), OSC_CONSTANTS::ELEMENT__<%=property.name.toClassName().toUpperNameFromMemberName()%>, _parserOptions) );
                 <%-} else { -%>
-            result.push_back(std::make_shared<SubElement<%=property.name.toClassName()%>Parser>(_messageLogger, _filename));
+            result.push_back(std::make_shared<SubElement<%=property.name.toClassName()%>Parser>(_messageLogger, _filename, _parserOptions));
                 <%-}-%>
             <%-}-%>
             return result;
@@ -174,9 +177,9 @@ namespace NET_ASAM_OPENSCENARIO
     <%-}-%>
         <%-properties = element.getXmlElementProperties();-%>
         <%-properties.each{ property -> -%>
-        <%=element.name.toClassName()%>XmlParser::SubElement<%=property.name.toClassName()%>Parser::SubElement<%=property.name.toClassName()%>Parser(IParserMessageLogger& messageLogger, std::string& filename)
+        <%=element.name.toClassName()%>XmlParser::SubElement<%=property.name.toClassName()%>Parser::SubElement<%=property.name.toClassName()%>Parser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions)
         {
-            _<%=property.type.name.toMemberName()%>XmlParser = std::make_shared<<%=property.type.name.toClassName()%>XmlParser>(messageLogger, filename);
+            _<%=property.type.name.toMemberName()%>XmlParser = std::make_shared<<%=property.type.name.toClassName()%>XmlParser>(messageLogger, filename, parserOptions);
         }
 
         void <%=element.name.toClassName()%>XmlParser::SubElement<%=property.name.toClassName()%>Parser::Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)
@@ -198,16 +201,19 @@ namespace NET_ASAM_OPENSCENARIO
             <%-}-%>
             
             
-            <%-if (property.isDeprecated()){-%>         
-            // This element is deprecated
-            std::string name = indexedElement->GetElement()->Name();
-        	<%-String version = property.getDeprecatedVersion();-%>
-        	<%-version = version? version.replaceAll("\"", "\\\\\""):"n/a";-%>
-        	<%-String comment = property.getDeprecatedComment();-%>
-        	<%- comment = comment? comment.replaceAll("\"", "\\\\\""):"n/a";-%>	
-        	Position startPosition = indexedElement->GetStartElementLocation();
-			auto msg = FileContentMessage("Element '" + name + "' is deprecated since standard version '<%=version%>'. Comment: '<%=comment%>'.", WARNING, Textmarker(startPosition.GetLine(), startPosition.GetColumn(), _<%=property.type.name.toMemberName()%>XmlParser->_filename));
-			_<%=property.type.name.toMemberName()%>XmlParser->_messageLogger.LogMessage(msg);
+            <%-if (property.isDeprecated()){-%> 
+			if (!_<%=property.type.name.toMemberName()%>XmlParser->_parserOptions.IsOptionSetSupressDeprecationWarnings())
+			{
+				// This element is deprecated
+				std::string name = indexedElement->GetElement()->Name();
+				<%-String version = property.getDeprecatedVersion();-%>
+				<%-version = version? version.replaceAll("\"", "\\\\\""):"n/a";-%>
+				<%-String comment = property.getDeprecatedComment();-%>
+				<%- comment = comment? comment.replaceAll("\"", "\\\\\""):"n/a";-%>	
+				Position startPosition = indexedElement->GetStartElementLocation();
+				auto msg = FileContentMessage("Element '" + name + "' is deprecated since standard version '<%=version%>'. Comment: '<%=comment%>'.", WARNING, Textmarker(startPosition.GetLine(), startPosition.GetColumn(), _<%=property.type.name.toMemberName()%>XmlParser->_filename));
+				_<%=property.type.name.toMemberName()%>XmlParser->_messageLogger.LogMessage(msg);
+			}
 			<%-}-%>
         }
         
@@ -247,18 +253,18 @@ namespace NET_ASAM_OPENSCENARIO
         }
         <%-}-%>
   
-        <%=element.name.toClassName()%>XmlParser::<%=element.name.toClassName()%>XmlParser(IParserMessageLogger& messageLogger, std::string& filename): 
+        <%=element.name.toClassName()%>XmlParser::<%=element.name.toClassName()%>XmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
         <%- if (element.isComplexType()){-%>
-        XmlComplexTypeParser(messageLogger, filename)
+        XmlComplexTypeParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         <%-}else if (element.isSimpleContent()){-%>
-        XmlSimpleContentParser(messageLogger, filename) {}
+        XmlSimpleContentParser(messageLogger, filename, parserOptions) {}
         <%-}else if (element.isGroup()){-%>
-        XmlGroupParser(messageLogger, filename)
+        XmlGroupParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename);
+            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
         <%-}-%>
         

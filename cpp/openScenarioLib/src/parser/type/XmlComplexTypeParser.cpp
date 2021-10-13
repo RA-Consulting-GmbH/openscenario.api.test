@@ -27,7 +27,7 @@ namespace NET_ASAM_OPENSCENARIO
     }
 
 
-	XmlComplexTypeParser::XmlComplexTypeParser(IParserMessageLogger& messageLogger, std::string& filename): XmlParserBase(messageLogger, filename) {}
+	XmlComplexTypeParser::XmlComplexTypeParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlParserBase(messageLogger, filename, parserOptions) {}
 	XmlComplexTypeParser::~XmlComplexTypeParser() = default;
 	
     void XmlComplexTypeParser::ParseAttributes(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr <BaseImpl> object)

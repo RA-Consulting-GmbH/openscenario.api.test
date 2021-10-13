@@ -45,8 +45,9 @@ namespace NET_ASAM_OPENSCENARIO
          * @param filename of the file the parser is operationg on.
          * @param innerParser the inner parser
          * @param wrapperTagName the tagname that wrapps the list.
+         * @param parserOptions options for the parser
          */
-		WrappedListParser(IParserMessageLogger& messageLogger, std::string& filename, const std::shared_ptr<IElementParser> innerParser, const std::string wrapperTagName);
+		WrappedListParser(IParserMessageLogger& messageLogger, std::string& filename, const std::shared_ptr<IElementParser> innerParser, const std::string wrapperTagName, ParserOptions& parserOptions);
            
 
 		void ParseSubElements(std::vector<std::shared_ptr<IndexedElement>>& parentElements, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
