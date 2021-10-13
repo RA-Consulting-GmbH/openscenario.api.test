@@ -39,7 +39,13 @@ namespace NET_ASAM_OPENSCENARIO
 
         private:
 			std::shared_ptr<ExpressionResolverStack> _expressionResolverStack;;
-	
+			/*
+			 * Test equal with epsilon (See https://en.cppreference.com/w/cpp/types/numeric_limits/epsilon)
+			 * @param x first operand
+			 * @param y first operand
+			 * return true if both operands are seen as equal.
+			 */      	
+			bool AlmostEqual(double x, double y, int ulp = 3);
 			/**
 			 * Adapter function that creates a ExprValue for a ParameterValue.
 			 * @param paramterValue to log messages
