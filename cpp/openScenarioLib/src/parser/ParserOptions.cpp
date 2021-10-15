@@ -15,19 +15,18 @@
  * limitations under the License.
  */
 
-#include "XmlScenarioLoaderFactoryV1_1.h"
-#include "XmlScenarioLoaderV1_1.h"
-#include "MemLeakDetection.h"
+
+#include  "ParserOptions.h"
 
 namespace NET_ASAM_OPENSCENARIO
 {
-    namespace v1_1
-    {
-		XmlScenarioLoaderFactory::XmlScenarioLoaderFactory(const std::string filename, bool supressDeprecationWarnings) : _filename(filename), _supressDeprecationWarnings(supressDeprecationWarnings){}
+	void ParserOptions::SetOptionSupressDeprecationWarnings(bool setOption)
+	{
+		_optionSupressDeprecationWarnings = setOption;
+	}
 
-	    std::shared_ptr<IScenarioLoader> XmlScenarioLoaderFactory::CreateLoader(std::shared_ptr<IResourceLocator> resourceLocator)
-	    {
-	        return std::make_shared<XmlScenarioLoader>(_filename, resourceLocator, _supressDeprecationWarnings);
-	    }
-    }
+	bool ParserOptions::IsOptionSetSupressDeprecationWarnings()
+	{
+		return _optionSupressDeprecationWarnings;
+	}
 }

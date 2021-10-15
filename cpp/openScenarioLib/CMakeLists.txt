@@ -275,6 +275,7 @@ set( HEADERS_COMMON_EXPRESSION
 )
 
 set( HEADERS_COMMON_PARSER
+    "src/parser/ParserOptions.h"
     "src/parser/ParserHelper.h"
     "src/parser/ParserContext.h"
     "src/parser/WrappedListParser.h"
@@ -417,7 +418,6 @@ set( HEADERS_PARSER_1_1
 
 set( HEADERS_CHECKER_1_1
     "src/v1_1/checker/VersionCheckerRuleV1_1.h"
-    "src/v1_1/checker/ParameterDeclarationCheckerV1_1.h"
 )
 
 set( HEADERS_GENERATED_1_1_API
@@ -528,6 +528,7 @@ set( SOURCES_PARSER
     "src/parser/WrappedListParser.cpp"
     "src/parser/XmlModelGroupParser.cpp"
     "src/parser/ParserContext.cpp"
+    "src/parser/ParserOptions.cpp"
     "src/parser/ParserHelper.cpp"
     "src/parser/XmlParserException.cpp"
 )
@@ -582,7 +583,6 @@ set( SOURCES_V1_1_CATALOG
 )
 
 set( SOURCES_V1_1_CHECKER
-    "src/v1_1/checker/ParameterDeclarationCheckerV1_1.cpp"
     "src/v1_1/checker/VersionCheckerRuleV1_1.cpp"
 )
 

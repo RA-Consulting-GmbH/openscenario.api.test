@@ -22,7 +22,7 @@
 
 namespace NET_ASAM_OPENSCENARIO
 {
-  	XmlChoiceParser::XmlChoiceParser(IParserMessageLogger& messageLogger, std::string& filename) : XmlModelGroupParser(messageLogger, filename) {}
+  	XmlChoiceParser::XmlChoiceParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions) : XmlModelGroupParser(messageLogger, filename, parserOptions) {}
 	XmlChoiceParser::~XmlChoiceParser() = default;
 	
     void XmlChoiceParser::ParseSubElementsInternal(std::vector<std::shared_ptr<IndexedElement>>& indexedElements, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object)

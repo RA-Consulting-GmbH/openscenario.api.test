@@ -58,7 +58,9 @@ namespace NET_ASAM_OPENSCENARIO
 			bool TestCustomCommandAction();
 
 			bool TestFileNotFound() const;
-			
+
+			bool TestUnicode();
+
 			bool TestMultiChoiceElement();
 		};
 	}

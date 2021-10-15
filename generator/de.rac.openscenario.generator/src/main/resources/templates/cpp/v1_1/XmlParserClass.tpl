@@ -83,8 +83,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
         <%-}else if (element.isModelGroupChoice()){-%>
             class SubElementParser: public XmlChoiceParser
@@ -94,8 +95,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                 SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
         <%-}else if (element.isModelGroupSequence()){-%>
             class SubElementParser: public XmlSequenceParser
@@ -105,8 +107,9 @@ namespace NET_ASAM_OPENSCENARIO
                 * Constructor
                 * @param messageLogger to log messages during parsing
                 * @param filename to locate the messages in a file
+                * @param parserOptions options for the parser
                 */
-                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         <%-}-%>
             protected:
                 /*
@@ -130,7 +133,7 @@ namespace NET_ASAM_OPENSCENARIO
                 /**
                 * Constructor
                 */
-                SubElement<%=property.name.toClassName()%>Parser(IParserMessageLogger& messageLogger, std::string& filename);
+                SubElement<%=property.name.toClassName()%>Parser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
 
                 void Parse(std::shared_ptr<IndexedElement>& indexedElement, std::shared_ptr<ParserContext>& parserContext, std::shared_ptr<BaseImpl> object) override;
 
@@ -150,8 +153,8 @@ namespace NET_ASAM_OPENSCENARIO
             * Constructor
             * @param messageLogger to log messages during parsing
             * @param filename to locate the messages in a file
-            */
-            <%=element.name.toClassName()%>XmlParser(IParserMessageLogger& messageLogger, std::string& filename);
+            * @param parserOptions options for the parser            */
+            <%=element.name.toClassName()%>XmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions);
         };
 
 <%-}-%>

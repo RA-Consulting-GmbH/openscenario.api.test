@@ -24,7 +24,7 @@ namespace NET_ASAM_OPENSCENARIO
             return {};
         }
 
-		XmlModelGroupParser::XmlModelGroupParser(IParserMessageLogger& messageLogger, std::string filename) :XmlParserBase(messageLogger, filename) {}
+		XmlModelGroupParser::XmlModelGroupParser(IParserMessageLogger& messageLogger, std::string filename, ParserOptions& parserOptions) :XmlParserBase(messageLogger, filename, parserOptions) {}
 		XmlModelGroupParser::~XmlModelGroupParser() = default;
 
         std::vector<std::shared_ptr<IElementParser>>& XmlModelGroupParser::GetParsers()

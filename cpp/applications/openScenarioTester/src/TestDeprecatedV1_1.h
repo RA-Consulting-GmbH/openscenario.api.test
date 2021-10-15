@@ -29,7 +29,7 @@ namespace NET_ASAM_OPENSCENARIO
 			TestDeprecated(std::string& executablePath);
 			
 			bool TestDeprecatedSuccess();
-			
+			bool TestDeprecatedSupress();
 		};
 	}
 }

@@ -466,6 +466,34 @@ namespace NET_ASAM_OPENSCENARIO
 			}
 		}
 
+		bool TestFiles::TestUnicode()
+		{
+			
+			try
+			{
+				ClearMessageLogger();
+				auto openScenario = std::dynamic_pointer_cast<IOpenScenario>(ExecuteParsing(_executablePath + "/" + kInputDir + "DoubleLaneChangerUnicode.xosc"));
+				bool res = Assert(_messageLogger->GetMessagesFilteredByWorseOrEqualToErrorLevel(NET_ASAM_OPENSCENARIO::ERROR).empty(), ASSERT_LOCATION);
+				if (!res)
+				{
+					auto filterByErrorLevelLogger = _messageLogger->GetMessagesFilteredByErrorLevel(NET_ASAM_OPENSCENARIO::ERROR);
+					for (auto it = filterByErrorLevelLogger.begin(); it != filterByErrorLevelLogger.end(); ++it) {
+						std::cout << it->ToString() << "\n";
+					}
+				}
+				auto description = openScenario->GetFileHeader()->GetDescription();
+				
+				res = Assert(description == "Größe", ASSERT_LOCATION) && res;
+				
+				return res;
+			}
+			catch (NET_ASAM_OPENSCENARIO::ScenarioLoaderException& e)
+			{
+				std::cout << e.what() << std::endl;
+				return Assert(false, ASSERT_LOCATION);
+			}
+		}
+
 		bool TestFiles::TestMultiChoiceElement()
 		{
 			try

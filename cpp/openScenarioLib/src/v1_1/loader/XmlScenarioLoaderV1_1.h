@@ -37,14 +37,16 @@ namespace NET_ASAM_OPENSCENARIO
         private:
             std::string _filename;
             std::shared_ptr<IResourceLocator> _resourceLocator;
+			bool _supressDeprecationWarnings;
 
         public:
             /**
              * Constructor
              * @param filename symbolic filename of the scenario
              * @param resourceLocator locator abstracting from storage.
+             * @param supressDeprecationWarnings flag that supresses deprecation Warnung throught parsing
              */
-			XmlScenarioLoader(std::string& filename, std::shared_ptr<IResourceLocator>& resourceLocator);
+			XmlScenarioLoader(std::string& filename, std::shared_ptr<IResourceLocator>& resourceLocator, bool supressDeprecationWarnings = false);
             virtual ~XmlScenarioLoader();
 
             /**

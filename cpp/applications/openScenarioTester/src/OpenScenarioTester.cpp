@@ -61,8 +61,9 @@ bool TestV1_1(std::string basePath )
 	NET_ASAM_OPENSCENARIO::v1_1::TestParameterValidation testParametervalidation(basePath);
 
 	auto result = true;
-	result = testParametervalidation.TestValidation() && result;
-	
+
+	result = testFiles.TestUnicode() && result;
+
 	result = testAlks.TestScenarios() && result;
 	result = testInjectedParameters.TestInjectionsForSuccess() && result;
 	result = testFiles.TestExpressionsSuccess() && result;
@@ -126,6 +127,8 @@ bool TestV1_1(std::string basePath )
 	result = testWriterApi.TestBomFile() && result;
 	
 	result = testDeprecated.TestDeprecatedSuccess() && result;
+	result = testDeprecated.TestDeprecatedSupress() && result;
+
 
 	result = testAlks.TestCatalogs() && result;
 	result = testAlks.TestVariations() && result; 
