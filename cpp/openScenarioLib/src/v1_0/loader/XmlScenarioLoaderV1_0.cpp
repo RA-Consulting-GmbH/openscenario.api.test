@@ -125,7 +125,8 @@ namespace NET_ASAM_OPENSCENARIO
                 auto indexedElement = xmlToSimpleNodeConverter.Convert(doc);
 
                 // Finally do parsing from dom result
-                OpenScenarioXmlParser openScenarioXmlParser(*messageLogger.get(), _filename, ParserOptions());
+				ParserOptions parserOptions;
+                OpenScenarioXmlParser openScenarioXmlParser(*messageLogger.get(), _filename, parserOptions);
 
                 auto openScenarioImpl = std::make_shared<OpenScenarioImpl>();
                 auto parserContext = std::dynamic_pointer_cast<ParserContext>(std::make_shared<CatalogReferenceParserContext>());
