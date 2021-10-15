@@ -34,7 +34,7 @@ namespace NET_ASAM_OPENSCENARIO
 
 		bool TestDeprecated::TestDeprecatedSuccess()
 		{
-		
+			ClearMessageLogger();
 			// Creating a message logger to pick up the messages
 			auto msgLogger = std::dynamic_pointer_cast<NET_ASAM_OPENSCENARIO::IParserMessageLogger>(_messageLogger);
 
@@ -77,7 +77,7 @@ namespace NET_ASAM_OPENSCENARIO
 		}
 		bool TestDeprecated::TestDeprecatedSupress()
 		{
-
+			ClearMessageLogger();
 			// Creating a message logger to pick up the messages
 			auto msgLogger = std::dynamic_pointer_cast<NET_ASAM_OPENSCENARIO::IParserMessageLogger>(_messageLogger);
 
