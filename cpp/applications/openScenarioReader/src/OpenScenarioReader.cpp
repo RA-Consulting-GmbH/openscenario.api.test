@@ -96,6 +96,8 @@ int CheckFile(std::string& inputFileName, std::string& paramFileName, std::strin
     {
         try
         {
+
+#ifdef WIN32
             std::wstring wparamFileName;
 
             if (!NET_ASAM_OPENSCENARIO::FileResourceLocator::Utf8ToWstring(paramFileName, wparamFileName))
@@ -105,6 +107,12 @@ int CheckFile(std::string& inputFileName, std::string& paramFileName, std::strin
             }
 
             std::ifstream paramFile(wparamFileName);
+#elif defined (__linux__) || defined (__APPLE__)
+            std::ifstream paramFile(paramFileName);
+#else
+#   error "Operating system not supported."
+#endif
+
             std::string line;
 
             if (paramFile.bad() || paramFile.fail())
@@ -166,6 +174,7 @@ int CheckFile(std::string& inputFileName, std::string& paramFileName, std::strin
     if (result == ERROR_RESULT)
         return result;
 
+#ifdef WIN32
     std::wstring winputFileName;
 
     if (!NET_ASAM_OPENSCENARIO::FileResourceLocator::Utf8ToWstring(inputFileName, winputFileName))
@@ -174,6 +183,13 @@ int CheckFile(std::string& inputFileName, std::string& paramFileName, std::strin
         return ERROR_RESULT;
     }
     std::ifstream inputFile(winputFileName);
+
+#elif defined (__linux__) || defined (__APPLE__)
+    std::ifstream inputFile(inputFileName);
+#else
+#   error "Operating system not supported."
+#endif
+
 
     if (inputFile.bad() || inputFile.fail())
     {

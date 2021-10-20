@@ -173,11 +173,8 @@ namespace NET_ASAM_OPENSCENARIO
 				auto ref = catalogReference->GetRef();
 				auto vehicleImportEgo = CatalogHelper::AsVehicle(ref);
 				res = res && Assert(vehicleImportEgo != nullptr, ASSERT_LOCATION);
-				auto temp = vehicleImportEgo->GetPerformance()->GetMaxSpeed();
 				res = res && Assert((vehicleImportEgo->GetPerformance()->GetMaxSpeed() - 70.0)< epsilon, ASSERT_LOCATION);
-				temp = vehicleImportEgo->GetPerformance()->GetMaxAcceleration();
 				res = res && Assert((vehicleImportEgo->GetPerformance()->GetMaxAcceleration() - 72.0) < epsilon, ASSERT_LOCATION);
-				temp = vehicleImportEgo->GetPerformance()->GetMaxDeceleration();
 				res = res && Assert((vehicleImportEgo->GetPerformance()->GetMaxDeceleration() - 63.0) < epsilon, ASSERT_LOCATION);
 
 				// Overtaker: Same import, different ParamterAssignements for maxSpeed
