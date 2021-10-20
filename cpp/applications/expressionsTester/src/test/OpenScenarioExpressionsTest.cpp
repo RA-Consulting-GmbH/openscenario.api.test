@@ -70,6 +70,7 @@ int main(int argc, char** argv)
 	}
 	catch (std::exception& e)
 	{
+        (void) e;
 		result = 1;
 	}
 	return result;

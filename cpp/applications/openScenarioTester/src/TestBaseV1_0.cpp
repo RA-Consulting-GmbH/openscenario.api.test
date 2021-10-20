@@ -99,7 +99,12 @@ namespace NET_ASAM_OPENSCENARIO
 
 		std::string TestBase::GetLine(const std::string fileName, const int lineNum) const
 		{
-			std::ifstream file(_executablePath + "/" + kInputDir + fileName);
+			std::wstring path;
+			if (!FileResourceLocator::Utf8ToWstring(_executablePath + "/" + kInputDir + fileName, path))
+			{
+				return "";
+			}
+			std::ifstream file(path);
 			std::string line;
 
 			if (file.bad() || file.fail())

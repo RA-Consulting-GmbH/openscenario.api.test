@@ -96,7 +96,15 @@ int CheckFile(std::string& inputFileName, std::string& paramFileName, std::strin
     {
         try
         {
-            std::ifstream paramFile(paramFileName);
+            std::wstring wparamFileName;
+
+            if (!NET_ASAM_OPENSCENARIO::FileResourceLocator::Utf8ToWstring(paramFileName, wparamFileName))
+            {
+                auto msg = "Conversion from utf8 string to wstring failed: " + paramFileName;
+                return ERROR_RESULT;
+            }
+
+            std::ifstream paramFile(wparamFileName);
             std::string line;
 
             if (paramFile.bad() || paramFile.fail())
@@ -158,7 +166,14 @@ int CheckFile(std::string& inputFileName, std::string& paramFileName, std::strin
     if (result == ERROR_RESULT)
         return result;
 
-    std::ifstream inputFile(inputFileName);
+    std::wstring winputFileName;
+
+    if (!NET_ASAM_OPENSCENARIO::FileResourceLocator::Utf8ToWstring(inputFileName, winputFileName))
+    {
+        auto msg = "Conversion from utf8 string to wstring failed: " + inputFileName;
+        return ERROR_RESULT;
+    }
+    std::ifstream inputFile(winputFileName);
 
     if (inputFile.bad() || inputFile.fail())
     {
@@ -175,13 +190,13 @@ int CheckFile(std::string& inputFileName, std::string& paramFileName, std::strin
 
     try
     {
-		if (version == VERSION_1_1)
-		{
-			ExecuteImportParsingV1_1(inputFileName, messageLogger, catalogMessageLogger, injectedParamters);
-		} else
-		{
-			ExecuteImportParsing(inputFileName, messageLogger, catalogMessageLogger, injectedParamters);
-		}
+        if (version == VERSION_1_1)
+        {
+            ExecuteImportParsingV1_1(inputFileName, messageLogger, catalogMessageLogger, injectedParamters);
+        } else
+        {
+            ExecuteImportParsing(inputFileName, messageLogger, catalogMessageLogger, injectedParamters);
+        }
 
         for (auto&& message : messageLogger->GetMessagesFilteredByWorseOrEqualToErrorLevel(logLevel))
         {
@@ -225,9 +240,13 @@ int CheckFile(std::string& inputFileName, std::string& paramFileName, std::strin
     return result;
 }
 
-int main(int argc, char** argv)
+#ifdef WIN32
+int wmain(int argc, wchar_t** argv)
 {
-#if defined(_DEBUG) && defined(WIN32)
+    SetConsoleOutputCP(CP_UTF8);
+    setvbuf(stdout, nullptr, _IOFBF, 1000);
+
+#if defined(_DEBUG)
     _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 #endif
 
@@ -247,33 +266,50 @@ int main(int argc, char** argv)
     std::string inputFileName;
     std::string paramFileName;
     std::string inputDirectoryName;
-	std::string version = VERSION_1_0;
+    std::string version = VERSION_1_0;
 
-    if (argc > 1 && std::string(argv[1]) == "-v")
+    if (argc > 1 && std::wstring(argv[1]) == L"-v")
     {
         std::cout << "Program version " << kVersion << std::endl;
         return VERSION_RESULT;
     }
 
-    if (argc > 2 && (std::string(argv[1]) == "-i" || std::string(argv[1]) == "-d"))
+    if (argc > 2 && (std::wstring(argv[1]) == L"-i" || std::wstring(argv[1]) == L"-d"))
     {
-        if (std::string(argv[1]) == "-i")
-            inputFileName = argv[2];
-        else
-            inputDirectoryName = argv[2];
-
-        if (argc >= 5  && std::string(argv[3]) == "-p")
+        if (std::wstring(argv[1]) == L"-i")
         {
-            paramFileName = argv[4];
-        	if (argc == 6 && std::string(argv[5]) == "-v1_1")
-        	{
-				version = VERSION_1_1;
-        	}
-        }else if (argc == 4 && std::string(argv[3]) == "-v1_1")
-		{
-			version = VERSION_1_1;
-		}
-		
+            if (!NET_ASAM_OPENSCENARIO::FileResourceLocator::WstringToUtf8(argv[2], inputFileName))
+            {
+                std::cout << "wstring to string conversion failed: inputFileName " << std::endl;
+                return ERROR_RESULT;
+            }
+        }
+        else
+        {
+            if (!NET_ASAM_OPENSCENARIO::FileResourceLocator::WstringToUtf8(argv[2], inputDirectoryName))
+            {
+                std::cout << "wstring to string conversion failed: inputDirectoryName " << std::endl;
+                return ERROR_RESULT;
+            }
+        }
+
+        if (argc >= 5 && std::wstring(argv[3]) == L"-p")
+        {
+            if (!NET_ASAM_OPENSCENARIO::FileResourceLocator::WstringToUtf8(argv[4], paramFileName))
+            {
+                std::cout << "wstring to string conversion failed: paramFileName " << std::endl;
+                return ERROR_RESULT;
+            }
+            if (argc == 6 && std::wstring(argv[5]) == L"-v1_1")
+            {
+                version = VERSION_1_1;
+            }
+        }
+        else if (argc == 4 && std::wstring(argv[3]) == L"-v1_1")
+        {
+            version = VERSION_1_1;
+        }
+
         isCommandLineParsable = true;
     }
 
@@ -282,10 +318,10 @@ int main(int argc, char** argv)
         std::cout << "OpenScenarioChecker [[{-i <filename>|-d <dirname>} [-p <paramfilename>] [-v1_1]] | -v]" << std::endl;
         std::cout << "Options:" << std::endl;
         std::cout << "-i\t<filename> file to be validated" << std::endl;
-		std::cout << "-d\t<directory> directory to be validated" << std::endl;
-		std::cout << "-p\t<paramfilename> a file with name/value pairs. One line per name/value pair. tab separated" << std::endl;
-		std::cout << "-v1_1\tUse standard version 1.1" << std::endl;
-		std::cout << "-v\tprint program version" << std::endl;
+        std::cout << "-d\t<directory> directory to be validated" << std::endl;
+        std::cout << "-p\t<paramfilename> a file with name/value pairs. One line per name/value pair. tab separated" << std::endl;
+        std::cout << "-v1_1\tUse standard version 1.1" << std::endl;
+        std::cout << "-v\tprint program version" << std::endl;
 
         return USAGE_RESULT;
     }
@@ -300,16 +336,107 @@ int main(int argc, char** argv)
         {
             NET_ASAM_OPENSCENARIO::FileResourceLocator fileLocator;
             auto filePaths = fileLocator.GetSymbolicFilenamesInSymbolicDir(inputDirectoryName);
-            for (auto file : filePaths) 
+            for (auto file : filePaths)
                 result = CheckFile(file, paramFileName) == SUCCESS_RESULT ? result : ERROR_RESULT;
         }
-        catch ( NET_ASAM_OPENSCENARIO::ResourceNotFoundException& e)
+        catch (NET_ASAM_OPENSCENARIO::ResourceNotFoundException& e)
         {
             (void)e;
-            std::cout << "'" << inputDirectoryName <<"' does not exists or is not a directory." << std::endl;
+            std::cout << "'" << inputDirectoryName << "' does not exists or is not a directory." << std::endl;
             result = ERROR_RESULT;
         }
     }
 
     return result;
 }
+#elif defined (__linux__) || defined (__APPLE__)
+int main(int argc, char** argv)
+{
+    std::stringstream versionStream;
+    versionStream << MAJORVERSION << "." << MINORVERSION << "." << PATCHNUMBER;
+    const std::string kVersion = versionStream.str();
+    const std::string kHeader = "* ASAM OpenSCENARIO 1.0 Checker (2020) *";
+    const std::string kHeaderFillString = GetFilledString(kHeader.length(), '*');
+
+    std::cout << kHeaderFillString << std::endl;
+    std::cout << kHeader << std::endl;
+    std::cout << kHeaderFillString << std::endl;
+
+    bool isCommandLineParsable = false;
+    int result = SUCCESS_RESULT;
+
+    std::string inputFileName;
+    std::string paramFileName;
+    std::string inputDirectoryName;
+    std::string version = VERSION_1_0;
+
+    if (argc > 1 && std::string(argv[1]) == "-v")
+    {
+        std::cout << "Program version " << kVersion << std::endl;
+        return VERSION_RESULT;
+    }
+
+    if (argc > 2 && (std::string(argv[1]) == "-i" || std::string(argv[1]) == "-d"))
+    {
+        if (std::string(argv[1]) == "-i")
+            inputFileName = argv[2];
+        else
+            inputDirectoryName = argv[2];
+
+        if (argc >= 5 && std::string(argv[3]) == "-p")
+        {
+            paramFileName = argv[4];
+            if (argc == 6 && std::string(argv[5]) == "-v1_1")
+            {
+                version = VERSION_1_1;
+            }
+        }
+        else if (argc == 4 && std::string(argv[3]) == "-v1_1")
+        {
+            version = VERSION_1_1;
+        }
+
+        isCommandLineParsable = true;
+    }
+
+    if (!isCommandLineParsable)
+    {
+        std::cout << "OpenScenarioChecker [[{-i <filename>|-d <dirname>} [-p <paramfilename>] [-v1_1]] | -v]" << std::endl;
+        std::cout << "Options:" << std::endl;
+        std::cout << "-i\t<filename> file to be validated" << std::endl;
+        std::cout << "-d\t<directory> directory to be validated" << std::endl;
+        std::cout << "-p\t<paramfilename> a file with name/value pairs. One line per name/value pair. tab separated" << std::endl;
+        std::cout << "-v1_1\tUse standard version 1.1" << std::endl;
+        std::cout << "-v\tprint program version" << std::endl;
+
+        return USAGE_RESULT;
+    }
+
+    if (!inputFileName.empty())
+    {
+        result = CheckFile(inputFileName, paramFileName, version);
+    }
+    else
+    {
+        try
+        {
+            NET_ASAM_OPENSCENARIO::FileResourceLocator fileLocator;
+            auto filePaths = fileLocator.GetSymbolicFilenamesInSymbolicDir(inputDirectoryName);
+            for (auto file : filePaths)
+                result = CheckFile(file, paramFileName) == SUCCESS_RESULT ? result : ERROR_RESULT;
+        }
+        catch (NET_ASAM_OPENSCENARIO::ResourceNotFoundException& e)
+        {
+            (void)e;
+            std::cout << "'" << inputDirectoryName << "' does not exists or is not a directory." << std::endl;
+            result = ERROR_RESULT;
+        }
+    }
+
+    return result;
+}
+#else
+#   error "Operating system not supported."
+#endif
+
+

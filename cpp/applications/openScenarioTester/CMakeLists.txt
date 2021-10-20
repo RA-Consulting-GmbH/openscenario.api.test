@@ -42,6 +42,7 @@ include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/helper )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../common)
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../externalLibs/TinyXML2 )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../externalLibs/Filesystem)
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../externalLibs/UtfCpp )
 
 
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/v1_0/checker )
@@ -192,7 +193,7 @@ endif()
 
 ################################################################
 # Generate executable
-add_executable( ${PROJECT_NAME} ${SOURCES} ${SOURCES_HELPER} 				
+add_executable( ${PROJECT_NAME} ${SOURCES} ${SOURCES_HELPER} 
 				${RESOURCE_FILES} )
 
 if(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
@@ -217,7 +218,7 @@ add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
 ################################################################
 # Visual Studio solution settings
 if( MSVC )
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /bigobj" ) # ${osc_extra_static_compile_flags}")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /bigobj /utf-8 /we4828" ) # ${osc_extra_static_compile_flags}")
     set_target_properties( ${PROJECT_NAME} PROPERTIES FOLDER Apps )
     set_target_properties(
         ${PROJECT_NAME} PROPERTIES
