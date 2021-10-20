@@ -234,7 +234,9 @@ int main(int argc, char** argv)
     std::stringstream versionStream;
     versionStream << MAJORVERSION << "." << MINORVERSION << "." << PATCHNUMBER;
     const std::string kVersion = versionStream.str();
-    const std::string kHeader = "* ASAM OpenSCENARIO 1.0 Checker (2020) *";
+	std::stringstream hHeaderStream;
+	hHeaderStream << "*ASAM OpenSCENARIO " << kVersion << " Checker(2021) *";
+	const std::string kHeader = hHeaderStream.str();
     const std::string kHeaderFillString = GetFilledString(kHeader.length(), '*');
 
     std::cout << kHeaderFillString << std::endl;

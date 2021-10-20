@@ -95,7 +95,8 @@ class EaUmlLoader {
 		}
 
 		Node mainPackage = getModelNode(root);
-
+		println(root)
+		
 		fillElements(root, idToElement);
 		// Get The classes Package
 		Node packageNode = getPackage(root, CLASSES);
@@ -110,6 +111,9 @@ class EaUmlLoader {
 
 		UmlModel umlModel = new UmlModel();
 
+	
+		
+		
 		umlModel.primitiveTypes = getPrimitiveTypes(root);
 		umlModel.interfaces = getInterfaces(root);
 		umlModel.enumerations = getEnumerations(root);
