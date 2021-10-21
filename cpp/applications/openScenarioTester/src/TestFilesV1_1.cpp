@@ -44,6 +44,21 @@ namespace NET_ASAM_OPENSCENARIO
 			}
 		}
 
+		bool TestFiles::TestNonAsciiFilePaths()
+		{
+			try
+			{
+				ClearMessageLogger();
+				(void)ExecuteParsing(_executablePath + "/" + kInputDir + "nonAsciiPathßäöü/DoubleLaneChangerßäöü.xosc");
+				return Assert(_messageLogger->GetMessagesFilteredByWorseOrEqualToErrorLevel(NET_ASAM_OPENSCENARIO::ERROR).empty(), ASSERT_LOCATION);;
+			}
+			catch (NET_ASAM_OPENSCENARIO::ScenarioLoaderException& e)
+			{
+				std::cout << e.what() << std::endl;
+				return Assert(false, ASSERT_LOCATION);
+			}
+		}
+
 		bool TestFiles::TestParamsSuccess()
 		{
 			try 

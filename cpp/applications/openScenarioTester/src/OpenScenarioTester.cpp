@@ -74,6 +74,7 @@ bool TestV1_1(std::string basePath )
 
 	result = testFiles.TestMultiChoiceElement() && result;
 	result = testFiles.TestSimpleSuccess() && result;
+    result = testFiles.TestNonAsciiFilePaths() && result;
 	result = testFiles.TestParamsSuccess() && result;
 
 	result = testFiles.TestExpressionsFailure() && result;
@@ -95,6 +96,7 @@ bool TestV1_1(std::string basePath )
 	result = testImports.TestImportWithExpressionsSuccess() && result;
 
 	result = testReader.TestImportSuccess() && result;
+	result = testReader.TestImportSuccessNonAsciiFile() && result;
 	result = testReader.TestDirectorySuccess() && result;
 	result = testReader.TestDirectoryPartlySuccess() && result;
 	result = testReader.TestFileNotFound() && result;
@@ -160,6 +162,7 @@ bool TestV1_0(std::string basePath)
 	result = testRangeChecker.TestParamsFailure() && result;
 
 	result = testFiles.TestSimpleSuccess() && result;
+    result = testFiles.TestNonAsciiFilePaths() && result;
 	result = testFiles.TestParamsSuccess() && result;
 	result = testFiles.TestBomFile() && result;
 	result = testFiles.TestParamsFailure() && result;
@@ -177,6 +180,7 @@ bool TestV1_0(std::string basePath)
 	result = testImports.TestImportWithParametersSuccess() && result;
 
 	result = testReader.TestImportSuccess() && result;
+    result = testReader.TestImportSuccessNonAsciiFile() && result;
 	result = testReader.TestDirectorySuccess() && result;
 	result = testReader.TestDirectoryPartlySuccess() && result;
 	result = testReader.TestFileNotFound() && result;

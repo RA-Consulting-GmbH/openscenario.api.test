@@ -17,6 +17,8 @@
 
 #include "TestReaderV1_0.h"
 
+#include "FileResourceLocator.h"
+
 
 #ifdef WIN32
 #   define DOT_SLASH ""
@@ -34,7 +36,9 @@ namespace NET_ASAM_OPENSCENARIO
 		int TestReader::ExecuteSystemCommand( std::string& command )
 		{
 	#ifdef WIN32
-			return system( command.c_str() );
+			std::wstring wstringCommand;
+			if (!FileResourceLocator::Utf8ToWstring(command, wstringCommand)) { return -1; }
+			return _wsystem(wstringCommand.c_str());
 	#elif defined (__linux__) || defined (__APPLE__)
 			auto ret = system( command.c_str() );
 			return WEXITSTATUS( ret );
@@ -53,6 +57,14 @@ namespace NET_ASAM_OPENSCENARIO
 			command += " -i " + _executablePath + "/" + kInputDir + "simpleImport/simpleImport.xosc";
 			command += " > " + _executablePath + "/" + kInputDir + kResultFileName;
 			return Assert( SUCCESS_RESULT == ExecuteSystemCommand( command ), ASSERT_LOCATION );
+		}
+
+		bool TestReader::TestImportSuccessNonAsciiFile() const
+		{
+			std::string command(DOT_SLASH); command.append("OpenScenarioReader");
+			command += " -i " + _executablePath + "/" + kInputDir + "simpleImportnonAsciiPathßäöü/simpleImport.xosc";
+			command += " > " + _executablePath + "/" + kInputDir + kResultFileName;
+			return Assert(SUCCESS_RESULT == ExecuteSystemCommand(command), ASSERT_LOCATION);
 		}
 
 		bool TestReader::TestDirectorySuccess() const

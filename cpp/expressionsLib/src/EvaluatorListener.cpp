@@ -487,7 +487,7 @@ namespace OscExpression
 				throw *CreateOverFlowUnderFlowException(GetColumn(list[0]));
 			}
 			
-			if (powResult == std::numeric_limits<double>::infinity() || isnan(powResult)) {
+            if (powResult == std::numeric_limits<double>::infinity() || std::isnan(powResult)) {
 				auto list = ctx->getRuleContexts<antlr4::ParserRuleContext>();
 				throw  SemanticException("The result of the pow operation is infinite or NaN",
 					GetColumn(list[0]));

@@ -45,6 +45,8 @@ namespace NET_ASAM_OPENSCENARIO
 
 			bool TestImportSuccess() const;
 
+			bool TestImportSuccessNonAsciiFile() const;
+
 			bool TestDirectorySuccess() const;
 
 			bool TestDirectoryPartlySuccess() const;

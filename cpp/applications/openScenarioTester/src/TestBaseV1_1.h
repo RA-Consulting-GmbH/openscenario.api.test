@@ -19,6 +19,7 @@
 #include "SimpleMessageLogger.h"
 #include "XmlScenarioImportLoaderFactoryV1_1.h"
 #include <string>
+//#pragma execution_character_set("utf-8")
 
 #define ASSERT_LOCATION __FILE__, __func__, __LINE__
 namespace NET_ASAM_OPENSCENARIO
@@ -31,7 +32,7 @@ namespace NET_ASAM_OPENSCENARIO
 		protected:
 			std::shared_ptr<NET_ASAM_OPENSCENARIO::SimpleMessageLogger> _messageLogger = std::make_shared<NET_ASAM_OPENSCENARIO::SimpleMessageLogger>(NET_ASAM_OPENSCENARIO::ErrorLevel::INFO);
 
-			const std::string kInputDir = "TestResources/OpenScenarioTester/";
+			const std::string kInputDir = u8"TestResources/OpenScenarioTester/";
 
 			std::string _executablePath;
 

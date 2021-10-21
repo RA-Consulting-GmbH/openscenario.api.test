@@ -34,6 +34,7 @@ include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../common )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../externalLibs/TinyXML2 )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../externalLibs/Filesystem )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../externalLibs/UtfCpp )
 
 
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/v1_0/checker )
@@ -173,7 +174,7 @@ target_link_libraries( ${PROJECT_NAME} OpenScenarioLib )
 ################################################################
 # Visual Studio solution settings
 if( MSVC )
-    set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}" ) # ${osc_extra_static_compile_flags}" )
+    set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /utf-8 /we4828" ) # ${osc_extra_static_compile_flags}" )
     set_target_properties( ${PROJECT_NAME} PROPERTIES FOLDER Apps )
     set_target_properties( 
         ${PROJECT_NAME} PROPERTIES

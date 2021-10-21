@@ -16,6 +16,7 @@
  */
 
 #include "TestReaderV1_1.h"
+#include "FileResourceLocator.h"
 
 
 #ifdef WIN32
@@ -34,7 +35,9 @@ namespace NET_ASAM_OPENSCENARIO
 		int TestReader::ExecuteSystemCommand( std::string& command )
 		{
 	#ifdef WIN32
-			return system( command.c_str() );
+			std::wstring wstringCommand;
+			if (!FileResourceLocator::Utf8ToWstring(command, wstringCommand)) { return -1; }
+			return _wsystem(wstringCommand.c_str() );
 	#elif defined (__linux__) || defined (__APPLE__)
 			auto ret = system( command.c_str() );
 			return WEXITSTATUS( ret );
@@ -56,17 +59,25 @@ namespace NET_ASAM_OPENSCENARIO
 			return Assert( SUCCESS_RESULT == ExecuteSystemCommand( command ), ASSERT_LOCATION );
 		}
 
+		bool TestReader::TestImportSuccessNonAsciiFile() const
+		{
+			std::string command(DOT_SLASH); command.append("OpenScenarioReader");
+			command += " -i " + _executablePath + "/" + kInputDir + "simpleImportnonAsciiPathßäöü/simpleImport.xosc";
+			command += " -v1_1 ";
+			command += " > " + _executablePath + "/" + kInputDir + kResultFileName;
+			return Assert(SUCCESS_RESULT == ExecuteSystemCommand(command), ASSERT_LOCATION);
+		}
+
 		bool TestReader::TestDirectorySuccess() const
 		{
 			std::string command( DOT_SLASH ); command.append( "OpenScenarioReader" );
 			command += " -d " + _executablePath + "/" + kInputDir + "goodDirectory";
 			command += " -v1_1 ";
 			command += " > " + _executablePath + "/" + kInputDir + kResultFileName;
-			auto temp = ExecuteSystemCommand( command );
 			return Assert( SUCCESS_RESULT == ExecuteSystemCommand( command ), ASSERT_LOCATION );
 		}
 
-		bool TestReader::TestReader::TestDirectoryPartlySuccess() const
+		bool TestReader::TestDirectoryPartlySuccess() const
 		{
 			std::string command( DOT_SLASH ); command.append( "OpenScenarioReader" );
 			command += " -d " + _executablePath + "/" + kInputDir + "badDirectory";
@@ -75,7 +86,7 @@ namespace NET_ASAM_OPENSCENARIO
 			return Assert( ERROR_RESULT == ExecuteSystemCommand( command ), ASSERT_LOCATION );
 		}
 
-		bool TestReader::TestReader::TestFileNotFound() const
+		bool TestReader::TestFileNotFound() const
 		{
 			std::string command( DOT_SLASH ); command.append( "OpenScenarioReader" );
 			command += " -i " "testFileNotFound";
