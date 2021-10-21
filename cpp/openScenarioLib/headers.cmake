@@ -92,6 +92,7 @@ set( HEADERS_COMMON_PARAMETER
 set( ALL_HEADERS ${ALL_HEADERS} ${HEADERS_COMMON_PARAMETER} )
 
 set( HEADERS_COMMON_PARSER
+    "src/parser/ParserOptions.h"
     "src/parser/ParserHelper.h"
     "src/parser/ParserContext.h"
     "src/parser/WrappedListParser.h"

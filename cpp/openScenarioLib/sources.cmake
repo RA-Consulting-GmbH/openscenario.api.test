@@ -78,6 +78,7 @@ set( SOURCES_PARSER
     "src/parser/WrappedListParser.cpp"
     "src/parser/XmlModelGroupParser.cpp"
     "src/parser/ParserContext.cpp"
+    "src/parser/ParserOptions.cpp"
     "src/parser/ParserHelper.cpp"
     "src/parser/XmlParserException.cpp"
 )
