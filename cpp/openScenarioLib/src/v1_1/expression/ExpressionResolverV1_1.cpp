@@ -167,7 +167,7 @@ namespace NET_ASAM_OPENSCENARIO
 				} catch (OscExpression::SemanticException& s)
 				{
 					std::shared_ptr<Textmarker>  textMarker = expressionObject->GetTextmarker(attributeKey);
-					Textmarker newTextmarker = Textmarker(textMarker->GetLine(), textMarker->GetColumn() + s.GetColumn(), textMarker->GetFilename());
+					Textmarker newTextmarker = Textmarker(textMarker->GetLine(), textMarker->GetColumn() + static_cast<int>(s.GetColumn()), textMarker->GetFilename());
 					// Add log Message
 					auto msg = FileContentMessage(s.GetErrorMessage(), ERROR, newTextmarker);
 					logger->LogMessage(msg);
@@ -593,7 +593,7 @@ namespace NET_ASAM_OPENSCENARIO
 				}
             }
 
-            _expressionResolverStack->PopExpression(paramsDefinitionSize);
+            _expressionResolverStack->PopExpression(static_cast<int>(paramsDefinitionSize));
 
         }
 
@@ -654,7 +654,7 @@ namespace NET_ASAM_OPENSCENARIO
                 }
             }
 
-            _expressionResolverStack->PopExpression(paramsDefinitionSize);
+            _expressionResolverStack->PopExpression(static_cast<int>(paramsDefinitionSize));
 
         }
     	

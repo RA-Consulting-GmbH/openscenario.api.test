@@ -37,37 +37,37 @@ antlr_target( OscParamDefParser ${CMAKE_CURRENT_SOURCE_DIR}/src/antlr/OscParamDe
     COMPILE_FLAGS -lib ${ANTLR_OscParamDefLexer_OUTPUT_DIR}
     )
 
+
 ################################################################
 # Specify all header and source files
-
 set ( HEADERS
-	"src/test/TestSpecification.h"
-	"src/test/TestSpecificationReader.h"
-	"src/test/ParamDefReader.h"
-	"src/test/TestDescription.h"
-	"src/test/TestSpecificationRunner.h"
-	"thirdParty/nlohmann/inc/json.hpp"
+    "src/test/TestSpecification.h"
+    "src/test/TestSpecificationReader.h"
+    "src/test/ParamDefReader.h"
+    "src/test/TestDescription.h"
+    "src/test/TestSpecificationRunner.h"
+    "thirdParty/nlohmann/inc/json.hpp"
 )
 
 set( SOURCES
     "src/test/OpenScenarioExpressionsTest.cpp"
-	"src/test/ParamDefReader.cpp"
-	"src/test/TestSpecification.cpp"
-	"src/test/TestSpecificationReader.cpp"
-	"src/test/TestDescription.cpp"
-	"src/test/TestSpecificationRunner.cpp"
+    "src/test/ParamDefReader.cpp"
+    "src/test/TestSpecification.cpp"
+    "src/test/TestSpecificationReader.cpp"
+    "src/test/TestDescription.cpp"
+    "src/test/TestSpecificationRunner.cpp"
 
 )
 
 set( ANTLR_SOURCE_FILES
     "src/antlr/OscParamDefParser.g4"
-	   "src/antlr/OscParamDefLexer.g4"
+       "src/antlr/OscParamDefLexer.g4"
 
 )
 
 set( ANTLR_GENERATED
     ${ANTLR_OscParamDefLexer_CXX_OUTPUTS}
-	  ${ANTLR_OscParamDefParser_CXX_OUTPUTS}
+      ${ANTLR_OscParamDefParser_CXX_OUTPUTS}
 
 )
 
@@ -102,22 +102,22 @@ endif()
 # Add the executable by using cmake's var \${PROJECT_NAME}
 add_executable( ${PROJECT_NAME} 
                 ${SOURCES} 
-				        ${ANTLR_OscParamDefLexer_CXX_OUTPUTS}
+                ${ANTLR_OscParamDefLexer_CXX_OUTPUTS}
                 ${ANTLR_OscParamDefParser_CXX_OUTPUTS}
                 ${RESOURCE_FILES} )
 
-if( ${BUILD_SHARED_LIBS} )
-    set( ANTLR_STATIC_SHARED  antlr4_shared )
-    message( STATUS "${PROJECT_NAME}: using Antlr shared" )
-else()
-    set( ANTLR_STATIC_SHARED  antlr4_static )
-    message( STATUS "${PROJECT_NAME}: using Antlr static" )
-endif()
+#if( ${BUILD_SHARED_LIBS} )
+#    set( ANTLR_STATIC_SHARED  antlr4_shared )
+#    message( STATUS "${PROJECT_NAME}: using Antlr shared" )
+#else()
+#    set( ANTLR_STATIC_SHARED  antlr4_static )
+#    message( STATUS "${PROJECT_NAME}: using Antlr static" )
+#endif()
 
 # Add libs
 target_link_libraries( ${PROJECT_NAME} 
                PRIVATE ExpressionsLib
-                       ${ANTLR_STATIC_SHARED}
+                       #${ANTLR_STATIC_SHARED}
                        )
 
 # Add include dirs

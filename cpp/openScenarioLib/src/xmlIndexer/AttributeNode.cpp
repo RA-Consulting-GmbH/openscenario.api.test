@@ -25,7 +25,7 @@ namespace NET_ASAM_OPENSCENARIO
 		AttributeNode::AttributeNode(std::string& name, const size_t startLine, const size_t startColumn, const size_t endLine, const size_t endColumn, const size_t startValueLine, const size_t startValueColumn) :
 			PositionNode(static_cast<int>(startLine), static_cast<int>(startColumn), static_cast<int>(endLine), static_cast<int>(endColumn)), _name(name)
 		{
-			_startValuePosition = Position(startValueLine, startValueColumn);
+			_startValuePosition = Position( static_cast<int>(startValueLine), static_cast<int>(startValueColumn) );
 		}
 
         /**

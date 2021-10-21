@@ -29,7 +29,7 @@ namespace NET_ASAM_OPENSCENARIO
 	
 		AttributeInfo::AttributeInfo(std::string& name, const size_t startValueLine, const size_t startValueColumn)
 		{
-			_startValuePosition = Position(startValueLine, startValueColumn);
+			_startValuePosition = Position(static_cast<int>(startValueLine), static_cast<int>(startValueColumn));
 			_name = name;
 		}
 
