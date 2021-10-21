@@ -30,6 +30,8 @@ namespace NET_ASAM_OPENSCENARIO
 
 			bool TestSimpleSuccess();
 
+			bool TestNonAsciiFilePaths();
+
 			bool TestParamsSuccess();
 
 			bool TestBomFile();
@@ -41,6 +43,7 @@ namespace NET_ASAM_OPENSCENARIO
 			bool TestParamsConversion();
 
 			bool TestUnvalidXml();
+
 			bool TestUnknownElement();
 
 			bool TestWrongAttributes();

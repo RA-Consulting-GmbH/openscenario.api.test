@@ -97,6 +97,7 @@ include_directories(${ANTLR_XMLParser_OUTPUT_DIR})
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../common )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../externalLibs/Filesystem)
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../externalLibs/TinyXML2 )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../externalLibs/UtfCpp )
 
 #version independent
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/api )
@@ -820,6 +821,6 @@ endif()
  ################################################################
 # Visual Studio solution folders
 if( MSVC )
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /bigobj /wd4251") # ${osc_extra_static_compile_flags}")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /bigobj /wd4251 /utf-8 /we4828") # ${osc_extra_static_compile_flags}")
     set_target_properties( ${PROJECT_NAME} PROPERTIES FOLDER Core )
 endif()
