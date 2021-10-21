@@ -4,6 +4,7 @@
 /cpp/.vscode
 /cpp/build
 /cpp/buildArtifact/openSCENARIO*
+/cpp/buildArtifact/msbuildcmd.txt
 /cpp/CMakeLists.txt.user
 /cpp/applications/openScenarioReader/res/result.txt
 /cpp/applications/openScenarioTester/src/openScenarioAPI
