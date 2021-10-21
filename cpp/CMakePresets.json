@@ -116,6 +116,42 @@
             "hidden": true
         },
         {
+            "description": "Base preset for VS2013",
+            "name": "VS2013",
+            "generator": "Visual Studio 12 2013",
+            "environment": {
+                "PR_ENV_VS_VERSION": "VS2013"
+            },
+            "inherits": [
+                "binaryDirVS"
+            ],
+            "hidden": true
+        },
+        {
+            "description": "Base preset for VS2012",
+            "name": "VS2012",
+            "generator": "Visual Studio 11 2012",
+            "environment": {
+                "PR_ENV_VS_VERSION": "VS2012"
+            },
+            "inherits": [
+                "binaryDirVS"
+            ],
+            "hidden": true
+        },
+        {
+            "description": "Base preset for VS2010",
+            "name": "VS2010",
+            "generator": "Visual Studio 10 2010",
+            "environment": {
+                "PR_ENV_VS_VERSION": "VS2010"
+            },
+            "inherits": [
+                "binaryDirVS"
+            ],
+            "hidden": true
+        },
+        {
             "name": "VS2022-x64-static",
             "displayName": "VS2022 x64 static",
             "description": "Build using VS2022 x64 generator",
@@ -279,6 +315,126 @@
             "description": "Build using VS2015 Win32 generator",
             "inherits": [
                 "VS2015",
+                "Win32Arch",
+                "shared"
+            ]
+        },
+        {
+            "name": "VS2013-x64-static",
+            "displayName": "VS2013 x64 static",
+            "description": "Build using VS2013 x64 generator",
+            "inherits": [
+                "VS2013",
+                "x64Arch",
+                "static"
+            ]
+        },
+        {
+            "name": "VS2013-x64-shared",
+            "displayName": "VS2013 x64 shared",
+            "description": "Build using VS2013 x64 generator",
+            "inherits": [
+                "VS2013",
+                "x64Arch",
+                "shared"
+            ]
+        },
+        {
+            "name": "VS2013-Win32-static",
+            "displayName": "VS2013 Win32 static",
+            "description": "Build using VS2013 Win32 generator",
+            "inherits": [
+                "VS2013",
+                "Win32Arch",
+                "static"
+            ]
+        },
+        {
+            "name": "VS2013-Win32-shared",
+            "displayName": "VS2013 Win32 shared",
+            "description": "Build using VS2013 Win32 generator",
+            "inherits": [
+                "VS2013",
+                "Win32Arch",
+                "shared"
+            ]
+        },
+        {
+            "name": "VS2012-x64-static",
+            "displayName": "VS2012 x64 static",
+            "description": "Build using VS2012 x64 generator",
+            "inherits": [
+                "VS2012",
+                "x64Arch",
+                "static"
+            ]
+        },
+        {
+            "name": "VS2012-x64-shared",
+            "displayName": "VS2012 x64 shared",
+            "description": "Build using VS2012 x64 generator",
+            "inherits": [
+                "VS2012",
+                "x64Arch",
+                "shared"
+            ]
+        },
+        {
+            "name": "VS2012-Win32-static",
+            "displayName": "VS2012 Win32 static",
+            "description": "Build using VS2012 Win32 generator",
+            "inherits": [
+                "VS2012",
+                "Win32Arch",
+                "static"
+            ]
+        },
+        {
+            "name": "VS2012-Win32-shared",
+            "displayName": "VS2012 Win32 shared",
+            "description": "Build using VS2012 Win32 generator",
+            "inherits": [
+                "VS2012",
+                "Win32Arch",
+                "shared"
+            ]
+        },
+        {
+            "name": "VS2010-x64-static",
+            "displayName": "VS2010 x64 static",
+            "description": "Build using VS2010 x64 generator",
+            "inherits": [
+                "VS2010",
+                "x64Arch",
+                "static"
+            ]
+        },
+        {
+            "name": "VS2010-x64-shared",
+            "displayName": "VS2010 x64 shared",
+            "description": "Build using VS2010 x64 generator",
+            "inherits": [
+                "VS2010",
+                "x64Arch",
+                "shared"
+            ]
+        },
+        {
+            "name": "VS2010-Win32-static",
+            "displayName": "VS2010 Win32 static",
+            "description": "Build using VS2010 Win32 generator",
+            "inherits": [
+                "VS2010",
+                "Win32Arch",
+                "static"
+            ]
+        },
+        {
+            "name": "VS2010-Win32-shared",
+            "displayName": "VS2010 Win32 shared",
+            "description": "Build using VS2010 Win32 generator",
+            "inherits": [
+                "VS2010",
                 "Win32Arch",
                 "shared"
             ]
@@ -556,6 +712,78 @@
             "description": "Build static 32 bit version using Visual Studio 2015",
             "displayName": "Build VS2015 Win32 static",
             "configurePreset": "VS2015-Win32-static"
+        },
+        {
+            "name": "Build-VS2013-x64-shared",
+            "description": "Build shared 64 bit version using Visual Studio 2013",
+            "displayName": "Build VS2013 x64 shared",
+            "configurePreset": "VS2013-x64-shared"
+        },
+        {
+            "name": "Build-VS2013-x64-static",
+            "description": "Build static 64 bit version using Visual Studio 2013",
+            "displayName": "Build VS2013 x64 static",
+            "configurePreset": "VS2013-x64-static"
+        },
+        {
+            "name": "Build-VS2013-Win32-shared",
+            "description": "Build shared 32 bit version using Visual Studio 2013",
+            "displayName": "Build VS2013 Win32 shared",
+            "configurePreset": "VS2013-Win32-shared"
+        },
+        {
+            "name": "Build-VS2013-Win32-static",
+            "description": "Build static 32 bit version using Visual Studio 2013",
+            "displayName": "Build VS2013 Win32 static",
+            "configurePreset": "VS2013-Win32-static"
+        },
+        {
+            "name": "Build-VS2012-x64-shared",
+            "description": "Build shared 64 bit version using Visual Studio 2012",
+            "displayName": "Build VS2012 x64 shared",
+            "configurePreset": "VS2012-x64-shared"
+        },
+        {
+            "name": "Build-VS2012-x64-static",
+            "description": "Build static 64 bit version using Visual Studio 2012",
+            "displayName": "Build VS2012 x64 static",
+            "configurePreset": "VS2012-x64-static"
+        },
+        {
+            "name": "Build-VS2012-Win32-shared",
+            "description": "Build shared 32 bit version using Visual Studio 2012",
+            "displayName": "Build VS2012 Win32 shared",
+            "configurePreset": "VS2012-Win32-shared"
+        },
+        {
+            "name": "Build-VS2012-Win32-static",
+            "description": "Build static 32 bit version using Visual Studio 2012",
+            "displayName": "Build VS2012 Win32 static",
+            "configurePreset": "VS2012-Win32-static"
+        },
+        {
+            "name": "Build-VS2010-x64-shared",
+            "description": "Build shared 64 bit version using Visual Studio 2010",
+            "displayName": "Build VS2010 x64 shared",
+            "configurePreset": "VS2010-x64-shared"
+        },
+        {
+            "name": "Build-VS2010-x64-static",
+            "description": "Build static 64 bit version using Visual Studio 2010",
+            "displayName": "Build VS2010 x64 static",
+            "configurePreset": "VS2010-x64-static"
+        },
+        {
+            "name": "Build-VS2010-Win32-shared",
+            "description": "Build shared 32 bit version using Visual Studio 2010",
+            "displayName": "Build VS2010 Win32 shared",
+            "configurePreset": "VS2010-Win32-shared"
+        },
+        {
+            "name": "Build-VS2010-Win32-static",
+            "description": "Build static 32 bit version using Visual Studio 2010",
+            "displayName": "Build VS2010 Win32 static",
+            "configurePreset": "VS2010-Win32-static"
         }
     ],
     "testPresets": [
