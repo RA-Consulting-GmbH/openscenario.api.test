@@ -27,7 +27,6 @@ message ( STATUS "Building all into: ${CMAKE_BINARY_DIR}" )
 
 ################################################################
 # Antlr
-#include_directories( ${ANTLR4_INCLUDE_DIRS} )
 antlr_target( XMLLexer ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/antlr/XMLLexer.g4 LEXER )
 antlr_target( XMLParser ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/antlr/XMLParser.g4 PARSER
              LISTENER 
@@ -35,25 +34,21 @@ antlr_target( XMLParser ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/an
              COMPILE_FLAGS -lib ${ANTLR_XMLLexer_OUTPUT_DIR} )
 
 
-
-
 ################################################################
 # Source files
 set( SOURCES
-  ${SOURCES}
-  "src/IndexerTester.cpp"
-  "../../externalLibs/TinyXML2/tinyxml2.cpp"
-  "../../openScenarioLib/src/xmlIndexer/AttributeInfo.cpp"
-  "../../openScenarioLib/src/xmlIndexer/ElementNode.cpp"
-  "../../openScenarioLib/src/xmlIndexer/AttributeNode.cpp"
-  "../../openScenarioLib/src/xmlIndexer/Position.cpp"
-  "../../openScenarioLib/src/xmlIndexer/PositionNode.cpp"
-  "../../openScenarioLib/src/xmlIndexer/PositionIndex.cpp"
+    "src/IndexerTester.cpp"
+    "../../externalLibs/TinyXML2/tinyxml2.cpp"
+    "../../openScenarioLib/src/xmlIndexer/AttributeInfo.cpp"
+    "../../openScenarioLib/src/xmlIndexer/ElementNode.cpp"
+    "../../openScenarioLib/src/xmlIndexer/AttributeNode.cpp"
+    "../../openScenarioLib/src/xmlIndexer/Position.cpp"
+    "../../openScenarioLib/src/xmlIndexer/PositionNode.cpp"
+    "../../openScenarioLib/src/xmlIndexer/PositionIndex.cpp"
 )
 
 # Header files
 set( HEADERS
-#    ${HEADERS}
 )
 
 
@@ -88,7 +83,7 @@ endif()
 ################################################################
 # Generate executable
 add_executable( ${PROJECT_NAME} 
-                ${SOURCES} ${HEADERS}
+                ${SOURCES}
                 ${ANTLR_XMLLexer_CXX_OUTPUTS}
                 ${ANTLR_XMLParser_CXX_OUTPUTS}
                 ${RESOURCE_FILES} )

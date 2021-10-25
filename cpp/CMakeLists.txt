@@ -38,6 +38,7 @@ if(${BUILD_SHARED_LIBS})
 else()
     # required if linking to static library
     add_definitions(-DANTLR4CPP_STATIC)
+    add_definitions(-DOSC_STATIC)
     set(ANTLR4_WITH_STATIC_CRT ON)
 endif()
 

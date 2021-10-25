@@ -14,9 +14,6 @@ endif( WIN32 )
 # Shared or static lib?
 if( ${BUILD_SHARED_LIBS} )
     add_definitions( -DEXPORT_OSC_EXPR )
-#    set( LIB_TYPE "SHARED" )
-else()
-#    set( LIB_TYPE "STATIC" )
 endif()
 
 
@@ -47,31 +44,30 @@ antlr_target(OscExprParser ${CMAKE_CURRENT_SOURCE_DIR}/src/antlr/OscExprParser.g
 
 ################################################################
 # Specify all header and source files
-
 set ( LIB_HEADERS
-	"inc/OscExprEvaluatorImpl.h"
-	"inc/ParseErrorListener.hpp"
-	"inc/OscExprEvaluatorFactory.h"
-	"inc/OscExprEvaluator.h"
-	"inc/EvaluatorListener.h"
-	"inc/ExprType.h"
-	"inc/ExprValue.h"
-	"inc/SemanticException.h"
-	"inc/OscExprExportDefs.h"
+    "inc/OscExprEvaluatorImpl.h"
+    "inc/ParseErrorListener.hpp"
+    "inc/OscExprEvaluatorFactory.h"
+    "inc/OscExprEvaluator.h"
+    "inc/EvaluatorListener.h"
+    "inc/ExprType.h"
+    "inc/ExprValue.h"
+    "inc/SemanticException.h"
+    "inc/OscExprExportDefs.h"
 )
 
 set( LIB_SOURCES
-	"src/OscExprEvaluatorImpl.cpp"
-	"src/OscExprEvaluatorFactory.cpp"
-	"src/EvaluatorListener.cpp"
-	"src/ExprType.cpp"
-	"src/ExprValue.cpp"
-	"src/SemanticException.cpp"
-	
+    "src/OscExprEvaluatorImpl.cpp"
+    "src/OscExprEvaluatorFactory.cpp"
+    "src/EvaluatorListener.cpp"
+    "src/ExprType.cpp"
+    "src/ExprValue.cpp"
+    "src/SemanticException.cpp"
+    
 )
 set( ANTLR_GENERATED
     ${ANTLR_OscExprLexer_CXX_OUTPUTS}
-	  ${ANTLR_OscExprParser_CXX_OUTPUTS}
+      ${ANTLR_OscExprParser_CXX_OUTPUTS}
 )
 
 # Resource files
@@ -82,6 +78,7 @@ if( MSVC )
     )
     set( VS_RESOURCE_FILE ${CMAKE_CURRENT_SOURCE_DIR}/rc/${PROJECT_NAME}.rc )
 endif()
+
 
 ################################################################
 # Create groups for VS
@@ -99,12 +96,14 @@ if( MSVC )
     source_group( Antlr FILES ${ANTLR_OscExprLexer_OUTPUT_DIR} ${ANTLR_OscExprParser_OUTPUT_DIR} )
 endif()
 
+
 ################################################################
 # add generated grammar to demo binary target
 add_library( ${PROJECT_NAME} ${LIB_SOURCES}
              ${ANTLR_OscExprLexer_CXX_OUTPUTS}
              ${ANTLR_OscExprParser_CXX_OUTPUTS}
              ${RESOURCE_FILES})
+
 
 if( ${BUILD_SHARED_LIBS} )
    set( ANTLR_STATIC_SHARED  antlr4_shared )
@@ -115,17 +114,16 @@ else()
 endif()
 
 # Add libs
-target_link_libraries( ${PROJECT_NAME} PRIVATE ${ANTLR_STATIC_SHARED} )
+target_link_libraries( ${PROJECT_NAME} PUBLIC ${ANTLR_STATIC_SHARED} )
 
 # Add include dirs
 target_include_directories( ${PROJECT_NAME}
+                    PUBLIC  ${ANTLR4_INCLUDE_DIRS}
                     PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/inc
-                            ${ANTLR4_INCLUDE_DIRS}
                             ${ANTLR_OscExprLexer_OUTPUT_DIR}
                             ${ANTLR_OscExprParser_OUTPUT_DIR}
                             )
 
-#if(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
 if( MSVC )
     if( ${BUILD_SHARED_LIBS} )
         target_compile_options(${PROJECT_NAME} PRIVATE "/MD$<$<CONFIG:Debug>:d>")
@@ -150,6 +148,6 @@ endif()
  ################################################################
 # Visual Studio solution folders
 if( MSVC )
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /bigobj /wd4251" ) # ${osc_extra_static_compile_flags}")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /bigobj /wd4251" )
     set_target_properties( ${PROJECT_NAME} PROPERTIES FOLDER Core )
 endif()

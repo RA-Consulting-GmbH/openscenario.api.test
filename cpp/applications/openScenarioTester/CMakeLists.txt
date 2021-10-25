@@ -24,10 +24,8 @@ configure_file("${CMAKE_SOURCE_DIR}/common/rc.template" "${CMAKE_CURRENT_SOURCE_
 # Shared or static lib?
 if( ${BUILD_SHARED_LIBS} )
     add_definitions( -DEXPORT_OPENSCENARIOLIB )
-#    set( LIB_TYPE "SHARED" )
-else()
-#    set( LIB_TYPE "STATIC" )
 endif()
+
 
 ################################################################
 # Set compile output folder
@@ -131,38 +129,38 @@ set( HEADERS_HELPER
 
 # Source files
 set( SOURCES
-	"src/OpenScenarioTester.cpp"
-  "../../externalLibs/TinyXML2/tinyxml2.cpp""src/OpenScenarioTester.cpp"
-	"src/TestBaseV1_0.cpp"
-	"src/TestBaseV1_1.cpp"
-	"src/TestExamplesV1_0.cpp"
-	"src/TestExamplesV1_1.cpp"
-	"src/TestFilesV1_0.cpp"
-	"src/TestFilesV1_1.cpp"
-	"src/TestFlexInterfaceV1_0.cpp"
-	"src/TestFlexInterfaceV1_1.cpp"
-	"src/TestImportsV1_0.cpp"
-	"src/TestImportsV1_1.cpp"
-	"src/TestInjectedParametersV1_0.cpp"
-	"src/TestInjectedParametersV1_1.cpp"
-	"src/TestRangeCheckerV1_0.cpp"
-	"src/TestRangeCheckerV1_1.cpp"
-	"src/TestReaderV1_0.cpp"
-	"src/TestReaderV1_1.cpp"
-	"src/TestSimpleDemosV1_0.cpp"
-	"src/TestSimpleDemosV1_1.cpp"
-	"src/TestVersionCheckerV1_0.cpp"
-	"src/TestVersionCheckerV1_1.cpp"
-	"src/TestWriterApiV1_0.cpp"
-	"src/TestWriterApiV1_1.cpp"
-	"src/TestDeprecatedV1_1.cpp"
-	"src/TestAlksV1_1.cpp"
+    "../../externalLibs/TinyXML2/tinyxml2.cpp"
+    "src/OpenScenarioTester.cpp"
+    "src/TestBaseV1_0.cpp"
+    "src/TestBaseV1_1.cpp"
+    "src/TestExamplesV1_0.cpp"
+    "src/TestExamplesV1_1.cpp"
+    "src/TestFilesV1_0.cpp"
+    "src/TestFilesV1_1.cpp"
+    "src/TestFlexInterfaceV1_0.cpp"
+    "src/TestFlexInterfaceV1_1.cpp"
+    "src/TestImportsV1_0.cpp"
+    "src/TestImportsV1_1.cpp"
+    "src/TestInjectedParametersV1_0.cpp"
+    "src/TestInjectedParametersV1_1.cpp"
+    "src/TestRangeCheckerV1_0.cpp"
+    "src/TestRangeCheckerV1_1.cpp"
+    "src/TestReaderV1_0.cpp"
+    "src/TestReaderV1_1.cpp"
+    "src/TestSimpleDemosV1_0.cpp"
+    "src/TestSimpleDemosV1_1.cpp"
+    "src/TestVersionCheckerV1_0.cpp"
+    "src/TestVersionCheckerV1_1.cpp"
+    "src/TestWriterApiV1_0.cpp"
+    "src/TestWriterApiV1_1.cpp"
+    "src/TestDeprecatedV1_1.cpp"
+    "src/TestAlksV1_1.cpp"
 	"src/TestParameterValidationV1_1.cpp"
 )
 
 set( SOURCES_HELPER
-	"src/helper/EgoCheckerRuleV1_0.cpp"
-	"src/helper/EgoCheckerRuleV1_1.cpp"
+    "src/helper/EgoCheckerRuleV1_0.cpp"
+    "src/helper/EgoCheckerRuleV1_1.cpp"
 )
 
 # Resource files
@@ -193,8 +191,9 @@ endif()
 
 ################################################################
 # Generate executable
-add_executable( ${PROJECT_NAME} ${SOURCES} ${SOURCES_HELPER} 
-				${RESOURCE_FILES} )
+add_executable( ${PROJECT_NAME}
+                ${SOURCES} ${SOURCES_HELPER} 				
+                ${RESOURCE_FILES} )
 
 if(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
     if( ${BUILD_SHARED_LIBS} )
@@ -210,9 +209,9 @@ target_link_libraries( ${PROJECT_NAME} OpenScenarioLib )
 ################################################################
 # Copy the resources for testing
 add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
-		COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_BINARY_DIR}/$(Configuration)/TestResources/${PROJECT_NAME}
-		COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_CURRENT_SOURCE_DIR}/res ${CMAKE_BINARY_DIR}/$(Configuration)/TestResources/${PROJECT_NAME}
-		)
+        COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_BINARY_DIR}/$(Configuration)/TestResources/${PROJECT_NAME}
+        COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_CURRENT_SOURCE_DIR}/res ${CMAKE_BINARY_DIR}/$(Configuration)/TestResources/${PROJECT_NAME}
+        )
 
 
 ################################################################

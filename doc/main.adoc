@@ -996,7 +996,7 @@ On Linux we already on console and can change directory directly.
 E.g. you have selected the preset "Linux shared release" then your output folder is `openscenario.api.test/cpp/build/output/Linux_shared/Release`.
 As you should be already in `openscenario.api.test/cpp` just do the following:
 
-====== OpenScenarioTester
+===== OpenScenarioTester
 [source,bash]
 ----
 $ cd build/output/Linux_shared/Release
@@ -1013,7 +1013,7 @@ XML_ERROR_MISMATCHED_ELEMENT
 Ego has 2 axles (front, rear)
 ----
 
-====== ExpressionsTester
+===== ExpressionsTester
 [source,bash]
 ----
 $ ./ExpressionsTester
@@ -1028,7 +1028,7 @@ Running test with id '86':
 Test with id '86' successful.
 ----
 
-====== IndexerTester
+===== IndexerTester
 [source,bash]
 ----
 $ ./IndexerTester

@@ -68,9 +68,8 @@ int main(int argc, char** argv)
 		const MainErrorLogger errorLogger;
 		result = TestSpecificationRunner::runTests(tests, errorLogger);
 	}
-	catch (std::exception& e)
+	catch (std::exception&)
 	{
-        (void) e;
 		result = 1;
 	}
 	return result;

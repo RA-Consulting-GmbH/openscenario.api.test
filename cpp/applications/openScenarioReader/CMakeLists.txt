@@ -95,15 +95,12 @@ include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../expressionsLib/inc )
 ################################################################
 # Source files
 set( SOURCES
-#    ${SOURCES}
     "src/OpenScenarioReader.cpp"
     "../../externalLibs/TinyXML2/tinyxml2.cpp"
 )
 
-
 # Header files
 set( HEADERS
-#    ${HEADERS}
 )
 
 # Resource files
@@ -114,6 +111,7 @@ if( MSVC )
     )
     set( VS_RESOURCE_FILE ${CMAKE_CURRENT_SOURCE_DIR}/rc/${PROJECT_NAME}.rc )
 endif()
+
 
 ################################################################
 # Create groups for VS
