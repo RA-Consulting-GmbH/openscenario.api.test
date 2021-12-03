@@ -123,7 +123,7 @@ jobs:
       run:  sudo apt-get install uuid-dev
 
     - name: cmake generate solution Debug
-      run: cmake -DCMAKE_BUILD_TYPE="Debug" -DBUILD_STATIC_LIBS="OFF" -DPLATFORM_PARAM="Linux" ./cpp
+      run: cmake -DCMAKE_BUILD_TYPE="Debug" -DBUILD_SHARED_LIBS="ON" -DPLATFORM_PARAM="Linux" ./cpp
 
     - name: build solution Debug
       run: make
@@ -154,7 +154,7 @@ jobs:
       run:  sudo apt-get install uuid-dev
 
     - name: cmake generate solution Release
-      run: cmake -DCMAKE_BUILD_TYPE="Release" -DBUILD_STATIC_LIBS="OFF" -DPLATFORM_PARAM="Linux" ./cpp
+      run: cmake -DCMAKE_BUILD_TYPE="Release" -DBUILD_SHARED_LIBS="ON" -DPLATFORM_PARAM="Linux" ./cpp
 
     - name: build solution Release
       run: make
@@ -186,7 +186,7 @@ jobs:
       run:  sudo apt-get install uuid-dev
 
     - name: cmake generate solution Debug
-      run: cmake -DCMAKE_BUILD_TYPE="Debug" -DBUILD_STATIC_LIBS="ON" -DPLATFORM_PARAM="Linux" ./cpp
+      run: cmake -DCMAKE_BUILD_TYPE="Debug" -DBUILD_SHARED_LIBS="OFF" -DPLATFORM_PARAM="Linux" ./cpp
 
     - name: build solution Debug
       run: make
@@ -217,7 +217,7 @@ jobs:
       run:  sudo apt-get install uuid-dev
 
     - name: cmake generate solution Release
-      run: cmake -DCMAKE_BUILD_TYPE="Release" -DBUILD_STATIC_LIBS="ON" -DPLATFORM_PARAM="Linux" ./cpp
+      run: cmake -DCMAKE_BUILD_TYPE="Release" -DBUILD_SHARED_LIBS="OFF" -DPLATFORM_PARAM="Linux" ./cpp
 
     - name: build solution Release
       run: make
@@ -243,7 +243,7 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: cmake generate solution Debug
-      run: cmake -G "Visual Studio 16 2019" -A Win32 ./cpp -DMASTER_PROJECT=TRUE -DBUILD_STATIC_LIBS="OFF"
+      run: cmake -G "Visual Studio 16 2019" -A Win32 ./cpp -DMASTER_PROJECT=TRUE -DBUILD_SHARED_LIBS="ON"
 
     - name: build solution Debug
       run: C:/"Program Files (x86)"/"Microsoft Visual Studio"/2019/Enterprise/MSBuild/Current/Bin/MSBuild.exe OpenScenario-Cpp.sln /t:Build /p:Configuration=Debug /p:Platform=Win32
@@ -268,7 +268,7 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: cmake generate solution Release
-      run: cmake -G "Visual Studio 16 2019" -A Win32 ./cpp -DMASTER_PROJECT=TRUE -DBUILD_STATIC_LIBS="OFF"
+      run: cmake -G "Visual Studio 16 2019" -A Win32 ./cpp -DMASTER_PROJECT=TRUE -DBUILD_SHARED_LIBS="ON"
 
     - name: build solution Release
       run: C:/"Program Files (x86)"/"Microsoft Visual Studio"/2019/Enterprise/MSBuild/Current/Bin/MSBuild.exe OpenScenario-Cpp.sln /t:Build /p:Configuration=Release /p:Platform=Win32
@@ -294,7 +294,7 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: cmake generate solution Debug
-      run: cmake -G "Visual Studio 16 2019" -A Win32 ./cpp -DMASTER_PROJECT=TRUE -DBUILD_STATIC_LIBS="ON"
+      run: cmake -G "Visual Studio 16 2019" -A Win32 ./cpp -DMASTER_PROJECT=TRUE -DBUILD_SHARED_LIBS="OFF"
 
     - name: build solution Debug
       run: C:/"Program Files (x86)"/"Microsoft Visual Studio"/2019/Enterprise/MSBuild/Current/Bin/MSBuild.exe OpenScenario-Cpp.sln /t:Build /p:Configuration=Debug /p:Platform=Win32
@@ -319,7 +319,7 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: cmake generate solution Release
-      run: cmake -G "Visual Studio 16 2019" -A Win32 ./cpp -DMASTER_PROJECT=TRUE -DBUILD_STATIC_LIBS="ON"
+      run: cmake -G "Visual Studio 16 2019" -A Win32 ./cpp -DMASTER_PROJECT=TRUE -DBUILD_SHARED_LIBS="OFF"
 
     - name: build solution Release
       run: C:/"Program Files (x86)"/"Microsoft Visual Studio"/2019/Enterprise/MSBuild/Current/Bin/MSBuild.exe OpenScenario-Cpp.sln /t:Build /p:Configuration=Release /p:Platform=Win32
@@ -345,7 +345,7 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: cmake generate solution Debug
-      run: cmake -G "Visual Studio 16 2019" -A x64 ./cpp -DMASTER_PROJECT=TRUE -DBUILD_STATIC_LIBS="OFF"
+      run: cmake -G "Visual Studio 16 2019" -A x64 ./cpp -DMASTER_PROJECT=TRUE -DBUILD_SHARED_LIBS="ON"
 
     - name: build solution Debug
       run: C:/"Program Files (x86)"/"Microsoft Visual Studio"/2019/Enterprise/MSBuild/Current/Bin/MSBuild.exe OpenScenario-Cpp.sln /t:Build /p:Configuration=Debug /p:Platform=x64
@@ -370,7 +370,7 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: cmake generate solution Release
-      run: cmake -G "Visual Studio 16 2019" -A x64 ./cpp -DMASTER_PROJECT=TRUE -DBUILD_STATIC_LIBS="OFF"
+      run: cmake -G "Visual Studio 16 2019" -A x64 ./cpp -DMASTER_PROJECT=TRUE -DBUILD_SHARED_LIBS="ON"
 
     - name: build solution Release
       run: C:/"Program Files (x86)"/"Microsoft Visual Studio"/2019/Enterprise/MSBuild/Current/Bin/MSBuild.exe OpenScenario-Cpp.sln /t:Build /p:Configuration=Release /p:Platform=x64
@@ -396,7 +396,7 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: cmake generate solution Debug
-      run: cmake -G "Visual Studio 16 2019" -A x64 ./cpp -DMASTER_PROJECT=TRUE -DBUILD_STATIC_LIBS="ON"
+      run: cmake -G "Visual Studio 16 2019" -A x64 ./cpp -DMASTER_PROJECT=TRUE -DBUILD_SHARED_LIBS="OFF"
 
     - name: build solution Debug
       run: C:/"Program Files (x86)"/"Microsoft Visual Studio"/2019/Enterprise/MSBuild/Current/Bin/MSBuild.exe OpenScenario-Cpp.sln /t:Build /p:Configuration=Debug /p:Platform=x64
@@ -421,7 +421,7 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: cmake generate solution Release
-      run: cmake -G "Visual Studio 16 2019" -A x64 ./cpp -DMASTER_PROJECT=TRUE -DBUILD_STATIC_LIBS="ON"
+      run: cmake -G "Visual Studio 16 2019" -A x64 ./cpp -DMASTER_PROJECT=TRUE -DBUILD_SHARED_LIBS="OFF"
 
     - name: build solution Release
       run: C:/"Program Files (x86)"/"Microsoft Visual Studio"/2019/Enterprise/MSBuild/Current/Bin/MSBuild.exe OpenScenario-Cpp.sln /t:Build /p:Configuration=Release /p:Platform=x64
