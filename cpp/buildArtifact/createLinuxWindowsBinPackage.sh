@@ -61,7 +61,7 @@ if [ ! -d "${SCRIPT_DIR}/../build/output/Linux_static/Debug" ] ; then
     exit -1
 fi
 
- [ ! -d "${SCRIPT_DIR}/../build/output/Win32_static/Release" ] ; then
+if [ ! -d "${SCRIPT_DIR}/../build/output/Win32_static/Release" ] ; then
     echo "Please run './generateLinux.sh debug shared make' to compile the OpenSCENARIO libraries!"
     exit -1
 fi
