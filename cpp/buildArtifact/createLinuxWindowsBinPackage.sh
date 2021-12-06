@@ -46,30 +46,60 @@ if [ ! -d "${SCRIPT_DIR}/../build/output/Linux_shared/Release" ] ; then
     exit -1
 fi
 
-if [ ! -d "${SCRIPT_DIR}/../build/output/Linux_shared/Debug" ] ; then
-    echo "Please run './generateLinux.sh debug shared make' to compile the OpenSCENARIO libraries!"
-    exit -1
-fi
+#if [ ! -d "${SCRIPT_DIR}/../build/output/Linux_shared/Debug" ] ; then
+#    echo "Please run './generateLinux.sh debug shared make' to compile the OpenSCENARIO libraries!"
+#    exit -1
+#fi
 
 if [ ! -d "${SCRIPT_DIR}/../build/output/Linux_static/Release" ] ; then
-    echo "Please run './generateLinux.sh release shared make' to compile the OpenSCENARIO libraries!"
+    echo "Please run './generateLinux.sh release static make' to compile the OpenSCENARIO libraries!"
     exit -1
 fi
 
-if [ ! -d "${SCRIPT_DIR}/../build/output/Linux_static/Debug" ] ; then
-    echo "Please run './generateLinux.sh debug static make' to compile the OpenSCENARIO libraries!"
+#if [ ! -d "${SCRIPT_DIR}/../build/output/Linux_static/Debug" ] ; then
+#    echo "Please run './generateLinux.sh debug static make' to compile the OpenSCENARIO libraries!"
+#    exit -1
+#fi
+
+if [ ! -d "${SCRIPT_DIR}/../build/output/Win32_shared/Release" ] ; then
+    echo "Please run './generateWindows.bat (VS2010|...|VS2022) release shared Win32 make' to compile the OpenSCENARIO libraries!"
     exit -1
 fi
+
+#if [ ! -d "${SCRIPT_DIR}/../build/output/Win32_shared/Debug" ] ; then
+#    echo "Please run './generateWindows.bat (VS2010|...|VS2022) debug shared Win32 make' to compile the OpenSCENARIO libraries!"
+#    exit -1
+#fi
 
 if [ ! -d "${SCRIPT_DIR}/../build/output/Win32_static/Release" ] ; then
-    echo "Please run './generateLinux.sh debug shared make' to compile the OpenSCENARIO libraries!"
+    echo "Please run './generateWindows.bat (VS2010|...|VS2022) release static Win32 make' to compile the OpenSCENARIO libraries!"
     exit -1
 fi
 
-if [ ! -d "${SCRIPT_DIR}/../build/output/Win32_static/Debug" ] ; then
-    echo "Please run './generateLinux.sh debug static make' to compile the OpenSCENARIO libraries!"
+#if [ ! -d "${SCRIPT_DIR}/../build/output/Win32_static/Debug" ] ; then
+#    echo "Please run './generateWindows.bat (VS2010|...|VS2022) debug static Win32 make' to compile the OpenSCENARIO libraries!"
+#    exit -1
+#fi
+
+if [ ! -d "${SCRIPT_DIR}/../build/output/x64_shared/Release" ] ; then
+    echo "Please run './generateWindows.bat (VS2010|...|VS2022) release shared x64 make' to compile the OpenSCENARIO libraries!"
     exit -1
 fi
+
+#if [ ! -d "${SCRIPT_DIR}/../build/output/x64_shared/Debug" ] ; then
+#    echo "Please run './generateWindows.bat (VS2010|...|VS2022) debug shared x64 make' to compile the OpenSCENARIO libraries!"
+#    exit -1
+#fi
+
+if [ ! -d "${SCRIPT_DIR}/../build/output/x64_static/Release" ] ; then
+    echo "Please run './generateWindows.bat (VS2010|...|VS2022) release static x64 make' to compile the OpenSCENARIO libraries!"
+    exit -1
+fi
+
+#if [ ! -d "${SCRIPT_DIR}/../build/output/x64_static/Debug" ] ; then
+#    echo "Please run './generateWindows.bat (VS2010|...|VS2022) debug static x64 make' to compile the OpenSCENARIO libraries!"
+#    exit -1
+#fi
 
 # create lib folders
 mkdir -p "${OPEN_SCEANARIO_API}/lib/Linux"
@@ -78,25 +108,25 @@ mkdir -p "${OPEN_SCEANARIO_API}/lib/Windows/x64"
 
 # copy libs
 cp -r "${SCRIPT_DIR}/../build/output/Linux_shared/Release"/lib* "${OPEN_SCEANARIO_API}/lib/Linux"
-cp -r "${SCRIPT_DIR}/../build/output/Linux_shared/Debug"/lib* "${OPEN_SCEANARIO_API}/lib/Linux"
+#cp -r "${SCRIPT_DIR}/../build/output/Linux_shared/Debug"/lib* "${OPEN_SCEANARIO_API}/lib/Linux"
 
 cp -r "${SCRIPT_DIR}/../build/output/Linux_static/Release"/lib* "${OPEN_SCEANARIO_API}/lib/Linux"
-cp -r "${SCRIPT_DIR}/../build/output/Linux_static/Debug"/lib* "${OPEN_SCEANARIO_API}/lib/Linux"
-
-cp -r "${SCRIPT_DIR}/../build/output/Win32_static/Release"/*.lib "${OPEN_SCEANARIO_API}/lib/Windows/Win32"
-cp -r "${SCRIPT_DIR}/../build/output/Win32_static/Debug"/*.lib "${OPEN_SCEANARIO_API}/lib/Windows/Win32"
+#cp -r "${SCRIPT_DIR}/../build/output/Linux_static/Debug"/lib* "${OPEN_SCEANARIO_API}/lib/Linux"
 
 cp -r "${SCRIPT_DIR}/../build/output/Win32_shared/Release"/*.dll "${OPEN_SCEANARIO_API}/lib/Windows/Win32"
-cp -r "${SCRIPT_DIR}/../build/output/Win32_shared/Debug"/*.dll "${OPEN_SCEANARIO_API}/lib/Windows/Win32"
+#cp -r "${SCRIPT_DIR}/../build/output/Win32_shared/Debug"/*.dll "${OPEN_SCEANARIO_API}/lib/Windows/Win32"
 
-cp -r "${SCRIPT_DIR}/../build/output/x64_static/Release"/*.lib "${OPEN_SCEANARIO_API}/lib/Windows/x64"
-cp -r "${SCRIPT_DIR}/../build/output/x64_static/Debug"/*.lib "${OPEN_SCEANARIO_API}/lib/Windows/x64"
+cp -r "${SCRIPT_DIR}/../build/output/Win32_static/Release"/*.lib "${OPEN_SCEANARIO_API}/lib/Windows/Win32"
+#cp -r "${SCRIPT_DIR}/../build/output/Win32_static/Debug"/*.lib "${OPEN_SCEANARIO_API}/lib/Windows/Win32"
 
 cp -r "${SCRIPT_DIR}/../build/output/x64_shared/Release"/*.dll "${OPEN_SCEANARIO_API}/lib/Windows/x64"
-cp -r "${SCRIPT_DIR}/../build/output/x64_shared/Debug"/*.dll "${OPEN_SCEANARIO_API}/lib/Windows/x64"
+#cp -r "${SCRIPT_DIR}/../build/output/x64_shared/Debug"/*.dll "${OPEN_SCEANARIO_API}/lib/Windows/x64"
+
+cp -r "${SCRIPT_DIR}/../build/output/x64_static/Release"/*.lib "${OPEN_SCEANARIO_API}/lib/Windows/x64"
+#cp -r "${SCRIPT_DIR}/../build/output/x64_static/Debug"/*.lib "${OPEN_SCEANARIO_API}/lib/Windows/x64"
 
 # strip debug infos
-strip -s "${OPEN_SCEANARIO_API}"/lib/Linux/*
+#strip -s "${OPEN_SCEANARIO_API}"/lib/Linux/*
 
 
 ################################################################

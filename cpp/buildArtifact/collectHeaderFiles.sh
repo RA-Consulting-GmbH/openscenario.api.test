@@ -3,7 +3,7 @@
 # get script folder
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 # cd to project root
-cd ${SCRIPT_DIR}/../
+cd "${SCRIPT_DIR}/../"
 # set openSCENARIO API folder, e.g. openScenario.API
 # check for parameter
 if [[ $1 == "" ]] ; then
@@ -40,17 +40,17 @@ chmod a+x ${FIND_HEADERS_SH}
 
 # prepare the openScenario source for install folder;
 echo "rm -rf ${SCRIPT_DIR}/${OPEN_SCEANARIO_API}"
-rm -rf ${SCRIPT_DIR}/${OPEN_SCEANARIO_API}/include
-mkdir -p ${SCRIPT_DIR}/${OPEN_SCEANARIO_API}/include
+rm -rf "${SCRIPT_DIR}/${OPEN_SCEANARIO_API}/include"
+mkdir -p "${SCRIPT_DIR}/${OPEN_SCEANARIO_API}/include"
 
 # and now let the compiler collect all necessary dependent header files
 # and copy them preserving their directory structure
 for i in `./${FIND_HEADERS_SH}` ; do
     if [[ $i != "\\" ]] && [[ $i != *".cpp"* ]] && \
        [[ $i != *".o"* ]] && [[ $i != *"openScenarioReader"* ]] ; then
-        cp -i --parents $i  ${SCRIPT_DIR}/${OPEN_SCEANARIO_API}/include ;
+        cp -i --parents $i  "${SCRIPT_DIR}/${OPEN_SCEANARIO_API}/include" ;
     fi ;
 done
 
-cd ${SCRIPT_DIR}
+cd "${SCRIPT_DIR}"
 

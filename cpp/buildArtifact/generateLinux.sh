@@ -77,21 +77,21 @@ fi
 
 ################################
 # Remember user dir
-USER_DIR=$(pwd)
+USER_DIR="$(pwd)"
 
 
 ################################
 # Root-Dir
-ROOT_DIR=$(pwd)
-while [ ! -d $ROOT_DIR/.github ]; do
-    ROOT_DIR=$(realpath -s $ROOT_DIR/..)
+ROOT_DIR="$(pwd)"
+while [ ! -d "$ROOT_DIR/.github" ]; do
+    ROOT_DIR=$(realpath -s "$ROOT_DIR/..")
     if [ "/" == "$ROOT_DIR" ]; then
         echo ".github not found! Terminating..."
         exit -1
     fi
 done
 echo "OpenSCENARIO root dir: $ROOT_DIR"
-cd $ROOT_DIR/cpp
+cd "$ROOT_DIR/cpp"
 echo "Entering $ROOT_DIR/cpp"
 
 
@@ -141,7 +141,7 @@ else
             # Create the build folder
             BUILDFOLDER="cg${BUT_CC}Make${BIT_CC}"
             mkdir -p "build/${BUILDFOLDER}"
-            LOCAL_CWD=$(pwd)
+            LOCAL_CWD="$(pwd)"
             cd "build/${BUILDFOLDER}"
 
             # Build Linux Makefiles and compile project
@@ -152,7 +152,7 @@ else
                 make $PAR
             fi
             echo -e "\nFinished building$MAKE_TEXT Linux $BINDING_TYPE $BUILD_TYPE"
-            cd $LOCAL_CWD
+            cd "$LOCAL_CWD"
         done
     done
 fi
@@ -160,4 +160,4 @@ fi
 
 ################################
 # Return to user dir
-cd $USER_DIR
+cd "$USER_DIR"

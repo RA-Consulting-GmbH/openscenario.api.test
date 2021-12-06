@@ -11,7 +11,7 @@ on:
 jobs:
   CreatePackage:
     runs-on: ubuntu-latest
-    needs: [LinuxSharedDebugBuild, LinuxSharedReleaseBuild, LinuxStaticDebugBuild, LinuxStaticReleaseBuild, Win32SharedDebugBuild, Win32SharedReleaseBuild, Win32StaticDebugBuild, Win32StaticReleaseBuild, x64SharedDebugBuild, x64SharedReleaseBuild, x64StaticDebugBuild, x64StaticReleaseBuild]
+    needs: [LinuxSharedReleaseBuild, LinuxStaticReleaseBuild, Win32SharedReleaseBuild, Win32StaticReleaseBuild, x64SharedReleaseBuild, x64StaticReleaseBuild]
 
     steps:
     - uses: actions/checkout@v2

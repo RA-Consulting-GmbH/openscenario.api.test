@@ -10,7 +10,7 @@ if [[ $1 == "" ]] ; then
 fi
 # cd to includes
 OPEN_SCEANARIO_API=$1
-cd ${SCRIPT_DIR}/${OPEN_SCEANARIO_API}
+cd "${SCRIPT_DIR}/${OPEN_SCEANARIO_API}"
 
 # CMakeLists.txt prefix
 echo "################################################################
@@ -27,7 +27,8 @@ include( CMakeHelpers )
 
 ################################################################
 # Build as static or shared lib, Debug or Release, for Linux or Windows
-option( BUILD_STATIC_LIBS \"Build the library as STATIC\" OFF )
+#option( BUILD_STATIC_LIBS \"Build the library as STATIC\" OFF )
+option( BUILD_SHARED_LIBS \"Build shared libraries\" ON )
 if( UNIX )
     # Release or Debug
     if(NOT CMAKE_BUILD_TYPE)
@@ -35,16 +36,16 @@ if( UNIX )
     endif(NOT CMAKE_BUILD_TYPE)
     set(BUILD_TARGET_PARAM \${CMAKE_BUILD_TYPE})
     # Use static or shared libs
-    if( NOT \${BUILD_STATIC_LIBS} )
-        message(WARNING \"Lib type not set, falling back to SHARED mode. To specify the lib type use: -DBUILD_STATIC_LIBS=<on|off>\")
-        set(BUILD_STATIC_LIBS \"OFF\" CACHE STRING \"Choose the type of library, options are: on or off.\" FORCE)
-    else( NOT \${BUILD_STATIC_LIBS} )
-        string( TOUPPER \${BUILD_STATIC_LIBS} BUILD_STATIC_LIBS )
-    endif( NOT \${BUILD_STATIC_LIBS} )
+#    if( NOT \${BUILD_SHARED_LIBS} )
+#        message(WARNING \"Lib type not set, falling back to SHARED mode. To specify the lib type use: -DBUILD_SHARED_LIBS=<on|off>\")
+#        set(BUILD_SHARED_LIBS \"OFF\" CACHE STRING \"Choose the type of library, options are: on or off.\" FORCE)
+#    else( NOT \${BUILD_SHARED_LIBS} )
+#        string( TOUPPER \${BUILD_SHARED_LIBS} BUILD_SHARED_LIBS )
+#    endif( NOT \${BUILD_SHARED_LIBS} )
 endif( UNIX )
 
 if(NOT PLATFORM_PARAM)
-    set(PLATFORM_PARAM \"\${CMAKE_SYSTEM_NAME}\" CACHE STRING \"Linux, Windows, etc\" FORCE)
+    set(PLATFORM_PARAM \"\${CMAKE_SYSTEM_NAME}\" CACHE STRING \"Linux, Windows, etc.\" FORCE)
 endif(NOT PLATFORM_PARAM)
 
 set(ENV{CMAKE_BUILD_PARALLEL_LEVEL} 4)
@@ -53,9 +54,9 @@ set(ENV{CMAKE_BUILD_PARALLEL_LEVEL} 4)
 ################################################################
 # Preprocessor settings
 if( WIN32 )
-  add_definitions( -D_CRT_SECURE_NO_WARNINGS )
+    add_definitions( -D_CRT_SECURE_NO_WARNINGS )
 else( WIN32 )
-  add_definitions( -Wall -fPIC -Wno-unused-variable )
+    add_definitions( -Wall -fPIC -Wno-unused-variable )
 endif( WIN32 )
 
 
@@ -92,24 +93,24 @@ echo "
 ################################################################
 # Source files
 set( SOURCES
-  \${SOURCES}
-   \"./OpenScenarioReader.cpp\"
+    \${SOURCES}
+    \"./OpenScenarioReader.cpp\"
 )
 
 ################################################################
 # Header files
 set( HEADERS
-  \${HEADERS}
+    \${HEADERS}
 )
 
 ################################################################
 # Create groups for VS
 if( MSVC )
-  # Groups for source files
-  source_group( Sources FILES \${SOURCES} )
+    # Groups for source files
+    source_group( Sources FILES \${SOURCES} )
 
-  # Groups for header files
-  source_group( Headers FILES \${HEADERS} )
+    # Groups for header files
+    source_group( Headers FILES \${HEADERS} )
 endif()
 
 ################################################################
@@ -119,31 +120,33 @@ add_executable( \${PROJECT_NAME} \${SOURCES} \${HEADERS} )
 # Add OpenSCENARIO lib
 set( LIB_PREFIX \"\" )
 set( LIB_SUFFIX \"\" )
-if( BUILD_STATIC_LIBS STREQUAL \"ON\" )
-  if( WIN32 )
-    set( LIB_SUFFIX \".lib\" )
-  elseif( UNIX )
-    set( LIB_PREFIX \"lib\" )
-    set( LIB_SUFFIX \".a\" )
-  endif()
+if( BUILD_SHARED_LIBS )
+    if( WIN32 )
+        set( LIB_SUFFIX \".dll\" )
+    elseif( UNIX )
+        set( LIB_PREFIX \"lib\" )
+        set( LIB_SUFFIX \".so\" )
+    endif()
 else()
-  if( WIN32 )
-    set( LIB_SUFFIX \".dll\" )
-  elseif( UNIX )
-    set( LIB_PREFIX \"lib\" )
-    set( LIB_SUFFIX \".so\" )
-  endif()
+    if( WIN32 )
+        set( LIB_SUFFIX \".lib\" )
+    elseif( UNIX )
+        set( LIB_PREFIX \"lib\" )
+        set( LIB_SUFFIX \".a\" )
+    endif()
 endif()
 
 unset( XOSC_LIB CACHE )
 unset( ANTLR4_LIB CACHE )
-find_library( XOSC_LIB name \"\${LIB_PREFIX}OpenScenarioLib\${LIB_SUFFIX}\" HINTS \"\${PROJECT_SOURCE_DIR}/lib/Linux\"
-\"\${PROJECT_SOURCE_DIR}/lib/Windows\" )
+find_library( XOSC_LIB name \"\${LIB_PREFIX}OpenScenarioLib\${LIB_SUFFIX}\" HINTS
+\"\${PROJECT_SOURCE_DIR}/lib/Linux\"
+\"\${PROJECT_SOURCE_DIR}/lib/Windows/x64\"
+\"\${PROJECT_SOURCE_DIR}/lib/Windows/Win32\" )
 target_link_libraries( \${PROJECT_NAME} \${XOSC_LIB} )
 
 
 ################################################################
 # Visual Studio solution settings
 if( MSVC )
-  set_target_properties( \${PROJECT_NAME} PROPERTIES FOLDER Apps )
+    set_target_properties( \${PROJECT_NAME} PROPERTIES FOLDER Apps )
 endif()" >> CMakeLists.txt
