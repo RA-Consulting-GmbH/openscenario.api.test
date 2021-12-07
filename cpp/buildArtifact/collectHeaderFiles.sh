@@ -1,5 +1,9 @@
 #!/bin/bash
 
+
+################################################################
+# setup some variables
+################################################################
 # get script folder
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 # cd to project root
@@ -12,6 +16,7 @@ if [[ $1 == "" ]] ; then
     exit -1
 fi
 OPEN_SCEANARIO_API=$1
+
 
 ################################################################
 # prepare include files
@@ -27,7 +32,7 @@ FIND_HEADERS_SH=${FIND_HEADERS_SH_PATH}/${FIND_HEADERS_SH_FILE}
 echo "#!/bin/bash" > ${FIND_HEADERS_SH}
 echo "cpp -MM \\" >> ${FIND_HEADERS_SH}
 for i in `find . -type d -print` ; do
-    if [[ $i == *"CMake"* ]] || [[ $i == *"antlr_runtime"* ]] || [[ $i == *"ython"* ]] || [[ $i == *"java"* ]] || [[ $i == *".dir"* ]] ;
+    if [[ $i == *"CMake"* ]] || [[ $i == *"antlr_runtime"* ]] || [[ $i == *"ython"* ]] || [[ $i == *"java"* ]] || [[ $i == *".dir"* ]] || [[ $i == "./build"* ]] ;
     then
         continue ;
     fi
@@ -39,7 +44,7 @@ echo ${FIND_HEADERS_SH_PATH}/OpenScenarioReader.cpp -std=c++11 >> ${FIND_HEADERS
 chmod a+x ${FIND_HEADERS_SH}
 
 # prepare the openScenario source for install folder;
-echo "rm -rf ${SCRIPT_DIR}/${OPEN_SCEANARIO_API}"
+echo "rm -rf ${SCRIPT_DIR}/${OPEN_SCEANARIO_API}/include"
 rm -rf "${SCRIPT_DIR}/${OPEN_SCEANARIO_API}/include"
 mkdir -p "${SCRIPT_DIR}/${OPEN_SCEANARIO_API}/include"
 

@@ -16,7 +16,7 @@ cd "${SCRIPT_DIR}/${OPEN_SCEANARIO_API}"
 echo "################################################################
 cmake_minimum_required( VERSION 3.8.2 )
 project( OpenScenarioReader )
-message(\"\${PROJECT_NAME}\")
+message( \"\${PROJECT_NAME}\" )
 
 
 ################################################################
@@ -27,28 +27,19 @@ include( CMakeHelpers )
 
 ################################################################
 # Build as static or shared lib, Debug or Release, for Linux or Windows
-#option( BUILD_STATIC_LIBS \"Build the library as STATIC\" OFF )
 option( BUILD_SHARED_LIBS \"Build shared libraries\" ON )
 if( UNIX )
     # Release or Debug
-    if(NOT CMAKE_BUILD_TYPE)
-        set(CMAKE_BUILD_TYPE \"Debug\" CACHE STRING \"Debug, Release\" FORCE)
-    endif(NOT CMAKE_BUILD_TYPE)
-    set(BUILD_TARGET_PARAM \${CMAKE_BUILD_TYPE})
-    # Use static or shared libs
-#    if( NOT \${BUILD_SHARED_LIBS} )
-#        message(WARNING \"Lib type not set, falling back to SHARED mode. To specify the lib type use: -DBUILD_SHARED_LIBS=<on|off>\")
-#        set(BUILD_SHARED_LIBS \"OFF\" CACHE STRING \"Choose the type of library, options are: on or off.\" FORCE)
-#    else( NOT \${BUILD_SHARED_LIBS} )
-#        string( TOUPPER \${BUILD_SHARED_LIBS} BUILD_SHARED_LIBS )
-#    endif( NOT \${BUILD_SHARED_LIBS} )
+    if( NOT CMAKE_BUILD_TYPE )
+        set( CMAKE_BUILD_TYPE \"Release\" CACHE STRING \"Debug, Release\" FORCE )
+    endif( NOT CMAKE_BUILD_TYPE )
 endif( UNIX )
 
-if(NOT PLATFORM_PARAM)
-    set(PLATFORM_PARAM \"\${CMAKE_SYSTEM_NAME}\" CACHE STRING \"Linux, Windows, etc.\" FORCE)
-endif(NOT PLATFORM_PARAM)
+if( NOT PLATFORM_PARAM )
+    set( PLATFORM_PARAM \"\${CMAKE_SYSTEM_NAME}\" CACHE STRING \"Linux, Windows, etc.\" FORCE )
+endif( NOT PLATFORM_PARAM )
 
-set(ENV{CMAKE_BUILD_PARALLEL_LEVEL} 4)
+set( ENV{CMAKE_BUILD_PARALLEL_LEVEL} 4 )
 
 
 ################################################################
@@ -70,7 +61,7 @@ RAC_SET_BUILD_PARAM()
 ################################################################
 # Set compile output folder
 RAC_SET_FOLDERS()
-message (\"Building all into: \${CMAKE_BINARY_DIR}\")
+message ( \"Building all into: \${CMAKE_BINARY_DIR}\" )
 
 
 ################################################################
@@ -95,13 +86,13 @@ echo "
 set( SOURCES
     \${SOURCES}
     \"./OpenScenarioReader.cpp\"
-)
+ )
 
 ################################################################
 # Header files
 set( HEADERS
     \${HEADERS}
-)
+ )
 
 ################################################################
 # Create groups for VS
@@ -136,17 +127,36 @@ else()
     endif()
 endif()
 
-unset( XOSC_LIB CACHE )
-unset( ANTLR4_LIB CACHE )
-find_library( XOSC_LIB name \"\${LIB_PREFIX}OpenScenarioLib\${LIB_SUFFIX}\" HINTS
-\"\${PROJECT_SOURCE_DIR}/lib/Linux\"
-\"\${PROJECT_SOURCE_DIR}/lib/Windows/x64\"
-\"\${PROJECT_SOURCE_DIR}/lib/Windows/Win32\" )
-target_link_libraries( \${PROJECT_NAME} \${XOSC_LIB} )
+# Determine platform
+set( PLATFORM_LIB_PATH \"\" )
+if( EXISTS \"\${PROJECT_SOURCE_DIR}/lib/Linux\" )
+    set( PLATFORM_LIB_PATH \"\${PROJECT_SOURCE_DIR}/lib/Linux\" )
+elseif( EXISTS \"\${PROJECT_SOURCE_DIR}/lib/Windows/x64\" )
+    set( PLATFORM_LIB_PATH \"\${PROJECT_SOURCE_DIR}/lib/Windows/x64\" )
+elseif( EXISTS \"\${PROJECT_SOURCE_DIR}/lib/Windows/Win32\" )
+    set( PLATFORM_LIB_PATH \"\${PROJECT_SOURCE_DIR}/lib/Windows/Win32\" )
+endif()
+
+# Add dependent libs
+unset( LIB_XOSC CACHE )
+unset( LIB_EXPR CACHE )
+unset( LIB_ANTLR4 CACHE )
+find_library( LIB_XOSC name \"\${LIB_PREFIX}OpenScenarioLib\${LIB_SUFFIX}\" HINTS \${PLATFORM_LIB_PATH} )
+find_library( LIB_EXPR name \"\${LIB_PREFIX}ExpressionsLib\${LIB_SUFFIX}\" HINTS \${PLATFORM_LIB_PATH} )
+find_library( LIB_ANTLR4 name \"\${LIB_PREFIX}antlr4-runtime\${LIB_SUFFIX}\" HINTS \${PLATFORM_LIB_PATH} )
+target_link_libraries( \${PROJECT_NAME} \${LIB_XOSC} \${LIB_EXPR} \${LIB_ANTLR4} )
 
 
 ################################################################
 # Visual Studio solution settings
 if( MSVC )
     set_target_properties( \${PROJECT_NAME} PROPERTIES FOLDER Apps )
-endif()" >> CMakeLists.txt
+endif()
+
+
+################################################################
+# Copy the libs to the executable
+add_custom_command( TARGET \${PROJECT_NAME} POST_BUILD
+    COMMAND \${CMAKE_COMMAND} -E copy_directory \"\${PLATFORM_LIB_PATH}\" \"\${CMAKE_BINARY_DIR}\"
+    )
+" >> CMakeLists.txt
