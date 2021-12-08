@@ -253,10 +253,10 @@ add_library(  ${PROJECT_NAME} # ${LIB_TYPE}
               ${ANTLR_XMLParser_CXX_OUTPUTS}
               ${RESOURCE_FILES} 
               )
-             
+
 if( MSVC )
     if( ${BUILD_SHARED_LIBS} )
-        target_compile_options(${PROJECT_NAME} PRIVATE "/MD$<$<CONFIG:Debug>:d>")
+        target_compile_options(${PROJECT_NAME} PRIVATE "/MD$<$<CONFIG:Debug>:d>") # TODO: add Release etc.
         get_target_property(ANTLR_DLL_OUTPUT antlr4_shared IMPORTED_LOCATION)
         add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
             COMMAND ${CMAKE_COMMAND} -E copy

@@ -8,9 +8,9 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 
 ################################################################
-# Print help
+# Check for parameters; print help
 ################################################################
-if [ "$1" == "" ] || [ $1 == "h" ] || [ $1 == "help" ] || [ $1 == "-h" ] || [ $1 == "-help" ] || [ $1 == "--h" ] || [ $1 == "--help" ]; then
+if [ "$1" == "" ] || [ "$1" == "h" ] || [ "$1" == "help" ] || [ "$1" == "-h" ] || [ "$1" == "-help" ] || [ "$1" == "--h" ] || [ "$1" == "--help" ]; then
     echo "$0 shared|static [Linux|Win32|x64]"
     echo "  Linux is default."
     exit 0
@@ -77,7 +77,7 @@ cp -r "${SCRIPT_DIR}/../applications/openScenarioReader/src/OpenScenarioReader.c
 # prepare CMakeLists.txt
 ################################################################
 cp -f "${SCRIPT_DIR}/../CMakeHelpers.cmake" "${SCRIPT_DIR}/${OPEN_SCEANARIO_API}"
-"${SCRIPT_DIR}/createCMakeListsTemplate.sh" "${OPEN_SCEANARIO_API}"
+"${SCRIPT_DIR}/createCMakeLists.sh" ${OPEN_SCEANARIO_API} ${BINDING_TYPE} ${BUILD_TYPE}
 
 
 ################################################################
@@ -124,6 +124,10 @@ if [ ${PLATFORM_NAME} == "Linux" ] ; then
 else
     #C:/Users/Deakon/source/repos/openscenario.api.test.101/cpp/build/cgMultiVS2019Win32Static/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/Release
     cp -r "${SCRIPT_DIR}"/../build/??MultiVS20??${PLATFORM_NAME}${BINDING_TYPE_CAP}/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/${BUILD_TYPE_CAP}/${LIB_SHST} "${OPEN_SCEANARIO_API}/lib/${PLATFORM_PATH}${PLATFORM_NAME}"
+    if [ ${BINDING_TYPE} == "shared" ] ; then
+        cp -r "${SCRIPT_DIR}"/../build/output/${PLATFORM_NAME}_${BINDING_TYPE}/${BUILD_TYPE_CAP}/*.exp "${OPEN_SCEANARIO_API}/lib/${PLATFORM_PATH}${PLATFORM_NAME}"
+        cp -r "${SCRIPT_DIR}"/../build/??MultiVS20??${PLATFORM_NAME}${BINDING_TYPE_CAP}/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/${BUILD_TYPE_CAP}/*.exp "${OPEN_SCEANARIO_API}/lib/${PLATFORM_PATH}${PLATFORM_NAME}"
+    fi
 fi
 
 # strip debug infos
@@ -135,4 +139,8 @@ fi
 ################################################################
 # tar and gzip
 CUR_DATE=`date '+%Y.%m.%d'`
-tar -zcf "${OPEN_SCEANARIO_API}_${CUR_DATE}.tgz" "${OPEN_SCEANARIO_API}"
+if [ ${PLATFORM_NAME} == "Linux" ] ; then
+    tar -zcf "${OPEN_SCEANARIO_API}_${CUR_DATE}.tgz" "${OPEN_SCEANARIO_API}"
+else
+    zip -rq "${OPEN_SCEANARIO_API}_${CUR_DATE}.zip" "${OPEN_SCEANARIO_API}"
+fi
