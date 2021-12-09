@@ -258,7 +258,7 @@ jobs:
 
     - name: copy antlr
       shell: bash
-      run:  cp ./cpp/build/cgReleaseMakeStaatic/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/* ./cpp/build/output/Linux_static/Release/
+      run:  cp ./cpp/build/cgReleaseMakeStatic/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/* ./cpp/build/output/Linux_static/Release/
 
     - name: publish artifacts
       uses: actions/upload-artifact@v2
