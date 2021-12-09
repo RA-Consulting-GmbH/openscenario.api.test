@@ -116,7 +116,7 @@ echo "
 # Source files
 set( SOURCES
     \${SOURCES}
-    \"./OpenScenarioReader.cpp\"
+    \"./src/OpenScenarioReader.cpp\"
  )
 
 ################################################################
@@ -197,11 +197,15 @@ set( LIB_EXPR ExpressionsLib )
 set( LIB_ANTLR4 antlr4-runtime\${BINDING_TYPE_ANTLR4} )
 add_library( \${LIB_XOSC} ${BINDING_TYPE_CAP} IMPORTED )
 add_library( \${LIB_EXPR} ${BINDING_TYPE_CAP} IMPORTED )
-add_library( \${LIB_ANTLR4} ${BINDING_TYPE_CAP} IMPORTED )
 set_property( TARGET \${LIB_XOSC} PROPERTY \${IMP_LOC} \"\${PLATFORM_LIB_PATH}/\${LIB_PREFIX}\${LIB_XOSC}\${LIB_SUFFIX}\" )
 set_property( TARGET \${LIB_EXPR} PROPERTY \${IMP_LOC} \"\${PLATFORM_LIB_PATH}/\${LIB_PREFIX}\${LIB_EXPR}\${LIB_SUFFIX}\" )
-set_property( TARGET \${LIB_ANTLR4} PROPERTY \${IMP_LOC} \"\${PLATFORM_LIB_PATH}/\${LIB_PREFIX}\${LIB_ANTLR4}\${LIB_SUFFIX}\" )
-target_link_libraries( \${PROJECT_NAME} PRIVATE \${LIB_XOSC} \${LIB_EXPR} \${LIB_ANTLR4} )
+if( WIN32 AND BUILD_SHARED_LIBS )
+    target_link_libraries( \${PROJECT_NAME} PRIVATE \${LIB_XOSC} \${LIB_EXPR} )
+else()
+    add_library( \${LIB_ANTLR4} ${BINDING_TYPE_CAP} IMPORTED )
+    set_property( TARGET \${LIB_ANTLR4} PROPERTY \${IMP_LOC} \"\${PLATFORM_LIB_PATH}/\${LIB_PREFIX}\${LIB_ANTLR4}\${LIB_SUFFIX}\" )
+    target_link_libraries( \${PROJECT_NAME} PRIVATE \${LIB_XOSC} \${LIB_EXPR} \${LIB_ANTLR4} )
+endif()
 
 
 ################################################################

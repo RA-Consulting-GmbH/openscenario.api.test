@@ -70,7 +70,9 @@ echo "Collecting headers..."
 ${SCRIPT_DIR}/collectHeaderFiles.sh ${OPEN_SCEANARIO_API}
 ################################
 # copy main source file
-cp -r "${SCRIPT_DIR}/../applications/openScenarioReader/src/OpenScenarioReader.cpp" "${SCRIPT_DIR}/${OPEN_SCEANARIO_API}"
+mkdir -p "${SCRIPT_DIR}/${OPEN_SCEANARIO_API}/src/"
+echo 'mkdir -p "${SCRIPT_DIR}/${OPEN_SCEANARIO_API}/src/"'
+cp -r "${SCRIPT_DIR}/../applications/openScenarioReader/src/OpenScenarioReader.cpp" "${SCRIPT_DIR}/${OPEN_SCEANARIO_API}/src/"
 
 
 ################################################################
@@ -142,3 +144,5 @@ if [ ${PLATFORM_NAME} == "Linux" ] ; then
 else
     zip -rq "${OPEN_SCEANARIO_API}_${CUR_DATE}.zip" "${OPEN_SCEANARIO_API}"
 fi
+# rm orig
+rm -rf "${OPEN_SCEANARIO_API}"
