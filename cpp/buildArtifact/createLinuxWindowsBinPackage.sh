@@ -116,17 +116,11 @@ else
     LIB_SHST="*.lib"
 fi
 cp -r "${SCRIPT_DIR}"/../build/output/${PLATFORM_NAME}_${BINDING_TYPE}/${BUILD_TYPE_CAP}/${LIB_SHST} "${OPEN_SCEANARIO_API}/lib/${PLATFORM_PATH}${PLATFORM_NAME}"
-ls -l "${SCRIPT_DIR}"/../build/
-if [ ${PLATFORM_NAME} == "Linux" ] ; then
-    #/home/deakon/Projects/openscenario.api.test.101/cpp/build/cgReleaseMakeStatic/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/
-    #cp -r "${SCRIPT_DIR}"/../build/*${BUILD_TYPE_CAP}Make${BINDING_TYPE_CAP}/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/${LIB_SHST} "${OPEN_SCEANARIO_API}/lib/${PLATFORM_PATH}${PLATFORM_NAME}"
-else
-    #C:/Users/Deakon/source/repos/openscenario.api.test.101/cpp/build/cgMultiVS2019Win32Static/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/Release
-    #cp -r "${SCRIPT_DIR}"/../build/*MultiVS20*${PLATFORM_NAME}${BINDING_TYPE_CAP}/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/${BUILD_TYPE_CAP}/${LIB_SHST} "${OPEN_SCEANARIO_API}/lib/${PLATFORM_PATH}${PLATFORM_NAME}"
+ls -l "${SCRIPT_DIR}"/../build/output
+if [ ${PLATFORM_NAME} == "Win32" ] || [ ${PLATFORM_NAME} == "x64" ] ; then
     if [ ${BINDING_TYPE} == "shared" ] ; then
         cp -r "${SCRIPT_DIR}"/../build/output/${PLATFORM_NAME}_${BINDING_TYPE}/${BUILD_TYPE_CAP}/*.dll "${OPEN_SCEANARIO_API}/lib/${PLATFORM_PATH}${PLATFORM_NAME}"
         cp -r "${SCRIPT_DIR}"/../build/output/${PLATFORM_NAME}_${BINDING_TYPE}/${BUILD_TYPE_CAP}/*.exp "${OPEN_SCEANARIO_API}/lib/${PLATFORM_PATH}${PLATFORM_NAME}"
-        #cp -r "${SCRIPT_DIR}"/../build/*MultiVS20*${PLATFORM_NAME}${BINDING_TYPE_CAP}/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/${BUILD_TYPE_CAP}/* "${OPEN_SCEANARIO_API}/lib/${PLATFORM_PATH}${PLATFORM_NAME}"
     fi
 fi
 
