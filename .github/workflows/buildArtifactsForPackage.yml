@@ -307,9 +307,9 @@ jobs:
         cd cpp
         cmake --build --preset="Build-VS2019-Win32-shared" --config Release
 
-     - name: copy antlr
-       shell: bash
-       run:  cp ./cpp/build/cgMultiVS2019Win32Shared/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/Release/* ./cpp/build/output/Win32_shared/Release/
+    - name: copy antlr
+      shell: bash
+      run:  cp ./cpp/build/cgMultiVS2019Win32Shared/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/Release/* ./cpp/build/output/Win32_shared/Release/
 
     - name: publish artifacts
       uses: actions/upload-artifact@v2
@@ -358,9 +358,9 @@ jobs:
         cd cpp
         cmake --build --preset="Build-VS2019-Win32-static" --config Release
 
-     - name: copy antlr
-       shell: bash
-       run:  cp ./cpp/build/cgMultiVS2019Win32Static/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/Release/* ./cpp/build/output/Win32_static/Release/
+    - name: copy antlr
+      shell: bash
+      run:  cp ./cpp/build/cgMultiVS2019Win32Static/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/Release/* ./cpp/build/output/Win32_static/Release/
 
     - name: publish artifacts
       uses: actions/upload-artifact@v2
@@ -409,9 +409,9 @@ jobs:
         cd cpp
         cmake --build --preset="Build-VS2019-x64-shared" --config Release
 
-     - name: copy antlr
-       shell: bash
-       run:  cp ./cpp/build/cgMultiVS2019x64Shared/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/Release/* ./cpp/build/output/x64_shared/Release/
+    - name: copy antlr
+      shell: bash
+      run:  cp ./cpp/build/cgMultiVS2019x64Shared/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/Release/* ./cpp/build/output/x64_shared/Release/
 
     - name: publish artifacts
       uses: actions/upload-artifact@v2
