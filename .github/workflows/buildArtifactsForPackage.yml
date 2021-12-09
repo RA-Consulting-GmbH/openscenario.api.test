@@ -460,9 +460,9 @@ jobs:
         cd cpp
         cmake --build --preset="Build-VS2019-x64-static" --config Release
 
-     - name: copy antlr
-       shell: bash
-       run:  cp ./cpp/build/cgMultiVS2019x64Static/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/Release/* ./cpp/build/output/x64_static/Release/
+    - name: copy antlr
+      shell: bash
+      run:  cp ./cpp/build/cgMultiVS2019x64Static/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/Release/* ./cpp/build/output/x64_static/Release/
 
     - name: publish artifacts
       uses: actions/upload-artifact@v2
