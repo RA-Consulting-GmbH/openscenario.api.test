@@ -95,18 +95,34 @@ jobs:
         name: x64StaticRelease
         path: ./cpp/build/output/x64_static/Release
 
-    # Create the devel package
-    - name: create package
-      run: ./cpp/buildArtifact/createLinuxWindowsBinPackage.sh
+    # Create the devel packages
+    - name: create package Linux shared
+      run: ./cpp/buildArtifact/createLinuxWindowsBinPackage.sh shared
 
-    - name: check package
-      run: ls ./cpp/buildArtifact/openScenario*
+    - name: create package Linux static
+      run: ./cpp/buildArtifact/createLinuxWindowsBinPackage.sh static
+
+    - name: create package Win32 shared
+      run: ./cpp/buildArtifact/createLinuxWindowsBinPackage.sh shared Win32
+
+    - name: create package Win32 static
+      run: ./cpp/buildArtifact/createLinuxWindowsBinPackage.sh static Win32
+
+    - name: create package x64 shared
+      run: ./cpp/buildArtifact/createLinuxWindowsBinPackage.sh shared x64
+
+    - name: create package x64 static
+      run: ./cpp/buildArtifact/createLinuxWindowsBinPackage.sh static x64
+
+    # Check packages
+    - name: check packages
+      run: ls ./cpp/buildArtifact/OpenSCENARIO*
 
     - name: publish artifacts
       uses: actions/upload-artifact@v2
       with:
         name: ${{ github.event.inputs.name }}
-        path: ./cpp/buildArtifact/openScenario*
+        path: ./cpp/buildArtifact/OpenSCENARIO*
 
 
   # Linux Shared

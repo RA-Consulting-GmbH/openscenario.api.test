@@ -24,7 +24,6 @@ BUILD_TYPE="release"
 BUILD_TYPE_CAP="Release"
 BINDING_TYPE="ON"
 BINDING_TYPE_CAP="SHARED"
-BINDING_TYPE_ANTLR4=
 for i in $*; do
     case "$i" in
     "debug")
@@ -34,7 +33,6 @@ for i in $*; do
     "static")
         BINDING_TYPE="OFF"
         BINDING_TYPE_CAP="STATIC"
-        BINDING_TYPE_ANTLR4="-static"
         ;;
     *) ;;
     esac
@@ -159,21 +157,23 @@ endif()
 # Generate executable
 add_executable( \${PROJECT_NAME} \${SOURCES} \${HEADERS} )
 
-# Add OpenSCENARIO lib
+# Add lib prefix, suffix, antlr suffix, and imported location
 set( LIB_PREFIX \"\" )
 set( LIB_SUFFIX \"\" )
-if( BUILD_SHARED_LIBS )
-    if( WIN32 )
-        set( LIB_SUFFIX \".lib\" )# .dll -> .lib!
-    elseif( UNIX )
-        set( LIB_PREFIX \"lib\" )
-        set( LIB_SUFFIX \".so\" )
+set( BINDING_TYPE_ANTLR4 \"\" )
+set( IMP_LOC \"IMPORTED_LOCATION\" )
+if( WIN32 )
+    set( LIB_SUFFIX \".lib\" )
+    if( BUILD_SHARED_LIBS )
+        set( IMP_LOC \"IMPORTED_IMPLIB\" )
+    else()
+        set( BINDING_TYPE_ANTLR4 \"-static\" )
     endif()
-else()
-    if( WIN32 )
-        set( LIB_SUFFIX \".lib\" )
-    elseif( UNIX )
-        set( LIB_PREFIX \"lib\" )
+elseif( UNIX )
+    set( LIB_PREFIX \"lib\" )
+    if( BUILD_SHARED_LIBS )
+        set( LIB_SUFFIX \".so\" )
+    else()
         set( LIB_SUFFIX \".a\" )
     endif()
 endif()
@@ -192,21 +192,15 @@ endif()
 set( CMAKE_LIBRARY_PATH \"\${CMAKE_LIBRARY_PATH}; \${PLATFORM_LIB_PATH}\" )
 
 # Add dependent libs
-#unset( LIB_XOSC CACHE )
-#unset( LIB_EXPR CACHE )
-#unset( LIB_ANTLR4 CACHE )
 set( LIB_XOSC OpenScenarioLib )
 set( LIB_EXPR ExpressionsLib )
-set( LIB_ANTLR4 antlr4-runtime${BINDING_TYPE_ANTLR4} )
+set( LIB_ANTLR4 antlr4-runtime\${BINDING_TYPE_ANTLR4} )
 add_library( \${LIB_XOSC} ${BINDING_TYPE_CAP} IMPORTED )
 add_library( \${LIB_EXPR} ${BINDING_TYPE_CAP} IMPORTED )
 add_library( \${LIB_ANTLR4} ${BINDING_TYPE_CAP} IMPORTED )
-set_property( TARGET \${LIB_XOSC} PROPERTY IMPORTED_LOCATION \"\${PLATFORM_LIB_PATH}/\${LIB_PREFIX}\${LIB_XOSC}\${LIB_SUFFIX}\" )
-set_property( TARGET \${LIB_EXPR} PROPERTY IMPORTED_LOCATION \"\${PLATFORM_LIB_PATH}/\${LIB_PREFIX}\${LIB_EXPR}\${LIB_SUFFIX}\" )
-set_property( TARGET \${LIB_ANTLR4} PROPERTY IMPORTED_LOCATION \"\${PLATFORM_LIB_PATH}/\${LIB_PREFIX}\${LIB_ANTLR4}\${LIB_SUFFIX}\" )
-#find_library( LIB_XOSC name \"\${LIB_PREFIX}\${LIB_XOSC}\${LIB_SUFFIX}\" HINTS \${PLATFORM_LIB_PATH} )
-#find_library( LIB_EXPR name \"\${LIB_PREFIX}\${LIB_EXPR}\${LIB_SUFFIX}\" HINTS \${PLATFORM_LIB_PATH} )
-#find_library( LIB_ANTLR4 name \"\${LIB_PREFIX}\${LIB_ANTLR4}\${LIB_SUFFIX}\" HINTS \${PLATFORM_LIB_PATH} )
+set_property( TARGET \${LIB_XOSC} PROPERTY \${IMP_LOC} \"\${PLATFORM_LIB_PATH}/\${LIB_PREFIX}\${LIB_XOSC}\${LIB_SUFFIX}\" )
+set_property( TARGET \${LIB_EXPR} PROPERTY \${IMP_LOC} \"\${PLATFORM_LIB_PATH}/\${LIB_PREFIX}\${LIB_EXPR}\${LIB_SUFFIX}\" )
+set_property( TARGET \${LIB_ANTLR4} PROPERTY \${IMP_LOC} \"\${PLATFORM_LIB_PATH}/\${LIB_PREFIX}\${LIB_ANTLR4}\${LIB_SUFFIX}\" )
 target_link_libraries( \${PROJECT_NAME} PRIVATE \${LIB_XOSC} \${LIB_EXPR} \${LIB_ANTLR4} )
 
 
@@ -220,7 +214,18 @@ endif()
 
 ################################################################
 # Copy the libs to the executable
-add_custom_command( TARGET \${PROJECT_NAME} POST_BUILD
-    COMMAND \${CMAKE_COMMAND} -E copy_directory \"\${PLATFORM_LIB_PATH}\" \"\${CMAKE_BINARY_DIR}\"
-    )
+if( BUILD_SHARED_LIBS )
+    if( WIN32 )
+        add_custom_command( TARGET \${PROJECT_NAME} POST_BUILD
+            COMMAND \${CMAKE_COMMAND} -E copy \"\${PLATFORM_LIB_PATH}/\${LIB_XOSC}.dll\" \"\${CMAKE_BINARY_DIR}/\\\$(Configuration)\"
+            COMMAND \${CMAKE_COMMAND} -E copy \"\${PLATFORM_LIB_PATH}/\${LIB_EXPR}.dll\" \"\${CMAKE_BINARY_DIR}/\\\$(Configuration)\"
+            COMMAND \${CMAKE_COMMAND} -E copy \"\${PLATFORM_LIB_PATH}/\${LIB_ANTLR4}.dll\" \"\${CMAKE_BINARY_DIR}/\\\$(Configuration)\"
+            )
+    elseif( UNIX )
+        set( RT_LIBS \"*.so*\" )
+        add_custom_command( TARGET \${PROJECT_NAME} POST_BUILD
+            COMMAND \${CMAKE_COMMAND} -E copy \"\${PLATFORM_LIB_PATH}/\${RT_LIBS}\" \"\${CMAKE_BINARY_DIR}/\"
+            )
+    endif()
+endif()
 " >> CMakeLists.txt
