@@ -21,11 +21,11 @@ jobs:
 
 
     # Linux builds
-    - name: get artifacts LinuxSharedDebug
-      uses: actions/download-artifact@v2
-      with:
-        name: LinuxSharedDebug
-        path: ./cpp/build/output/Linux_shared/Debug
+    # - name: get artifacts LinuxSharedDebug
+    #   uses: actions/download-artifact@v2
+    #   with:
+    #     name: LinuxSharedDebug
+    #     path: ./cpp/build/output/Linux_shared/Debug
 
     - name: get artifacts LinuxSharedRelease
       uses: actions/download-artifact@v2
@@ -33,11 +33,11 @@ jobs:
         name: LinuxSharedRelease
         path: ./cpp/build/output/Linux_shared/Release
 
-    - name: get artifacts LinuxStaticDebug
-      uses: actions/download-artifact@v2
-      with:
-        name: LinuxStaticDebug
-        path: ./cpp/build/output/Linux_static/Debug
+    # - name: get artifacts LinuxStaticDebug
+    #   uses: actions/download-artifact@v2
+    #   with:
+    #     name: LinuxStaticDebug
+    #     path: ./cpp/build/output/Linux_static/Debug
 
     - name: get artifacts LinuxStaticRelease
       uses: actions/download-artifact@v2
@@ -46,11 +46,11 @@ jobs:
         path: ./cpp/build/output/Linux_static/Release
 
     # Win32 builds
-    - name: get artifacts Win32SharedDebug
-      uses: actions/download-artifact@v2
-      with:
-        name: Win32SharedDebug
-        path: ./cpp/build/output/Win32_shared/Debug
+    # - name: get artifacts Win32SharedDebug
+    #   uses: actions/download-artifact@v2
+    #   with:
+    #     name: Win32SharedDebug
+    #     path: ./cpp/build/output/Win32_shared/Debug
 
     - name: get artifacts Win32SharedRelease
       uses: actions/download-artifact@v2
@@ -58,11 +58,11 @@ jobs:
         name: Win32SharedRelease
         path: ./cpp/build/output/Win32_shared/Release
 
-    - name: get artifacts Win32StaticDebug
-      uses: actions/download-artifact@v2
-      with:
-        name: Win32StaticDebug
-        path: ./cpp/build/output/Win32_static/Debug
+    # - name: get artifacts Win32StaticDebug
+    #   uses: actions/download-artifact@v2
+    #   with:
+    #     name: Win32StaticDebug
+    #     path: ./cpp/build/output/Win32_static/Debug
 
     - name: get artifacts Win32StaticRelease
       uses: actions/download-artifact@v2
@@ -71,11 +71,11 @@ jobs:
         path: ./cpp/build/output/Win32_static/Release
 
     # x64 builds
-    - name: get artifacts x64SharedDebug
-      uses: actions/download-artifact@v2
-      with:
-        name: x64SharedDebug
-        path: ./cpp/build/output/x64_shared/Debug
+    # - name: get artifacts x64SharedDebug
+    #   uses: actions/download-artifact@v2
+    #   with:
+    #     name: x64SharedDebug
+    #     path: ./cpp/build/output/x64_shared/Debug
 
     - name: get artifacts x64SharedRelease
       uses: actions/download-artifact@v2
@@ -83,11 +83,11 @@ jobs:
         name: x64SharedRelease
         path: ./cpp/build/output/x64_shared/Release
 
-    - name: get artifacts x64StaticDebug
-      uses: actions/download-artifact@v2
-      with:
-        name: x64StaticDebug
-        path: ./cpp/build/output/x64_static/Debug
+    # - name: get artifacts x64StaticDebug
+    #   uses: actions/download-artifact@v2
+    #   with:
+    #     name: x64StaticDebug
+    #     path: ./cpp/build/output/x64_static/Debug
 
     - name: get artifacts x64StaticRelease
       uses: actions/download-artifact@v2
@@ -97,22 +97,34 @@ jobs:
 
     # Create the devel packages
     - name: create package Linux shared
-      run: ./cpp/buildArtifact/createLinuxWindowsBinPackage.sh shared
+      run: |
+        chmod a+x ./cpp/buildArtifact/*.sh
+        ./cpp/buildArtifact/createLinuxWindowsBinPackage.sh shared
 
     - name: create package Linux static
-      run: ./cpp/buildArtifact/createLinuxWindowsBinPackage.sh static
+      run: |
+        chmod a+x ./cpp/buildArtifact/*.sh
+        ./cpp/buildArtifact/createLinuxWindowsBinPackage.sh static
 
     - name: create package Win32 shared
-      run: ./cpp/buildArtifact/createLinuxWindowsBinPackage.sh shared Win32
+      run: |
+        chmod a+x ./cpp/buildArtifact/*.sh
+        ./cpp/buildArtifact/createLinuxWindowsBinPackage.sh shared Win32
 
     - name: create package Win32 static
-      run: ./cpp/buildArtifact/createLinuxWindowsBinPackage.sh static Win32
+      run: |
+        chmod a+x ./cpp/buildArtifact/*.sh
+        ./cpp/buildArtifact/createLinuxWindowsBinPackage.sh static Win32
 
     - name: create package x64 shared
-      run: ./cpp/buildArtifact/createLinuxWindowsBinPackage.sh shared x64
+      run: |
+        chmod a+x ./cpp/buildArtifact/*.sh
+        ./cpp/buildArtifact/createLinuxWindowsBinPackage.sh shared x64
 
     - name: create package x64 static
-      run: ./cpp/buildArtifact/createLinuxWindowsBinPackage.sh static x64
+      run: |
+        chmod a+x ./cpp/buildArtifact/*.sh
+        ./cpp/buildArtifact/createLinuxWindowsBinPackage.sh static x64
 
     # Check packages
     - name: check packages
@@ -126,35 +138,35 @@ jobs:
 
 
   # Linux Shared
-  LinuxSharedDebugBuild:
-    runs-on: ubuntu-latest
+#   LinuxSharedDebugBuild:
+#     runs-on: ubuntu-latest
 
-    steps:
-    - uses: actions/checkout@v2
+#     steps:
+#     - uses: actions/checkout@v2
 
-    - name: update system
-      run:  sudo apt-get update
+#     - name: update system
+#       run:  sudo apt-get update
 
-    - name: install uuid-dev package
-      run:  sudo apt-get install uuid-dev
+#     - name: install uuid-dev package
+#       run:  sudo apt-get install uuid-dev
 
-    - name: cmake generate solution Debug
-      run: cmake -DCMAKE_BUILD_TYPE="Debug" -DBUILD_SHARED_LIBS="ON" -DPLATFORM_PARAM="Linux" ./cpp
+#     - name: cmake generate solution Debug
+#       run: cmake -DCMAKE_BUILD_TYPE="Debug" -DBUILD_SHARED_LIBS="ON" -DPLATFORM_PARAM="Linux" ./cpp
 
-    - name: build solution Debug
-      run: make
+#     - name: build solution Debug
+#       run: make
 
-     # fake build
-#    - name: fake build solution Debug
-#      run: mkdir -p ./cpp/build/output/LinuxShared/Debug
-#    - name: fake build binaries
-#      run: cd ./cpp/build/output/LinuxShared/Debug ; touch IndexerTester ; touch libantlr4-runtime.a ; touch libantlr4-runtime.so ; touch libantlr4-runtime.so.4.8 ; touch libOpenScenarioLib.so ; touch libOpenScenarioLib.so.0 ; touch libOpenScenarioLib.so.0.9.0
+#      # fake build
+# #    - name: fake build solution Debug
+# #      run: mkdir -p ./cpp/build/output/LinuxShared/Debug
+# #    - name: fake build binaries
+# #      run: cd ./cpp/build/output/LinuxShared/Debug ; touch IndexerTester ; touch libantlr4-runtime.a ; touch libantlr4-runtime.so ; touch libantlr4-runtime.so.4.8 ; touch libOpenScenarioLib.so ; touch libOpenScenarioLib.so.0 ; touch libOpenScenarioLib.so.0.9.0
 
-    - name: publish artifacts
-      uses: actions/upload-artifact@v2
-      with: 
-        name: LinuxSharedDebug
-        path: ./cpp/build/output/Linux_shared/Debug/*
+#     - name: publish artifacts
+#       uses: actions/upload-artifact@v2
+#       with: 
+#         name: LinuxSharedDebug
+#         path: ./cpp/build/output/Linux_shared/Debug/*
 
 
   LinuxSharedReleaseBuild:
@@ -189,35 +201,35 @@ jobs:
 
 
   # Linux Static
-  LinuxStaticDebugBuild:
-    runs-on: ubuntu-latest
+#   LinuxStaticDebugBuild:
+#     runs-on: ubuntu-latest
 
-    steps:
-    - uses: actions/checkout@v2
+#     steps:
+#     - uses: actions/checkout@v2
 
-    - name: update system
-      run:  sudo apt-get update
+#     - name: update system
+#       run:  sudo apt-get update
 
-    - name: install uuid-dev package
-      run:  sudo apt-get install uuid-dev
+#     - name: install uuid-dev package
+#       run:  sudo apt-get install uuid-dev
 
-    - name: cmake generate solution Debug
-      run: cmake -DCMAKE_BUILD_TYPE="Debug" -DBUILD_SHARED_LIBS="OFF" -DPLATFORM_PARAM="Linux" ./cpp
+#     - name: cmake generate solution Debug
+#       run: cmake -DCMAKE_BUILD_TYPE="Debug" -DBUILD_SHARED_LIBS="OFF" -DPLATFORM_PARAM="Linux" ./cpp
 
-    - name: build solution Debug
-      run: make
+#     - name: build solution Debug
+#       run: make
 
-     # fake build
-#    - name: fake build solution Debug
-#      run: mkdir -p ./cpp/build/output/LinuxStatic/Debug
-#    - name: fake build binaries
-#      run: cd ./cpp/build/output/LinuxStatic/Debug ; touch IndexerTester ; touch libantlr4-runtime.a ; touch libantlr4-runtime.so ; touch libantlr4-runtime.so.4.8 ; touch libOpenScenarioLib.so ; touch libOpenScenarioLib.so.0 ; touch libOpenScenarioLib.so.0.9.0
+#      # fake build
+# #    - name: fake build solution Debug
+# #      run: mkdir -p ./cpp/build/output/LinuxStatic/Debug
+# #    - name: fake build binaries
+# #      run: cd ./cpp/build/output/LinuxStatic/Debug ; touch IndexerTester ; touch libantlr4-runtime.a ; touch libantlr4-runtime.so ; touch libantlr4-runtime.so.4.8 ; touch libOpenScenarioLib.so ; touch libOpenScenarioLib.so.0 ; touch libOpenScenarioLib.so.0.9.0
 
-    - name: publish artifacts
-      uses: actions/upload-artifact@v2
-      with: 
-        name: LinuxStaticDebug
-        path: ./cpp/build/output/Linux_static/Debug/*
+#     - name: publish artifacts
+#       uses: actions/upload-artifact@v2
+#       with: 
+#         name: LinuxStaticDebug
+#         path: ./cpp/build/output/Linux_static/Debug/*
 
 
   LinuxStaticReleaseBuild:
@@ -252,29 +264,29 @@ jobs:
 
 
   # Win32 Shared
-  Win32SharedDebugBuild:
-    runs-on: windows-latest
+#   Win32SharedDebugBuild:
+#     runs-on: windows-latest
 
-    steps:
-    - uses: actions/checkout@v2
+#     steps:
+#     - uses: actions/checkout@v2
 
-    - name: cmake generate solution Debug
-      run: cmake -G "Visual Studio 16 2019" -A Win32 ./cpp -DMASTER_PROJECT=TRUE -DBUILD_SHARED_LIBS="ON"
+#     - name: cmake generate solution Debug
+#       run: cmake -G "Visual Studio 16 2019" -A Win32 ./cpp -DMASTER_PROJECT=TRUE -DBUILD_SHARED_LIBS="ON"
 
-    - name: build solution Debug
-      run: C:/"Program Files (x86)"/"Microsoft Visual Studio"/2019/Enterprise/MSBuild/Current/Bin/MSBuild.exe OpenScenario-Cpp.sln /t:Build /p:Configuration=Debug /p:Platform=Win32
+#     - name: build solution Debug
+#       run: C:/"Program Files (x86)"/"Microsoft Visual Studio"/2019/Enterprise/MSBuild/Current/Bin/MSBuild.exe OpenScenario-Cpp.sln /t:Build /p:Configuration=Debug /p:Platform=Win32
 
-     # fake build
-#    - name: fake build solution Debug
-#      run: mkdir ./cpp/build/output/Win32Shared/Debug
-#    - name: fake build binaries
-#      run: cd ./cpp/build/output/Win32Shared/Debug ; touch IndexerTester ; touch antlr4-runtime.lib ; touch antlr4-runtime.dll ; touch antlr4-runtime.dll.4.8 ; touch OpenScenarioLib.dll ; touch libOpenScenarioLib.dll.0 ; touch OpenScenarioLib.dll.0.9.0
+#      # fake build
+# #    - name: fake build solution Debug
+# #      run: mkdir ./cpp/build/output/Win32Shared/Debug
+# #    - name: fake build binaries
+# #      run: cd ./cpp/build/output/Win32Shared/Debug ; touch IndexerTester ; touch antlr4-runtime.lib ; touch antlr4-runtime.dll ; touch antlr4-runtime.dll.4.8 ; touch OpenScenarioLib.dll ; touch libOpenScenarioLib.dll.0 ; touch OpenScenarioLib.dll.0.9.0
 
-    - name: publish artifacts
-      uses: actions/upload-artifact@v2
-      with: 
-        name: Win32SharedDebug
-        path: ./cpp/build/output/Win32_shared/Debug/*
+#     - name: publish artifacts
+#       uses: actions/upload-artifact@v2
+#       with: 
+#         name: Win32SharedDebug
+#         path: ./cpp/build/output/Win32_shared/Debug/*
 
 
   Win32SharedReleaseBuild:
@@ -303,29 +315,29 @@ jobs:
 
 
   # Win32 Static
-  Win32StaticDebugBuild:
-    runs-on: windows-latest
+#   Win32StaticDebugBuild:
+#     runs-on: windows-latest
 
-    steps:
-    - uses: actions/checkout@v2
+#     steps:
+#     - uses: actions/checkout@v2
 
-    - name: cmake generate solution Debug
-      run: cmake -G "Visual Studio 16 2019" -A Win32 ./cpp -DMASTER_PROJECT=TRUE -DBUILD_SHARED_LIBS="OFF"
+#     - name: cmake generate solution Debug
+#       run: cmake -G "Visual Studio 16 2019" -A Win32 ./cpp -DMASTER_PROJECT=TRUE -DBUILD_SHARED_LIBS="OFF"
 
-    - name: build solution Debug
-      run: C:/"Program Files (x86)"/"Microsoft Visual Studio"/2019/Enterprise/MSBuild/Current/Bin/MSBuild.exe OpenScenario-Cpp.sln /t:Build /p:Configuration=Debug /p:Platform=Win32
+#     - name: build solution Debug
+#       run: C:/"Program Files (x86)"/"Microsoft Visual Studio"/2019/Enterprise/MSBuild/Current/Bin/MSBuild.exe OpenScenario-Cpp.sln /t:Build /p:Configuration=Debug /p:Platform=Win32
 
-     # fake build
-#    - name: fake build solution Debug
-#      run: mkdir ./cpp/build/output/Win32Static/Debug
-#    - name: fake build binaries
-#      run: cd ./cpp/build/output/Win32Static/Debug ; touch IndexerTester ; touch antlr4-runtime.lib ; touch antlr4-runtime.dll ; touch antlr4-runtime.dll.4.8 ; touch OpenScenarioLib.dll ; touch libOpenScenarioLib.dll.0 ; touch OpenScenarioLib.dll.0.9.0
+#      # fake build
+# #    - name: fake build solution Debug
+# #      run: mkdir ./cpp/build/output/Win32Static/Debug
+# #    - name: fake build binaries
+# #      run: cd ./cpp/build/output/Win32Static/Debug ; touch IndexerTester ; touch antlr4-runtime.lib ; touch antlr4-runtime.dll ; touch antlr4-runtime.dll.4.8 ; touch OpenScenarioLib.dll ; touch libOpenScenarioLib.dll.0 ; touch OpenScenarioLib.dll.0.9.0
 
-    - name: publish artifacts
-      uses: actions/upload-artifact@v2
-      with: 
-        name: Win32StaticDebug
-        path: ./cpp/build/output/Win32_static/Debug/*
+#     - name: publish artifacts
+#       uses: actions/upload-artifact@v2
+#       with: 
+#         name: Win32StaticDebug
+#         path: ./cpp/build/output/Win32_static/Debug/*
 
 
   Win32StaticReleaseBuild:
@@ -354,29 +366,29 @@ jobs:
 
 
   # x64 Shared
-  x64SharedDebugBuild:
-    runs-on: windows-latest
+#   x64SharedDebugBuild:
+#     runs-on: windows-latest
 
-    steps:
-    - uses: actions/checkout@v2
+#     steps:
+#     - uses: actions/checkout@v2
 
-    - name: cmake generate solution Debug
-      run: cmake -G "Visual Studio 16 2019" -A x64 ./cpp -DMASTER_PROJECT=TRUE -DBUILD_SHARED_LIBS="ON"
+#     - name: cmake generate solution Debug
+#       run: cmake -G "Visual Studio 16 2019" -A x64 ./cpp -DMASTER_PROJECT=TRUE -DBUILD_SHARED_LIBS="ON"
 
-    - name: build solution Debug
-      run: C:/"Program Files (x86)"/"Microsoft Visual Studio"/2019/Enterprise/MSBuild/Current/Bin/MSBuild.exe OpenScenario-Cpp.sln /t:Build /p:Configuration=Debug /p:Platform=x64
+#     - name: build solution Debug
+#       run: C:/"Program Files (x86)"/"Microsoft Visual Studio"/2019/Enterprise/MSBuild/Current/Bin/MSBuild.exe OpenScenario-Cpp.sln /t:Build /p:Configuration=Debug /p:Platform=x64
 
-     # fake build
-#    - name: fake build solution Debug
-#      run: mkdir ./cpp/build/output/x64Shared/Debug
-#    - name: fake build binaries
-#      run: cd ./cpp/build/output/x64Shared/Debug ; touch IndexerTester ; touch antlr4-runtime.lib ; touch antlr4-runtime.dll ; touch antlr4-runtime.dll.4.8 ; touch OpenScenarioLib.dll ; touch libOpenScenarioLib.dll.0 ; touch OpenScenarioLib.dll.0.9.0
+#      # fake build
+# #    - name: fake build solution Debug
+# #      run: mkdir ./cpp/build/output/x64Shared/Debug
+# #    - name: fake build binaries
+# #      run: cd ./cpp/build/output/x64Shared/Debug ; touch IndexerTester ; touch antlr4-runtime.lib ; touch antlr4-runtime.dll ; touch antlr4-runtime.dll.4.8 ; touch OpenScenarioLib.dll ; touch libOpenScenarioLib.dll.0 ; touch OpenScenarioLib.dll.0.9.0
 
-    - name: publish artifacts
-      uses: actions/upload-artifact@v2
-      with: 
-        name: x64SharedDebug
-        path: ./cpp/build/output/x64_shared/Debug/*
+#     - name: publish artifacts
+#       uses: actions/upload-artifact@v2
+#       with: 
+#         name: x64SharedDebug
+#         path: ./cpp/build/output/x64_shared/Debug/*
 
 
   x64SharedReleaseBuild:
@@ -405,29 +417,29 @@ jobs:
 
 
   # x64 Static
-  x64StaticDebugBuild:
-    runs-on: windows-latest
+#   x64StaticDebugBuild:
+#     runs-on: windows-latest
 
-    steps:
-    - uses: actions/checkout@v2
+#     steps:
+#     - uses: actions/checkout@v2
 
-    - name: cmake generate solution Debug
-      run: cmake -G "Visual Studio 16 2019" -A x64 ./cpp -DMASTER_PROJECT=TRUE -DBUILD_SHARED_LIBS="OFF"
+#     - name: cmake generate solution Debug
+#       run: cmake -G "Visual Studio 16 2019" -A x64 ./cpp -DMASTER_PROJECT=TRUE -DBUILD_SHARED_LIBS="OFF"
 
-    - name: build solution Debug
-      run: C:/"Program Files (x86)"/"Microsoft Visual Studio"/2019/Enterprise/MSBuild/Current/Bin/MSBuild.exe OpenScenario-Cpp.sln /t:Build /p:Configuration=Debug /p:Platform=x64
+#     - name: build solution Debug
+#       run: C:/"Program Files (x86)"/"Microsoft Visual Studio"/2019/Enterprise/MSBuild/Current/Bin/MSBuild.exe OpenScenario-Cpp.sln /t:Build /p:Configuration=Debug /p:Platform=x64
 
-     # fake build
-#    - name: fake build solution Debug
-#      run: mkdir ./cpp/build/output/x64Static/Debug
-#    - name: fake build binaries
-#      run: cd ./cpp/build/output/x64Static/Debug ; touch IndexerTester ; touch antlr4-runtime.lib ; touch antlr4-runtime.dll ; touch antlr4-runtime.dll.4.8 ; touch OpenScenarioLib.dll ; touch libOpenScenarioLib.dll.0 ; touch OpenScenarioLib.dll.0.9.0
+#      # fake build
+# #    - name: fake build solution Debug
+# #      run: mkdir ./cpp/build/output/x64Static/Debug
+# #    - name: fake build binaries
+# #      run: cd ./cpp/build/output/x64Static/Debug ; touch IndexerTester ; touch antlr4-runtime.lib ; touch antlr4-runtime.dll ; touch antlr4-runtime.dll.4.8 ; touch OpenScenarioLib.dll ; touch libOpenScenarioLib.dll.0 ; touch OpenScenarioLib.dll.0.9.0
 
-    - name: publish artifacts
-      uses: actions/upload-artifact@v2
-      with: 
-        name: x64StaticDebug
-        path: ./cpp/build/output/x64_static/Debug/*
+#     - name: publish artifacts
+#       uses: actions/upload-artifact@v2
+#       with: 
+#         name: x64StaticDebug
+#         path: ./cpp/build/output/x64_static/Debug/*
 
 
   x64StaticReleaseBuild:
