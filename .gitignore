@@ -3,7 +3,10 @@
 /cpp/.vs
 /cpp/.vscode
 /cpp/build
+/cpp/build.tgz
 /cpp/buildArtifact/openSCENARIO*
+/cpp/buildArtifact/openScenario.v*
+/cpp/buildArtifact/OpenS*
 /cpp/buildArtifact/msbuildcmd.txt
 /cpp/CMakeLists.txt.user
 /cpp/applications/openScenarioReader/res/result.txt
@@ -20,6 +23,7 @@
 /cpp/osc.xcworkspace
 /cpp/applications/indexerTester/rc/IndexerTester.aps
 /cpp/applications/openScenarioReader/rc/OpenScenarioReader.aps
+/cpp/applications/openScenarioReader/src/findHeaders.sh
 /cpp/applications/openScenarioTester/rc/OpenScenarioTester.aps
 /cpp/openScenarioLib/rc/OpenScenarioLib.aps
 /cpp/applications/expressionsTester/rc/ExpressionsTester.rc
