@@ -1,9 +1,13 @@
 #!/bin/bash
 
+
+################################################################
+# setup some variables
+################################################################
 # get script folder
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 # cd to project root
-cd ${SCRIPT_DIR}/../
+cd "${SCRIPT_DIR}/../"
 # set openSCENARIO API folder, e.g. openScenario.API
 # check for parameter
 if [[ $1 == "" ]] ; then
@@ -13,12 +17,13 @@ if [[ $1 == "" ]] ; then
 fi
 OPEN_SCEANARIO_API=$1
 
+
 ################################################################
 # prepare include files
 ################################################################
 # path and file name for findHeaders.sh
 # it is placed in the openScenarioTester project folder
-FIND_HEADERS_SH_PATH=./applications/openScenarioTester/v1_0/src
+FIND_HEADERS_SH_PATH=./applications/openScenarioReader/src
 FIND_HEADERS_SH_FILE=findHeaders.sh
 FIND_HEADERS_SH=${FIND_HEADERS_SH_PATH}/${FIND_HEADERS_SH_FILE}
 
@@ -27,33 +32,30 @@ FIND_HEADERS_SH=${FIND_HEADERS_SH_PATH}/${FIND_HEADERS_SH_FILE}
 echo "#!/bin/bash" > ${FIND_HEADERS_SH}
 echo "cpp -MM \\" >> ${FIND_HEADERS_SH}
 for i in `find . -type d -print` ; do
-    echo "-I ../../../.$i \\" >> ${FIND_HEADERS_SH} ;
+    if [[ $i == *"CMake"* ]] || [[ $i == *"antlr_runtime"* ]] || [[ $i == *"ython"* ]] || [[ $i == *"java"* ]] || [[ $i == *".dir"* ]] || [[ $i == "./build"* ]] ;
+    then
+        continue ;
+    fi
+    echo "-I $i \\" >> ${FIND_HEADERS_SH} ;
 done
-echo OpenScenarioTester.cpp >> ${FIND_HEADERS_SH}
+echo ${FIND_HEADERS_SH_PATH}/OpenScenarioReader.cpp -std=c++11 >> ${FIND_HEADERS_SH}
 
 # give the findHeaders.sh exec rights
 chmod a+x ${FIND_HEADERS_SH}
 
-# go to the openScenarioTester folder where its main file OpenScenarioTester.cpp is located
-cd ${SCRIPT_DIR}/../applications/openScenarioTester/v1_0/src/
-# prepare the openScenario source for install folder; ok it is a bit clumsy but it works as expected
-echo "rm -rf ${SCRIPT_DIR}/../applications/openScenarioTester/v1_0/src/${OPEN_SCEANARIO_API}"
-rm -rf ${OPEN_SCEANARIO_API}
-mkdir -p ${OPEN_SCEANARIO_API}/include/a/b/c/d
+# prepare the openScenario source for install folder;
+echo "rm -rf ${SCRIPT_DIR}/${OPEN_SCEANARIO_API}/include"
+rm -rf "${SCRIPT_DIR}/${OPEN_SCEANARIO_API}/include"
+mkdir -p "${SCRIPT_DIR}/${OPEN_SCEANARIO_API}/include"
+
 # and now let the compiler collect all necessary dependent header files
 # and copy them preserving their directory structure
-for i in `./${FIND_HEADERS_SH_FILE}` ; do
+for i in `./${FIND_HEADERS_SH}` ; do
     if [[ $i != "\\" ]] && [[ $i != *".cpp"* ]] && \
-       [[ $i != *".o"* ]] && [[ $i != *"openScenarioTester"* ]] ; then
-        cp -i --parents $i ${OPEN_SCEANARIO_API}/include/a/b/c/d ;
+       [[ $i != *".o"* ]] && [[ $i != *"openScenarioReader"* ]] ; then
+        cp -i --parents $i  "${SCRIPT_DIR}/${OPEN_SCEANARIO_API}/include" ;
     fi ;
 done
-# clean up
-echo "rm -rf ${SCRIPT_DIR}/../applications/openScenarioTester/v1_0/src/${OPEN_SCEANARIO_API}/include/a"
-rm -rf ${OPEN_SCEANARIO_API}/include/a
 
-# move to SCRIPT_DIR but before delete old one
-echo "rm -rf ${SCRIPT_DIR}/${OPEN_SCEANARIO_API}"
-echo "mv ${SCRIPT_DIR}/../applications/openScenarioTester/v1_0/src/${OPEN_SCEANARIO_API} ${SCRIPT_DIR}"
-rm -rf ${SCRIPT_DIR}/${OPEN_SCEANARIO_API}
-mv ${SCRIPT_DIR}/../applications/openScenarioTester/v1_0/src/${OPEN_SCEANARIO_API} ${SCRIPT_DIR}
+cd "${SCRIPT_DIR}"
+

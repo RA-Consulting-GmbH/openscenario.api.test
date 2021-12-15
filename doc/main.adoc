@@ -9,7 +9,7 @@
 
 == Getting started on C++
 A great source of how to start using the API are the test sources
-link:{levelToBaseDir}/cpp/applications/openScenarioTester/v1_0/src[test sources].
+link:{levelToBaseDir}/cpp/applications/openScenarioTester/src[test sources].
 
 Generally there are two major use cases for using the library. 
 
@@ -24,7 +24,7 @@ compiled C++ binary
 
 `/cpp/build/output/Linux_shared/Release/OpenScenarioReader`. 
 
-See the section <<BuildingTheBinaries,Building the binaries>> for building instructions.
+See section <<BuildingTheBinaries,Building the binaries>> for building instructions.
 
 For example the binary is located in the following directory, dependent
 on your development platform: 
@@ -52,14 +52,15 @@ This will generate the following output:
 
 ```
 ****************************************
-* ASAM OpenSCENARIO 1.0 Checker (2020) *
+* ASAM OpenSCENARIO 1.2 Checker (2021) *
 ****************************************
 OpenScenarioChecker [[{-i <filename>|-d <dirname>} [-p <paramfilename>]] | -v]
 Options:
--i  <filename> file to be validated
--d  <directory> directory to be validated
--p  <paramfilename> a file with name/value pairs. One line per name/value pair. tab separated
--v  print program version
+-i    <filename> file to be validated
+-d    <directory> directory to be validated
+-p    <paramfilename> a file with name/value pairs. One line per name/value pair. tab separated
+-v1_1 Use standard version 1.1
+-v    Print program version
 ```
 
 
@@ -76,7 +77,7 @@ Result:
 
 ```
 ****************************************
-* ASAM OpenSCENARIO 1.0 Checker (2020) *
+* ASAM OpenSCENARIO 1.1 Checker (2021) *
 ****************************************
 Checking 'examples/simpleExample/SimpleExample.xosc'
 Validation succeeded with 0 errors and 0 warnings.
@@ -92,9 +93,9 @@ $ ./OpenScenarioReader -i examples/defectExample/DefectExample.xosc
 Result:
 
 ```
-****************************************
-* ASAM OpenSCENARIO 1.0 Checker (2020) *
-****************************************
+******************************************
+* ASAM OpenSCENARIO 1.2.0 Checker (2021) *
+******************************************
 Checking 'examples/defectExample/DefectExample.xosc'
 ERROR: Cannot resolve parameter 'DefectParameter' (41,53)
 Validation failed with 1 errors and 0 warnings.
@@ -116,9 +117,9 @@ In the parameter file (here `params.conf`) we define name/value pairs.
 One line per definition. '#' is used for comments. We use tab as a delimiter between name and value:
 
 ```
-****************************************
-* ASAM OpenSCENARIO 1.0 Checker (2020) *
-****************************************
+******************************************
+* ASAM OpenSCENARIO 1.2.0 Checker (2021) *
+******************************************
 Used Parameters:
     EgoStartS   60
     HostVehicle car_red
@@ -138,13 +139,12 @@ $ ./OpenScenarioReader -v
 Result:
 
 ```
-****************************************
-* ASAM OpenSCENARIO 1.0 Checker (2020) *
-****************************************
-Program version 1.1.0
+******************************************
+* ASAM OpenSCENARIO 1.2.0 Checker (2021) *
+******************************************
+Program version 1.2.0
 ```
-
-Telling us that this version supports OpenSCENARIO standard 1.0 and the version of the implementation is 1.1.0 . 
+Telling us that implementation version is 1.2.0. This is independent from the OpenSCENARIO standard version. Compatibilitly to standard version 1.0 and 1.1 is curently supported.
 
 === Embedding the Library 
 To use the OpenSCENARIO as an embedded library we use the compiled library `libOpenScenarioLib` on Linux and on Windows. Both libraries on Linux as well as on Windows have third party dependencies. 
@@ -173,14 +173,14 @@ const auto kMessageLogger = std::make_shared<NET_ASAM_OPENSCENARIO::MessageLogge
 
 // Instantiating the factory
 std::string fileName = _executablePath + "/" + kInputDir + "DoubleLaneChanger.xosc";
-auto loaderFactory = NET_ASAM_OPENSCENARIO::V_1_0::XmlScenarioLoaderFactory(fileName);
+auto loaderFactory = NET_ASAM_OPENSCENARIO::V_1_1::XmlScenarioLoaderFactory(fileName);
 
 // Creating the loader
 auto loader = loaderFactory.CreateLoader(std::make_shared<NET_ASAM_OPENSCENARIO::FileResourceLocator>());
 
 // Loading 
-auto openScenario = std::static_pointer_cast<NET_ASAM_OPENSCENARIO::V_1_0::IOpenScenario>
-    (loader->Load(kMessageLogger)->GetAdapter(typeid(NET_ASAM_OPENSCENARIO::V_1_0::IOpenScenario).name()));
+auto openScenario = std::static_pointer_cast<NET_ASAM_OPENSCENARIO::V_1_1::IOpenScenario>
+    (loader->Load(kMessageLogger)->GetAdapter(typeid(NET_ASAM_OPENSCENARIO::V_1_1::IOpenScenario).name()));
 
 //Check for errors
 if (!kMessageLogger->HasErrors())
@@ -206,7 +206,7 @@ auto messageLogger = std::make_shared<NET_ASAM_OPENSCENARIO::SimpleMessageLogger
 auto catalogMessageLogger = std::make_shared<NET_ASAM_OPENSCENARIO::SimpleMessageLogger>(NET_ASAM_OPENSCENARIO::ErrorLevel::INFO);
 
 // Instantiating the factory
-NET_ASAM_OPENSCENARIO::V_1_0::XmlScenarioImportLoaderFactory
+NET_ASAM_OPENSCENARIO::V_1_1::XmlScenarioImportLoaderFactory
     loaderFactory(catalogMessageLogger, _executablePath + "/" + kInputDir +
     "simpleImport/simpleImport.xosc");
 
@@ -214,8 +214,8 @@ NET_ASAM_OPENSCENARIO::V_1_0::XmlScenarioImportLoaderFactory
 auto loader = loaderFactory.CreateLoader(std::make_shared<NET_ASAM_OPENSCENARIO::FileResourceLocator>());
 
 // Loading the scenario
-auto openScenario = std::static_pointer_cast<NET_ASAM_OPENSCENARIO::V_1_0::OpenScenarioImpl>(loader->Load(messageLogger)
-    ->GetAdapter(typeid(NET_ASAM_OPENSCENARIO::V_1_0::OpenScenarioImpl).name()));
+auto openScenario = std::static_pointer_cast<NET_ASAM_OPENSCENARIO::V_1_1::OpenScenarioImpl>(loader->Load(messageLogger)
+    ->GetAdapter(typeid(NET_ASAM_OPENSCENARIO::V_1_1::OpenScenarioImpl).name()));
 
 // Get the list of scenario objects
 auto scenarioObjects = openScenario->GetOpenScenarioCategory()->GetScenarioDefinition()
@@ -233,9 +233,9 @@ for (auto&& scenarioObject : scenarioObjects)
         {
             auto catalogRef = catalogReference->GetRef();
             // Now check the type.
-            if ( NET_ASAM_OPENSCENARIO::V_1_0::CatalogHelper::IsVehicle(catalogRef))
+            if ( NET_ASAM_OPENSCENARIO::V_1_1::CatalogHelper::IsVehicle(catalogRef))
             {
-                auto vehicle = NET_ASAM_OPENSCENARIO::V_1_0::CatalogHelper::AsVehicle(catalogRef);
+                auto vehicle = NET_ASAM_OPENSCENARIO::V_1_1::CatalogHelper::AsVehicle(catalogRef);
                 // Now you can access the resolved vehicle
                 auto axles = vehicle->GetAxles();
                 // get the additonal axles
@@ -264,7 +264,7 @@ OpenSCENARIO provide a mechanism to declare global parameters , right after the 
 [source,xml]
 ----
 <OpenSCENARIO>  
-  <FileHeader revMajor="1" revMinor="0" date="2020-07-24T10:00:00" description="Sample Scenario - parameter" author="ASAM"/>
+  <FileHeader revMajor="1" revMinor="1" date="2021-07-24T10:00:00" description="Sample Scenario - parameter" author="ASAM"/>
   <ParameterDeclarations>
       <ParameterDeclaration name="testBoolean" value="false" parameterType="boolean"/>
       <ParameterDeclaration name="testInteger" value="1" parameterType="integer"/>
@@ -308,13 +308,12 @@ Please be aware of the following restrictions
 Please see link:{levelToBaseDir}/cpp/applications/openScenarioTester/v1_0/src/TestInjectedParameters.h[TestInjectedParameters.h] for detailed tests on error handling.
 
 == General architectural aspects
-This article is about some fundamental aspects in the API's architecture. It may help to understand the intention behind the design decisions and also gives you a entry point in coding and integration
-issues.
+This article is about some fundamental aspects in the API's architecture. It may help to understand the intention behind the design decisions and also gives you a entry point in coding and integration issues.
 
 === Generative approach
 The backbone of the OpenSCENARIO API is represented by classes, enumerations and interfaces generated from a released OpenSCENARIO model. Therefore, the API is tightly coupled to the model.
 
-This paradigm makes the API highly consistent to the UML model. If we have a class in the UML model called `LaneChangeTarget` we will find a corresponding interface `ILaneChangeTarget` in the namespace `NET_ASAM_OPENSCENARIO::v1_0`. If this class has a property called `relativeTargetLane`, we can be sure that there is a corresponding getter in the interface which is called `GetRelativeTargetLane`. Consistently, if this model property `relativeTargetLane` is of the model type `RelativeTargetLane` the getter will return a result of `IRelativeTargetLane`.
+This paradigm makes the API highly consistent with the UML model. If we have a class in the UML model called `LaneChangeTarget` we will find a corresponding interface `ILaneChangeTarget` in the namespace `NET_ASAM_OPENSCENARIO::v1_1` or in the namespace `NET_ASAM_OPENSCENARIO::v1_1`. If this class has a property called `relativeTargetLane`, we can be sure that there is a corresponding getter in the interface which is called `GetRelativeTargetLane`. Consistently, if this model property `relativeTargetLane` is of the model type `RelativeTargetLane` the getter will return a result of `IRelativeTargetLane`.
 
 As an example: `ILaneChangeTarget`
 
@@ -339,10 +338,7 @@ class ILaneChangeTarget : public virtual IOpenScenarioModelElement
      * 
      * @return value of model property relativeTargetLane
     */
-    virtual std::shared_ptr<IRelativeTargetLane> GetRelativeTargetLane() const
-    {
-        return nullptr;
-    }
+    virtual std::shared_ptr<IRelativeTargetLane> GetRelativeTargetLane()  = 0;
 
     /**
      * From OpenSCENARIO class model specification:
@@ -350,10 +346,7 @@ class ILaneChangeTarget : public virtual IOpenScenarioModelElement
      * 
      * @return value of model property absoluteTargetLane
     */
-    virtual std::shared_ptr<IAbsoluteTargetLane> GetAbsoluteTargetLane() const
-    {
-        return nullptr;
-    }
+    virtual std::shared_ptr<IAbsoluteTargetLane> GetAbsoluteTargetLane() const = 0;
 
 
 };
@@ -361,11 +354,10 @@ class ILaneChangeTarget : public virtual IOpenScenarioModelElement
 
 This pattern is is applied to all classes, interfaces and enumerations of the model. Not even that, also the descriptions in the classes, interfaces, enumerations and properties are consistent with the model annotations from UML. The documentation in the javadoc is fully in synch with the annotations in the UML model. So, the generative approach offers great consistency with a single point of truth in the UML model rather than an imaginary 'copy and paste' consistency.
 
-This leads to great efficiency and a clean architecture where more than 95% of the source code is automatically generated. This elevates productivity with about 80,000 lines of code created for the cpp project and allows transfer to other platforms like C++. Transfer comes with a fair amount of initial work as well as for keeping the platforms in synch over time.
-
+This leads to great efficiency and a clean architecture where more than 95% of the source code is automatically generated. This elevates productivity with about 397,532 lines of code created for the cpp project and allows transfer to other platforms like C++. Transfer comes with a fair amount of initial work as well as for keeping the platforms in synch over time.
 
 === Don't-edit-generated-files policy
-All generated files are located in the `generated` folder. These files must not be edited manually. Moreover it is recommended to see RA Consulting GmbH or ASAM e.V. for changes in the generated code.
+All generated files are located in the `generated` folder. These files must not be edited manually. Moreover it is recommended to consult experienced developers if changes in the generated code are needed.
 
 === Generative approach and product dimensions
 
@@ -383,13 +375,25 @@ As described above, if code is generated consistently with the UML model, we hav
 
 === Version management and namespaces
 
-As said `versioning` is a dimension in our software product line and we better have strategies to support different versions of the standard with our software. Since we cannot rely on downward compatibility, there are different aspects when providing compatibility to multiple versions. E.g. to declare artifacts as _deprecated_ or we transparently map new versions to older versions. The OpenSCENARIO API relies heavily on namespaces for different versions. They provide maximum separation among the different version of the standard. In many cases data structures change. For example an `EntityAction` in version 1.0 might have some other semantic as `EntityAction` in version 2.0 (as said: we cannot foresee it). The OpenSCENARIO API's policy is that the complete set of artefacts (interfaces, classes, enumerations) are created for every single version. This means, that there is a `NET_ASAM_OPENSCENARIO::v1_0::IEntityAction` and another interface `NET_ASAM_OPENSCENARIO::v2_0::IEntityAction`. So, every version specific set of classes, enumeration and interfaces provided by the API is self-contained and completely independent from other versions. This has benefits and drawbacks. A benefit, as said, is that the different versions are greatly decoupled. Old versions are very stable and do not change over time. E.g. once released, `NET_ASAM_OPENSCENARIO::v1_0::IEntityAction` will not change. This means the domain knowledge, models and the API itself are snapshots of a released standard. As the domain knowledge evolves, this explicitly results in a new version of the standard, a new version of the model, and a new version of the API.
+As said `versioning` is a dimension in our software product line and we better have strategies to support different versions of the standard with our software. Since we cannot rely on downward compatibility, there are different aspects when providing compatibility to multiple versions. E.g. to declare artifacts as _deprecated_ or we transparently map new versions to older versions. The OpenSCENARIO API relies heavily on namespaces for different versions. They provide maximum separation among the different version of the standard. In many cases data structures change. For example an `EntityAction` in version 1.0 might have some other semantic as `EntityAction` in version 1.2 (as said: we cannot foresee it). The OpenSCENARIO API's policy is that the complete set of artefacts (interfaces, classes, enumerations) are created for every single version. This means, that there is a `NET_ASAM_OPENSCENARIO::v1_0::IEntityAction` and another interface `NET_ASAM_OPENSCENARIO::v1_1::IEntityAction`. So, every version specific set of classes, enumeration and interfaces provided by the API is self-contained and completely independent from other versions. This has benefits and drawbacks. A benefit, as said, is that the different versions are greatly decoupled. Old versions are very stable and do not change over time. E.g. once released, `NET_ASAM_OPENSCENARIO::v1_0::IEntityAction` will not change. This means the domain knowledge, models and the API itself are snapshots of a released standard. As the domain knowledge evolves, this explicitly results in a new version of the standard, a new version of the model, and a new version of the API.
 
 
 === Drawback of separating versions
 
 The drawback is that with every new version, we have to deal with a complete new set of artefacts. Once we have used `NET_ASAM_OPENSCENARIO::v1_0::IEntityAction` in our program and the semantics have not changed for version 2.0, we don't wanna integrate `NET_ASAM_OPENSCENARIO::v2_0::IEntityAction` in the same way. And it's even worse when we have a new set of 200+ interfaces. As we expect that there *are only a few semantic changes*, let's say in 10% of the classes, integrating a complete set of new classes might be an effort that does not justify the amount of work.
+Fortunately, integrating a new version of the standard in the client code, that is downward compatible to an previous one is very simple. Just replace the name-spaces and the include versions. Use `NET_ASAM_OPENSCENARIO::v1_1` instead of `NET_ASAM_OPENSCENARIO::v1_0` and use
 
+[source,cpp]
+----
+#include "ApiClassInterfacesV1_1.h"` 
+----
+
+instead of 
+
+[source,cpp]
+----
+#include "ApiClassInterfacesV1_0.h"
+----
 
 === Compile time support and generic interface
 
@@ -412,7 +416,7 @@ IOpenScenarioFlexElement flexElement=
 
 So, these two methods deliver the exact same object instance when applied to the same parent object. The main and important difference is that the second example could also return a `NET_ASAM_OPENSCENARIO::v1_2::IFileHeader` in the future, if `OscConstants.ELEMENT__FILE_HEADER` is still supported for version 1.2.
 
-The next lines of code are still valid when the UML class `FileHeader` does not change from version 1.0 to version 1.2.
+The next lines of code are still valid when the UML class `FileHeader` does not incompatibly changes from version 1.0 to version 1.2.
 
 [source,cpp]
 ----
@@ -429,9 +433,8 @@ std::string description = flexElement.GetStringProperty(OscConstants.ATTRIBUTE__
 Consider to use the https://en.wikipedia.org/wiki/Adapter_pattern[Adapter-pattern] before you integrate the API in your source code. As an alternative, contribute a set of adapters to the project in the future and make the adopters available for all OpenSCENARIO programmers.
 
 == Tutorial on checker rules
-This tutorial assists when implementing our own checker rules and apply
-them to a loaded tree. It applies to the C++ platform and shows the
-overall principles.
+This tutorial assists when implementing our own checker rules and apply them to a loaded tree.
+It applies to the C++ platform and shows the overall principles.
 
 === Checker rules 
 Checker rules are constraints on model object instances that are either defined implicitly in the standard or can be adopted to our own needs. Whenever we want to ensure authoring rules and guidelines that apply for our company or our partners, the checker rules API is a good choice to implement our own validation. With a minimal effort, we will implement our own checker rules, add it to a checker and start the validation of our loaded tree. A message logger will pick up any violation to our given rules with the exact location pointing to the original file. This tutorial will show how to write our own checker rules.
@@ -442,103 +445,90 @@ The backbone of the checker rules API is the interface `ICheckerRule`. By implem
 
 [source,cpp]
 ----
-class CheckerRule
-{
-    public:
-        virtual  ~CheckerRule() = default;
-};
-
-/**
- * This represents a rule that can be applied to any model object instance.
- * It implements the command pattern. The rule is added to the type and applyRule
- * is executed when the object has been filled.
- *
- */
-template <class T>
 class ICheckerRule: public CheckerRule
 {
-    public:
-        ICheckerRule() = default;
-        virtual  ~ICheckerRule() = default;
-        virtual void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<T> object) {}
+  public:
+    ICheckerRule() = default;
+    virtual  ~ICheckerRule() = default;
+    virtual void ApplyRuleInFileContext(
+      std::shared_ptr<IParserMessageLogger> messageLogger, 
+      std::shared_ptr<IOpenScenarioModelElement> object) = 0;
+      
+    virtual void ApplyRuleInTreeContext(
+      std::shared_ptr<ITreeMessageLogger> messageLogger, 
+      std::shared_ptr<IOpenScenarioModelElement> object) = 0;
 };
 ----
 
 ==== First example
 
-Our first example will show, how to ensure that the major revision is always 1 and the minor revision is always 0. If this rule is violated, a warning is issued.
+Our first example will show, how to ensure that the major revision is always 1 and the minor revision is always 1. If this rule is violated, a warning is issued.
 
 ===== Implementing the ICheckerRule interface
 
-The first step is to define a class `VersionCheckerRule` that implements the `ICheckerRule` with the generic type `IFileHeader`. `IFileHeader` is the model type where to access the `majorRev` and the `minorRev`property.
+The first step is to define a class `VersionCheckerRule` that implements the `ICheckerRule`. is the model type where to access the `majorRev` and the `minorRev`property.
+
+Remark: In previous API versions the ICheckerRule was implemented as an generic class where the generic type was the type to check (like `IFileHeader` here). It turned out that the compiler needs many resources when working with generic classes and ehen adding different levels of generic classes, things get even worse. For the OSC API version 1.2.0, generic classes where widely eliminated. As an alternative, now the base class `IOpenScenarioModelElement` is used and the user has to cast it into the target class (`IFileHeader` here). So litereally, typing was moved from design time to runtime. This improved the use of compiler resources (memory, time) tremendously. 
 
 As we want to use this class for any combination of expected major revisions and minor revisions, we hand over the expected major revision and the expected minor revision to the constructor and store them in the instance.
 
 [source,cpp]
 ----
-class VersionCheckerRule: public ICheckerRule<IFileHeader> 
+class VersionCheckerRule: public ICheckerRule 
 {
-    private:
-        int _majorRev;
-        int _minorRev;
+  private:
+    int _majorRev;
+    int _minorRev;
 
-    public:
-        /**
-         * @param majorRev The expected major revision
-         * @param minorRev The expected minor revision
-         */
-        VersionCheckerRule(const int majorRev, const int minorRev): _majorRev(majorRev), _minorRev(minorRev) {}
+    ...
+    ...
+  
+  public:
+    /**
+    * @param majorRev The expected major revision
+    * @param minorRev The expected minor revision
+    */
+    VersionCheckerRule(const int majorRev, const int minorRev);
 
-        ...
+    ...
 };
 ----
 
-The class must implement the `applyRule` method. Please note that the generic parameter type of object is now realized with the type `IFileHeader`.
+The class must implement the `ApplyRuleInFileContext` method. Beside applying checker rule in the constext of a file source where lines and columns are provided, there is an additional method to apply checker rules in the context of a tree in the memory `ApplyRuleInTreeContext`. In this case there are no lines and columns to pinpoint the location of the error.
+
+Let's use `ApplyRuleInFileContext` in our example.
 
 [source,cpp]
 ----
-void ApplyRule(
-    std::shared_ptr<IParserMessageLogger>& messageLogger,
-    std::shared_ptr<IFileHeader> object) override
-{
-    ...
-}
-
+void ApplyRuleInFileContext(
+  std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
 ----
 
 At this point, we are ready to implement our checks. First, let's get the major revision and the minor revision from the `object` and store them in local variables:
 
 [source,cpp]
 ----
-void ApplyRule(std::shared_ptr<IParserMessageLogger>& messageLogger, std::shared_ptr<IFileHeader> object) override
+void VersionCheckerRule::ApplyRuleInFileContext(
+  std::shared_ptr<IParserMessageLogger> messageLogger,
+  std::shared_ptr<IOpenScenarioModelElement> object)
 {
-    if (!object) return;
-
-    const auto kRevMajor = object->GetRevMajor();
-    const auto kRevMinor = object->GetRevMinor();
-
+  if (!IsRevValid(object))
+  {
     ...
+    // Issue a warning
+  }
 }
-----
 
-Now compare them with the expected values:
-
-[source,cpp]
-----
-void ApplyRule(
-    std::shared_ptr<IParserMessageLogger>& messageLogger,
-    std::shared_ptr<IFileHeader> object) override
+bool VersionCheckerRule::IsRevValid(std::shared_ptr<IOpenScenarioModelElement> object)
 {
-    if (!object) return;
+  if (!object) return false;
 
-    const auto kRevMajor = object->GetRevMajor();
-    const auto kRevMinor = object->GetRevMinor();
+  auto typedObject = std::dynamic_pointer_cast <IFileHeader> (object);
 
-    if (kRevMajor != _majorRev || kRevMinor != _minorRev) 
-    {
-        .....
+  const auto kRevMajor = typedObject->GetRevMajor();
+  const auto kRevMinor = typedObject->GetRevMinor();
 
-    }
+  return kRevMajor == _majorRev && kRevMinor == _minorRev;
 }
 ----
 
@@ -546,61 +536,29 @@ When we issue a warning, we have the great possibility to add locations. The use
 
 [source,cpp]
 ----
-void ApplyRule(
-    std::shared_ptr<IParserMessageLogger>& messageLogger,
-    std::shared_ptr<IFileHeader> object) override
+void VersionCheckerRule::ApplyRuleInFileContext(
+  std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
 {
-    if (!object) return;
+  if (!IsRevValid(object))
+  {
+    auto locator = std::static_pointer_cast<ILocator>(object->GetAdapter(typeid(ILocator).name()));
 
-    const auto kRevMajor = object->GetRevMajor();
-    const auto kRevMinor = object->GetRevMinor();
-
-    if (kRevMajor != _majorRev || kRevMinor != _minorRev) 
+    if (locator)
     {
-        auto locator = 
-            std::static_pointer_cast<ILocator>(object->GetAdapter(typeid(ILocator).name()));
-
-        ...
-
+      auto msg = FileContentMessage(GetMsg(), WARNING, locator->GetStartMarker());
+      messageLogger->LogMessage(msg);
     }
+  }
 }
-----
 
-1Please note, there might be objects that do not support the `ILocator` adapter. E.g. when the scenario is loaded from a binary file instead of an XML file. In this case, no text line information and no column information would be available. If we are loading our files from XML, we do not have to pay attention to this fact.
-
-The only thing that we are still missing is the warning to be issued. We are adding an instance of a `FileContentMessage` with a message, an error level and a textmarker.
-
-[source,cpp]
-----
-void ApplyRule(
-    std::shared_ptr<IParserMessageLogger>& messageLogger, 
-    std::shared_ptr<IFileHeader> object) override
+std::string VersionCheckerRule::GetMsg()
 {
-    if (!object) return;
-
-    const auto kRevMajor = object->GetRevMajor();
-    const auto kRevMinor = object->GetRevMinor();
-
-    if (kRevMajor != _majorRev || kRevMinor != _minorRev) 
-    {
-        auto locator = 
-            std::static_pointer_cast<ILocator>(object->GetAdapter(typeid(ILocator).name()));
-
-        if (locator) 
-        {
-            auto msg = FileContentMessage(
-                "Major revision and minor revision are expected to be " 
-                    + std::to_string(_majorRev) 
-                    + " and " 
-                    + std::to_string(_minorRev), 
-                WARNING, 
-                locator->GetStartMarker());
-            messageLogger->LogMessage(msg);
-        }
-
-    }
+  return "Major revision and minor revision are expected to be " + std::to_string(_majorRev) + " and " + std::to_string(_minorRev);
 }
+
 ----
+
+Please note, there might be objects that do not support the `ILocator` adapter. E.g. when the scenario is loaded from a binary file instead of an XML file. In this case, no text line information and no column information would be available. If we are loading our files from XML, we do not have to pay attention to this fact.
 
 That's it. Our checker is now ready to be used.
 
@@ -613,12 +571,13 @@ With our checker ready to be used, we can apply the checker rule to a loaded `IO
 // the root of the tree is available in the IOpenScenario openScenario variable
 // Instantiate a checker now
 
-NET_ASAM_OPENSCENARIO::v1_0::ScenarioCheckerImpl scenarioChecker;
+ScenarioCheckerImpl scenarioChecker;
 
 // The sceanrio checker provided a method for every model type (here IFileHeader) to add
 // CheckerRule
 
-scenarioChecker.AddFileHeaderCheckerRule(std::make_shared<NET_ASAM_OPENSCENARIO::v1_0::VersionCheckerRule>(1, 0));
+scenarioChecker.AddFileHeaderCheckerRule(std::make_shared<VersionCheckerRule>(1, 1));
+
 
 // Create a message logger to pick up the messages
 
@@ -627,74 +586,65 @@ auto simpleMessageLogger =
         NET_ASAM_OPENSCENARIO::ErrorLevel::INFO);
 
 // Now call the checkScenario method to check the tree
-scenarioChecker.CheckScenario(simpleMessageLogger, openScenario);
+scenarioChecker.CheckScenarioInFileContext(simpleMessageLogger, openScenario);
 
 // Now check the picked up messages
 for (auto&& message : simpleMessageLogger->GetMessages()) 
 {
-    (void)message;
-    
-    // do somethong with the messaged that are picked up during the check
+  (void)message;
+  // do something with the messaged that are picked up during the check
 }
-
 ----
 
 We do not need to traverse through the tree and search for instances. The scenario checker sequentially applies the rule to any instance of the designated type we realized in our checker rule (here `IFileHeader`). In our example it is obvious that only one instance of `IFileHeader` exists in the tree. For other types like `IAct`, `IEvent` etc. many instances may available in the tree and every instance is checked.
 
 ==== Example: ensure "Ego" is defined in the scenario.
 
-This example shows how to ensure that a scenario object with the name "Ego" is defined. Otherwise an error is issued. There is definitely a little bit more work to do here, but it should be straight forward after completing the example above. Obviously `IEntities` (with its instances of `IScenarioObject`) is the right type to check.
+This example shows how to ensure that a scenario object with the name "Ego" is defined. Otherwise an error is issued. There is definitely a little bit more work to do here, but it should be straight forward after completing the example above. Obviously `IEntities` (with its instances of `IScenarioObject`) is the right type to check. So, we create the `EgoCheckerRule` and implement the `ApplyRuleInFileContext` 
 
 [source,cpp]
 ----
-class EgoCheckerRule: public
-    NET_ASAM_OPENSCENARIO::ICheckerRule<NET_ASAM_OPENSCENARIO::v1_0::IEntities> 
+void EgoCheckerRule::ApplyRuleInFileContext(std::shared_ptr<NET_ASAM_OPENSCENARIO::IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
 {
-    ...
-};
-----
+  auto typedObject = std::dynamic_pointer_cast<IEntities>(object);
 
-The `ApplyRule` looks like this:
+  if (!IsEgoDefined(typedObject))
+  {
+	auto locator = std::static_pointer_cast<NET_ASAM_OPENSCENARIO::ILocator>(object->GetAdapter(typeid(NET_ASAM_OPENSCENARIO::ILocator).name()));
+	if (locator)
+	{
+	  auto msg = NET_ASAM_OPENSCENARIO::FileContentMessage("No ego vehicle defined", NET_ASAM_OPENSCENARIO::ErrorLevel::ERROR, locator->GetStartMarker());
+	  messageLogger->LogMessage(msg);
+	}
 
-[source,cpp]
-----
-void ApplyRule(
-    std::shared_ptr<NET_ASAM_OPENSCENARIO::IParserMessageLogger>& messageLogger, std::shared_ptr<NET_ASAM_OPENSCENARIO::v1_0::IEntities> object
-    ) override
+  }
+}
+
+bool EgoCheckerRule::IsEgoDefined(std::shared_ptr<IEntities> object) const
 {
-    bool isEgoDefined = false;
+  bool isEgoDefined = false;
 
-    // We are adding the validation code here
-    
-    auto scenarioObjects = object->GetScenarioObjects();
-    
-    if (!scenarioObjects.empty()) 
-    {
-        for ( auto&& scenarioObject : scenarioObjects) 
-        {
-            auto name = scenarioObject->GetName();
-            for (std::string::iterator it = name.begin(); it != name.end(); ++it)
-                *it = std::tolower(*it, std::locale());
-            if (name == "ego")
-            {
-                isEgoDefined = true;
-                break;
-            }
-        }
-    }
+  // We are adding the validation code here
+  auto scenarioObjects = object->GetScenarioObjects();
+  if (object->GetScenarioObjectsSize() != 0)
+  {
+	for (auto&& scenarioObject : scenarioObjects)
+	{
+	  auto name = scenarioObject->GetName();
+	  for (std::string::iterator it = name.begin(); it != name.end(); ++it)
+		*it = std::tolower(*it, std::locale());
+	  if (name == "ego")
+	  {
+		isEgoDefined = true;
+		break;
+	  }
+	}
+  }
 
-    if (!isEgoDefined) 
-    {
-        auto locator = std::static_pointer_cast<NET_ASAM_OPENSCENARIO::ILocator>(object->GetAdapter(typeid(NET_ASAM_OPENSCENARIO::ILocator).name()));
-        if (locator) 
-        {
-            auto msg = NET_ASAM_OPENSCENARIO::FileContentMessage("No ego vehicle defined", NET_ASAM_OPENSCENARIO::ErrorLevel::ERROR, locator->GetStartMarker());
-            messageLogger->LogMessage(msg);
-        }
-        
-    }
+  return isEgoDefined;
 }
 ----
+
 
 The rule is added by
 
@@ -708,14 +658,17 @@ scenarioChecker.AddEntitiesCheckerRule(std::make_shared<EgoCheckerRule>());
 
 As we've seen in the examples, many useful checkings may apply to an OpenSCENARIO model instance. Unfortunately, OpenSCENARIO defines relatively few constraints in the model or in the user guide (respectively there is no explicit checker rule concept but a lot of implicit constraints in the user guide). Nevertheless, some checkings are essential and the checker rule API is the tool to ensure these rules.
 
-Some examples: - Ensure a naming convention for the object names (e.g. ensure camel-case notation) - Ensure unique naming in a list of objects (e.g. unique names for scenario objects, so "ego" cannot be defined twice. Unique names of evens in a maneuver, etc.) - Other constraints that are not explicitly defined in the standard but reduce ambiguity. 
+Some examples: 
+- Ensure a naming convention for the object names (e.g. ensure camel-case notation) 
+- Ensure unique naming in a list of objects (e.g. unique names for scenario objects, so "ego" cannot be defined twice. Unique names of evens in a maneuver, etc.) 
+- Other constraints that are not explicitly defined in the standard but reduce ambiguity. 
 
 === Range checker rules - Built-in validation for ranges 
 Defining a primitive datatype like `unsigned int` or `double` does already represent an important constraint when a property of a class is defined. Many properties have further range constraints that are documented in the annotations of the properties e.g. the property `delay` in the model class `Condition` must be zero or greater than zero. The annotation says about the property `delay` that is of type `double`: 'Time elapsed after the edge condition is verified, until the condition returns true to the scenario. Unit: s; Range: [0..inf[.' The OpenSCENARIO API defines all the range properties as built-in checker rules that can be applied by any user of the library.
 
 Please see these corresponding classes if you are interested in the details:
 
-* NET_ASAM_OPENSCENARIO::v1_0::RangeCheckerHelper;
+* NET_ASAM_OPENSCENARIO::v1_1::RangeCheckerHelper;
 * TestRangeChecker
 
 
@@ -752,13 +705,20 @@ For systems with terminal / console access only, cmake provides a ncurses termin
 In this document we focus on building the OpenSCENARIO binaries from its C++ source code using `cmake`, `cmake-gui`, and `ccmake`.
 A great starting point for more information on `cmake` is the http://https://cmake.org/overview/[cmake website].
 
+=== A note to cmake prior to version 3.19
+As cmake experienced a dramatic change from version \<= 3.18 to >= 3.19 where presets were introduced we have two sections for building with cmake:
+
+* <<BuildingWithCmakeVersionLe3.18,Building with cmake version \<= 3.18>>
+* <<BuildingWithCmakeVersionGe3.19,Building with cmake version >= 3.19>>
+
 === System requirements
 In order to build OpenSCENARIO on your system the following requirements have to be fulfilled:
 
 ==== All systems
 * Disk space available >= 4 GB
 * Main memory >= 8 GB
-* cmake >= 3.19
+* cmake \<= 3.18 (build via command line and restricted cmake-gui)
+* cmake >= 3.19 (comfortable build via command line and cmake-gui)
 * a working copy of the OpenSCENARIO sources
 
 ==== Linux
@@ -771,7 +731,78 @@ $ sudo apt install uuid-dev
 ----
 
 ==== Windows
-* Visual Studio 2015 or later (2022 is supported, too)
+* Visual Studio 2010 or later (2022 is supported, too)
+
+[[BuildingWithCmakeVersionLe3.18]]
+== Building with cmake version \<= 3.18
+
+If your cmake version is older than 3.19 then cmake does not know the concept of "presets" and consequently cmake-gui is missing the "Preset" entry as seen in the two images below.
+
+.cmake-gui missing the "Preset" element.
+image:images/oscCgNoPreset.png[cmake_gui,width=720,float="center",align="center"]
+
+.cmake-gui with "Preset" element.
+image:images/oscCgPreset.png[cmake_gui,width=720,float="center",align="center"]
+
+=== Build scripts for Linux and Windows
+You still can use older versions of cmake but in order to work properly you have to build the project files manually using our command line tool `generateLinux.sh` for Linux and `generateWindows.bat` for Windows.
+Both scripts are located in `openscenario.api.test/cpp/buildArtifact`.
+
+==== Build script for Linux
+The script has to be executed in the folder `openscenario.api.test/cpp/buildArtifact`.
+For example the commands for building and compiling shared objects and binaries will look like that:
+[source,bash]
+----
+$ cd openscenario.api.test/cpp/buildArtifact
+$ ./generateLinux.sh shared release make
+----
+This will create in the `openscenario.api.test/cpp/build` folder the following two directories:
+
+* `cgReleaseMakeShared` containing the Linux Makefiles for building the binaries and
+* `output/Linux_Shared/Release` where the compiled libraries and executables are located.
+
+The general command has the following options:
+[source,bash]
+----
+$ ./generateLinux.sh (all [release] [parallel]) | ([release|debug] [shared|static] [make [parallel]])
+----
+
+Option `all [release] [parallel]` builds and compiles static and shared as well as release and optional debug versions of OpenSCENARIO in parallel.
+On the other hand you can build and optionally compile individual versions of OpenSCENARIO, e.g.:
+[source,bash]
+----
+$ ./generateLinux.sh release shared
+----
+
+This command for example creates only the Makefiles for the release and dynamically linked version.
+
+==== Build script for Windows
+The Windows version of the script is similar to the Linux version with some changes in the options.
+For example the commands for build project files for Visual Studio 2019 x64 shared release look like this:
+[source,cmd]
+----
+>cd openscenario.api.test\cpp\build
+>generateWindows.bat VS2019 x64 shared release
+----
+The general command has the following options:
+[source,cmd]
+----
+>generateWindows.bat (all (VS2010|...|VS2022) [release] [shared|static] [Win32|x64]) |
+((VS2010|...|VS2022) [release|debug] [shared|static] [Win32|x64] [make])
+----
+Option `all [VS2019] [release]` builds project files for Visual Studio 2019 (Visual Studio 2017 is the default if the parameter VS2019 is omitted) and compiles static and shared as well as release and optional debug versions of OpenSCENARIO in parallel.
+On the other hand you can build and optionally compile individual versions of OpenSCENARIO, e.g.:
+[source,cmd]
+----
+>generateWindows.bat VS2019 x64 shared release [make]
+----
+
+[NOTE]
+Supported are VS2010 up to VS2022 and all editions like Community or Enterprise etc.
+
+[[BuildingWithCmakeVersionGe3.19]]
+== Building with cmake version >= 3.19
+
 
 === Building on Windows with cmake-gui target Visual Studio
 Start the `cmake-gui` application then a similar window like the one shown below will show up:
@@ -832,11 +863,11 @@ This time the button "Open Project" stays disable as we just created Makefiles p
 For our example the default would be to go to the directory `<your osc base dir>/cpp/build/cgReleaseMakeShared`.
 
 [[BuildingOnLinux]]
-Type `make` to build the OpenSCENARIO binaries or `make -j8` for parallel building (recommended).
+Type `make` to build the OpenSCENARIO binaries or `make -j8` for parallel building (recommended but requires 16 GB of main memory).
 
 The image below shows a Linux terminal with an example output generated by make compiling the OpenSCENARIO sources.
 
-image:images/oscMakeLin.png[cmake_gui,width=720,float="center",align="center"]
+image:images/oscMakeLin.png[make_output,width=720,float="center",align="center"]
 
 === Testing the binaries
 Now it is time to test the binaries built so far.
@@ -848,8 +879,15 @@ Lets first start with Windows.
 Here we have two possibilities to start the test for checking the binaries: via Visual Studio or via command line.
 
 ===== Via Visual Studio
-Here we have a already preselected the startup project "OpenScenarioTester".
-Just launch the startup project via pressing <ctrl> + <F5> or via Visual Studio's menu "Debug" -> "Start Without Debugging".
+We provide three tests:
+
+* OpenScenarioTester
+* ExpressionsTester
+* IndexerTester
+
+====== OpenScenarioTester
+As an initial test we have already pre-selected the startup project "OpenScenarioTester".
+Just launch the startup project via pressing <ctrl> + <F5> or via Visual Studio´s menu "Debug" -> "Start Without Debugging".
 In both cases a console window with the following output should appear:
 
 [source,cmd]
@@ -859,19 +897,64 @@ Minor Revision :9
 XML_ERROR_PARSING
 XML_ERROR_MISMATCHED_ELEMENT
 Ego has 2 axles (front, rear)
+Major Revision :0
+Minor Revision :9
+XML_ERROR_PARSING
+XML_ERROR_MISMATCHED_ELEMENT
+Ego has 2 axles (front, rear)
+----
+
+====== ExpressionsTester
+You can switch the current active project--for example to ExpressionsTester--by clicking with the right mouse button in the `Solution Explorer` on the project "ExpressionsTester" and choose "Set as Startup Project" (highlighted in green) as seen in the screenshot below:
+
+image:images/oscVS2019SelectStartupProject.png[cmake_gui,width=720,float="center",align="center"]
+
+Launch the project again with <ctrl> + <F5> and examine the output in the console window.
+The last lines of the output should look like this:
+
+[source,cmd]
+----
+Running test with id '84':
+Test with id '84' successful.
+
+Running test with id '85':
+Test with id '85' successful.
+
+Running test with id '86':
+Test with id '86' successful.
+----
+
+====== IndexerTester
+To test the "IndexerTester" select its project in the `Solution Explorer` and set it as the startup project analogue to the described procedure above.
+Now start again with <ctrl> + <F5>.
+This time the console window should show the following output:
+
+[source,cmd]
+----
+81: (117, 6) - (117, 59)
+82: (118, 6) - (118, 29)
+83: (119, 6) - (119, 26)
+84: (120, 6) - (120, 45)
+85: (121, 6) - (124, 32)
+86: (126, 3) - (126, 10)
 ----
 
 ===== Windows command line
 When testing via command line open a Windows command line prompt (cmd).
 Then navigate to the output folder, e.g. if you have selected the preset "VS2019 x64 shared" then the output folder is
 `openscenario.api.test\cpp\build\x64_shared\[Debug|Release]`.
-Just change directory to that folder and start the test:
+Just change directory to that folder and start the three tests:
 
+====== OpenScenarioTester
 [source,cmd]
 ----
 >cd /d <full path to your osc folder>\openscenario.api.test\cpp\build\x64_shared\[Debug|Release]
 >OpenScenarioTester.exe
-
+Major Revision :0
+Minor Revision :9
+XML_ERROR_PARSING
+XML_ERROR_MISMATCHED_ELEMENT
+Ego has 2 axles (front, rear)
 Major Revision :0
 Minor Revision :9
 XML_ERROR_PARSING
@@ -880,16 +963,49 @@ Ego has 2 axles (front, rear)
 >
 ----
 
+====== ExpressionsTester
+[source,cmd]
+----
+>ExpressionsTester.exe
+[...]
+Running test with id '84':
+Test with id '84' successful.
+
+Running test with id '85':
+Test with id '85' successful.
+
+Running test with id '86':
+Test with id '86' successful.
+----
+
+====== IndexerTester
+[source,cmd]
+----
+>IndexerTester.exe
+[...]
+81: (117, 6) - (117, 59)
+82: (118, 6) - (118, 29)
+83: (119, 6) - (119, 26)
+84: (120, 6) - (120, 45)
+85: (121, 6) - (124, 32)
+86: (126, 3) - (126, 10)
+----
+
 ==== Testing on Linux
 On Linux we already on console and can change directory directly.
 E.g. you have selected the preset "Linux shared release" then your output folder is `openscenario.api.test/cpp/build/output/Linux_shared/Release`.
 As you should be already in `openscenario.api.test/cpp` just do the following:
 
+===== OpenScenarioTester
 [source,bash]
 ----
 $ cd build/output/Linux_shared/Release
 $ ./OpenScenarioTest
-
+Major Revision :0
+Minor Revision :9
+XML_ERROR_PARSING
+XML_ERROR_MISMATCHED_ELEMENT
+Ego has 2 axles (front, rear)
 Major Revision :0
 Minor Revision :9
 XML_ERROR_PARSING
@@ -897,9 +1013,38 @@ XML_ERROR_MISMATCHED_ELEMENT
 Ego has 2 axles (front, rear)
 ----
 
+===== ExpressionsTester
+[source,bash]
+----
+$ ./ExpressionsTester
+[...]
+Running test with id '84':
+Test with id '84' successful.
+
+Running test with id '85':
+Test with id '85' successful.
+
+Running test with id '86':
+Test with id '86' successful.
+----
+
+===== IndexerTester
+[source,bash]
+----
+$ ./IndexerTester
+[...]
+81: (117, 6) - (117, 59)
+82: (118, 6) - (118, 29)
+83: (119, 6) - (119, 26)
+84: (120, 6) - (120, 45)
+85: (121, 6) - (124, 32)
+86: (126, 3) - (126, 10)
+----
+
+[[BuildingOnConsoleTerminal]]
 === Building on console / terminal
 You can also easily build OpenSCENARIO on systems with console access only.
-But before we dive into that we will have a short excursion to cmake's `presets` as we will need them on the command line.
+But before we dive into that we will have a short excursion to cmake´s `presets` as we will need them on the command line.
 
 ==== Presets in cmake
 As you might have noticed we used `presets` already in cmake-gui for configuration, like the two we have seen so far: "VS2019 x64 shared" for Windows and "Linux shared release" for Linux.
@@ -1086,19 +1231,19 @@ After successful compilation you should see an output similar to this (shortened
 
 [source,bash]
 ----
-[ 97%] Building CXX object openScenarioLib/v1_0/CMakeFiles/OpenScenarioLib.dir/generated/xmlParser/XmlParsers1.cpp.o
-[ 97%] Building CXX object openScenarioLib/v1_0/CMakeFiles/OpenScenarioLib.dir/generated/xmlParser/XmlParsers2.cpp.o
-[ 98%] Building CXX object openScenarioLib/v1_0/CMakeFiles/OpenScenarioLib.dir/generated/xmlParser/XMLParser.cpp.o
+[ 97%] Building CXX object openScenarioLib/CMakeFiles/OpenScenarioLib.dir/generated/xmlParser/XmlParsers1.cpp.o
+[ 97%] Building CXX object openScenarioLib/CMakeFiles/OpenScenarioLib.dir/generated/xmlParser/XmlParsers2.cpp.o
+[ 98%] Building CXX object openScenarioLib/CMakeFiles/OpenScenarioLib.dir/generated/xmlParser/XMLParser.cpp.o
 [ 98%] Linking CXX executable ../../../output/Linux_static/Debug/IndexerTester
-[ 98%] Building CXX object openScenarioLib/v1_0/CMakeFiles/OpenScenarioLib.dir/generated/xmlParser/XMLLexer.cpp.o
-[ 98%] Building CXX object openScenarioLib/v1_0/CMakeFiles/OpenScenarioLib.dir/src/loader/XmlScenarioLoader.cpp.o
+[ 98%] Building CXX object openScenarioLib/CMakeFiles/OpenScenarioLib.dir/generated/xmlParser/XMLLexer.cpp.o
+[ 98%] Building CXX object openScenarioLib/CMakeFiles/OpenScenarioLib.dir/src/loader/XmlScenarioLoader.cpp.o
 [ 98%] Built target IndexerTester
 [ 99%] Linking CXX static library ../../../output/Linux_static/Debug/libOpenScenarioLib.a
 [ 99%] Built target OpenScenarioLib
-[100%] Building CXX object applications/openScenarioReader/v1_0/CMakeFiles/OpenScenarioReader.dir/src/OpenScenarioReader.cpp.o
-[100%] Building CXX object applications/openScenarioTester/v1_0/CMakeFiles/OpenScenarioTester.dir/src/OpenScenarioTester.cpp.o
-[100%] Building CXX object applications/openScenarioReader/v1_0/CMakeFiles/OpenScenarioReader.dir/__/__/__/externalLibs/TinyXML2/tinyxml2.cpp.o
-[100%] Building CXX object applications/openScenarioTester/v1_0/CMakeFiles/OpenScenarioTester.dir/__/__/__/externalLibs/TinyXML2/tinyxml2.cpp.o
+[100%] Building CXX object applications/openScenarioReader/CMakeFiles/OpenScenarioReader.dir/src/OpenScenarioReader.cpp.o
+[100%] Building CXX object applications/openScenarioTester/CMakeFiles/OpenScenarioTester.dir/src/OpenScenarioTester.cpp.o
+[100%] Building CXX object applications/openScenarioReader/CMakeFiles/OpenScenarioReader.dir/__/__/__/externalLibs/TinyXML2/tinyxml2.cpp.o
+[100%] Building CXX object applications/openScenarioTester/CMakeFiles/OpenScenarioTester.dir/__/__/__/externalLibs/TinyXML2/tinyxml2.cpp.o
 [100%] Linking CXX executable ../../../../output/Linux_static/Debug/OpenScenarioReader
 [100%] Linking CXX executable ../../../../output/Linux_static/Debug/OpenScenarioTester
 [100%] Built target OpenScenarioReader
@@ -1161,9 +1306,10 @@ If generate was successful then ccmake will quit to console.
 According to our example you may go now to the folder `cpp/build/cgDebugMakeStatic` and build the binaries.
 
 [NOTE]
-You cannot use the build preset as you modified the settings and when using the presets your settings will be overwritten.
+You crtinnot use the build preset as you modified the settings and when using the presets your settings will be overwritten.
 
-==== command line steps condensed
+[[CommandLineStepsCondensed]]
+==== Command line steps condensed
 The necessary steps to setup the OpenSCENARIO build environment for console / terminal are shown in short form as follows:
 
 [source,bash]
@@ -1175,7 +1321,7 @@ $ cmake --build --list-presets              # List available build presets for l
 $ cmake --build --preset="<build-preset>"   # Select a preset and compile the sources
 $ ccmake <path project files folder>        # Bring up ncurses frontend, to re-configure
                                             # and re-generate project files
-
+ 
 $ cd <your project files folder>            # Go to the re-generated project files
 $ make                                      # Manually compile the sources
 ----

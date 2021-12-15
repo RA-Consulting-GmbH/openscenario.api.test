@@ -15,11 +15,22 @@
  * limitations under the License.
  */
 
+#ifdef WIN32
+#   include <direct.h>
+#   define GETCWD _getcwd
+#   define OS_PATH_MAX _MAX_PATH
+#elif defined (__linux__) || defined (__APPLE__)
+#   include <unistd.h>
+#   define GETCWD getcwd
+#   define OS_PATH_MAX PATH_MAX
+#else
+#   error "Operating system not supported."
+#endif
+
 #include <iostream>
 #include "MemLeakDetection.h"
 #include "PositionIndex.h"
 #include "XMLLexer.h"
-#include "../../../openScenarioLib/common/loader/ResourceNotFoundException.h"
 #include "XMLParser.h"
 
 void Dump(PositionIndex& positionIndex, int& index)
@@ -34,21 +45,14 @@ void TestBooks()
 {
     try 
     {
-#ifdef _WINDOWS
-     std::string filePath = "../../../../../applications/openScenarioReader/res/indexer/books.xml";
-#elif defined(__unix__) && defined(__linux__)
-     std::string filePath = "../../../../applications/openScenarioReader/res/indexer/books.xml";
-#elif defined(__APPLE__)
-    std::string filePath = "../../../../applications/openScenarioReader/res/indexer/books.xml";
-#else
-# error "IndexerTester: Unknown OS"
-#endif
-
+        char cwdBuffer[OS_PATH_MAX];
+		std::string filePath = "TestResources/IndexerTester/books.xml";
+		std::string currentPath = std::string(GETCWD(cwdBuffer, OS_PATH_MAX));
         std::ifstream infile(filePath, std::ios::binary);
         if (infile.bad() || infile.fail())
         {
-            auto msg = "File " + filePath + " not found";
-            throw ResourceNotFoundException(msg);
+            auto msg = "File " + filePath + " not found. Current Path: '" + currentPath + "'";
+            throw std::runtime_error(msg);
         }
 
         // read data as a block:
@@ -75,7 +79,7 @@ void TestBooks()
         }
 
     }
-    catch ( ResourceNotFoundException& e) 
+    catch (std::runtime_error & e)
     {
         std::cout << e.what();
     }

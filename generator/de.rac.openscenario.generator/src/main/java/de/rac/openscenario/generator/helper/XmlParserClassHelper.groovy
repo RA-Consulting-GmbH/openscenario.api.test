@@ -19,6 +19,7 @@ package de.rac.openscenario.generator.helper
 import de.rac.openscenario.generator.cpp.CppDocHelper
 import de.rac.openscenario.uml.framework.UmlClass
 import de.rac.openscenario.uml.framework.UmlProperty
+import de.rac.openscenario.uml.framework.UmlType
 
 public class XmlParserClassHelper {
 
@@ -58,4 +59,21 @@ public class XmlParserClassHelper {
         return result;
         
     }
+	
+	public boolean isExpressionAllowed(UmlType type, String className, String attributeName) {
+		if (type.isPrimitiveType())
+		{
+			return (type.name == "unsignedInt" || 
+					  type.name == "int" || 
+				      type.name == "unsignedShort" || 
+					  type.name == "double" || 
+					  type.name == "bool" ||
+					  type.name == "string")
+			
+			
+		}
+		
+		return false;
+	}
+	
 }

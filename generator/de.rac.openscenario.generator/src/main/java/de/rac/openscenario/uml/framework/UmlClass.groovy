@@ -234,7 +234,7 @@ public class UmlClass extends UmlType {
 		List<String> warnings = [];
 		List<Integer> orders = [];
 		
-		if (!!this.isSimpleContent())
+		if (!this.isSimpleContent())
 		{
 			List <UmlProperty> elementProperties = umlProperties.findAll{UmlProperty umlProperty->
 				!umlProperty.hasStereotype("XSDattribute") && !umlProperty.isTransient()
