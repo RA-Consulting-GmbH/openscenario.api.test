@@ -1,11 +1,9 @@
 name: OpenScenarioV1_1CppArtifacts
 on:
   workflow_dispatch:
-    # Inputs the workflow accepts.
-    inputs:
-      name: 
-        description: 'Artifact name'
-        default: 'OpenScenarioWindowsLinuxDevPackage'
+    name:
+    description: 'Artifact name'
+    default: 'OpenScenarioWindowsLinuxDevPackage'
 
 
 jobs:
@@ -27,11 +25,26 @@ jobs:
     #     name: LinuxSharedDebug
     #     path: ./cpp/build/output/Linux_shared/Debug
 
+    # - name: unzip artifacts LinuxSharedDebug libs.tgz
+    #   shell: bash
+    #   run: |
+    #     cd ./cpp/build/output/Linux_shared/Debug
+    #     tar -zxf libsd.tgz
+    #     rm -f libsd.tgz
+
     - name: get artifacts LinuxSharedRelease
       uses: actions/download-artifact@v2
       with:
         name: LinuxSharedRelease
         path: ./cpp/build/output/Linux_shared/Release
+
+    - name: unzip artifacts LinuxSharedRelease libs.tgz
+      shell: bash
+      run: |
+        cd ./cpp/build/output/Linux_shared/Release
+        tar -zxf libsr.tgz
+        rm -f libsr.tgz
+        ls -lah
 
     # - name: get artifacts LinuxStaticDebug
     #   uses: actions/download-artifact@v2
@@ -163,6 +176,14 @@ jobs:
   #     shell: bash
   #     run:  cp ./cpp/build/cgDebugMakeShared/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/* ./cpp/build/output/Linux_shared/Release/
 
+  #   - name: tar and zip shared libs
+  #     shell: bash
+  #     run: |
+  #       cd ./cpp/build/output/Linux_shared/Debug
+  #       tar -zcf ../libsd.tgz *.so*
+  #       rm -rf *
+  #       mv ../libsd.tgz .
+
   #   - name: publish artifacts
   #     uses: actions/upload-artifact@v2
   #     with: 
@@ -194,6 +215,16 @@ jobs:
     - name: copy antlr
       shell: bash
       run:  cp ./cpp/build/cgReleaseMakeShared/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/* ./cpp/build/output/Linux_shared/Release/
+
+    - name: tar and zip shared libs
+      shell: bash
+      run: |
+        cd ./cpp/build/output/Linux_shared/Release
+        ls -lah
+        tar -zcf ../libsr.tgz *.so*
+        rm -rf *
+        mv ../libsr.tgz .
+        ls -lah
 
     - name: publish artifacts
       uses: actions/upload-artifact@v2
