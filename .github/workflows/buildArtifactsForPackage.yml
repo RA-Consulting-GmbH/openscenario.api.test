@@ -1,9 +1,11 @@
 name: OpenScenarioV1_1CppArtifacts
 on:
   workflow_dispatch:
-    name:
-    description: 'Artifact name'
-    default: 'OpenScenarioWindowsLinuxDevPackage'
+    # Inputs the workflow accepts.
+    inputs:
+      name: 
+        description: 'Artifact name'
+        default: 'OpenScenarioWindowsLinuxDevPackage'
 
 
 jobs:
