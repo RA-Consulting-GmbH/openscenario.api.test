@@ -22,15 +22,15 @@ OPEN_SCEANARIO_API=$1
 # prepare include files
 ################################################################
 # path and file name for findHeaders.sh
-# it is placed in the openScenarioTester project folder
+# it is placed in the openScenarioReader project folder
 FIND_HEADERS_SH_PATH=./applications/openScenarioReader/src
 FIND_HEADERS_SH_FILE=findHeaders.sh
 FIND_HEADERS_SH=${FIND_HEADERS_SH_PATH}/${FIND_HEADERS_SH_FILE}
 
 # prepare inlude paths for C++ compiler in order to extract ALL necessary non-system include files
-# this has to be done outside the openScenarioTester project folder to also reach all referenced external dependencies
+# this has to be done outside the openScenarioReader project folder to also reach all referenced external dependencies
 echo "#!/bin/bash" > ${FIND_HEADERS_SH}
-echo "cpp -MM \\" >> ${FIND_HEADERS_SH}
+echo "cpp -DCOLLECT_HEADERS -MM \\" >> ${FIND_HEADERS_SH}
 for i in `find . -type d -print` ; do
     if [[ $i == *"CMake"* ]] || [[ $i == *"antlr_runtime"* ]] || [[ $i == *"ython"* ]] || [[ $i == *"java"* ]] || [[ $i == *".dir"* ]] || [[ $i == "./build"* ]] ;
     then
