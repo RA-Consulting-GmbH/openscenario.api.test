@@ -34,6 +34,20 @@
 #include "../common/version.h"
 #include "ResourceNotFoundException.h"
 
+#ifdef COLLECT_HEADERS
+// Extra headers only needed for building artifacts
+#include "CatalogHelperV1_1.h"
+#include "NamedReferenceProxy.h"
+// Extra headers expression tester
+#include "OscExprEvaluator.h"
+#include "OscExprEvaluatorFactory.h"
+#include "SemanticException.h"
+#include "TestDescription.h"
+#include "TestSpecificationReader.h"
+#include "TestSpecificationRunner.h"
+#endif
+
+
 #undef ERROR
 
 
