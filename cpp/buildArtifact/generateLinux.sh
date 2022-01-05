@@ -9,7 +9,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 ################################
 # Print help
 if [ "$1" == "" ] || [ $1 == "h" ] || [ $1 == "help" ] || [ $1 == "-h" ] || [ $1 == "-help" ] || [ $1 == "--h" ] || [ $1 == "--help" ]; then
-    echo "$0 (all [release] [shared|static]) | ([release|debug] [shared|static] [make])"
+    echo "$0 (all [release] [shared|static] [parallel]) | ([release|debug] [shared|static] [make [parallel]])"
     echo ""
     echo "Multi config: all [release] [shared|static] [parallel]"
     echo "  Builds and compiles multiple projects or even all projects at once (takes a long time)."
@@ -30,6 +30,7 @@ command -v cmake >/dev/null 2>&1 || {
 
 ################################
 # Parse cmd line params
+# Multi config build
 if [ $1 == "all" ]; then
     BUILD_TYPES="release debug"
     BINDING_TYPES="shared static"
@@ -49,6 +50,7 @@ if [ $1 == "all" ]; then
         *) ;;
         esac
     done
+# Single config build
 else
     BUILD_TYPES="release"
     BINDING_TYPES="shared"
