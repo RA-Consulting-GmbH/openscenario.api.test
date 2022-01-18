@@ -36,15 +36,11 @@
 
 #ifdef COLLECT_HEADERS
 // Include all header files exporting symbols created with the Linux bash command (execute in cpp/applications/openScenarioReader/src):
-// echo "" > headerWithExports.h ; for fullfile in `find ../../../ -name "*.h" -exec grep -l -h -e "OPENSCENARIOLIB_EXP\|OSC_EXPR_EXP" \{\} \;` ; do echo "#include \"${fullfile##*/}\"" >> headerWithExports.h ; done
+// echo "#pragma once" > headerWithExports.h ; for fullfile in `find ../../../ -name "*.h" -exec grep -l -h -e "OPENSCENARIOLIB_EXP\|OSC_EXPR_EXP" \{\} \;` ; do echo "#include \"${fullfile##*/}\"" >> headerWithExports.h ; done
 #include "headerWithExports.h"
 // Extra headers only needed for building artifacts
 #include "CatalogHelperV1_1.h"
-#include "NamedReferenceProxy.h"
 // Extra headers expression tester
-#include "OscExprEvaluator.h"
-#include "OscExprEvaluatorFactory.h"
-#include "SemanticException.h"
 #include "TestDescription.h"
 #include "TestSpecificationReader.h"
 #include "TestSpecificationRunner.h"
