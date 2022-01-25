@@ -2,7 +2,7 @@
 
 ## Abstract
 * Extensive library for reading and checking scenarios.
-* Fully compliant to [OpenSCENARIO 1.0.](https://www.asam.net/standards/detail/openscenario/)
+* Fully compliant to [OpenSCENARIO 1.1.](https://www.asam.net/standards/detail/openscenario/)
 * Includes an executable checker (See [Getting Started](./doc/main.adoc#getting-started-on-c)).
 * Implementation platform is C++
 
@@ -19,7 +19,7 @@
 
 ### Architectural features and extension points
 
-* **Abstracting the model from its implementation** Feature: Providing an API to browse the tree.Hiding the implementations.
+* **Abstracting the model from its implementation** Feature: Providing an API to browse the tree--hiding the implementations.
 * **Abstracting from storage media** Extension Point: Reading from zipped files, from databases or from the cloud by writing your own resource locator classes.
 * **Abstracting from storage formats** Extension Point: Write your own loader class to read from binary files or from JSON etc.
 * **Checker rule API** Extension Point: Write your own checker rules. E.g. for your company‘s set of authoring guidelines.
