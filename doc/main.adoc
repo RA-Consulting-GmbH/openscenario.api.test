@@ -144,7 +144,7 @@ Result:
 ******************************************
 Program version 1.2.0
 ```
-Telling us that implementation version is 1.2.0. This is independent from the OpenSCENARIO standard version. Compatibilitly to standard version 1.0 and 1.1 is curently supported.
+Telling us that implementation version is 1.2.0. This is independent from the OpenSCENARIO standard version. Compatibility to standard version 1.0 and 1.1 is currently supported.
 
 === Embedding the Library 
 To use the OpenSCENARIO as an embedded library we use the compiled library `libOpenScenarioLib` on Linux and on Windows. Both libraries on Linux as well as on Windows have third party dependencies. 
@@ -367,7 +367,7 @@ Remarks: The API currently supports C\++ only. The java product line has been gi
 
 === Versioning as a product dimension
 
-When supporting a standard, versioning is a product dimension that should be supported. Since we cannot look in the future and foresee the changes, we still can be sure that changes happen. So, the worst case is not to be faced with incompatible changes of a new version, but a dead-end standard that does suffer from a bad change management. Therefore, even when our world is "version 1.0 only" right at that moment, we better have strategies for versioning, migration etc.. Change management is considered an important architectural aspect.
+When supporting a standard, versioning is a product dimension that should be supported. Since we cannot look in the future and foresee the changes, we still can be sure that changes happen. So, the worst case is not to be faced with incompatible changes of a new version, but a dead-end standard that does suffer from a bad change management. Therefore, even when our world is "version 1.1 only" right at that moment, we better have strategies for versioning, migration etc.. Change management is considered an important architectural aspect.
 
 === Providing compile time support
 
@@ -468,7 +468,7 @@ Our first example will show, how to ensure that the major revision is always 1 a
 
 The first step is to define a class `VersionCheckerRule` that implements the `ICheckerRule`. is the model type where to access the `majorRev` and the `minorRev`property.
 
-Remark: In previous API versions the ICheckerRule was implemented as an generic class where the generic type was the type to check (like `IFileHeader` here). It turned out that the compiler needs many resources when working with generic classes and ehen adding different levels of generic classes, things get even worse. For the OSC API version 1.2.0, generic classes where widely eliminated. As an alternative, now the base class `IOpenScenarioModelElement` is used and the user has to cast it into the target class (`IFileHeader` here). So litereally, typing was moved from design time to runtime. This improved the use of compiler resources (memory, time) tremendously. 
+Remark: In previous API versions the ICheckerRule was implemented as an generic class where the generic type was the type to check (like `IFileHeader` here). It turned out that the compiler needs many resources when working with generic classes and even adding different levels of generic classes, things get even worse. For the OSC API version 1.2.0, generic classes where widely eliminated. As an alternative, now the base class `IOpenScenarioModelElement` is used and the user has to cast it into the target class (`IFileHeader` here). So literally, typing was moved from design time to runtime. This improved the use of compiler resources (memory, time) tremendously. 
 
 As we want to use this class for any combination of expected major revisions and minor revisions, we hand over the expected major revision and the expected minor revision to the constructor and store them in the instance.
 
@@ -494,7 +494,7 @@ class VersionCheckerRule: public ICheckerRule
 };
 ----
 
-The class must implement the `ApplyRuleInFileContext` method. Beside applying checker rule in the constext of a file source where lines and columns are provided, there is an additional method to apply checker rules in the context of a tree in the memory `ApplyRuleInTreeContext`. In this case there are no lines and columns to pinpoint the location of the error.
+The class must implement the `ApplyRuleInFileContext` method. Beside applying checker rule in the context of a file source where lines and columns are provided, there is an additional method to apply checker rules in the context of a tree in the memory `ApplyRuleInTreeContext`. In this case there are no lines and columns to pinpoint the location of the error.
 
 Let's use `ApplyRuleInFileContext` in our example.
 
