@@ -34,6 +34,14 @@
 #include "../common/version.h"
 #include "ResourceNotFoundException.h"
 
+#ifdef COLLECT_HEADERS
+// Include all header files exporting symbols created with the Linux bash command (execute in cpp/applications/openScenarioReader/src):
+// echo "#pragma once" > headerWithExports.h ; for fullfile in `find ../../../ -name "*.h" -exec grep -l -h -e "OPENSCENARIOLIB_EXP" \{\} \;` ; do echo "#include \"${fullfile##*/}\"" >> headerWithExports.h ; done
+#include "headerWithExports.h"
+#include "NamedReferenceProxy.h"
+#endif
+
+
 #undef ERROR
 
 
@@ -43,7 +51,7 @@
  * <li> Reading the file
  * <li> Resolving the parameters
  * <li> Resolving the catalog references
- * <li> Checking all type ranges that differ from the ones of the default type (e.g. positiv doubles)
+ * <li> Checking all type ranges that differ from the ones of the default type (e.g. positive doubles)
  * </ul>
  *
  */

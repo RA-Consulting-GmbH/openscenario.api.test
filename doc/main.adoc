@@ -144,7 +144,7 @@ Result:
 ******************************************
 Program version 1.2.0
 ```
-Telling us that implementation version is 1.2.0. This is independent from the OpenSCENARIO standard version. Compatibilitly to standard version 1.0 and 1.1 is curently supported.
+Telling us that implementation version is 1.2.0. This is independent from the OpenSCENARIO standard version. Compatibility to standard version 1.0 and 1.1 is currently supported.
 
 === Embedding the Library 
 To use the OpenSCENARIO as an embedded library we use the compiled library `libOpenScenarioLib` on Linux and on Windows. Both libraries on Linux as well as on Windows have third party dependencies. 
@@ -367,7 +367,7 @@ Remarks: The API currently supports C\++ only. The java product line has been gi
 
 === Versioning as a product dimension
 
-When supporting a standard, versioning is a product dimension that should be supported. Since we cannot look in the future and foresee the changes, we still can be sure that changes happen. So, the worst case is not to be faced with incompatible changes of a new version, but a dead-end standard that does suffer from a bad change management. Therefore, even when our world is "version 1.0 only" right at that moment, we better have strategies for versioning, migration etc.. Change management is considered an important architectural aspect.
+When supporting a standard, versioning is a product dimension that should be supported. Since we cannot look in the future and foresee the changes, we still can be sure that changes happen. So, the worst case is not to be faced with incompatible changes of a new version, but a dead-end standard that does suffer from a bad change management. Therefore, even when our world is "version 1.1 only" right at that moment, we better have strategies for versioning, migration etc.. Change management is considered an important architectural aspect.
 
 === Providing compile time support
 
@@ -468,7 +468,7 @@ Our first example will show, how to ensure that the major revision is always 1 a
 
 The first step is to define a class `VersionCheckerRule` that implements the `ICheckerRule`. is the model type where to access the `majorRev` and the `minorRev`property.
 
-Remark: In previous API versions the ICheckerRule was implemented as an generic class where the generic type was the type to check (like `IFileHeader` here). It turned out that the compiler needs many resources when working with generic classes and ehen adding different levels of generic classes, things get even worse. For the OSC API version 1.2.0, generic classes where widely eliminated. As an alternative, now the base class `IOpenScenarioModelElement` is used and the user has to cast it into the target class (`IFileHeader` here). So litereally, typing was moved from design time to runtime. This improved the use of compiler resources (memory, time) tremendously. 
+Remark: In previous API versions the ICheckerRule was implemented as an generic class where the generic type was the type to check (like `IFileHeader` here). It turned out that the compiler needs many resources when working with generic classes and even adding different levels of generic classes, things get even worse. For the OSC API version 1.2.0, generic classes where widely eliminated. As an alternative, now the base class `IOpenScenarioModelElement` is used and the user has to cast it into the target class (`IFileHeader` here). So literally, typing was moved from design time to runtime. This improved the use of compiler resources (memory, time) tremendously. 
 
 As we want to use this class for any combination of expected major revisions and minor revisions, we hand over the expected major revision and the expected minor revision to the constructor and store them in the instance.
 
@@ -494,7 +494,7 @@ class VersionCheckerRule: public ICheckerRule
 };
 ----
 
-The class must implement the `ApplyRuleInFileContext` method. Beside applying checker rule in the constext of a file source where lines and columns are provided, there is an additional method to apply checker rules in the context of a tree in the memory `ApplyRuleInTreeContext`. In this case there are no lines and columns to pinpoint the location of the error.
+The class must implement the `ApplyRuleInFileContext` method. Beside applying checker rule in the context of a file source where lines and columns are provided, there is an additional method to apply checker rules in the context of a tree in the memory `ApplyRuleInTreeContext`. In this case there are no lines and columns to pinpoint the location of the error.
 
 Let's use `ApplyRuleInFileContext` in our example.
 
@@ -698,7 +698,7 @@ zip-archive. The API allows great support for that by providing the
 
 
 [[BuildingTheBinaries]]
-== Building the binaries
+== Building the binaries from the source code
 The OpenSCENARIO C\++ project uses `cmake` as configuration tool to support a huge variety of build environments such as Visual Studio and Unix Makefiles.
 `cmake` itself is a command line tool but it also offers a more comfortable graphical frontend named `cmake-gui`.
 For systems with terminal / console access only, cmake provides a ncurses terminal frontend called `ccmake`.
@@ -764,7 +764,8 @@ This will create in the `openscenario.api.test/cpp/build` folder the following t
 The general command has the following options:
 [source,bash]
 ----
-$ ./generateLinux.sh (all [release] [parallel]) | ([release|debug] [shared|static] [make [parallel]])
+$ ./generateLinux.sh (all [release] [shared|static] [parallel]) |
+([release|debug] [shared|static] [make [parallel]])
 ----
 
 Option `all [release] [parallel]` builds and compiles static and shared as well as release and optional debug versions of OpenSCENARIO in parallel.
@@ -887,7 +888,7 @@ We provide three tests:
 
 ====== OpenScenarioTester
 As an initial test we have already pre-selected the startup project "OpenScenarioTester".
-Just launch the startup project via pressing <ctrl> + <F5> or via Visual Studio´s menu "Debug" -> "Start Without Debugging".
+Just launch the startup project via pressing <ctrl> + <F5> or via Visual Studio\'s menu "Debug" -> "Start Without Debugging".
 In both cases a console window with the following output should appear:
 
 [source,cmd]
@@ -1044,7 +1045,7 @@ $ ./IndexerTester
 [[BuildingOnConsoleTerminal]]
 === Building on console / terminal
 You can also easily build OpenSCENARIO on systems with console access only.
-But before we dive into that we will have a short excursion to cmake´s `presets` as we will need them on the command line.
+But before we dive into that we will have a short excursion to cmake\'s `presets` as we will need them on the command line.
 
 ==== Presets in cmake
 As you might have noticed we used `presets` already in cmake-gui for configuration, like the two we have seen so far: "VS2019 x64 shared" for Windows and "Linux shared release" for Linux.
@@ -1197,7 +1198,7 @@ Building all into: /mnt/c/Users/Deakon/source/repos/openscenario.api.test/cpp/bu
 -- Configuring done
 -- Generating done
 -- Build files have been written to: /mnt/c/Users/Deakon/source/repos/openscenario.api.test/cpp/build/cgDebugMakeStatic
-deakon@BlackMamba:/mnt/c/Users/Deakon/source/repos/openscenario.api.test/cpp$
+user:/mnt/c/Users/Deakon/source/repos/openscenario.api.test/cpp$
 ----
 
 On Windows the equivalent command to build a debug (and also the release) version with static libraries is:
@@ -1216,7 +1217,7 @@ But we do not cover this in this document as this is not meant to be a cmake tut
 
 ===== Selecting the build preset
 We just created everything to start compiling the project.
-As mentioned in the section <<BuildingOnLinux,Building on Linux with cmake-gui target make>> we could now change the folder to the project files and execute make manually or we stay in the folder where we are and instruct cmake to build the binaries for us.
+#As mentioned in the section <<BuildingOnLinux,Building on Linux with cmake-gui target make>> we could now change the folder to the project files and execute make manually or we stay in the folder where we are and instruct cmake to build the binaries for us.
 On the Linux terminal enter the following command to start compiling:
 
 [source,bash]
@@ -1281,7 +1282,7 @@ As you can see there is a menu entry `[c] Configure` which we will use in a view
 Important: there is no entry for "generate" yet.
 The generate entry will appear only after successful configuration directly behind the `[c] Configure` entry.
 
-You may already have noticed that the ccmake's frontend capabilities are quite similar to its graphical pendant cmake-gui.
+You may already have noticed that the ccmake\'s frontend capabilities are quite similar to its graphical pendant cmake-gui.
 Here you can also modify cmake parameters, configure, and generate the project files.
 The only thing different: you cannot select a different preset.
 
@@ -1306,7 +1307,8 @@ If generate was successful then ccmake will quit to console.
 According to our example you may go now to the folder `cpp/build/cgDebugMakeStatic` and build the binaries.
 
 [NOTE]
-You crtinnot use the build preset as you modified the settings and when using the presets your settings will be overwritten.
+You cannot use the build preset as you modified the settings.
+When using the presets again your settings will be overwritten.
 
 [[CommandLineStepsCondensed]]
 ==== Command line steps condensed
@@ -1325,3 +1327,168 @@ $ ccmake <path project files folder>        # Bring up ncurses frontend, to re-c
 $ cd <your project files folder>            # Go to the re-generated project files
 $ make                                      # Manually compile the sources
 ----
+
+
+
+== Using the release build artifacts
+For your own projects you can alternatively use our build artifacts--pre-compiled binaries--in your own projects.
+In this section we describe how to use the artifacts for Linux and Windows.
+
+
+=== Obtaining the artifacts
+To obtain the artifacts go to our https://github.com/RA-Consulting-GmbH/openscenario.api.test/releases[Releases] page and download the artifact of your choice.
+On the release page all artifacts for a certain release are collected in the `Assets` section of the release.
+Currently we support Windows (32 and 64 bit) and Linux for shared and static builds.
+All artifacts are release builds and come with an example application using the pre-compiled libraries.
+
+The Windows artifacts were build with Visual Studio 2019.
+
+The Linux artifacts were build with gcc 9.3.
+
+Here is an example list:
+
+* OpenSCENARIO.V1_1.API_Linux_shared_2021.12.15.tgz
+* OpenSCENARIO.V1_1.API_Linux_static_2021.12.15.tgz
+* OpenSCENARIO.V1_1.API_Win32_shared_2021.12.15.zip
+* OpenSCENARIO.V1_1.API_Win32_static_2021.12.15.zip
+* OpenSCENARIO.V1_1.API_x64_shared_2021.12.15.zip
+* OpenSCENARIO.V1_1.API_x64_static_2021.12.15.zip
+
+[NOTE]
+For the static versions of the artifacts you must use release and the matching compiler version otherwise the build will fail.
+
+
+=== Artifact common top level directory content
+After downloading e.g. `OpenSCENARIO.V1_1.API_x64_shared_2021.12.15.zip` and unpacking it you should see the following content (with description):
+
+[cols="0m,1",frame=none]
+|===
+|Filename|Description
+
+|include
+|Directory containing all necessary header files.
+
+|lib
+|Directory containing the pre-compiled libraries (shared and static).
+
+|res
+|Resources for the provided example.
+
+|src
+|The provided example.
+
+|CMakeHelpers.cmake
+|Helper macros for the following CMakeLists.txt file.
+
+|CMakeLists.txt
+|CMake project file for setting up the example.
+|=== 
+
+
+=== Using the Windows build artifacts
+In this example we especially focus on the static build and the necessary steps to pay attention.
+
+==== Step 1: Download, unpack, and start cmake-gui
+Download e.g. `OpenSCENARIO.V1_1.API_x64_static_2021.12.15.zip` and unpack it.
+Its default folder should be named e.g. `OpenSCENARIO.V1_1.API_x64_static`.
+
+Now open `cmake-gui` and point its source directory to the unpacked folder.
+For the destination folder add `/build/Win` as seen in the screenshot below:
+
+image:images/artifacts/cmBuildArtifactChooseProjectFolder.png[cmake_gui,width=640,float="center",align="center"]
+
+==== Step 2: Configure and generate
+Now when it comes to the cmake configure step be sure to select Visual Studio 2019 x64.
+
+[NOTE]
+Selecting the correct version of Visual Studio (and of course the right architecture, too) is crucial for a successful static build!
+
+Click on the "Configure" button and select *Visual Studio 16 2019* as shown in the screenshot below:
+
+image:images/artifacts/cmBuildArtifactSelectVS2019.png[cmake_gui,width=380,float="center",align="center"]
+
+Next select the correct processor architecture.
+In the current example this *x64*.
+
+image:images/artifacts/cmBuildArtifactSelectWin32x64.png[cmake_gui,width=380,float="center",align="center"]
+
+Finally click the "Generate" button to build the solution.
+
+The output window of cmake-gui should print out the following log messages:
+
+image:images/artifacts/cmBuildArtifactConfGenOpen.png[cmake_gui,width=720,float="center",align="center"]
+
+==== Step 3: Open the solution for configuration
+
+Click on the "Open Project" button to open Visual Studio 2019.
+
+Now in the configuration dropdown box select `Release` as seen in the screenshot below:
+
+[NOTE]
+Selecting `Release` is crucial for a successful static build!
+
+image:images/artifacts/vsBuildArtifactsSelectRelease.png[cmake_gui,width=480,float="center",align="center"]
+
+
+=== Using the Linux build artifacts
+The Linux example on how to use the build artifacts is quite similar to the Windows example beside bringing up Visual Studio.
+We will show the `command line` way of setting up the project.
+
+==== Step 1: Download and unpack
+Download e.g. `OpenSCENARIO.V1_1.API_Linux_static_2021.12.15.tgz` and unpack it.
+
+[source,bash]
+----
+user:~/Projects$ tar -zxf OpenSCENARIO.V1_1.API_Linux_static_2021.12.15.tgz
+----
+
+==== Step 2: Configure and generate
+The cmake configuration and generate step is quite easy.
+Just enter the artifact directory ```cd OpenSCENARIO.V1_1.API_Linux_static/``` and enter the following command ```cmake -S . -B build/Lin```.
+The generated output is the following:
+
+[source,bash]
+----
+user:~/Projects$ cd OpenSCENARIO.V1_1.API_Linux_static/
+user:~/Projects/OpenSCENARIO.V1_1.API_Linux_static$ cmake -S . -B build/Lin
+-- The C compiler identification is GNU 9.3.0
+-- The CXX compiler identification is GNU 9.3.0
+-- Check for working C compiler: /usr/bin/cc
+-- Check for working C compiler: /usr/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+OpenScenarioReader
+-- Single-configuration generator: Release
+-- OpenScenarioReader configuration: Release
+-- Platform: Linux; Shared lib: OFF
+Building all into: /home/user/Projects/OpenSCENARIO.V1_1.API_Linux_static/build/output/Linux_static/Release
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/user/Projects/OpenSCENARIO.V1_1.API_Linux_static/build/Lin
+----
+
+==== Step 3: Build or compile the project
+In this last step we compile the generated project with `make`.
+Just enter the newly created build folder ```cd build/Lin/``` and then enter the command ```make```.
+The output should look like this
+
+[source,bash]
+----
+user:~/Projects/OpenSCENARIO.V1_1.API_Linux_static$ cd build/Lin/
+user:~/Projects/OpenSCENARIO.V1_1.API_Linux_static/build/Lin$ make
+Scanning dependencies of target OpenScenarioReader
+[ 50%] Building CXX object CMakeFiles/OpenScenarioReader.dir/src/OpenScenarioReader.cpp.o
+[100%] Linking CXX executable ../output/Linux_static/Release/OpenScenarioReader
+[100%] Built target OpenScenarioReader
+user:~/Projects/OpenSCENARIO.V1_1.API_Linux_static/build/Lin$
+----
+
+That\'s all for Linux and the build artifacts.
