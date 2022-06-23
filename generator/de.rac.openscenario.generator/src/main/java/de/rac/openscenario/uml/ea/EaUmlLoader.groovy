@@ -95,7 +95,6 @@ class EaUmlLoader {
 		}
 
 		Node mainPackage = getModelNode(root);
-		println(root)
 		
 		fillElements(root, idToElement);
 		// Get The classes Package
