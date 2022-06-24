@@ -1,0 +1,490 @@
+{
+    "Axle": {
+        "maxSteering": {
+            "lowerBoundValue": "0",
+            "lowerBoundValueDisplay": "0",
+            "lowerBoundOperator": ">=",
+            "upperBoundValue": "java.lang.Math.PI",
+            "upperBoundValueDisplay": "PI",
+            "upperBoundOperator": "<=",
+            "type": "double"
+        },
+        "wheelDiameter": {
+            "lowerBoundValue": "0",
+            "lowerBoundValueDisplay": "0",
+            "lowerBoundOperator": ">",
+            "type": "double"
+        },
+        "trackWidth": {
+            "lowerBoundValue": "0",
+            "lowerBoundValueDisplay": "0",
+            "lowerBoundOperator": ">=",
+            "type": "double"
+        },
+        "positionX": {
+            "lowerBoundValue": "0",
+            "lowerBoundValueDisplay": "0",
+            "lowerBoundOperator": ">=",
+            "type": "double"
+        },
+        "positionZ": {
+            "lowerBoundValue": "0",
+            "lowerBoundValueDisplay": "0",
+            "lowerBoundOperator": ">=",
+            "type": "double"
+        }
+    },
+    "OverrideBrakeAction": {
+        "value": {
+            "lowerBoundValue": "0",
+            "lowerBoundValueDisplay": "0",
+            "lowerBoundOperator": ">=",
+            "upperBoundValue": "1",
+            "upperBoundValueDisplay": "1",
+            "upperBoundOperator": "<=",
+            "type": "double"
+        }
+    },
+    "Clothoid": {
+        "curvatureDot": {
+            "lowerBoundValue": "0",
+            "lowerBoundValueDisplay": "0",
+            "lowerBoundOperator": ">=",
+            "type": "double"
+        },
+        "startTime": {
+            "lowerBoundValue": "0",
+            "lowerBoundValueDisplay": "0",
+            "lowerBoundOperator": ">=",
+            "type": "double"
+        },
+        "stopTime": {
+            "lowerBoundValue": "0",
+            "lowerBoundValueDisplay": "0",
+            "lowerBoundOperator": ">",
+            "type": "double"
+        }
+    },
+    "Nurbs": {
+        "order": {
+            "lowerBoundValue": "2",
+            "lowerBoundValueDisplay": "2",
+            "lowerBoundOperator": ">=",
+            "type": "unsignedint"
+        }
+    },
+    "ControlPoint": {
+        "time": {
+            "lowerBoundValue": "0",
+            "lowerBoundValueDisplay": "0",
+            "lowerBoundOperator": ">=",
+            "type": "double"
+        }
+    },
+    "OverrideClutchAction": {
+        "value": {
+            "lowerBoundValue": "0",
+            "lowerBoundValueDisplay": "0",
+            "lowerBoundOperator": ">=",
+            "upperBoundValue": "1",
+            "upperBoundValueDisplay": "1",
+            "upperBoundOperator": "<=",
+            "type": "double"
+        }
+    },
+    "Condition": {
+        "delay": {
+            "lowerBoundValue": "0",
+            "lowerBoundValueDisplay": "0",
+            "lowerBoundOperator": ">=",
+            "type": "double"
+        }
+    },
+    "Dimensions": {
+        "width": {
+            "lowerBoundValue": "0",
+            "lowerBoundValueDisplay": "0",
+            "lowerBoundOperator": ">=",
+            "type": "double"
+        },
+        "length": {
+            "lowerBoundValue": "0",
+            "lowerBoundValueDisplay": "0",
+            "lowerBoundOperator": ">=",
+            "type": "double"
+        },
+        "height": {
+            "lowerBoundValue": "0",
+            "lowerBoundValueDisplay": "0",
+            "lowerBoundOperator": ">=",
+            "type": "double"
+        }
+    },
+    "DynamicConstraints": {
+        "maxAcceleration": {
+            "lowerBoundValue": "0",
+            "lowerBoundValueDisplay": "0",
+            "lowerBoundOperator": ">=",
+            "type": "double"
+        },
+        "maxDeceleration": {
+            "lowerBoundValue": "0",
+            "lowerBoundValueDisplay": "0",
+            "lowerBoundOperator": ">=",
+            "type": "double"
+        },
+        "maxSpeed": {
+            "lowerBoundValue": "0",
+            "lowerBoundValueDisplay": "0",
+            "lowerBoundOperator": ">=",
+            "type": "double"
+        }
+    },
+    "DistanceCondition": {
+        "value": {
+            "lowerBoundValue": "0",
+            "lowerBoundValueDisplay": "0",
+            "lowerBoundOperator": ">=",
+            "type": "double"
+        }
+    },
+    "ControllerDistributionEntry": {
+        "weight": {
+            "lowerBoundValue": "0",
+            "lowerBoundValueDisplay": "0",
+            "lowerBoundOperator": ">",
+            "type": "double"
+        }
+    },
+    "EndOfRoadCondition": {
+        "duration": {
+            "lowerBoundValue": "0",
+            "lowerBoundValueDisplay": "0",
+            "lowerBoundOperator": ">=",
+            "type": "double"
+        }
+    },
+    "Event": {
+        "maximumExecutionCount": {
+            "lowerBoundValue": "1",
+            "lowerBoundValueDisplay": "1",
+            "lowerBoundOperator": ">=",
+            "type": "unsignedint"
+        }
+    },
+    "Fog": {
+        "visualRange": {
+            "lowerBoundValue": "0",
+            "lowerBoundValueDisplay": "0",
+            "lowerBoundOperator": ">=",
+            "type": "double"
+        }
+    },
+    "PositionInLaneCoordinates": {
+        "pathS": {
+            "lowerBoundValue": "0",
+            "lowerBoundValueDisplay": "0",
+            "lowerBoundOperator": ">=",
+            "type": "double"
+        }
+    },
+    "LaneOffsetActionDynamics": {
+        "maxLateralAcc": {
+            "lowerBoundValue": "0",
+            "lowerBoundValueDisplay": "0",
+            "lowerBoundOperator": ">=",
+            "type": "double"
+        }
+    },
+    "LanePosition": {
+        "s": {
+            "lowerBoundValue": "0",
+            "lowerBoundValueDisplay": "0",
+            "lowerBoundOperator": ">=",
+            "type": "double"
+        }
+    },
+    "LateralDistanceAction": {
+        "distance": {
+            "lowerBoundValue": "0",
+            "lowerBoundValueDisplay": "0",
+            "lowerBoundOperator": ">=",
+            "type": "double"
+        }
+    },
+    "LongitudinalDistanceAction": {
+        "distance": {
+            "lowerBoundValue": "0",
+            "lowerBoundValueDisplay": "0",
+            "lowerBoundOperator": ">=",
+            "type": "double"
+        },
+        "timeGap": {
+            "lowerBoundValue": "0",
+            "lowerBoundValueDisplay": "0",
+            "lowerBoundOperator": ">=",
+            "type": "double"
+        }
+    },
+    "MiscObject": {
+        "mass": {
+            "lowerBoundValue": "0",
+            "lowerBoundValueDisplay": "0",
+            "lowerBoundOperator": ">=",
+            "type": "double"
+        }
+    },
+    "OffroadCondition": {
+        "duration": {
+            "lowerBoundValue": "0",
+            "lowerBoundValueDisplay": "0",
+            "lowerBoundOperator": ">=",
+            "type": "double"
+        }
+    },
+    "OverrideParkingBrakeAction": {
+        "value": {
+            "lowerBoundValue": "0",
+            "lowerBoundValueDisplay": "0",
+            "lowerBoundOperator": ">=",
+            "upperBoundValue": "1",
+            "upperBoundValueDisplay": "1",
+            "upperBoundOperator": "<=",
+            "type": "double"
+        }
+    },
+    "Performance": {
+        "maxAcceleration": {
+            "lowerBoundValue": "0",
+            "lowerBoundValueDisplay": "0",
+            "lowerBoundOperator": ">=",
+            "type": "double"
+        },
+        "maxDeceleration": {
+            "lowerBoundValue": "0",
+            "lowerBoundValueDisplay": "0",
+            "lowerBoundOperator": ">=",
+            "type": "double"
+        }
+    },
+    "Phase": {
+        "duration": {
+            "lowerBoundValue": "0",
+            "lowerBoundValueDisplay": "0",
+            "lowerBoundOperator": ">=",
+            "type": "double"
+        }
+    },
+    "Precipitation": {
+        "intensity": {
+            "lowerBoundValue": "0",
+            "lowerBoundValueDisplay": "0",
+            "lowerBoundOperator": ">=",
+            "upperBoundValue": "1",
+            "upperBoundValueDisplay": "1",
+            "upperBoundOperator": "<=",
+            "type": "double"
+        }
+    },
+    "ReachPositionCondition": {
+        "tolerance": {
+            "lowerBoundValue": "0",
+            "lowerBoundValueDisplay": "0",
+            "lowerBoundOperator": ">=",
+            "type": "double"
+        }
+    },
+    "RelativeDistanceCondition": {
+        "value": {
+            "lowerBoundValue": "0",
+            "lowerBoundValueDisplay": "0",
+            "lowerBoundOperator": ">=",
+            "type": "double"
+        }
+    },
+    "RoadCondition": {
+        "frictionScaleFactor": {
+            "lowerBoundValue": "0",
+            "lowerBoundValueDisplay": "0",
+            "lowerBoundOperator": ">=",
+            "type": "double"
+        }
+    },
+    "ManeuverGroup": {
+        "maximumExecutionCount": {
+            "lowerBoundValue": "1",
+            "lowerBoundValueDisplay": "1",
+            "lowerBoundOperator": ">=",
+            "type": "unsignedint"
+        }
+    },
+    "TrafficSinkAction": {
+        "rate": {
+            "lowerBoundValue": "0",
+            "lowerBoundValueDisplay": "0",
+            "lowerBoundOperator": ">=",
+            "type": "double"
+        },
+        "radius": {
+            "lowerBoundValue": "0",
+            "lowerBoundValueDisplay": "0",
+            "lowerBoundOperator": ">=",
+            "type": "double"
+        }
+    },
+    "TrafficSourceAction": {
+        "velocity": {
+            "lowerBoundValue": "0",
+            "lowerBoundValueDisplay": "0",
+            "lowerBoundOperator": ">=",
+            "type": "double"
+        },
+        "rate": {
+            "lowerBoundValue": "0",
+            "lowerBoundValueDisplay": "0",
+            "lowerBoundOperator": ">=",
+            "type": "double"
+        },
+        "radius": {
+            "lowerBoundValue": "0",
+            "lowerBoundValueDisplay": "0",
+            "lowerBoundOperator": ">=",
+            "type": "double"
+        }
+    },
+    "TransitionDynamics": {
+        "value": {
+            "lowerBoundValue": "0",
+            "lowerBoundValueDisplay": "0",
+            "lowerBoundOperator": ">=",
+            "type": "double"
+        }
+    },
+    "StandStillCondition": {
+        "duration": {
+            "lowerBoundValue": "0",
+            "lowerBoundValueDisplay": "0",
+            "lowerBoundOperator": ">=",
+            "type": "double"
+        }
+    },
+    "Sun": {
+        "intensity": {
+            "lowerBoundValue": "0",
+            "lowerBoundValueDisplay": "0",
+            "lowerBoundOperator": ">=",
+            "type": "double"
+        },
+        "azimuth": {
+            "lowerBoundValue": "0",
+            "lowerBoundValueDisplay": "0",
+            "lowerBoundOperator": ">=",
+            "upperBoundValue": "(2* java.lang.Math.PI)",
+            "upperBoundValueDisplay": "2PI",
+            "upperBoundOperator": "<=",
+            "type": "double"
+        },
+        "elevation": {
+            "lowerBoundValue": "(- java.lang.Math.PI)",
+            "lowerBoundValueDisplay": "-PI",
+            "lowerBoundOperator": ">=",
+            "upperBoundValue": "java.lang.Math.PI",
+            "upperBoundValueDisplay": "PI",
+            "upperBoundOperator": "<=",
+            "type": "double"
+        }
+    },
+    "TrafficSwarmAction": {
+        "velocity": {
+            "lowerBoundValue": "0",
+            "lowerBoundValueDisplay": "0",
+            "lowerBoundOperator": ">=",
+            "type": "double"
+        },
+        "semiMajorAxis": {
+            "lowerBoundValue": "0",
+            "lowerBoundValueDisplay": "0",
+            "lowerBoundOperator": ">=",
+            "type": "double"
+        },
+        "semiMinorAxis": {
+            "lowerBoundValue": "0",
+            "lowerBoundValueDisplay": "0",
+            "lowerBoundOperator": ">=",
+            "type": "double"
+        },
+        "innerRadius": {
+            "lowerBoundValue": "0",
+            "lowerBoundValueDisplay": "0",
+            "lowerBoundOperator": ">=",
+            "type": "double"
+        }
+    },
+    "OverrideThrottleAction": {
+        "value": {
+            "lowerBoundValue": "0",
+            "lowerBoundValueDisplay": "0",
+            "lowerBoundOperator": ">=",
+            "upperBoundValue": "1",
+            "upperBoundValueDisplay": "1",
+            "upperBoundOperator": "<=",
+            "type": "double"
+        }
+    },
+    "TimeHeadwayCondition": {
+        "value": {
+            "lowerBoundValue": "0",
+            "lowerBoundValueDisplay": "0",
+            "lowerBoundOperator": ">=",
+            "type": "double"
+        }
+    },
+    "TimeToCollisionCondition": {
+        "value": {
+            "lowerBoundValue": "0",
+            "lowerBoundValueDisplay": "0",
+            "lowerBoundOperator": ">=",
+            "type": "double"
+        }
+    },
+    "Timing": {
+        "scale": {
+            "lowerBoundValue": "0",
+            "lowerBoundValueDisplay": "0",
+            "lowerBoundOperator": ">",
+            "type": "double"
+        }
+    },
+    "TrafficSignalController": {
+        "delay": {
+            "lowerBoundValue": "0",
+            "lowerBoundValueDisplay": "0",
+            "lowerBoundOperator": ">=",
+            "type": "double"
+        }
+    },
+    "TraveledDistanceCondition": {
+        "value": {
+            "lowerBoundValue": "0",
+            "lowerBoundValueDisplay": "0",
+            "lowerBoundOperator": ">=",
+            "type": "double"
+        }
+    },
+    "VehicleCategoryDistributionEntry": {
+        "weight": {
+            "lowerBoundValue": "0",
+            "lowerBoundValueDisplay": "0",
+            "lowerBoundOperator": ">=",
+            "type": "double"
+        }
+    },
+    "AbsoluteSpeed": {
+        "value": {
+            "lowerBoundValue": "0",
+            "lowerBoundValueDisplay": "0",
+            "lowerBoundOperator": ">=",
+            "type": "double"
+        }
+    }
+}
