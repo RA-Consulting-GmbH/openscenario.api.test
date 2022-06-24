@@ -56,7 +56,8 @@ public class GeneratorCpp {
 
 	private static final String V1_0 = "v1_0"
 	private static final String V1_1 = "v1_1"
-
+	private static final String V1_2 = "v1_2"
+	
 	private static versionMap = [:];
 
 	static {
@@ -72,6 +73,13 @@ public class GeneratorCpp {
 		versionMap[V1_1]["rangeCheckerRulesFile"] = "input/RangeCheckerRules_1.1.0.json";
 		versionMap[V1_1]["fileSuffix"] = "V1_1";
 		versionMap[V1_1]["oscVersion"] = "1.1";
+		
+		versionMap[V1_2] = [:];
+		versionMap[V1_2]["modelFile"] = "input/OpenSCENARIO_Ea_1.2.0.xmi";
+		versionMap[V1_2]["defaultValues"] = "input/DefaultValues_1.2.0.json";
+		versionMap[V1_2]["rangeCheckerRulesFile"] = "input/RangeCheckerRules_1.2.0.json";
+		versionMap[V1_2]["fileSuffix"] = "V1_2";
+		versionMap[V1_2]["oscVersion"] = "1.2";
 
 	}
 	public static void main(String[] args) {
