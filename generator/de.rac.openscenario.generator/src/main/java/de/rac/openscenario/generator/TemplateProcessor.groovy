@@ -30,7 +30,7 @@ class TemplateProcessor {
     TemplateProcessor(String type, String version)
     {
       assert(type.equals(CPP))
-      assert(version.equals("v1_0") || version.equals("v1_1"))
+      assert(version.equals("v1_0") || version.equals("v1_1") || version.equals("v1_2"))
       this.type = type;
 	  this.version = version;
     }
