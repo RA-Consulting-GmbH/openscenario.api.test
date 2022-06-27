@@ -114,7 +114,7 @@ namespace NET_ASAM_OPENSCENARIO
             return SimpleType::STRING;
         if (typeName == "unsignedInt")
             return SimpleType::UNSIGNED_INT;
-        if (typeName == "integer")
+        if (typeName == "integer" || typeName == "int")
             return SimpleType::INT;
         if (typeName == "unsignedShort")
             return SimpleType::UNSIGNED_SHORT;

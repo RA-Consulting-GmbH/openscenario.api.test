@@ -18,9 +18,9 @@
 #pragma once
 
 #define OSC_MAJORVERSION 1
-#define OSC_MINORVERSION 1
+#define OSC_MINORVERSION 2
 #define OSC_PATCHNUMBER 0
 
 #define MAJORVERSION 1
-#define MINORVERSION 2
-#define PATCHNUMBER 1
+#define MINORVERSION 3
+#define PATCHNUMBER 0
