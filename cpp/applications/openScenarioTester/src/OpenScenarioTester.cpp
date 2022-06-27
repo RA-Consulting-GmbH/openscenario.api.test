@@ -30,6 +30,21 @@
 #include "TestInjectedParametersV1_1.h"
 #include "TestWriterApiV1_1.h"
 
+#include <TestParameterValidationV1_2.h>
+
+#include "TestAlksV1_2.h"
+#include "TestDeprecatedV1_2.h"
+#include "TestExamplesV1_2.h"
+#include "TestRangeCheckerV1_2.h"
+#include "TestFilesV1_2.h"
+#include "TestImportsV1_2.h"
+#include "TestReaderV1_2.h"
+#include "TestSimpleDemosV1_2.h"
+#include "TestVersionCheckerV1_2.h"
+#include "TestFlexInterfaceV1_2.h"
+#include "TestInjectedParametersV1_2.h"
+#include "TestWriterApiV1_2.h"
+
 #include "TestExamplesV1_0.h"
 #include "TestRangeCheckerV1_0.h"
 #include "TestFilesV1_0.h"
@@ -141,6 +156,103 @@ bool TestV1_1(std::string basePath )
 	return result;
 }
 
+bool TestV1_2(std::string basePath)
+{
+	NET_ASAM_OPENSCENARIO::v1_2::TestExamples testExamples(basePath);
+	NET_ASAM_OPENSCENARIO::v1_2::TestRangeChecker testRangeChecker(basePath);
+	NET_ASAM_OPENSCENARIO::v1_2::TestFiles testFiles(basePath);
+	NET_ASAM_OPENSCENARIO::v1_2::TestImports testImports(basePath);
+	NET_ASAM_OPENSCENARIO::v1_2::TestReader testReader(basePath);
+	NET_ASAM_OPENSCENARIO::v1_2::TestSimpleDemos testSimpleDemos(basePath);
+	NET_ASAM_OPENSCENARIO::v1_2::TestVersionChecker testVersionChecker(basePath);
+	NET_ASAM_OPENSCENARIO::v1_2::TestFlexInterface testFlexInterface(basePath);
+	NET_ASAM_OPENSCENARIO::v1_2::TestInjectedParameters testInjectedParameters(basePath);
+	NET_ASAM_OPENSCENARIO::v1_2::TestWriterApi testWriterApi(basePath);
+	NET_ASAM_OPENSCENARIO::v1_2::TestDeprecated testDeprecated(basePath);
+	NET_ASAM_OPENSCENARIO::v1_2::TestAlks testAlks(basePath);
+	NET_ASAM_OPENSCENARIO::v1_2::TestParameterValidation testParametervalidation(basePath);
+
+	auto result = true;
+
+	result = testFiles.TestUnicode() && result;
+
+	result = testAlks.TestScenarios() && result;
+	result = testInjectedParameters.TestInjectionsForSuccess() && result;
+	result = testFiles.TestExpressionsSuccess() && result;
+	result = testParametervalidation.TestValidationWrongDataTypes() && result;
+	result = testExamples.TestExample() && result;
+
+	result = testRangeChecker.TestParamsFailure() && result;
+
+	result = testFiles.TestMultiChoiceElement() && result;
+	result = testFiles.TestSimpleSuccess() && result;
+	result = testFiles.TestNonAsciiFilePaths() && result;
+	result = testFiles.TestParamsSuccess() && result;
+
+	result = testFiles.TestExpressionsFailure() && result;
+	result = testFiles.TestBomFile() && result;
+	result = testFiles.TestParamsFailure() && result;
+	result = testFiles.TestParamsConversionInfo() && result;
+	result = testFiles.TestParamsConversion() && result;
+	result = testFiles.TestUnvalidXml() && result;
+	result = testFiles.TestUnknownElement() && result;
+	result = testFiles.TestWrongAttributes() && result;
+	result = testFiles.TestWrongEndElement() && result;
+	result = testFiles.TestCustomCommandAction() && result;
+	result = testFiles.TestFileNotFound() && result;
+	result = testFiles.TestDefaultValues() && result;
+
+	result = testImports.TestImportSuccess() && result;
+
+	result = testImports.TestImportWithParametersSuccess() && result;
+	result = testImports.TestImportWithExpressionsSuccess() && result;
+
+	result = testReader.TestImportSuccess() && result;
+	result = testReader.TestImportSuccessNonAsciiFile() && result;
+	result = testReader.TestDirectorySuccess() && result;
+	result = testReader.TestDirectoryPartlySuccess() && result;
+	result = testReader.TestFileNotFound() && result;
+	result = testReader.TestDirectoryNotFound() && result;
+	result = testReader.TestWithErrors() && result;
+	result = testReader.TestWrongCommandLine() && result;
+	result = testReader.TestWithParamFile() && result;
+	result = testReader.TestWithParamFileSyntaxError() && result;
+	result = testReader.TestWithParamFileSyntaxError2() && result;
+	result = testReader.TestWithParamFileNotFound() && result;
+
+	result = testSimpleDemos.TestSimpleDemo() && result;
+	result = testSimpleDemos.TestImportDemo() && result;
+	result = testSimpleDemos.TestCheckerRuleDemo() && result;
+	result = testSimpleDemos.TestCheckerRuleEgoDemo() && result;
+
+	result = testVersionChecker.TestSuccess() && result;
+
+	result = testFlexInterface.TestExample() && result;
+
+	result = testInjectedParameters.TestNullInjectedParameters() && result;
+	result = testInjectedParameters.TestEmptyInjectedParameters() && result;
+	result = testInjectedParameters.TestInjectionsForSuccess() && result;
+	result = testInjectedParameters.TestWrongFormats() && result;
+	result = testInjectedParameters.TestNotDefined() && result;
+	result = testInjectedParameters.TestNotDefinedWithNoGlobalParameters() && result;
+
+	result = testWriterApi.TestSimpleSuccess() && result;
+	result = testWriterApi.TestParamsSuccess() && result;
+	result = testWriterApi.TestBomFile() && result;
+
+	result = testDeprecated.TestDeprecatedSuccess() && result;
+	result = testDeprecated.TestDeprecatedSupress() && result;
+
+
+	result = testAlks.TestCatalogs() && result;
+	result = testAlks.TestVariations() && result;
+
+	result = testParametervalidation.TestValidation() && result;
+	result = testParametervalidation.TestValidationErrors() && result;
+
+	return result;
+}
+
 
 bool TestV1_0(std::string basePath)
 {
@@ -225,9 +337,10 @@ int main(int argc, char** argv)
 
 	
 
-	auto result = TestV1_1(basePath);
+	auto result = TestV1_2(basePath);
+	result = TestV1_1(basePath) && result;
 	result = TestV1_0(basePath) && result;
-
+	
 	 if (result)
         return 0;
 
