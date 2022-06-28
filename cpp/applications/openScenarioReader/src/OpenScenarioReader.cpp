@@ -28,6 +28,8 @@
 #include "ApiClassImplV1_0.h"
 #include "XmlScenarioImportLoaderFactoryV1_1.h"
 #include "ApiClassImplV1_1.h"
+#include "XmlScenarioImportLoaderFactoryV1_2.h"
+#include "ApiClassImplV1_2.h"
 #include "XmlScenarioImportLoaderFactoryV1_0.h"
 #include "ScenarioLoaderException.h"
 #include "FileResourceLocator.h"
@@ -59,6 +61,7 @@
 static NET_ASAM_OPENSCENARIO::ErrorLevel logLevel = NET_ASAM_OPENSCENARIO::ErrorLevel::INFO;
 static std::string VERSION_1_0 = "v1_1";
 static std::string VERSION_1_1 = "v1_0";
+static std::string VERSION_1_2 = "v1_2";
 
 
 std::shared_ptr<NET_ASAM_OPENSCENARIO::v1_0::OpenScenarioImpl> ExecuteImportParsing(std::string& filename, std::shared_ptr<NET_ASAM_OPENSCENARIO::SimpleMessageLogger>& messageLogger, std::shared_ptr <NET_ASAM_OPENSCENARIO::IParserMessageLogger> catalogMessageLogger, std::map<std::string, std::string>& injectionParameters)
@@ -73,6 +76,13 @@ std::shared_ptr<NET_ASAM_OPENSCENARIO::v1_1::OpenScenarioImpl> ExecuteImportPars
 	auto loaderFactory = NET_ASAM_OPENSCENARIO::v1_1::XmlScenarioImportLoaderFactory(catalogMessageLogger, filename);
 	auto loader = loaderFactory.CreateLoader(std::make_shared<NET_ASAM_OPENSCENARIO::FileResourceLocator>());
 	return std::static_pointer_cast<NET_ASAM_OPENSCENARIO::v1_1::OpenScenarioImpl>(loader->Load(messageLogger, injectionParameters)->GetAdapter(typeid(NET_ASAM_OPENSCENARIO::v1_1::OpenScenarioImpl).name()));
+}
+
+std::shared_ptr<NET_ASAM_OPENSCENARIO::v1_2::OpenScenarioImpl> ExecuteImportParsingV1_2(std::string& filename, std::shared_ptr<NET_ASAM_OPENSCENARIO::SimpleMessageLogger>& messageLogger, std::shared_ptr <NET_ASAM_OPENSCENARIO::IParserMessageLogger> catalogMessageLogger, std::map<std::string, std::string>& injectionParameters)
+{
+	auto loaderFactory = NET_ASAM_OPENSCENARIO::v1_2::XmlScenarioImportLoaderFactory(catalogMessageLogger, filename);
+	auto loader = loaderFactory.CreateLoader(std::make_shared<NET_ASAM_OPENSCENARIO::FileResourceLocator>());
+	return std::static_pointer_cast<NET_ASAM_OPENSCENARIO::v1_2::OpenScenarioImpl>(loader->Load(messageLogger, injectionParameters)->GetAdapter(typeid(NET_ASAM_OPENSCENARIO::v1_2::OpenScenarioImpl).name()));
 }
 
 std::string GetFilledString(const size_t length, const char charToFill) 
@@ -214,10 +224,14 @@ int CheckFile(std::string& inputFileName, std::string& paramFileName, std::strin
 
     try
     {
-        if (version == VERSION_1_1)
+        if (version == VERSION_1_2)
         {
-            ExecuteImportParsingV1_1(inputFileName, messageLogger, catalogMessageLogger, injectedParamters);
-        } else
+            ExecuteImportParsingV1_2(inputFileName, messageLogger, catalogMessageLogger, injectedParamters);
+        } else if(version == VERSION_1_1)
+		{
+			ExecuteImportParsingV1_1(inputFileName, messageLogger, catalogMessageLogger, injectedParamters);
+		}
+		else
         {
             ExecuteImportParsing(inputFileName, messageLogger, catalogMessageLogger, injectedParamters);
         }
@@ -329,25 +343,33 @@ int wmain(int argc, wchar_t** argv)
             if (argc == 6 && std::wstring(argv[5]) == L"-v1_1")
             {
                 version = VERSION_1_1;
+            }else if (argc == 6 && std::wstring(argv[5]) == L"-v1_2")
+            {
+				version = VERSION_1_2;
             }
         }
         else if (argc == 4 && std::wstring(argv[3]) == L"-v1_1")
         {
             version = VERSION_1_1;
         }
+		else if (argc == 4 && std::wstring(argv[3]) == L"-v1_2")
+		{
+			version = VERSION_1_2;
+		}
 
         isCommandLineParsable = true;
     }
 
     if (!isCommandLineParsable)
     {
-        std::cout << "OpenScenarioChecker [[{-i <filename>|-d <dirname>} [-p <paramfilename>] [-v1_1]] | -v]" << std::endl;
+	std::cout << "OpenScenarioChecker [[{-i <filename>|-d <dirname>} [-p <paramfilename>] [-v1_1|-v1_2]] | -v]" << std::endl;
         std::cout << "Options:" << std::endl;
         std::cout << "-i\t<filename> file to be validated" << std::endl;
         std::cout << "-d\t<directory> directory to be validated" << std::endl;
         std::cout << "-p\t<paramfilename> a file with name/value pairs. One line per name/value pair. tab separated" << std::endl;
-        std::cout << "-v1_1\tUse standard version 1.1" << std::endl;
-        std::cout << "-v\tprint program version" << std::endl;
+		std::cout << "-v1_1\tUse standard version 1.1" << std::endl;
+		std::cout << "-v1_2\tUse standard version 1.2" << std::endl;
+		std::cout << "-v\tprint program version" << std::endl;
 
         return USAGE_RESULT;
     }
@@ -415,25 +437,33 @@ int main(int argc, char** argv)
             if (argc == 6 && std::string(argv[5]) == "-v1_1")
             {
                 version = VERSION_1_1;
-            }
+            }else if (argc == 6 && std::string(argv[5]) == "-v1_2")
+			{
+				version = VERSION_1_2;
+			}
         }
         else if (argc == 4 && std::string(argv[3]) == "-v1_1")
         {
             version = VERSION_1_1;
         }
+		else if (argc == 4 && std::string(argv[3]) == "-v1_2")
+		{
+			version = VERSION_1_2;
+		}
 
         isCommandLineParsable = true;
     }
 
     if (!isCommandLineParsable)
     {
-        std::cout << "OpenScenarioChecker [[{-i <filename>|-d <dirname>} [-p <paramfilename>] [-v1_1]] | -v]" << std::endl;
+        std::cout << "OpenScenarioChecker [[{-i <filename>|-d <dirname>} [-p <paramfilename>] [-v1_1|-v1_2]] | -v]" << std::endl;
         std::cout << "Options:" << std::endl;
         std::cout << "-i\t<filename> file to be validated" << std::endl;
         std::cout << "-d\t<directory> directory to be validated" << std::endl;
         std::cout << "-p\t<paramfilename> a file with name/value pairs. One line per name/value pair. tab separated" << std::endl;
-        std::cout << "-v1_1\tUse standard version 1.1" << std::endl;
-        std::cout << "-v\tprint program version" << std::endl;
+		std::cout << "-v1_1\tUse standard version 1.1" << std::endl;
+		std::cout << "-v1_2\tUse standard version 1.2" << std::endl;
+		std::cout << "-v\tprint program version" << std::endl;
 
         return USAGE_RESULT;
     }
