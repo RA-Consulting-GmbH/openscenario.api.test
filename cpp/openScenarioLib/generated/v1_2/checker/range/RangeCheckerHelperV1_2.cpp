@@ -27,20 +27,30 @@ namespace NET_ASAM_OPENSCENARIO
 		void RangeCheckerHelper::AddAllRangeCheckerRules(std::shared_ptr<IScenarioChecker> scenarioChecker)
         {
             scenarioChecker->AddAbsoluteSpeedCheckerRule(std::shared_ptr<AbsoluteSpeedRangeCheckerRule>(new AbsoluteSpeedRangeCheckerRule()));
+            scenarioChecker->AddAnimationActionCheckerRule(std::shared_ptr<AnimationActionRangeCheckerRule>(new AnimationActionRangeCheckerRule()));
+            scenarioChecker->AddAnimationFileCheckerRule(std::shared_ptr<AnimationFileRangeCheckerRule>(new AnimationFileRangeCheckerRule()));
+            scenarioChecker->AddAnimationStateCheckerRule(std::shared_ptr<AnimationStateRangeCheckerRule>(new AnimationStateRangeCheckerRule()));
             scenarioChecker->AddAxleCheckerRule(std::shared_ptr<AxleRangeCheckerRule>(new AxleRangeCheckerRule()));
             scenarioChecker->AddClothoidCheckerRule(std::shared_ptr<ClothoidRangeCheckerRule>(new ClothoidRangeCheckerRule()));
+            scenarioChecker->AddColorCmykCheckerRule(std::shared_ptr<ColorCmykRangeCheckerRule>(new ColorCmykRangeCheckerRule()));
+            scenarioChecker->AddColorRgbCheckerRule(std::shared_ptr<ColorRgbRangeCheckerRule>(new ColorRgbRangeCheckerRule()));
             scenarioChecker->AddConditionCheckerRule(std::shared_ptr<ConditionRangeCheckerRule>(new ConditionRangeCheckerRule()));
             scenarioChecker->AddControlPointCheckerRule(std::shared_ptr<ControlPointRangeCheckerRule>(new ControlPointRangeCheckerRule()));
             scenarioChecker->AddControllerDistributionEntryCheckerRule(std::shared_ptr<ControllerDistributionEntryRangeCheckerRule>(new ControllerDistributionEntryRangeCheckerRule()));
             scenarioChecker->AddDimensionsCheckerRule(std::shared_ptr<DimensionsRangeCheckerRule>(new DimensionsRangeCheckerRule()));
+            scenarioChecker->AddDirectionOfTravelDistributionCheckerRule(std::shared_ptr<DirectionOfTravelDistributionRangeCheckerRule>(new DirectionOfTravelDistributionRangeCheckerRule()));
             scenarioChecker->AddDistanceConditionCheckerRule(std::shared_ptr<DistanceConditionRangeCheckerRule>(new DistanceConditionRangeCheckerRule()));
+            scenarioChecker->AddDomeImageCheckerRule(std::shared_ptr<DomeImageRangeCheckerRule>(new DomeImageRangeCheckerRule()));
             scenarioChecker->AddDynamicConstraintsCheckerRule(std::shared_ptr<DynamicConstraintsRangeCheckerRule>(new DynamicConstraintsRangeCheckerRule()));
             scenarioChecker->AddEndOfRoadConditionCheckerRule(std::shared_ptr<EndOfRoadConditionRangeCheckerRule>(new EndOfRoadConditionRangeCheckerRule()));
             scenarioChecker->AddEventCheckerRule(std::shared_ptr<EventRangeCheckerRule>(new EventRangeCheckerRule()));
             scenarioChecker->AddFogCheckerRule(std::shared_ptr<FogRangeCheckerRule>(new FogRangeCheckerRule()));
+            scenarioChecker->AddGeoPositionCheckerRule(std::shared_ptr<GeoPositionRangeCheckerRule>(new GeoPositionRangeCheckerRule()));
             scenarioChecker->AddLaneOffsetActionDynamicsCheckerRule(std::shared_ptr<LaneOffsetActionDynamicsRangeCheckerRule>(new LaneOffsetActionDynamicsRangeCheckerRule()));
             scenarioChecker->AddLanePositionCheckerRule(std::shared_ptr<LanePositionRangeCheckerRule>(new LanePositionRangeCheckerRule()));
             scenarioChecker->AddLateralDistanceActionCheckerRule(std::shared_ptr<LateralDistanceActionRangeCheckerRule>(new LateralDistanceActionRangeCheckerRule()));
+            scenarioChecker->AddLightStateCheckerRule(std::shared_ptr<LightStateRangeCheckerRule>(new LightStateRangeCheckerRule()));
+            scenarioChecker->AddLightStateActionCheckerRule(std::shared_ptr<LightStateActionRangeCheckerRule>(new LightStateActionRangeCheckerRule()));
             scenarioChecker->AddLongitudinalDistanceActionCheckerRule(std::shared_ptr<LongitudinalDistanceActionRangeCheckerRule>(new LongitudinalDistanceActionRangeCheckerRule()));
             scenarioChecker->AddManeuverGroupCheckerRule(std::shared_ptr<ManeuverGroupRangeCheckerRule>(new ManeuverGroupRangeCheckerRule()));
             scenarioChecker->AddMiscObjectCheckerRule(std::shared_ptr<MiscObjectRangeCheckerRule>(new MiscObjectRangeCheckerRule()));
@@ -49,14 +59,18 @@ namespace NET_ASAM_OPENSCENARIO
             scenarioChecker->AddOverrideBrakeActionCheckerRule(std::shared_ptr<OverrideBrakeActionRangeCheckerRule>(new OverrideBrakeActionRangeCheckerRule()));
             scenarioChecker->AddOverrideClutchActionCheckerRule(std::shared_ptr<OverrideClutchActionRangeCheckerRule>(new OverrideClutchActionRangeCheckerRule()));
             scenarioChecker->AddOverrideParkingBrakeActionCheckerRule(std::shared_ptr<OverrideParkingBrakeActionRangeCheckerRule>(new OverrideParkingBrakeActionRangeCheckerRule()));
+            scenarioChecker->AddOverrideSteeringWheelActionCheckerRule(std::shared_ptr<OverrideSteeringWheelActionRangeCheckerRule>(new OverrideSteeringWheelActionRangeCheckerRule()));
             scenarioChecker->AddOverrideThrottleActionCheckerRule(std::shared_ptr<OverrideThrottleActionRangeCheckerRule>(new OverrideThrottleActionRangeCheckerRule()));
             scenarioChecker->AddPerformanceCheckerRule(std::shared_ptr<PerformanceRangeCheckerRule>(new PerformanceRangeCheckerRule()));
             scenarioChecker->AddPhaseCheckerRule(std::shared_ptr<PhaseRangeCheckerRule>(new PhaseRangeCheckerRule()));
             scenarioChecker->AddPositionInLaneCoordinatesCheckerRule(std::shared_ptr<PositionInLaneCoordinatesRangeCheckerRule>(new PositionInLaneCoordinatesRangeCheckerRule()));
             scenarioChecker->AddPrecipitationCheckerRule(std::shared_ptr<PrecipitationRangeCheckerRule>(new PrecipitationRangeCheckerRule()));
             scenarioChecker->AddReachPositionConditionCheckerRule(std::shared_ptr<ReachPositionConditionRangeCheckerRule>(new ReachPositionConditionRangeCheckerRule()));
+            scenarioChecker->AddRelativeClearanceConditionCheckerRule(std::shared_ptr<RelativeClearanceConditionRangeCheckerRule>(new RelativeClearanceConditionRangeCheckerRule()));
             scenarioChecker->AddRelativeDistanceConditionCheckerRule(std::shared_ptr<RelativeDistanceConditionRangeCheckerRule>(new RelativeDistanceConditionRangeCheckerRule()));
             scenarioChecker->AddRoadConditionCheckerRule(std::shared_ptr<RoadConditionRangeCheckerRule>(new RoadConditionRangeCheckerRule()));
+            scenarioChecker->AddRoadPositionCheckerRule(std::shared_ptr<RoadPositionRangeCheckerRule>(new RoadPositionRangeCheckerRule()));
+            scenarioChecker->AddSpeedProfileEntryCheckerRule(std::shared_ptr<SpeedProfileEntryRangeCheckerRule>(new SpeedProfileEntryRangeCheckerRule()));
             scenarioChecker->AddStandStillConditionCheckerRule(std::shared_ptr<StandStillConditionRangeCheckerRule>(new StandStillConditionRangeCheckerRule()));
             scenarioChecker->AddSunCheckerRule(std::shared_ptr<SunRangeCheckerRule>(new SunRangeCheckerRule()));
             scenarioChecker->AddTimeHeadwayConditionCheckerRule(std::shared_ptr<TimeHeadwayConditionRangeCheckerRule>(new TimeHeadwayConditionRangeCheckerRule()));
@@ -69,6 +83,9 @@ namespace NET_ASAM_OPENSCENARIO
             scenarioChecker->AddTransitionDynamicsCheckerRule(std::shared_ptr<TransitionDynamicsRangeCheckerRule>(new TransitionDynamicsRangeCheckerRule()));
             scenarioChecker->AddTraveledDistanceConditionCheckerRule(std::shared_ptr<TraveledDistanceConditionRangeCheckerRule>(new TraveledDistanceConditionRangeCheckerRule()));
             scenarioChecker->AddVehicleCategoryDistributionEntryCheckerRule(std::shared_ptr<VehicleCategoryDistributionEntryRangeCheckerRule>(new VehicleCategoryDistributionEntryRangeCheckerRule()));
+            scenarioChecker->AddVehicleRoleDistributionEntryCheckerRule(std::shared_ptr<VehicleRoleDistributionEntryRangeCheckerRule>(new VehicleRoleDistributionEntryRangeCheckerRule()));
+            scenarioChecker->AddWeatherCheckerRule(std::shared_ptr<WeatherRangeCheckerRule>(new WeatherRangeCheckerRule()));
+            scenarioChecker->AddWindCheckerRule(std::shared_ptr<WindRangeCheckerRule>(new WindRangeCheckerRule()));
         }
 
     }
