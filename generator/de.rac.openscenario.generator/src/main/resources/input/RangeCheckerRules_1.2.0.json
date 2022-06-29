@@ -154,7 +154,6 @@
             "type": "double"
         }
     },
-
 	"LightState": {
         "flashingOffDuration": {
             "lowerBoundValue": "0",
@@ -305,7 +304,10 @@
             "type": "double"
         }
 	},
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1a5776a (Issue #144. Added checker rules for version 1.2)
     "OverrideBrakeAction": {
         "value": {
             "lowerBoundValue": "0",
@@ -373,7 +375,10 @@
             "type": "double"
         }
     },
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1a5776a (Issue #144. Added checker rules for version 1.2)
     "OverrideSteeringWheelAction": {
 		"maxRate": {
             "lowerBoundValue": "0",
@@ -402,7 +407,10 @@
             "type": "double"
         }
     },
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1a5776a (Issue #144. Added checker rules for version 1.2)
     "Condition": {
         "delay": {
             "lowerBoundValue": "0",
@@ -444,7 +452,10 @@
             "lowerBoundOperator": ">=",
             "type": "double"
         },
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1a5776a (Issue #144. Added checker rules for version 1.2)
        "maxAccelerationRate": {
             "lowerBoundValue": "0",
             "lowerBoundValueDisplay": "0",
@@ -457,7 +468,10 @@
             "lowerBoundOperator": ">=",
             "type": "double"
         },
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1a5776a (Issue #144. Added checker rules for version 1.2)
         "maxSpeed": {
             "lowerBoundValue": "0",
             "lowerBoundValueDisplay": "0",
@@ -590,7 +604,10 @@
             "lowerBoundValueDisplay": "0",
             "lowerBoundOperator": ">=",
             "type": "double"
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1a5776a (Issue #144. Added checker rules for version 1.2)
         },        
 		"maxAccelerationRate": {
             "lowerBoundValue": "0",
