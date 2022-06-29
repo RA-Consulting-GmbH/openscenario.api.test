@@ -46,6 +46,54 @@ namespace NET_ASAM_OPENSCENARIO
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.2
+         * A range checker rule class for the type IAnimationAction according to OpenSCENARIO standard
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
+        class AnimationActionRangeCheckerRule: public RangeCheckerRule
+        {
+        private:
+            void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<IOpenScenarioModelElement> object) const;
+        public:
+            AnimationActionRangeCheckerRule() = default;
+            OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+        };
+
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.2
+         * A range checker rule class for the type IAnimationFile according to OpenSCENARIO standard
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
+        class AnimationFileRangeCheckerRule: public RangeCheckerRule
+        {
+        private:
+            void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<IOpenScenarioModelElement> object) const;
+        public:
+            AnimationFileRangeCheckerRule() = default;
+            OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+        };
+
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.2
+         * A range checker rule class for the type IAnimationState according to OpenSCENARIO standard
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
+        class AnimationStateRangeCheckerRule: public RangeCheckerRule
+        {
+        private:
+            void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<IOpenScenarioModelElement> object) const;
+        public:
+            AnimationStateRangeCheckerRule() = default;
+            OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+        };
+
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.2
          * A range checker rule class for the type IAxle according to OpenSCENARIO standard
          * 
          * @author RA Consulting OpenSCENARIO generation facility
@@ -72,6 +120,38 @@ namespace NET_ASAM_OPENSCENARIO
             void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<IOpenScenarioModelElement> object) const;
         public:
             ClothoidRangeCheckerRule() = default;
+            OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+        };
+
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.2
+         * A range checker rule class for the type IColorCmyk according to OpenSCENARIO standard
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
+        class ColorCmykRangeCheckerRule: public RangeCheckerRule
+        {
+        private:
+            void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<IOpenScenarioModelElement> object) const;
+        public:
+            ColorCmykRangeCheckerRule() = default;
+            OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+        };
+
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.2
+         * A range checker rule class for the type IColorRgb according to OpenSCENARIO standard
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
+        class ColorRgbRangeCheckerRule: public RangeCheckerRule
+        {
+        private:
+            void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<IOpenScenarioModelElement> object) const;
+        public:
+            ColorRgbRangeCheckerRule() = default;
             OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
             OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
         };
@@ -142,6 +222,22 @@ namespace NET_ASAM_OPENSCENARIO
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.2
+         * A range checker rule class for the type IDirectionOfTravelDistribution according to OpenSCENARIO standard
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
+        class DirectionOfTravelDistributionRangeCheckerRule: public RangeCheckerRule
+        {
+        private:
+            void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<IOpenScenarioModelElement> object) const;
+        public:
+            DirectionOfTravelDistributionRangeCheckerRule() = default;
+            OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+        };
+
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.2
          * A range checker rule class for the type IDistanceCondition according to OpenSCENARIO standard
          * 
          * @author RA Consulting OpenSCENARIO generation facility
@@ -152,6 +248,22 @@ namespace NET_ASAM_OPENSCENARIO
             void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<IOpenScenarioModelElement> object) const;
         public:
             DistanceConditionRangeCheckerRule() = default;
+            OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+        };
+
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.2
+         * A range checker rule class for the type IDomeImage according to OpenSCENARIO standard
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
+        class DomeImageRangeCheckerRule: public RangeCheckerRule
+        {
+        private:
+            void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<IOpenScenarioModelElement> object) const;
+        public:
+            DomeImageRangeCheckerRule() = default;
             OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
             OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
         };
@@ -222,6 +334,22 @@ namespace NET_ASAM_OPENSCENARIO
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.2
+         * A range checker rule class for the type IGeoPosition according to OpenSCENARIO standard
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
+        class GeoPositionRangeCheckerRule: public RangeCheckerRule
+        {
+        private:
+            void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<IOpenScenarioModelElement> object) const;
+        public:
+            GeoPositionRangeCheckerRule() = default;
+            OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+        };
+
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.2
          * A range checker rule class for the type ILaneOffsetActionDynamics according to OpenSCENARIO standard
          * 
          * @author RA Consulting OpenSCENARIO generation facility
@@ -264,6 +392,38 @@ namespace NET_ASAM_OPENSCENARIO
             void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<IOpenScenarioModelElement> object) const;
         public:
             LateralDistanceActionRangeCheckerRule() = default;
+            OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+        };
+
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.2
+         * A range checker rule class for the type ILightState according to OpenSCENARIO standard
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
+        class LightStateRangeCheckerRule: public RangeCheckerRule
+        {
+        private:
+            void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<IOpenScenarioModelElement> object) const;
+        public:
+            LightStateRangeCheckerRule() = default;
+            OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+        };
+
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.2
+         * A range checker rule class for the type ILightStateAction according to OpenSCENARIO standard
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
+        class LightStateActionRangeCheckerRule: public RangeCheckerRule
+        {
+        private:
+            void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<IOpenScenarioModelElement> object) const;
+        public:
+            LightStateActionRangeCheckerRule() = default;
             OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
             OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
         };
@@ -398,6 +558,22 @@ namespace NET_ASAM_OPENSCENARIO
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.2
+         * A range checker rule class for the type IOverrideSteeringWheelAction according to OpenSCENARIO standard
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
+        class OverrideSteeringWheelActionRangeCheckerRule: public RangeCheckerRule
+        {
+        private:
+            void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<IOpenScenarioModelElement> object) const;
+        public:
+            OverrideSteeringWheelActionRangeCheckerRule() = default;
+            OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+        };
+
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.2
          * A range checker rule class for the type IOverrideThrottleAction according to OpenSCENARIO standard
          * 
          * @author RA Consulting OpenSCENARIO generation facility
@@ -494,6 +670,22 @@ namespace NET_ASAM_OPENSCENARIO
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.2
+         * A range checker rule class for the type IRelativeClearanceCondition according to OpenSCENARIO standard
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
+        class RelativeClearanceConditionRangeCheckerRule: public RangeCheckerRule
+        {
+        private:
+            void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<IOpenScenarioModelElement> object) const;
+        public:
+            RelativeClearanceConditionRangeCheckerRule() = default;
+            OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+        };
+
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.2
          * A range checker rule class for the type IRelativeDistanceCondition according to OpenSCENARIO standard
          * 
          * @author RA Consulting OpenSCENARIO generation facility
@@ -520,6 +712,38 @@ namespace NET_ASAM_OPENSCENARIO
             void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<IOpenScenarioModelElement> object) const;
         public:
             RoadConditionRangeCheckerRule() = default;
+            OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+        };
+
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.2
+         * A range checker rule class for the type IRoadPosition according to OpenSCENARIO standard
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
+        class RoadPositionRangeCheckerRule: public RangeCheckerRule
+        {
+        private:
+            void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<IOpenScenarioModelElement> object) const;
+        public:
+            RoadPositionRangeCheckerRule() = default;
+            OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+        };
+
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.2
+         * A range checker rule class for the type ISpeedProfileEntry according to OpenSCENARIO standard
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
+        class SpeedProfileEntryRangeCheckerRule: public RangeCheckerRule
+        {
+        private:
+            void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<IOpenScenarioModelElement> object) const;
+        public:
+            SpeedProfileEntryRangeCheckerRule() = default;
             OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
             OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
         };
@@ -712,6 +936,54 @@ namespace NET_ASAM_OPENSCENARIO
             void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<IOpenScenarioModelElement> object) const;
         public:
             VehicleCategoryDistributionEntryRangeCheckerRule() = default;
+            OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+        };
+
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.2
+         * A range checker rule class for the type IVehicleRoleDistributionEntry according to OpenSCENARIO standard
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
+        class VehicleRoleDistributionEntryRangeCheckerRule: public RangeCheckerRule
+        {
+        private:
+            void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<IOpenScenarioModelElement> object) const;
+        public:
+            VehicleRoleDistributionEntryRangeCheckerRule() = default;
+            OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+        };
+
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.2
+         * A range checker rule class for the type IWeather according to OpenSCENARIO standard
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
+        class WeatherRangeCheckerRule: public RangeCheckerRule
+        {
+        private:
+            void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<IOpenScenarioModelElement> object) const;
+        public:
+            WeatherRangeCheckerRule() = default;
+            OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+            OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
+        };
+
+        /**
+         * This is a automatic generated file according to the OpenSCENARIO specification version 1.2
+         * A range checker rule class for the type IWind according to OpenSCENARIO standard
+         * 
+         * @author RA Consulting OpenSCENARIO generation facility
+        */
+        class WindRangeCheckerRule: public RangeCheckerRule
+        {
+        private:
+            void Apply(std::shared_ptr<IParserMessageLogger> fileMessageLogger, std::shared_ptr<ITreeMessageLogger> treeMessageLogger, std::shared_ptr<IOpenScenarioModelElement> object) const;
+        public:
+            WindRangeCheckerRule() = default;
             OPENSCENARIOLIB_EXP void ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
             OPENSCENARIOLIB_EXP void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
         };
