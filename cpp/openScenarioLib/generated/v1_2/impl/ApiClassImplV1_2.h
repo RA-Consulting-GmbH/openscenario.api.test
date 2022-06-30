@@ -1173,7 +1173,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
         private:
             double _animationDuration {};
-            bool _loop {};
+            bool _loop {false};
             std::shared_ptr<IAnimationTypeWriter> _animationType {};
             std::shared_ptr<IAnimationStateWriter> _animationState {};
 
@@ -4638,7 +4638,7 @@ namespace NET_ASAM_OPENSCENARIO
         class ControllerImpl: public BaseImpl, public IControllerWriter, public std::enable_shared_from_this<ControllerImpl> 
         {
         private:
-            ControllerType _controllerType {};
+            ControllerType _controllerType {ControllerType::ControllerTypeEnum::MOVEMENT};
             std::string _name {};
             std::vector<std::shared_ptr<IParameterDeclarationWriter>> _parameterDeclarations {};
             std::shared_ptr<IPropertiesWriter> _properties {};
@@ -6248,7 +6248,7 @@ namespace NET_ASAM_OPENSCENARIO
             CoordinateSystem _coordinateSystem {CoordinateSystem::CoordinateSystemEnum::ENTITY};
             bool _freespace {};
             RelativeDistanceType _relativeDistanceType {RelativeDistanceType::RelativeDistanceTypeEnum::EUCLIDIAN_DISTANCE};
-            RoutingAlgorithm _routingAlgorithm {};
+            RoutingAlgorithm _routingAlgorithm {RoutingAlgorithm::RoutingAlgorithmEnum::UNDEFINED};
             Rule _rule {};
             double _value {};
             std::shared_ptr<IPositionWriter> _position {};
@@ -6773,7 +6773,7 @@ namespace NET_ASAM_OPENSCENARIO
         class DomeImageImpl: public BaseImpl, public IDomeImageWriter, public std::enable_shared_from_this<DomeImageImpl> 
         {
         private:
-            double _azimuthOffset {};
+            double _azimuthOffset {0};
             std::shared_ptr<IFileWriter> _domeFile {};
 
         public:
@@ -8979,12 +8979,12 @@ namespace NET_ASAM_OPENSCENARIO
         class GeoPositionImpl: public BaseImpl, public IGeoPositionWriter, public std::enable_shared_from_this<GeoPositionImpl> 
         {
         private:
-            double _altitude {};
+            double _altitude {0};
             double _height {0};
-            double _latitude {};
+            double _latitude {0};
             double _latitudeDeg {};
-            double _longitude {};
-            double _longitudeDeg {};
+            double _longitude {0};
+            double _longitudeDeg {0};
             std::shared_ptr<IOrientationWriter> _orientation {};
 
         public:
@@ -10945,8 +10945,8 @@ namespace NET_ASAM_OPENSCENARIO
         class LightStateImpl: public BaseImpl, public ILightStateWriter, public std::enable_shared_from_this<LightStateImpl> 
         {
         private:
-            double _flashingOffDuration {};
-            double _flashingOnDuration {};
+            double _flashingOffDuration {0.5};
+            double _flashingOnDuration {0.5};
             double _luminousIntensity {};
             LightMode _mode {};
             std::shared_ptr<IColorWriter> _color {};
@@ -11082,7 +11082,7 @@ namespace NET_ASAM_OPENSCENARIO
         class LightStateActionImpl: public BaseImpl, public ILightStateActionWriter, public std::enable_shared_from_this<LightStateActionImpl> 
         {
         private:
-            double _transitionTime {};
+            double _transitionTime {0};
             std::shared_ptr<ILightTypeWriter> _lightType {};
             std::shared_ptr<ILightStateWriter> _lightState {};
 
@@ -14945,7 +14945,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::string _model3d {};
             std::string _name {};
             PedestrianCategory _pedestrianCategory {};
-            Role _role {};
+            Role _role {Role::RoleEnum::NONE};
             std::vector<std::shared_ptr<IParameterDeclarationWriter>> _parameterDeclarations {};
             std::shared_ptr<IBoundingBoxWriter> _boundingBox {};
             std::shared_ptr<IPropertiesWriter> _properties {};
@@ -17265,8 +17265,8 @@ namespace NET_ASAM_OPENSCENARIO
         class RelativeClearanceConditionImpl: public BaseImpl, public IRelativeClearanceConditionWriter, public std::enable_shared_from_this<RelativeClearanceConditionImpl> 
         {
         private:
-            double _distanceBackward {};
-            double _distanceForward {};
+            double _distanceBackward {0};
+            double _distanceForward {0};
             bool _freeSpace {};
             bool _oppositeLanes {};
             std::vector<std::shared_ptr<IRelativeLaneRangeWriter>> _relativeLaneRange {};
@@ -17418,7 +17418,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::shared_ptr<INamedReference<IEntity>> _entityRef  = nullptr;
             bool _freespace {};
             RelativeDistanceType _relativeDistanceType {};
-            RoutingAlgorithm _routingAlgorithm {};
+            RoutingAlgorithm _routingAlgorithm {RoutingAlgorithm::RoutingAlgorithmEnum::UNDEFINED};
             Rule _rule {};
             double _value {};
 
@@ -21647,7 +21647,7 @@ namespace NET_ASAM_OPENSCENARIO
         private:
             double _azimuth {};
             double _elevation {};
-            double _illuminance {};
+            double _illuminance {0};
             double _intensity {};
 
         public:
@@ -23439,7 +23439,7 @@ namespace NET_ASAM_OPENSCENARIO
         class TrafficSignalControllerImpl: public BaseImpl, public ITrafficSignalControllerWriter, public std::enable_shared_from_this<TrafficSignalControllerImpl> 
         {
         private:
-            double _delay {0};
+            double _delay {};
             std::string _name {};
             std::string _reference {};
             std::vector<std::shared_ptr<IPhaseWriter>> _phases {};
@@ -24196,7 +24196,7 @@ namespace NET_ASAM_OPENSCENARIO
             double _radius {};
             double _rate {};
             double _speed {};
-            double _velocity {0};
+            double _velocity {};
             std::shared_ptr<IPositionWriter> _position {};
             std::shared_ptr<ITrafficDefinitionWriter> _trafficDefinition {};
 
@@ -24413,7 +24413,7 @@ namespace NET_ASAM_OPENSCENARIO
             double _offset {};
             double _semiMajorAxis {};
             double _semiMinorAxis {};
-            double _velocity {0};
+            double _velocity {};
             std::shared_ptr<ICentralSwarmObjectWriter> _centralObject {};
             std::shared_ptr<ITrafficDefinitionWriter> _trafficDefinition {};
             std::shared_ptr<IRangeWriter> _initialSpeedRange {};
@@ -25077,7 +25077,7 @@ namespace NET_ASAM_OPENSCENARIO
         private:
             DynamicsDimension _dynamicsDimension {};
             DynamicsShape _dynamicsShape {};
-            FollowingMode _followingMode {};
+            FollowingMode _followingMode {FollowingMode::FollowingModeEnum::POSITION};
             double _value {};
 
         public:
@@ -27263,7 +27263,7 @@ namespace NET_ASAM_OPENSCENARIO
             double _mass {};
             std::string _model3d {};
             std::string _name {};
-            Role _role {};
+            Role _role {Role::RoleEnum::NONE};
             VehicleCategory _vehicleCategory {};
             std::vector<std::shared_ptr<IParameterDeclarationWriter>> _parameterDeclarations {};
             std::shared_ptr<IBoundingBoxWriter> _boundingBox {};
