@@ -3514,7 +3514,7 @@ namespace NET_ASAM_OPENSCENARIO
        void AnimationActionImpl::ResetLoop()
 	   {
 	   		isSetLoop = false; 
-			_loop = {};
+			_loop = {false};
 			
 	   }
        bool AnimationActionImpl::IsSetLoop() const
@@ -13883,7 +13883,7 @@ namespace NET_ASAM_OPENSCENARIO
        void ControllerImpl::ResetControllerType()
 	   {
 	   		isSetControllerType = false; 
-			_controllerType = {};
+			_controllerType = {ControllerType::ControllerTypeEnum::MOVEMENT};
 			
 	   }
        bool ControllerImpl::IsSetControllerType() const
@@ -18305,7 +18305,7 @@ namespace NET_ASAM_OPENSCENARIO
        void DistanceConditionImpl::ResetRoutingAlgorithm()
 	   {
 	   		isSetRoutingAlgorithm = false; 
-			_routingAlgorithm = {};
+			_routingAlgorithm = {RoutingAlgorithm::RoutingAlgorithmEnum::UNDEFINED};
 			
 	   }
        bool DistanceConditionImpl::IsSetRoutingAlgorithm() const
@@ -19469,7 +19469,7 @@ namespace NET_ASAM_OPENSCENARIO
        void DomeImageImpl::ResetAzimuthOffset()
 	   {
 	   		isSetAzimuthOffset = false; 
-			_azimuthOffset = {};
+			_azimuthOffset = {0};
 			
 	   }
        bool DomeImageImpl::IsSetAzimuthOffset() const
@@ -26560,7 +26560,7 @@ namespace NET_ASAM_OPENSCENARIO
        void GeoPositionImpl::ResetAltitude()
 	   {
 	   		isSetAltitude = false; 
-			_altitude = {};
+			_altitude = {0};
 			
 	   }
        bool GeoPositionImpl::IsSetAltitude() const
@@ -26580,7 +26580,7 @@ namespace NET_ASAM_OPENSCENARIO
        void GeoPositionImpl::ResetLatitude()
 	   {
 	   		isSetLatitude = false; 
-			_latitude = {};
+			_latitude = {0};
 			
 	   }
        bool GeoPositionImpl::IsSetLatitude() const
@@ -26600,7 +26600,7 @@ namespace NET_ASAM_OPENSCENARIO
        void GeoPositionImpl::ResetLongitude()
 	   {
 	   		isSetLongitude = false; 
-			_longitude = {};
+			_longitude = {0};
 			
 	   }
        bool GeoPositionImpl::IsSetLongitude() const
@@ -26610,7 +26610,7 @@ namespace NET_ASAM_OPENSCENARIO
        void GeoPositionImpl::ResetLongitudeDeg()
 	   {
 	   		isSetLongitudeDeg = false; 
-			_longitudeDeg = {};
+			_longitudeDeg = {0};
 			
 	   }
        bool GeoPositionImpl::IsSetLongitudeDeg() const
@@ -32315,7 +32315,7 @@ namespace NET_ASAM_OPENSCENARIO
        void LightStateImpl::ResetFlashingOffDuration()
 	   {
 	   		isSetFlashingOffDuration = false; 
-			_flashingOffDuration = {};
+			_flashingOffDuration = {0.5};
 			
 	   }
        bool LightStateImpl::IsSetFlashingOffDuration() const
@@ -32325,7 +32325,7 @@ namespace NET_ASAM_OPENSCENARIO
        void LightStateImpl::ResetFlashingOnDuration()
 	   {
 	   		isSetFlashingOnDuration = false; 
-			_flashingOnDuration = {};
+			_flashingOnDuration = {0.5};
 			
 	   }
        bool LightStateImpl::IsSetFlashingOnDuration() const
@@ -32638,7 +32638,7 @@ namespace NET_ASAM_OPENSCENARIO
        void LightStateActionImpl::ResetTransitionTime()
 	   {
 	   		isSetTransitionTime = false; 
-			_transitionTime = {};
+			_transitionTime = {0};
 			
 	   }
        bool LightStateActionImpl::IsSetTransitionTime() const
@@ -44131,7 +44131,7 @@ namespace NET_ASAM_OPENSCENARIO
        void PedestrianImpl::ResetRole()
 	   {
 	   		isSetRole = false; 
-			_role = {};
+			_role = {Role::RoleEnum::NONE};
 			
 	   }
        bool PedestrianImpl::IsSetRole() const
@@ -51160,7 +51160,7 @@ namespace NET_ASAM_OPENSCENARIO
        void RelativeClearanceConditionImpl::ResetDistanceBackward()
 	   {
 	   		isSetDistanceBackward = false; 
-			_distanceBackward = {};
+			_distanceBackward = {0};
 			
 	   }
        bool RelativeClearanceConditionImpl::IsSetDistanceBackward() const
@@ -51170,7 +51170,7 @@ namespace NET_ASAM_OPENSCENARIO
        void RelativeClearanceConditionImpl::ResetDistanceForward()
 	   {
 	   		isSetDistanceForward = false; 
-			_distanceForward = {};
+			_distanceForward = {0};
 			
 	   }
        bool RelativeClearanceConditionImpl::IsSetDistanceForward() const
@@ -51798,7 +51798,7 @@ namespace NET_ASAM_OPENSCENARIO
        void RelativeDistanceConditionImpl::ResetRoutingAlgorithm()
 	   {
 	   		isSetRoutingAlgorithm = false; 
-			_routingAlgorithm = {};
+			_routingAlgorithm = {RoutingAlgorithm::RoutingAlgorithmEnum::UNDEFINED};
 			
 	   }
        bool RelativeDistanceConditionImpl::IsSetRoutingAlgorithm() const
@@ -64451,7 +64451,7 @@ namespace NET_ASAM_OPENSCENARIO
        void SunImpl::ResetIlluminance()
 	   {
 	   		isSetIlluminance = false; 
-			_illuminance = {};
+			_illuminance = {0};
 			
 	   }
        bool SunImpl::IsSetIlluminance() const
@@ -69913,7 +69913,7 @@ namespace NET_ASAM_OPENSCENARIO
        void TrafficSignalControllerImpl::ResetDelay()
 	   {
 	   		isSetDelay = false; 
-			_delay = {0};
+			_delay = {};
 			
 	   }
        bool TrafficSignalControllerImpl::IsSetDelay() const
@@ -72124,7 +72124,7 @@ namespace NET_ASAM_OPENSCENARIO
        void TrafficSourceActionImpl::ResetVelocity()
 	   {
 	   		isSetVelocity = false; 
-			_velocity = {0};
+			_velocity = {};
 			
 	   }
        bool TrafficSourceActionImpl::IsSetVelocity() const
@@ -72901,7 +72901,7 @@ namespace NET_ASAM_OPENSCENARIO
        void TrafficSwarmActionImpl::ResetVelocity()
 	   {
 	   		isSetVelocity = false; 
-			_velocity = {0};
+			_velocity = {};
 			
 	   }
        bool TrafficSwarmActionImpl::IsSetVelocity() const
@@ -74718,7 +74718,7 @@ namespace NET_ASAM_OPENSCENARIO
        void TransitionDynamicsImpl::ResetFollowingMode()
 	   {
 	   		isSetFollowingMode = false; 
-			_followingMode = {};
+			_followingMode = {FollowingMode::FollowingModeEnum::POSITION};
 			
 	   }
        bool TransitionDynamicsImpl::IsSetFollowingMode() const
@@ -80750,7 +80750,7 @@ namespace NET_ASAM_OPENSCENARIO
        void VehicleImpl::ResetRole()
 	   {
 	   		isSetRole = false; 
-			_role = {};
+			_role = {Role::RoleEnum::NONE};
 			
 	   }
        bool VehicleImpl::IsSetRole() const
