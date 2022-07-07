@@ -154,6 +154,7 @@
             "type": "double"
         }
     },
+
 	"LightState": {
         "flashingOffDuration": {
             "lowerBoundValue": "0",
@@ -304,6 +305,7 @@
             "type": "double"
         }
 	},
+
     "OverrideBrakeAction": {
         "value": {
             "lowerBoundValue": "0",
@@ -371,6 +373,7 @@
             "type": "double"
         }
     },
+
     "OverrideSteeringWheelAction": {
 		"maxRate": {
             "lowerBoundValue": "0",
@@ -399,6 +402,7 @@
             "type": "double"
         }
     },
+
     "Condition": {
         "delay": {
             "lowerBoundValue": "0",
@@ -440,6 +444,7 @@
             "lowerBoundOperator": ">=",
             "type": "double"
         },
+
        "maxAccelerationRate": {
             "lowerBoundValue": "0",
             "lowerBoundValueDisplay": "0",
@@ -452,6 +457,7 @@
             "lowerBoundOperator": ">=",
             "type": "double"
         },
+
         "maxSpeed": {
             "lowerBoundValue": "0",
             "lowerBoundValueDisplay": "0",
@@ -584,6 +590,7 @@
             "lowerBoundValueDisplay": "0",
             "lowerBoundOperator": ">=",
             "type": "double"
+
         },        
 		"maxAccelerationRate": {
             "lowerBoundValue": "0",
