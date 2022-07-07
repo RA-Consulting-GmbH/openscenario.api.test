@@ -18,8 +18,6 @@ package de.rac.generator.basic
 
 import java.security.MessageDigest
 
-import org.apache.log4j.Logger;
-
 import groovy.text.Template;
 
 
@@ -30,8 +28,7 @@ import groovy.text.Template;
 
 class CommonTemplateProcessor {
 
-    static Logger logger = org.apache.log4j.Logger.getLogger(CommonTemplateProcessor.class);
-
+    
 
 
 
