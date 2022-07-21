@@ -24,7 +24,9 @@
 #include "XmlParsersV1_2.h"
 #include "CatalogReferenceParserContextV1_2.h"
 #include "ScenarioLoaderException.h"
+#include "VariableCheckerV1_2.h"
 #include "XmlToSimpleNodeConverter.h"
+
 
 namespace NET_ASAM_OPENSCENARIO
 {
@@ -133,6 +135,7 @@ namespace NET_ASAM_OPENSCENARIO
                 auto parserContext = std::dynamic_pointer_cast<ParserContext>(std::make_shared<CatalogReferenceParserContext>());
                 openScenarioXmlParser.ParseElement(indexedElement, parserContext, openScenarioImpl);
 
+            	
                 // resolve parameter only when no errors occured
                 if (messageLogger->GetMessagesFilteredByWorseOrEqualToErrorLevel(ErrorLevel::ERROR).empty())
                 {
@@ -144,6 +147,12 @@ namespace NET_ASAM_OPENSCENARIO
                     openScenarioImpl->AddAdapter(typeid(IScenarioChecker).name(), scenarioCheckerImpl);
                 }
 
+				// Check variables
+				if (messageLogger->GetMessagesFilteredByWorseOrEqualToErrorLevel(ErrorLevel::ERROR).empty())
+				{
+					VariableChecker variableChecker;
+					variableChecker.CheckScenarioInFileContext(messageLogger, openScenarioImpl);
+				}
                 return openScenarioImpl;
             }
             

@@ -153,6 +153,7 @@ set( HEADERS
   "src/TestInjectedParametersV1_2.h"
   "src/TestAlksV1_2.h"
   "src/TestParameterValidationV1_2.h"  
+  "src/TestVariableValidationV1_2.h"  
 )
 
 set( HEADERS_HELPER
@@ -207,6 +208,7 @@ set( SOURCES
     "src/TestDeprecatedV1_2.cpp"
     "src/TestAlksV1_2.cpp"
 	"src/TestParameterValidationV1_2.cpp"
+	"src/TestVariableValidationV1_2.cpp"
 )
 
 set( SOURCES_HELPER
