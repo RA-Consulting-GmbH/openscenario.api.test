@@ -79193,6 +79193,10 @@ namespace NET_ASAM_OPENSCENARIO
 		
 		}
 
+		bool VariableDeclarationImpl::IsTypedStringAttribute(std::string& attributeKey)
+		{
+			return (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE);
+		}
 
 
         IOpenScenarioFlexElement* VariableModifyActionImpl::GetOpenScenarioFlexElement()

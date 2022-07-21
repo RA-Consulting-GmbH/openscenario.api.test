@@ -33,6 +33,7 @@
 #include "OpenScenarioProcessingHelperV1_2.h"
 #include "MemLeakDetection.h"
 
+
 #undef ERROR
 namespace NET_ASAM_OPENSCENARIO
 {
@@ -99,6 +100,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             }
 
+			
             return openScenario;
         }
 

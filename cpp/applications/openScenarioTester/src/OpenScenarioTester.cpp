@@ -31,6 +31,8 @@
 #include "TestWriterApiV1_1.h"
 
 #include <TestParameterValidationV1_2.h>
+#include <TestVariableValidationV1_2.h>
+
 
 #include "TestAlksV1_2.h"
 #include "TestDeprecatedV1_2.h"
@@ -171,6 +173,7 @@ bool TestV1_2(std::string basePath)
 	NET_ASAM_OPENSCENARIO::v1_2::TestDeprecated testDeprecated(basePath);
 	NET_ASAM_OPENSCENARIO::v1_2::TestAlks testAlks(basePath);
 	NET_ASAM_OPENSCENARIO::v1_2::TestParameterValidation testParametervalidation(basePath);
+	NET_ASAM_OPENSCENARIO::v1_2::TestVariableValidation testVariableValidation(basePath);
 
 	auto result = true;
 
@@ -249,6 +252,12 @@ bool TestV1_2(std::string basePath)
 
 	result = testParametervalidation.TestValidation() && result;
 	result = testParametervalidation.TestValidationErrors() && result;
+	
+	result = testVariableValidation.TestValidation() && result;
+	result = testVariableValidation.TestValidationWrongDataTypes() && result;
+	result = testVariableValidation.TestVariableNotDefined() && result;
+	result = testVariableValidation.TestValidationWrongSetAction() && result;
+
 
 	return result;
 }
@@ -338,8 +347,10 @@ int main(int argc, char** argv)
 	
 
 	auto result = TestV1_2(basePath);
-	result = TestV1_1(basePath) && result;
+    result = TestV1_1(basePath) && result;
 	result = TestV1_0(basePath) && result;
+
+
 	
 	 if (result)
         return 0;
