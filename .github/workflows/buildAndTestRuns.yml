@@ -137,12 +137,12 @@ jobs:
     - uses: actions/checkout@v2
     
     - name: cmake generate solution Debug
-      run: cmake -S ./cpp --preset="VS2019-Win32-shared"
+      run: cmake -S ./cpp --preset="VS2022-Win32-shared"
       
     - name: build solution Debug
       run: |
         cd cpp
-        cmake --build --preset="Build-VS2019-Win32-shared" --config Debug
+        cmake --build --preset="Build-VS2022-Win32-shared" --config Debug
     
     - name: test Debug
       shell: bash
@@ -158,12 +158,12 @@ jobs:
     - uses: actions/checkout@v2
     
     - name: cmake generate solution Release
-      run: cmake -S ./cpp --preset="VS2019-Win32-shared"
+      run: cmake -S ./cpp --preset="VS2022-Win32-shared"
       
     - name: build solution Release
       run: |
         cd cpp
-        cmake --build --preset="Build-VS2019-Win32-shared" --config Release
+        cmake --build --preset="Build-VS2022-Win32-shared" --config Release
 
     - name: test Release
       shell: bash
@@ -179,12 +179,12 @@ jobs:
     - uses: actions/checkout@v2
     
     - name: cmake generate solution Debug
-      run: cmake -S ./cpp --preset="VS2019-x64-shared"
+      run: cmake -S ./cpp --preset="VS2022-x64-shared"
       
     - name: build solution Debug
       run: |
         cd cpp
-        cmake --build --preset="Build-VS2019-x64-shared" --config Debug
+        cmake --build --preset="Build-VS2022-x64-shared" --config Debug
     
     - name: test Debug
       shell: bash
@@ -200,12 +200,12 @@ jobs:
     - uses: actions/checkout@v2
     
     - name: cmake generate solution Release
-      run: cmake -S ./cpp --preset="VS2019-x64-shared"
+      run: cmake -S ./cpp --preset="VS2022-x64-shared"
       
     - name: build solution Release
       run: |
         cd cpp
-        cmake --build --preset="Build-VS2019-x64-shared" --config Release
+        cmake --build --preset="Build-VS2022-x64-shared" --config Release
 
     - name: test Release
       shell: bash
@@ -221,12 +221,12 @@ jobs:
     - uses: actions/checkout@v2
     
     - name: cmake generate solution Debug
-      run: cmake -S ./cpp --preset="VS2019-Win32-static"
+      run: cmake -S ./cpp --preset="VS2022-Win32-static"
       
     - name: build solution Debug
       run: |
         cd cpp
-        cmake --build --preset="Build-VS2019-Win32-static" --config Debug
+        cmake --build --preset="Build-VS2022-Win32-static" --config Debug
     
     - name: test Debug
       shell: bash
@@ -242,12 +242,12 @@ jobs:
     - uses: actions/checkout@v2
     
     - name: cmake generate solution Release
-      run: cmake -S ./cpp --preset="VS2019-Win32-static"
+      run: cmake -S ./cpp --preset="VS2022-Win32-static"
       
     - name: build solution Release
       run: |
         cd cpp
-        cmake --build --preset="Build-VS2019-Win32-static" --config Release
+        cmake --build --preset="Build-VS2022-Win32-static" --config Release
 
     - name: test Release
       shell: bash
@@ -263,12 +263,12 @@ jobs:
     - uses: actions/checkout@v2
     
     - name: cmake generate solution Debug
-      run: cmake -S ./cpp --preset="VS2019-x64-static"
+      run: cmake -S ./cpp --preset="VS2022-x64-static"
       
     - name: build solution Debug
       run: |
         cd cpp
-        cmake --build --preset="Build-VS2019-x64-static" --config Debug
+        cmake --build --preset="Build-VS2022-x64-static" --config Debug
     
     - name: test Debug
       shell: bash
@@ -284,12 +284,12 @@ jobs:
     - uses: actions/checkout@v2
     
     - name: cmake generate solution Release
-      run: cmake -S ./cpp --preset="VS2019-x64-static"
+      run: cmake -S ./cpp --preset="VS2022-x64-static"
       
     - name: build solution Release
       run: |
         cd cpp
-        cmake --build --preset="Build-VS2019-x64-static" --config Release
+        cmake --build --preset="Build-VS2022-x64-static" --config Release
 
     - name: test Release
       shell: bash
