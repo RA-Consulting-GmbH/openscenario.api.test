@@ -9,6 +9,8 @@ on:
         - master
         - dev
         
+    workflow_dispatch:
+        
 jobs:
   LinuxSharedDebugBuild:
     runs-on: ubuntu-latest
