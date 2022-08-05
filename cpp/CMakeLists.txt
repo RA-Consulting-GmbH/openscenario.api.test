@@ -28,6 +28,11 @@ if(MSVC)
     write_file("${CMAKE_CURRENT_SOURCE_DIR}/buildArtifact/msbuildcmd.txt" "cmd,${CMAKE_VS_MSBUILD_COMMAND}")
 endif(MSVC)
 
+################################################################
+# Allow for higher section count in object files in MinGW
+if(MINGW)
+  add_compile_options(-Wa,-mbig-obj -O2)
+endif()
 
 ################################################################
 # Add a module path for cmake modules
