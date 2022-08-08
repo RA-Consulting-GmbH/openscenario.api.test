@@ -33,7 +33,7 @@ namespace OscExpression
 		size_t column;
 	public:
 		// delete Default Constructor
-		OSC_EXPR_EXP SemanticException() = delete;
+		SemanticException() = delete;
 
 
 		/**
