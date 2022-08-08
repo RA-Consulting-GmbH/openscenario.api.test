@@ -27,11 +27,13 @@
 
 namespace NET_ASAM_OPENSCENARIO
 {
-    FileResourceLocator::~FileResourceLocator() = default;
+    FileResourceLocator::~FileResourceLocator() {}
 
     std::shared_ptr<std::ifstream> FileResourceLocator::GetInputStream(std::string& symbolicFilename)
     {
-#ifdef WIN32
+#if defined (__linux__) || defined (__APPLE__) || defined (__MINGW32__) || defined (__MINGW64__)
+        auto infile = std::make_shared<std::ifstream>(symbolicFilename, std::ios::binary);
+#elif defined (WIN32)
         std::wstring result;
 
         if (!Utf8ToWstring(symbolicFilename, result))
@@ -41,8 +43,6 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
         auto infile = std::make_shared<std::ifstream>(result, std::ios::binary);
-#elif defined (__linux__) || defined (__APPLE__)
-    auto infile = std::make_shared<std::ifstream>(symbolicFilename, std::ios::binary);
 #else
 #   error "Operating system not supported."
 #endif
