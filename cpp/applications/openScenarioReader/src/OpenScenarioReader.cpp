@@ -171,7 +171,7 @@ int CheckFile(std::string& inputFileName, std::string& paramFileName, std::strin
                 return ERROR_RESULT;
             }
 
-            std::ifstream paramFile(wparamFileName);
+            std::ifstream paramFile(wparamFileName.c_str());
 #elif defined (__linux__) || defined (__APPLE__)
             std::ifstream paramFile(paramFileName);
 #else
@@ -247,7 +247,7 @@ int CheckFile(std::string& inputFileName, std::string& paramFileName, std::strin
         auto msg = "Conversion from utf8 string to wstring failed: " + inputFileName;
         return ERROR_RESULT;
     }
-    std::ifstream inputFile(winputFileName);
+    std::ifstream inputFile(winputFileName.c_str());
 
 #elif defined (__linux__) || defined (__APPLE__)
     std::ifstream inputFile(inputFileName);
@@ -339,7 +339,7 @@ int CheckFile(std::string& inputFileName, std::string& paramFileName, std::strin
     return result;
 }
 
-#ifdef WIN32
+#if defined (WIN32) && !defined (__MINGW32__) && !defined (__MINGW64__)
 int wmain(int argc, wchar_t** argv)
 {
     SetConsoleOutputCP(CP_UTF8);
@@ -458,7 +458,7 @@ int wmain(int argc, wchar_t** argv)
 
     return result;
 }
-#elif defined (__linux__) || defined (__APPLE__)
+#elif defined (__linux__) || defined (__APPLE__) || defined (__MINGW32__) || defined (__MINGW64__)
 int main(int argc, char** argv)
 {
     std::stringstream versionStream;
