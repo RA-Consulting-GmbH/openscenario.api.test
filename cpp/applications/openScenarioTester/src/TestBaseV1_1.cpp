@@ -117,16 +117,15 @@ namespace NET_ASAM_OPENSCENARIO
 
 		std::string TestBase::GetLine(const std::string fileName, const int lineNum) const
 		{
-#ifdef WIN32
+#if defined (__linux__) || defined (__APPLE__) || defined (__MINGW32__) || defined (__MINGW64__)
+            std::ifstream file( _executablePath + "/" + kInputDir + fileName);
+#elif defined (WIN32)
             std::wstring path;
             if (!FileResourceLocator::Utf8ToWstring(_executablePath + "/" + kInputDir + fileName, path))
             {
                 return "";
             }
             std::ifstream file(path);
-
-#elif defined (__linux__) || defined (__APPLE__)
-            std::ifstream file( _executablePath + "/" + kInputDir + fileName);
 #else
 #   error "Operating system not supported."
 #endif

@@ -26,7 +26,7 @@ namespace NET_ASAM_OPENSCENARIO
 	/**
 	* Implements the resource locator in a file system
 	*/
-	class FileResourceLocator: public IResourceLocator 
+	class OPENSCENARIOLIB_EXP FileResourceLocator: public IResourceLocator 
 	{
 		public:
 			OPENSCENARIOLIB_EXP virtual ~FileResourceLocator();

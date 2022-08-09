@@ -16,15 +16,13 @@
  */
 
 #include "TestReaderV1_0.h"
-
 #include "FileResourceLocator.h"
 
-
-#ifdef WIN32
-#   define DOT_SLASH ""
-#elif defined (__linux__) || defined (__APPLE__)
+#if defined (__linux__) || defined (__APPLE__)
 #   include <sys/wait.h>
 #   define DOT_SLASH "./"
+#elif defined (WIN32)
+#   define DOT_SLASH ""
 #else
 #   error "Operating system not supported."
 #endif
@@ -35,13 +33,13 @@ namespace NET_ASAM_OPENSCENARIO
 		
 		int TestReader::ExecuteSystemCommand( std::string& command )
 		{
-	#ifdef WIN32
+	#if defined (__linux__) || defined (__APPLE__)
+			auto ret = system( command.c_str() );
+			return WEXITSTATUS( ret );
+	#elif defined (WIN32)
 			std::wstring wstringCommand;
 			if (!FileResourceLocator::Utf8ToWstring(command, wstringCommand)) { return -1; }
 			return _wsystem(wstringCommand.c_str());
-	#elif defined (__linux__) || defined (__APPLE__)
-			auto ret = system( command.c_str() );
-			return WEXITSTATUS( ret );
 	#else
 	#   error "Operating system not supported."
 	#endif

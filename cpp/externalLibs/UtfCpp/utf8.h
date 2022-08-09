@@ -1,8 +1,6 @@
 // Copyright 2006 Nemanja Trifunovic
 
 /*
-https://github.com/nemtrif/utfcpp
-
 Permission is hereby granted, free of charge, to any person or organization
 obtaining a copy of the software and accompanying documentation covered by
 this license (the "Software") to use, reproduce, display, distribute,
@@ -30,7 +28,7 @@ DEALINGS IN THE SOFTWARE.
 #ifndef UTF8_FOR_CPP_2675DCD0_9480_4c0c_B92A_CC14C027B731
 #define UTF8_FOR_CPP_2675DCD0_9480_4c0c_B92A_CC14C027B731
 
-#include "checked.h"
-#include "unchecked.h"
+#include "utf8/checked.h"
+#include "utf8/unchecked.h"
 
 #endif // header guard
